@@ -172,7 +172,7 @@ var toDo_2 =
                   🔴 InfoPrecipitation()
                   🔴 DayDetailWeatherDataPrecifitation()
                   🔴 Precipitation24h()
-                  🔴 Precipitation24hFind()
+                  🔴 Precipitation24hFind() 
                   🔴 PrecipitationFindRestOfDay()
                   🔴 WeatherForecast()
                   🔴 WeatherForecastDetail()
