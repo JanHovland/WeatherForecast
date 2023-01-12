@@ -54,8 +54,13 @@ struct DayDetailWeatherDataVisibility: View {
                     }
                     VStack {
                         let t = DescribeVisibity(visibility: dataArray.min()!)
-                        let t1 = DescribeVisibity(visibility: dataArray.max()!).firstLowercased
-                        Text(t + String(localized: " to ")  + t1)
+                        let t1 = DescribeVisibity(visibility: dataArray.max()!)
+                        if t == t1 {
+                            Text(t)
+                                .offset(x: UIDevice.isIpad ? -45 : -40)
+                        } else {
+                            Text(t + String(localized: " to ")  + t1.firstLowercased)
+                        }
                     }
                     
                 }

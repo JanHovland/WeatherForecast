@@ -307,10 +307,12 @@ struct DayDetailChart: View {
                                 }
                             }
                         }
-                        /// Markerer verdien på kurven ved DragGesture:
+                        /// Markerer verdien for dagen i dag:
                         ///
-                        PointMark(x: .value("index", indexPointMark),
-                                  y: .value("value", dayArray[indexPointMark]))
+                        if index == 0 {
+                            PointMark(x: .value("index", indexPointMark),
+                                      y: .value("value", dayArray[indexPointMark]))
+                        }
                         /// Markerer den tidligere delen av dagen:
                         ///
                         RectangleMark (xStart: .value("Range Start", 0),
