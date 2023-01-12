@@ -113,8 +113,6 @@ struct DayDetail: View {
     @State private var visabilityArray:[String] = Array(repeating: String(), count: 12)
     @State private var airpressureArray:[String] = Array(repeating: String(), count: 12)
     
-    @State private var hideDayDetailMenuDataView: Bool = false
-    
     var body: some View {
         NavigationStack {
             ScrollView (showsIndicators: false) {
@@ -248,8 +246,7 @@ struct DayDetail: View {
                                           menuTitle: $menuTitle,
                                           minMaxArray: $minMaxArray,
                                           arrayDayIcons: $arrayDayIcons,
-                                          selectedValue: $selectedValue,
-                                          hide: $hideDayDetailMenuDataView)
+                                          selectedValue: $selectedValue)
                     ///
                     /// Markere natt og dag og image rekken for aktuell dag:
                     ///

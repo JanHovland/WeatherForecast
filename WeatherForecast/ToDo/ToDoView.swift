@@ -54,7 +54,7 @@ var toDo_2 =
            🟢 Markere tid på dagen med .orange om dagen og .secondary om natten.
    15. 🟢 DayDetail() :
            🟢 Marker min og maks temperaturen pr. index.
-   16. 🔴 DayDetailDayDataView():
+   16. 🟢 DayDetailDayDataView():
            🟢 Finn data ved endring i menyen.
            🟢 Finn data ved endring av index.
            🟢 Lage "iconArray".
@@ -171,15 +171,13 @@ var toDo_2 =
                   🟢 PrecipitationFindRestOfDay()
                   🟢 WeatherForecast()
                   🟢 WeatherForecastDetail()
-              🔴 DayDetail() sin hideDayDetailMenuDataView styrer nå om
-                     selectedValue skal vises i DayDetailMenuDataView().
-                     Må nok omarbeides noe. Sjekk .gesture i DayDetailChart()
-                     som oppdaterer @State private var show.
-              🔴 Kun vise dagens tidspunkt på Chart for index == 0
-              🔴 Vurdere om å legge inn snøvarsel i løpet av periden på alle menyvalg
+              🟢 SelectedValue vises nå tilnærmet bra (finjustering gjenstår)
    17. 🔴 Legge inn valg på andre steder.....
-   18. 🔴
-
+          🔴 iPad: kan de valgte stedene legges inn i sidebar (som Apples "Været") ?
+   18. 🔴 Vurdere fininstilling på SelectedValue
+          🔴 Sjekk om høyden på Chart har noe å si siden høyden varierer med menyvalget.
+   19. 🔴 Vurdere om å legge inn snøvarsel i løpet av periden på alle menyvalg
+   20. 🔴 .
 """
 
 var toDo_3 =
@@ -231,7 +229,124 @@ var toDo_4 =
            🟢 Markerer tid på dagen med .orange om dagen og .secondary om natten.
    15. 🟢 DayDetail() :
            🟢 Markerer min og maks temperaturen pr. index.
-   16. 🔴 .
+   16. 🟢 DayDetailDayDataView():
+           🟢 Finn data ved endring i menyen.
+           🟢 Finn data ved endring av index.
+           🟢 Lage "iconArray".
+           🟢 Finn riktig "systemname" til temperatur de neste dagene ut fra "iconArray".
+           🟢 DayDetailChart() : juster "curGradient".
+           🟢 FindDataFromMenu() :
+               🟢 dayArray: endre "sikt" fra meter til kilometer.
+               🟢dayArray: endre "luftfuktighet" fra 0 til 100 %.
+           🟢 DayDetailChart() :
+               🟢 justere beregnet index ut fra .option
+               🟢 justere linen fra...til OK for iPad
+           🟢 DayDetailChart() :
+               🟢 Vise Chart med LineMark og AreaMark ut fra menyvalget.
+                   🟢 Temperatur.
+                   🟢 Vind.
+                   🟢 Føles som.
+                   🟢 Luftfuktighet.
+                   🟢 Sikt.
+                   🟢 Lufttrykk.
+              🟢 Vise enhetene ut fra .option
+              🟢 Vise enhetene ut fra .option på y aksen.
+              🟢 Markere den tidligere delen av døgnet på Chart().
+                  🟢 Kun på dagen idag.
+              🟢 Vise Chart med BarMark for:
+                  🟢 Nedbør.
+                  🟢 Ikke bare vise Regn (egen farge med markering)
+                     🟢 Hail   hagl      (egen farge med markering)
+                     🟢 Mixed  blandet   (egen farge med markering)
+                     🟢 Sleet  sludd     (egen farge med markering)
+                     🟢 Snow   Snø       (egen farge med markering)
+              🟢 Merkere verdien på LineMark ved Gesture.
+              🟢 Legge inn iconer som heading.
+              🟢 RectangleMark():
+                 🟢 Legg inn RectangleMark()
+                 🟢 Finn xTil som er == currentWeather.hour
+              🟢 DayDetailChart():
+                  🟢 Legg inn iconer som heading.
+                      🟢 Vurder å vise kun 12 stk.
+                  🟢 Sett PointMark ut fra tidspunkt på dagen.
+              🟢 Rettet: Hvorfor vises ikke iconene på BarChart?.
+              🟢 BarChart:
+                  🟢 Rettet : Piler frem og bakover skjules i iPhone.
+                  🟢 Sjekk verdiene Nedbør ved å gå forbi siste verdi.
+                  🟢 Rettet: Pilene frem og tilbake oppdaterer ikke minMaxArray.
+                  🟢 chartForegroundStyleScale() : Endre fargerekkefølge: regn = cyan, sludd = blå, snø = hvit osv.
+              🟢 SunDayAndNight():
+                  🟢 Json fra Met.no på soloppgang og solnedgang.
+                  🟢 Legg inn visning pr. index, ikke bare dagens dato.
+              🟢 WindDirection()
+                  🟢 Øke oppløsning på vindretningen f.nnø nordnordøst NNØ.
+              🟢 SettingView() og UserSettings():
+                  🟢 Legg inn Met.no parametre : https://api.met.no/weatherapi/sunrise/2.0/.json?
+              🟢 WeatherForecast() :
+                  🟢 Finn local offset fra UTC (hardkodet = +01:00
+              🟢 Erstatte ActivityIndicator() med ProgressView()
+              🟢 Ta bort: print(tempIconArray as Any)
+              🟢 Ny: func UvIndexDescription(uvIndex: Int) -> String
+              🟢 Oppdatere DayDetailWeatherData() sine sub-apper med aktuelle data:
+                  🟢 DayDetailWeatherDataTemperature()
+                  🟢 DayDetailWeatherDataUvIndex()
+                  🟢 DayDetailWeatherDataWind()
+                  🟢 DayDetailWeatherDataPrecification()
+                     🟢 Legg inn snøvarsel.
+                  🟢 DayDetailWeatherDataFeelsLike()
+                  🟢 DayDetailWeatherDataHumidity()
+                  🟢 DayDetailWeatherDataVisibility()
+                  🟢 DayDetailWeatherDataAirPressure()
+              🟢 Disse iconene endrer seg ikke ved bytte av index:
+                  🟢 Vind
+                     🟢 få med index = 0
+                  🟢 Luftfuktighet
+                     🟢 få med index = 0
+                  🟢 Sikt
+                     🟢 få med index = 0
+                  🟢 Lufttrykk
+                     🟢 få med index = 0
+              🟢 DayDetailChart()
+                  🟢 Vise både vind og vindkast.
+                  🟢 Vise både temperatur og følt temperatur.
+                  🟢 DayDetailHourIcons() legg inn option for menyvalget:
+                        🟢 Uv-index som bruker verdiene hver 2. time
+                        🟢 Vind som bruker vindpiler
+                        🟢 Luftfuktighet som deler døgnet opp i 12 prosenter
+                        🟢 Sikt 12 x km (34 30 35 34 30 35 34 30 35 34 30 35)
+                        🟢 Lufttrykk 12 icons (stigende, fallende eller stabilt)
+                  🟢 Vise generelle og værspesifikke tekster:
+                     🟢 Generell informasjon.
+                     🟢 Værspesifikk informasjon.
+                  🟢 Endre Y - verdien : (ViewModifier DayDetailChartYaxis(option: option):
+                     🟢 .uvIndex
+                     🟢 .airPressure.
+                  🟢 PointMark(x: .value("Index", 12),  y: .value("Amount", 10)) med min og max verdi:
+                      🟢 Temperatur
+                      🟢 UV-indeks
+                      🟢 Vind
+                      🟢 BarMark:
+                         🟢 Høyeste verdi markeres med 'H' dersom det kommer flere
+                            påfølgende verdier som samme verdi som ved MaxIndex.
+                            Løsning:
+                            Fra: MaxIndex = array.firstIndex(of: array.max()!)!
+                            Til: MaxIndex = array.lastIndex(of: array.max()!)!
+                         🟢 Det ser ut som det er en feil i .annotation for BarMark.
+                            Kan ikke ha logikk på idx == MaxIndex og MinIndex
+                      🟢 Føles som
+                      🟢 Luftfuktighet
+                      🟢 Sikt
+                      🟢 Lufttrykk
+              🟢 Lage lantitude og longitude som globale optional variable = Double?
+                  🟢 LocationManager()
+                  🟢 InfoPrecipitation()
+                  🟢 DayDetailWeatherDataPrecifitation()
+                  🟢 Precipitation24h()
+                  🟢 Precipitation24hFind()
+                  🟢 PrecipitationFindRestOfDay()
+                  🟢 WeatherForecast()
+                  🟢 WeatherForecastDetail()
+              🟢 SelectedValue vises nå tilnærmet bra (finjustering gjenstår)
 
 """
 

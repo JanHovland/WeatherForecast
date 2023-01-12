@@ -10,6 +10,7 @@
 		DB0230C328E4C7B000DCE15C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DB0230C128E4C7B000DCE15C /* Localizable.strings */; };
 		DB0230C528E4E5D700DCE15C /* WeatherForecastDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0230C428E4E5D700DCE15C /* WeatherForecastDetail.swift */; };
 		DB054767296FF4650034AFBD /* SelectLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB054766296FF4640034AFBD /* SelectLocation.swift */; };
+		DB054769297086B20034AFBD /* DayDetailMenuDataViewOffsetViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB054768297086B20034AFBD /* DayDetailMenuDataViewOffsetViewModifier.swift */; };
 		DB0965D82949FBC700B76812 /* TranslateDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0965D72949FBC700B76812 /* TranslateDay.swift */; };
 		DB112ADE2964B906000F6862 /* FeltTemp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB112ADD2964B906000F6862 /* FeltTemp.swift */; };
 		DB13AD4228E346E300C910E3 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB13AD4128E346E300C910E3 /* LocationManager.swift */; };
@@ -121,6 +122,7 @@
 		DB0230C228E4C7B000DCE15C /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DB0230C428E4E5D700DCE15C /* WeatherForecastDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherForecastDetail.swift; sourceTree = "<group>"; };
 		DB054766296FF4640034AFBD /* SelectLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectLocation.swift; sourceTree = "<group>"; };
+		DB054768297086B20034AFBD /* DayDetailMenuDataViewOffsetViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayDetailMenuDataViewOffsetViewModifier.swift; sourceTree = "<group>"; };
 		DB0965D72949FBC700B76812 /* TranslateDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateDay.swift; sourceTree = "<group>"; };
 		DB112ADD2964B906000F6862 /* FeltTemp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeltTemp.swift; sourceTree = "<group>"; };
 		DB13AD4128E346E300C910E3 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
@@ -313,6 +315,7 @@
 				DB2727F52965DA41003B0903 /* DayDetailChartOffsetViewModifier.swift */,
 				DB2727F92968944C003B0903 /* DayDetailChartYaxis.swift */,
 				DB2727F32965CA77003B0903 /* DayDetailOffsetViewModifier.swift */,
+				DB054768297086B20034AFBD /* DayDetailMenuDataViewOffsetViewModifier.swift */,
 			);
 			path = ViewModifier;
 			sourceTree = "<group>";
@@ -690,6 +693,7 @@
 				DB2340C629030CA8005F8974 /* MenuContent.swift in Sources */,
 				DB112ADE2964B906000F6862 /* FeltTemp.swift in Sources */,
 				DB0965D82949FBC700B76812 /* TranslateDay.swift in Sources */,
+				DB054769297086B20034AFBD /* DayDetailMenuDataViewOffsetViewModifier.swift in Sources */,
 				DB85F9ED294760B000D14013 /* InfoFeelsLike.swift in Sources */,
 				DB17F69B295DB7A000FC2A0B /* DayDetailWeatherData.swift in Sources */,
 				DB8B5F9A28F40704002C3AE3 /* UvIndex.swift in Sources */,

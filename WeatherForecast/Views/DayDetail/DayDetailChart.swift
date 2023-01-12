@@ -310,8 +310,10 @@ struct DayDetailChart: View {
                         ///
                         /// Markerer verdien på kurven ved DragGesture:
                         ///
-                        PointMark(x: .value("index", indexPointMark),
-                                  y: .value("value", dayArray[indexPointMark]))
+                        if show {
+                            PointMark(x: .value("index", indexPointMark),
+                                      y: .value("value", dayArray[indexPointMark]))
+                        }
                         ///
                         /// Markerer den tidligere delen av dagen:
                         ///
