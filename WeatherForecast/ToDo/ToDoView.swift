@@ -176,7 +176,7 @@ var toDo_2 =
           🔴 iPad: kan de valgte stedene legges inn i sidebar (som Apples "Været") ?
    18. 🔴 Vurdere fininstilling på SelectedValue
           🔴 Sjekk om høyden på Chart har noe å si siden høyden varierer med menyvalget.
-   19. 🔴 Vurdere om å legge inn snøvarsel i løpet av periden på alle menyvalg
+   19. 🔴 Vurdere om å legge inn snøvarsel i løpet av perioden på alle menyvalg.
    20. 🔴 .
 """
 
