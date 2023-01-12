@@ -171,12 +171,12 @@ var toDo_2 =
                   🟢 PrecipitationFindRestOfDay()
                   🟢 WeatherForecast()
                   🟢 WeatherForecastDetail()
-              🔴 Kun vise dagens tidspunkt på Chart for index == 0
-              🔴 Vurdere om å legge inn snøvarsel i løpet av periden på alle menyvalg
               🔴 DayDetail() sin hideDayDetailMenuDataView styrer nå om
                      selectedValue skal vises i DayDetailMenuDataView().
                      Må nok omarbeides noe. Sjekk .gesture i DayDetailChart()
                      som oppdaterer @State private var show.
+              🔴 Kun vise dagens tidspunkt på Chart for index == 0
+              🔴 Vurdere om å legge inn snøvarsel i løpet av periden på alle menyvalg
    17. 🔴 Legge inn valg på andre steder.....
    18. 🔴
 
