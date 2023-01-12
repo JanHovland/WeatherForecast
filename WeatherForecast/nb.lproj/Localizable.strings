@@ -1,0 +1,743 @@
+/* No comment provided by engineer. */
+"Feels like %@" = "Føles som %@";
+
+/* No comment provided by engineer. */
+"Key for OpenCage" = "Nøkkel til OpenCage";
+
+/* No comment provided by engineer. */
+"Setting" = "Innstillinger";
+
+/* No comment provided by engineer. */
+"Url for OpenCage" = "Url til OpenCage";
+
+/* No comment provided by engineer. */
+"WeatherForecast" = "Værmelding";
+
+/* No comment provided by engineer. */
+"E" = "Ø";
+
+/* No comment provided by engineer. */
+"WIND" = "VIND";
+
+/* No comment provided by engineer. */
+"FEELS LIKE" = "FØLES SOM";
+
+/* No comment provided by engineer. */
+"The wind can make it feel colder." = "Vinden gjør at det kan føles kaldere.";
+
+/* No comment provided by engineer. */
+"HUMIDITY" = "LUFTFUKTIGHET";
+
+/* No comment provided by engineer. */
+"The dewPoint is now " = "Duggpunktet er nå på ";
+
+/* No comment provided by engineer. */
+"." = ".";
+
+/* No comment provided by engineer. */
+"VISIBILITY" = "SIKT";
+
+/* No comment provided by engineer. */
+"It is" = "Det er";
+
+/* No comment provided by engineer. */
+"now." = "nå.";
+
+/* No comment provided by engineer. */
+"fog" = "tåke";
+
+/* No comment provided by engineer. */
+"poor visibility" = "dårlig sikt";
+
+/* No comment provided by engineer. */
+"moderate visibility" = "moderat sikt";
+
+/* No comment provided by engineer. */
+"clear weather" = "klarvær";
+
+/* No comment provided by engineer. */
+"and" = "og";
+
+/* No comment provided by engineer. */
+"UV-INDEX" = "UV-INDEKS";
+
+/* No comment provided by engineer. */
+"Low level" = "Lavt nivå";
+
+/* No comment provided by engineer. */
+"Moderate level" = "Moderat nivå";
+
+/* No comment provided by engineer. */
+"High level" = "Høyt nivå";
+
+/* No comment provided by engineer. */
+"Very high level" = "Veldig høyt nivå";
+
+/* No comment provided by engineer. */
+"Extreme level" = "Ekstremt høyt nivå";
+
+/* No comment provided by engineer. */
+"RAIN" = "REGN";
+
+/* No comment provided by engineer. */
+"Last 24 h" = "Siste 24 h";
+
+/* No comment provided by engineer. */
+"is expected the next day." = "ventes kommende døgn.";
+
+/* No comment provided by engineer. */
+"HOURLY FORECAST from one hour backwards and two days forward" = "Timesoversikt fra en time tilbake og to døgn fremover.";
+
+/* No comment provided by engineer. */
+"blizzard" = "Snøstorm ";
+
+/* No comment provided by engineer. */
+"blowingDust" = "Sandstorm";
+
+/* No comment provided by engineer. */
+"blowingSnow" = "Snøstorm";
+
+/* No comment provided by engineer.
+"breezy" = "Luftig";
+
+/* No comment provided by engineer. */
+"clear" = "Klart";
+
+/* No comment provided by engineer. */
+"cloudy" = "Skyet";
+
+/* No comment provided by engineer. */
+"drizzle" = "Duskregn";
+
+/* No comment provided by engineer. */
+"flurries" = "Byger";
+
+/* No comment provided by engineer. */
+"foggy" = "Tåkete";
+
+/* No comment provided by engineer. */
+"freezingDrizzle" = "Underkjølt duskregn";
+
+/* No comment provided by engineer. */
+"freezingRain" = "Underkjølt regn";
+
+/* No comment provided by engineer. */
+"frigid" = "kaldt";
+
+/* No comment provided by engineer. */
+"hail" = "hagl";
+
+/* No comment provided by engineer. */
+"haze" = "tåke";
+
+/* No comment provided by engineer. */
+"heavyRain" = "Mye regn";
+
+/* No comment provided by engineer. */
+"heavySnow" = "Mye snø";
+
+/* No comment provided by engineer. */
+"hot" = "Varmt";
+
+/* No comment provided by engineer. */
+"hurricane" = "Orkan";
+
+/* No comment provided by engineer. */
+"isolatedThunderstorms" = "Isolert tordenvær";
+
+/* No comment provided by engineer. */
+"mostlyClear" = "Stort sett klart";
+
+/* No comment provided by engineer. */
+"mostlyCloudy" = "Stort sett skyet";
+
+/* No comment provided by engineer. */
+"partlyCloudy" = "Delvis skyet";
+
+/* No comment provided by engineer. */
+"rain" = "Nedbør";
+
+/* No comment provided by engineer. */
+"scatteredThunderstorms" = "Spredt tordenvær";
+
+/* No comment provided by engineer. */
+"sleet" = "Sludd";
+
+/* No comment provided by engineer. */
+"smoky" = "Røykfylt";
+
+/* No comment provided by engineer. */
+"snow" = "Snø";
+
+/* No comment provided by engineer. */
+"strongStorms" = "Kraftig tordenvær";
+
+/* No comment provided by engineer. */
+"sunFlurries" = "Snøbyger med synlig sol";
+
+/* No comment provided by engineer. */
+"sunShowers" = "Regn med synlig sol";
+
+/* No comment provided by engineer. */
+"thunderstorms" = "Tordenvær";
+
+/* No comment provided by engineer. */
+"tropicalStorm" = "Tropisk storm";
+
+/* No comment provided by engineer. */
+"windy" = "Vindfullt";
+
+/* No comment provided by engineer. */
+"wintryMix" = "Vinterblanding";
+
+/* No comment provided by engineer. */
+"SUN SET" = "SOL NED";
+
+/* No comment provided by engineer. */
+"Key for OpenWeatherMap" = "Nøkkel til OpenWeatherMap";
+
+/* No comment provided by engineer. */
+"Url for OpenWeatherMap" = "Url til OpenWeatherMap";
+
+/* No comment provided by engineer. */
+"DAILY FORECAST" = "DAG OVERSIKT";
+
+/* No comment provided by engineer. */
+"Daily forecast" = "Dag oversikt";
+
+/* No comment provided by engineer. */
+"To do" = "Oppgaver";
+
+/* No comment provided by engineer. */
+"toDo" = "Oppgaver";
+
+/* No comment provided by engineer. */
+"Temperature" = "Temperatur";
+
+/* No comment provided by engineer. */
+"UV-index" = "UV-indeks";
+
+/* No comment provided by engineer. */
+"Wind" = "Vind";
+
+/* No comment provided by engineer. */
+"Rain" = "Nedbør";
+
+/* No comment provided by engineer. */
+"Feels like" = "Føles som";
+
+/* No comment provided by engineer. */
+"Humidity" = "Luftfuktighet";
+
+/* No comment provided by engineer. */
+"Visability" = "Sikt";
+
+/* No comment provided by engineer. */
+"Air pressure" = "Lufttrykk";
+
+/* No comment provided by engineer. */
+"Sun set: " = "Sol ned: ";
+
+/* No comment provided by engineer. */
+"Sun rise: " = "Sol opp: ";
+
+/* No comment provided by engineer. */
+"Low" = "Lavt";
+
+/* No comment provided by engineer. */
+"High" = "Høyt";
+
+/* No comment provided by engineer. */
+"The same as actual temperature." = "Samme som faktisk temperatur.";
+
+/* No comment provided by engineer. */
+"Forward" = "Neste dag";
+
+/* No comment provided by engineer. */
+"Backward" = "Forrige dag";
+
+/* No comment provided by engineer. */
+"Low level for the rest of the day." = "Lavt nivå hele dagen.";
+
+/* No comment provided by engineer. */
+"Can be moderate levels today." = "Kan komme opp på moderat nivå gjennom dagen.";
+
+/* No comment provided by engineer. */
+"Can be high levels today." = "Kan komme opp på høyt nivå gjennom dagen.";
+
+/* No comment provided by engineer. */
+"Can be very high levels today." = "Kan komme opp på veldig høyt nivå gjennom dagen.";
+
+/* No comment provided by engineer. */
+"Can be extreme levels today." = "Kan komme opp på ekstremt høyt nivå gjennom dagen.";
+
+/* No comment provided by engineer. */
+"No precipitation to day." = "Ikke noe nedbør i dag.";
+
+/* No comment provided by engineer. */
+"No precipitation this day." = "Ikke noe nedbør denne dagen.";
+
+/* No comment provided by engineer. */
+".Rain" = "Regn";
+
+/* No comment provided by engineer. */
+"Sleet" = "Sludd";
+
+/*  No comment provided by engineer. */
+"Mixed" = "Blandet nedbør";
+
+/* No comment provided by engineer. */
+"Snow" = "Snø";
+
+/* No comment provided by engineer. */
+"Hail" = "Hagl";
+
+/* No comment provided by engineer. */
+"No info." = "Ingen informasjon.";
+
+/* No comment provided by engineer. */
+"The wind speed is calculated based on the average over a short period of time. Gusts are sudden changes in wind strength above the average speed. A gust usually lasts less than 20 seconds." = "Vindhastigheten beregnes ut fra gjennomsnittet over en kort periode. Vindkast er plutselige endringer i vindstyrken over gjennomsnittshastigheten. Et vindkast varer vanligvis mindre enn 20 sekunder.";
+
+/* No comment provided by engineer. */
+"About wind speed and gusts" = "Om vindhastighet og vindkast";
+
+/* No comment provided by engineer. */
+"Weather forecast" = "Værvarsel";
+
+/* No comment provided by engineer. */
+"About the UV-index" = "Om UV-indeksen";
+
+/* No comment provided by engineer. */
+"The UV index of the World Health Organization (UVI) measures ultraviolet radiation. The higher the UVI, the greater the chance of skin damage, and the faster the damage can occur. UVI can give you the necessary information about when you should protect yourself from the sun, and when you should avoid staying outdoors. WHO recommends that you stay in the shade or use sunscreen, a hat or protective clothing when the level is 3 (moderate) or higher." = "UV-indeksen il Verdens helseorganisasjon (UVI) måler ultrsfiolett stråling. Jo høyere UVI, jo større er sjansen for hudskader, og jo fortere kan skaden oppstå. UVI kan gi deg nødvendig informasjon om når du bør beskytte deg mot solen, og når du bør unngå å oppholde deg utendørs. WHO anbefaler at du holder deg i skyggen  eller bruker solkrem, hatt eller beskyttende klær når nivået er 3 (moderat) eller høyere.";
+
+/* No comment provided by engineer. */
+"Low lewel" = "Lavt nivå";
+
+/* No comment provided by engineer. */
+"High lewel" = "Høyt nivå";
+
+/* No comment provided by engineer. */
+"Now, " = "Nå, ";
+
+/* No comment provided by engineer. */
+"Low level all day." = "Lavt nivå hele dagen.";
+
+/* No comment provided by engineer. */
+"Use sunscreen, a hat or protective clothing when the level is 3 (moderate) or higher." = "Bruk solkrem, lue eller beskyttende klær når nivået er 3 (moderat) eller høyere.";
+
+/* No comment provided by engineer. */
+"About felt themperature" = "Om følt temperatur";
+
+/* No comment provided by engineer. */
+"Felt temperature describes how hot or cold it feels outside, and can differ from the actual temperature. Felt temperature is affected by wind and humidity." = "Følt temperatur beskriver hvor varmt eller kaldt det føles ute, og kan skille seg fra den faktiske temperaturen. Følt temperatur påvirkes av vind og luftfuktighet.";
+
+/* No comment provided by engineer. */
+"Daily overview" = "Dagsoversikt";
+
+/* No comment provided by engineer. */
+"The themperature fells like " = "Temperaturen føles som ";
+
+/* No comment provided by engineer. */
+"Today the visibility" = "I dag blir sikten";
+
+/* No comment provided by engineer. */
+"Visibility indicates how far away you can clearly see objects such as buildings or mountain peaks. It is a measure of the transparency of the air and does not take into account the amount of sunlight or obstacles in the field of vision. Visibility of 10 km or more is considered clear." = "Sikt indikerer hvor langt unna du tydelig kan se objekter som bygninger eller fjelltopper. Det er et mål på gjennomsiktigheten i luften og tar ikke høyde for mengden sollys eller hindringer i synsfeltet. Sikt på 10 km eller mer anses som klar.";
+
+/* No comment provided by engineer. */
+"About visibility" = "Om sikt";
+
+/* No comment provided by engineer. */
+"About air pressure" = "Om lufttrykk";
+
+/* No comment provided by engineer. */
+"The airpressure is " = "Lufttrykket er ";
+
+/* No comment provided by engineer. */
+"Rapid and significant changes in air pressure are used to predict weather changes. Falling pressure can mean, for example, that rain or snow is in store, while rising pressure can mean better weather. Air pressure is also called atmospheric pressure." = "Raske og betydelige endringer i lufttrykk brukes til å forutse værendringer. Fallende trykk kan for eksempel bety at det er regn eller snø i vente, mens stigende trykk kan bety bedre vær. Luftttykk kalles også atmosfærisk trykk.";
+
+/* No comment provided by engineer. */
+"The wind " = "Vinden ";
+
+/* No comment provided by engineer. */
+"The average humidity today " = "Den gjennomsnittlige luftfuktigheten i dag er på ";
+
+/* No comment provided by engineer. */
+"About relative humidity" = "Om relativ luftfuktighet";
+
+/* No comment provided by engineer. */
+"About dew point" = "Om duggpunkt";
+
+/* No comment provided by engineer. */
+"Relative humidity, or simply humidity, describes the amount of moisture in the air compared to the maximum amount the air can hold. Air can hold more moisture at higher temperatures. A relative humidity of 100% can lead to dew or fog." = "Relativ luftfuktighet, eller bare luftfuktighet, beskriver mengden fuktighet i luften sammenlignet med hvor mye luften maksimalt kan holde. Luft kan holde mer fuktighet ved høyere temperaturer. En relativ luftfuktighet på 100 % kan føre til dugg eller tåke.";
+
+/* No comment provided by engineer. */
+"The dew point indicates the temperature to which the air must cool before dew occurs. This can provide information about how humid the air feels - the higher the dew point, the more humid it feels. If the dew point is equal to the measured temperature, the relative humidity is 100%, which can lead to dew and fog." = "Duggpunktet angir hvilken temperatur luften må avkjøles til før det oppstår dugg. Dette kan gi informasjon om hvor fuktig luften føles - jo høyere duggpunkt, jo fuktigere føles det. Hvis duggpunktet er likt som målt tempertur, er den relative fuktigheten 100 %, som kan føre til dugg og tåke.";
+
+/* No comment provided by engineer. */
+"The dew point is between " = "Duggpunktet er på mellom ";
+
+/* No comment provided by engineer. */
+" to " = " til ";
+
+/* No comment provided by engineer. */
+" miles." = " km.";
+
+/* No comment provided by engineer. */
+" totally clear, from " = " helt klar, fra ";
+
+/* No comment provided by engineer. */
+"On " = "På ";
+
+/* No comment provided by engineer. */
+" from " = " fra ";
+
+/* No comment provided by engineer. */
+" the visability is" = " blir sikten";
+
+/* No comment provided by engineer. */
+"monday" = "mandag";
+
+/* No comment provided by engineer. */
+"tuesday" = "tirsdag";
+
+/* No comment provided by engineer. */
+"wednesday" = "onsdag";
+
+/* No comment provided by engineer. */
+"thursday" = "torsdag";
+
+/* No comment provided by engineer. */
+"friday" = "fredag";
+
+/* No comment provided by engineer. */
+"saturday" = "lørdag";
+
+/* No comment provided by engineer. */
+"sunday" = "søndag";
+
+/* No comment provided by engineer. */
+"The wind is now blowing" = "Vinden blåser nå";
+
+/* No comment provided by engineer. */
+" it will be blowing from " = " vil det blåse fra ";
+
+/* No comment provided by engineer. */
+" with gust up to " = " med vindkast på opptil ";
+
+/* No comment provided by engineer. */
+" from" = " fra ";
+
+/* No comment provided by engineer. */
+" To day it will blow from " = " I dag vil det blåse fra ";
+
+/* No comment provided by engineer. */
+"N" = "N";
+
+/* No comment provided by engineer. */
+"NNE" = "NNØ";
+
+/* No comment provided by engineer. */
+"ENE" = "ØNØ";
+
+/* No comment provided by engineer. */
+"E" = "Ø";
+
+/* No comment provided by engineer. */
+"ESE" = "ØSØ";
+
+/* No comment provided by engineer. */
+"SE" = "SØ";
+
+/* No comment provided by engineer. */
+"SSE" = "SSØ";
+
+/* No comment provided by engineer. */
+"S" = "S";
+
+/* No comment provided by engineer. */
+"SSW" = "SSV";
+
+/* No comment provided by engineer. */
+"SW" = "SV";
+
+/* No comment provided by engineer. */
+"WSW" = "VSV";
+
+/* No comment provided by engineer. */
+"W" = "V";
+
+/* No comment provided by engineer. */
+"WNW" = "VNV";
+
+/* No comment provided by engineer. */
+"NW" = "NV";
+
+/* No comment provided by engineer. */
+"NNW" = "NNV";
+
+/* No comment provided by engineer. */
+"north" = "nord";
+
+/* No comment provided by engineer. */
+"north-northeast" = "nord-nordøst";
+
+/* No comment provided by engineer. */
+"east-northeast" = "øst-nordøst";
+
+/* No comment provided by engineer. */
+"east" = "øst";
+
+/* No comment provided by engineer. */
+"east-southeast" = "øst-sørøst";
+
+/* No comment provided by engineer. */
+"southeast" = "sørøst";
+
+/* No comment provided by engineer. */
+"south-southeast" = "sør-sørøst";
+
+/* No comment provided by engineer. */
+"south" = "sør";
+
+/* No comment provided by engineer. */
+"south-southwest" = "sør-sørvest";
+
+/* No comment provided by engineer. */
+"southwest" = "sørvest";
+
+/* No comment provided by engineer. */
+"west-southwest" = "vest-sørvest";
+
+/* No comment provided by engineer. */
+"west" = "vest";
+
+/* No comment provided by engineer. */
+"west-northwest" = "vest-nordvest";
+
+/* No comment provided by engineer. */
+"northwest" = "nordvest";
+
+/* No comment provided by engineer. */
+"north-northwest" = "nord-nordvest";
+
+/* No comment provided by engineer. */
+" weather will continue the rest of the day." = " vær vil fortsette resten av dagen.";
+
+/* No comment provided by engineer. */
+"The temperature today will extend from " = "Temperaturen i dag vil strekke seg fra ";
+
+/* No comment provided by engineer. */
+"The lowest temperature on " = "Laveste temperatur på ";
+
+/* No comment provided by engineer. */
+" from " = " fra ";
+
+/* No comment provided by engineer. */
+" at " = " kl. ";
+
+/* No comment provided by engineer. */
+" and the highest themperature will be " = " og høyeste temperatur blir ";
+
+/* No comment provided by engineer. */
+" and at " = " og kl. ";
+
+/* No comment provided by engineer. */
+" will be " = " er ";
+
+/* No comment provided by engineer. */
+"Daily view" = " Dagsoversikt";
+
+/* No comment provided by engineer. */
+"snowy weather" = "snøvær";
+
+/* No comment provided by engineer. */
+"rainy weather" = "regnvær";
+
+/* No comment provided by engineer. */
+"no weather info" = "oppholdsvær";
+
+/* No comment provided by engineer. */
+"Max windspeed " = "Høyeste vindstyrke ";
+
+/* No comment provided by engineer. */
+"Max gust " = "Høyeste vindkaststyrke ";
+
+/* No comment provided by engineer. */
+"Now it is " = "Nå er det ";
+
+/* No comment provided by engineer. */
+" and " = " og ";
+
+/* No comment provided by engineer. */
+"WindSpeed" = "Vind" ;
+
+/* No comment provided by engineer. */
+"GustSpeed" = "Vindkast ";
+
+/* No comment provided by engineer. */
+" and" = " og";
+
+/* No comment provided by engineer. */
+"Appearent temperature" = "Følt temperatur";
+
+/* No comment provided by engineer. */
+"The felt temperature today will extend from " = "Den følte temperaturen i dag vil strekke seg fra ";
+
+/* No comment provided by engineer. */
+"The lowest felt temperature on " = "Den lavest følte temperatur på ";
+
+/* No comment provided by engineer. */
+" and the highest felt temperature will be " = " og den høyeste følte temperatur blir ";
+
+/* No comment provided by engineer. */
+"the highest " = "den høyeste er ";
+
+/* No comment provided by engineer. */
+" kl. " = " kl. ";
+
+/* No comment provided by engineer. */
+"No value from menuTitle." = "Mangler verdi fra menuTitle.";
+
+/* No comment provided by engineer. */
+"UTI from the World Health Organization." = "UVI fra Verdens helseorganisasjon.";
+
+/* No comment provided by engineer. */
+"Gust: " = "Vindkast: ";
+
+/* No comment provided by engineer. */
+"Gust up to " = "Vindkast opptil ";
+
+/* No comment provided by engineer. */
+"Showing data from gesture" = "Viser data fra gesture";
+
+/* No comment provided by engineer. */
+"Totally the last 24 hours." = "Totalt siste 24 timer";
+
+/* No comment provided by engineer. */
+"It has fallen " = "Det har falt ";
+
+/* No comment provided by engineer. */
+" precification the last 24 hours.\n" = " nedbør de siste 24 timene.\n";
+
+/* No comment provided by engineer. */
+"To day it will fall totally " = "I dag vil det komme ";
+
+/* No comment provided by engineer. */
+"precifitation.\n" = "nedbør.\n";
+
+/* No comment provided by engineer. */
+"The next 24 hours " = "De neste 24 timene ";
+
+/* No comment provided by engineer. */
+"it is not expected any precification.\n" = "Det er ikke ventet nedbør neste 24 timene\n";
+
+/* No comment provided by engineer. */
+"the total precification amount will be less than 1 mm.\n" = "vil den totale nedbøren være mindre enn 1mm.\n";
+
+/* No comment provided by engineer. */
+"the total precification amount will be " = "vil den totale nedbørsmengden bli ";
+
+/* No comment provided by engineer. */
+" it will come no rain." = " vil det ikke komme noe nedbør.";
+
+/* No comment provided by engineer. */
+" it will rain less than 1 mm." = " vil det komme mindre enn 1 mm nedbør.";
+
+/* No comment provided by engineer. */
+" it will rain " = " vil det komme ";
+
+/* No comment provided by engineer. */
+" mm precipitation." = " mm nedbør.";
+
+/* No comment provided by engineer. */
+"precifitation.\n" = "nedbør.\n";
+
+/* No comment provided by engineer. */
+"Snow warning" = "Snø varsel";
+
+/* No comment provided by engineer. */
+"Distribution of snow versus rain is " = "Snøens prosent andel av nedbøren er ";
+
+/* No comment provided by engineer. */
+"Please notice that 1 mm rain is equal to 10 mm of snow." = "Legg merke til at 1 mm nedbør er ~ 1 cm snø.";
+
+/* No comment provided by engineer. */
+"Actual " = "Faktisk ";
+
+/* No comment provided by engineer. */
+"Actual: H: " = "Faktisk: H: ";
+
+/* No comment provided by engineer. */
+"The temperature fells like " = "Temperaturen føles som ";
+
+/* No comment provided by engineer. */
+"just now, but the measured temperature is " = "akkurat nå, men den målte temperaturen er ";
+
+/* No comment provided by engineer. */
+"The wind makes it feel colder. The felt temperatur to day is between " = "Vinden gjør at det føles kaldere. Den følte temperaturen i dag lå mellom ";
+
+/* No comment provided by engineer. */
+" will the felt temperature to day be between " = " vil følt temperaturen ligge på mellom ";
+
+/* No comment provided by engineer. */
+" The wind makes it feel colder than the actual temperature." = " Vinden gjør at det føles kaldere enn den faktiske temperaturen.";
+
+/* No comment provided by engineer. */
+"Totally this day." = "Totalt denne dagen.";
+
+/* No comment provided by engineer. */
+"The dew point: " = "Duggpunktet: ";
+
+/* No comment provided by engineer. */
+"Average" = "Gjennomsnitt ";
+
+/* No comment provided by engineer. */
+"The average humidity today is " = "Den gjennomsnittlige luftfuktigheten i dag er på ";
+
+/* No comment provided by engineer. */
+" will the the humidity be " = " vil luftfuktigheten ligge på ";
+
+/* No comment provided by engineer. */
+" in average." = " i snitt.";
+
+/* No comment provided by engineer. */
+" The dewpoint is between " = " Duggpumktet er på mellom ";
+
+/* No comment provided by engineer. */
+"Good visibility" = "God sikt";
+
+/* No comment provided by engineer. */
+"Moderate visibility" = "Moderat sikt";
+
+/* No comment provided by engineer. */
+"Moderate"= "Dårlig sikt";
+
+/* No comment provided by engineer. */
+"Misty" = "Tåke";
+
+/* No comment provided by engineer. */
+"The airpressure is now " = "Lufttrykket er for øyeblikket ";
+
+/* No comment provided by engineer. */
+"Today the airpressure will be " = "I dag vil lufttrykket ligge på ";
+
+/* No comment provided by engineer. */
+" in average, and the lowest measured pressure will be " = " i snitt, og lavest målte trykk vil være ";
+
+/* No comment provided by engineer. */
+" the airpressure will be " = " vil lufttrykket ligge på ";
+
+/* No comment provided by engineer. */
+"Precification will continue the rest of the day." = "Nedbøren vil fortsette resten av dagen.";
+
+/* No comment provided by engineer. */
+"No precification for the rest of the day." = "Ikke noe nedbør denne dagen.";
+
+/* No comment provided by engineer. */
+"PRECIPITATION" = "NEDBØR";
+
+
+
+
+
+

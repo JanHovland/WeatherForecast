@@ -1,0 +1,121 @@
+//
+//  DayDetailWeatherDataFeelsLike.swift
+//  WeatherForecast
+//
+//  Created by Jan Hovland on 29/12/2022.
+//
+
+import SwiftUI
+import WeatherKit
+
+struct DayDetailWeatherDataFeelsLike: View {
+    
+    let weather : Weather
+    @Binding var menuTitle: String
+    @Binding var index: Int
+    
+    @EnvironmentObject var dateSettings : DateSettings
+ 
+    @State private var dataArrayFL: [Double] = Array(repeating: Double(), count: 24)
+    @State private var dataArrayAT: [Double] = Array(repeating: Double(), count: 24)
+    
+    var body: some View {
+        if menuTitle == "Føles som" {
+            VStack {
+                if index == 0 {
+                    VStack {
+                        VStack {
+                            HStack (spacing: 4) {
+                                HStack (alignment: .center) {
+                                    Text("\(Int((weather.currentWeather.apparentTemperature.value).rounded()))º")
+                                        .font(.title)
+                                }
+                            }
+                        }
+                        VStack {
+                            HStack (spacing: 4) {
+                                Text(String(localized: "Actual "))
+                                Text("\(Int((weather.currentWeather.temperature.value).rounded()))º")
+                            }
+                            .font(.subheadline)
+                            .opacity(0.5)
+                        }
+                    }
+                    .offset(x: UIDevice.isIpad ? -10 : 0)
+                    .padding(.bottom, 8)
+
+                } else {
+                    VStack {
+                        VStack {
+                            HStack (spacing: 4) {
+                                Text("\(Int(dataArrayFL.max()!.rounded()))º")
+                                Text("\(Int(dataArrayFL.min()!.rounded()))º")
+                                    .opacity(0.5)
+                            }
+                            .font(.title)
+                        }
+                        VStack {
+                            HStack (spacing: 2) {
+                                Text(String(localized: "Actual: H: "))
+                                Text("\(Int(dataArrayAT.max()!.rounded()))º L: ")
+                                Text("\(Int(dataArrayAT.min()!.rounded()))º")
+                            }
+                            .font(.subheadline)
+                            .opacity(0.5)
+                        }
+                    }
+                    .offset(x: UIDevice.isIpad ? -20 : 0)
+                }
+            }
+            ///
+            /// Oppdaterer minMaxArray ved ending av index:
+            ///
+            .onChange(of: index) { index in
+                ///
+                /// Finner dataArray:
+                ///
+                dataArrayFL.removeAll()
+                let value : ([Double],
+                             [String],
+                             [String],
+                             [RainFall],
+                             [WindInfo],
+                             [Temperature],
+                             [Double],
+                             [WeatherIcon],
+                             [Double],
+                             [FeltTemp],
+                             [Double]) = FindDataFromMenu(weather: weather,
+                                                          date: dateSettings.dates[index],
+                                                          option: .feelsLike,
+                                                          option1: .number12)
+                dataArrayFL = value.0
+                ///
+                /// Finner dataArrayAT:
+                ///
+                dataArrayAT.removeAll()
+                let value1 : ([Double],
+                              [String],
+                              [String],
+                              [RainFall],
+                              [WindInfo],
+                              [Temperature],
+                              [Double],
+                              [WeatherIcon],
+                              [Double],
+                              [FeltTemp],
+                              [Double]) = FindDataFromMenu(weather: weather,
+                                                           date: dateSettings.dates[index],
+                                                           option: .temperature,
+                                                           option1: .number12)
+                dataArrayAT = value1.0
+            }
+            ///
+            /// Finner dataArray ved oppstarten:
+            ///
+            .task {
+                
+            }
+        }
+    }
+}
