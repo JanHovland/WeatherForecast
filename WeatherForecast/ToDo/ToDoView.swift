@@ -174,7 +174,9 @@ var toDo_2 =
               🟢 SelectedValue vises nå tilnærmet bra (finjustering gjenstår)
    17. 🔴 Legge inn valg på andre steder.....
           🔴 iPad: kan de valgte stedene legges inn i sidebar (som Apples "Været") ?
-   18. 🔴 Vurdere fininstilling på SelectedValue
+             🔴 Kan det legges inn flere apper som alle er hidden men som åpnes opp
+                når et sted er valgt?
+   18. 🔴 Vurdere fininstilling på SelectedValue.
           🔴 Sjekk om høyden på Chart har noe å si siden høyden varierer med menyvalget.
    19. 🔴 Vurdere om å legge inn snøvarsel i løpet av perioden på alle menyvalg.
    20. 🔴 .
