@@ -12,8 +12,6 @@ import Foundation
 ///
 
 func FindSunUpDown(url: String,
-                   latitude: Double,
-                   longitude: Double,
                    offset: String,
                    days: Int) async -> (String, [String], [String]) {
     
@@ -23,10 +21,20 @@ func FindSunUpDown(url: String,
     var count : Int = 0
     var timeRise : String = ""
     var timeSet : String = ""
+    var lat: String = ""
+    var lon: String = ""
 
     let date = FormatDateToString(date: Date(), format: "yyyy-MM-dd")
-    let lat = "\(latitude)"
-    let lon = "\(longitude)"
+    if latitude != nil {
+        lat = "\(latitude!)"
+    } else {
+        lat = "\(58.618050)" /// Varhaug
+    }
+    if longitude != nil {
+        lon = "\(longitude!)"
+    } else {
+        lon = "\(5.655520)"  /// Varhaug
+    }
     let urlString = url + "lat=" + lat + "&lon=" + lon + "&date=" + date + "&offset=" + offset + "&days=" + String(days)
     let url = URL(string: urlString)
     

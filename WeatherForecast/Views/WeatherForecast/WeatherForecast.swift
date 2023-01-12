@@ -31,7 +31,6 @@ import CloudKit
 ///
 
 struct WeatherForecast: View {
-    
     let weatherService = WeatherService.shared
     
     @StateObject var locationManager = LocationManager()
@@ -40,7 +39,7 @@ struct WeatherForecast: View {
     @State private var weather : Weather?
     @State private var currentPlace = String()
     @State private var geoRecord = GeoRecord()
-    @State private var newPlace = String()
+//    @State private var newPlace = String()
     @State private var location = CLLocation()
     @State private var indicatorShowing = false
     @State private var opacity: Double = 0.0
@@ -192,19 +191,40 @@ struct WeatherForecast: View {
             }
         }
         .task (id: locationManager.currentLocation) {
+            ///
             /// Finner currentLocation:
             ///
-            if let loc = locationManager.currentLocation {
-                location = loc
-                let key = UserDefaults.standard.object(forKey: "KeyOpenCage") as? String ?? ""
-                let urlOpenCage = UserDefaults.standard.object(forKey: "UrlOpenCage") as? String ?? ""
-                let lat = locationManager.currentLocation?.coordinate.latitude as? Double ?? 58.61730433715967
-                let lon = locationManager.currentLocation?.coordinate.longitude as? Double ?? 5.644919460720766
-                geoRecord = await GetReverseGeoCode(latitude: lat, longitude: lon, key: key, urlOpenCage: urlOpenCage)
+            let key = UserDefaults.standard.object(forKey: "KeyOpenCage") as? String ?? ""
+            let urlOpenCage = UserDefaults.standard.object(forKey: "UrlOpenCage") as? String ?? ""
+            if latitude == nil && longitude == nil {
+                if let loc = locationManager.currentLocation {
+                    location = loc
+                    ///
+                    /// Finner currentPlace på current position:
+                    ///
+                    latitude = locationManager.currentLocation?.coordinate.latitude as? Double // ?? 58.61730433715967
+                    longitude = locationManager.currentLocation?.coordinate.longitude as? Double // ?? 5.644919460720766
+                    geoRecord = await GetReverseGeoCode(latitude: latitude!,
+                                                        longitude: longitude!,
+                                                        key: key,
+                                                        urlOpenCage: urlOpenCage)
+                    currentPlace = geoRecord.formatted.description
+                } else {
+                    print("Unable to find location")
+                }
+            } else if latitude != nil && longitude != nil {
+                ///
+                /// Finner currentPlace:
+                ///
+                geoRecord = await GetReverseGeoCode(latitude: latitude!,
+                                                    longitude: longitude!,
+                                                    key: key,
+                                                    urlOpenCage: urlOpenCage)
                 currentPlace = geoRecord.formatted.description
             } else {
-                print("Unable to find location")
+                print("Check latitude og longitude.")
             }
+            ///
             /// Henter værdata:
             ///
             await refresh()
@@ -231,8 +251,6 @@ struct WeatherForecast: View {
         let url = UserDefaults.standard.object(forKey: "UrlMetNo") as? String ?? ""
         let value : (String, [String], [String]) =
         await FindSunUpDown(url: url,  
-                            latitude: 58.6173,
-                            longitude: 5.6449,
                             offset: offset,
                             days: 10)
         if value.0.isEmpty {

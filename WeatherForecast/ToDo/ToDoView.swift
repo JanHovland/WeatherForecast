@@ -162,20 +162,21 @@ var toDo_2 =
                       🟢 Luftfuktighet
                       🟢 Sikt
                       🟢 Lufttrykk
+              🟢 Lage lantitude og longitude som globale optional variable = Double?
+                  🟢 LocationManager()
+                  🟢 InfoPrecipitation()
+                  🟢 DayDetailWeatherDataPrecifitation()
+                  🟢 Precipitation24h()
+                  🟢 Precipitation24hFind()
+                  🟢 PrecipitationFindRestOfDay()
+                  🟢 WeatherForecast()
+                  🟢 WeatherForecastDetail()
+              🔴 Kun vise dagens tidspunkt på Chart for index == 0
               🔴 Vurdere om å legge inn snøvarsel i løpet av periden på alle menyvalg
               🔴 DayDetail() sin hideDayDetailMenuDataView styrer nå om
                      selectedValue skal vises i DayDetailMenuDataView().
                      Må nok omarbeides noe. Sjekk .gesture i DayDetailChart()
                      som oppdaterer @State private var show.
-              🔴 Rain24h() bruker hardkodet CLLocation(latitude: 58.618050, longitude: 5.655520)
-                  🔴 LocationManager()
-                  🔴 InfoPrecipitation()
-                  🔴 DayDetailWeatherDataPrecifitation()
-                  🔴 Precipitation24h()
-                  🔴 Precipitation24hFind() 
-                  🔴 PrecipitationFindRestOfDay()
-                  🔴 WeatherForecast()
-                  🔴 WeatherForecastDetail()
    17. 🔴 Legge inn valg på andre steder.....
    18. 🔴
 

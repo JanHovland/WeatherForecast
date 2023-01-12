@@ -62,10 +62,8 @@ struct WeatherForecastDetail: View {
             }
         }
         .task {
-            
-            let location = CLLocation(latitude: 58.618050,
-                                      longitude: 5.655520)
- 
+            let location = CLLocation(latitude: latitude!,
+                                      longitude: longitude!)
             precification = await PrecipitationFindRestOfDay(weather: weather,
                                                              location: location)
         }

@@ -116,11 +116,8 @@ struct InfoPrecipitation: View {
             dataArray = value2.0
             snowArray = value2.8
             
-            ///
-            /// Bruker location for Varhaug:
-            ///
-            let location = CLLocation(latitude: 58.618050,
-                                      longitude: 5.655520)
+            let location = CLLocation(latitude:  latitude!,
+                                      longitude: longitude!)
             
             let value3: (Double, String) = await Precipitation24hFind(weather: weather,
                                                                           location: location,

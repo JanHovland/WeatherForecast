@@ -55,18 +55,18 @@ struct Precipitation24h : View {
             
             /// Bruker location for Varhaug:
             ///
-            let location = CLLocation(latitude: 58.618050,
-                                      longitude: 5.655520)
+            let location = CLLocation(latitude: latitude!,
+                                      longitude: longitude!)
             
             let value: (Double, String) = await Precipitation24hFind(weather: weather,
-                                                                         location: location,
-                                                                         option: .backward)
-          
+                                                                     location: location,
+                                                                     option: .backward)
+            
             Precipitation24hBackwards = value.1
-                                     
+            
             let value1: (Double, String) = await Precipitation24hFind(weather: weather,
-                                                                         location: location,
-                                                                         option: .forward)
+                                                                      location: location,
+                                                                      option: .forward)
             
             Precipitation24hForwards = value1.1
             
