@@ -1,0 +1,181 @@
+//
+//  WeatherForecast.swift
+//  WeatherForecast
+//
+//  Created by Jan Hovland on 28/09/2022.
+//
+
+import SwiftUI
+import CoreLocation
+import WeatherKit
+import CloudKit
+
+///
+/// Oppretter hourForcast
+///
+var hourForecast: Forecast<HourWeather>?
+
+struct MyPlace: Identifiable {
+    let id = UUID()
+    let extPlaceName: String
+    let extCountryName: String
+    let extLatitude: Double
+    let extLongitude: Double
+    let extOffsetString: String
+    let extOffsetSec: Int
+    let extFlag: String
+}
+
+struct WeatherForecastMain: View {
+    
+    @Environment(WeatherInfo.self) private var weatherInfo
+    @State private var places = [Place]()
+    @State private var myPlaces = [MyPlace]()
+    @State private var opacityIndicator: Double = 1.00
+    @State private var indexSetDelete = IndexSet()
+    @State private var message: LocalizedStringKey = ""
+    @State private var title: LocalizedStringKey = ""
+    @State private var showAlert: Bool = false
+
+    var body: some View {
+        ActivityIndicator(opacity: $opacityIndicator)
+        NavigationView {
+            List {
+                NavigationLink(destination: WeatherForecastSearchPlace()) {
+                    Label {
+                        Text("Search ...")
+                            .opacity(0.5)
+                    } icon: {
+                        Image(systemName: "magnifyingglass")
+                    }
+                }
+                NavigationLink(destination: WeatherForecast(expOption: .intern,
+                                                            extPlaceName: weatherInfo.placeName,
+                                                            extCountryName: weatherInfo.countryName,
+                                                            extLatitude: weatherInfo.latitude ?? 0.00,
+                                                            extLongitude: weatherInfo.longitude ?? 0.00,
+                                                            extOffsetString: "+0200",
+                                                            extOffsetSec: 7200)) {
+                    Label("Local weatherForecast", systemImage: "cloud.sun.rain.fill")
+                }
+                Section("My places") {
+                    ScrollView (showsIndicators: false) {
+                        VStack(alignment: .leading, spacing: 15) {
+                            ForEach(myPlaces) { myPlace in
+                                NavigationLink(destination: WeatherForecast(expOption: .selection,
+                                                                            extPlaceName: myPlace.extPlaceName ,
+                                                                            extCountryName: myPlace.extCountryName,
+                                                                            extLatitude: myPlace.extLatitude ,
+                                                                            extLongitude: myPlace.extLongitude ,
+                                                                            extOffsetString: myPlace.extOffsetString,
+                                                                            extOffsetSec: myPlace.extOffsetSec)) {
+                                    
+                                    Label {
+                                        Text("\(myPlace.extPlaceName), \(myPlace.extCountryName)")
+                                            .padding(.leading, 5)
+                                            .foregroundStyle(.white)
+                                    } icon: {
+                                        if myPlace.extCountryName == String(localized: "Norway") {
+                                            Image(systemName: "mappin.circle")
+                                                .font(.system(size: 27))
+                                        } else {
+                                            Text(myPlace.extFlag)
+                                                .font(.title)
+                                                .foregroundColor(.blue)
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .frame(height: UIDevice.isIpad ? 275 : 230)
+                }
+                Section("Diverse") {
+                    NavigationLink(destination: SettingView()) {
+                        Label("Settings", systemImage: "gear")
+                    }
+                    NavigationLink(destination: ToDoView()) {
+                        Label("To do", systemImage: "square.and.pencil.circle")
+                    }
+                    NavigationLink(destination: RefreshOffsetView()) {
+                        Label("Refresh offset", systemImage: "hourglass.circle")
+                    }
+                    ///
+                    /// Frisker opp stedene mine:
+                    ///
+                    ///
+                    RefreshMyPlaces()
+                        .onTapGesture {
+                            Task.init {
+                                await RefreshPlaces()
+                            }
+                        }
+                }
+            }
+            .listStyle(InsetGroupedListStyle())
+            .navigationBarTitle("Menu", displayMode: .inline)
+            
+            ///
+            ///  Viser meldingene:
+            ///
+            .alert(title, isPresented: $showAlert) {
+            }
+            message: {
+                Text(message)
+            }
+        }
+        .task {
+            await RefreshPlaces()
+        }
+    }
+    
+    func RefreshPlaces() async {
+        ///
+        /// Viser ActivityIndicator:
+        ///
+        opacityIndicator = 1.0
+        /// Resetting:
+        ///
+        myPlaces.removeAll()
+        places.removeAll()
+        ///
+        /// Finner alle stedene fra CloudKit
+        ///
+        let value: (Bool, [Place], LocalizedStringKey, LocalizedStringKey)
+        await value = FindAllPlaces()
+        if value.0 == true {
+            places = value.1
+         } else {
+            places.removeAll()
+        }
+        ///
+        /// Oppdaterer myPlaces som inneholder alle stedene jeg har lagt inn i CloudKit:
+        ///
+        let count = places.count
+        for i in 0..<count {
+            let myPlace = MyPlace(extPlaceName: places[i].place,
+                                  extCountryName: places[i].country,
+                                  extLatitude: places[i].lat ?? 0.00,
+                                  extLongitude: places[i].lon ?? 0.00,
+                                  extOffsetString: places[i].offsetString,
+                                  extOffsetSec: places[i].offsetSec,
+                                  extFlag: places[i].flag)
+            myPlaces.append(myPlace)
+        }
+        ///
+        /// Skjuler ActivityIndicator:
+        ///
+        opacityIndicator = 0.0
+    }
+}
+
+struct RefreshMyPlaces: View {
+    var body: some View {
+        Label {
+            Text("Refresh my places")
+        } icon: {
+            Image(systemName: "mappin.circle")
+        }
+    }
+}
+

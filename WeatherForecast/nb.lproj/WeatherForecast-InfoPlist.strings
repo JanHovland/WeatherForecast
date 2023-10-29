@@ -1,0 +1,6 @@
+/* Privacy - Location Always and When In Use Usage Description */
+"NSLocationAlwaysAndWhenInUseUsageDescription" = "";  // Settes til tom tekst for ikke å vise beskrivelsen.
+
+/* Privacy - Location When In Use Usage Description */
+"NSLocationWhenInUseUsageDescription" = "";           // Settes til tom tekst for ikke å vise beskrivelsen.
+
