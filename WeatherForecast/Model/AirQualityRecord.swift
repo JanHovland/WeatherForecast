@@ -8,7 +8,7 @@
 import Foundation
 
 struct AirQualityRecord {
-    var api: Int = 0
+    var aqi: Int = 0
     var co: Double = 0.00
     var no: Double = 0.00
     var no2: Double = 0.00

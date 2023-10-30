@@ -521,29 +521,50 @@ struct WeatherForecast: View {
                     ///
                     dismissAlert(seconds: 10)
                 }
-                
+                ///
+                /// Går bare videre dersom persist er true:
+                ///
                 if persist == true {
                     ///
                     /// Finner AirQuality:
                     ///
                     let url1 = UserDefaults.standard.object(forKey: "UrlOpenWeather") as? String ?? ""
-                    let value1 : (String, AirQualityRecord) =
+                    let (status, airQuality) : (String, AirQualityRecord) =
                     await FindAirQuality(url: url1,
                                          key: UserDefaults.standard.object(forKey: "KeyOpenWeather") as? String ?? "",
                                          latitude : weatherInfo.latitude ?? 0.00,
                                          longitude:  weatherInfo.longitude ?? 0.00)
-                }
-                ///
-                /// Går bare videre dersom persist er true:
-                ///
-                if persist == true {
                     ///
                     /// Resetter weather og oppdaterer currentWearher:
                     ///
                     weather = nil
                     do {
                         self.weather = try await weatherService.weather(for: location)
-                        if let weather {
+                        if let weather,
+                           status == "" {
+                            ///
+                            /// Legger inn Airquality:
+                            ///
+                            /// Air Quality Index. Possible values: 1, 2, 3, 4, 5. Where 1 = Good, 2 = Fair, 3 = Moderate, 4 = Poor, 5 = Very Poor.
+                            currentWeather.aqi = airQuality.aqi                           
+                            ///  Сoncentration of CO (Carbon monoxide), μg/m3
+                            currentWeather.co = airQuality.co
+                            /// Сoncentration of NO (Nitrogen monoxide), μg/m3
+                            currentWeather.no = airQuality.no
+                            /// Сoncentration of NO2 (Nitrogen dioxide), μg/m3
+                            currentWeather.no2 = airQuality.no2
+                            /// Сoncentration of O3 (Ozone), μg/m
+                            currentWeather.o3 = airQuality.o3
+                            /// Сoncentration of SO2 (Sulphur dioxide), μg/m3
+                            currentWeather.so2 = airQuality.so2
+                            ///  Сoncentration of PM2.5 (Fine particles matter), μg/m3
+                            currentWeather.pm2_5 = airQuality.pm2_5
+                            /// Сoncentration of PM10 (Coarse particulate matter), μg/m3
+                            currentWeather.pm10 = airQuality.pm10
+                            /// Сoncentration of NH3 (Ammonia), μg/m3
+                            currentWeather.nh3 = airQuality.nh3
+                            ///  Date and time, Unix, UTC
+                            currentWeather.dt = airQuality.dt
                             ///
                             /// Oppdaterer currentWeather:
                             ///
