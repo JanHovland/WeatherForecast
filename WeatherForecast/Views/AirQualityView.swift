@@ -11,7 +11,7 @@ struct AirQualityView: View {
     @Environment(CurrentWeather.self) private var currentWeather
 
     @State private var minValue : CGFloat = 0.0
-    @State private var maxValue : CGFloat = 5.15
+    @State private var maxValue : CGFloat = 5.0
     @State private var gradient = Gradient(colors: [.green, .yellow, .orange, .red, .purple])
 
     var body: some View {
@@ -74,7 +74,10 @@ struct AirQualityView: View {
             /// Viser progressbaren:
             ///
             ZStack {
-                Gauge(value: CGFloat(currentWeather.aqi), in: minValue...maxValue) {
+                ///
+                /// Markerer 1 som 0.50 osv.:
+                ///
+                Gauge(value: CGFloat(currentWeather.aqi) - 0.50, in: minValue...maxValue) {
                     Label("", systemImage: "")
                 }
                 .tint(gradient)
@@ -83,6 +86,50 @@ struct AirQualityView: View {
             .gaugeStyle(.accessoryLinear)
             .padding(.top, 10)
             ///
+            /// Viser verdien av Sulphur dioxide (SO2):
+            ///
+            HStack {
+                Text("Sulphur dioxide (SO2): \(Int(currentWeather.so2)) μg/m3")
+                Spacer()
+            }
+            .font(.footnote)
+            .padding(.top, 10)
+            .padding(.leading, 5)
+            ///
+            /// Viser vivået av Sulphur dioxide (SO2):
+            ///
+            ZStack {
+                HStack {
+                    if currentWeather.so2 < 20.00 {
+                        Spacer()
+                        Text("Good")
+                            .foregroundColor(.green)
+                    } else if currentWeather.so2 > 20.00,
+                              currentWeather.so2 <= 80.00 {
+                        Spacer()
+                        Text("Fair")
+                            .foregroundColor(.yellow)
+                    } else if currentWeather.so2 >  80.00,
+                              currentWeather.so2 <= 250.00 {
+                        Spacer()
+                        Text("Moderate")
+                            .foregroundColor(.orange)
+                    } else if currentWeather.so2 >  250.00,
+                              currentWeather.so2 <= 350.00 {
+                        Spacer()
+                        Text("Poor")
+                            .foregroundColor(.red)
+                   } else if currentWeather.so2 >= 350.00 {
+                        Spacer()
+                        Text("Very poor")
+                            .foregroundColor(.purple)
+                    }
+                }
+            }
+            .font(.footnote)
+            .offset(x: UIDevice.isIpad ? -5  : -5,
+                    y: UIDevice.isIpad ? -20 : -20)
+            ///
             /// Viser verdien av Nitrogen dioxide:
             ///
             HStack {
@@ -90,7 +137,7 @@ struct AirQualityView: View {
                 Spacer()
             }
             .font(.footnote)
-            .padding(.top, 10)
+            .padding(.top, -20)
             .padding(.leading, 5)
             ///
             /// Viser vivået av Nitrogen dioxide:
@@ -126,26 +173,6 @@ struct AirQualityView: View {
             .font(.footnote)
             .offset(x: UIDevice.isIpad ? -5  : -5,
                     y: UIDevice.isIpad ? -20 : -20)
-            
-            
-            
-
-            //            Text("\(Int(currentWeather.apparentTemperature.rounded()))º")
-//                .font(.system(size: 40, weight: .light))
-//                .padding(.top, 10)
-//                .padding(.leading, -70)
-//            VStack {
-//                /// Beskrivelse av hvordan temperaturen føles:
-//                if currentWeather.temperature.rounded() == currentWeather.apparentTemperature.rounded() {
-//                    Text("The same as actual temperature.")
-//                        .lineLimit(4)
-//                        .padding(.top, 10)
-//                } else {
-//                    Text("The wind can make it feel colder.")
-//                        .lineLimit(4)
-//                        .padding(.top, 10)
-//                }
-//            }
             Spacer()
         }
         .frame(width: 358, height: 175)
