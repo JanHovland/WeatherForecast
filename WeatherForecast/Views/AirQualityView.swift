@@ -173,6 +173,50 @@ struct AirQualityView: View {
             .font(.footnote)
             .offset(x: UIDevice.isIpad ? -5  : -5,
                     y: UIDevice.isIpad ? -20 : -20)
+            ///
+            /// Viser verdien av particulates (PM10):
+            ///
+            HStack {
+                Text("Particulates (PM10): \(Int(currentWeather.no2)) μg/m3")
+                Spacer()
+            }
+            .font(.footnote)
+            .padding(.top, -25)
+            .padding(.leading, 5)
+            ///
+            /// Viser vivået av particulates (PM10):
+            ///
+            ZStack {
+                HStack {
+                    if currentWeather.pm10 < 20.00 {
+                        Spacer()
+                        Text("Good")
+                            .foregroundColor(.green)
+                    } else if currentWeather.pm10 > 20.00,
+                              currentWeather.pm10 <= 50.00 {
+                        Spacer()
+                        Text("Fair")
+                            .foregroundColor(.yellow)
+                    } else if currentWeather.pm10 >  50.00,
+                              currentWeather.pm10 <= 100.00 {
+                        Spacer()
+                        Text("Moderate")
+                            .foregroundColor(.orange)
+                    } else if currentWeather.pm10 >  100.00,
+                              currentWeather.pm10 <= 200.00 {
+                        Spacer()
+                        Text("Poor")
+                            .foregroundColor(.red)
+                   } else if currentWeather.pm10 >= 200.00 {
+                        Spacer()
+                        Text("Very poor")
+                            .foregroundColor(.purple)
+                    }
+                }
+            }
+            .font(.footnote)
+            .offset(x: UIDevice.isIpad ? -5  : -5,
+                    y: UIDevice.isIpad ? -25 : -25)
             Spacer()
         }
         .frame(width: 358, height: 175)
