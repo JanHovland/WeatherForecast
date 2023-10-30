@@ -385,6 +385,7 @@
 				DB8B5F8F28F1D5A2002C3AE3 /* Humidity.swift */,
 				DB2340C729030E66005F8974 /* MenuButton.swift */,
 				DB2340C529030CA8005F8974 /* MenuContent.swift */,
+				DB4FA8C42AEF937E00533266 /* MoonView.swift */,
 				DBECD4E02AE971A6005FD489 /* RefreshOffsetView.swift */,
 				DB8B5F9528F2BEF5002C3AE3 /* Visibility.swift */,
 				DB9D0B0128F027B0002ABA9E /* WindView.swift */,
@@ -731,7 +732,6 @@
 				DB0C032A2976814D0066E79A /* WeatherForecastSelectPlace.swift */,
 				DB2F3AC329EBE73C00D332E1 /* WeatherForecastHistoryEurope.swift */,
 				DB760C062AE6D24C000B08D1 /* WeatherForecastSearchPlace.swift */,
-				DB4FA8C42AEF937E00533266 /* MoonView.swift */,
 			);
 			path = WeatherForecast;
 			sourceTree = "<group>";

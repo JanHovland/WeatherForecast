@@ -10,6 +10,10 @@ import SwiftUI
 struct AirQualityView: View {
     @Environment(CurrentWeather.self) private var currentWeather
 
+    @State private var minValue : CGFloat = 0.0
+    @State private var maxValue : CGFloat = 5.15
+    @State private var gradient = Gradient(colors: [.green, .yellow, .orange, .red, .purple])
+
     var body: some View {
         VStack {
             ///
@@ -17,51 +21,115 @@ struct AirQualityView: View {
             ///
             /// Air Quality Index. Possible values: 1, 2, 3, 4, 5. Where 1 = Good, 2 = Fair, 3 = Moderate, 4 = Poor, 5 = Very Poor.
             HStack {
-                if currentWeather.aqi == 1 ||
-                   currentWeather.aqi == 2 {
+                if currentWeather.aqi == 1 {
                     Image(systemName: "aqi.low")
+                        .renderingMode(.original)
+                        .font(Font.headline.weight(.regular))
+                } else if currentWeather.aqi == 2 {
+                    Image(systemName: "aqi.medium")
                         .renderingMode(.original)
                         .font(Font.headline.weight(.regular))
                 } else if currentWeather.aqi == 3 {
                     Image(systemName: "aqi.medium")
                         .renderingMode(.original)
                         .font(Font.headline.weight(.regular))
-
-                } else if currentWeather.aqi == 4 ||
-                          currentWeather.aqi == 5 {
+                } else if currentWeather.aqi == 4 {
+                    Image(systemName: "aqi.high")
+                        .renderingMode(.original)
+                        .font(Font.headline.weight(.regular))
+                } else if currentWeather.aqi == 5 {
                     Image(systemName: "aqi.high")
                         .renderingMode(.original)
                         .font(Font.headline.weight(.regular))
                 }
-
                 Text("AIR QUALITY")
                     .font(.system(size: 15, weight: .bold))
             }
             .opacity(0.50)
-            .padding(.leading, UIDevice.isIpad ? -180 : 0)
+            .padding(.leading, UIDevice.isIpad ? -180 : -180)
             ///
             /// Viser status for luftkvaliteten:
             ///
-            /// Air Quality Index. Possible values: 1, 2, 3, 4, 5. Where 1 = Good, 2 = Fair, 3 = Moderate, 4 = Poor, 5 = Very Poor.
-            if currentWeather.aqi == 1 {
-                Text("Good")
-                    .foregroundColor(.indigo)
-            } else if currentWeather.aqi == 2 {
-                Text("Fair")
-                    .foregroundColor(.green)
-            } else if currentWeather.aqi == 3 {
-                Text("Moderate")
-                    .foregroundColor(.indigo)
-            } else if currentWeather.aqi == 4 {
-                Text("Poor")
-                    .foregroundColor(.red)
-            } else if currentWeather.aqi == 5 {
-                Text("Very poor")
-                    .foregroundColor(.red)
+            HStack {
+                /// Air Quality Index. Possible values: 1, 2, 3, 4, 5. Where 1 = Good, 2 = Fair, 3 = Moderate, 4 = Poor, 5 = Very Poor.
+                if currentWeather.aqi == 1 {
+                    Text("Good")
+                        .foregroundColor(.green)
+                } else if currentWeather.aqi == 2 {
+                    Text("Fair")
+                        .foregroundColor(.yellow)
+                } else if currentWeather.aqi == 3 {
+                    Text("Moderate")
+                        .foregroundColor(.orange)
+                } else if currentWeather.aqi == 4 {
+                    Text("Poor")
+                        .foregroundColor(.red)
+                } else if currentWeather.aqi == 5 {
+                    Text("Very poor")
+                        .foregroundColor(.purple)
+                }
+                Spacer()
             }
+            ///
+            /// Viser progressbaren:
+            ///
+            ZStack {
+                Gauge(value: CGFloat(currentWeather.aqi), in: minValue...maxValue) {
+                    Label("", systemImage: "")
+                }
+                .tint(gradient)
+            }
+            .frame(width: UIDevice.isIpad ? 350 : 350, height: 2)
+            .gaugeStyle(.accessoryLinear)
+            .padding(.top, 10)
+            ///
+            /// Viser verdien av Nitrogen dioxide:
+            ///
+            HStack {
+                Text("Nitrogen dioxide (NO2): \(Int(currentWeather.no2)) μg/m3")
+                Spacer()
+            }
+            .font(.footnote)
+            .padding(.top, 10)
+            .padding(.leading, 5)
+            ///
+            /// Viser vivået av Nitrogen dioxide:
+            ///
+            ZStack {
+                HStack {
+                    if currentWeather.no2 < 40.00 {
+                        Spacer()
+                        Text("Good")
+                            .foregroundColor(.green)
+                    } else if currentWeather.no2 > 40.00,
+                              currentWeather.no2 <= 70.00 {
+                        Spacer()
+                        Text("Fair")
+                            .foregroundColor(.yellow)
+                    } else if currentWeather.no2 >  70.00,
+                              currentWeather.no2 <= 150.00 {
+                        Spacer()
+                        Text("Moderate")
+                            .foregroundColor(.orange)
+                    } else if currentWeather.no2 >  150.00,
+                              currentWeather.no2 <= 200.00 {
+                        Spacer()
+                        Text("Poor")
+                            .foregroundColor(.red)
+                   } else if currentWeather.no2 >= 200.00 {
+                        Spacer()
+                        Text("Very poor")
+                            .foregroundColor(.purple)
+                    }
+                }
+            }
+            .font(.footnote)
+            .offset(x: UIDevice.isIpad ? -5  : -5,
+                    y: UIDevice.isIpad ? -20 : -20)
             
             
             
+
             //            Text("\(Int(currentWeather.apparentTemperature.rounded()))º")
 //                .font(.system(size: 40, weight: .light))
 //                .padding(.top, 10)
