@@ -217,6 +217,50 @@ struct AirQualityView: View {
             .font(.footnote)
             .offset(x: UIDevice.isIpad ? -5  : -5,
                     y: UIDevice.isIpad ? -25 : -25)
+            ///
+            /// Viser verdien av Viser verdien av particulates (PM2.5):
+            ///
+            HStack {
+                Text("Particulates (PM2.5): \(Int(currentWeather.pm2_5)) μg/m3")
+                Spacer()
+            }
+            .font(.footnote)
+            .padding(.top, -30)
+            .padding(.leading, 5)
+            ///
+            /// Viser vivået av  particulates (PM2.5):
+            ///
+            ZStack {
+                HStack {
+                    if currentWeather.pm2_5 < 10.00 {
+                        Spacer()
+                        Text("Good")
+                            .foregroundColor(.green)
+                    } else if currentWeather.pm2_5 > 10.00,
+                              currentWeather.pm2_5 <= 25.00 {
+                        Spacer()
+                        Text("Fair")
+                            .foregroundColor(.yellow)
+                    } else if currentWeather.pm2_5 >  25.00,
+                              currentWeather.pm2_5 <= 50.00 {
+                        Spacer()
+                        Text("Moderate")
+                            .foregroundColor(.orange)
+                    } else if currentWeather.pm2_5 >  50.00,
+                              currentWeather.pm2_5 <= 75.00 {
+                        Spacer()
+                        Text("Poor")
+                            .foregroundColor(.red)
+                   } else if currentWeather.pm2_5 >= 75.00 {
+                        Spacer()
+                        Text("Very poor")
+                            .foregroundColor(.purple)
+                    }
+                }
+            }
+            .font(.footnote)
+            .offset(x: UIDevice.isIpad ? -5  : -5,
+                    y: UIDevice.isIpad ? -30 : -30)
             Spacer()
         }
         .frame(width: 358, height: 175)
