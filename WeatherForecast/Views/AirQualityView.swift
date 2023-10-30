@@ -261,6 +261,50 @@ struct AirQualityView: View {
             .font(.footnote)
             .offset(x: UIDevice.isIpad ? -5  : -5,
                     y: UIDevice.isIpad ? -30 : -30)
+            ///
+            /// Viser verdien av Viser verdien av Ozone (O3):
+            ///
+            HStack {
+                Text("Ozone (O3): \(Int(currentWeather.o3)) μg/m3")
+                Spacer()
+            }
+            .font(.footnote)
+            .padding(.top, -35)
+            .padding(.leading, 5)
+            ///
+            /// Viser vivået av  particulates (PM2.5):
+            ///
+            ZStack {
+                HStack {
+                    if currentWeather.o3 < 60.00 {
+                        Spacer()
+                        Text("Good")
+                            .foregroundColor(.green)
+                    } else if currentWeather.o3 > 60.00,
+                              currentWeather.o3 <= 100.00 {
+                        Spacer()
+                        Text("Fair")
+                            .foregroundColor(.yellow)
+                    } else if currentWeather.o3 >  100.00,
+                              currentWeather.o3 <= 140.00 {
+                        Spacer()
+                        Text("Moderate")
+                            .foregroundColor(.orange)
+                    } else if currentWeather.o3 >  140.00,
+                              currentWeather.o3 <= 180.00 {
+                        Spacer()
+                        Text("Poor")
+                            .foregroundColor(.red)
+                   } else if currentWeather.o3 >= 180.00 {
+                        Spacer()
+                        Text("Very poor")
+                            .foregroundColor(.purple)
+                    }
+                }
+            }
+            .font(.footnote)
+            .offset(x: UIDevice.isIpad ? -5  : -5,
+                    y: UIDevice.isIpad ? -35 : -35)
             Spacer()
         }
         .frame(width: 358, height: 175)
