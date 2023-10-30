@@ -90,7 +90,8 @@ struct WeatherForecast: View {
             if weatherInfo.offsetString != ""  {
                 if let weather {
                     if UIDevice.isIpad {
-                        ScrollView(.vertical, showsIndicators: false) {
+//                        ScrollView(.vertical, showsIndicators: false) {
+                        List {
                             VStack {
                                 VStack {
                                     Text(weatherInfo.placeName.count > 0 ? weatherInfo.placeName : "No placeName")
@@ -219,10 +220,11 @@ struct WeatherForecast: View {
                                 ///
                                 WeatherForecastHistoryEurope(weather: weather)
                             }
-                            .frame(width: 1200)
+//                            .frame(width: .infinity)
                         }
                     } else if UIDevice.isiPhone {
-                        ScrollView (.vertical, showsIndicators: false) {
+//                        ScrollView (.vertical, showsIndicators: false) {
+                        List {
                             VStack {
                                 VStack {
                                     Text(weatherInfo.placeName.count > 0 ? weatherInfo.placeName : "No placeName")
@@ -563,55 +565,30 @@ struct WeatherForecast: View {
                     do {
                         self.weather = try await weatherService.weather(for: location)
                         if let weather {
-                            if status == "" {
-                                ///
-                                /// Legger inn Airquality:
-                                ///
-                                /// Air Quality Index. Possible values: 1, 2, 3, 4, 5. Where 1 = Good, 2 = Fair, 3 = Moderate, 4 = Poor, 5 = Very Poor.
-                                currentWeather.aqi = airQuality.aqi
-                                ///  Сoncentration of CO (Carbon monoxide), μg/m3
-                                currentWeather.co = airQuality.co
-                                /// Сoncentration of NO (Nitrogen monoxide), μg/m3
-                                currentWeather.no = airQuality.no
-                                /// Сoncentration of NO2 (Nitrogen dioxide), μg/m3
-                                currentWeather.no2 = airQuality.no2
-                                /// Сoncentration of O3 (Ozone), μg/m
-                                currentWeather.o3 = airQuality.o3
-                                /// Сoncentration of SO2 (Sulphur dioxide), μg/m3
-                                currentWeather.so2 = airQuality.so2
-                                ///  Сoncentration of PM2.5 (Fine particles matter), μg/m3
-                                currentWeather.pm2_5 = airQuality.pm2_5
-                                /// Сoncentration of PM10 (Coarse particulate matter), μg/m3
-                                currentWeather.pm10 = airQuality.pm10
-                                /// Сoncentration of NH3 (Ammonia), μg/m3
-                                currentWeather.nh3 = airQuality.nh3
-                                ///  Date and time, Unix, UTC
-                                currentWeather.dt = airQuality.dt
-                            } else {
-                                ///
-                                /// Legger inn Airquality:
-                                ///
-                                /// Air Quality Index. Possible values: 1, 2, 3, 4, 5. Where 1 = Good, 2 = Fair, 3 = Moderate, 4 = Poor, 5 = Very Poor.
-                                currentWeather.aqi = 0
-                                ///  Сoncentration of CO (Carbon monoxide), μg/m3
-                                currentWeather.co = 0.00
-                                /// Сoncentration of NO (Nitrogen monoxide), μg/m3
-                                currentWeather.no = 0.00
-                                /// Сoncentration of NO2 (Nitrogen dioxide), μg/m3
-                                currentWeather.no2 = 0.00
-                                /// Сoncentration of O3 (Ozone), μg/m
-                                currentWeather.o3 = 0.00
-                                /// Сoncentration of SO2 (Sulphur dioxide), μg/m3
-                                currentWeather.so2 = 0.00
-                                ///  Сoncentration of PM2.5 (Fine particles matter), μg/m3
-                                currentWeather.pm2_5 = 0.00
-                                /// Сoncentration of PM10 (Coarse particulate matter), μg/m3
-                                currentWeather.pm10 = 0.00
-                                /// Сoncentration of NH3 (Ammonia), μg/m3
-                                currentWeather.nh3 = 0.00
-                                ///  Date and time, Unix, UTC
-                                currentWeather.dt = 0 
-                            }
+                            currentWeather.dt = 0
+                            ///
+                            /// Legger inn Airquality:
+                            ///
+                            /// Air Quality Index. Possible values: 1, 2, 3, 4, 5. Where 1 = Good, 2 = Fair, 3 = Moderate, 4 = Poor, 5 = Very Poor.
+                            currentWeather.aqi = airQuality.aqi
+                            ///  Сoncentration of CO (Carbon monoxide), μg/m3
+                            currentWeather.co = airQuality.co
+                            /// Сoncentration of NO (Nitrogen monoxide), μg/m3
+                            currentWeather.no = airQuality.no
+                            /// Сoncentration of NO2 (Nitrogen dioxide), μg/m3
+                            currentWeather.no2 = airQuality.no2
+                            /// Сoncentration of O3 (Ozone), μg/m
+                            currentWeather.o3 = airQuality.o3
+                            /// Сoncentration of SO2 (Sulphur dioxide), μg/m3
+                            currentWeather.so2 = airQuality.so2
+                            ///  Сoncentration of PM2.5 (Fine particles matter), μg/m3
+                            currentWeather.pm2_5 = airQuality.pm2_5
+                            /// Сoncentration of PM10 (Coarse particulate matter), μg/m3
+                            currentWeather.pm10 = airQuality.pm10
+                            /// Сoncentration of NH3 (Ammonia), μg/m3
+                            currentWeather.nh3 = airQuality.nh3
+                            ///  Date and time, Unix, UTC
+                            currentWeather.dt = airQuality.dt
                             ///
                             /// Oppdaterer currentWeather:
                             ///

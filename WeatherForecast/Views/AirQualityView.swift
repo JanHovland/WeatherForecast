@@ -17,7 +17,7 @@ struct AirQualityView: View {
 
     var body: some View {
         VStack {
-            if currentWeather.dt == 0 {
+            if currentWeather.dt != 0 {
                 ///
                 /// Viser overskriften for fluftkvaliteten:
                 ///
@@ -371,7 +371,8 @@ struct AirQualityView: View {
                 }
             }
         }
-        .frame(width: 358, height: 200)
+//        .frame(width: 358, height: 200)
+        .frame(width: 350, height: 200)
         .padding(15)
         .modifier(DayDetailBackground(dayLight: currentWeather.isDaylight))
     }

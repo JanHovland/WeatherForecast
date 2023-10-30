@@ -12,13 +12,13 @@
 					<key>EndingColumnNumber</key>
 					<string>0</string>
 					<key>EndingLineNumber</key>
-					<string>153</string>
+					<string>225</string>
 					<key>StartingColumnNumber</key>
 					<string>0</string>
 					<key>StartingLineNumber</key>
-					<string>152</string>
+					<string>224</string>
 					<key>Timestamp</key>
-					<string>720165951.467779</string>
+					<string>720385884.293056</string>
 				</dict>
 				<key>rebasable-url</key>
 				<dict>
@@ -34,16 +34,16 @@
 			<key>text-context</key>
 			<dict>
 				<key>focused</key>
-				<string>                                        }
+				<string>                    } else if UIDevice.isiPhone {
 </string>
 				<key>leading</key>
-				<string>                                                }
-                                            })
+				<string>//                            .frame(width: .infinity)
+                        }
 </string>
 				<key>trailing</key>
-				<string>                                }
-                                .offset(x:  350,
-                                        y:  -54.0)
+				<string>//                        ScrollView (.vertical, showsIndicators: false) {
+                        List {
+                            VStack {
 </string>
 			</dict>
 			<key>type</key>
