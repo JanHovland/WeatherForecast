@@ -15,18 +15,54 @@ struct AirQualityView: View {
             ///
             /// Viser overskriften for fluftkvaliteten:
             ///
+            /// Air Quality Index. Possible values: 1, 2, 3, 4, 5. Where 1 = Good, 2 = Fair, 3 = Moderate, 4 = Poor, 5 = Very Poor.
             HStack {
-                Image(systemName: "thermometer.medium")
-                    .renderingMode(.original)
-                    .font(Font.headline.weight(.regular))
+                if currentWeather.aqi == 1 ||
+                   currentWeather.aqi == 2 {
+                    Image(systemName: "aqi.low")
+                        .renderingMode(.original)
+                        .font(Font.headline.weight(.regular))
+                } else if currentWeather.aqi == 3 {
+                    Image(systemName: "aqi.medium")
+                        .renderingMode(.original)
+                        .font(Font.headline.weight(.regular))
+
+                } else if currentWeather.aqi == 4 ||
+                          currentWeather.aqi == 5 {
+                    Image(systemName: "aqi.high")
+                        .renderingMode(.original)
+                        .font(Font.headline.weight(.regular))
+                }
+
                 Text("AIR QUALITY")
                     .font(.system(size: 15, weight: .bold))
             }
             .opacity(0.50)
-            .padding(.leading, -40)
-            /// Viser hvordan temperaturen føles:
+            .padding(.leading, UIDevice.isIpad ? -180 : 0)
             ///
-//            Text("\(Int(currentWeather.apparentTemperature.rounded()))º")
+            /// Viser status for luftkvaliteten:
+            ///
+            /// Air Quality Index. Possible values: 1, 2, 3, 4, 5. Where 1 = Good, 2 = Fair, 3 = Moderate, 4 = Poor, 5 = Very Poor.
+            if currentWeather.aqi == 1 {
+                Text("Good")
+                    .foregroundColor(.indigo)
+            } else if currentWeather.aqi == 2 {
+                Text("Fair")
+                    .foregroundColor(.green)
+            } else if currentWeather.aqi == 3 {
+                Text("Moderate")
+                    .foregroundColor(.indigo)
+            } else if currentWeather.aqi == 4 {
+                Text("Poor")
+                    .foregroundColor(.red)
+            } else if currentWeather.aqi == 5 {
+                Text("Very poor")
+                    .foregroundColor(.red)
+            }
+            
+            
+            
+            //            Text("\(Int(currentWeather.apparentTemperature.rounded()))º")
 //                .font(.system(size: 40, weight: .light))
 //                .padding(.top, 10)
 //                .padding(.leading, -70)

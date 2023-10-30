@@ -1219,3 +1219,24 @@
 /* No comment provided by engineer. */
 "Delete this place" = "Slett";
 
+/* No comment provided by engineer. */
+"AIR QUALITY" = "LUFT KVALITET";
+
+/* No comment provided by engineer. */
+"MOON" = "MÅNEN";
+
+/* No comment provided by engineer. */
+"Good" = "God";
+
+/* No comment provided by engineer. */
+"Fair" = "Mindre god";
+
+/* No comment provided by engineer. */
+"Moderate" = "Moderat";
+
+/* No comment provided by engineer. */
+"Poor" = "Dårlig";
+
+/* No comment provided by engineer. */
+"Very poor" = "Veldig dårlig";
+

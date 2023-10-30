@@ -16,10 +16,10 @@ struct MoonView: View {
                 /// Viser overskriften for fluftkvaliteten:
                 ///
                 HStack {
-                    Image(systemName: "thermometer.medium")
+                    Image(systemName: "moon")
                         .renderingMode(.original)
                         .font(Font.headline.weight(.regular))
-                    Text("Moon")
+                    Text("MOON")
                         .font(.system(size: 15, weight: .bold))
                 }
                 .opacity(0.50)

@@ -19,7 +19,8 @@ func FindAirQuality(url: String,
     
     var errors : String = ""
     
-    let urlString = url + "lat=" + "\(latitude)" + "&lon=" + "\(longitude)" + "&appid="  + "\(key)"
+    let urlString1 = url + "lat=" + "\(latitude)" + "&lon=" + "\(longitude)" + "&appid="  + "\(key)"
+    let urlString = urlString1.replacingOccurrences(of: " ", with: "")
     let url = URL(string: urlString)
     if let url {
         do {

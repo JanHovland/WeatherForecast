@@ -490,6 +490,8 @@
 		DB51163828E43BBC00DEB1BF /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				DBCD43722AEE2BE9007543BE /* AirQuality.swift */,
+				DBCD43762AEE3AA2007543BE /* AirQualityRecord.swift */,
 				DB696899290E715900936C0E /* CurrentWeatherRecord.swift */,
 				DB274789294C87690082B63B /* DayTempInfo.swift */,
 				DB112ADD2964B906000F6862 /* FeltTemp.swift */,
@@ -508,8 +510,6 @@
 				DBFD2DD12958612B00293B4D /* WeatherIcon.swift */,
 				DBDBCC63295215D7005AEB05 /* WeatherType.swift */,
 				DB2D4948294A3C9B00DCDC4B /* WindInfo.swift */,
-				DBCD43722AEE2BE9007543BE /* AirQuality.swift */,
-				DBCD43762AEE3AA2007543BE /* AirQualityRecord.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
