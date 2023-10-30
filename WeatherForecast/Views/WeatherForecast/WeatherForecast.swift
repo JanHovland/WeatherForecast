@@ -161,6 +161,16 @@ struct WeatherForecast: View {
                                 Group {
                                     HStack (spacing: 8) {
                                         ///
+                                        /// Viser luftkvaliteten:
+                                        ///
+                                        AirQualityView()
+                                        ///
+                                        /// Viser månen:
+                                        ///
+                                        MoonView()
+                                    }
+                                    HStack (spacing: 8) {
+                                        ///
                                         /// Viser vindretning og hastighet:
                                         ///
                                         WindView(weather: weather)
@@ -282,6 +292,18 @@ struct WeatherForecast: View {
                                              sunSets: $sunSets)
                                 
                                 Group {
+                                    HStack (spacing: 8) {
+                                        ///
+                                        /// Viser luftkvaliteten:
+                                        ///
+                                        AirQualityView()
+                                    }
+                                    HStack (spacing: 8) {
+                                        ///
+                                        /// Viser månen:
+                                        ///
+                                        MoonView()
+                                    }
                                     HStack (spacing: 8) {
                                         ///
                                         /// Viser vindretning og hastighet:
