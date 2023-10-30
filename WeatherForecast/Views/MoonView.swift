@@ -44,7 +44,7 @@ struct MoonView: View {
     //            }
                 Spacer()
             }
-            .frame(width: 358, height: 175)
+            .frame(width: 358, height: 200)
             .padding(15)
             .modifier(DayDetailBackground(dayLight: currentWeather.isDaylight))
         }

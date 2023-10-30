@@ -46,6 +46,7 @@ struct AirQualityView: View {
                     .font(.system(size: 15, weight: .bold))
             }
             .opacity(0.50)
+            .padding(.top, 40)
             .padding(.leading, UIDevice.isIpad ? -180 : -180)
             ///
             /// Viser status for luftkvaliteten:
@@ -305,9 +306,53 @@ struct AirQualityView: View {
             .font(.footnote)
             .offset(x: UIDevice.isIpad ? -5  : -5,
                     y: UIDevice.isIpad ? -35 : -35)
-            Spacer()
+            ///
+            /// Viser verdien av Carbon monoxide (CO):
+            ///
+            HStack {
+                Text("Carbon monoxide (CO): \(Int(currentWeather.co)) μg/m3")
+                Spacer()
+            }
+            .font(.footnote)
+            .padding(.top, -40)
+            .padding(.leading, 5)
+            ///
+            /// Viser vivået av Carbon monoxide (CO):
+            ///
+            ZStack {
+                HStack {
+                    if currentWeather.co < 4400.00 {
+                        Spacer()
+                        Text("Good")
+                            .foregroundColor(.green)
+                    } else if currentWeather.co > 4400.00,
+                              currentWeather.co <= 9400.00 {
+                        Spacer()
+                        Text("Fair")
+                            .foregroundColor(.yellow)
+                    } else if currentWeather.co >  9400.00,
+                              currentWeather.co <= 12400.00 {
+                        Spacer()
+                        Text("Moderate")
+                            .foregroundColor(.orange)
+                    } else if currentWeather.co >  12400.00,
+                              currentWeather.co <= 15400.00 {
+                        Spacer()
+                        Text("Poor")
+                            .foregroundColor(.red)
+                   } else if currentWeather.co >= 15400.00 {
+                        Spacer()
+                        Text("Very poor")
+                            .foregroundColor(.purple)
+                    }
+                }
+            }
+            .font(.footnote)
+            .offset(x: UIDevice.isIpad ? -5  : -5,
+                    y: UIDevice.isIpad ? -40 : -40)
+//            Spacer()
         }
-        .frame(width: 358, height: 175)
+        .frame(width: 358, height: 200)
         .padding(15)
         .modifier(DayDetailBackground(dayLight: currentWeather.isDaylight))
     }
