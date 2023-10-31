@@ -13,6 +13,7 @@ struct AirQualityViewInformation: View {
     
     @Environment(\.dismiss) var dismiss
     @Environment(WeatherInfo.self) private var weatherInfo
+    @Environment(CurrentWeather.self) private var currentWeather
     
     var body: some View {
         VStack {
@@ -46,7 +47,7 @@ struct AirQualityViewInformation: View {
                 Spacer()
             }
             
-            Text("sdfvgbhnjmk,l.")
+            Text("\(currentWeather.pm10)")
             
             Spacer()
         }
