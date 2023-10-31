@@ -12,13 +12,13 @@
 					<key>EndingColumnNumber</key>
 					<string>0</string>
 					<key>EndingLineNumber</key>
-					<string>225</string>
+					<string>234</string>
 					<key>StartingColumnNumber</key>
 					<string>0</string>
 					<key>StartingLineNumber</key>
-					<string>224</string>
+					<string>233</string>
 					<key>Timestamp</key>
-					<string>720385884.293056</string>
+					<string>720434611.860054</string>
 				</dict>
 				<key>rebasable-url</key>
 				<dict>
@@ -35,15 +35,18 @@
 			<dict>
 				<key>focused</key>
 				<string>                    } else if UIDevice.isiPhone {
+                        ///
+                        /// Kan benytte ScrollView i iPhone, men frisk opp 
+                        ///
 </string>
 				<key>leading</key>
-				<string>//                            .frame(width: .infinity)
+				<string>                            .frame(width: 1000)
                         }
 </string>
 				<key>trailing</key>
-				<string>//                        ScrollView (.vertical, showsIndicators: false) {
-                        List {
+				<string>                        ScrollView (.vertical, showsIndicators: false) {
                             VStack {
+                                VStack {
 </string>
 			</dict>
 			<key>type</key>

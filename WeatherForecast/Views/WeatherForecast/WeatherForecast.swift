@@ -90,6 +90,10 @@ struct WeatherForecast: View {
             if weatherInfo.offsetString != ""  {
                 if let weather {
                     if UIDevice.isIpad {
+                        ///
+                        /// Kan ikke bruke ScrollView() på iPad, må benytte List istedetfor:
+                        /// Dette medfører litt kosmetisk rusk.
+                        ///
 //                        ScrollView(.vertical, showsIndicators: false) {
                         List {
                             VStack {
@@ -220,11 +224,18 @@ struct WeatherForecast: View {
                                 ///
                                 WeatherForecastHistoryEurope(weather: weather)
                             }
-//                            .frame(width: .infinity)
+                            .listStyle(.insetGrouped)
+                            .navigationBarHidden(true)
+                            ///
+                            /// Må legge inn .frame for å sentrere view i full skjerm
+                            ///
+                            .frame(width: 1000)
                         }
                     } else if UIDevice.isiPhone {
-//                        ScrollView (.vertical, showsIndicators: false) {
-                        List {
+                        ///
+                        /// Kan benytte ScrollView i iPhone, men "frisk opp" lager problemer!!!!!
+                        ///
+                        ScrollView (.vertical, showsIndicators: false) {
                             VStack {
                                 VStack {
                                     Text(weatherInfo.placeName.count > 0 ? weatherInfo.placeName : "No placeName")
@@ -564,9 +575,10 @@ struct WeatherForecast: View {
                     weather = nil
                     do {
                         self.weather = try await weatherService.weather(for: location)
-                        if let weather {
-                            currentWeather.dt = 0
-                            ///
+                        currentWeather.dt = 0
+                        if let weather,
+                           status == "" {
+                           ///
                             /// Legger inn Airquality:
                             ///
                             /// Air Quality Index. Possible values: 1, 2, 3, 4, 5. Where 1 = Good, 2 = Fair, 3 = Moderate, 4 = Poor, 5 = Very Poor.
