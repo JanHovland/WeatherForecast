@@ -24,27 +24,10 @@ struct MoonView: View {
                 }
                 .opacity(0.50)
                 .padding(.leading, -40)
-                /// Viser hvordan temperaturen føles:
-                ///
-    //            Text("\(Int(currentWeather.apparentTemperature.rounded()))º")
-    //                .font(.system(size: 40, weight: .light))
-    //                .padding(.top, 10)
-    //                .padding(.leading, -70)
-    //            VStack {
-    //                /// Beskrivelse av hvordan temperaturen føles:
-    //                if currentWeather.temperature.rounded() == currentWeather.apparentTemperature.rounded() {
-    //                    Text("The same as actual temperature.")
-    //                        .lineLimit(4)
-    //                        .padding(.top, 10)
-    //                } else {
-    //                    Text("The wind can make it feel colder.")
-    //                        .lineLimit(4)
-    //                        .padding(.top, 10)
-    //                }
-    //            }
                 Spacer()
             }
-            .frame(width: 358, height: 200)
+            .frame(width: UIDevice.isIpad ? 358 : 358,
+                   height: UIDevice.isIpad ? 200 : 200)
             .padding(15)
             .modifier(DayDetailBackground(dayLight: currentWeather.isDaylight))
         }

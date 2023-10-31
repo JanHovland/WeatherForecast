@@ -1240,3 +1240,25 @@
 /* No comment provided by engineer. */
 "Very poor" = "Veldig dårlig";
 
+/* No comment provided by engineer. */
+"No available data for air quality in %@" = "Ingen tilgjengelige data for luftkvalitet i %@";
+
+/* No comment provided by engineer. */
+"Carbon monoxide (CO): " = "Karbonmonoksid (CO): ";
+
+/* No comment provided by engineer. */
+"Ozone (O3): " = "Ozon (O3): ";
+
+/* No comment provided by engineer. */
+"Particulates (PM2.5): " = "Partikler (PM2,5): ";
+
+/* No comment provided by engineer. */
+"Particulates (PM10): " = "Partikler (PM10): ";
+
+/* No comment provided by engineer. */
+"Nitrogen dioxide (NO2): " = "Nitrogendioksid (NO2): ";
+
+/* No comment provided by engineer. */
+"Sulphur dioxide (SO2): " = "Svoveldioksid (SO2): ";
+
+

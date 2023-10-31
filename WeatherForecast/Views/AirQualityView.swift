@@ -10,11 +10,13 @@ import SwiftUI
 struct AirQualityView: View {
     @Environment(CurrentWeather.self) private var currentWeather
     @Environment(WeatherInfo.self) private var weatherInfo
-
+    
     @State private var minValue : CGFloat = 0.0
     @State private var maxValue : CGFloat = 5.0
     @State private var gradient = Gradient(colors: [.green, .yellow, .orange, .red, .purple])
-
+    
+    @State var isModal: Bool = false
+    
     var body: some View {
         VStack {
             if currentWeather.dt != 0 {
@@ -50,6 +52,21 @@ struct AirQualityView: View {
                 .opacity(0.50)
                 .padding(.top, 40)
                 .padding(.leading, UIDevice.isIpad ? -180 : -180)
+                if UIDevice.isiPhone {
+                    ZStack {
+                       Spacer()
+                        HStack {
+                            Spacer()
+                            Button("Information") {
+                                self.isModal = true
+                            }
+                            .sheet(isPresented: $isModal, content: {
+                                AirQualityViewInformation()
+                            })
+                        }
+                        .padding(.trailing, 10)
+                    }
+                }
                 ///
                 /// Viser status for luftkvaliteten:
                 ///
@@ -92,7 +109,8 @@ struct AirQualityView: View {
                 /// Viser verdien av Sulphur dioxide (SO2):
                 ///
                 HStack {
-                    Text("Sulphur dioxide (SO2): \(Int(currentWeather.so2)) μg/m3")
+                    let v = String(localized: "Sulphur dioxide (SO2): ")
+                    Text("\(v)\(Int(currentWeather.so2)) μg/m3")
                     Spacer()
                 }
                 .font(.footnote)
@@ -136,7 +154,8 @@ struct AirQualityView: View {
                 /// Viser verdien av Nitrogen dioxide:
                 ///
                 HStack {
-                    Text("Nitrogen dioxide (NO2): \(Int(currentWeather.no2)) μg/m3")
+                    let v = String(localized: "Nitrogen dioxide (NO2): ")
+                    Text("\(v)\(Int(currentWeather.no2)) μg/m3")
                     Spacer()
                 }
                 .font(.footnote)
@@ -180,7 +199,8 @@ struct AirQualityView: View {
                 /// Viser verdien av particulates (PM10):
                 ///
                 HStack {
-                    Text("Particulates (PM10): \(Int(currentWeather.no2)) μg/m3")
+                    let v = String(localized: "Particulates (PM10): ")
+                    Text("\(v)\(Int(currentWeather.no2)) μg/m3")
                     Spacer()
                 }
                 .font(.footnote)
@@ -224,7 +244,8 @@ struct AirQualityView: View {
                 /// Viser verdien av Viser verdien av particulates (PM2.5):
                 ///
                 HStack {
-                    Text("Particulates (PM2.5): \(Int(currentWeather.pm2_5)) μg/m3")
+                    let v = String(localized: "Particulates (PM2.5): ")
+                    Text("\(v)\(Int(currentWeather.pm2_5)) μg/m3")
                     Spacer()
                 }
                 .font(.footnote)
@@ -268,7 +289,8 @@ struct AirQualityView: View {
                 /// Viser verdien av Viser verdien av Ozone (O3):
                 ///
                 HStack {
-                    Text("Ozone (O3): \(Int(currentWeather.o3)) μg/m3")
+                    let v = String(localized: "Ozone (O3): ")
+                    Text("\(v) μg/m3")
                     Spacer()
                 }
                 .font(.footnote)
@@ -312,7 +334,8 @@ struct AirQualityView: View {
                 /// Viser verdien av Carbon monoxide (CO):
                 ///
                 HStack {
-                    Text("Carbon monoxide (CO): \(Int(currentWeather.co)) μg/m3")
+                    let v = String(localized: "Carbon monoxide (CO): ")
+                    Text("\(v)\(Int(currentWeather.co)) μg/m3")
                     Spacer()
                 }
                 .font(.footnote)
@@ -371,7 +394,8 @@ struct AirQualityView: View {
                 }
             }
         }
-        .frame(width: 358, height: 200)
+        .frame(width: UIDevice.isIpad ? 358 : 358,
+               height: UIDevice.isIpad ? 200 : 230)
         .padding(15)
         .modifier(DayDetailBackground(dayLight: currentWeather.isDaylight))
     }

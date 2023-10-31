@@ -157,6 +157,7 @@
 		DBDDEA0129BDC86000301E77 /* RefreshOffset.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDDEA0029BDC86000301E77 /* RefreshOffset.swift */; };
 		DBE02B3C29335D9600B1FB05 /* RainFall.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE02B3B29335D9600B1FB05 /* RainFall.swift */; };
 		DBE3CD45289925660099D056 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DBE3CD47289925660099D056 /* InfoPlist.strings */; };
+		DBE5FA032AF1801400ADD3AE /* AirQualityViewInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE5FA022AF1801400ADD3AE /* AirQualityViewInformation.swift */; };
 		DBECD4E12AE971A6005FD489 /* RefreshOffsetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBECD4E02AE971A6005FD489 /* RefreshOffsetView.swift */; };
 		DBF1038529A92C56008B4281 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF1038429A92C56008B4281 /* SearchBar.swift */; };
 		DBF2ABD729D4A4F0008ECB6C /* GetBaseDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF2ABD629D4A4F0008ECB6C /* GetBaseDate.swift */; };
@@ -323,6 +324,7 @@
 		DBE02B3B29335D9600B1FB05 /* RainFall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RainFall.swift; sourceTree = "<group>"; };
 		DBE3CD46289925660099D056 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		DBE3CD482899256E0099D056 /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		DBE5FA022AF1801400ADD3AE /* AirQualityViewInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirQualityViewInformation.swift; sourceTree = "<group>"; };
 		DBECD4E02AE971A6005FD489 /* RefreshOffsetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshOffsetView.swift; sourceTree = "<group>"; };
 		DBF1038429A92C56008B4281 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		DBF2ABD629D4A4F0008ECB6C /* GetBaseDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetBaseDate.swift; sourceTree = "<group>"; };
@@ -382,9 +384,9 @@
 				DB5C0C522917CD4500141BDC /* UvIndex */,
 				DB2727F02965C882003B0903 /* ViewModifier */,
 				DBC65DE12907C3D7004635FE /* WeatherForecast */,
-				DB4FA8C22AEF8EC800533266 /* AirQualityView.swift */,
-				DB7B50D92AF1492A00A61BA1 /* AppsForIPhone.swift */,
 				DB7B50DB2AF1498E00A61BA1 /* AppsForIPad.swift */,
+				DB7B50D92AF1492A00A61BA1 /* AppsForIPhone.swift */,
+				DB4FA8C22AEF8EC800533266 /* AirQualityView.swift */,
 				DBB6905528FB0202006FA016 /* DayOverview.swift */,
 				DB9D0B2028F09549002ABA9E /* FeelsLike.swift */,
 				DBF3DEAC28F5EF0F00509CF4 /* HourOverview.swift */,
@@ -738,6 +740,7 @@
 				DB0C032A2976814D0066E79A /* WeatherForecastSelectPlace.swift */,
 				DB2F3AC329EBE73C00D332E1 /* WeatherForecastHistoryEurope.swift */,
 				DB760C062AE6D24C000B08D1 /* WeatherForecastSearchPlace.swift */,
+				DBE5FA022AF1801400ADD3AE /* AirQualityViewInformation.swift */,
 			);
 			path = WeatherForecast;
 			sourceTree = "<group>";
@@ -856,6 +859,7 @@
 				DB417E7D2AE18BAD00E77C4F /* FindChartDataFeelTemperature.swift in Sources */,
 				DBA2AA5529237EC700581301 /* DayDetailShowUnit.swift in Sources */,
 				DBCD43752AEE38C2007543BE /* FindAirQuality.swift in Sources */,
+				DBE5FA032AF1801400ADD3AE /* AirQualityViewInformation.swift in Sources */,
 				DBC9697C29005915009C089E /* ToDoView.swift in Sources */,
 				DB7B08C32928C68C0060A84E /* DayDetailHourIcons.swift in Sources */,
 				DB2C677328E72F04002EC5C1 /* GetForwardGeoCode.swift in Sources */,

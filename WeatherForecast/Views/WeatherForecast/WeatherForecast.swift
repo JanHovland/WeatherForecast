@@ -92,9 +92,10 @@ struct WeatherForecast: View {
                     if UIDevice.isIpad {
                         ///
                         /// Kan ikke bruke ScrollView() på iPad, må benytte List istedetfor:
+                        /// Dette er kanskje en feil i iPadOS 17.2 (21C5029g) ?
                         /// Dette medfører litt kosmetisk rusk.
                         ///
-//                        ScrollView(.vertical, showsIndicators: false) {
+//                        ScrollView (.vertical, showsIndicators: false) {
                         List {
                             VStack {
                                 VStack {
@@ -107,19 +108,6 @@ struct WeatherForecast: View {
                                         .renderingMode(.original)
                                         .font(.system(size: 30, weight: .light))
                                         .contextMenu {
-                                            ///
-                                            /// Frisk opp:
-                                            ///
-                                            Button (action: {
-                                                Task.init {
-                                                    await Refresh()
-                                                }
-                                            }, label: {
-                                                HStack {
-                                                    Text("Refresh")
-                                                    Image(systemName: "arrow.uturn.right.circle")
-                                                }
-                                            })
                                             ///
                                             /// Slette dette stedet:
                                             ///
@@ -193,19 +181,6 @@ struct WeatherForecast: View {
                                         .offset(x:  170,
                                                 y:  -55)
                                         .contextMenu {
-                                            ///
-                                            /// Frisk opp:
-                                            ///
-                                            Button (action: {
-                                                Task.init {
-                                                    await Refresh()
-                                                }
-                                            }, label: {
-                                                HStack {
-                                                    Text("Refresh")
-                                                    Image(systemName: "arrow.uturn.right.circle")
-                                                }
-                                            })
                                             ///
                                             /// Slette dette stedet:
                                             ///

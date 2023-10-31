@@ -6,9 +6,14 @@
 //
 
 import SwiftUI
+import TipKit
 
 @main
 struct WeatherForecastApp: App {
+    init() {
+        // Configure Tip's data container
+        try? Tips.configure()
+    }
     var body: some Scene {
         @State var dateSettings = DateSettings()
         @State var currentWeather = CurrentWeather()
