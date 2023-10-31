@@ -102,6 +102,8 @@
 		DB7831F0289917B9003DD4B7 /* weather.png in Resources */ = {isa = PBXBuildFile; fileRef = DB7831EF289917B9003DD4B7 /* weather.png */; };
 		DB7B036829B31E7A00B4618A /* ServerResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7B036729B31E7A00B4618A /* ServerResponse.swift */; };
 		DB7B08C32928C68C0060A84E /* DayDetailHourIcons.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7B08C22928C68B0060A84E /* DayDetailHourIcons.swift */; };
+		DB7B50DA2AF1492A00A61BA1 /* AppsForIPhone.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7B50D92AF1492A00A61BA1 /* AppsForIPhone.swift */; };
+		DB7B50DC2AF1498E00A61BA1 /* AppsForIPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7B50DB2AF1498E00A61BA1 /* AppsForIPad.swift */; };
 		DB7B6505294B8F16009822E5 /* Temperature.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7B6504294B8F16009822E5 /* Temperature.swift */; };
 		DB82F5B92971CF9800818841 /* CloudKitPlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB82F5B82971CF9800818841 /* CloudKitPlace.swift */; };
 		DB82F5BC2971D0F800818841 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB82F5BB2971D0F800818841 /* Config.swift */; };
@@ -263,6 +265,8 @@
 		DB7831EF289917B9003DD4B7 /* weather.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = weather.png; sourceTree = "<group>"; };
 		DB7B036729B31E7A00B4618A /* ServerResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerResponse.swift; sourceTree = "<group>"; };
 		DB7B08C22928C68B0060A84E /* DayDetailHourIcons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayDetailHourIcons.swift; sourceTree = "<group>"; };
+		DB7B50D92AF1492A00A61BA1 /* AppsForIPhone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsForIPhone.swift; sourceTree = "<group>"; };
+		DB7B50DB2AF1498E00A61BA1 /* AppsForIPad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsForIPad.swift; sourceTree = "<group>"; };
 		DB7B6504294B8F16009822E5 /* Temperature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Temperature.swift; sourceTree = "<group>"; };
 		DB82F5B82971CF9800818841 /* CloudKitPlace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitPlace.swift; sourceTree = "<group>"; };
 		DB82F5BB2971D0F800818841 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
@@ -379,6 +383,8 @@
 				DB2727F02965C882003B0903 /* ViewModifier */,
 				DBC65DE12907C3D7004635FE /* WeatherForecast */,
 				DB4FA8C22AEF8EC800533266 /* AirQualityView.swift */,
+				DB7B50D92AF1492A00A61BA1 /* AppsForIPhone.swift */,
+				DB7B50DB2AF1498E00A61BA1 /* AppsForIPad.swift */,
 				DBB6905528FB0202006FA016 /* DayOverview.swift */,
 				DB9D0B2028F09549002ABA9E /* FeelsLike.swift */,
 				DBF3DEAC28F5EF0F00509CF4 /* HourOverview.swift */,
@@ -942,6 +948,7 @@
 				DB5C0C322915263600141BDC /* MenuTitleToOption.swift in Sources */,
 				DB0230C528E4E5D700DCE15C /* WeatherForecastDetail.swift in Sources */,
 				DB5C0C542917CD9A00141BDC /* UvIndexHeading.swift in Sources */,
+				DB7B50DC2AF1498E00A61BA1 /* AppsForIPad.swift in Sources */,
 				DBB99D392AE425BE0022B6E9 /* FindChartDataPrecipitation.swift in Sources */,
 				DB4A8DB029487EDA0067C4F8 /* InfoHumidity.swift in Sources */,
 				DB280ED528F5CABF00269D23 /* Precipitation24h.swift in Sources */,
@@ -976,6 +983,7 @@
 				DB7B6505294B8F16009822E5 /* Temperature.swift in Sources */,
 				DB82F5BC2971D0F800818841 /* Config.swift in Sources */,
 				DB17F6B229601AD000FC2A0B /* DayDetailMenuDataView.swift in Sources */,
+				DB7B50DA2AF1492A00A61BA1 /* AppsForIPhone.swift in Sources */,
 				DB51164228E442F300DEB1BF /* WeatherForecastMain.swift in Sources */,
 				DB17F6A8295DF4DC00FC2A0B /* DayDetailWeatherDataHumidity.swift in Sources */,
 				DB17F6A4295DF39C00FC2A0B /* DayDetailWeatherDataPrecifitation.swift in Sources */,
