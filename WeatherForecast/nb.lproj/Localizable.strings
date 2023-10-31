@@ -1261,4 +1261,8 @@
 /* No comment provided by engineer. */
 "Sulphur dioxide (SO2): " = "Svoveldioksid (SO2): ";
 
+/* No comment provided by engineer. */
+"AirQualityViewInformation" = "Detaljert informasjon om luftkvaliteten";
+
+
 

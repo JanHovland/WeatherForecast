@@ -15,7 +15,8 @@ struct AirQualityView: View {
     @State private var maxValue : CGFloat = 5.0
     @State private var gradient = Gradient(colors: [.green, .yellow, .orange, .red, .purple])
     
-    @State var isModal: Bool = false
+    @State private var isModal: Bool = false
+    @State private var expImage = String()
     
     var body: some View {
         VStack {
@@ -61,7 +62,7 @@ struct AirQualityView: View {
                                 self.isModal = true
                             }
                             .sheet(isPresented: $isModal, content: {
-                                AirQualityViewInformation()
+                                AirQualityViewInformation(image: $expImage)
                             })
                         }
                         .padding(.trailing, 10)
@@ -392,6 +393,19 @@ struct AirQualityView: View {
                             y: UIDevice.isIpad ? -70 : -70)
                     Text("No available data for air quality in \(weatherInfo.placeName) \(weatherInfo.countryName)")
                 }
+            }
+        }
+        .task {
+            if currentWeather.aqi == 1 {
+                expImage = "aqi.low"
+            } else if currentWeather.aqi == 2 {
+                expImage = "aqi.medium"
+            } else if currentWeather.aqi == 3 {
+                expImage = "aqi.medium"
+            } else if currentWeather.aqi == 4 {
+                expImage = "aqi.high"
+            } else if currentWeather.aqi == 5 {
+                expImage = "aqi.high"
             }
         }
         .frame(width: UIDevice.isIpad ? 358 : 358,

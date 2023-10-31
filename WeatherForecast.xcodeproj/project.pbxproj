@@ -387,6 +387,7 @@
 				DB7B50DB2AF1498E00A61BA1 /* AppsForIPad.swift */,
 				DB7B50D92AF1492A00A61BA1 /* AppsForIPhone.swift */,
 				DB4FA8C22AEF8EC800533266 /* AirQualityView.swift */,
+				DBE5FA022AF1801400ADD3AE /* AirQualityViewInformation.swift */,
 				DBB6905528FB0202006FA016 /* DayOverview.swift */,
 				DB9D0B2028F09549002ABA9E /* FeelsLike.swift */,
 				DBF3DEAC28F5EF0F00509CF4 /* HourOverview.swift */,
@@ -740,7 +741,6 @@
 				DB0C032A2976814D0066E79A /* WeatherForecastSelectPlace.swift */,
 				DB2F3AC329EBE73C00D332E1 /* WeatherForecastHistoryEurope.swift */,
 				DB760C062AE6D24C000B08D1 /* WeatherForecastSearchPlace.swift */,
-				DBE5FA022AF1801400ADD3AE /* AirQualityViewInformation.swift */,
 			);
 			path = WeatherForecast;
 			sourceTree = "<group>";
