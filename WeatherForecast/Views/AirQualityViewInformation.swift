@@ -21,6 +21,23 @@ struct AirQualityViewInformation: View {
     @Environment(WeatherInfo.self) private var weatherInfo
     @Environment(CurrentWeather.self) private var currentWeather
     
+    /// https://www.compart.com/en/unicode/U+00B3
+    /// https://www.compart.com/en/unicode/block/U+0080
+    /// https://en.wikipedia.org/wiki/Unicode_subscripts_and_superscripts#Superscripts_and_subscripts_block
+    /// \u{00B3} = ³
+    /// \u{2082} =
+    
+    var descriptionSO2 =
+"""
+Sulphur dioxide (SO\u{2082})
+Qualitative name    Index    Pollutant μg/m\u{00B3}
+Good                 1       0:20
+Fair                 2       0:80
+Moderate             3       80:250
+Poor                 4       250:350
+Very Poor            5       ⩾350
+"""
+    
     var body: some View {
         VStack {
             ZStack {
@@ -53,8 +70,18 @@ struct AirQualityViewInformation: View {
                 Spacer()
             }
 
-            Text("o3 = \(String(format: "%.2f", o3))")
+            Text("o\u{2082} = \(String(format: "%.2f", o3))")
             
+            
+            Text(descriptionSO2)
+                .font(.system(.footnote, design: .monospaced).italic())
+            
+            Text("Pm\u{2081}\u{2080}")
+            Text("Pm\u{2082}\u{208B}\u{2085}")
+
+            
+            
+
             Spacer()
         }
     }

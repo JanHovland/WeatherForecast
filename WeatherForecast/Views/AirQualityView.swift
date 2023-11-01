@@ -125,8 +125,8 @@ struct AirQualityView: View {
                 /// Viser verdien av Sulphur dioxide (SO2):
                 ///
                 HStack {
-                    let v = String(localized: "Sulphur dioxide (SO2): ")
-                    Text("\(v)\(Int(currentWeather.so2)) μg/m3")
+                    let v = String(localized: "Sulphur dioxide ")
+                    Text("\(v)(SO\u{2082}) : \(Int(currentWeather.so2)) μg/m\u{00B3}")
                     Spacer()
                 }
                 .font(.footnote)
@@ -170,8 +170,8 @@ struct AirQualityView: View {
                 /// Viser verdien av Nitrogen dioxide:
                 ///
                 HStack {
-                    let v = String(localized: "Nitrogen dioxide (NO2): ")
-                    Text("\(v)\(Int(currentWeather.no2)) μg/m3")
+                    let v = String(localized: "Nitrogen dioxide ")
+                    Text("\(v)(NO\u{2082}) : \(Int(currentWeather.no2)) μg/m\u{00B3}")
                     Spacer()
                 }
                 .font(.footnote)
@@ -215,8 +215,8 @@ struct AirQualityView: View {
                 /// Viser verdien av particulates (PM10):
                 ///
                 HStack {
-                    let v = String(localized: "Particulates (PM10): ")
-                    Text("\(v)\(Int(currentWeather.pm10)) μg/m3")
+                    let v = String(localized: "Particulates ") // (PM10): ")
+                    Text("\(v)(PM\u{2081}\u{2080}) : \(Int(currentWeather.pm10)) μg/m\u{00B3}")
                     Spacer()
                 }
                 .font(.footnote)
@@ -260,8 +260,8 @@ struct AirQualityView: View {
                 /// Viser verdien av Viser verdien av particulates (PM2.5):
                 ///
                 HStack {
-                    let v = String(localized: "Particulates (PM2.5): ")
-                    Text("\(v)\(Int(currentWeather.pm2_5)) μg/m3")
+                    let v = String(localized: "Particulates ")
+                    Text("\(v)(PM\u{2082}\u{208B}\u{2085}) : \(Int(currentWeather.pm2_5)) μg/m\u{00B3}")
                     Spacer()
                 }
                 .font(.footnote)
@@ -305,8 +305,12 @@ struct AirQualityView: View {
                 /// Viser verdien av Viser verdien av Ozone (O3):
                 ///
                 HStack {
-                    let v = String(localized: "Ozone (O3): ")
-                    Text("\(v)\(String(format: "%.2f", currentWeather.o3)) μg/m3")
+                    let v = String(localized: "Ozone ")
+                    if currentWeather.o3 < 1.00 {
+                        Text("\(v)(O\u{2083}) : \(String(format: "%.2f", currentWeather.o3)) μg/m\u{00B3}")
+                    } else {
+                        Text("\(v)(O\u{2083}) : \(Int(currentWeather.o3)) μg/m\u{00B3}")
+                    }
                     Spacer()
                 }
                 .font(.footnote)
@@ -351,7 +355,7 @@ struct AirQualityView: View {
                 ///
                 HStack {
                     let v = String(localized: "Carbon monoxide (CO): ")
-                    Text("\(v)\(Int(currentWeather.co)) μg/m3")
+                    Text("\(v)\(Int(currentWeather.co)) μg/m\u{00B3}")
                     Spacer()
                 }
                 .font(.footnote)
@@ -404,20 +408,11 @@ struct AirQualityView: View {
                             Spacer()
                         }
                     }
-                    .offset(x: UIDevice.isIpad ? 0 : 0, // -92 : -92,
+                    .offset(x: UIDevice.isIpad ? 0 : 0,
                             y: UIDevice.isIpad ? -70 : -70)
                     Text("No available data for air quality in \(weatherInfo.placeName) \(weatherInfo.countryName)")
                 }
             }
-        }
-        .task {
-//            image = currentWeather.image
-//            so2 = currentWeather.so2
-//            no2 = currentWeather.no2
-//            pm10 = currentWeather.pm10
-//            pm2_5 = currentWeather.pm2_5
-//            o3 = currentWeather.o3
-//            co = currentWeather.co
         }
         .frame(width: UIDevice.isIpad ? 358 : 358,
                height: UIDevice.isIpad ? 200 : 230)
