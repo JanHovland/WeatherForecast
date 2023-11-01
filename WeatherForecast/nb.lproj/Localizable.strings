@@ -1261,5 +1261,13 @@
 /* No comment provided by engineer. */
 "AirQualityViewInformation" = "Detaljert informasjon om luftkvaliteten";
 
+/* No comment provided by engineer. */
+"Sulphur dioxide (SO\u{2082})" = "Svoveldioksid (SO\u{2082})";
+
+/* No comment provided by engineer. */
+"Qualitative name    Index    Pollutant μg/m\u{00B3})" =
+"Kvalitativt navn    Indeks   Forurensning μg/m\u{00B3})";
+
+
 
 

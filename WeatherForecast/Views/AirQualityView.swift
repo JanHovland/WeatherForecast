@@ -18,15 +18,6 @@ struct AirQualityView: View {
     
     @State private var isModal: Bool = false
     
-//    @State private var image: String
-//    
-//    @State private var so2 = Double()
-//    @State private var no2 = Double()
-//    @State private var pm10 = Double()
-//    @State private var pm2_5 = Double()
-//    @State private var o3 = Double()
-//    @State private var co = Double()
-    
     var body: some View {
         VStack {
             if currentWeather.dt != 0 {
@@ -70,6 +61,9 @@ struct AirQualityView: View {
                             Button("Information") {
                                 self.isModal = true
                             }
+                            .padding(7)
+                            .foregroundColor(.primary)
+                            .buttonStyle(.bordered)
                             .sheet(isPresented: $isModal, content: {
                                 AirQualityViewInformation(image: currentWeather.image,
                                                           so2: currentWeather.co,
@@ -80,7 +74,7 @@ struct AirQualityView: View {
                                                           co: currentWeather.co)
                             })
                         }
-                        .padding(.trailing, 10)
+                        .padding(.trailing, 0)
                     }
                 }
                 ///

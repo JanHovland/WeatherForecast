@@ -27,10 +27,12 @@ struct AirQualityViewInformation: View {
     /// \u{00B3} = ³
     /// \u{2082} =
     
+    @State private var a = String(localized: "Sulphur dioxide (SO\u{2082})")
+    @State private var heading = String(localized: "Qualitative name    Index    Pollutant μg/m\u{00B3})")
+    
+    
     var descriptionSO2 =
 """
-Sulphur dioxide (SO\u{2082})
-Qualitative name    Index    Pollutant μg/m\u{00B3}
 Good                 1       0:20
 Fair                 2       0:80
 Moderate             3       80:250
@@ -69,19 +71,20 @@ Very Poor            5       ⩾350
                 Text("\(weatherInfo.placeName) \(weatherInfo.countryName)")
                 Spacer()
             }
+            .padding(.top, 10)
 
-            Text("o\u{2082} = \(String(format: "%.2f", o3))")
+            Text(a)
+                .font(.system(.headline, design: .monospaced).italic())
+                .padding(.top, 10)
             
-            
+            HStack {
+                Text(heading)
+                    .font(.system(.footnote, design: .monospaced).italic())
+                Spacer()
+            }
             Text(descriptionSO2)
                 .font(.system(.footnote, design: .monospaced).italic())
-            
-            Text("Pm\u{2081}\u{2080}")
-            Text("Pm\u{2082}\u{208B}\u{2085}")
-
-            
-            
-
+ 
             Spacer()
         }
     }
