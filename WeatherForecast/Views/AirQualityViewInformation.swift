@@ -9,7 +9,13 @@ import SwiftUI
 
 struct AirQualityViewInformation: View {
     
-    @Binding var image: String
+    let image: String
+    let so2: Double
+    let no2: Double
+    let pm10: Double
+    let pm2_5: Double
+    let o3: Double
+    let co: Double
     
     @Environment(\.dismiss) var dismiss
     @Environment(WeatherInfo.self) private var weatherInfo
@@ -46,8 +52,8 @@ struct AirQualityViewInformation: View {
                 Text("\(weatherInfo.placeName) \(weatherInfo.countryName)")
                 Spacer()
             }
-            
-            Text("\(currentWeather.pm10)")
+
+            Text("o3 = \(String(format: "%.2f", o3))")
             
             Spacer()
         }

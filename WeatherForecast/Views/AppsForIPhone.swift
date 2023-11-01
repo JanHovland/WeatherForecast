@@ -13,6 +13,8 @@ struct AppsForIPhone: View {
     let weather: Weather
     @Binding var sunRises : [String]
     @Binding var sunSets : [String]
+    
+    @Environment(CurrentWeather.self) private var currentWeather
 
     var body: some View {
         Group {
@@ -22,7 +24,7 @@ struct AppsForIPhone: View {
                 ///
                 AirQualityView()
             }
-            HStack (spacing: 8) {
+           HStack (spacing: 8) {
                 ///
                 /// Viser månen:
                 ///

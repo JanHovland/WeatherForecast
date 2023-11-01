@@ -46,6 +46,13 @@ import Observation
     /// https://openweathermap.org/api/air-pollution#concept
     /// Air Quality Index. Possible values: 1, 2, 3, 4, 5. Where 1 = Good, 2 = Fair, 3 = Moderate, 4 = Poor, 5 = Very Poor.
      var aqi = Int()
+    /// Image som følge av aqi:
+     var image = String()
+
+
+
+
+
     ///  Сoncentration of CO (Carbon monoxide), μg/m3
      var co = Double()
     /// Сoncentration of NO (Nitrogen monoxide), μg/m3

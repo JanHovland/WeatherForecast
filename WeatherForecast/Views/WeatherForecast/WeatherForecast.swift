@@ -436,6 +436,17 @@ struct WeatherForecast: View {
                             /// Legger inn Airquality:
                             ///
                             /// Air Quality Index. Possible values: 1, 2, 3, 4, 5. Where 1 = Good, 2 = Fair, 3 = Moderate, 4 = Poor, 5 = Very Poor.
+                            if airQuality.aqi == 1 {
+                                currentWeather.image = "aqi.low"
+                            } else if airQuality.aqi == 2 {
+                                currentWeather.image = "aqi.medium"
+                            } else if airQuality.aqi == 3 {
+                                currentWeather.image = "aqi.medium"
+                            } else if airQuality.aqi == 4 {
+                                currentWeather.image = "aqi.high"
+                            } else if airQuality.aqi == 5 {
+                                currentWeather.image = "aqi.high"
+                            }
                             currentWeather.aqi = airQuality.aqi
                             ///  Сoncentration of CO (Carbon monoxide), μg/m3
                             currentWeather.co = airQuality.co

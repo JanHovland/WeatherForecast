@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct AirQualityView: View {
+    
     @Environment(CurrentWeather.self) private var currentWeather
     @Environment(WeatherInfo.self) private var weatherInfo
     
@@ -16,7 +17,15 @@ struct AirQualityView: View {
     @State private var gradient = Gradient(colors: [.green, .yellow, .orange, .red, .purple])
     
     @State private var isModal: Bool = false
-    @State private var expImage = String()
+    
+//    @State private var image: String
+//    
+//    @State private var so2 = Double()
+//    @State private var no2 = Double()
+//    @State private var pm10 = Double()
+//    @State private var pm2_5 = Double()
+//    @State private var o3 = Double()
+//    @State private var co = Double()
     
     var body: some View {
         VStack {
@@ -62,7 +71,13 @@ struct AirQualityView: View {
                                 self.isModal = true
                             }
                             .sheet(isPresented: $isModal, content: {
-                                AirQualityViewInformation(image: $expImage)
+                                AirQualityViewInformation(image: currentWeather.image,
+                                                          so2: currentWeather.co,
+                                                          no2: currentWeather.no2,
+                                                          pm10: currentWeather.pm10,
+                                                          pm2_5: currentWeather.pm2_5,
+                                                          o3: currentWeather.o3,
+                                                          co: currentWeather.co)
                             })
                         }
                         .padding(.trailing, 10)
@@ -201,7 +216,7 @@ struct AirQualityView: View {
                 ///
                 HStack {
                     let v = String(localized: "Particulates (PM10): ")
-                    Text("\(v)\(Int(currentWeather.no2)) μg/m3")
+                    Text("\(v)\(Int(currentWeather.pm10)) μg/m3")
                     Spacer()
                 }
                 .font(.footnote)
@@ -291,7 +306,7 @@ struct AirQualityView: View {
                 ///
                 HStack {
                     let v = String(localized: "Ozone (O3): ")
-                    Text("\(v) μg/m3")
+                    Text("\(v)\(String(format: "%.2f", currentWeather.o3)) μg/m3")
                     Spacer()
                 }
                 .font(.footnote)
@@ -396,17 +411,13 @@ struct AirQualityView: View {
             }
         }
         .task {
-            if currentWeather.aqi == 1 {
-                expImage = "aqi.low"
-            } else if currentWeather.aqi == 2 {
-                expImage = "aqi.medium"
-            } else if currentWeather.aqi == 3 {
-                expImage = "aqi.medium"
-            } else if currentWeather.aqi == 4 {
-                expImage = "aqi.high"
-            } else if currentWeather.aqi == 5 {
-                expImage = "aqi.high"
-            }
+//            image = currentWeather.image
+//            so2 = currentWeather.so2
+//            no2 = currentWeather.no2
+//            pm10 = currentWeather.pm10
+//            pm2_5 = currentWeather.pm2_5
+//            o3 = currentWeather.o3
+//            co = currentWeather.co
         }
         .frame(width: UIDevice.isIpad ? 358 : 358,
                height: UIDevice.isIpad ? 200 : 230)
