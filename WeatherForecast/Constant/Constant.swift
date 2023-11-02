@@ -27,6 +27,11 @@ let hailType: Int = 4
 ///
 /// Constant for Air Quality:
 ///
+
+/// https://www.compart.com/en/unicode/U+00B3
+/// https://www.compart.com/en/unicode/block/U+0080
+/// https://en.wikipedia.org/wiki/Unicode_subscripts_and_superscripts#Superscripts_and_subscripts_block
+
 let aqUnit: String = "μg/m\u{00B3}"
 let SO2: String = "SO\u{2082}"
 let NO2: String = "NO\u{2082}"

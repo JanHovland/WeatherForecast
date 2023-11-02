@@ -17,7 +17,8 @@ struct AirQualityView: View {
     @State private var gradient = Gradient(colors: [.green, .yellow, .orange, .red, .purple])
     
     @State private var isModal: Bool = false
-    
+    @State private var so2Index: Int = 0
+
     var body: some View {
         VStack {
             if currentWeather.dt != 0 {
@@ -350,7 +351,7 @@ struct AirQualityView: View {
                     /// Viser verdien av Carbon monoxide (CO):
                     ///
                     HStack {
-                        let v = String(localized: "Carbon monoxide CO: ")
+                        let v = String(localized: "Carbon monoxide CO : ")
                         Text("\(v)\(Int(currentWeather.co)) \(aqUnit)")
                         Spacer()
                     }

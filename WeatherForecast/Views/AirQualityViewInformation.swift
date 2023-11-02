@@ -20,26 +20,21 @@ struct AirQualityViewInformation: View {
     let aqNO2: String = String(localized: "Nitrogen dioxide")
     let aqPM: String = String(localized: "Particulates")
     let aqO3: String = String(localized: "Ozone")
-    let aqCO: String = String(localized: "Carbon monoxide (CO)")
+    let aqCO: String = String(localized: "Carbon monoxide CO")
 
     @Environment(\.dismiss) var dismiss
     @Environment(WeatherInfo.self) private var weatherInfo
     @Environment(CurrentWeather.self) private var currentWeather
     
-    /// https://www.compart.com/en/unicode/U+00B3
-    /// https://www.compart.com/en/unicode/block/U+0080
-    /// https://en.wikipedia.org/wiki/Unicode_subscripts_and_superscripts#Superscripts_and_subscripts_block
-    @State private var heading = String(localized: "Qualitative name    Index    Pollutant")
+    @State private var so2Index: Int = 0
     
-    var descriptionSO2 =
-"""
-Good                 1       0:20\n
-Fair                 2       0:80\n
-Moderate             3       80:250\n
-Poor                 4       250:350\n
-Very Poor            5       ⩾350
-"""
-    
+    @State private var so2AqLimit = [
+                AQLimit(id: UUID(), designation: String(localized: "Good"), index: 1, value: "0:20"),
+                AQLimit(id: UUID(), designation: String(localized: "Fair"), index: 2, value: "20:80"),
+                AQLimit(id: UUID(), designation: String(localized: "Moderate"), index: 3, value: "80:250"),
+                AQLimit(id: UUID(), designation: String(localized: "Poor"), index: 4, value: "250:350"),
+                AQLimit(id: UUID(), designation: String(localized: "Very poor"), index: 5, value: "⩾350")]
+                       
     var body: some View {
         VStack {
             ZStack {
@@ -65,33 +60,118 @@ Very Poor            5       ⩾350
             
             Text("Detailed information on air quality")
                 .padding(.top, -27.5)
-            ///
-            /// Viser sted og land:
-            ///
-            HStack {
-                Spacer()
-                Text("\(weatherInfo.placeName) \(weatherInfo.countryName)")
-                Spacer()
-            }
-            .padding(.top, 10)
-            ///
-            /// Viser grenseverdiene for SO2:
-            ///
-            Text("\(aqSO2) (\(SO2)")
-                .font(.system(.headline, design: .monospaced).italic())
+            VStack {
+                ///
+                /// Viser sted og land:
+                ///
+                HStack {
+                    Spacer()
+                    Text("\(weatherInfo.placeName) \(weatherInfo.countryName)")
+                    Spacer()
+                }
+                ///
+                /// Viser grenseverdiene for SO2:
+                ///
+                HStack {
+                    Spacer()
+                    Text("\(aqSO2) \(SO2)")
+                        .font(.system(.headline, design: .monospaced).italic())
+                    Spacer()
+                }
+                .padding(.leading, 10)
+                .padding(.top, 5)
+                ///
+                /// Overskrift:
+                ///
+                HStack {
+                    HStack {
+                        Text("Designation")
+                        Spacer()
+                    }
+                    HStack {
+                        Spacer()
+                        Text("Index")
+                        Spacer()
+                    }
+                    HStack {
+                        Spacer()
+                        Text("Pollutant")
+                    }
+                }
+                .padding(.horizontal, 10)
                 .padding(.top, 10)
-            ///
-            /// Overskrift:
-            ///
-            HStack {
-                Text(heading)
-                    .font(.system(.footnote, design: .monospaced).italic())
+                ZStack {
+                    List (so2AqLimit) { aq in
+                        HStack {
+                            HStack {
+                                Text(aq.designation)
+                                Spacer()
+                            }
+                            HStack {
+                                Spacer()
+                                Text("\(aq.index)")
+                                Spacer()
+                            }
+                            HStack {
+                                Spacer()
+                                Text("\(aq.value)")
+                            }
+                        }
+                        ///
+                        /// Fargen il følge index:
+                        ///
+                        .modifier(AirQualityViewModifier(so2Index: so2Index, index: aq.index))
+                    }
+                    .listStyle(.inset)
+                }
+                .offset(y : UIDevice.isIpad ? 0 : -10)
+                ZStack {
+                    List (so2AqLimit) { aq in
+                        HStack {
+                            HStack {
+                                Text(aq.designation)
+                                Spacer()
+                            }
+                            HStack {
+                                Spacer()
+                                Text("\(aq.index)")
+                                Spacer()
+                            }
+                            HStack {
+                                Spacer()
+                                Text("\(aq.value)")
+                            }
+                        }
+                        ///
+                        /// Fargen il følge index:
+                        ///
+                        .modifier(AirQualityViewModifier(so2Index: so2Index, index: aq.index))
+                    }
+                    .listStyle(.inset)
+                }
+                .offset(y : UIDevice.isIpad ? 0 : -10)
                 Spacer()
             }
-            Text(descriptionSO2)
-                .font(.system(.footnote, design: .monospaced).italic())
- 
-            Spacer()
+            .offset(y : UIDevice.isIpad ? 0 : 20)
         }
+        .task {
+            ///
+            /// Finner so2Index
+            ///
+            if currentWeather.so2 < 20.00 {
+                so2Index = 1
+            } else if currentWeather.so2 >  20.00,
+                      currentWeather.so2 <= 80.00 {
+                so2Index = 2
+            } else if currentWeather.so2 >  80.00,
+                      currentWeather.so2 <= 250.00 {
+                so2Index = 3
+            } else if currentWeather.so2 >  250.00,
+                      currentWeather.so2 <= 350.00 {
+                so2Index = 4            }
+            else if currentWeather.so2 >= 350.00 {
+                so2Index = 5
+            }
+        }    
     }
 }

@@ -1244,7 +1244,7 @@
 "No available data for air quality in %@" = "Ingen tilgjengelige data for luftkvalitet i %@";
 
 /* No comment provided by engineer. */
-"Carbon monoxide CO: " = "Karbonmonoksid CO: ";
+"Carbon monoxide CO : " = "Karbonmonoksid CO : ";
 
 /* No comment provided by engineer. */
 "Ozone" = "Ozon";
@@ -1260,25 +1260,4 @@
 
 /* No comment provided by engineer. */
 "AirQualityViewInformation" = "Detaljert informasjon om luftkvaliteten";
-
-/* No comment provided by engineer. */
-"Sulphur dioxide (SO\u{2082})" = "Svoveldioksid (SO\u{2082})";
-
-/* No comment provided by engineer. */
-"Qualitative name    Index    Pollutant" = "Kvalitativ navn Indeks Verdier";
-
-/* No comment provided by engineer. */
-"Good                 1       0:20\n
-Fair                 2       0:80\n
-Moderate             3       80:250\n
-Poor                 4       250:350\n
-Very Poor            5       ⩾350" = "Bra 1 0:20\n
-Fair 2 0:80\n
-Moderat 3 80:250\n
-Dårlig 4 250:350\n
-Svært dårlig 5 ⩾350";
-
-
-
-
 
