@@ -120,7 +120,7 @@ struct AirQualityView: View {
                 ///
                 HStack {
                     let v = String(localized: "Sulphur dioxide ")
-                    Text("\(v)(SO\u{2082}) : \(Int(currentWeather.so2)) μg/m\u{00B3}")
+                    Text("\(v)\(SO2) : \(Int(currentWeather.so2)) \(aqUnit)")
                     Spacer()
                 }
                 .font(.footnote)
@@ -165,7 +165,7 @@ struct AirQualityView: View {
                 ///
                 HStack {
                     let v = String(localized: "Nitrogen dioxide ")
-                    Text("\(v)(NO\u{2082}) : \(Int(currentWeather.no2)) μg/m\u{00B3}")
+                    Text("\(v)\(NO2) : \(Int(currentWeather.no2)) \(aqUnit)")
                     Spacer()
                 }
                 .font(.footnote)
@@ -209,8 +209,8 @@ struct AirQualityView: View {
                 /// Viser verdien av particulates (PM10):
                 ///
                 HStack {
-                    let v = String(localized: "Particulates ") // (PM10): ")
-                    Text("\(v)(PM\u{2081}\u{2080}) : \(Int(currentWeather.pm10)) μg/m\u{00B3}")
+                    let v = String(localized: "Particulates ")
+                    Text("\(v)\(PM10) : \(Int(currentWeather.pm10)) \(aqUnit)")
                     Spacer()
                 }
                 .font(.footnote)
@@ -255,7 +255,7 @@ struct AirQualityView: View {
                 ///
                 HStack {
                     let v = String(localized: "Particulates ")
-                    Text("\(v)(PM\u{2082}\u{208B}\u{2085}) : \(Int(currentWeather.pm2_5)) μg/m\u{00B3}")
+                    Text("\(v)\(PM2_5) : \(Int(currentWeather.pm2_5)) \(aqUnit)")
                     Spacer()
                 }
                 .font(.footnote)
@@ -301,9 +301,9 @@ struct AirQualityView: View {
                 HStack {
                     let v = String(localized: "Ozone ")
                     if currentWeather.o3 < 1.00 {
-                        Text("\(v)(O\u{2083}) : \(String(format: "%.2f", currentWeather.o3)) μg/m\u{00B3}")
+                        Text("\(v)\(O3) : \(String(format: "%.2f", currentWeather.o3)) \(aqUnit)")
                     } else {
-                        Text("\(v)(O\u{2083}) : \(Int(currentWeather.o3)) μg/m\u{00B3}")
+                        Text("\(v)\(O3) : \(Int(currentWeather.o3)) \(aqUnit)")
                     }
                     Spacer()
                 }
@@ -349,7 +349,7 @@ struct AirQualityView: View {
                 ///
                 HStack {
                     let v = String(localized: "Carbon monoxide (CO): ")
-                    Text("\(v)\(Int(currentWeather.co)) μg/m\u{00B3}")
+                    Text("\(v)\(Int(currentWeather.co)) \(aqUnit)")
                     Spacer()
                 }
                 .font(.footnote)
