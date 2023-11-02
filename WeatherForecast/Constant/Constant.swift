@@ -28,8 +28,8 @@ let hailType: Int = 4
 /// Constant for Air Quality:
 ///
 let aqUnit: String = "μg/m\u{00B3}"
-let SO2: String = "(SO\u{2082})"
-let NO2: String = "(NO\u{2082})"
-let PM10: String = "(PM\u{2081}\u{2080})"
+let SO2: String = "SO\u{2082}"
+let NO2: String = "NO\u{2082}"
+let PM10: String = "PM\u{2081}\u{2080}"
 let PM2_5: String = "PM\u{2082}\u{208B}\u{2085}"
 let O3: String = "O\u{2083}"
