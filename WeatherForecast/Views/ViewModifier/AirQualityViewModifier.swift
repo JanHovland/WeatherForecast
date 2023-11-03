@@ -19,6 +19,6 @@ struct AirQualityViewModifier: ViewModifier {
         let colors: [Color] = [.green, .green, .yellow, .orange, .red, .purple]
         
         content
-            .foregroundColor(so2Index == index ? colors[so2Index] : .clear)
+            .foregroundColor(colors[so2Index])
     }
 }

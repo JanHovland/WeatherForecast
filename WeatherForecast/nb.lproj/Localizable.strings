@@ -1259,5 +1259,17 @@
 "Sulphur dioxide" = "Svoveldioksid";
 
 /* No comment provided by engineer. */
-"AirQualityViewInformation" = "Detaljert informasjon om luftkvaliteten";
+"Detailed information on air quality" = "Detaljert informasjon om luftkvaliteten";
+
+/* No comment provided by engineer. */
+"Designation" = "Betegnelse";
+
+/* No comment provided by engineer. */
+"Index" = "Indeks";
+
+/* No comment provided by engineer. */
+"Value" = "Verdi";
+
+/* No comment provided by engineer. */
+"Range" = "Område";
 

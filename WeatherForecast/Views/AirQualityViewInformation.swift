@@ -27,13 +27,49 @@ struct AirQualityViewInformation: View {
     @Environment(CurrentWeather.self) private var currentWeather
     
     @State private var so2Index: Int = 0
-    
+    @State private var no2Index: Int = 0
+
     @State private var so2AqLimit = [
-                AQLimit(id: UUID(), designation: String(localized: "Good"), index: 1, value: "0:20"),
-                AQLimit(id: UUID(), designation: String(localized: "Fair"), index: 2, value: "20:80"),
-                AQLimit(id: UUID(), designation: String(localized: "Moderate"), index: 3, value: "80:250"),
-                AQLimit(id: UUID(), designation: String(localized: "Poor"), index: 4, value: "250:350"),
-                AQLimit(id: UUID(), designation: String(localized: "Very poor"), index: 5, value: "⩾350")]
+                AQLimit(id: UUID(), designation: String(localized: "Good"), index: 1, range: "0:20"),
+                AQLimit(id: UUID(), designation: String(localized: "Fair"), index: 2, range: "20:80"),
+                AQLimit(id: UUID(), designation: String(localized: "Moderate"), index: 3, range: "80:250"),
+                AQLimit(id: UUID(), designation: String(localized: "Poor"), index: 4, range: "250:350"),
+                AQLimit(id: UUID(), designation: String(localized: "Very poor"), index: 5, range: "⩾350")]
+                       
+    @State private var no2AqLimit = [
+                AQLimit(id: UUID(), designation: String(localized: "Good"), index: 1, range: "0:40"),
+                AQLimit(id: UUID(), designation: String(localized: "Fair"), index: 2, range: "40:70"),
+                AQLimit(id: UUID(), designation: String(localized: "Moderate"), index: 3, range: "70:150"),
+                AQLimit(id: UUID(), designation: String(localized: "Poor"), index: 4, range: "150:200"),
+                AQLimit(id: UUID(), designation: String(localized: "Very poor"), index: 5, range: "⩾200")]
+                       
+    @State private var pm10AqLimit = [
+                AQLimit(id: UUID(), designation: String(localized: "Good"), index: 1, range: "0:20"),
+                AQLimit(id: UUID(), designation: String(localized: "Fair"), index: 2, range: "20:50"),
+                AQLimit(id: UUID(), designation: String(localized: "Moderate"), index: 3, range: "50:100"),
+                AQLimit(id: UUID(), designation: String(localized: "Poor"), index: 4, range: "100:200"),
+                AQLimit(id: UUID(), designation: String(localized: "Very poor"), index: 5, range: "⩾200")]
+                       
+    @State private var pm2_5AqLimit = [
+                AQLimit(id: UUID(), designation: String(localized: "Good"), index: 1, range: "0:10"),
+                AQLimit(id: UUID(), designation: String(localized: "Fair"), index: 2, range: "10:25"),
+                AQLimit(id: UUID(), designation: String(localized: "Moderate"), index: 3, range: "25:50"),
+                AQLimit(id: UUID(), designation: String(localized: "Poor"), index: 4, range: "50:75"),
+                AQLimit(id: UUID(), designation: String(localized: "Very poor"), index: 5, range: "⩾75")]
+                       
+    @State private var o3AqLimit = [
+                AQLimit(id: UUID(), designation: String(localized: "Good"), index: 1, range: "0:60"),
+                AQLimit(id: UUID(), designation: String(localized: "Fair"), index: 2, range: "60:100"),
+                AQLimit(id: UUID(), designation: String(localized: "Moderate"), index: 3, range: "100:140"),
+                AQLimit(id: UUID(), designation: String(localized: "Poor"), index: 4, range: "140:180"),
+                AQLimit(id: UUID(), designation: String(localized: "Very poor"), index: 5, range: "⩾180")]
+                       
+    @State private var coAqLimit = [
+                AQLimit(id: UUID(), designation: String(localized: "Good"), index: 1, range: "0:4400"),
+                AQLimit(id: UUID(), designation: String(localized: "Fair"), index: 2, range: "4400:9400"),
+                AQLimit(id: UUID(), designation: String(localized: "Moderate"), index: 3, range: "9400:12400"),
+                AQLimit(id: UUID(), designation: String(localized: "Poor"), index: 4, range: "12400:15400"),
+                AQLimit(id: UUID(), designation: String(localized: "Very poor"), index: 5, range: "⩾15400")]
                        
     var body: some View {
         VStack {
@@ -67,15 +103,16 @@ struct AirQualityViewInformation: View {
                 HStack {
                     Spacer()
                     Text("\(weatherInfo.placeName) \(weatherInfo.countryName)")
+                        .font(.system(.title2).italic())
                     Spacer()
                 }
                 ///
-                /// Viser grenseverdiene for SO2:
+                /// Viser  SO2:
                 ///
                 HStack {
                     Spacer()
                     Text("\(aqSO2) \(SO2)")
-                        .font(.system(.headline, design: .monospaced).italic())
+                        .font(.system(.headline).italic())
                     Spacer()
                 }
                 .padding(.leading, 10)
@@ -83,73 +120,51 @@ struct AirQualityViewInformation: View {
                 ///
                 /// Overskrift:
                 ///
-                HStack {
-                    HStack {
-                        Text("Designation")
-                        Spacer()
-                    }
-                    HStack {
-                        Spacer()
-                        Text("Index")
-                        Spacer()
-                    }
-                    HStack {
-                        Spacer()
-                        Text("Pollutant")
-                    }
-                }
+                HeadView()
                 .padding(.horizontal, 10)
-                .padding(.top, 10)
-                ZStack {
-                    List (so2AqLimit) { aq in
-                        HStack {
-                            HStack {
-                                Text(aq.designation)
-                                Spacer()
-                            }
-                            HStack {
-                                Spacer()
-                                Text("\(aq.index)")
-                                Spacer()
-                            }
-                            HStack {
-                                Spacer()
-                                Text("\(aq.value)")
-                            }
-                        }
-                        ///
-                        /// Fargen il følge index:
-                        ///
+                
+                ForEach(so2AqLimit, id: \.index) { aq in
+                    if aq.index == so2Index {
+                        PollutionView(designation: aq.designation,
+                                      index: aq.index,
+                                      value: so2,
+                                      range: aq.range)
                         .modifier(AirQualityViewModifier(so2Index: so2Index, index: aq.index))
-                    }
-                    .listStyle(.inset)
+                        .padding(.horizontal, 10)
+                   }
                 }
-                .offset(y : UIDevice.isIpad ? 0 : -10)
-                ZStack {
-                    List (so2AqLimit) { aq in
-                        HStack {
-                            HStack {
-                                Text(aq.designation)
-                                Spacer()
-                            }
-                            HStack {
-                                Spacer()
-                                Text("\(aq.index)")
-                                Spacer()
-                            }
-                            HStack {
-                                Spacer()
-                                Text("\(aq.value)")
-                            }
-                        }
-                        ///
-                        /// Fargen il følge index:
-                        ///
+                ///
+                /// Viser  NO2:
+                ///
+                HStack {
+                    Spacer()
+                    Text("\(aqNO2) \(NO2)")
+                        .font(.system(.headline).italic())
+                    Spacer()
+                }
+                .padding(.leading, 10)
+                .padding(.top, 5)
+                ///
+                /// Overskrift:
+                ///
+                HeadView()
+                .padding(.horizontal, 10)
+                
+                ForEach(no2AqLimit, id: \.index) { aq in
+                    if aq.index == no2Index {
+                        PollutionView(designation: aq.designation,
+                                      index: aq.index,
+                                      value: no2,
+                                      range: aq.range)
                         .modifier(AirQualityViewModifier(so2Index: so2Index, index: aq.index))
-                    }
-                    .listStyle(.inset)
+                        .padding(.horizontal, 10)
+                   }
                 }
-                .offset(y : UIDevice.isIpad ? 0 : -10)
+
+                
+                
+                
+//                .offset(y : UIDevice.isIpad ? 0 : -10)
                 Spacer()
             }
             .offset(y : UIDevice.isIpad ? 0 : 20)
@@ -171,7 +186,78 @@ struct AirQualityViewInformation: View {
                 so2Index = 4            }
             else if currentWeather.so2 >= 350.00 {
                 so2Index = 5
+            }            ///
+            /// Finner no2Index
+            ///
+            if currentWeather.no2 < 40.00 {
+                no2Index = 1
+            } else if currentWeather.no2 >  40.00,
+                      currentWeather.no2 <= 70.00 {
+                no2Index = 2
+            } else if currentWeather.no2 >  70.00,
+                      currentWeather.no2 <= 150.00 {
+                no2Index = 3
+            } else if currentWeather.no2 >  150.00,
+                      currentWeather.no2 <= 200.00 {
+                no2Index = 4            }
+            else if currentWeather.no2 >= 200.00 {
+                no2Index = 5
             }
-        }    
+        }
     }
 }
+
+struct PollutionView : View {
+    let designation: String
+    let index: Int
+    let value: Double
+    let range: String
+    
+    var body: some View {
+        
+        HStack {
+            HStack {
+                Text(designation)
+                Spacer()
+            }
+            HStack {
+                Spacer()
+                Text("\(index)")
+                Spacer()
+            }
+            HStack {
+                Spacer()
+                Text("\(Int(value))")
+                Spacer()
+            }
+            HStack {
+                Spacer()
+                Text(range)
+            }
+        }
+    }
+}
+
+struct HeadView: View {
+    var body: some View {
+    HStack {
+        HStack {
+            Text("Designation")
+            Spacer()
+        }
+        HStack {
+            Spacer()
+            Text("Index")
+            Spacer()
+        }
+        HStack {
+            Spacer()
+            Text("Value")
+            Spacer()
+        }
+        HStack {
+            Spacer()
+            Text("Range")
+        }
+    }
+}}

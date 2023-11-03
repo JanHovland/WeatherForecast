@@ -11,6 +11,6 @@ struct AQLimit: Identifiable {
     var id = UUID()
     var designation: String = ""
     var index: Int = 0
-    var value: String = ""
+    var range: String = ""
 }
 
