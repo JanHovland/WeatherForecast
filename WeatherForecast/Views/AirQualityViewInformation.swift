@@ -28,6 +28,7 @@ struct AirQualityViewInformation: View {
     
     @State private var so2Index: Int = 0
     @State private var no2Index: Int = 0
+    @State private var pm10Index: Int = 0
 
     @State private var so2AqLimit = [
                 AQLimit(id: UUID(), designation: String(localized: "Good"), index: 1, range: "0:20"),
@@ -129,7 +130,7 @@ struct AirQualityViewInformation: View {
                                       index: aq.index,
                                       value: so2,
                                       range: aq.range)
-                        .modifier(AirQualityViewModifier(so2Index: so2Index, index: aq.index))
+                        .modifier(AirQualityViewModifier(aqIndex: so2Index, index: aq.index))
                         .padding(.horizontal, 10)
                    }
                 }
@@ -156,7 +157,34 @@ struct AirQualityViewInformation: View {
                                       index: aq.index,
                                       value: no2,
                                       range: aq.range)
-                        .modifier(AirQualityViewModifier(so2Index: so2Index, index: aq.index))
+                        .modifier(AirQualityViewModifier(aqIndex: no2Index, index: aq.index))
+                        .padding(.horizontal, 10)
+                   }
+                }
+                ///
+                /// Viser  PM10:
+                ///
+                HStack {
+                    Spacer()
+                    Text("\(aqPM) \(PM10)")
+                        .font(.system(.headline).italic())
+                    Spacer()
+                }
+                .padding(.leading, 10)
+                .padding(.top, 5)
+                ///
+                /// Overskrift:
+                ///
+                HeadView()
+                .padding(.horizontal, 10)
+                
+                ForEach(pm10AqLimit, id: \.index) { aq in
+                    if aq.index == pm10Index {
+                        PollutionView(designation: aq.designation,
+                                      index: aq.index,
+                                      value: pm10,
+                                      range: aq.range)
+                        .modifier(AirQualityViewModifier(aqIndex: pm10Index, index: aq.index))
                         .padding(.horizontal, 10)
                    }
                 }
@@ -202,6 +230,22 @@ struct AirQualityViewInformation: View {
                 no2Index = 4            }
             else if currentWeather.no2 >= 200.00 {
                 no2Index = 5
+            }
+            /// Finner pm102Index
+            ///
+            if currentWeather.pm10 < 20.00 {
+                pm10Index = 1
+            } else if currentWeather.pm10 >  20.00,
+                      currentWeather.pm10 <= 50.00 {
+                pm10Index = 2
+            } else if currentWeather.pm10 >  50.00,
+                      currentWeather.pm10 <= 100.00 {
+                pm10Index = 3
+            } else if currentWeather.pm10 >  100.00,
+                      currentWeather.pm10 <= 200.00 {
+                pm10Index = 4            }
+            else if currentWeather.pm10 >= 200.00 {
+                pm10Index = 5
             }
         }
     }

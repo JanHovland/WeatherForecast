@@ -9,7 +9,7 @@ import SwiftUI
 import Foundation
 
 struct AirQualityViewModifier: ViewModifier {
-    let so2Index: Int
+    let aqIndex: Int
     let index: Int
 
     @ViewBuilder
@@ -19,6 +19,6 @@ struct AirQualityViewModifier: ViewModifier {
         let colors: [Color] = [.green, .green, .yellow, .orange, .red, .purple]
         
         content
-            .foregroundColor(colors[so2Index])
+            .foregroundColor(colors[aqIndex])
     }
 }
