@@ -111,6 +111,17 @@ struct AirQualityViewInformation: View {
                     Spacer()
                 }
                 ///
+                /// Viser  icon luftkvalitet
+                ///
+                HStack {
+                    Spacer()
+                    Image(systemName: image)
+                        .renderingMode(.original)
+                        .font(Font.largeTitle.weight(.regular))
+                    Spacer()
+                }
+                .padding(20)
+                ///
                 /// Viser  SO2:
                 ///
                 HStack {
