@@ -29,6 +29,7 @@ struct AirQualityViewInformation: View {
     @State private var so2Index: Int = 0
     @State private var no2Index: Int = 0
     @State private var pm10Index: Int = 0
+    @State private var pm2_5Index: Int = 0
 
     @State private var so2AqLimit = [
                 AQLimit(id: UUID(), designation: String(localized: "Good"), index: 1, range: "0:20"),
@@ -188,6 +189,33 @@ struct AirQualityViewInformation: View {
                         .padding(.horizontal, 10)
                    }
                 }
+                ///
+                /// Viser  PM2.5:
+                ///
+                HStack {
+                    Spacer()
+                    Text("\(aqPM) \(PM2_5)")
+                        .font(.system(.headline).italic())
+                    Spacer()
+                }
+                .padding(.leading, 10)
+                .padding(.top, 5)
+                ///
+                /// Overskrift:
+                ///
+                HeadView()
+                .padding(.horizontal, 10)
+                
+                ForEach(pm2_5AqLimit, id: \.index) { aq in
+                    if aq.index == pm10Index {
+                        PollutionView(designation: aq.designation,
+                                      index: aq.index,
+                                      value: pm2_5,
+                                      range: aq.range)
+                        .modifier(AirQualityViewModifier(aqIndex: pm2_5Index, index: aq.index))
+                        .padding(.horizontal, 10)
+                   }
+                }
 
                 
                 
@@ -231,7 +259,7 @@ struct AirQualityViewInformation: View {
             else if currentWeather.no2 >= 200.00 {
                 no2Index = 5
             }
-            /// Finner pm102Index
+            /// Finner pm10Index
             ///
             if currentWeather.pm10 < 20.00 {
                 pm10Index = 1
@@ -246,6 +274,22 @@ struct AirQualityViewInformation: View {
                 pm10Index = 4            }
             else if currentWeather.pm10 >= 200.00 {
                 pm10Index = 5
+            }
+            /// Finner pm2_5Index
+            ///
+            if currentWeather.pm2_5 < 10.00 {
+                pm2_5Index = 1
+            } else if currentWeather.pm2_5 >  10.00,
+                      currentWeather.pm2_5 <= 25.00 {
+                pm2_5Index = 2
+            } else if currentWeather.pm2_5 >  25.00,
+                      currentWeather.pm2_5 <= 50.00 {
+                pm2_5Index = 3
+            } else if currentWeather.pm2_5 >  50.00,
+                      currentWeather.pm2_5 <= 75.00 {
+                pm2_5Index = 4            }
+            else if currentWeather.pm2_5 >= 75.00 {
+                pm2_5Index = 5
             }
         }
     }
