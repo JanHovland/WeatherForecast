@@ -19,6 +19,7 @@ struct SettingView: View {
     @AppStorage("UrlOpenWeather") var urlOpenWeather = ""
 
     @AppStorage("UrlMetNo") var urlMetNo = ""
+    @AppStorage("UrlMetMoonNo") var urlMetMoonNo = ""
     @AppStorage("ShowWeather") var showWeather = false
 
     var body: some View {
@@ -46,8 +47,12 @@ struct SettingView: View {
                     TextField("Url for OpenOpenWeather", text: $urlOpenWeather)
                         .font(.footnote)
                 }
-                Section(header: Text("Url for Met.no")) {
+                Section(header: Text("Url for Met.no sun")) {
                     TextField("Url for Met.no", text: $urlMetNo)
+                        .font(.footnote)
+                }
+                Section(header: Text("Url for Met.no moon")) {
+                    TextField("Url for Met.no moon", text: $urlMetMoonNo)
                         .font(.footnote)
                 }
                 Section(header: Text("SHOW WEATHER FOR PLACES IN CLOUDKIT")) {

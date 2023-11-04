@@ -153,8 +153,8 @@ enum Solarmidnight: Codable {
 
 
 
-// MARK: - MetAPI
-struct MetAPI: Codable {
+// MARK: - MetAPISun
+struct MetApiSun: Codable {
 //    let copyright: String?
 //    let licenseURL: String?
 //    let type: String?

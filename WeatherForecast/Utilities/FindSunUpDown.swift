@@ -50,7 +50,7 @@ func FindSunUpDown(url: String,
             do {
                 let urlSession = URLSession.shared
                 let (jsonData, _) = try await urlSession.data(from: url)
-                let metApi = try? JSONDecoder().decode(MetAPI.self, from: jsonData)
+                let metApi = try? JSONDecoder().decode(MetApiSun.self, from: jsonData)
                 /// Sender kun HH:mm ;
                 ///
                 if metApi?.properties?.sunrise != nil {

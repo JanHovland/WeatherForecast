@@ -398,6 +398,17 @@ struct WeatherForecast: View {
                     sunSets.removeAll()
                 }
                 ///
+                /// Finner data for månen:
+                ///
+                let url1 = UserDefaults.standard.object(forKey: "UrlMetMoonNo") as? String ?? ""
+                let value1 : (String) =
+                await FindMoonUpDown(url: url1,
+                                     offset: weatherInfo.offsetString,
+                                     latitude: weatherInfo.latitude,
+                                     longitude: weatherInfo.longitude,
+                                     offsetSec: weatherInfo.offsetSec)
+
+                ///
                 /// Gir melding og avslutter appen dersom sola data er tom :
                 ///
                 if sunRises.isEmpty == true || sunSets.isEmpty == true {
