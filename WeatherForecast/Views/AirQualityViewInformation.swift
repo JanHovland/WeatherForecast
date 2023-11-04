@@ -31,6 +31,7 @@ struct AirQualityViewInformation: View {
     @State private var pm10Index: Int = 0
     @State private var pm2_5Index: Int = 0
     @State private var o3Index: Int = 0
+    @State private var coIndex: Int = 0
 
     @State private var so2AqLimit = [
                 AQLimit(id: UUID(), designation: String(localized: "Good"), index: 1, range: "0:20"),
@@ -244,6 +245,33 @@ struct AirQualityViewInformation: View {
                         .padding(.horizontal, 10)
                    }
                 }
+                ///
+                /// Viser  CO:
+                ///
+                HStack {
+                    Spacer()
+                    Text("\(aqCO)")
+                        .font(.system(.headline).italic())
+                    Spacer()
+                }
+                .padding(.leading, 10)
+                .padding(.top, 5)
+                ///
+                /// Overskrift:
+                ///
+                HeadView()
+                .padding(.horizontal, 10)
+                
+                ForEach(coAqLimit, id: \.index) { aq in
+                    if aq.index == coIndex {
+                        PollutionView(designation: aq.designation,
+                                      index: aq.index,
+                                      value: co,
+                                      range: aq.range)
+                        .modifier(AirQualityViewModifier(aqIndex: coIndex, index: aq.index))
+                        .padding(.horizontal, 10)
+                   }
+                }
 
                 
                 
@@ -334,6 +362,22 @@ struct AirQualityViewInformation: View {
                 o3Index = 4            }
             else if currentWeather.o3 >= 180.00 {
                 o3Index = 5
+            }
+            /// Finner co3Index
+            ///
+            if currentWeather.co < 4400.00 {
+                coIndex = 1
+            } else if currentWeather.co >  4400.00,
+                      currentWeather.co <= 9400.00 {
+                coIndex = 2
+            } else if currentWeather.co >  9400.00,
+                      currentWeather.co <= 12400.00 {
+                coIndex = 3
+            } else if currentWeather.co >  12400.00,
+                      currentWeather.co <= 15400.00 {
+                coIndex = 4            }
+            else if currentWeather.co >= 15400.00 {
+                coIndex = 5
             }
         }
     }
