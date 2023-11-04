@@ -1,5 +1,5 @@
 //
-//  AirQualityViewInformation.swift
+//  AirQualityInformationView.swift
 //  WeatherForecast
 //
 //  Created by Jan Hovland on 31/10/2023.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct AirQualityViewInformation: View {
+struct AirQualityInformationView: View {
     
     let image: String
     let so2: Double
@@ -120,7 +120,9 @@ struct AirQualityViewInformation: View {
                         .font(Font.largeTitle.weight(.regular))
                     Spacer()
                 }
-                .padding(20)
+                .padding(10)
+            }
+            List {
                 ///
                 /// Viser  SO2:
                 ///
@@ -135,15 +137,15 @@ struct AirQualityViewInformation: View {
                 ///
                 /// Overskrift:
                 ///
-                HeadView()
+                AirQualityHeadlineView()
                 .padding(.horizontal, 10)
                 
                 ForEach(so2AqLimit, id: \.index) { aq in
                     if aq.index == so2Index {
-                        PollutionView(designation: aq.designation,
-                                      index: aq.index,
-                                      value: so2,
-                                      range: aq.range)
+                        AirQualityPollutionView(designation: aq.designation,
+                                                index: aq.index,
+                                                value: so2,
+                                                range: aq.range)
                         .modifier(AirQualityViewModifier(aqIndex: so2Index, index: aq.index))
                         .padding(.horizontal, 10)
                    }
@@ -162,15 +164,15 @@ struct AirQualityViewInformation: View {
                 ///
                 /// Overskrift:
                 ///
-                HeadView()
+                AirQualityHeadlineView()
                 .padding(.horizontal, 10)
                 
                 ForEach(no2AqLimit, id: \.index) { aq in
                     if aq.index == no2Index {
-                        PollutionView(designation: aq.designation,
-                                      index: aq.index,
-                                      value: no2,
-                                      range: aq.range)
+                        AirQualityPollutionView(designation: aq.designation,
+                                                index: aq.index,
+                                                value: no2,
+                                                range: aq.range)
                         .modifier(AirQualityViewModifier(aqIndex: no2Index, index: aq.index))
                         .padding(.horizontal, 10)
                    }
@@ -189,15 +191,15 @@ struct AirQualityViewInformation: View {
                 ///
                 /// Overskrift:
                 ///
-                HeadView()
+                AirQualityHeadlineView()
                 .padding(.horizontal, 10)
                 
                 ForEach(pm10AqLimit, id: \.index) { aq in
                     if aq.index == pm10Index {
-                        PollutionView(designation: aq.designation,
-                                      index: aq.index,
-                                      value: pm10,
-                                      range: aq.range)
+                        AirQualityPollutionView(designation: aq.designation,
+                                                index: aq.index,
+                                                value: pm10,
+                                                range: aq.range)
                         .modifier(AirQualityViewModifier(aqIndex: pm10Index, index: aq.index))
                         .padding(.horizontal, 10)
                    }
@@ -216,15 +218,15 @@ struct AirQualityViewInformation: View {
                 ///
                 /// Overskrift:
                 ///
-                HeadView()
+                AirQualityHeadlineView()
                 .padding(.horizontal, 10)
                 
                 ForEach(pm2_5AqLimit, id: \.index) { aq in
                     if aq.index == pm10Index {
-                        PollutionView(designation: aq.designation,
-                                      index: aq.index,
-                                      value: pm2_5,
-                                      range: aq.range)
+                        AirQualityPollutionView(designation: aq.designation,
+                                                index: aq.index,
+                                                value: pm2_5,
+                                                range: aq.range)
                         .modifier(AirQualityViewModifier(aqIndex: pm2_5Index, index: aq.index))
                         .padding(.horizontal, 10)
                    }
@@ -243,15 +245,15 @@ struct AirQualityViewInformation: View {
                 ///
                 /// Overskrift:
                 ///
-                HeadView()
+                AirQualityHeadlineView()
                 .padding(.horizontal, 10)
                 
                 ForEach(o3AqLimit, id: \.index) { aq in
                     if aq.index == o3Index {
-                        PollutionView(designation: aq.designation,
-                                      index: aq.index,
-                                      value: o3,
-                                      range: aq.range)
+                        AirQualityPollutionView(designation: aq.designation,
+                                                index: aq.index,
+                                                value: o3,
+                                                range: aq.range)
                         .modifier(AirQualityViewModifier(aqIndex: o3Index, index: aq.index))
                         .padding(.horizontal, 10)
                    }
@@ -270,27 +272,23 @@ struct AirQualityViewInformation: View {
                 ///
                 /// Overskrift:
                 ///
-                HeadView()
+                AirQualityHeadlineView()
                 .padding(.horizontal, 10)
                 
                 ForEach(coAqLimit, id: \.index) { aq in
                     if aq.index == coIndex {
-                        PollutionView(designation: aq.designation,
-                                      index: aq.index,
-                                      value: co,
-                                      range: aq.range)
+                        AirQualityPollutionView(designation: aq.designation,
+                                                index: aq.index,
+                                                value: co,
+                                                range: aq.range)
                         .modifier(AirQualityViewModifier(aqIndex: coIndex, index: aq.index))
                         .padding(.horizontal, 10)
                    }
                 }
-
-                
-                
-                
-//                .offset(y : UIDevice.isIpad ? 0 : -10)
                 Spacer()
             }
-            .offset(y : UIDevice.isIpad ? 0 : 20)
+            .offset(y : UIDevice.isIpad ? 0 : -25)
+            .listStyle(.sidebar)
         }
         .task {
             ///
@@ -393,58 +391,3 @@ struct AirQualityViewInformation: View {
         }
     }
 }
-
-struct PollutionView : View {
-    let designation: String
-    let index: Int
-    let value: Double
-    let range: String
-    
-    var body: some View {
-        
-        HStack {
-            HStack {
-                Text(designation)
-                Spacer()
-            }
-            HStack {
-                Spacer()
-                Text("\(index)")
-                Spacer()
-            }
-            HStack {
-                Spacer()
-                Text("\(Int(value))")
-                Spacer()
-            }
-            HStack {
-                Spacer()
-                Text(range)
-            }
-        }
-    }
-}
-
-struct HeadView: View {
-    var body: some View {
-    HStack {
-        HStack {
-            Text("Designation")
-            Spacer()
-        }
-        HStack {
-            Spacer()
-            Text("Index")
-            Spacer()
-        }
-        HStack {
-            Spacer()
-            Text("Value")
-            Spacer()
-        }
-        HStack {
-            Spacer()
-            Text("Range")
-        }
-    }
-}}

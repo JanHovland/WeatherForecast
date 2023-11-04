@@ -66,7 +66,7 @@ struct AirQualityView: View {
                             .foregroundColor(.primary)
                             .buttonStyle(.bordered)
                             .sheet(isPresented: $isModal, content: {
-                                AirQualityViewInformation(image: currentWeather.image,
+                                AirQualityInformationView(image: currentWeather.image,
                                                           so2: currentWeather.so2,
                                                           no2: currentWeather.no2,
                                                           pm10: currentWeather.pm10,

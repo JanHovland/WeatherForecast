@@ -89,6 +89,8 @@
 		DB5C0C60291A788400141BDC /* SunDayAndNight.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5C0C5F291A788400141BDC /* SunDayAndNight.swift */; };
 		DB60E9B42AD9BA4100F8E723 /* FindChartDataHumidity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB60E9B32AD9BA4100F8E723 /* FindChartDataHumidity.swift */; };
 		DB6400BF29098E700013C3B7 /* Precipitation24hFind.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6400BE29098E700013C3B7 /* Precipitation24hFind.swift */; };
+		DB66C19D2AF6427A00C2722E /* AirQualityHeadlineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB66C19C2AF6427A00C2722E /* AirQualityHeadlineView.swift */; };
+		DB66C19F2AF6438000C2722E /* AirQualityPollutionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB66C19E2AF6438000C2722E /* AirQualityPollutionView.swift */; };
 		DB69689A290E715900936C0E /* CurrentWeatherRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB696899290E715900936C0E /* CurrentWeatherRecord.swift */; };
 		DB69689D290E973500936C0E /* CurrentWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB69689C290E973500936C0E /* CurrentWeather.swift */; };
 		DB69689F290E97F900936C0E /* DateSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB69689E290E97F900936C0E /* DateSettings.swift */; };
@@ -159,7 +161,7 @@
 		DBDDEA0129BDC86000301E77 /* RefreshOffset.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDDEA0029BDC86000301E77 /* RefreshOffset.swift */; };
 		DBE02B3C29335D9600B1FB05 /* RainFall.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE02B3B29335D9600B1FB05 /* RainFall.swift */; };
 		DBE3CD45289925660099D056 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DBE3CD47289925660099D056 /* InfoPlist.strings */; };
-		DBE5FA032AF1801400ADD3AE /* AirQualityViewInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE5FA022AF1801400ADD3AE /* AirQualityViewInformation.swift */; };
+		DBE5FA032AF1801400ADD3AE /* AirQualityInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE5FA022AF1801400ADD3AE /* AirQualityInformationView.swift */; };
 		DBECD4E12AE971A6005FD489 /* RefreshOffsetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBECD4E02AE971A6005FD489 /* RefreshOffsetView.swift */; };
 		DBF1038529A92C56008B4281 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF1038429A92C56008B4281 /* SearchBar.swift */; };
 		DBF2ABD729D4A4F0008ECB6C /* GetBaseDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF2ABD629D4A4F0008ECB6C /* GetBaseDate.swift */; };
@@ -255,6 +257,8 @@
 		DB5C0C5F291A788400141BDC /* SunDayAndNight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunDayAndNight.swift; sourceTree = "<group>"; };
 		DB60E9B32AD9BA4100F8E723 /* FindChartDataHumidity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindChartDataHumidity.swift; sourceTree = "<group>"; };
 		DB6400BE29098E700013C3B7 /* Precipitation24hFind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Precipitation24hFind.swift; sourceTree = "<group>"; };
+		DB66C19C2AF6427A00C2722E /* AirQualityHeadlineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirQualityHeadlineView.swift; sourceTree = "<group>"; };
+		DB66C19E2AF6438000C2722E /* AirQualityPollutionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirQualityPollutionView.swift; sourceTree = "<group>"; };
 		DB696899290E715900936C0E /* CurrentWeatherRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeatherRecord.swift; sourceTree = "<group>"; };
 		DB69689C290E973500936C0E /* CurrentWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeather.swift; sourceTree = "<group>"; };
 		DB69689E290E97F900936C0E /* DateSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateSettings.swift; sourceTree = "<group>"; };
@@ -328,7 +332,7 @@
 		DBE02B3B29335D9600B1FB05 /* RainFall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RainFall.swift; sourceTree = "<group>"; };
 		DBE3CD46289925660099D056 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		DBE3CD482899256E0099D056 /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		DBE5FA022AF1801400ADD3AE /* AirQualityViewInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirQualityViewInformation.swift; sourceTree = "<group>"; };
+		DBE5FA022AF1801400ADD3AE /* AirQualityInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirQualityInformationView.swift; sourceTree = "<group>"; };
 		DBECD4E02AE971A6005FD489 /* RefreshOffsetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshOffsetView.swift; sourceTree = "<group>"; };
 		DBF1038429A92C56008B4281 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		DBF2ABD629D4A4F0008ECB6C /* GetBaseDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetBaseDate.swift; sourceTree = "<group>"; };
@@ -390,8 +394,6 @@
 				DBC65DE12907C3D7004635FE /* WeatherForecast */,
 				DB7B50DB2AF1498E00A61BA1 /* AppsForIPad.swift */,
 				DB7B50D92AF1492A00A61BA1 /* AppsForIPhone.swift */,
-				DB4FA8C22AEF8EC800533266 /* AirQualityView.swift */,
-				DBE5FA022AF1801400ADD3AE /* AirQualityViewInformation.swift */,
 				DBB6905528FB0202006FA016 /* DayOverview.swift */,
 				DB9D0B2028F09549002ABA9E /* FeelsLike.swift */,
 				DBF3DEAC28F5EF0F00509CF4 /* HourOverview.swift */,
@@ -560,6 +562,17 @@
 				DB26AEC0296F22DE007B4B88 /* PrecipitationFindRestOfDay.swift */,
 			);
 			path = Precipitation;
+			sourceTree = "<group>";
+		};
+		DB66C19B2AF641EF00C2722E /* AirQuality */ = {
+			isa = PBXGroup;
+			children = (
+				DB66C19C2AF6427A00C2722E /* AirQualityHeadlineView.swift */,
+				DBE5FA022AF1801400ADD3AE /* AirQualityInformationView.swift */,
+				DB66C19E2AF6438000C2722E /* AirQualityPollutionView.swift */,
+				DB4FA8C22AEF8EC800533266 /* AirQualityView.swift */,
+			);
+			path = AirQuality;
 			sourceTree = "<group>";
 		};
 		DB69689B290E96FB00936C0E /* Class */ = {
@@ -740,6 +753,7 @@
 		DBC65DE12907C3D7004635FE /* WeatherForecast */ = {
 			isa = PBXGroup;
 			children = (
+				DB66C19B2AF641EF00C2722E /* AirQuality */,
 				DBB4CCCB288869E900B5C5C8 /* WeatherForecast.swift */,
 				DB0230C428E4E5D700DCE15C /* WeatherForecastDetail.swift */,
 				DB51164128E442F300DEB1BF /* WeatherForecastMain.swift */,
@@ -865,7 +879,7 @@
 				DB417E7D2AE18BAD00E77C4F /* FindChartDataFeelTemperature.swift in Sources */,
 				DBA2AA5529237EC700581301 /* DayDetailShowUnit.swift in Sources */,
 				DBCD43752AEE38C2007543BE /* FindAirQuality.swift in Sources */,
-				DBE5FA032AF1801400ADD3AE /* AirQualityViewInformation.swift in Sources */,
+				DBE5FA032AF1801400ADD3AE /* AirQualityInformationView.swift in Sources */,
 				DBC9697C29005915009C089E /* ToDoView.swift in Sources */,
 				DB7B08C32928C68C0060A84E /* DayDetailHourIcons.swift in Sources */,
 				DB2C677328E72F04002EC5C1 /* GetForwardGeoCode.swift in Sources */,
@@ -874,6 +888,7 @@
 				DB85F9E52947263C00D14013 /* InfoTemperature.swift in Sources */,
 				DB880FDB2989305F009E8FB7 /* AdjustOffset.swift in Sources */,
 				DB51163C28E43C1100DEB1BF /* GeoRecord.swift in Sources */,
+				DB66C19D2AF6427A00C2722E /* AirQualityHeadlineView.swift in Sources */,
 				DB4FA8C32AEF8EC800533266 /* AirQualityView.swift in Sources */,
 				DB2676F229D5CE5900C642B9 /* SelectedValue.swift in Sources */,
 				DB2C677528E72F43002EC5C1 /* FormatPlace.swift in Sources */,
@@ -930,6 +945,7 @@
 				DB8B5F9028F1D5A2002C3AE3 /* Humidity.swift in Sources */,
 				DB9E26DF2AF39F6B00DF3AE9 /* AQLimit.swift in Sources */,
 				DB51163A28E43BDE00DEB1BF /* OpenCage.swift in Sources */,
+				DB66C19F2AF6438000C2722E /* AirQualityPollutionView.swift in Sources */,
 				DB17F6AE295ECF0C00FC2A0B /* UvIndexDescription.swift in Sources */,
 				DB86FC102912A24C0019D12F /* DayDetail.swift in Sources */,
 				DB760C072AE6D24C000B08D1 /* WeatherForecastSearchPlace.swift in Sources */,
