@@ -304,7 +304,8 @@ struct AirQualityInformationView: View {
                 so2Index = 3
             } else if currentWeather.so2 >  250.00,
                       currentWeather.so2 <= 350.00 {
-                so2Index = 4            }
+                so2Index = 4          
+            }
             else if currentWeather.so2 >= 350.00 {
                 so2Index = 5
             }            ///
@@ -320,7 +321,8 @@ struct AirQualityInformationView: View {
                 no2Index = 3
             } else if currentWeather.no2 >  150.00,
                       currentWeather.no2 <= 200.00 {
-                no2Index = 4            }
+                no2Index = 4
+            }
             else if currentWeather.no2 >= 200.00 {
                 no2Index = 5
             }
@@ -336,7 +338,8 @@ struct AirQualityInformationView: View {
                 pm10Index = 3
             } else if currentWeather.pm10 >  100.00,
                       currentWeather.pm10 <= 200.00 {
-                pm10Index = 4            }
+                pm10Index = 4
+            }
             else if currentWeather.pm10 >= 200.00 {
                 pm10Index = 5
             }
@@ -352,7 +355,8 @@ struct AirQualityInformationView: View {
                 pm2_5Index = 3
             } else if currentWeather.pm2_5 >  50.00,
                       currentWeather.pm2_5 <= 75.00 {
-                pm2_5Index = 4            }
+                pm2_5Index = 4
+            }
             else if currentWeather.pm2_5 >= 75.00 {
                 pm2_5Index = 5
             }
@@ -368,7 +372,8 @@ struct AirQualityInformationView: View {
                 o3Index = 3
             } else if currentWeather.o3 >  140.00,
                       currentWeather.o3 <= 180.00 {
-                o3Index = 4            }
+                o3Index = 4           
+            }
             else if currentWeather.o3 >= 180.00 {
                 o3Index = 5
             }
@@ -384,7 +389,8 @@ struct AirQualityInformationView: View {
                 coIndex = 3
             } else if currentWeather.co >  12400.00,
                       currentWeather.co <= 15400.00 {
-                coIndex = 4            }
+                coIndex = 4
+            }
             else if currentWeather.co >= 15400.00 {
                 coIndex = 5
             }
