@@ -30,6 +30,7 @@ struct AirQualityViewInformation: View {
     @State private var no2Index: Int = 0
     @State private var pm10Index: Int = 0
     @State private var pm2_5Index: Int = 0
+    @State private var o3Index: Int = 0
 
     @State private var so2AqLimit = [
                 AQLimit(id: UUID(), designation: String(localized: "Good"), index: 1, range: "0:20"),
@@ -216,6 +217,33 @@ struct AirQualityViewInformation: View {
                         .padding(.horizontal, 10)
                    }
                 }
+                ///
+                /// Viser  O3:
+                ///
+                HStack {
+                    Spacer()
+                    Text("\(aqO3) \(O3)")
+                        .font(.system(.headline).italic())
+                    Spacer()
+                }
+                .padding(.leading, 10)
+                .padding(.top, 5)
+                ///
+                /// Overskrift:
+                ///
+                HeadView()
+                .padding(.horizontal, 10)
+                
+                ForEach(o3AqLimit, id: \.index) { aq in
+                    if aq.index == o3Index {
+                        PollutionView(designation: aq.designation,
+                                      index: aq.index,
+                                      value: o3,
+                                      range: aq.range)
+                        .modifier(AirQualityViewModifier(aqIndex: o3Index, index: aq.index))
+                        .padding(.horizontal, 10)
+                   }
+                }
 
                 
                 
@@ -290,6 +318,22 @@ struct AirQualityViewInformation: View {
                 pm2_5Index = 4            }
             else if currentWeather.pm2_5 >= 75.00 {
                 pm2_5Index = 5
+            }
+            /// Finner o3Index
+            ///
+            if currentWeather.o3 < 60.00 {
+                o3Index = 1
+            } else if currentWeather.o3 >  60.00,
+                      currentWeather.o3 <= 100.00 {
+                o3Index = 2
+            } else if currentWeather.o3 >  100.00,
+                      currentWeather.o3 <= 140.00 {
+                o3Index = 3
+            } else if currentWeather.o3 >  140.00,
+                      currentWeather.o3 <= 180.00 {
+                o3Index = 4            }
+            else if currentWeather.o3 >= 180.00 {
+                o3Index = 5
             }
         }
     }
