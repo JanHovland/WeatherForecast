@@ -9,14 +9,14 @@ import Foundation
 
 
 func FindMoonUpDown(url: String,
-                   offset: String,
-                   latitude : Double?,
-                   longitude: Double?,
-                   offsetSec: Int) async -> (String) {
+                    key: String,
+                    latitude : Double?,
+                    longitude: Double?) async -> (String, MoonRecord) {
     
     var errors : String = ""
     var lat: String = ""
     var lon: String = ""
+    var moonRecord = MoonRecord()
     
     if latitude != nil {
         lat = "\(latitude!)"
@@ -28,69 +28,30 @@ func FindMoonUpDown(url: String,
     } else {
         lon = "\(5.655520)"  /// Varhaug
     }
-               
-    ///
-    /// Blindern, Oslo
-    /// https://api.met.no/weatherapi/sunrise/3.0/moon?lat=59.933333&lon=10.716667&date=2023-11-01&offset=+01:00
-    ///
-
-    let date = Date().setTime(hour: 0, min: 0, sec: 0) ?? Date()
-    let calculatedDate = FormatDateToString(date: date, format: "yyyy-MM-dd", offsetSec: offsetSec)
-    let urlString = url + "lat=" + lat + "&lon=" + lon + "&date=" + calculatedDate + "&offset=" + offset
+    let urlString = url + "key=" + key + "&q=" + "\(lat),\(lon)"
     let url = URL(string: urlString)
     if let url {
         do {
             let urlSession = URLSession.shared
             let (jsonData, _) = try await urlSession.data(from: url)
-            let metApiMoon = try? JSONDecoder().decode(MetApiMoon.self, from: jsonData)
+            let metApiMoon = try? JSONDecoder().decode(WeatherApiMoon.self, from: jsonData)
+            debugPrint(metApiMoon as Any)
+            ///
+            /// Oppdaterer moonRecord:
+            ///
+            moonRecord.moonrise = metApiMoon?.astronomy.astro.moonrise ?? ""
+            moonRecord.moonset = metApiMoon?.astronomy.astro.moonset ?? ""
+            moonRecord.moonPhase = metApiMoon?.astronomy.astro.moonPhase ?? ""
+            
+            if moonRecord.moonPhase == "Last Quarter" {
+                moonRecord.moonPhase = String(localized: "Last Quarter")
+            }
+            moonRecord.moonIllumination = metApiMoon?.astronomy.astro.moonIllumination ?? 0
+            moonRecord.isMoonUp = metApiMoon?.astronomy.astro.isMoonUp ?? 0
+            moonRecord.isSunUp = metApiMoon?.astronomy.astro.isSunUp ?? 0
         } catch {
             errors = "\(error)"
         }
     }
-    return (errors
-    
-    )
+    return (errors, moonRecord)
 }
-
-/*
- {
-   "copyright": "MET Norway",
-   "licenseURL": "https://api.met.no/license_data.html",
-   "type": "Feature",
-   "geometry": {
-     "type": "Point",
-     "coordinates": [
-       5.3,
-       60.3
-     ]
-   },
-   "when": {
-     "interval": [
-       "2023-11-03T23:38:00Z",
-       "2023-11-04T23:38:00Z"
-     ]
-   },
-   "properties": {
-     "body": "Moon",
-     "moonrise": {
-       "time": "2023-11-04T21:04+01:00",
-       "azimuth": 36.13
-     },
-     "moonset": {
-       "time": "2023-11-04T15:43+01:00",
-       "azimuth": 326.17
-     },
-     "high_moon": {
-       "time": "2023-11-04T05:54+01:00",
-       "disc_centre_elevation": 54.72,
-       "visible": true
-     },
-     "low_moon": {
-       "time": "2023-11-04T18:18+01:00",
-       "disc_centre_elevation": -6.57,
-       "visible": false
-     },
-     "moonphase": 254.81
-   }
- }
- */

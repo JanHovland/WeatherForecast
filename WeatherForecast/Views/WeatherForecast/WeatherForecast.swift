@@ -72,6 +72,8 @@ struct WeatherForecast: View {
     @State private var sunRises: [String] = Array(repeating: "", count: 10)
     @State private var sunSets: [String] = Array(repeating: "", count: 10)
     
+    @State private var moonRecord = MoonRecord()
+    
     @State private var message: LocalizedStringKey = ""
     @State private var title: LocalizedStringKey = ""
     @State private var showAlert: Bool = false
@@ -400,13 +402,19 @@ struct WeatherForecast: View {
                 ///
                 /// Finner data for månen:
                 ///
-                let url1 = UserDefaults.standard.object(forKey: "UrlMetMoonNo") as? String ?? ""
-                let value1 : (String) =
+                let url1 = UserDefaults.standard.object(forKey: "UrlWeatherApiMoon") as? String ?? ""
+                let key = UserDefaults.standard.object(forKey: "KeyWeatherApi") as? String ?? ""
+                let (error, moonRec) =
                 await FindMoonUpDown(url: url1,
-                                     offset: weatherInfo.offsetString,
+                                     key: key,
                                      latitude: weatherInfo.latitude,
-                                     longitude: weatherInfo.longitude,
-                                     offsetSec: weatherInfo.offsetSec)
+                                     longitude: weatherInfo.longitude)
+                if error != "" {
+                    moonRecord = MoonRecord()
+                } else {
+                    moonRecord = moonRec
+                }
+                
 
                 ///
                 /// Gir melding og avslutter appen dersom sola data er tom :
@@ -477,7 +485,19 @@ struct WeatherForecast: View {
                             currentWeather.nh3 = airQuality.nh3
                             ///  Date and time, Unix, UTC
                             currentWeather.dt = airQuality.dt
-                            ///
+                            /// moonPhase
+                            currentWeather.moonPhase = moonRecord.moonPhase
+                            /// moonrise
+                            currentWeather.moonrise = moonRecord.moonrise
+                            /// moonset
+                            currentWeather.moonset = moonRecord.moonset
+                            /// moonIllumination
+                            currentWeather.moonIllumination = moonRecord.moonIllumination
+                            /// isMoonUp
+                            currentWeather.isMoonUp = moonRecord.isMoonUp
+                            /// isSunUp
+                            currentWeather.isSunUp = moonRecord.isSunUp
+                             ///
                             /// Oppdaterer currentWeather:
                             ///
                             currentWeather.date = weather.currentWeather.date

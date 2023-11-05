@@ -48,12 +48,7 @@ import Observation
      var aqi = Int()
     /// Image som følge av aqi:
      var image = String()
-
-
-
-
-
-    ///  Сoncentration of CO (Carbon monoxide), μg/m3
+///  Сoncentration of CO (Carbon monoxide), μg/m3
      var co = Double()
     /// Сoncentration of NO (Nitrogen monoxide), μg/m3
      var no = Double()
@@ -71,4 +66,16 @@ import Observation
      var nh3 = Double()
     ///  Date and time, Unix, UTC
      var dt = Int()
+    /// moonPhase
+     var moonPhase = String()
+    /// moonrise
+    var moonrise = String()
+    /// moonset
+    var moonset = String()
+    /// moonIllumination
+    var moonIllumination = Int()
+    /// isMoonUp
+    var isMoonUp = Int()
+    /// isSunUp
+    var isSunUp = Int()
 }

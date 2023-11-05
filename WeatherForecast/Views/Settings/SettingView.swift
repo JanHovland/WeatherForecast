@@ -15,11 +15,13 @@ struct SettingView: View {
     
     @AppStorage("KeyOpenCage") var keyOpenCage = ""
     @AppStorage("KeyOpenWeather") var keyOpenWeather = ""
+    @AppStorage("KeyWeatherApi") var keyWeatherApi = ""
+
     @AppStorage("UrlOpenCage") var urlOpenCage = ""
     @AppStorage("UrlOpenWeather") var urlOpenWeather = ""
 
     @AppStorage("UrlMetNo") var urlMetNo = ""
-    @AppStorage("UrlMetMoonNo") var urlMetMoonNo = ""
+    @AppStorage("UrlWeatherApiMoon") var urlWeatherApiMoon = ""
     @AppStorage("ShowWeather") var showWeather = false
 
     var body: some View {
@@ -51,8 +53,14 @@ struct SettingView: View {
                     TextField("Url for Met.no", text: $urlMetNo)
                         .font(.footnote)
                 }
-                Section(header: Text("Url for Met.no moon")) {
-                    TextField("Url for Met.no moon", text: $urlMetMoonNo)
+                
+                Section(header: Text("Key for WeatherApi")) {
+                    TextField("Key for WeatherApi", text: $keyWeatherApi)
+                        .font(.footnote)
+                }
+
+                Section(header: Text("Url for WeatherApi")) {
+                    TextField("Url for WeatherApi moon", text: $urlWeatherApiMoon)
                         .font(.footnote)
                 }
                 Section(header: Text("SHOW WEATHER FOR PLACES IN CLOUDKIT")) {
