@@ -1306,3 +1306,24 @@
 /* No comment provided by engineer. */
 "Waning Gibbous" = "Minkende måne";
 
+/* No comment provided by engineer. */
+"Illumination" = "Opplysning";
+
+/* No comment provided by engineer. */
+"MoonRise" = "Måneoppgang";
+
+/* No comment provided by engineer. */
+"MoonSet" = "Månenedgang";
+
+/* No comment provided by engineer. */
+"Is the moon visible?" = "Er månen synlig?";
+
+/* No comment provided by engineer. */
+"Yes" = "Ja";
+
+/* No comment provided by engineer. */
+"No" = "Nei";
+
+/* No comment provided by engineer. */
+"Is the sun visible?" = "Er solen synlig?";
+
