@@ -21,11 +21,26 @@ struct MoonView: View {
                     .font(Font.headline.weight(.regular))
                 Text("MOON")
                     .font(.system(size: 15, weight: .bold))
+                Spacer()
             }
             .opacity(0.50)
-            .padding(.leading, -40)
+            .padding(.top, -5)
+            ZStack {
+                HStack {
+                    Spacer()
+                    Text(currentWeather.moonPhase.uppercased())
+                        .font(.system(size: 15, weight: .bold))
+                    Spacer()
+                }
+            }
+            .opacity(0.50)
+            .offset(x: UIDevice.isIpad ? 85 : 85,
+                    y: UIDevice.isIpad ? -20 : -20)
             
-            Text(currentWeather.moonPhase)
+//            .opacity(0.50)
+//            .padding(.leading, -40)
+            
+//            Text(currentWeather.moonPhase)
             Text(FindTimeFromAmPm(time: currentWeather.moonrise))
             Text(FindTimeFromAmPm(time: currentWeather.moonset))
             Text("\(currentWeather.moonIllumination)")
