@@ -42,9 +42,25 @@ func FindMoonUpDown(url: String,
             moonRecord.moonrise = metApiMoon?.astronomy.astro.moonrise ?? ""
             moonRecord.moonset = metApiMoon?.astronomy.astro.moonset ?? ""
             moonRecord.moonPhase = metApiMoon?.astronomy.astro.moonPhase ?? ""
-            
+            /// https://moonphases.co.uk/moon-phases
+            /// <a href="http://moonphases.co.uk/moon-phases"><img src="http://moonphases.co.uk/images/infographic.png" alt="Moon Phases" /></a>
+
             if moonRecord.moonPhase == "Last Quarter" {
                 moonRecord.moonPhase = String(localized: "Last Quarter")
+            } else if moonRecord.moonPhase == "Waning Crescent" {
+                moonRecord.moonPhase = String(localized: "Waning Crescent")
+            } else if moonRecord.moonPhase == "New Moon" {
+                moonRecord.moonPhase = String(localized: "New Moon")
+            } else if moonRecord.moonPhase == "Waxing Crescent" {
+                moonRecord.moonPhase = String(localized: "Waxing Crescent")
+            } else if moonRecord.moonPhase == "First Quarter" {
+                moonRecord.moonPhase = String(localized: "First Quarter")
+            } else if moonRecord.moonPhase == "Waxing Gibbous" {
+                moonRecord.moonPhase = String(localized: "Waxing Gibbous")
+            } else if moonRecord.moonPhase == "Full Moon" {
+                moonRecord.moonPhase = String(localized: "Full Moon")
+            } else if moonRecord.moonPhase == "Waning Gibbous" {
+                moonRecord.moonPhase = String(localized: "Waning Gibbous")
             }
             moonRecord.moonIllumination = metApiMoon?.astronomy.astro.moonIllumination ?? 0
             moonRecord.isMoonUp = metApiMoon?.astronomy.astro.isMoonUp ?? 0

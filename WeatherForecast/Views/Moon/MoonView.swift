@@ -26,8 +26,8 @@ struct MoonView: View {
             .padding(.leading, -40)
             
             Text(currentWeather.moonPhase)
-            Text(currentWeather.moonrise)
-            Text(currentWeather.moonset)
+            Text(FindTimeFromAmPm(time: currentWeather.moonrise))
+            Text(FindTimeFromAmPm(time: currentWeather.moonset))
             Text("\(currentWeather.moonIllumination)")
             Text("Moon: \(currentWeather.isMoonUp)")
             Text("Sun: \(currentWeather.isSunUp)")

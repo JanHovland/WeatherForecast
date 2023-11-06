@@ -133,6 +133,7 @@
 		DB8C17D329DDD58F00198DCB /* DayDetailPositionViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8C17D229DDD58E00198DCB /* DayDetailPositionViewModifier.swift */; };
 		DB919BC02940B38A00E69644 /* MetApiSun.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB919BBF2940B38A00E69644 /* MetApiSun.swift */; };
 		DB919BC22940B43100E69644 /* FindSunUpDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB919BC12940B43100E69644 /* FindSunUpDown.swift */; };
+		DB91F33A2AF92F0E00D94E07 /* FindTimeFromAmPm.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB91F3392AF92F0E00D94E07 /* FindTimeFromAmPm.swift */; };
 		DB9299E329C4CBE2002BA87A /* TranslateCountry.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9299E229C4CBE2002BA87A /* TranslateCountry.swift */; };
 		DB9D0B0228F027B0002ABA9E /* WindView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9D0B0128F027B0002ABA9E /* WindView.swift */; };
 		DB9D0B2128F09549002ABA9E /* FeelsLike.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9D0B2028F09549002ABA9E /* FeelsLike.swift */; };
@@ -304,6 +305,7 @@
 		DB8C17D229DDD58E00198DCB /* DayDetailPositionViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayDetailPositionViewModifier.swift; sourceTree = "<group>"; };
 		DB919BBF2940B38A00E69644 /* MetApiSun.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetApiSun.swift; sourceTree = "<group>"; };
 		DB919BC12940B43100E69644 /* FindSunUpDown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindSunUpDown.swift; sourceTree = "<group>"; };
+		DB91F3392AF92F0E00D94E07 /* FindTimeFromAmPm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindTimeFromAmPm.swift; sourceTree = "<group>"; };
 		DB9299E229C4CBE2002BA87A /* TranslateCountry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateCountry.swift; sourceTree = "<group>"; };
 		DB9D0B0128F027B0002ABA9E /* WindView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindView.swift; sourceTree = "<group>"; };
 		DB9D0B2028F09549002ABA9E /* FeelsLike.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeelsLike.swift; sourceTree = "<group>"; };
@@ -434,6 +436,7 @@
 				DBD497A32A4EAF160075B350 /* FindLocalPosition.swift */,
 				DB66C1A22AF65A6500C2722E /* FindMoonUpDown.swift */,
 				DB919BC12940B43100E69644 /* FindSunUpDown.swift */,
+				DB91F3392AF92F0E00D94E07 /* FindTimeFromAmPm.swift */,
 				DB43C45C28F979A3007D44EC /* FormatDateToString.swift */,
 				DB2C677428E72F43002EC5C1 /* FormatPlace.swift */,
 				DBF2ABD629D4A4F0008ECB6C /* GetBaseDate.swift */,
@@ -888,6 +891,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB91F33A2AF92F0E00D94E07 /* FindTimeFromAmPm.swift in Sources */,
 				DB8C17CF29DDB48100198DCB /* FindHourToCGFloat.swift in Sources */,
 				DBFD2DDB295C9DB200293B4D /* IconHumidityView.swift in Sources */,
 				DBFD2DDD295CB38300293B4D /* IconVisibilityView.swift in Sources */,
