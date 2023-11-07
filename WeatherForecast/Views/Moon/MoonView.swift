@@ -112,7 +112,7 @@ struct MoonView: View {
             Spacer()
         }
         .frame(width: UIDevice.isIpad ? 358 : 358,
-               height: UIDevice.isIpad ? 200 : 200)
+               height: UIDevice.isIpad ? 250 : 270)
         .padding(15)
         .modifier(DayDetailBackground(dayLight: currentWeather.isDaylight))
     }

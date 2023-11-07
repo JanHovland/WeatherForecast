@@ -356,7 +356,7 @@ struct AirQualityView: View {
                         Spacer()
                     }
                     .font(.footnote)
-                    .padding(.top, -40)
+                    .padding(.top, -41)
                     .padding(.leading, 5)
                     ///
                     /// Viser vivået av Carbon monoxide (CO):
@@ -391,7 +391,51 @@ struct AirQualityView: View {
                     }
                     .font(.footnote)
                     .offset(x: UIDevice.isIpad ? -5  : -5,
-                            y: UIDevice.isIpad ? -40 : -40)
+                            y: UIDevice.isIpad ? -41 : -41)
+                    ///
+                    /// Viser vedien for nh3
+                    /// NH3: min value 0.1 - max value 200
+                    ///
+                    HStack {
+                        HStack {
+                            let v = String(localized: "Ammonia ")
+                            Text("\(v)\(NH3) : \(Int(currentWeather.nh3)) \(aqUnit)")
+                            Spacer()
+                        }
+                        HStack {
+                            Spacer()
+                            let v = "Max : "
+                            Text("\(v)200 \(aqUnit)")
+                                .padding(.trailing, 5)
+                                .foregroundColor(.red)
+                       }
+                    }
+                    .font(.footnote)
+                    .padding(.top, -46)
+                    .padding(.leading, 5)
+                    ///
+                    /// Viser vedien for no
+                    /// NO: min value 0.1 - max value 100
+                    ///
+                    HStack {
+                        HStack {
+                            let v = String(localized: "Nitrogen monoxide ")
+                            Text("\(v)\("NO") : \(Int(currentWeather.no)) \(aqUnit)")
+                            Spacer()
+                        }
+                    }
+                    .font(.footnote)
+                    .padding(.top, -35)
+                    .padding(.leading, 5)
+                    ZStack {
+                        let v = "Max : "
+                        Text("\(v)100 \(aqUnit)")
+
+                            .foregroundColor(.red)
+                            .font(.footnote)
+                    }
+                    .offset(x: UIDevice.isIpad ? 124 : 124,
+                            y: UIDevice.isIpad ? -36 : -36)
                 }
                 .offset(y: UIDevice.isIpad ? 0 : -40)
             } else {
@@ -414,7 +458,7 @@ struct AirQualityView: View {
             }
         }
         .frame(width: UIDevice.isIpad ? 358 : 358,
-               height: UIDevice.isIpad ? 200 : 230)
+               height: UIDevice.isIpad ? 250 : 270)
         .padding(15)
         .modifier(DayDetailBackground(dayLight: currentWeather.isDaylight))
     }
