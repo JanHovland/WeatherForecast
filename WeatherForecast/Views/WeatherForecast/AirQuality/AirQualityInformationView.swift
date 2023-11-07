@@ -318,6 +318,7 @@ struct AirQualityInformationView: View {
             .offset(y : UIDevice.isIpad ? 0 : -25)
             .listStyle(.sidebar)
         }
+        .scrollIndicators(.hidden)
         .task {
             ///
             /// Finner so2Index
