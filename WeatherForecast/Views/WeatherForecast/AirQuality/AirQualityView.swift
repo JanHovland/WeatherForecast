@@ -411,7 +411,7 @@ struct AirQualityView: View {
                        }
                     }
                     .font(.footnote)
-                    .padding(.top, -46)
+                    .padding(.top, -47)
                     .padding(.leading, 5)
                     ///
                     /// Viser vedien for no
