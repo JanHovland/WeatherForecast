@@ -100,6 +100,7 @@ struct AirQualityInformationView: View {
             
             Text("Detailed information on air quality")
                 .padding(.top, -27.5)
+                .foregroundColor(.teal)
             VStack {
                 ///
                 /// Viser sted og land:
@@ -477,6 +478,6 @@ var VolatileOrganicCompounds:  some View {
 
 @ViewBuilder
 var AirQualityGenerally: some View {
-    Text("When talking about air quality, we commonly mean the levels of different pollutants in our air. Major air pollutants include carbon monoxide (CO), ammonia (NH3), nitric oxide (NO), nitrogen dioxide (NO2), ozone (O3), particulate matter (PM), sulphur dioxide (SO2) and volatile organic compounds (VOC). Why test for these compounds? What impact do they have on individual health and well-being?")
+    Text("When talking about air quality, we commonly mean the levels of different pollutants in our air. Major air pollutants include carbon monoxide (CO), ammonia (NH3), nitric oxide (NO), nitrogen dioxide (NO2), ozone (O3), particulate matter (PM), sulphur dioxide (SO2) and volatile organic compounds (VOC).")
 }
 

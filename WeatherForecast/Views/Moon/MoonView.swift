@@ -35,6 +35,7 @@ struct MoonView: View {
                         .font(.system(size: 15, weight: .bold))
                     Spacer()
                 }
+                .padding(.leading, 25)
             }
             .opacity(0.50)
             .offset(x: UIDevice.isIpad ? 85 : 85,
