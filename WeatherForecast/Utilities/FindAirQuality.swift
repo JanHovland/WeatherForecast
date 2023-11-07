@@ -30,6 +30,7 @@ func FindAirQuality(url: String,
 
             airQualityRecord.aqi = airQuality?.list[0].main.aqi ?? 0
             airQualityRecord.co = airQuality?.list[0].components.co ?? 0.00
+            airQualityRecord.no = airQuality?.list[0].components.no ?? 0.00
             airQualityRecord.no2 = airQuality?.list[0].components.no2 ?? 0.00
             airQualityRecord.o3 = airQuality?.list[0].components.o3 ?? 0.00
             airQualityRecord.so2 = airQuality?.list[0].components.so2 ?? 0.00

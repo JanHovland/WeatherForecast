@@ -414,8 +414,6 @@ struct WeatherForecast: View {
                 } else {
                     moonRecord = moonRec
                 }
-                
-
                 ///
                 /// Gir melding og avslutter appen dersom sola data er tom :
                 ///
