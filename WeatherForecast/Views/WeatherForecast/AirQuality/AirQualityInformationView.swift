@@ -143,7 +143,7 @@ struct AirQualityInformationView: View {
                 /// Overskrift:
                 ///
                 AirQualityHeadlineView()
-                .padding(.horizontal, 10)
+                    .padding(.horizontal, 10)
                 
                 ForEach(so2AqLimit, id: \.index) { aq in
                     if aq.index == so2Index {
@@ -153,9 +153,14 @@ struct AirQualityInformationView: View {
                                                 range: aq.range)
                         .modifier(AirQualityViewModifier(aqIndex: so2Index, index: aq.index))
                         .padding(.horizontal, 10)
-                   }
+                    }
                 }
-                SulphurDioxide
+                List {
+                    SulphurDioxide
+                }
+                .padding(-20)
+                .listStyle(.grouped)
+                .frame(height: 150)
                 ///
                 /// Viser  NO2:
                 ///
@@ -183,7 +188,12 @@ struct AirQualityInformationView: View {
                         .padding(.horizontal, 10)
                    }
                 }
-                Nitrogendioxide
+                List {
+                    Nitrogendioxide
+                }
+                .padding(-20)
+                .listStyle(.grouped)
+                .frame(height: 150)
                 ///
                 /// Viser  PM10:
                 ///
@@ -211,7 +221,12 @@ struct AirQualityInformationView: View {
                         .padding(.horizontal, 10)
                    }
                 }
-                ParticulateMatter
+                List {
+                    ParticulateMatter
+                }
+                .padding(-20)
+                .listStyle(.grouped)
+                .frame(height: 150)
                 ///
                 /// Viser  PM2.5:
                 ///
@@ -239,7 +254,12 @@ struct AirQualityInformationView: View {
                         .padding(.horizontal, 10)
                    }
                 }
-                ParticulateMatter
+                List {
+                    ParticulateMatter
+                }
+                .padding(-20)
+                .listStyle(.grouped)
+                .frame(height: 150)
                 ///
                 /// Viser  O3:
                 ///
@@ -267,7 +287,12 @@ struct AirQualityInformationView: View {
                         .padding(.horizontal, 10)
                    }
                 }
-                Ozone
+                List {
+                    Ozone
+                }
+                .padding(-20)
+                .listStyle(.grouped)
+                .frame(height: 150)
                 ///
                 /// Viser  CO:
                 ///
@@ -295,7 +320,12 @@ struct AirQualityInformationView: View {
                         .padding(.horizontal, 10)
                    }
                 }
-                CarbonMonoxide
+                List {
+                    CarbonMonoxide
+                }
+                .padding(-20)
+                .listStyle(.grouped)
+                .frame(height: 150)
                 HStack {
                     Text("Showing Ammonia information:")
                         .font(.system(.headline).italic())
