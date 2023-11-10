@@ -257,6 +257,7 @@ struct AirQualityInformationView: View {
                 List {
                     ParticulateMatter
                 }
+                .modifier(AirQualityInformationViewModifier(index: .secondEnum))
                 .padding(-20)
                 .listStyle(.grouped)
                 .frame(height: 150)
@@ -328,21 +329,21 @@ struct AirQualityInformationView: View {
                 .frame(height: 150)
                 HStack {
                     Text("Showing Ammonia information:")
-                        .font(.system(.headline).italic())
-                        .foregroundColor(.red)
                 }
+                .font(.system(.headline).italic())
+                .padding(10)
                 Ammonia
                 HStack {
                     Text("Showing nitrogenmonoxide information:")
-                        .font(.system(.headline).italic())
-                        .foregroundColor(.red)
                 }
+                .font(.system(.headline).italic())
+                .padding(10)
                 NitricOxide
                 HStack {
                     Text("Showing Volatile organic compounds (VOC):")
-                        .font(.system(.headline).italic())
-                        .foregroundColor(.red)
                 }
+                .font(.system(.headline).italic())
+                .padding(10)
                 VolatileOrganicCompounds
                 Spacer()
             }
@@ -462,7 +463,7 @@ struct AirQualityInformationView: View {
 var Ammonia: some View {
     VStack(alignment: .leading) {
         Text("Ammonia (NH3) Ammonia is a colourless gas with a pungent odour. Its main source are agricultural processes, particularly in fertilizer production and livestock waste management. Indoor causes include cigarette smoke and cleaning solutions.            Ammonia irritates the eyes, nose, throat, and respiratory tract if inhaled in small amounts due to its corrosive nature and is poisonous in large quantities. It pollutes and contributes to the eutrophication and acidification of terrestrial and aquatic ecosystems. Furthermore, ammonia forms secondary particulate matter (PM2.5) when combined with other pollutants in the atmosphere.")
-            .foregroundColor(.teal)
+            .modifier(AirQualityInformationViewModifier(index: .firstEnum))
     }
 }
 
@@ -470,7 +471,7 @@ var Ammonia: some View {
 var NitricOxide: some View {
     VStack(alignment: .leading) {
         Text("Nitric oxide (NO) Nitric oxide, also called nitrogen monoxide, is a colourless, toxic gas formed through the combustion processes of coal and petroleum. Main sources include motor vehicles and thermal power plants.Nitric oxide dissolves in atmospheric water vapour to form acid that damages vegetation, buildings and materials, which contributes to the acidification of terrestrial and aquatic ecosystems. It also combines with VOCs to create ground-level ozone (O3).")
-            .foregroundColor(.teal)
+        .modifier(AirQualityInformationViewModifier(index: .firstEnum))
     }
 }
 
@@ -479,42 +480,42 @@ var NitricOxide: some View {
 @ViewBuilder
 var SulphurDioxide:  some View {
     Text("Sulphur dioxide is a toxic gas with a pungent smell. It mainly arises from the combustion and refining processes of coal, oil, and metal-containing ores, but also from transport-related emissions such as shipping.Sulphur dioxide is an irritant, and can cause respiratory diseases in humans and animals. It forms acid rain when dissolved in water, which damages vegetation, buildings and materials, and contributes to the acidification of terrestrial and aquatic ecosystems. Sulphur dioxide also forms secondary particulate matter (PM2.5) when combined with other compounds such as ammonia in the atmosphere.")
-        .foregroundColor(.teal)
+        .modifier(AirQualityInformationViewModifier(index: .firstEnum))
 }
 
 @ViewBuilder
 var Nitrogendioxide:  some View {
     Text("Nitrogen dioxide (NO2) Nitrogen dioxide is formed through the oxidation of nitric oxide (NO) from combustion processes such as diesel engines and coal, oil, gas, wood, and waste plants.Nitrogen dioxide has an adverse effect on the respiratory systems of both humans and animals, increasing risks of stroke. Just like nitrogen monoxide, it dissolves in water vapour to create acid rain. Nitrogen dioxide contributes to the formation of ground-level ozone (O3), and forms secondary particulate matter (PM2.5) when combined with other atmospheric compounds such as ammonia.")
-        .foregroundColor(.teal)
+    .modifier(AirQualityInformationViewModifier(index: .firstEnum))
 }
 
 @ViewBuilder
 var ParticulateMatter:  some View {
     Text("Particulate matter (PM) Particulate matter consists of airborne liquid and solid particles. Primary particulate matter is emitted from a direct source, including power plants, vehicle traffic, construction sites, and indoor stoves and heaters. On the other hand, secondary particulate matter is formed as a result of chemical and physical reactions with various compounds, including sulphur dioxide (SO2), nitrogen dioxide (NO2), and ammonia (NH3). Particulate matter has been linked to cardiovascular and respiratory diseases such as asthma, bronchitis, and emphysema. The extent of health damage caused by particulate matter is determined by the size of the particles. Particles with a mass median diameter of less than 10 microns is called PM10, while particles with a mass median diameter of less than 2.5 microns is called PM2.5. PM2.5 are also called fine particles. Newer classifications can also include PM0.1, so-called ultra-fine particles. The smaller the particle, the higher the health risk, due to their ability to penetrate deep into the respiratory and circulatory systems, causing damage to the lungs, heart, and brain.")
-        .foregroundColor(.teal)
+    .modifier(AirQualityInformationViewModifier(index: .firstEnum))
 }
 
 @ViewBuilder
 var Ozone:  some View {
     Text("Ozone (O3) Ground-level ozone is a pale blue gas with a pungent smell. It is mainly formed through the photochemical reactions of other pollutants such as nitrogen oxides, carbon monoxide, and volatile organic compounds from strong sunlight and UV radiation. Indoor sources stem from electric motors in household appliances including copiers and laser printers.Ozone is suspected to have carcinogenic effects. It leads to reduced lung function and respiratory diseases, with exposure linked to premature mortality. Apart from its impact on the human body, ozone also damages vegetation, contributing to a decrease in crop productivity and forest decline. Ozone accelerates the deterioration of rubbers, dyes, paints, coatings, and various textiles, and is also a major component of smog.")
-        .foregroundColor(.teal)
+    .modifier(AirQualityInformationViewModifier(index: .firstEnum))
 }
 
 @ViewBuilder
 var CarbonMonoxide:  some View {
     Text("Carbon monoxide (CO) Carbon monoxide is a colourless, odourless, and tasteless toxic gas. It is emitted directly from vehicles and combustion engines. Indoors, carbon monoxide is produced by boilers, fireplaces, ovens, cooker hoods, central vacuum systems, tobacco smoke, and propane heaters. Other sources of the gas are power plants, biomass burning, forest fires, and the wood industry.Upon entering the bloodstream, carbon monoxide inhibits the body’s ability to carry oxygen to organs and tissues. As such, extremely high concentrations can cause death. Infants, the elderly, and those with heart and respiratory diseases are particularly susceptible to carbon monoxide poisoning.")
-        .foregroundColor(.teal)
+    .modifier(AirQualityInformationViewModifier(index: .firstEnum))
 }
 
 @ViewBuilder
 var VolatileOrganicCompounds:  some View {
     Text("Volatile organic compounds (VOC) Volatile organic compounds refer to a large group of carbon-containing substances including hydrocarbons, alcohols, aldehydes, and organic acids. Outdoor sources include emissions from incomplete combustion processes and volatile industry byproducts. VOCs are particularly concentrated indoors due to internal sources from interior products and building materials such as furniture, plastics, carpets, wallpapers, cleaning materials, lacquers, solvents, and tobacco smoke.As such, the indoor impact of VOCs has greater health implications since people spend time predominantly in buildings. While individual VOC levels tend to be moderate with no expected health effects, concentrations rise to concerning levels after construction works and renovations. Many individual VOCs have been shown to have toxic, carcinogenic, and mutagenic effects on humans. Symptoms include headaches, fatigue, loss of productivity, sleep disorders, and respiratory diseases, which altogether could be summarized as “Sick Building Syndrome”. The more reactive VOCs combine with nitrogen dioxide (NO2) to form ground-level ozone (O3), and contribute to creating secondary particulate matter (PM2.5) as well.")
-        .foregroundColor(.teal)
+    .modifier(AirQualityInformationViewModifier(index: .firstEnum))
 }
 
 @ViewBuilder
 var AirQualityGenerally: some View {
     Text("When talking about air quality, we commonly mean the levels of different pollutants in our air. Major air pollutants include carbon monoxide (CO), ammonia (NH3), nitric oxide (NO), nitrogen dioxide (NO2), ozone (O3), particulate matter (PM), sulphur dioxide (SO2) and volatile organic compounds (VOC).")
-        .foregroundColor(.teal)
+        .foregroundColor(.red)
 }
 

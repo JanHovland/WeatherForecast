@@ -39,6 +39,7 @@ enum EnumType {
     case intern
     /// Starte opp WeatherForecast() fra WeatherForecastSelectPlace()
     case selection 
-    
-
+    case firstEnum
+    case secondEnum
+    case thirdEnum
 }
