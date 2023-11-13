@@ -97,8 +97,8 @@ struct WeatherForecast: View {
                         /// Dette er kanskje en feil i iPadOS 17.2 (21C5029g) ?
                         /// Dette medfører litt kosmetisk rusk.
                         ///
-//                        ScrollView (.vertical, showsIndicators: false) {
-                        List {
+                        ScrollView (.vertical, showsIndicators: false) {
+//                        List {
                             VStack {
                                 VStack {
                                     Text(weatherInfo.placeName.count > 0 ? weatherInfo.placeName : "No placeName")

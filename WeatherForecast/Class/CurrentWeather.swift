@@ -10,64 +10,64 @@ import Observation
 
 @Observable final class CurrentWeather {
     /// The date of the current weather.
-     var date = Date()
+    var date = Date()
     /// The hour of the current weather.
-     var hour = Int()
+    var hour = Int()
     /// The range of the value is from `0` to `1`
-     var cloudCover = Double()
+    var cloudCover = Double()
     /// An enumeration value indicating the condition at the time.
-     var condition = String()
+    var condition = String()
     /// The SF Symbol icon for the current weather condition.
-     var symbolName = String()
+    var symbolName = String()
     /// The temperature at which relative humidity is 100%.
-     var dewPoint = Double()
+    var dewPoint = Double()
     /// The amount of water vapor in the air.
-     var humidity = Double()
+    var humidity = Double()
     /// The sea level air pressure in millibars.
-     var pressure = Double()
+    var pressure = Double()
     /// The change of air pressure. "rising" :  "arrow.up.to.line.compact " ,  "falling" :  "arrow.down.to.line.compact "  or "steady" :  " equal" .
-     var pressureTrend = String()
+    var pressureTrend = String()
     /// A Boolean value indicating whether there is daylight.
-     var isDaylight : Bool = false
+    var isDaylight : Bool = false
     /// The current temperature.
-     var temperature = Double()
+    var temperature = Double()
     /// The feels-like temperature when factoring wind and humidity.
-     var apparentTemperature = Double()
+    var apparentTemperature = Double()
     /// The level of ultraviolet radiation.
-     var uvIndex = Int()
+    var uvIndex = Int()
     /// The distance at which terrain is visible.
-     var visibility = Double()
+    var visibility = Double()
     /// The wind speed.
-     var windSpeed = Double()
+    var windSpeed = Double()
     /// The wind gust.
-     var windGust = Double()
+    var windGust = Double()
     /// The wind directiont.
-     var windDirection = Double()
+    var windDirection = Double()
     /// https://openweathermap.org/api/air-pollution#concept
     /// Air Quality Index. Possible values: 1, 2, 3, 4, 5. Where 1 = Good, 2 = Fair, 3 = Moderate, 4 = Poor, 5 = Very Poor.
-     var aqi = Int()
+    var aqi = Int()
     /// Image som følge av aqi:
-     var image = String()
-///  Сoncentration of CO (Carbon monoxide), μg/m3
-     var co = Double()
+    var image = String()
+    ///  Сoncentration of CO (Carbon monoxide), μg/m3
+    var co = Double()
     /// Сoncentration of NO (Nitrogen monoxide), μg/m3
-     var no = Double()
+    var no = Double()
     /// Сoncentration of NO2 (Nitrogen dioxide), μg/m3
-     var no2 = Double()
+    var no2 = Double()
     /// Сoncentration of O3 (Ozone), μg/m
-     var o3 = Double()
+    var o3 = Double()
     /// Сoncentration of SO2 (Sulphur dioxide), μg/m3
-     var so2 = Double()
+    var so2 = Double()
     ///  Сoncentration of PM2.5 (Fine particles matter), μg/m3
-     var pm2_5 = Double()
+    var pm2_5 = Double()
     /// Сoncentration of PM10 (Coarse particulate matter), μg/m3
-     var pm10 = Double()
+    var pm10 = Double()
     /// Сoncentration of NH3 (Ammonia), μg/m3
-     var nh3 = Double()
+    var nh3 = Double()
     ///  Date and time, Unix, UTC
-     var dt = Int()
+    var dt = Int()
     /// moonPhase
-     var moonPhase = String()
+    var moonPhase = String()
     /// moonrise
     var moonrise = String()
     /// moonset
@@ -78,4 +78,5 @@ import Observation
     var isMoonUp = Int()
     /// isSunUp
     var isSunUp = Int()
+    
 }
