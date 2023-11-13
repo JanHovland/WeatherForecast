@@ -75,11 +75,11 @@ struct DayDetailWeatherDataHumidity: View {
                              [Double],
                              [FeltTemp],
                              [Double],
-                             [NewData]) = FindDataFromMenu(info: "DayDetailWeatherDataHumidity change index",
-                                                           weather: weather,
-                                                           date: dateSettings.dates[index],
-                                                           option: .humidity,
-                                                           option1: .number12)
+                             [NewPrecipitation]) = FindDataFromMenu(info: "DayDetailWeatherDataHumidity change index",
+                                                                    weather: weather,
+                                                                    date: dateSettings.dates[index],
+                                                                    option: .humidity,
+                                                                    option1: .number12)
                 dataArray = value.0
             }
             ///
@@ -101,11 +101,11 @@ struct DayDetailWeatherDataHumidity: View {
                              [Double],
                              [FeltTemp],
                              [Double],
-                             [NewData]) = FindDataFromMenu(info: "DayDetailWeatherDataHumidity .task",
-                                                           weather: weather,
-                                                           date: dateSettings.dates[index],
-                                                           option: .humidity,
-                                                           option1: .number12)
+                             [NewPrecipitation]) = FindDataFromMenu(info: "DayDetailWeatherDataHumidity .task",
+                                                                    weather: weather,
+                                                                    date: dateSettings.dates[index],
+                                                                    option: .humidity,
+                                                                    option1: .number12)
                 dataArray = value.0
             }
         }

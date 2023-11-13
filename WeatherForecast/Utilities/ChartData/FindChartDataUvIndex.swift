@@ -38,11 +38,11 @@ func FindChartDataUvIndex(weather: Weather,
                  [Double],
                  [FeltTemp],
                  [Double],
-                 [NewData]) = FindDataFromMenu(info: "FindChartDataUvIndex",
-                                               weather: weather,
-                                               date: date,
-                                               option: option,
-                                               option1: .number24)
+                 [NewPrecipitation]) = FindDataFromMenu(info: "FindChartDataUvIndex",
+                                                        weather: weather,
+                                                        date: date,
+                                                        option: option,
+                                                        option1: .number24)
     array.removeAll()
     array = value.0
     new.removeAll()

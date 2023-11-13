@@ -72,11 +72,11 @@ struct DayDetailWeatherDataTemperature: View {
                              [Double],
                              [FeltTemp],
                              [Double],
-                             [NewData]) = FindDataFromMenu(info: "DayDetailWeatherDataTemperature change index",
-                                                           weather: weather,
-                                                           date: dateSettings.dates[index],
-                                                           option: .temperature,
-                                                           option1: .number24)
+                             [NewPrecipitation]) = FindDataFromMenu(info: "DayDetailWeatherDataTemperature change index",
+                                                                    weather: weather,
+                                                                    date: dateSettings.dates[index],
+                                                                    option: .temperature,
+                                                                    option1: .number24)
                 dataArray = value.0
                 
             }
@@ -99,11 +99,11 @@ struct DayDetailWeatherDataTemperature: View {
                              [Double],
                              [FeltTemp],
                              [Double],
-                             [NewData]) = FindDataFromMenu(info: "DayDetailWeatherDataTemperature .task",
-                                                           weather: weather,
-                                                           date: dateSettings.dates[index],
-                                                           option: .temperature,
-                                                           option1: .number24)
+                             [NewPrecipitation]) = FindDataFromMenu(info: "DayDetailWeatherDataTemperature .task",
+                                                                    weather: weather,
+                                                                    date: dateSettings.dates[index],
+                                                                    option: .temperature,
+                                                                    option1: .number24)
                 dataArray = value.0
             }
         }

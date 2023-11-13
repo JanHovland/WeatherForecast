@@ -83,3 +83,4 @@ struct NewPrecipitation: Identifiable {
     var hour: Int
     var value: Double
 }
+

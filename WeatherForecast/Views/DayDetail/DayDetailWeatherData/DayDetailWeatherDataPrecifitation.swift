@@ -75,11 +75,11 @@ struct DayDetailWeatherDataPrecifitation: View {
                              [Double],
                              [FeltTemp],
                              [Double],
-                             [NewData]) = FindDataFromMenu(info: "DayDetailWeatherDataPrecifitation change index",
-                                                           weather: weather,
-                                                           date: dateSettings.dates[index],
-                                                           option: .precipitation,
-                                                           option1: .number12)
+                             [NewPrecipitation]) = FindDataFromMenu(info: "DayDetailWeatherDataPrecifitation change index",
+                                                                    weather: weather,
+                                                                    date: dateSettings.dates[index],
+                                                                    option: .precipitation,
+                                                                    option1: .number12)
                 dataArray = value.0
             }
             ///
@@ -118,11 +118,11 @@ struct DayDetailWeatherDataPrecifitation: View {
                               [Double],
                               [FeltTemp],
                               [Double],
-                              [NewData]) = FindDataFromMenu(info: "DayDetailWeatherDataPrecifitation .task",
-                                                            weather: weather,
-                                                            date: dateSettings.dates[index],
-                                                            option: .precipitation,
-                                                            option1: .number12)
+                              [NewPrecipitation]) = FindDataFromMenu(info: "DayDetailWeatherDataPrecifitation .task",
+                                                                     weather: weather,
+                                                                     date: dateSettings.dates[index],
+                                                                     option: .precipitation,
+                                                                     option1: .number12)
                 dataArray = value1.0
             }
         }

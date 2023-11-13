@@ -43,11 +43,11 @@ func FindChartDataFeelsLike(weather: Weather,
                  [Double],
                  [FeltTemp],
                  [Double],
-                 [NewData]) = FindDataFromMenu(info: "FindChartDataFeelsLike",
-                                               weather: weather,
-                                               date: date,
-                                               option: option,
-                                               option1: .number24)
+                 [NewPrecipitation]) = FindDataFromMenu(info: "FindChartDataFeelsLike",
+                                                        weather: weather,
+                                                        date: date,
+                                                        option: option,
+                                                        option1: .number24)
     tempInfo = value.5
     array.removeAll()
     new.removeAll()

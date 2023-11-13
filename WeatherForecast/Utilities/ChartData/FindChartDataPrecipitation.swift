@@ -39,33 +39,36 @@ func FindChartDataPrecipitation(weather: Weather,
                  [Double],
                  [FeltTemp],
                  [Double],
-                 [NewData]) = FindDataFromMenu(info: "FindChartDataPrecipitation",
-                                               weather: weather,
-                                               date: date,
-                                               option: option,
-                                               option1: .number24)
+                 [NewPrecipitation]) = FindDataFromMenu(info: "FindChartDataPrecipitation",
+                                                        weather: weather,
+                                                        date: date,
+                                                        option: option,
+                                                        option1: .number24)
+    
     rainFaal = value.3
     new.removeAll()
+    new = value.11
+  
+    
     ///
     /// Må initialisere n:
     ///
-    var n: NewPrecipitation = NewPrecipitation(type: "", hour: 0, value: 0.00)
+//    var n: NewPrecipitation = NewPrecipitation(type: "", hour: 0, value: 0.00)
     ///
     /// Finder "Rain":
-    ///
-    for i in 0..<rainFaal[rainType].data.count {
-//    for i in 0..<24 {
-        n.type = String(localized: "Rain")
-        n.hour = i
-        n.value = rainFaal[rainType].data[i].amount
-        if n.value > max {
-            max = n.value
-        }
-        new.append(n)
-    }
-    ///
-    /// Finder "Sleet":
-    ///
+//    ///
+//    for i in 0..<rainFaal[rainType].data.count {
+//        n.type = String(localized: "Rain")
+//        n.hour = i
+//        n.value = rainFaal[rainType].data[i].amount
+//        if n.value > max {
+//            max = n.value
+//        }
+//        new.append(n)
+//    }
+//    ///
+//    /// Finder "Sleet":
+//    ///
 //    for i in 0..<rainFaal[sleetType].data.count {
 //        n.type = String(localized: "Sleet")
 //        n.hour = i
@@ -87,9 +90,9 @@ func FindChartDataPrecipitation(weather: Weather,
 //        }
 //        new.append(n)
 //    }
-//    ///
-//    /// Finder "Snow":
-//    ///
+    ///
+    /// Finder "Snow":
+    ///
 //    for i in 0..<rainFaal[snowType].data.count {
 //        n.type = String(localized: "Snow")
 //        n.hour = i
@@ -99,9 +102,9 @@ func FindChartDataPrecipitation(weather: Weather,
 //        }
 //        new.append(n)
 //    }
-//    ///
-//    /// Finder "Hail":
-//    ///
+    ///
+    /// Finder "Hail":
+    ///
 //    for i in 0..<rainFaal[hailType].data.count {
 //        n.type = String(localized: "Hail")
 //        n.hour = i

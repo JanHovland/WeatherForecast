@@ -24,7 +24,7 @@ func FindDataFromMenu(info: String,
                                              [Double],
                                              [FeltTemp],
                                              [Double],
-                                             [NewData])  {
+                                             [NewPrecipitation])  {
     
     var array : [Double] = Array(repeating: Double(), count: 24)
     var arrayDayIcons : [String] = Array(repeating: String(), count: 10)
@@ -37,10 +37,8 @@ func FindDataFromMenu(info: String,
     var snowArray: [Double] = Array(repeating: Double(), count: 24)
     var feltTempArray: [FeltTemp] = Array(repeating: FeltTemp(), count: 24)
     var dewPointArray: [Double] = Array(repeating: Double(), count: 24)
-    ///
-    /// newData må nitialiseres:
-    ///
-    var newData: [NewData] = [NewData(type: "0", hour: 0, value: 0.00)]
+    var nData = NewPrecipitation(type: "", hour: 0, value: 0.00)
+    var newPrecipitation : [NewPrecipitation] = []
     var hailData : [Data] = []
     var mixedData : [Data] = []
     var rainData : [Data] = []
@@ -97,7 +95,7 @@ func FindDataFromMenu(info: String,
     snowArray.removeAll()
     feltTempArray.removeAll()
     dewPointArray.removeAll()
-    newData.removeAll()
+    newPrecipitation.removeAll()
     
     switch option {
     case .temperature :
@@ -146,7 +144,7 @@ func FindDataFromMenu(info: String,
             arrayDayIcons.append($0.symbolName)
         }
         arrayHourIcons = reduceArrayAmount(fromArray: arrayHourIcons, option: option1)
-        return (array, arrayDayIcons, arrayHourIcons, rainFalls, windInfoArray, tempInfoArray, gustInfoArray, weatherIconArray, snowArray, feltTempArray, dewPointArray, newData)
+        return (array, arrayDayIcons, arrayHourIcons, rainFalls, windInfoArray, tempInfoArray, gustInfoArray, weatherIconArray, snowArray, feltTempArray, dewPointArray, newPrecipitation)
         
     case .uvIndex :
         var i: Int = 0
@@ -259,7 +257,7 @@ func FindDataFromMenu(info: String,
             arrayDayIcons.append($0.symbolName)
         }
         arrayHourIcons = reduceArrayAmount(fromArray:arrayHourIcons, option: option1)
-        return (array, arrayDayIcons, arrayHourIcons, rainFalls, windInfoArray, tempInfoArray, gustInfoArray, weatherIconArray, snowArray, feltTempArray, dewPointArray, newData)
+        return (array, arrayDayIcons, arrayHourIcons, rainFalls, windInfoArray, tempInfoArray, gustInfoArray, weatherIconArray, snowArray, feltTempArray, dewPointArray, newPrecipitation)
         
     case .wind :
         var i: Int = 0
@@ -437,19 +435,52 @@ func FindDataFromMenu(info: String,
         tempInfo.data = tempData
         tempInfoArray.append(tempInfo)
         
-        return (array, arrayDayIcons, arrayHourIcons, rainFalls, windInfoArray, tempInfoArray, gustInfoArray, weatherIconArray, snowArray, feltTempArray, dewPointArray, newData)
+        return (array, arrayDayIcons, arrayHourIcons, rainFalls, windInfoArray, tempInfoArray, gustInfoArray, weatherIconArray, snowArray, feltTempArray, dewPointArray, newPrecipitation)
         
     case .precipitation :
         var i: Int = 0
         var data = Data()
+//        newData.removeAll()
         hourForecast!.forEach  {
             if $0.date >= value.0 &&
-                $0.date < value.1 {
+                $0.date <  value.1 {
                 array.append($0.precipitationAmount.value)
                 data.index = i
+                
+                ///
+                /// Oppdaterer newData
+                ///
+//                if $0.precipitation == .rain {
+//                    newData[i].type = String(localized: "Rain")
+//                    newData[i].hour = data.index
+//                    newData[i].value = $0.precipitationAmount.value
+//                } else if $0.precipitation == .sleet {
+//                    newData[i].type = String(localized: "Sleet")
+//                    newData[i].hour = data.index
+//                    newData[i].value = $0.precipitationAmount.value
+//                } else if $0.precipitation == .mixed {
+//                    newData[i].type = String(localized: "Mixed")
+//                    newData[i].hour = data.index
+//                    newData[i].value = $0.precipitationAmount.value
+//                } else if $0.precipitation == .snow {
+//                    newData[i].type = String(localized: "Snow")
+//                    newData[i].hour = data.index
+//                    newData[i].value = $0.precipitationAmount.value
+//                } else if $0.precipitation == .hail {
+//                    newData[i].type = String(localized: "Hail")
+//                    newData[i].hour = data.index
+//                    newData[i].value = $0.precipitationAmount.value
+//                } 
+//                else if $0.precipitation == .none {
+//                    newData[i].type = ""
+//                    newData[i].hour = data.index
+//                    newData[i].value = 0.00
+//                }
+                ///
                 ///
                 /// Sjekker om det er noe nedbør:
                 if $0.precipitation == .none {
+                    data.type = ""
                     data.amount = 0.00
                     hailData.append(data)
                     mixedData.append(data)
@@ -462,6 +493,7 @@ func FindDataFromMenu(info: String,
                         /// 1 millimeter nedbør = 1 centimeter snø .
                         ///
                         data.amount = $0.precipitationAmount.value
+                        data.type = String(localized: "Snow")
                         snowArray.append(data.amount)
                         data.amount = 0.00
                         hailData.append(data)
@@ -470,6 +502,7 @@ func FindDataFromMenu(info: String,
                         sleetData.append(data)
                     } else if $0.precipitation == .hail {
                         data.amount = $0.precipitationAmount.value
+                        data.type = String(localized: "Hail")
                         hailData.append(data)
                         data.index = i
                         data.amount = 0.00
@@ -479,6 +512,7 @@ func FindDataFromMenu(info: String,
                         snowData.append(data)
                     } else if $0.precipitation == .mixed {
                         data.amount = $0.precipitationAmount.value
+                        data.type = String(localized: "Mixed")
                         mixedData.append(data)
                         data.index = i
                         data.amount = 0.00
@@ -488,6 +522,7 @@ func FindDataFromMenu(info: String,
                         snowData.append(data)
                     } else if $0.precipitation == .rain {
                         data.amount = $0.precipitationAmount.value
+                        data.type = String(localized: "Rain")
                         rainData.append(data)
                         data.index = i
                         data.amount = 0.00
@@ -498,6 +533,7 @@ func FindDataFromMenu(info: String,
                     } else if $0.precipitation == .sleet {
                         data.amount = $0.precipitationAmount.value
                         sleetData.append(data)
+                        data.type = String(localized: "Sleet")
                         data.index = i
                         data.amount = 0.00
                         hailData.append(data)
@@ -506,8 +542,20 @@ func FindDataFromMenu(info: String,
                         snowData.append(data)
                     }
                 }
+                if $0.precipitationAmount.value > 0.00 {
+                    nData.type = $0.precipitation.description
+                    nData.hour = i
+                    nData.value = $0.precipitationAmount.value
+                    newPrecipitation.append(nData)
+                } else {
+                    nData.type = ""
+                    nData.hour = i
+                    nData.value = 0.00
+                    newPrecipitation.append(nData)
+                }
                 i = i + 1
             }
+            print(newPrecipitation as Any)
         }
     
         ///
@@ -539,7 +587,7 @@ func FindDataFromMenu(info: String,
             arrayDayIcons.append($0.symbolName)
         }
         
-        return (array, arrayDayIcons, arrayHourIcons, rainFalls, windInfoArray, tempInfoArray, gustInfoArray, weatherIconArray, snowArray, feltTempArray, dewPointArray, newData)
+        return (array, arrayDayIcons, arrayHourIcons, rainFalls, windInfoArray, tempInfoArray, gustInfoArray, weatherIconArray, snowArray, feltTempArray, dewPointArray, newPrecipitation)
         
     case .feelsLike :
         var i: Int = 0
@@ -587,7 +635,7 @@ func FindDataFromMenu(info: String,
             arrayDayIcons.append($0.symbolName)
         }
         arrayHourIcons = reduceArrayAmount(fromArray: arrayHourIcons, option: option1)
-        return (array, arrayDayIcons, arrayHourIcons, rainFalls, windInfoArray, tempInfoArray, gustInfoArray, weatherIconArray, snowArray, feltTempArray, dewPointArray, newData)
+        return (array, arrayDayIcons, arrayHourIcons, rainFalls, windInfoArray, tempInfoArray, gustInfoArray, weatherIconArray, snowArray, feltTempArray, dewPointArray, newPrecipitation)
         
     case .humidity :
         var i: Int = 0
@@ -706,7 +754,7 @@ func FindDataFromMenu(info: String,
             arrayDayIcons.append($0.symbolName)
         }
         arrayHourIcons = reduceArrayAmount(fromArray:arrayHourIcons, option: option1)
-        return (array, arrayDayIcons, arrayHourIcons, rainFalls, windInfoArray, tempInfoArray, gustInfoArray, weatherIconArray, snowArray, feltTempArray, dewPointArray, newData)
+        return (array, arrayDayIcons, arrayHourIcons, rainFalls, windInfoArray, tempInfoArray, gustInfoArray, weatherIconArray, snowArray, feltTempArray, dewPointArray, newPrecipitation)
         
     case .visibility :
         var i: Int = 0
@@ -822,7 +870,7 @@ func FindDataFromMenu(info: String,
         
         arrayHourIcons = reduceArrayAmount(fromArray:arrayHourIcons, option: option1)
         
-        return (array, arrayDayIcons, arrayHourIcons, rainFalls, windInfoArray, tempInfoArray, gustInfoArray, weatherIconArray, snowArray, feltTempArray, dewPointArray, newData)
+        return (array, arrayDayIcons, arrayHourIcons, rainFalls, windInfoArray, tempInfoArray, gustInfoArray, weatherIconArray, snowArray, feltTempArray, dewPointArray, newPrecipitation)
         
     case .airPressure :
         var i: Int = 0
@@ -940,10 +988,10 @@ func FindDataFromMenu(info: String,
         weatherIconArray.append(weatherIcon)
         
         arrayHourIcons = reduceArrayAmount(fromArray:arrayHourIcons, option: option1)
-        return (array, arrayDayIcons, arrayHourIcons, rainFalls, windInfoArray, tempInfoArray, gustInfoArray, weatherIconArray, snowArray, feltTempArray, dewPointArray, newData)
+        return (array, arrayDayIcons, arrayHourIcons, rainFalls, windInfoArray, tempInfoArray, gustInfoArray, weatherIconArray, snowArray, feltTempArray, dewPointArray, newPrecipitation)
         
     default :
-        return ([Double()], [String()], [String()], [RainFall](), [WindInfo](), [Temperature](), [Double](), [WeatherIcon](), [Double()], [FeltTemp](), [Double()], [NewData(type: "0", hour: 0, value: 0.00)])
+        return ([Double()], [String()], [String()], [RainFall](), [WindInfo](), [Temperature](), [Double](), [WeatherIcon](), [Double()], [FeltTemp](), [Double()], [NewPrecipitation(type: "0", hour: 0, value: 0.00)])
     }
     
 }

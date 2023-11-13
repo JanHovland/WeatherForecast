@@ -86,11 +86,11 @@ struct DayDetailWeatherDataFeelsLike: View {
                              [Double],
                              [FeltTemp],
                              [Double],
-                             [NewData]) = FindDataFromMenu(info: "DayDetailWeatherDataFeelsLike change index #1",
-                                                           weather: weather,
-                                                           date: dateSettings.dates[index],
-                                                           option: .feelsLike,
-                                                           option1: .number12)
+                             [NewPrecipitation]) = FindDataFromMenu(info: "DayDetailWeatherDataFeelsLike change index #1",
+                                                                    weather: weather,
+                                                                    date: dateSettings.dates[index],
+                                                                    option: .feelsLike,
+                                                                    option1: .number12)
                 dataArrayFL = value.0
                 ///
                 /// Finner dataArrayAT:
@@ -107,11 +107,11 @@ struct DayDetailWeatherDataFeelsLike: View {
                               [Double],
                               [FeltTemp],
                               [Double],
-                              [NewData]) = FindDataFromMenu(info: "DayDetailWeatherDataFeelsLike change index #2",
-                                                            weather: weather,
-                                                            date: dateSettings.dates[index],
-                                                            option: .temperature,
-                                                            option1: .number12)
+                              [NewPrecipitation]) = FindDataFromMenu(info: "DayDetailWeatherDataFeelsLike change index #2",
+                                                                     weather: weather,
+                                                                     date: dateSettings.dates[index],
+                                                                     option: .temperature,
+                                                                     option1: .number12)
                 dataArrayAT = value1.0
             }
             ///

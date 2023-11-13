@@ -215,11 +215,11 @@ struct DayDetail: View {
                                                      [Double],
                                                      [FeltTemp],
                                                      [Double],
-                                                     [NewData]) = FindDataFromMenu(info: "DayDetail .onTapGesture ",
-                                                                                   weather: weather,
-                                                                                   date: dateSettings.dates[index],
-                                                                                   option: MenuTitleToOption(menuTitle: menuTitle),
-                                                                                   option1: option1)
+                                                     [NewPrecipitation]) = FindDataFromMenu(info: "DayDetail .onTapGesture ",
+                                                                                            weather: weather,
+                                                                                            date: dateSettings.dates[index],
+                                                                                            option: MenuTitleToOption(menuTitle: menuTitle),
+                                                                                            option1: option1)
                                         arrayDayIcons = value.1
                                         hourIconArray = value.2
                                         windInfo = value.4
@@ -331,11 +331,11 @@ struct DayDetail: View {
                         [Double],
                         [FeltTemp],
                         [Double],
-                        [NewData]) =  FindDataFromMenu(info: "DayDetail change index",
-                                                       weather: weather,
-                                                       date: dateSettings.dates[index],
-                                                       option: MenuTitleToOption(menuTitle: menuTitle),
-                                                       option1: option1)
+                        [NewPrecipitation]) =  FindDataFromMenu(info: "DayDetail change index",
+                                                                weather: weather,
+                                                                date: dateSettings.dates[index],
+                                                                option: MenuTitleToOption(menuTitle: menuTitle),
+                                                                option1: option1)
             hourIconArray = value.2
         }
         .onChange(of: MenuTitleToOption(menuTitle: menuTitle)) { oldOption, option in
@@ -353,11 +353,11 @@ struct DayDetail: View {
                         [Double],
                         [FeltTemp],
                         [Double],
-                        [NewData]) =  FindDataFromMenu(info: "DayDetail change option",
-                                                       weather: weather,
-                                                       date: dateSettings.dates[index],
-                                                       option: MenuTitleToOption(menuTitle: menuTitle),
-                                                       option1: option1)
+                        [NewPrecipitation]) =  FindDataFromMenu(info: "DayDetail change option",
+                                                                weather: weather,
+                                                                date: dateSettings.dates[index],
+                                                                option: MenuTitleToOption(menuTitle: menuTitle),
+                                                                option1: option1)
             hourIconArray = value.2
         }
         .task {
@@ -372,11 +372,11 @@ struct DayDetail: View {
                         [Double],
                         [FeltTemp],
                         [Double],
-                        [NewData]) =  FindDataFromMenu(info: "DayDetail change option",
-                                                       weather: weather,
-                                                       date: dateSettings.dates[index],
-                                                       option: MenuTitleToOption(menuTitle: menuTitle),
-                                                       option1: option1)
+                        [NewPrecipitation]) =  FindDataFromMenu(info: "DayDetail change option",
+                                                                weather: weather,
+                                                                date: dateSettings.dates[index],
+                                                                option: MenuTitleToOption(menuTitle: menuTitle),
+                                                                option1: option1)
             hourIconArray = value.2            ///
             /// Resetter selectedValue fra gesture i DayDetailChart():
             ///

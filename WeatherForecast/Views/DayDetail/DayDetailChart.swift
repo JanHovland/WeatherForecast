@@ -598,11 +598,11 @@ struct DayDetailChart: View {
                          [Double],
                          [FeltTemp],
                          [Double],
-                         [NewData]) = FindDataFromMenu(info: "DayDetailChart.task",
-                                                       weather: weather,
-                                                       date: dateSettings.dates[index],
-                                                       option: option,
-                                                       option1: .number24)
+                         [NewPrecipitation]) = FindDataFromMenu(info: "DayDetailChart.task",
+                                                                weather: weather,
+                                                                date: dateSettings.dates[index],
+                                                                option: option,
+                                                                option1: .number24)
             hourIconArray = value.2
             ///
             /// ** tempInfo må være med !
@@ -769,11 +769,11 @@ struct DayDetailChart: View {
                          [Double],
                          [FeltTemp],
                          [Double],
-                         [NewData]) = FindDataFromMenu(info: "DayDetailChart change option",
-                                                       weather: weather,
-                                                       date: dateSettings.dates[index],
-                                                       option: option,
-                                                       option1: .number24)
+                         [NewPrecipitation]) = FindDataFromMenu(info: "DayDetailChart change option",
+                                                                weather: weather,
+                                                                date: dateSettings.dates[index],
+                                                                option: option,
+                                                                option1: .number24)
             hourIconArray = val01.2
             ///
             /// ** tempInfo må være med !
@@ -936,11 +936,11 @@ struct DayDetailChart: View {
                         [Double],
                         [FeltTemp],
                         [Double],
-                        [NewData]) = FindDataFromMenu(info: "DayDetailChart change index",
-                                                      weather: weather,
-                                                      date: dateSettings.dates[index],
-                                                      option: option,
-                                                      option1: .number12)
+                        [NewPrecipitation]) = FindDataFromMenu(info: "DayDetailChart change index",
+                                                               weather: weather,
+                                                               date: dateSettings.dates[index],
+                                                               option: option,
+                                                               option1: .number12)
             hourIconArray = val1.2
             ///
             /// ** tempInfo må være med !

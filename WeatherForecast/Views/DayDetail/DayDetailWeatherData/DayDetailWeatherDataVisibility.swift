@@ -84,11 +84,11 @@ struct DayDetailWeatherDataVisibility: View {
                              [Double],
                              [FeltTemp],
                              [Double],
-                             [NewData]) = FindDataFromMenu(info: "DayDetailWeatherDataVisibility change index",
-                                                           weather: weather,
-                                                           date: dateSettings.dates[index],
-                                                           option: .visibility,
-                                                           option1: .number12)
+                             [NewPrecipitation]) = FindDataFromMenu(info: "DayDetailWeatherDataVisibility change index",
+                                                                    weather: weather,
+                                                                    date: dateSettings.dates[index],
+                                                                    option: .visibility,
+                                                                    option1: .number12)
                 dataArray = value.0
             }
             ///
@@ -110,11 +110,11 @@ struct DayDetailWeatherDataVisibility: View {
                              [Double],
                              [FeltTemp],
                              [Double],
-                             [NewData]) = FindDataFromMenu(info: "DayDetailWeatherDataVisibility .task",
-                                                           weather: weather,
-                                                           date: dateSettings.dates[index],
-                                                           option: .visibility,
-                                                           option1: .number12)
+                             [NewPrecipitation]) = FindDataFromMenu(info: "DayDetailWeatherDataVisibility .task",
+                                                                    weather: weather,
+                                                                    date: dateSettings.dates[index],
+                                                                    option: .visibility,
+                                                                    option1: .number12)
                 dataArray = value.0
             }
         }

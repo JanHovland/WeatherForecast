@@ -79,11 +79,11 @@ struct DayDetailWeatherDataAirPressure: View {
                              [Double],
                              [FeltTemp],
                              [Double],
-                             [NewData]) = FindDataFromMenu(info: "DayDetailWeatherDataAirPressure change index",
-                                                           weather: weather,
-                                                           date: dateSettings.dates[index],
-                                                           option: .airPressure,
-                                                           option1: .number12)
+                             [NewPrecipitation]) = FindDataFromMenu(info: "DayDetailWeatherDataAirPressure change index",
+                                                                    weather: weather,
+                                                                    date: dateSettings.dates[index],
+                                                                    option: .airPressure,
+                                                                    option1: .number12)
                 dataArray = value.0
             }
             ///
@@ -105,11 +105,11 @@ struct DayDetailWeatherDataAirPressure: View {
                              [Double],
                              [FeltTemp],
                              [Double],
-                             [NewData]) = FindDataFromMenu(info: "DayDetailWeatherDataAirPressure .task",
-                                                           weather: weather,
-                                                           date: dateSettings.dates[index],
-                                                           option: .airPressure,
-                                                           option1: .number12)
+                             [NewPrecipitation]) = FindDataFromMenu(info: "DayDetailWeatherDataAirPressure .task",
+                                                                    weather: weather,
+                                                                    date: dateSettings.dates[index],
+                                                                    option: .airPressure,
+                                                                    option1: .number12)
                 dataArray = value.0
             }
         }

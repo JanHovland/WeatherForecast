@@ -87,11 +87,11 @@ struct DayDetailWeatherDataUvIndex: View {
                              [Double],
                              [FeltTemp],
                              [Double],
-                             [NewData]) = FindDataFromMenu(info: "DayDetailWeatherDataUvIndex change index",
-                                                           weather: weather,
-                                                           date: dateSettings.dates[index],
-                                                          option: .uvIndex,
-                                                           option1: .number12)
+                             [NewPrecipitation]) = FindDataFromMenu(info: "DayDetailWeatherDataUvIndex change index",
+                                                                    weather: weather,
+                                                                    date: dateSettings.dates[index],
+                                                                    option: .uvIndex,
+                                                                    option1: .number12)
                 dataArray = value.0
             }
             ///
@@ -113,11 +113,11 @@ struct DayDetailWeatherDataUvIndex: View {
                              [Double],
                              [FeltTemp],
                              [Double],
-                             [NewData]) = FindDataFromMenu(info: "DayDetailWeatherDataUvIndex .task",
-                                                           weather: weather,
-                                                           date: dateSettings.dates[index],
-                                                           option: .uvIndex,
-                                                           option1: .number12)
+                             [NewPrecipitation]) = FindDataFromMenu(info: "DayDetailWeatherDataUvIndex .task",
+                                                                    weather: weather,
+                                                                    date: dateSettings.dates[index],
+                                                                    option: .uvIndex,
+                                                                    option1: .number12)
                 dataArray = value.0
             }
         }

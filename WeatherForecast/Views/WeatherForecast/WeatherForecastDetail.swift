@@ -67,11 +67,11 @@ struct WeatherForecastDetail: View {
                         [Double],
                         [FeltTemp],
                         [Double],
-                        [NewData]) = FindDataFromMenu(info: "WeatherForecastDetail: dagens høy/lav temp + nedbør",
-                                                      weather: weather,
-                                                      date: fromDate!,
-                                                      option: .temperature,
-                                                      option1: option1)
+                        [NewPrecipitation]) = FindDataFromMenu(info: "WeatherForecastDetail: dagens høy/lav temp + nedbør",
+                                                               weather: weather,
+                                                               date: fromDate!,
+                                                               option: .temperature,
+                                                               option1: option1)
             tempArray = value.0
             
             ///

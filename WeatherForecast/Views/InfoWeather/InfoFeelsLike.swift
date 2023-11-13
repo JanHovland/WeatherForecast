@@ -63,11 +63,11 @@ struct InfoFeelsLike: View {
                          [Double],
                          [FeltTemp],
                          [Double],
-                         [NewData]) = FindDataFromMenu(info: "InfoFeelsLike change index",
-                                                       weather: weather,
-                                                       date: dateSettings.dates[index],
-                                                       option: .feelsLike,
-                                                       option1: .number12)
+                         [NewPrecipitation]) = FindDataFromMenu(info: "InfoFeelsLike change index",
+                                                                weather: weather,
+                                                                date: dateSettings.dates[index],
+                                                                option: .feelsLike,
+                                                                option1: .number12)
             
             fellsLikeArray = value.0
             
@@ -96,11 +96,11 @@ struct InfoFeelsLike: View {
                          [Double],
                          [FeltTemp],
                          [Double],
-                         [NewData]) = FindDataFromMenu(info: "InfoFeelsLike .task",
-                                                       weather: weather,
-                                                       date: dateSettings.dates[index],
-                                                       option: .feelsLike,
-                                                       option1: .number12)
+                         [NewPrecipitation]) = FindDataFromMenu(info: "InfoFeelsLike .task",
+                                                                weather: weather,
+                                                                date: dateSettings.dates[index],
+                                                                option: .feelsLike,
+                                                                option1: .number12)
             
             fellsLikeArray = value.0
             

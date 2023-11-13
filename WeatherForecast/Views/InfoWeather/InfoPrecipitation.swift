@@ -73,11 +73,11 @@ struct InfoPrecipitation: View {
                          [Double],
                          [FeltTemp],
                          [Double],
-                         [NewData]) = FindDataFromMenu(info: "InfoPrecipitation change index",
-                                                       weather: weather,
-                                                       date: dateSettings.dates[index],
-                                                       option: .precipitation,
-                                                       option1: .number12)
+                         [NewPrecipitation]) = FindDataFromMenu(info: "InfoPrecipitation change index",
+                                                                weather: weather,
+                                                                date: dateSettings.dates[index],
+                                                                option: .precipitation,
+                                                                option1: .number12)
             dataArray = value.0
             snowArray = value.8
             ///
@@ -116,11 +116,11 @@ struct InfoPrecipitation: View {
                           [Double],
                           [FeltTemp],
                           [Double],
-                          [NewData]) = FindDataFromMenu(info: "InfoPrecipitation .task",
-                                                        weather: weather,
-                                                        date: dateSettings.dates[index],
-                                                        option: .precipitation,
-                                                        option1: .number12)
+                          [NewPrecipitation]) = FindDataFromMenu(info: "InfoPrecipitation .task",
+                                                                 weather: weather,
+                                                                 date: dateSettings.dates[index],
+                                                                 option: .precipitation,
+                                                                 option1: .number12)
             dataArray = value2.0
             snowArray = value2.8
             

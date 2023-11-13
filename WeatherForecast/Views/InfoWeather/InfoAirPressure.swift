@@ -64,11 +64,11 @@ struct InfoAirPressure: View {
                          [Double],
                          [FeltTemp],
                          [Double],
-                         [NewData]) = FindDataFromMenu(info: "InfoAirPressure change index",
-                                                       weather: weather,
-                                                       date: dateSettings.dates[index],
-                                                       option: .airPressure,
-                                                       option1: .number12)
+                         [NewPrecipitation]) = FindDataFromMenu(info: "InfoAirPressure change index",
+                                                                weather: weather,
+                                                                date: dateSettings.dates[index],
+                                                                option: .airPressure,
+                                                                option1: .number12)
             
             airPressureArray = value.0
             
@@ -97,11 +97,11 @@ struct InfoAirPressure: View {
                          [Double],
                          [FeltTemp],
                          [Double],
-                         [NewData]) = FindDataFromMenu(info: "InfoAirPressure .task",
-                                                       weather: weather,
-                                                       date: dateSettings.dates[index],
-                                                       option: .airPressure,
-                                                       option1: .number12)
+                         [NewPrecipitation]) = FindDataFromMenu(info: "InfoAirPressure .task",
+                                                                weather: weather,
+                                                                date: dateSettings.dates[index],
+                                                                option: .airPressure,
+                                                                option1: .number12)
             
             airPressureArray = value.0
             

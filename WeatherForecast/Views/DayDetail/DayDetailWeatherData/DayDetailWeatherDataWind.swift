@@ -89,11 +89,11 @@ struct DayDetailWeatherDataWind: View {
                              [Double],
                              [FeltTemp],
                              [Double],
-                             [NewData]) = FindDataFromMenu(info: "DayDetailWeatherDataWind change index",
-                                                           weather: weather,
-                                                           date: dateSettings.dates[index],
-                                                           option: .wind,
-                                                           option1: .number12)
+                             [NewPrecipitation]) = FindDataFromMenu(info: "DayDetailWeatherDataWind change index",
+                                                                    weather: weather,
+                                                                    date: dateSettings.dates[index],
+                                                                    option: .wind,
+                                                                    option1: .number12)
                 dataWindArray = value.0
                 dataGustArray = value.6
             }
@@ -117,11 +117,11 @@ struct DayDetailWeatherDataWind: View {
                              [Double],
                              [FeltTemp],
                              [Double],
-                             [NewData]) = FindDataFromMenu(info: "DayDetailWeatherDataWind .task",
-                                                           weather: weather,
-                                                           date: dateSettings.dates[index],
-                                                           option: .wind,
-                                                           option1: .number12)
+                             [NewPrecipitation]) = FindDataFromMenu(info: "DayDetailWeatherDataWind .task",
+                                                                    weather: weather,
+                                                                    date: dateSettings.dates[index],
+                                                                    option: .wind,
+                                                                    option1: .number12)
                 dataWindArray = value.0
                 dataGustArray = value.6
             }

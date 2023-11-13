@@ -73,11 +73,11 @@ struct InfoHumidity: View {
                          [Double],
                          [FeltTemp],
                          [Double],
-                         [NewData]) = FindDataFromMenu(info: "InfoHumidity change index",
-                                                       weather: weather,
-                                                       date: dateSettings.dates[index],
-                                                       option: .humidity,
-                                                       option1: .number12)
+                         [NewPrecipitation]) = FindDataFromMenu(info: "InfoHumidity change index",
+                                                                weather: weather,
+                                                                date: dateSettings.dates[index],
+                                                                option: .humidity,
+                                                                option1: .number12)
             humidityArray = value.0
             dewPointArray = value.10
             ///
@@ -106,11 +106,11 @@ struct InfoHumidity: View {
                          [Double],
                          [FeltTemp],
                          [Double],
-                         [NewData]) = FindDataFromMenu(info: "InfoHumidity .task",
-                                                       weather: weather,
-                                                       date: dateSettings.dates[index],
-                                                       option: .humidity,
-                                                       option1: .number12)
+                         [NewPrecipitation]) = FindDataFromMenu(info: "InfoHumidity .task",
+                                                                weather: weather,
+                                                                date: dateSettings.dates[index],
+                                                                option: .humidity,
+                                                                option1: .number12)
             humidityArray = value.0
             dewPointArray = value.10
             ///
