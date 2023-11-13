@@ -37,8 +37,8 @@ enum EnumType {
     case gustTemp
     /// Starte opp WeatherForecast() locationManager.currentLocation
     case intern
-    /// Starte opp WeatherForecast() fra WeatherForecastSelectPlace()
-    case selection 
+    /// Starte opp WeatherForecast()  )
+    case selection
     case firstEnum
     case secondEnum
     case thirdEnum

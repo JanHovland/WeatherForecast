@@ -521,9 +521,7 @@ func FindDataFromMenu(info: String,
                 }
                 i = i + 1
             }
-            print(newPrecipitation as Any)
         }
-    
         ///
         /// Oppdaterer rainFall:
         ///

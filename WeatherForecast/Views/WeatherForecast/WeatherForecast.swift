@@ -39,15 +39,6 @@ import CloudKit
 ///
 struct WeatherForecast: View {
     
-    ///
-    /// case intern                 /// Starte opp WeatherForecast() locationManager.currentLocation
-    /// case selection            /// Starte opp WeatherForecast() fra WeatherForecastSelectPlace()
-    ///
-    
-    
-    /// @Enviroment(\.presentationMode) will be deprecated, use this instead: @Enviroment(\.dismiss) var dismissScreen and you will call it in the action of your button as a function, like this: dismissScreen().
-    
-    
     var expOption: EnumType = .intern
     var extPlaceName: String = ""
     var extCountryName: String = ""
