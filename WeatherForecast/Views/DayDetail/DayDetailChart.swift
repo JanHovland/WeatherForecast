@@ -738,6 +738,7 @@ struct DayDetailChart: View {
                 rangeFrom = val08.5
                 rangeTo = val08.6
             } else if option == .precipitation {
+                
                 let val07 : ([NewPrecipitation],
                              Double,
                              Double,

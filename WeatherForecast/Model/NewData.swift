@@ -70,13 +70,6 @@ struct NewHumidity: Identifiable {
     var value: Double
 }
 
-struct NewOther: Identifiable {
-    var id = UUID()
-    var type: String
-    var hour: Int
-    var value: Double
-}
-
 struct NewPrecipitation: Identifiable {
     var id = UUID()
     var type: String

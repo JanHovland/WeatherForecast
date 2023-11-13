@@ -395,7 +395,6 @@ func FindDataFromMenu(info: String,
         windInfo.type = String(localized: "GustSpeed")
         windInfo.data = windGustData
         windInfoArray.append(windInfo)
-        
         ///
         /// Oppdaterer weatherIconArray
         ///
@@ -418,16 +417,13 @@ func FindDataFromMenu(info: String,
         weatherIcon.type = airpressureIconType
         weatherIcon.data = airpressureData
         weatherIconArray.append(weatherIcon)
-        
         ///
         /// Oppdaterer arrayDayIcons:
         ///
         weather.dailyForecast.forEach  {
             arrayDayIcons.append($0.symbolName)
         }
-        
         arrayHourIcons = reduceArrayAmount(fromArray: arrayHourIcons, option: option1)
-        
         ///
         /// Oppdaterer tempInfoArray:
         ///
@@ -440,47 +436,17 @@ func FindDataFromMenu(info: String,
     case .precipitation :
         var i: Int = 0
         var data = Data()
-//        newData.removeAll()
         hourForecast!.forEach  {
             if $0.date >= value.0 &&
                 $0.date <  value.1 {
                 array.append($0.precipitationAmount.value)
                 data.index = i
-                
-                ///
-                /// Oppdaterer newData
-                ///
-//                if $0.precipitation == .rain {
-//                    newData[i].type = String(localized: "Rain")
-//                    newData[i].hour = data.index
-//                    newData[i].value = $0.precipitationAmount.value
-//                } else if $0.precipitation == .sleet {
-//                    newData[i].type = String(localized: "Sleet")
-//                    newData[i].hour = data.index
-//                    newData[i].value = $0.precipitationAmount.value
-//                } else if $0.precipitation == .mixed {
-//                    newData[i].type = String(localized: "Mixed")
-//                    newData[i].hour = data.index
-//                    newData[i].value = $0.precipitationAmount.value
-//                } else if $0.precipitation == .snow {
-//                    newData[i].type = String(localized: "Snow")
-//                    newData[i].hour = data.index
-//                    newData[i].value = $0.precipitationAmount.value
-//                } else if $0.precipitation == .hail {
-//                    newData[i].type = String(localized: "Hail")
-//                    newData[i].hour = data.index
-//                    newData[i].value = $0.precipitationAmount.value
-//                } 
-//                else if $0.precipitation == .none {
-//                    newData[i].type = ""
-//                    newData[i].hour = data.index
-//                    newData[i].value = 0.00
-//                }
-                ///
                 ///
                 /// Sjekker om det er noe nedbør:
+                ///
                 if $0.precipitation == .none {
-                    data.type = ""
+                    data.type = String(localized: "None")
+                    snowArray.append(data.amount)
                     data.amount = 0.00
                     hailData.append(data)
                     mixedData.append(data)
@@ -548,7 +514,7 @@ func FindDataFromMenu(info: String,
                     nData.value = $0.precipitationAmount.value
                     newPrecipitation.append(nData)
                 } else {
-                    nData.type = ""
+                    nData.type = String(localized: "None")
                     nData.hour = i
                     nData.value = 0.00
                     newPrecipitation.append(nData)

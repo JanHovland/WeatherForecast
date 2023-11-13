@@ -18,6 +18,8 @@ func TranslateCountry(country: String) -> String {
     case "Canada":          nation = String(localized: "Canada")
     case "Russia":          nation = String(localized: "Russia")
     case "France":          nation = String(localized: "France")
+    case "Deutschland":     nation = String(localized: "Deutschland")
+    case "Spain":           nation = String(localized: "Spain")
     default:                nation = country
     }
     return nation
