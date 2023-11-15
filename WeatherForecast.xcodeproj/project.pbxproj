@@ -164,6 +164,7 @@
 		DBDD98622AFE4284002FC9E5 /* AirQualityInformationViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDD98612AFE4284002FC9E5 /* AirQualityInformationViewModifier.swift */; };
 		DBDDEA0129BDC86000301E77 /* RefreshOffset.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDDEA0029BDC86000301E77 /* RefreshOffset.swift */; };
 		DBE02B3C29335D9600B1FB05 /* RainFall.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE02B3B29335D9600B1FB05 /* RainFall.swift */; };
+		DBE046E22B0555ED00942E51 /* FindMoonPhaseImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE046E12B0555ED00942E51 /* FindMoonPhaseImage.swift */; };
 		DBE3CD45289925660099D056 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DBE3CD47289925660099D056 /* InfoPlist.strings */; };
 		DBE5FA032AF1801400ADD3AE /* AirQualityInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE5FA022AF1801400ADD3AE /* AirQualityInformationView.swift */; };
 		DBECD4E12AE971A6005FD489 /* RefreshOffsetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBECD4E02AE971A6005FD489 /* RefreshOffsetView.swift */; };
@@ -338,6 +339,7 @@
 		DBDD98612AFE4284002FC9E5 /* AirQualityInformationViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirQualityInformationViewModifier.swift; sourceTree = "<group>"; };
 		DBDDEA0029BDC86000301E77 /* RefreshOffset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshOffset.swift; sourceTree = "<group>"; };
 		DBE02B3B29335D9600B1FB05 /* RainFall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RainFall.swift; sourceTree = "<group>"; };
+		DBE046E12B0555ED00942E51 /* FindMoonPhaseImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindMoonPhaseImage.swift; sourceTree = "<group>"; };
 		DBE3CD46289925660099D056 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		DBE3CD482899256E0099D056 /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		DBE5FA022AF1801400ADD3AE /* AirQualityInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirQualityInformationView.swift; sourceTree = "<group>"; };
@@ -453,6 +455,7 @@
 				DB17F6AD295ECF0C00FC2A0B /* UvIndexDescription.swift */,
 				DBDBCC6529521B99005AEB05 /* WeatherTranslateType.swift */,
 				DB17F6AF295F6BA100FC2A0B /* WindDirection.swift */,
+				DBE046E12B0555ED00942E51 /* FindMoonPhaseImage.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -1018,6 +1021,7 @@
 				DBB4CCCA288869E900B5C5C8 /* WeatherForecastApp.swift in Sources */,
 				DB256530296C14140007EBF9 /* DayDetailBackground.swift in Sources */,
 				DB2340C629030CA8005F8974 /* MenuContent.swift in Sources */,
+				DBE046E22B0555ED00942E51 /* FindMoonPhaseImage.swift in Sources */,
 				DB112ADE2964B906000F6862 /* FeltTemp.swift in Sources */,
 				DB0965D82949FBC700B76812 /* TranslateDay.swift in Sources */,
 				DB054769297086B20034AFBD /* DayDetailMenuDataViewOffsetViewModifier.swift in Sources */,

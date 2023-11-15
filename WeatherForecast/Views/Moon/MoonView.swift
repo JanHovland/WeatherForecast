@@ -37,7 +37,9 @@ struct MoonView: View {
             ///
             /// Viser selve månen:
             ///
-            Image("moonVoksende månesigd 6")
+            let image = FindMoonPhaseImage(moonPhase: currentWeather.moonPhase,                                                                         moonIllumination: currentWeather.moonIllumination)
+
+            Image(image)
                 .resizable()
                 .frame(width: 150, height: 150)
                 .clipShape(Circle())
