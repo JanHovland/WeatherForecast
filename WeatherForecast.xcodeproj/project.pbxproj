@@ -370,11 +370,11 @@
 				DB019A3B2ADA766C004E4286 /* FindChartDataAirPressure.swift */,
 				DB417E7C2AE18BAD00E77C4F /* FindChartDataFeelTemperature.swift */,
 				DB60E9B32AD9BA4100F8E723 /* FindChartDataHumidity.swift */,
+				DBB99D382AE425BE0022B6E9 /* FindChartDataPrecipitation.swift */,
 				DB0B17612ADFDD2A0034116A /* FindChartDataTemperature.swift */,
 				DB019A3F2ADA82CF004E4286 /* FindChartDataUvIndex.swift */,
 				DB019A3D2ADA79B5004E4286 /* FindChartDataVisibility.swift */,
 				DB0B17632AE014DB0034116A /* FindChartDataWind.swift */,
-				DBB99D382AE425BE0022B6E9 /* FindChartDataPrecipitation.swift */,
 			);
 			path = ChartData;
 			sourceTree = "<group>";
