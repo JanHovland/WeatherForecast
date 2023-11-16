@@ -635,7 +635,7 @@
 "it is not expected any precification.\n" = "Det er ikke ventet nedbør neste 24 timene\n";
 
 /* No comment provided by engineer. */
-"the total precification amount will be less than 1 mm.\n" = "vil den totale nedbøren være mindre enn 1mm.\n";
+"the total precification amount will be less than 1 mm.\n" = "vil den totale nedbøren være mindre enn 1 mm.\n";
 
 /* No comment provided by engineer. */
 "the total precification amount will be " = "vil den totale nedbørsmengden bli ";
