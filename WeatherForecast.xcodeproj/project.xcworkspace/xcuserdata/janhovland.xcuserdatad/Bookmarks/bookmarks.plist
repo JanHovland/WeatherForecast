@@ -99,15 +99,15 @@
 				<key>location-parameters</key>
 				<dict>
 					<key>EndingColumnNumber</key>
-					<string>47</string>
+					<string>0</string>
 					<key>EndingLineNumber</key>
-					<string>160</string>
+					<string>164</string>
 					<key>StartingColumnNumber</key>
-					<string>34</string>
+					<string>0</string>
 					<key>StartingLineNumber</key>
-					<string>160</string>
+					<string>163</string>
 					<key>Timestamp</key>
-					<string>721566430.082981</string>
+					<string>721845040.8685189</string>
 				</dict>
 				<key>rebasable-url</key>
 				<dict>
@@ -123,15 +123,16 @@
 			<key>text-context</key>
 			<dict>
 				<key>focused</key>
-				<string>precipitation</string>
+				<string>                    if option == .precipitation {
+</string>
 				<key>leading</key>
 				<string>            VStack {
                 Chart {
-                    if option == .</string>
+</string>
 				<key>trailing</key>
-				<string> {
-                        ForEach(newPrecification) {
+				<string>                        ForEach(newPrecification) {
                             BarMark (
+                                x: .value("Hour", $0.hour),
 </string>
 			</dict>
 			<key>type</key>
@@ -174,7 +175,7 @@
                 }
 </string>
 				<key>trailing</key>
-				<string>                    nData.type = $0.precipitation.description
+				<string>                    nData.type = $0.precipitation.description.firstUppercased
                     nData.hour = i
                     nData.value = $0.precipitationAmount.value
 </string>

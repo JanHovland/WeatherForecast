@@ -509,14 +509,14 @@ func FindDataFromMenu(info: String,
                     }
                 }
                 if $0.precipitationAmount.value > 0.00 {
-                    nData.type = $0.precipitation.description
+                    nData.type = $0.precipitation.description.firstUppercased
                     nData.hour = i
                     nData.value = $0.precipitationAmount.value
                     newPrecipitation.append(nData)
                 } else {
                     nData.type = String(localized: "None")
                     nData.hour = i
-                    nData.value = 0.00
+                    nData.value = 0.005
                     newPrecipitation.append(nData)
                 }
                 i = i + 1

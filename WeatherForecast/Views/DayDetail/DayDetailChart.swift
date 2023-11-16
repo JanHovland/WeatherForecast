@@ -150,6 +150,9 @@ struct DayDetailChart: View {
     let rangeAirPressureMinValue = 100
     let rangeHumidityMaxValue = 10
     let rangeHumidityMinValue = 10
+
+    let markColors : [Color] = [.blue, .cyan, .indigo, .primary, .orange]
+
     
     var body: some View {
         VStack (alignment: .center) {
@@ -505,6 +508,7 @@ struct DayDetailChart: View {
                 ///     . airPressure,
                 ///
                 .modifier(DayDetailChartYaxis(option: option, from: rangeFrom, to: rangeTo))
+                .chartForegroundStyleScale(range: markColors)
                 .chartYAxisLabel(showUnit(option: option),
                                  position: .top,
                                  spacing: 6)
