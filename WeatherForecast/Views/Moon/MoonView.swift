@@ -7,6 +7,11 @@
 
 import SwiftUI
 
+///
+///*  Viser månefasene pr. år/måned:
+/// https://stardate.org/nightsky/moon
+///
+
 struct MoonView: View {
     @Environment(CurrentWeather.self) private var currentWeather
     
@@ -37,7 +42,8 @@ struct MoonView: View {
             ///
             /// Viser selve månen:
             ///
-            let image = FindMoonPhaseImage(moonPhase: currentWeather.moonPhase,                                                                         moonIllumination: currentWeather.moonIllumination)
+            let (image, daysToFullMoon) = FindMoonPhaseImage(moonPhase: currentWeather.moonPhase,
+                                                             moonIllumination: currentWeather.moonIllumination)
 
             Image(image)
                 .resizable()
@@ -88,10 +94,23 @@ struct MoonView: View {
                     Text(FindTimeFromAmPm(time: currentWeather.moonrise))
                 }
             }
+            ///
+            /// Dager til neste full måne:
+            ///
+            HStack {
+                HStack {
+                   Text("Next full moon")
+                    Spacer()
+                }
+                HStack {
+                    Spacer()
+                    Text("\(daysToFullMoon)")
+                }
+            }
             Spacer()
         }
         .frame(width: UIDevice.isIpad ? 358 : 358,
-               height: UIDevice.isIpad ? 250 : 270)
+               height: UIDevice.isIpad ? 270 : 270)
         .padding(15)
         .modifier(DayDetailBackground(dayLight: currentWeather.isDaylight))
     }

@@ -344,6 +344,12 @@ struct WeatherForecast: View {
             
             let location = CLLocation(latitude: weatherInfo.latitude ?? 0.00, longitude: weatherInfo.longitude ?? 0.00)
             
+            ///
+            /// Her krasjer appen når den kjører på iPad, mener OK på iPhone (er det en feil i iPadOS 21C5046c ?)
+            ///
+            
+            hourForecast = nil
+            
             do {
                 hourForecast = try await WeatherService.shared.weather(for: location,
                                                                        including: .hourly(startDate: startDate!,

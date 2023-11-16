@@ -458,7 +458,7 @@ struct AirQualityView: View {
             }
         }
         .frame(width: UIDevice.isIpad ? 358 : 358,
-               height: UIDevice.isIpad ? 250 : 270)
+               height: UIDevice.isIpad ? 270 : 270)
         .padding(15)
         .modifier(DayDetailBackground(dayLight: currentWeather.isDaylight))
     }
