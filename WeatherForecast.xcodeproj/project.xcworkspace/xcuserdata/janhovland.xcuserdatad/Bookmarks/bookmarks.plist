@@ -12,102 +12,13 @@
 					<key>EndingColumnNumber</key>
 					<string>0</string>
 					<key>EndingLineNumber</key>
-					<string>159</string>
+					<string>219</string>
 					<key>StartingColumnNumber</key>
-					<string>0</string>
+					<string>54</string>
 					<key>StartingLineNumber</key>
-					<string>158</string>
+					<string>218</string>
 					<key>Timestamp</key>
-					<string>721582841.539661</string>
-				</dict>
-				<key>rebasable-url</key>
-				<dict>
-					<key>base</key>
-					<string>workspace</string>
-					<key>payload</key>
-					<dict>
-						<key>relative-path</key>
-						<string>WeatherForecast/Views/WeatherForecast/WeatherForecast.swift</string>
-					</dict>
-				</dict>
-			</dict>
-			<key>text-context</key>
-			<dict>
-				<key>focused</key>
-				<string>                    } else if UIDevice.isiPhone {
-</string>
-				<key>leading</key>
-				<string>                            .frame(width: 1000)
-                        }
-</string>
-				<key>trailing</key>
-				<string>                        ///
-                        /// Kan benytte ScrollView i iPhone, men "frisk opp" lager problemer!!!!!
-                        ///
-</string>
-			</dict>
-			<key>type</key>
-			<string>bookmark</string>
-		</dict>
-		<dict>
-			<key>destination</key>
-			<dict>
-				<key>location-parameters</key>
-				<dict>
-					<key>EndingColumnNumber</key>
-					<string>0</string>
-					<key>EndingLineNumber</key>
-					<string>157</string>
-					<key>StartingColumnNumber</key>
-					<string>0</string>
-					<key>StartingLineNumber</key>
-					<string>157</string>
-					<key>Timestamp</key>
-					<string>721305021.031721</string>
-				</dict>
-				<key>rebasable-url</key>
-				<dict>
-					<key>base</key>
-					<string>workspace</string>
-					<key>payload</key>
-					<dict>
-						<key>relative-path</key>
-						<string>WeatherForecast/Views/WeatherForecast/AirQuality/AirQualityInformationView.swift</string>
-					</dict>
-				</dict>
-			</dict>
-			<key>text-context</key>
-			<dict>
-				<key>focused</key>
-				<string></string>
-				<key>leading</key>
-				<string>                    }
-                }
-</string>
-				<key>trailing</key>
-				<string>                List {
-                    SulphurDioxide
-                }
-</string>
-			</dict>
-			<key>type</key>
-			<string>bookmark</string>
-		</dict>
-		<dict>
-			<key>destination</key>
-			<dict>
-				<key>location-parameters</key>
-				<dict>
-					<key>EndingColumnNumber</key>
-					<string>0</string>
-					<key>EndingLineNumber</key>
-					<string>164</string>
-					<key>StartingColumnNumber</key>
-					<string>0</string>
-					<key>StartingLineNumber</key>
-					<string>163</string>
-					<key>Timestamp</key>
-					<string>721845040.8685189</string>
+					<string>721930924.934229</string>
 				</dict>
 				<key>rebasable-url</key>
 				<dict>
@@ -123,61 +34,16 @@
 			<key>text-context</key>
 			<dict>
 				<key>focused</key>
-				<string>                    if option == .precipitation {
+				<string>
 </string>
 				<key>leading</key>
-				<string>            VStack {
-                Chart {
-</string>
+				<string>                                .opacity(0.50)
+                        }
+                    } else if option == .temperature {</string>
 				<key>trailing</key>
-				<string>                        ForEach(newPrecification) {
-                            BarMark (
+				<string>                        ForEach(newTemperature) {
+                            LineMark (
                                 x: .value("Hour", $0.hour),
-</string>
-			</dict>
-			<key>type</key>
-			<string>bookmark</string>
-		</dict>
-		<dict>
-			<key>destination</key>
-			<dict>
-				<key>location-parameters</key>
-				<dict>
-					<key>EndingColumnNumber</key>
-					<string>0</string>
-					<key>EndingLineNumber</key>
-					<string>511</string>
-					<key>StartingColumnNumber</key>
-					<string>0</string>
-					<key>StartingLineNumber</key>
-					<string>510</string>
-					<key>Timestamp</key>
-					<string>721580497.261611</string>
-				</dict>
-				<key>rebasable-url</key>
-				<dict>
-					<key>base</key>
-					<string>workspace</string>
-					<key>payload</key>
-					<dict>
-						<key>relative-path</key>
-						<string>WeatherForecast/Utilities/FindDataFromMenu.swift</string>
-					</dict>
-				</dict>
-			</dict>
-			<key>text-context</key>
-			<dict>
-				<key>focused</key>
-				<string>                if $0.precipitationAmount.value &gt; 0.00 {
-</string>
-				<key>leading</key>
-				<string>                    }
-                }
-</string>
-				<key>trailing</key>
-				<string>                    nData.type = $0.precipitation.description.firstUppercased
-                    nData.hour = i
-                    nData.value = $0.precipitationAmount.value
 </string>
 			</dict>
 			<key>type</key>

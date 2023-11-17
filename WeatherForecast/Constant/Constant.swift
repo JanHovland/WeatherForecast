@@ -39,3 +39,9 @@ let PM10: String = "PM\u{2081}\u{2080}"
 let PM2_5: String = "PM\u{2082}\u{208B}\u{2085}"
 let O3: String = "O\u{2083}"
 let NH3: String = "NO\u{2083}"
+
+///
+/// Antall i arrayne for værdata :
+///
+
+let sizeArray: Int = 24

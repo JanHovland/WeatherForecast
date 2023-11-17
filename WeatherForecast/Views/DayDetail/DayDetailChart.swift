@@ -227,7 +227,7 @@ struct DayDetailChart: View {
                             .lineStyle(StrokeStyle(lineWidth: 1))
                         }
                         if let selectedIndex {
-                            RuleMark(x: .value("Hour", selectedIndex))
+                            RuleMark(x: .value("Value", selectedIndex))
                                 .annotation(
                                     position: .top, spacing: 0,
                                     overflowResolution: .init(
@@ -1095,26 +1095,28 @@ struct DayDetailChart: View {
     @ViewBuilder
     var showSelectedValue: some View {
         VStack(alignment: .leading) {
-            if option == .temperature {
-                Text("\(newTemperature[selectedIndex!].value, specifier: "%.0f") \("º C")")
-            }
-            else if option == .uvIndex {
-                Text("\(newUvIndex[selectedIndex!].value, specifier: "%.0f")")
-            }
-            else if option == .wind {
-                Text("\(newWind[selectedIndex!].value, specifier: "%.0f") \("m/s")")
-            }
-            else if option == .feelsLike {
-                Text("\(newFeelsLike[selectedIndex!].value, specifier: "%.0f")")
-            }
-            else if option == .humidity {
-                Text("\(newHumidity[selectedIndex!].value, specifier: "%.0f") \("%")")
-            }
-            else if option == .visibility {
-                Text("\(newVisibility[selectedIndex!].value, specifier: "%.0f") \("km")")
-            }
-            else if option == .airPressure {
-                Text("\(newAirPressure[selectedIndex!].value, specifier: "%.0f") \("hPa")")
+            if selectedIndex! < sizeArray {
+                if option == .temperature {
+                    Text("\(newTemperature[selectedIndex!].value, specifier: "%.0f") \("º C")")
+                }
+                else if option == .uvIndex {
+                    Text("\(newUvIndex[selectedIndex!].value, specifier: "%.0f")")
+                }
+                else if option == .wind {
+                    Text("\(newWind[selectedIndex!].value, specifier: "%.0f") \("m/s")")
+                }
+                else if option == .feelsLike {
+                    Text("\(newFeelsLike[selectedIndex!].value, specifier: "%.0f")")
+                }
+                else if option == .humidity {
+                    Text("\(newHumidity[selectedIndex!].value, specifier: "%.0f") \("%")")
+                }
+                else if option == .visibility {
+                    Text("\(newVisibility[selectedIndex!].value, specifier: "%.0f") \("km")")
+                }
+                else if option == .airPressure {
+                    Text("\(newAirPressure[selectedIndex!].value, specifier: "%.0f") \("hPa")")
+                }
             }
         }
         .fixedSize()
