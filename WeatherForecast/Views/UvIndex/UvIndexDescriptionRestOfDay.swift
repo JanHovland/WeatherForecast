@@ -10,7 +10,7 @@ import WeatherKit
 
 func UvIndexDescriptionRestOfDay(weather: Weather) -> String {
     
-    var array : [Double] = Array(repeating: Double(), count: 24)
+    var array : [Double] = Array(repeating: Double(), count: sizeArray24)
     let value : (Date,Date) = DateHourRange(date: weather.currentWeather.date)
     
     weather.hourlyForecast.forEach  {

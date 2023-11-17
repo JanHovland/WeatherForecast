@@ -41,14 +41,14 @@ struct DayDetail: View {
     @Environment(CurrentWeather.self) private var currentWeather
     @Environment(WeatherInfo.self) private var weatherInfo
     
-    @State private var dateArray : [String] = Array(repeating: "", count: 10)
-    @State private var dateDateArray: [Date] = Array(repeating: Date(), count: 10)
-    @State private var weekdayArray : [String] = Array(repeating: "", count: 10)
-    @State private var colorsBackground : [Color] = Array(repeating: Color(.systemBackground), count: 10)
-    @State private var colorsBackgroundStandard: [Color] = Array(repeating: Color(.systemBackground), count: 10)
-    @State private var arrayDayIcons : [String] = Array(repeating: String(), count: 12)
+    @State private var dateArray : [String] = Array(repeating: "", count: sizeArray10)
+    @State private var dateDateArray: [Date] = Array(repeating: Date(), count: sizeArray10)
+    @State private var weekdayArray : [String] = Array(repeating: "", count: sizeArray10)
+    @State private var colorsBackground : [Color] = Array(repeating: Color(.systemBackground), count: sizeArray10)
+    @State private var colorsBackgroundStandard: [Color] = Array(repeating: Color(.systemBackground), count: sizeArray10)
+    @State private var arrayDayIcons : [String] = Array(repeating: String(), count: sizeArray12)
     
-    @State private var hourIconArray : [String] = Array(repeating: String(), count: 12)
+    @State private var hourIconArray : [String] = Array(repeating: String(), count: sizeArray12)
     
     ///
     /// Her kan man ikke benytte Color(.primary), men må benytte Color(.white).
@@ -90,7 +90,7 @@ struct DayDetail: View {
     
     @State private var selectedValue: SelectedValue = SelectedValue()
     
-    @State private var dayArray: [Double] = Array(repeating: Double(), count: 10)
+    @State private var dayArray: [Double] = Array(repeating: Double(), count: sizeArray10)
     @State private var rainFalls: [RainFall] = []
     @State private var windInfo: [WindInfo] = []
     @State private var tempInfo: [Temperature] = []
@@ -100,11 +100,11 @@ struct DayDetail: View {
     
     @State private var index : Int = 0
     
-    @State private var uvIndexArray: [String] = Array(repeating: String(), count: 12)
-    @State private var windArray: [String] = Array(repeating: String(), count: 12)
-    @State private var humidityArray: [String] = Array(repeating: String(), count: 12)
-    @State private var visabilityArray:[String] = Array(repeating: String(), count: 12)
-    @State private var airpressureArray:[String] = Array(repeating: String(), count: 12)
+    @State private var uvIndexArray: [String] = Array(repeating: String(), count: sizeArray12)
+    @State private var windArray: [String] = Array(repeating: String(), count: sizeArray12)
+    @State private var humidityArray: [String] = Array(repeating: String(), count: sizeArray12)
+    @State private var visabilityArray:[String] = Array(repeating: String(), count: sizeArray12)
+    @State private var airpressureArray:[String] = Array(repeating: String(), count: sizeArray12)
     
     @State private var message: LocalizedStringKey = ""
     @State private var title: LocalizedStringKey = ""

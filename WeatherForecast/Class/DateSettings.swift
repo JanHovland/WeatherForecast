@@ -11,6 +11,6 @@ import Observation
 @Observable final class DateSettings {
     var date = ""
     var index = 0
-    var dates : [Date] = Array(repeating: Date(), count: 10)
-    var weekDayArray : [String] = Array(repeating: String(), count: 10)
+    var dates : [Date] = Array(repeating: Date(), count: sizeArray10)
+    var weekDayArray : [String] = Array(repeating: String(), count: sizeArray10)
 }

@@ -60,8 +60,8 @@ struct WeatherForecast: View {
     ///
     /// Inneholder soloppgang og solnedgang for 10 dager:
     ///
-    @State private var sunRises: [String] = Array(repeating: "", count: 10)
-    @State private var sunSets: [String] = Array(repeating: "", count: 10)
+    @State private var sunRises: [String] = Array(repeating: "", count: sizeArray10)
+    @State private var sunSets: [String] = Array(repeating: "", count: sizeArray10)
     
     @State private var moonRecord = MoonRecord()
     

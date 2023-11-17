@@ -27,7 +27,7 @@ func FindDataFromMenu(info: String,
                                              [NewPrecipitation])  {
     
     var array : [Double] = Array(repeating: Double(), count: sizeArray24)
-    var arrayDayIcons : [String] = Array(repeating: String(), count: 10)
+    var arrayDayIcons : [String] = Array(repeating: String(), count: sizeArray10)
     var arrayHourIcons : [String] = Array(repeating: String(), count: sizeArray24)
     var hourIconArray : [String] = Array(repeating: String(), count: sizeArray24)
     var windInfoArray : [WindInfo] = Array(repeating: WindInfo(), count: sizeArray24)

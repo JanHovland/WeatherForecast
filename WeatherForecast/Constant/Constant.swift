@@ -41,7 +41,9 @@ let O3: String = "O\u{2083}"
 let NH3: String = "NO\u{2083}"
 
 ///
-/// Antall i arrayne for værdata :
+/// Størrelsene for diverse array :
 ///
 
+let sizeArray10: Int = 10
+let sizeArray12: Int = 12
 let sizeArray24: Int = 24

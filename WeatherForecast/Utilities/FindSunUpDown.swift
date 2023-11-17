@@ -14,8 +14,8 @@ func FindSunUpDown(url: String,
                    longitude: Double?,
                    offsetSec: Int) async -> (String, [String], [String]) {
     
-    var sunRise: [String] = Array(repeating: "", count: 10)
-    var sunSet: [String] = Array(repeating: "", count: 10)
+    var sunRise: [String] = Array(repeating: "", count: sizeArray10)
+    var sunSet: [String] = Array(repeating: "", count: sizeArray10)
     var errors : String = ""
     var timeRise : String = ""
     var timeSet : String = ""
