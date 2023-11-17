@@ -52,7 +52,7 @@ struct MoonView: View {
                 .foregroundColor(.white)
                 .overlay(
                     RoundedRectangle(cornerRadius: 90)
-                        .foregroundColor(.black.opacity(0.20))
+                        .foregroundColor(.black.opacity(0.05))
                     
                 )
             ///
