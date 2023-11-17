@@ -52,7 +52,7 @@ struct AirQualityView: View {
                         .font(.system(size: 15, weight: .bold))
                 }
                 .opacity(0.50)
-                .padding(.top, UIDevice.isIpad ? 40 : 70)
+                .padding(.top, UIDevice.isIpad ? 15 : 75)
                 .padding(.leading, UIDevice.isIpad ? -180 : -180)
                 if UIDevice.isiPhone {
                     ZStack {
@@ -458,7 +458,7 @@ struct AirQualityView: View {
             }
         }
         .frame(width: UIDevice.isIpad ? 358 : 358,
-               height: UIDevice.isIpad ? 270 : 270)
+               height: UIDevice.isIpad ? 280 : 280)
         .padding(15)
         .modifier(DayDetailBackground(dayLight: currentWeather.isDaylight))
     }

@@ -39,6 +39,7 @@ struct MoonView: View {
                 }
             }
             .opacity(0.50)
+            .padding(.top, 10)
             ///
             /// Viser selve månen:
             ///
@@ -69,19 +70,6 @@ struct MoonView: View {
                 }
             }
             ///
-            /// Månenedgang:
-            ///
-            HStack {
-                HStack {
-                   Text("MoonSet")
-                    Spacer()
-                }
-                HStack {
-                    Spacer()
-                    Text(FindTimeFromAmPm(time: currentWeather.moonset))
-                }
-            }
-            ///
             /// Måneoppgang:
             ///
             HStack {
@@ -95,6 +83,19 @@ struct MoonView: View {
                 }
             }
             ///
+            /// Månenedgang:
+            ///
+            HStack {
+                HStack {
+                   Text("MoonSet")
+                    Spacer()
+                }
+                HStack {
+                    Spacer()
+                    Text(FindTimeFromAmPm(time: currentWeather.moonset))
+                }
+            }
+            ///
             /// Dager til neste full måne:
             ///
             HStack {
@@ -104,13 +105,13 @@ struct MoonView: View {
                 }
                 HStack {
                     Spacer()
-                    Text("\(daysToFullMoon)")
+                    Text("\(daysToFullMoon) d")
                 }
             }
             Spacer()
         }
         .frame(width: UIDevice.isIpad ? 358 : 358,
-               height: UIDevice.isIpad ? 270 : 270)
+               height: UIDevice.isIpad ? 280 : 280)
         .padding(15)
         .modifier(DayDetailBackground(dayLight: currentWeather.isDaylight))
     }
