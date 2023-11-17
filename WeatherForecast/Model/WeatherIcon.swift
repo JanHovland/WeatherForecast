@@ -22,7 +22,7 @@ struct IconData {
     /// var visibilityIconType: Int = 3              var visibilityData: [IconData] = []            x
     /// var airpressureIconType: Int = 4        var airpressureData: [IconData] = []
     ///
-    /// var weatherIconArray: [WeatherIcon] = Array(repeating: WeatherIcon(), count: 24)
+    /// var weatherIconArray: [WeatherIcon] = Array(repeating: WeatherIcon(), count: sizeArray24)
     /// var weatherIconData: [IconData] = []
     ///
     var index: Int = 0

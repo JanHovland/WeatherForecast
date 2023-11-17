@@ -52,8 +52,8 @@ struct DayDetailChart: View {
     @State private var frameHeight: CGFloat = 0.00
     @State private var leading: CGFloat = 0.00
     @State private var show : Bool = false
-    @State private var hourIconArray : [String] = Array(repeating: String(), count: 24)
-    @State private var array: [Double] = Array(repeating: Double(), count: 24)
+    @State private var hourIconArray : [String] = Array(repeating: String(), count: sizeArray24)
+    @State private var array: [Double] = Array(repeating: Double(), count: sizeArray24)
     
     ///
     /// Temperatur:
@@ -1095,7 +1095,7 @@ struct DayDetailChart: View {
     @ViewBuilder
     var showSelectedValue: some View {
         VStack(alignment: .leading) {
-            if selectedIndex! < sizeArray {
+            if selectedIndex! < sizeArray24 {
                 if option == .temperature {
                     Text("\(newTemperature[selectedIndex!].value, specifier: "%.0f") \("º C")")
                 }

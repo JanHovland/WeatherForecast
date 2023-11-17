@@ -19,7 +19,7 @@ struct DayDetailWeatherDataPrecifitation: View {
     @Environment(DateSettings.self) private var dateSettings
     @Environment(WeatherInfo.self) private var weatherInfo
 
-    @State private var dataArray: [Double] = Array(repeating: Double(), count: 24)
+    @State private var dataArray: [Double] = Array(repeating: Double(), count: sizeArray24)
     @State private var Precipitation24hBackwards: String = ""
     
     var body: some View {

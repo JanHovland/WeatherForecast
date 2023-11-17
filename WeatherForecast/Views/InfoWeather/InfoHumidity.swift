@@ -18,8 +18,8 @@ struct InfoHumidity: View {
     @Environment(WeatherInfo.self) private var weatherInfo
 
     @State private var text : String = String(localized: "The average humidity today is ")
-    @State private var humidityArray : [Double] = Array(repeating: Double(), count: 24)
-    @State private var dewPointArray : [Double] = Array(repeating: Double(), count: 24)
+    @State private var humidityArray : [Double] = Array(repeating: Double(), count: sizeArray24)
+    @State private var dewPointArray : [Double] = Array(repeating: Double(), count: sizeArray24)
 
     @State private var text1 : String = String(localized: "Relative humidity, or simply humidity, describes the amount of moisture in the air compared to the maximum amount the air can hold. Air can hold more moisture at higher temperatures. A relative humidity of 100% can lead to dew or fog.")
     

@@ -16,8 +16,8 @@ struct DayDetailWeatherDataFeelsLike: View {
     
     @Environment(DateSettings.self) private var dateSettings
 
-    @State private var dataArrayFL: [Double] = Array(repeating: Double(), count: 24)
-    @State private var dataArrayAT: [Double] = Array(repeating: Double(), count: 24)
+    @State private var dataArrayFL: [Double] = Array(repeating: Double(), count: sizeArray24)
+    @State private var dataArrayAT: [Double] = Array(repeating: Double(), count: sizeArray24)
     
     var body: some View {
         if menuTitle == "Føles som" {

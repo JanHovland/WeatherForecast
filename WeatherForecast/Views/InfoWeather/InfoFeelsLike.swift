@@ -20,7 +20,7 @@ struct InfoFeelsLike: View {
     @State private var text1 : String = String(localized: "Felt temperature describes how hot or cold it feels outside, and can differ from the actual temperature. Felt temperature is affected by wind and humidity.")
     
     @State private var text : String = String(localized: "")
-    @State private var fellsLikeArray : [Double] = Array(repeating: Double(), count: 24)
+    @State private var fellsLikeArray : [Double] = Array(repeating: Double(), count: sizeArray24)
     
     @Environment(WeatherInfo.self) private var weatherInfo
 

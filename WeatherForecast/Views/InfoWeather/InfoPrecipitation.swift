@@ -25,8 +25,8 @@ struct InfoPrecipitation: View {
     @State private var text1 : String = String(localized: "")
     @State private var precipitationBackwards: String = ""
     @State private var precipitationForwards: String = ""
-    @State private var dataArray: [Double] = Array(repeating: Double(), count: 24)
-    @State private var snowArray: [Double] = Array(repeating: Double(), count: 24)
+    @State private var dataArray: [Double] = Array(repeating: Double(), count: sizeArray24)
+    @State private var snowArray: [Double] = Array(repeating: Double(), count: sizeArray24)
     @State private var precipitationFV: Double = 0.00
     
     var body: some View {

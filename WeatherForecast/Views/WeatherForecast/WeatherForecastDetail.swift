@@ -19,7 +19,7 @@ struct WeatherForecastDetail: View {
     @State private var option1: EnumType = .number12
     @State private var precification: Double = 0.00
     @State private var date: Date = Date()
-    @State private var tempArray: [Double] = Array(repeating: Double(), count: 24)
+    @State private var tempArray: [Double] = Array(repeating: Double(), count: sizeArray24)
     
     var body: some View {
         VStack {

@@ -18,7 +18,7 @@ func FindChartDataWind(weather: Weather,
                                                     rangeFrom: Int,
                                                     rangeTo: Int) {
     
-    var array: [Double] = Array(repeating: Double(), count: 24)
+    var array: [Double] = Array(repeating: Double(), count: sizeArray24)
     var new: [NewWind] = []
     var min: Double = 0.00
     var max: Double = 0.00

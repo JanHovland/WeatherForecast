@@ -44,4 +44,4 @@ let NH3: String = "NO\u{2083}"
 /// Antall i arrayne for værdata :
 ///
 
-let sizeArray: Int = 24
+let sizeArray24: Int = 24

@@ -112,7 +112,7 @@ struct DayDetail: View {
     
     @State private var opacity: Double = 1.00
     
-    @State private var dewPointArray: [Double] = Array(repeating: Double(), count: 24)
+    @State private var dewPointArray: [Double] = Array(repeating: Double(), count: sizeArray24)
     
     var body: some View {
         NavigationStack {

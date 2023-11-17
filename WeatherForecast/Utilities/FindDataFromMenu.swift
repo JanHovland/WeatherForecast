@@ -26,17 +26,17 @@ func FindDataFromMenu(info: String,
                                              [Double],
                                              [NewPrecipitation])  {
     
-    var array : [Double] = Array(repeating: Double(), count: 24)
+    var array : [Double] = Array(repeating: Double(), count: sizeArray24)
     var arrayDayIcons : [String] = Array(repeating: String(), count: 10)
-    var arrayHourIcons : [String] = Array(repeating: String(), count: 24)
-    var hourIconArray : [String] = Array(repeating: String(), count: 24)
-    var windInfoArray : [WindInfo] = Array(repeating: WindInfo(), count: 24)
-    var tempInfoArray : [Temperature] = Array(repeating: Temperature(), count: 24)
-    var gustInfoArray : [Double] = Array(repeating: Double(), count: 24)
-    var weatherIconArray: [WeatherIcon] = Array(repeating: WeatherIcon(), count: 24)
-    var snowArray: [Double] = Array(repeating: Double(), count: 24)
-    var feltTempArray: [FeltTemp] = Array(repeating: FeltTemp(), count: 24)
-    var dewPointArray: [Double] = Array(repeating: Double(), count: 24)
+    var arrayHourIcons : [String] = Array(repeating: String(), count: sizeArray24)
+    var hourIconArray : [String] = Array(repeating: String(), count: sizeArray24)
+    var windInfoArray : [WindInfo] = Array(repeating: WindInfo(), count: sizeArray24)
+    var tempInfoArray : [Temperature] = Array(repeating: Temperature(), count: sizeArray24)
+    var gustInfoArray : [Double] = Array(repeating: Double(), count: sizeArray24)
+    var weatherIconArray: [WeatherIcon] = Array(repeating: WeatherIcon(), count: sizeArray24)
+    var snowArray: [Double] = Array(repeating: Double(), count: sizeArray24)
+    var feltTempArray: [FeltTemp] = Array(repeating: FeltTemp(), count: sizeArray24)
+    var dewPointArray: [Double] = Array(repeating: Double(), count: sizeArray24)
     var nData = NewPrecipitation(type: "", hour: 0, value: 0.00)
     var newPrecipitation : [NewPrecipitation] = []
     var hailData : [Data] = []

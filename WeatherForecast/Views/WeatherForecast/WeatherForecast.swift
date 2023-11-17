@@ -69,7 +69,7 @@ struct WeatherForecast: View {
     @State private var title: LocalizedStringKey = ""
     @State private var showAlert: Bool = false
     
-    @State private var array: [Double] = Array(repeating: Double(), count: 24)
+    @State private var array: [Double] = Array(repeating: Double(), count: sizeArray24)
     
     @State private var persist: Bool = true
     

@@ -16,7 +16,7 @@ struct DayDetailWeatherDataHumidity: View {
     
     @Environment(DateSettings.self) private var dateSettings
 
-    @State private var dataArray: [Double] = Array(repeating: Double(), count: 24)
+    @State private var dataArray: [Double] = Array(repeating: Double(), count: sizeArray24)
 
     var body: some View {
         if menuTitle == "Luftfuktighet" {

@@ -16,7 +16,7 @@ struct DayDetailWeatherDataVisibility: View {
     
     @Environment(DateSettings.self) private var dateSettings
 
-    @State private var dataArray: [Double] = Array(repeating: Double(), count: 24)
+    @State private var dataArray: [Double] = Array(repeating: Double(), count: sizeArray24)
     @State private var text: String = ""
     @State private var text1: String = ""
     @State private var text2: String = ""

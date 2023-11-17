@@ -16,8 +16,8 @@ struct DayDetailWeatherDataWind: View {
    
     @Environment(DateSettings.self) private var dateSettings
 
-    @State private var dataWindArray: [Double] = Array(repeating: Double(), count: 24)
-    @State private var dataGustArray: [Double] = Array(repeating: Double(), count: 24)
+    @State private var dataWindArray: [Double] = Array(repeating: Double(), count: sizeArray24)
+    @State private var dataGustArray: [Double] = Array(repeating: Double(), count: sizeArray24)
 
     var body: some View {
         if menuTitle == "Vind" {
