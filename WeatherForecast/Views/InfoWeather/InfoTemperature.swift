@@ -16,7 +16,7 @@ struct InfoTemperature : View {
     
     @Environment(CurrentWeather.self) private var currentWeather
     @Environment(WeatherInfo.self) private var weatherInfo
-
+    
     @State private var text : String = ""
     
     var body: some View {
@@ -25,71 +25,11 @@ struct InfoTemperature : View {
             Text(index == 0 ? String(localized: "Weather forecast") : String(localized: "Daily view"))
                 .fontWeight(.bold)
             
-           TextField("", text: $text, axis: .vertical)
+            TextField("", text: $text, axis: .vertical)
                 .lineLimit(0...10)
                 .textFieldStyle(.roundedBorder)
                 .disabled(true)
             
-            Text("Probability of precipitation")
-                .fontWeight(.bold)
-            
-            Text("Total amount of precipitation")
-                .fontWeight(.bold)
-            Text("Last 24 h")
-                .fontWeight(.bold)
-            Text("Next 24 h")
-                .fontWeight(.bold)
-            Text("Weather forecast")
-                .fontWeight(.bold)
-            Text("Day differences")
-                .fontWeight(.bold)
-            Text("Highest felt temp is the same today as yesterday")
-                .fontWeight(.bold)
-            Text("Probability of precipitation")
-                .fontWeight(.bold)
-            
-            Text("Total amount of precipitation")
-                .fontWeight(.bold)
-            Text("Last 24 h")
-                .fontWeight(.bold)
-            Text("Next 24 h")
-                .fontWeight(.bold)
-            Text("Weather forecast")
-                .fontWeight(.bold)
-            Text("Day differences")
-                .fontWeight(.bold)
-            Text("Highest felt temp is the same today as yesterday")
-                .fontWeight(.bold)
-            Text("Probability of precipitation")
-                .fontWeight(.bold)
-            
-            Text("Total amount of precipitation")
-                .fontWeight(.bold)
-            Text("Last 24 h")
-                .fontWeight(.bold)
-            Text("Next 24 h")
-                .fontWeight(.bold)
-            Text("Weather forecast")
-                .fontWeight(.bold)
-            Text("Day differences")
-                .fontWeight(.bold)
-            Text("Highest felt temp is the same today as yesterday")
-                .fontWeight(.bold)
-            Text("Probability of precipitation")
-                .fontWeight(.bold)
-            
-            Text("Total amount of precipitation")
-                .fontWeight(.bold)
-            Text("Last 24 h")
-                .fontWeight(.bold)
-            Text("Next 24 h")
-                .fontWeight(.bold)
-            Text("Weather forecast")
-                .fontWeight(.bold)
-            Text("Day differences")
-                .fontWeight(.bold)
-            Text("Highest felt temp is the same today as yesterday")
-                .fontWeight(.bold)
             Spacer()
         }
         .font(.subheadline)
@@ -126,7 +66,7 @@ private func Forecast(index: Int,
                       tempInfo: [Temperature],
                       date: Date,
                       offsetSec: Int) -> String {
-
+    
     
     var dayTempInfo: [DayTempInfo] = []
     
@@ -139,7 +79,7 @@ private func Forecast(index: Int,
     var maxGust: Double = 0.00
     var minAppearentTemp: Double = 0.00
     var maxAppearentTemp: Double = 0.00
-
+    
     var indexMin: Int = 0
     var indexMax: Int = 0
     var indexMaxWind: Int = 0
@@ -147,7 +87,7 @@ private func Forecast(index: Int,
     
     var indexMinAppearentTemp: Int = 0
     var indexMaxAppearentTemp: Int = 0
-
+    
     ///
     /// Finner minimum temperaturen (vanlig temperatur) :
     ///
@@ -207,7 +147,7 @@ private func Forecast(index: Int,
                                                                type: appearentType)
     maxAppearentTemp = value5.0
     indexMaxAppearentTemp = value5.1
-
+    
     if index == 0 {
         text = ""
         ///
