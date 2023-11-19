@@ -36,11 +36,11 @@ struct DayDetailHourIcons: View {
                 if UIDevice.isiPhone {
                     spacing = -1.5
                     fontSize = 12.5
-                    padding = 7
+                    padding = 6.50
                 } else {
                     spacing = 0.20
                     fontSize = 15
-                    padding = 10.25
+                    padding = 11.25
                 }
             }
         } else if option == .uvIndex {
