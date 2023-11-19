@@ -116,7 +116,7 @@ struct DayDetail: View {
     
     var body: some View {
         NavigationStack {
-            ScrollView (showsIndicators: false) {
+            List {
                 VStack (alignment: .leading) {
                     ///
                     /// Viser menyvalget og knapp for avslutning:
@@ -167,7 +167,7 @@ struct DayDetail: View {
                                 .foregroundColor(.secondary)
                         }
                     }
-                   .offset(x: UIDevice.isIpad ? 500 : 337,
+                   .offset(x: UIDevice.isIpad ? 500 : 325,
                             y: UIDevice.isIpad ? -25 : -24)
                     ///
                     /// Viser ukedag og dato:
@@ -234,8 +234,7 @@ struct DayDetail: View {
                             .padding(.leading, UIDevice.isIpad ? 0 : 5)
                         }
                     }
-                    .padding(.trailing, UIDevice.isIpad ? 60 : 0)
-                    ///
+                    .padding(.horizontal, -10)
                     ///Viser temperaturen akkurat nå avhengig av index:
                     ///
                     VStack (alignment: .center) {
@@ -306,7 +305,7 @@ struct DayDetail: View {
                                              opacity: $opacity,
                                              dewPointArray: $dewPointArray)
                     }
-                    .offset(x: UIDevice.isIpad ?   20 :   0,              //  0 :   0,
+                    .offset(x: UIDevice.isIpad ?   20 :   0,
                             y: UIDevice.isIpad ? 250 : 150)
                     ///
                     /// Måtte lage en viewModifier "OffsetView" for å skille .offset for skille
@@ -316,7 +315,7 @@ struct DayDetail: View {
                 }
                 Spacer()
             }
-            .padding(.leading, UIDevice.isIpad ? -27.5 : 20)
+            .scrollIndicators(ScrollIndicatorVisibility.hidden)
         }
         .onChange(of: index) { oldIndex, index in
             ///

@@ -513,7 +513,7 @@ struct DayDetailChart: View {
                                  position: .top,
                                  spacing: 6)
                 .chartXSelection(value: $selectedIndex)
-                //                }
+                ///                
                 /// Viser utvidet informasjon om været:
                 ///
                 VStack (alignment: .leading) {
@@ -567,7 +567,6 @@ struct DayDetailChart: View {
             .modifier(DayDetailChartOffsetViewModifier(option: option))
             Spacer()
         }
-        
         .task {
             ///
             /// Resetter selectedValue fra gesture i DayDetailChart():

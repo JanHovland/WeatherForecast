@@ -369,6 +369,7 @@ var toDo_2 =
           🟢 Finne verdiene fra https://
           🟢 Lage AirQualityView()
    72. 🔴 Endre Temperatur til "Værforhold"
+          🟢 Værforbehold
           🔴 Sannsynlighet for nedbør
           🔴 Total nedbørsmengde
              🔴 Siste 24 timer
@@ -376,8 +377,8 @@ var toDo_2 =
           🔴 Værvarsel
           🔴 Dagsforskjeller
              🔴 Høyeste følte temp er den samme i dag som i går
-   73. 🔴 **** Lage en egen func for å finne høyeste max og min verdi for hele perioden ***
-          🔴 Temperatur
+   73. 🔴 Gå gjennom heading og gesture visning på Chart
+          🟢 Temperatur
           🔴 UV-index
           🔴 Vind
           🔴 Nedbør
@@ -385,17 +386,8 @@ var toDo_2 =
           🔴 Luftfuktighet
           🔴 Sikt
           🔴 Lufttrykk
-   74. 🔴 Gå gjennom heading og gesture visning på Chart
-          🔴 Temperatur
-          🔴 UV-index
-          🔴 Vind
-          🔴 Nedbør
-          🔴 Føles som
-          🔴 Luftfuktighet
-          🔴 Sikt
-          🔴 Lufttrykk
-   75. 🔴 Vurdere å legge inn "snøvarsel" i løpet av perioden på alle menyvalg.
-   76. 🔴 .
+   74. 🔴 Vurdere å legge inn "snøvarsel" i løpet av perioden på alle menyvalg.
+   75. 🔴 .
           🔴 .
 """
 

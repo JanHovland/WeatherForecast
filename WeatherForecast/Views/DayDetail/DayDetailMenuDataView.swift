@@ -22,6 +22,7 @@ struct DayDetailMenuDataView: View {
             HStack {
                 Image(systemName: menuSystemName)
                     .font(.system(size: 15))
+                    .symbolRenderingMode(.multicolor)
                 Image(systemName: "chevron.down")
                     .font(.system(size: 17))
             }
@@ -41,7 +42,7 @@ struct DayDetailMenuDataView: View {
                         menuTitle: $menuTitle)
             .opacity(opacity == 1.00 ? 1.00 : 0.00)
         }
-        .offset(x: UIDevice.isIpad ? 480 : 318,
+        .offset(x: UIDevice.isIpad ? 480 : 300,
                 y: UIDevice.isIpad ?   0 :   0)
             ///
             /// Viser dagens værdata avhengig av menuTitle:

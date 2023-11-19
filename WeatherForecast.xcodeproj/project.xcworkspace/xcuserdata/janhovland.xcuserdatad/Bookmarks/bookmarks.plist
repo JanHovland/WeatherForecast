@@ -14,11 +14,11 @@
 					<key>EndingLineNumber</key>
 					<string>219</string>
 					<key>StartingColumnNumber</key>
-					<string>54</string>
+					<string>0</string>
 					<key>StartingLineNumber</key>
 					<string>218</string>
 					<key>Timestamp</key>
-					<string>721930924.934229</string>
+					<string>722105156.513526</string>
 				</dict>
 				<key>rebasable-url</key>
 				<dict>
@@ -34,12 +34,12 @@
 			<key>text-context</key>
 			<dict>
 				<key>focused</key>
-				<string>
+				<string>                    } else if option == .temperature {
 </string>
 				<key>leading</key>
 				<string>                                .opacity(0.50)
                         }
-                    } else if option == .temperature {</string>
+</string>
 				<key>trailing</key>
 				<string>                        ForEach(newTemperature) {
                             LineMark (
