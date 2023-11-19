@@ -16,36 +16,36 @@ struct DayDetailWeatherData: View {
     @Binding var arrayDayIcons: [String]
     
     var body: some View {
-        if menuTitle == "Temperatur" {
+        if menuTitle == String(localized: "Weather conditions") {
             DayDetailWeatherDataTemperature(weather: weather,
                                             menuTitle: $menuTitle,
                                             index: $index,
                                             arrayDayIcons: $arrayDayIcons)
-        } else if menuTitle == "UV-indeks" {
+        } else if menuTitle == String(localized: "UV-index") {
             DayDetailWeatherDataUvIndex(weather: weather,
                                         menuTitle: $menuTitle,
                                         index: $index)
-        } else if menuTitle == "Vind" {
+        } else if menuTitle == String(localized: "Wind") {
             DayDetailWeatherDataWind(weather: weather,
                                      menuTitle: $menuTitle,
                                      index: $index)
-        } else if menuTitle == "Nedbør" {
+        } else if menuTitle == String(localized: "Rain") {
             DayDetailWeatherDataPrecifitation(weather: weather,
                                               menuTitle: $menuTitle,
                                               index: $index)
-        } else if menuTitle == "Føles som" {
+        } else if menuTitle == String(localized: "Feels like") {
             DayDetailWeatherDataFeelsLike(weather: weather,
                                           menuTitle: $menuTitle,
                                           index: $index)
-        } else if menuTitle == "Luftfuktighet" {
+        } else if menuTitle == String(localized: "Humidity") {
             DayDetailWeatherDataHumidity(weather: weather,
                                          menuTitle: $menuTitle,
                                          index: $index)
-        } else if menuTitle == "Sikt" {
+        } else if menuTitle == String(localized: "Visibility") {
             DayDetailWeatherDataVisibility(weather: weather,
                                            menuTitle: $menuTitle,
                                            index: $index)
-        } else if menuTitle == "Lufttrykk" {
+        } else if menuTitle == String(localized: "Air pressure") {
             DayDetailWeatherDataAirPressure(weather: weather,
                                             menuTitle: $menuTitle,
                                             index: $index)

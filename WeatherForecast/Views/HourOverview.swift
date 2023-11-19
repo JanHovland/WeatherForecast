@@ -61,7 +61,6 @@ struct HourOverview: View {
                                 /// Dette brukes for å fylle symbolene:
                                 ///
                                     .frame(width: 20, height: 20)
-                                    .environment(\.symbolVariants, .fill)
                                     .symbolRenderingMode(.multicolor)
                                     .foregroundStyle(.primary)
                                     .font(.title3)

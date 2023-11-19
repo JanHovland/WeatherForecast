@@ -20,7 +20,6 @@ struct IconVisibilityView: View {
                 VStack {
                     Text("\(element.description)km")
                         .font(.system(size: fontSize))
-                        .environment(\.symbolVariants, .none)
                         .symbolRenderingMode(.multicolor)
                         .padding(.horizontal, padding)
                 }

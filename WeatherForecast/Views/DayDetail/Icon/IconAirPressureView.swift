@@ -20,7 +20,6 @@ struct IconAirPressureView: View {
                 VStack {
                     Image(systemName: "\(element.description)")
                         .font(.system(size: fontSize))
-                        .environment(\.symbolVariants, .none)
                         .symbolRenderingMode(.multicolor)
                         .padding(.horizontal, padding)
                 }

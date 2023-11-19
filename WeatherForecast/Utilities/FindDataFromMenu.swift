@@ -132,7 +132,7 @@ func FindDataFromMenu(info: String,
         ///
         /// Oppdaterer tempInfoArray:
         ///
-        tempInfo.type = String(localized: "Temperature")
+        tempInfo.type = String(localized: "Weather conditions")
         tempInfo.data = tempData
         tempInfoArray.append(tempInfo)
         
@@ -591,7 +591,7 @@ func FindDataFromMenu(info: String,
         tempInfo.data = appearentData
         tempInfoArray.append(tempInfo)
         
-        tempInfo.type = String(localized: "Temperature")
+        tempInfo.type = String(localized: "Weather conditions")
         tempInfo.data = tempData
         tempInfoArray.append(tempInfo)
         

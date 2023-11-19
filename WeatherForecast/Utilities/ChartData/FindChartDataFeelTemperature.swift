@@ -75,7 +75,7 @@ func FindChartDataFeelsLike(weather: Weather,
     array.removeAll()
     for i in 0..<tempInfo[appearentType].data.count {
         array.append(tempInfo[appearentType].data[i].temp)
-        n.type = String(localized: "Temperature")
+        n.type = String(localized: "Weather conditions")
         n.hour = i
         n.value = tempInfo[appearentType].data[i].temp
         new.append(n)

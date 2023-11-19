@@ -75,7 +75,6 @@ struct DayOverview: View {
                             /// Viser symbolName:
                             ///
                             Image(systemName: "\(dayItem.symbolName)")
-                                .environment(\.symbolVariants, .fill)
                                 .symbolRenderingMode(.multicolor)
                                 .foregroundStyle(.primary)
                                 .font(.title3)

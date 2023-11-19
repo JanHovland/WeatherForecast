@@ -193,7 +193,7 @@ struct DayDetailChart: View {
                                     showSelectedValue
                                 }
                                 .foregroundStyle(Color.white.opacity(0.15))
-                                .offset(yStart: -10)
+                                .offset(yStart: -10) /// Viser verdien relativt til største verdi av "Value"
                                 .zIndex(-1)
                         }
                         ///
@@ -238,7 +238,7 @@ struct DayDetailChart: View {
                                     showSelectedValue
                                 }
                                 .foregroundStyle(Color.white.opacity(0.15))
-                                .offset(yStart: -10)
+                                .offset(yStart: -10) /// Viser verdien relativt til største verdi av "Value"
                                 .zIndex(-1)
                         }
                         ///
@@ -282,7 +282,7 @@ struct DayDetailChart: View {
                                     showSelectedValue
                                 }
                                 .foregroundStyle(Color.white.opacity(0.15))
-                                .offset(yStart: -10)
+                                .offset(yStart: -10) /// Viser verdien relativt til største verdi av "Value"
                                 .zIndex(-1)
                         }
                         ///
@@ -329,7 +329,7 @@ struct DayDetailChart: View {
                                     showSelectedValue
                                 }
                                 .foregroundStyle(Color.white.opacity(0.15))
-                                .offset(yStart: -10)
+                                .offset(yStart: -10) /// Viser verdien relativt til største verdi av "Value"
                                 .zIndex(-1)
                         }
                         ///
@@ -376,7 +376,7 @@ struct DayDetailChart: View {
                                     showSelectedValue
                                 }
                                 .foregroundStyle(Color.white.opacity(0.15))
-                                .offset(yStart: -10)
+                                .offset(yStart: -10) /// Viser verdien relativt til største verdi av "Value"
                                 .zIndex(-1)
                         }
                         ///
@@ -422,7 +422,7 @@ struct DayDetailChart: View {
                                     showSelectedValue
                                 }
                                 .foregroundStyle(Color.white.opacity(0.15))
-                                .offset(yStart: -10)
+                                .offset(yStart: -10) /// Viser verdien relativt til største verdi av "Value"
                                 .zIndex(-1)
                         }
                         ///
@@ -472,7 +472,7 @@ struct DayDetailChart: View {
                                     showSelectedValue
                                 }
                                 .foregroundStyle(Color.white.opacity(0.15))
-                                .offset(yStart: -10)
+                                .offset(yStart: -10) /// Viser verdien relativt til største verdi av "Value"
                                 .zIndex(-1)
                         }
                         PointMark(x: .value("Hour", humidityMinIndex),

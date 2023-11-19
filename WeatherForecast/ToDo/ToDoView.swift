@@ -355,32 +355,47 @@ var toDo_2 =
    63. 🟢 Sjekk posisjon av solen i Beijing (viser om dagen når det skal være om natten)
    64. 🟢 Sjekke nøye "@Environment(DateSettings.self) private var dateSettings"
    65. 🟢 Chart "Luftfuktighet" viser nå verdier når "luftfuktighet" velges.
-   65. 🟢 Chart "Sikt" viser nå verdier når "sikt" velges.
-   66. 🔴 Gå gjennom heading og gesture visning på Chart
+   66. 🟢 Chart "Sikt" viser nå verdier når "sikt" velges.
+   67. 🟢 Visningsverdiene må vises fullstendig både til venstre og høyre
+   68. 🟢 Nytt View for oppstart som inneholder alle valgte stedene.
+   69. 🟢 Menyen:
+          🟢 Legge inn "Oppdater tidssoner".
+          🟢 Legge inn "Søkefelt".
+          🟢 "Oppfrisking av stedene mine".
+   70. 🟢 Slette et av "Mine steder" etter å ha valgt stedet.
+   71. 🟢 Luft kvalitet finnes her:  OpenWeather Air Pollution API
+          🟢 Lage modellen via Quicktime
+          🟢 Legg inn key i Settings
+          🟢 Finne verdiene fra https://
+          🟢 Lage AirQualityView()
+   72. 🔴 Endre Temperatur til "Værforhold"
+          🔴 Sannsynlighet for nedbør
+          🔴 Total nedbørsmengde
+             🔴 Siste 24 timer
+             🔴 Neste 24 timer
+          🔴 Værvarsel
+          🔴 Dagsforskjeller
+             🔴 Høyeste følte temp er den samme i dag som i går
+   73. 🔴 **** Lage en egen func for å finne høyeste max og min verdi for hele perioden ***
           🔴 Temperatur
           🔴 UV-index
           🔴 Vind
           🔴 Nedbør
-             🔴 Viser kun regn
           🔴 Føles som
           🔴 Luftfuktighet
           🔴 Sikt
           🔴 Lufttrykk
-   67. 🟢 Visningsverdiene må vises fullstendig både til venstre og høyre
-   68. 🟢 Nytt View for oppstart som inneholder alle valgte stedene.
-   69. 🔴 Menyen:
-          🟢 Legge inn "Oppdater tidssoner".
-          🟢 Legge inn "Søkefelt".
-          🔴 "Oppfrisking av stedene mine".
-   70. 🔴 Slette et av "Mine steder" etter å ha valgt stedet.
-   71. 🔴 Luft kvalitet finnes her:  OpenWeather Air Pollution API
-          🟢 Lage modellen via Quicktime
-          🔴 Legg inn key i Settings
-          🔴 Finne verdiene fra https://
-          🔴 Lage AirQualityView()
-   72. 🔴 Sjekke om det er riktige verdier i Chart.
-   73. 🔴 Vurdere å legge inn "snøvarsel" i løpet av perioden på alle menyvalg.
-   74. 🔴 .
+   74. 🔴 Gå gjennom heading og gesture visning på Chart
+          🔴 Temperatur
+          🔴 UV-index
+          🔴 Vind
+          🔴 Nedbør
+          🔴 Føles som
+          🔴 Luftfuktighet
+          🔴 Sikt
+          🔴 Lufttrykk
+   75. 🔴 Vurdere å legge inn "snøvarsel" i løpet av perioden på alle menyvalg.
+   76. 🔴 .
           🔴 .
 """
 

@@ -11,7 +11,7 @@ func MenuTitleToOption(menuTitle: String) -> EnumType {
     
     switch menuTitle {
         
-    case String(localized: "Temperature") :
+    case String(localized: "Weather conditions") :
         return .temperature
         
     case String(localized: "UV-index") :

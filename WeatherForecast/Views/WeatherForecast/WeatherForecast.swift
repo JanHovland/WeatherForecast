@@ -84,12 +84,11 @@ struct WeatherForecast: View {
                 if let weather {
                     if UIDevice.isIpad {
                         ///
-                        /// Kan ikke bruke ScrollView() på iPad, må benytte List istedetfor, men dette krasjer ,
-                        /// når jeg velger nest setd!!!!. Dette er kanskje en feil i iPadOS 17.2 (21C5029g) ?
+                        /// Benytter ScrollView() på iPad, men når jeg velger nest sted så krasjer aooen.
+                        /// Dette er kanskje en feil i iPadOS 17.2 (21C5029g) ?
                         ///
-//                        ScrollView (.vertical, showsIndicators: false) {
-                        List {
-                            VStack {
+                        ScrollView (.vertical, showsIndicators: false) {
+                           VStack {
                                 VStack {
                                     Text(weatherInfo.placeName.count > 0 ? weatherInfo.placeName : "No placeName")
                                         .font(.system(size: 40, weight: .light))

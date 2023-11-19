@@ -20,7 +20,6 @@ struct iconUvIndexView: View {
                 VStack {
                     Text("\(element.description)")
                         .font(.system(size: fontSize))
-                        .environment(\.symbolVariants, .none)
                         .symbolRenderingMode(.multicolor)
                         .padding(.horizontal, padding)
                 }

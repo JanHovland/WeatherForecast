@@ -82,8 +82,8 @@ struct DayDetail: View {
                                                              Color(.white),
                                                              Color(.white)]
     
-    @State private var menuSystemName : String = "thermometer.medium"
-    @State private var menuTitle = String(localized:  "Temperature")
+    @State private var menuSystemName : String = "cloud.sun.rain.fill"
+    @State private var menuTitle = String(localized:  "Weather conditions")
     
     @State private var option: EnumType = .temperature
     @State private var option1: EnumType = .number12
@@ -125,8 +125,9 @@ struct DayDetail: View {
                     if UIDevice.current.model == "iPhone" {
                         HStack (alignment: .center) {
                             Spacer()
-                            Image(systemName: menuSystemName)
+                            Image(systemName: "cloud.sun.rain.fill")
                                 .font(.body)
+                                .symbolRenderingMode(.multicolor)
                             Text(menuTitle)
                             ///
                             /// Fonten skaleres automatisk ned til 65%
@@ -138,8 +139,9 @@ struct DayDetail: View {
                     } else if UIDevice.current.model ==  "iPad" {
                         HStack (alignment: .center) {
                             HStack (alignment: .center) {
-                                Image(systemName: menuSystemName)
+                                Image(systemName: "cloud.sun.rain.fill")
                                     .font(.body)
+                                    .symbolRenderingMode(.multicolor)
                                 Text(menuTitle)
                                 ///
                                 /// Fonten skaleres automatisk ned til 65%

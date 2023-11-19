@@ -21,13 +21,13 @@ struct MenuContent: View {
         
         Button(action: {
             Task.init {
-                menuSystemName = "thermometer.medium"
-                menuTitle = String(localized: "Temperature")
+                menuSystemName = "cloud.sun.rain.fill"
+                menuTitle = String(localized: "Weather conditions")
             }
         }) {
             HStack {
-                Image(systemName: "thermometer.medium")
-                Text(String(localized: "Temperature"))
+                Image(systemName: "cloud.sun.rain.fill")
+                Text(String(localized: "Weather conditions"))
             }
         }
         
