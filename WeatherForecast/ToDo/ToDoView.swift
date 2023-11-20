@@ -373,7 +373,7 @@ var toDo_2 =
    73. 🔴 Gå gjennom heading og gesture visning på Chart
           🟢 Værforbehold
           🟢 UV-index
-          🔴 Vind
+          🟢 Vind
           🔴 Nedbør
           🔴 Føles som
           🔴 Luftfuktighet

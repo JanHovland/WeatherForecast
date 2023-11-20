@@ -59,6 +59,6 @@ func FindChartDataPrecipitation(weather: Weather,
     ///
     /// Må beregne rangeTo som er den  maksibale verdien av alle typene
     ///
-    rangeTo = Int(max) + 1
+    rangeTo = Int(max) + 2
     return (new, min, max, minIndex, maxIndex, rangeFrom, rangeTo)
 }
