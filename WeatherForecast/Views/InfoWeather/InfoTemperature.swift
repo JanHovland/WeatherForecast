@@ -18,7 +18,8 @@ struct InfoTemperature : View {
     @Environment(WeatherInfo.self) private var weatherInfo
     
     @State private var text : String = ""
-    
+    @State private var text1 : String = ""
+
     var body: some View {
         VStack (alignment: .leading) {
             
@@ -30,15 +31,26 @@ struct InfoTemperature : View {
                 .textFieldStyle(.roundedBorder)
                 .disabled(true)
             
+            if index == 0 {
+                Text("Day differences")
+                    .fontWeight(.bold)
+                
+                TextField("", text: $text1, axis: .vertical)
+                    .lineLimit(0...10)
+                    .textFieldStyle(.roundedBorder)
+                    .disabled(true)
+            }
+
             Spacer()
         }
         .font(.subheadline)
         .frame(width: UIDevice.isIpad ? 490 : 350,
                height: UIDevice.isIpad ? 300 : 300)
         .onChange(of: index) { oldIndex, index in
+            ///
             /// Bygger opp værmeldingen:
             ///
-            text = Forecast(index: index,
+            (text, text1) = Forecast(index: index,
                             dayArray: dayArray,
                             weekdayArray: weekdayArray,
                             tempInfo: tempInfo,
@@ -46,9 +58,10 @@ struct InfoTemperature : View {
                             offsetSec: weatherInfo.offsetSec)
         }
         .task {
+            ///
             /// Bygger opp værmeldingen:
             ///
-            text = Forecast(index: index,
+            (text, text1) = Forecast(index: index,
                             dayArray: dayArray,
                             weekdayArray: weekdayArray,
                             tempInfo: tempInfo,
@@ -65,12 +78,13 @@ private func Forecast(index: Int,
                       weekdayArray: [String],
                       tempInfo: [Temperature],
                       date: Date,
-                      offsetSec: Int) -> String {
+                      offsetSec: Int) -> (String, String) {
     
     
     var dayTempInfo: [DayTempInfo] = []
     
     var text: String = ""
+    var text1: String = ""
     var weekDay: String = ""
     
     var minTemp: Double = 0.00
@@ -233,7 +247,9 @@ private func Forecast(index: Int,
         text = text + "."
     }
     
-    return text
+    text1 = "Samme som i går"
+    
+    return (text, text1)
 }
 
 private func TempInfoValues(tempInfo: [Temperature],
