@@ -438,6 +438,8 @@
 				DB5C0C2F29151C9600141BDC /* FindDataFromMenu.swift */,
 				DB8C17CE29DDB48100198DCB /* FindHourToCGFloat.swift */,
 				DBD497A32A4EAF160075B350 /* FindLocalPosition.swift */,
+				DB101D872B0B787A00B9788C /* FindMenySystemImage.swift */,
+				DBE046E12B0555ED00942E51 /* FindMoonPhaseImage.swift */,
 				DB66C1A22AF65A6500C2722E /* FindMoonUpDown.swift */,
 				DB919BC12940B43100E69644 /* FindSunUpDown.swift */,
 				DB91F3392AF92F0E00D94E07 /* FindTimeFromAmPm.swift */,
@@ -457,8 +459,6 @@
 				DB17F6AD295ECF0C00FC2A0B /* UvIndexDescription.swift */,
 				DBDBCC6529521B99005AEB05 /* WeatherTranslateType.swift */,
 				DB17F6AF295F6BA100FC2A0B /* WindDirection.swift */,
-				DBE046E12B0555ED00942E51 /* FindMoonPhaseImage.swift */,
-				DB101D872B0B787A00B9788C /* FindMenySystemImage.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
