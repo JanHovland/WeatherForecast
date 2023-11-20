@@ -40,7 +40,7 @@ struct DayDetailHourIcons: View {
                 } else {
                     spacing = 0.20
                     fontSize = 15
-                    padding = 11.25
+                    padding = 11.50
                 }
             }
         } else if option == .uvIndex {
@@ -56,11 +56,11 @@ struct DayDetailHourIcons: View {
             }
             .task {
                 if UIDevice.isiPhone {
-                    spacing = -1.5
-                    fontSize = 12.5
+                    spacing = 6.25
+                    fontSize = 13
                     padding = 7
                 } else {
-                    spacing = 12
+                    spacing = 14.5
                     fontSize = 15
                     padding = 10.25
                 }

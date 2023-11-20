@@ -305,16 +305,13 @@ struct DayDetailChart: View {
                                 .opacity(0.50)
                         }
                     } else if option == .uvIndex {
-                        
-                        let description = String(localized: "UV-index")
-                        
                         ForEach(newUvIndex) {
                             LineMark (
                                 x: .value("Hour", $0.hour),
                                 y: .value("Value", $0.value)
                             )
                             .interpolationMethod(.catmullRom)
-                            .foregroundStyle(by: .value("Type", description))
+                            .foregroundStyle(by: .value("Type", String(localized: "UV-index")))
                             .lineStyle(StrokeStyle(lineWidth: 1))
                         }
                         if let selectedIndex {
