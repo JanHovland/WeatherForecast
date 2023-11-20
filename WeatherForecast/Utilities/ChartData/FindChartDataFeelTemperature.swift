@@ -29,8 +29,8 @@ func FindChartDataFeelsLike(weather: Weather,
     
     var tempInfo: [Temperature]
     
-    let rangeTempMinValue =  0
-    let rangeTempMaxValue =  2
+    let rangeTempMinValue =  5
+    let rangeTempMaxValue =  5
 
     let value : ([Double],
                  [String],
