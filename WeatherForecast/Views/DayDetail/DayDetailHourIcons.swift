@@ -133,9 +133,9 @@ struct DayDetailHourIcons: View {
                     fontSize = 12.5
                     padding = 7
                 } else {
-                    spacing = 12
+                    spacing = 10.5
                     fontSize = 15
-                    padding = 5.5
+                    padding = 8
                 }
             }
         } else if option == .humidity {

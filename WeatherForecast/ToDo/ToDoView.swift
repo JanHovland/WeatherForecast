@@ -379,7 +379,8 @@ var toDo_2 =
           🟢 Luftfuktighet
           🔴 Sikt
           🔴 Lufttrykk
-   74. 🔴 "Værforhold" link til utvidet info
+   74. 🔴 "Sikt" viser 0 til 0 km
+   75 🔴 "Værforhold" link til utvidet info
           🔴 Sannsynlighet for nedbør
           🔴 Total nedbørsmengde
              🔴 Siste 24 timer
@@ -387,8 +388,8 @@ var toDo_2 =
           🔴 Værvarsel
           🔴 Dagsforskjeller
              🔴 Høyeste følte temp er den samme i dag som i går
-   75. 🔴 Vurdere å legge inn "snøvarsel" i løpet av perioden på alle menyvalg.
-   76. 🔴 .
+   76. 🔴 Vurdere å legge inn "snøvarsel" i løpet av perioden på alle menyvalg.
+   77. 🔴 .
           🔴 .
 """
 

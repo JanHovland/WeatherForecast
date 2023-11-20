@@ -26,6 +26,8 @@ func FindChartDataVisibility(weather: Weather,
     var maxIndex: Int = 0
     var rangeFrom: Int = 0
     var rangeTo: Int = 0
+    
+    let rangeGustMaxValue =  5
 
     let value : ([Double],
                  [String],
@@ -63,11 +65,11 @@ func FindChartDataVisibility(weather: Weather,
     ///
     /// Beregner rangeFrom
     ///
-    rangeFrom = Int(min)
+    rangeFrom = 0
     ///
     /// Beregner rangeTo
     ///
-    rangeTo = Int(max)
+    rangeTo = Int(max) + rangeGustMaxValue
     
     return (new, min, max, minIndex, maxIndex, rangeFrom, rangeTo)
 
