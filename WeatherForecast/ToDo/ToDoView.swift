@@ -370,7 +370,7 @@ var toDo_2 =
           🟢 Lage AirQualityView()
    72. 🟢 Endre Temperatur til "Værforhold"
           🟢 Værforbehold
-   73. 🔴 Gå gjennom heading og gesture visning på Chart
+   73. 🟢 Gå gjennom heading og gesture visning på Chart
           🟢 Værforbehold
           🟢 UV-index
           🟢 Vind
@@ -379,8 +379,17 @@ var toDo_2 =
           🟢 Luftfuktighet
           🟢 Sikt
           🟢 Lufttrykk
-   74. 🔴 "Sikt" viser 0 til 0 km
-   75 🔴 "Værforhold" link til utvidet info
+   74. 🟢 "Sikt" viser 0 til 0 km
+   75. 🔴 "Dagsforskjeller"
+          🔴 Værforbehold
+          🔴 UV-index
+          🔴 Vind
+          🔴 Nedbør
+          🔴 Føles som
+          🔴 Luftfuktighet
+          🔴 Sikt
+          🔴 Lufttrykk
+   76. 🔴 "Værforhold" link til utvidet info
           🔴 Sannsynlighet for nedbør
           🔴 Total nedbørsmengde
              🔴 Siste 24 timer
@@ -388,8 +397,8 @@ var toDo_2 =
           🔴 Værvarsel
           🔴 Dagsforskjeller
              🔴 Høyeste følte temp er den samme i dag som i går
-   76. 🔴 Vurdere å legge inn "snøvarsel" i løpet av perioden på alle menyvalg.
-   77. 🔴 .
+   77. 🔴 Vurdere å legge inn "snøvarsel" i løpet av perioden på alle menyvalg.
+   78. 🔴 .
           🔴 .
 """
 
