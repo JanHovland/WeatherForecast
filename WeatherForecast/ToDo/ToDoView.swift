@@ -374,7 +374,7 @@ var toDo_2 =
           🟢 Værforbehold
           🟢 UV-index
           🟢 Vind
-          🔴 Nedbør
+          🟢 Nedbør
           🔴 Føles som
           🔴 Luftfuktighet
           🔴 Sikt
