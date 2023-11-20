@@ -26,6 +26,8 @@ func FindChartDataHumidity(weather: Weather,
     var maxIndex: Int = 0
     var rangeFrom: Int = 0
     var rangeTo: Int = 0
+    
+    let rangeTempMaxValue =  20
 
     let value : ([Double],
                  [String],
@@ -61,13 +63,9 @@ func FindChartDataHumidity(weather: Weather,
     minIndex = array.firstIndex(of: array.min()!)!
     maxIndex = array.firstIndex(of: array.max()!)!
     ///
-    /// Beregner rangeFrom
-    ///
-    rangeFrom = Int(min)
-    ///
     /// Beregner rangeTo
     ///
-    rangeTo = Int(max)
+    rangeTo = Int(max) + rangeTempMaxValue
     
     return (new, min, max, minIndex, maxIndex, rangeFrom, rangeTo)
 

@@ -376,7 +376,7 @@ var toDo_2 =
           🟢 Vind
           🟢 Nedbør
           🟢 Føles som
-          🔴 Luftfuktighet
+          🟢 Luftfuktighet
           🔴 Sikt
           🔴 Lufttrykk
    74. 🔴 "Værforhold" link til utvidet info
