@@ -87,18 +87,6 @@ struct DayOverview: View {
                                 .padding(.top, -5)
                         }
                         .padding(7)
-                        .fullScreenCover(isPresented: $detailView, content: {
-                            DayDetail(weather: weather,
-                                      dateSelected: $dateSelected,
-                                      dayDetailHide: $dayDetailHide,
-                                      sunRises: $sunRises,
-                                      sunSets: $sunSets, 
-                                      dateSettings: dateSettings)
-                            .frame(maxWidth: .infinity, maxHeight: .infinity)
-                            .padding(.top, paddingTop)
-                            .padding(.leading, paddingLeading)
-                            .clearModalBackground()
-                        })
                         .onTapGesture {
                             /// Task.init starter hver gang ved hvert .onTapGesture:
                             ///
@@ -112,6 +100,18 @@ struct DayOverview: View {
                                 detailView.toggle()
                             }
                         }
+                        .fullScreenCover(isPresented: $detailView, content: {
+                            DayDetail(weather: weather,
+                                      dateSelected: $dateSelected,
+                                      dayDetailHide: $dayDetailHide,
+                                      sunRises: $sunRises,
+                                      sunSets: $sunSets, 
+                                      dateSettings: dateSettings)
+                            .frame(maxWidth: .infinity, maxHeight: .infinity)
+                            .padding(.top, paddingTop)
+                            .padding(.leading, paddingLeading)
+                            .clearModalBackground()
+                        })
                     }
                     .listStyle(.sidebar)
                 }
