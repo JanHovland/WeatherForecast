@@ -82,7 +82,7 @@ struct DayDetail: View {
                                                              Color(.white),
                                                              Color(.white)]
     
-    @State private var menuSystemName : String = "cloud.sun.rain.fill"
+    @State private var menuSystemName : String = ""
     @State private var menuTitle = String(localized:  "Weather conditions")
     
     @State private var option: EnumType = .temperature
@@ -123,7 +123,7 @@ struct DayDetail: View {
                 if UIDevice.current.model == "iPhone" {
                     HStack (alignment: .center) {
                         Spacer()
-                        Image(systemName: "cloud.sun.rain.fill")
+                        Image(systemName: FindMenySystemImage(menuTitle: menuTitle))
                             .font(.body)
                             .symbolRenderingMode(.multicolor)
                         Text(menuTitle)
@@ -137,7 +137,7 @@ struct DayDetail: View {
                 } else if UIDevice.current.model ==  "iPad" {
                     HStack (alignment: .center) {
                         HStack (alignment: .center) {
-                            Image(systemName: "cloud.sun.rain.fill")
+                            Image(systemName: FindMenySystemImage(menuTitle: menuTitle))
                                 .font(.body)
                                 .symbolRenderingMode(.multicolor)
                             Text(menuTitle)
@@ -315,6 +315,10 @@ struct DayDetail: View {
         }
         .onChange(of: index) { oldIndex, index in
             ///
+            /// Finner menuSystemName
+            ///
+            menuSystemName = FindMenySystemImage(menuTitle: menuTitle)
+            ///
             /// Oppdaterer weatherIcon:
             ///
             let value: ([Double],
@@ -337,6 +341,10 @@ struct DayDetail: View {
         }
         .onChange(of: MenuTitleToOption(menuTitle: menuTitle)) { oldOption, option in
             ///
+            /// Finner menuSystemName
+            ///
+            menuSystemName = FindMenySystemImage(menuTitle: menuTitle)
+            ///
             /// Oppdaterer weatherIcon:
             ///
             let value: ([Double],
@@ -358,6 +366,10 @@ struct DayDetail: View {
             hourIconArray = value.2
         }
         .task {
+            ///
+            /// Finner menuSystemName
+            ///
+            menuSystemName = FindMenySystemImage(menuTitle: menuTitle)
             let value: ([Double],
                         [String],
                         [String],
@@ -450,5 +462,4 @@ struct DayDetail: View {
         }
     }
 }
-
 
