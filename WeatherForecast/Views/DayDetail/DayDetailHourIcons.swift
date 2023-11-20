@@ -84,11 +84,11 @@ struct DayDetailHourIcons: View {
             }
             .task {
                 if UIDevice.isiPhone {
-                    spacing = -1.5
-                    fontSize = 12.5
-                    padding = 7
+                    spacing = 1.5
+                    fontSize = 14
+                    padding = 6
                 } else {
-                    spacing = 5
+                    spacing = 7.5
                     fontSize = 15
                     padding = 10.25
                 }
