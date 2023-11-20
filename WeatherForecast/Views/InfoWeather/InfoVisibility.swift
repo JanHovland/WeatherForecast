@@ -6,12 +6,14 @@
 //
 
 import SwiftUI
+import WeatherKit
 
 struct InfoVisibility: View {
     
     var index: Int
     @Binding var dayArray : [Double]
     @Binding var weekdayArray: [String]
+    var weather: Weather
     
     @State private var text : String = String(localized: "Visibility indicates how far away you can clearly see objects such as buildings or mountain peaks. It is a measure of the transparency of the air and does not take into account the amount of sunlight or obstacles in the field of vision. Visibility of 10 km or more is considered clear.")
     
@@ -19,7 +21,10 @@ struct InfoVisibility: View {
     
     @Environment(CurrentWeather.self) private var currentWeather
     @Environment(WeatherInfo.self) private var weatherInfo
-
+    @Environment(DateSettings.self) private var dateSettings
+    
+    @State private var visibilityArray : [Double] = Array(repeating: Double(), count: sizeArray24)
+    
     var body: some View {
         VStack (alignment: .leading) {
             Text(String(localized: "Daily overview"))
@@ -47,16 +52,40 @@ struct InfoVisibility: View {
             /// Bygger opp værmeldingen:
             ///
             text1 = Forecast(index: index,
-                             dayArray: dayArray,
+                             visibilityArray: visibilityArray,
                              weekdayArray: weekdayArray,
                              date: currentWeather.date,
             offsetSec: weatherInfo.offsetSec)
         }
         .task {
+            ///
+            /// Finner oversikt ov sikten
+            ///
+            visibilityArray.removeAll()
+            
+            let value : ([Double],
+                         [String],
+                         [String],
+                         [RainFall],
+                         [WindInfo],
+                         [Temperature],
+                         [Double],
+                         [WeatherIcon],
+                         [Double],
+                         [FeltTemp],
+                         [Double],
+                         [NewPrecipitation]) = FindDataFromMenu(info: "DayDetailWeatherDataFeelsLike change index #1",
+                                                                weather: weather,
+                                                                date: dateSettings.dates[index],
+                                                                option: .visibility,
+                                                                option1: .number24)
+            visibilityArray = value.0
+            
+            ///
             /// Bygger opp værmeldingen:
             ///
             text1 = Forecast(index: index,
-                             dayArray: dayArray,
+                             visibilityArray: visibilityArray,
                              weekdayArray: weekdayArray,
                              date: currentWeather.date,
                              offsetSec: weatherInfo.offsetSec)
@@ -67,14 +96,14 @@ struct InfoVisibility: View {
 /// Bygger opp værmeldingen:
 ///
 private func Forecast(index: Int,
-                      dayArray: [Double],
+                      visibilityArray: [Double],
                       weekdayArray: [String],
                       date: Date,
                       offsetSec: Int) -> String {
 
     var text : String = ""
-    let min = dayArray.min()!
-    let max = dayArray.max()!
+    let min = visibilityArray.min()!
+    let max = visibilityArray.max()!
     var weekDay: String = ""
     
     if index == 0 {
