@@ -380,7 +380,9 @@ var toDo_2 =
           🟢 Sikt
           🟢 Lufttrykk
    74. 🟢 "Sikt" viser 0 til 0 km
-   75. 🔴 "Dagsforskjeller"
+   75. 🔴 "DayOverview" må kalle DayDetail() som et .sheet
+          🔴 DayOverview" på linje 90
+   76. 🔴 "Dagsforskjeller" inn i .sheet ???? 
           🔴 Værforbehold
           🔴 UV-index
           🔴 Vind
@@ -389,7 +391,7 @@ var toDo_2 =
           🔴 Luftfuktighet
           🔴 Sikt
           🔴 Lufttrykk
-   76. 🔴 "Værforhold" link til utvidet info
+   77. 🔴 "Værforhold" link til utvidet info
           🔴 Sannsynlighet for nedbør
           🔴 Total nedbørsmengde
              🔴 Siste 24 timer
@@ -397,8 +399,8 @@ var toDo_2 =
           🔴 Værvarsel
           🔴 Dagsforskjeller
              🔴 Høyeste følte temp er den samme i dag som i går
-   77. 🔴 Vurdere å legge inn "snøvarsel" i løpet av perioden på alle menyvalg.
-   78. 🔴 .
+   78. 🔴 Vurdere å legge inn "snøvarsel" i løpet av perioden på alle menyvalg.
+   79. 🔴 .
           🔴 .
 """
 
