@@ -173,13 +173,13 @@ struct DayDetailHourIcons: View {
             }
             .task {
                 if UIDevice.isiPhone {
-                    spacing = -1.5
-                    fontSize = 12.5
-                    padding = 7
+                    spacing = 1
+                    fontSize = 14
+                    padding = 5.75
                 } else {
-                    spacing = 0.20
-                    fontSize = 15
-                    padding = 12.5
+                    spacing = 1
+                    fontSize = 17
+                    padding = 12.25
                 }
             }
         }

@@ -377,8 +377,8 @@ var toDo_2 =
           🟢 Nedbør
           🟢 Føles som
           🟢 Luftfuktighet
-          🔴 Sikt
-          🔴 Lufttrykk
+          🟢 Sikt
+          🟢 Lufttrykk
    74. 🔴 "Sikt" viser 0 til 0 km
    75 🔴 "Værforhold" link til utvidet info
           🔴 Sannsynlighet for nedbør

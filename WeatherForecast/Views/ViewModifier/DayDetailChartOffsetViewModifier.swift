@@ -34,7 +34,7 @@ struct DayDetailChartOffsetViewModifier: ViewModifier {
             content.offset(y: UIDevice.isIpad ? 30 : 70)
             
         } else if self.option == .airPressure {
-            content.offset(y: UIDevice.isIpad ? 30 : 100)
+            content.offset(y: UIDevice.isIpad ? 50 : 100)
         }
     }
 }
