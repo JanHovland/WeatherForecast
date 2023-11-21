@@ -40,6 +40,10 @@ struct MoonView: View {
             }
             .opacity(0.50)
             .padding(.top, 10)
+            
+            let v = currentWeather.moonIllumination
+            let w = currentWeather.moonPhase
+            
             ///
             /// Viser selve månen:
             ///

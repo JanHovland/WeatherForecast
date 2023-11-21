@@ -1,20 +1,20 @@
 //
-//  DayDetailOffsetViewModifier.swift
+//  DayDetailOffsetInfoViewModifier.swift
 //  WeatherForecast
 //
-//  Created by Jan Hovland on 04/01/2023.
+//  Created by Jan Hovland on 21/11/2023.
 //
 
 import SwiftUI
 
-struct DayDetailOffsetViewModifier: ViewModifier {
+struct DayDetailOffsetInfoViewModifier: ViewModifier {
     let option: EnumType
     
     @ViewBuilder
     func body(content: Content) -> some View {
         
         if self.option == .temperature {
-            content.offset(y: UIDevice.isIpad ? -130 : -185)
+            content.offset(y: UIDevice.isIpad ? -325 : -235)
             
         } else if self.option == .humidity {
             content.offset(y: UIDevice.isIpad ? -365: -270)

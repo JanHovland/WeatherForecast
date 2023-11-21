@@ -301,19 +301,19 @@ struct DayDetail: View {
                                      feltTempArray: $feltTempArray,
                                      opacity: $opacity,
                                      dewPointArray: $dewPointArray)
-                
-                
-//                ToDoView()
-                
-                .offset(x: UIDevice.isIpad ?   20 :   0,
-                        y: UIDevice.isIpad ? 250 : 150)
-                ///
-                /// Måtte lage en viewModifier "OffsetView" for å skille .offset for skille
-                /// mellom .humidity hvor høyden på Chart() er mindre enn de andre opsjonene.
-                ///
                 .modifier(DayDetailOffsetViewModifier(option: MenuTitleToOption(menuTitle: menuTitle)))
-                
-                ToDoView()
+                ///
+                /// Ytterligere informasjon for været for aktuell option:
+                ///
+                DayDetailInfo(weather: weather,
+                              option: option,
+                              index: index,
+                              dayArray: $dayArray,
+                              weekdayArray: $weekdayArray,
+                              windInfo: $windInfo,
+                              tempInfo: $tempInfo,
+                              weatherIcon: $weatherIcon)
+                .modifier(DayDetailOffsetInfoViewModifier(option: MenuTitleToOption(menuTitle: menuTitle)))
             }
             Spacer()
         }

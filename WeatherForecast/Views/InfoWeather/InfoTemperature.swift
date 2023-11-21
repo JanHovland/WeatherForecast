@@ -17,8 +17,8 @@ struct InfoTemperature : View {
     @Environment(CurrentWeather.self) private var currentWeather
     @Environment(WeatherInfo.self) private var weatherInfo
     
-    @State private var text : String = ""
-    @State private var text1 : String = ""
+    @State private var text : String = "aaaaaaaaa"
+    @State private var text1 : String = "bbbbbbbbb"
 
     var body: some View {
         VStack (alignment: .leading) {
@@ -39,35 +39,91 @@ struct InfoTemperature : View {
                     .lineLimit(0...10)
                     .textFieldStyle(.roundedBorder)
                     .disabled(true)
+                Text("Day differences")
+                    .fontWeight(.bold)
+                
+                TextField("", text: $text1, axis: .vertical)
+                    .lineLimit(0...10)
+                    .textFieldStyle(.roundedBorder)
+                    .disabled(true)
+                Text("Day differences")
+                    .fontWeight(.bold)
+                
+                TextField("", text: $text1, axis: .vertical)
+                    .lineLimit(0...10)
+                    .textFieldStyle(.roundedBorder)
+                    .disabled(true)
+                Text("Day differences")
+                    .fontWeight(.bold)
+                
+                TextField("", text: $text1, axis: .vertical)
+                    .lineLimit(0...10)
+                    .textFieldStyle(.roundedBorder)
+                    .disabled(true)
+                Text("Day differences")
+                    .fontWeight(.bold)
+                
+                TextField("", text: $text1, axis: .vertical)
+                    .lineLimit(0...10)
+                    .textFieldStyle(.roundedBorder)
+                    .disabled(true)
+                Text("Day differences")
+                    .fontWeight(.bold)
+                
+                TextField("", text: $text1, axis: .vertical)
+                    .lineLimit(0...10)
+                    .textFieldStyle(.roundedBorder)
+                    .disabled(true)
+                Text("Day differences")
+                    .fontWeight(.bold)
+                
+                TextField("", text: $text1, axis: .vertical)
+                    .lineLimit(0...10)
+                    .textFieldStyle(.roundedBorder)
+                    .disabled(true)
+                Text("Day differences")
+                    .fontWeight(.bold)
+                
+                TextField("", text: $text1, axis: .vertical)
+                    .lineLimit(0...10)
+                    .textFieldStyle(.roundedBorder)
+                    .disabled(true)
+                Text("Day differences")
+                    .fontWeight(.bold)
+                
+                TextField("", text: $text1, axis: .vertical)
+                    .lineLimit(0...10)
+                    .textFieldStyle(.roundedBorder)
+                    .disabled(true)
             }
 
             Spacer()
         }
         .font(.subheadline)
-        .frame(width: UIDevice.isIpad ? 490 : 350,
-               height: UIDevice.isIpad ? 300 : 300)
-        .onChange(of: index) { oldIndex, index in
-            ///
-            /// Bygger opp værmeldingen:
-            ///
-            (text, text1) = Forecast(index: index,
-                            dayArray: dayArray,
-                            weekdayArray: weekdayArray,
-                            tempInfo: tempInfo,
-                            date: currentWeather.date,
-                            offsetSec: weatherInfo.offsetSec)
-        }
-        .task {
-            ///
-            /// Bygger opp værmeldingen:
-            ///
-            (text, text1) = Forecast(index: index,
-                            dayArray: dayArray,
-                            weekdayArray: weekdayArray,
-                            tempInfo: tempInfo,
-                            date: currentWeather.date,
-                            offsetSec: weatherInfo.offsetSec)
-        }
+//        .frame(width: UIDevice.isIpad ? 490 : 350,
+//               height: UIDevice.isIpad ? 300 : 300)
+//        .onChange(of: index) { oldIndex, index in
+//            ///
+//            /// Bygger opp værmeldingen:
+//            ///
+//            (text, text1) = Forecast(index: index,
+//                            dayArray: dayArray,
+//                            weekdayArray: weekdayArray,
+//                            tempInfo: tempInfo,
+//                            date: currentWeather.date,
+//                            offsetSec: weatherInfo.offsetSec)
+//        }
+//        .task {
+//            ///
+//            /// Bygger opp værmeldingen:
+//            ///
+//            (text, text1) = Forecast(index: index,
+//                            dayArray: dayArray,
+//                            weekdayArray: weekdayArray,
+//                            tempInfo: tempInfo,
+//                            date: currentWeather.date,
+//                            offsetSec: weatherInfo.offsetSec)
+//        }
     }
 }
 

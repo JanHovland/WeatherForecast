@@ -51,30 +51,30 @@ func FindMoonPhaseImage(moonPhase: String,
             image = "First Quarter"
             daysToFullMoon = 7
         }
-    } else if moonPhase == String(localized: "Waxing gibbous") {
+    } else if moonPhase == String(localized: "Waxing Gibbous") {
         if moonIllumination >= 56 ,
            moonIllumination <= 66 {
-            image = "Waxing gibbous 1"
+            image = "Waxing Gibbous 1"
             daysToFullMoon = 6
         } else if moonIllumination >= 67,
                   moonIllumination <= 76 {
-            image = "Waxing gibbous 2"
+            image = "Waxing Gibbous 2"
             daysToFullMoon = 5
         } else if moonIllumination >= 77,
                   moonIllumination <= 85 {
-            image = "Waxing gibbous 3"
+            image = "Waxing Gibbous 3"
             daysToFullMoon = 4
         } else if moonIllumination >= 86,
                   moonIllumination <= 92 {
-            image = "Waxing gibbous 4"
+            image = "Waxing Gibbous 4"
             daysToFullMoon = 3
         } else if moonIllumination >= 93,
                   moonIllumination <= 97 {
-            image = "Waxing gibbous 5"
+            image = "Waxing Ggibbous 5"
             daysToFullMoon = 2
         } else if moonIllumination >= 98,
                   moonIllumination <= 100 {
-            image = "Waxing gibbous 6"
+            image = "Waxing Gibbous 6"
             daysToFullMoon = 1
         }
     } else if moonPhase == String(localized: "Full Moon") {
