@@ -379,26 +379,33 @@ var toDo_2 =
           🟢 Luftfuktighet
           🟢 Sikt
           🟢 Lufttrykk
-   74. 🟢 "Sikt" viser 0 til 0 km
-   75. 🔴 "DayOverview" må kalle DayDetail() som et .sheet
-          🔴 DayOverview" på linje 103
-   76. 🔴 "Dagsforskjeller" inn i .sheet ????
-          🔴 Værforbehold
-          🔴 UV-index
-          🔴 Vind
-          🔴 Nedbør
-          🔴 Føles som
-          🔴 Luftfuktighet
-          🔴 Sikt
-          🔴 Lufttrykk
-   77. 🔴 "Værforhold" link til utvidet info
-          🔴 Sannsynlighet for nedbør
-          🔴 Total nedbørsmengde
-             🔴 Siste 24 timer
-             🔴 Neste 24 timer
-          🔴 Værvarsel
-          🔴 Dagsforskjeller
-             🔴 Høyeste følte temp er den samme i dag som i går
+   74. 🟢 Rettet "Sikt" som viser 0 til 0 km
+   75. 🔴 Ta bort scroll indicator
+   76. 🔴 Nye tilpasninger for Chart (nå er det munig å scrolle Info...)
+          🔴 Dette må legges inn i:
+             🔴 Værforbehold
+             🔴 UV-index
+             🔴 Vind
+             🔴 Nedbør
+             🔴 Føles som
+             🔴 Luftfuktighet
+             🔴 Sikt
+             🔴 Lufttrykk
+   77. 🔴 Nye verdier inn under Chart:
+             - Sannsynlighet for nedbør
+             - Total nedbørsmengde
+             - Siste 24 timer
+             - Neste 24 timer
+             - Dagsforskjeller
+             🔴 Dette må legges inn i:
+                  🔴 Værforbehold
+                  🔴 UV-index
+                  🔴 Vind
+                  🔴 Nedbør
+                  🔴 Føles som
+                  🔴 Luftfuktighet
+                  🔴 Sikt
+                  🔴 Lufttrykk
    78. 🔴 Vurdere å legge inn "snøvarsel" i løpet av perioden på alle menyvalg.
    79. 🔴 .
           🔴 .
