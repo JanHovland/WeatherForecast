@@ -381,8 +381,8 @@ var toDo_2 =
           🟢 Lufttrykk
    74. 🟢 "Sikt" viser 0 til 0 km
    75. 🔴 "DayOverview" må kalle DayDetail() som et .sheet
-          🔴 DayOverview" på linje 90
-   76. 🔴 "Dagsforskjeller" inn i .sheet ???? 
+          🔴 DayOverview" på linje 103
+   76. 🔴 "Dagsforskjeller" inn i .sheet ????
           🔴 Værforbehold
           🔴 UV-index
           🔴 Vind

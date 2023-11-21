@@ -100,7 +100,7 @@ struct DayOverview: View {
                                 detailView.toggle()
                             }
                         }
-                        .fullScreenCover(isPresented: $detailView, content: {
+                        .sheet(isPresented: $detailView, content: {
                             DayDetail(weather: weather,
                                       dateSelected: $dateSelected,
                                       dayDetailHide: $dayDetailHide,

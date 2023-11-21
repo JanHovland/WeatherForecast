@@ -24,12 +24,11 @@ func FindChartDataFeelsLike(weather: Weather,
     var max: Double = 0.00
     var minIndex: Int = 0
     var maxIndex: Int = 0
-    var rangeFrom: Int = 0
+    let rangeFrom: Int = 0
     var rangeTo: Int = 0
     
     var tempInfo: [Temperature]
     
-    let rangeTempMinValue =  5
     let rangeTempMaxValue =  5
 
     let value : ([Double],

@@ -115,7 +115,8 @@ struct DayDetail: View {
     @State private var dewPointArray: [Double] = Array(repeating: Double(), count: sizeArray24)
     
     var body: some View {
-        NavigationStack {
+//        NavigationStack {
+        ScrollView {
             VStack (alignment: .leading) {
                 ///
                 /// Viser menyvalget og knapp for avslutning:
@@ -277,32 +278,35 @@ struct DayDetail: View {
                 }
                 .offset(x: UIDevice.isIpad ? 0 : 0,
                         y: UIDevice.isIpad ? -115 : -115)
-                ZStack {
+//                ZStack {
                     ///
                     /// Viser data for aktuell option:
                     ///
-                    DayDetailDayDataView(weather: weather,
-                                         option: MenuTitleToOption(menuTitle: menuTitle),
-                                         arrayDayIcons: $arrayDayIcons,
-                                         dateArray: $dateSettings.dates,
-                                         index: $index,
-                                         colorsForeground: $colorsForeground,
-                                         colorsForegroundStandard: $colorsForegroundStandard,
-                                         colorsBackground: $colorsBackground,
-                                         colorsBackgroundStandard: $colorsBackgroundStandard,
-                                         dayDetailHide: $dayDetailHide,
-                                         selectedValue: $selectedValue,
-                                         dayArray: $dayArray,
-                                         rainFalls: $rainFalls,
-                                         weekdayArray: $weekdayArray,
-                                         windInfo: $windInfo,
-                                         tempInfo: $tempInfo,
-                                         gustInfo: $gustInfo,
-                                         weatherIcon: $weatherIcon,
-                                         feltTempArray: $feltTempArray,
-                                         opacity: $opacity,
-                                         dewPointArray: $dewPointArray)
-                }
+                DayDetailDayDataView(weather: weather,
+                                     option: MenuTitleToOption(menuTitle: menuTitle),
+                                     arrayDayIcons: $arrayDayIcons,
+                                     dateArray: $dateSettings.dates,
+                                     index: $index,
+                                     colorsForeground: $colorsForeground,
+                                     colorsForegroundStandard: $colorsForegroundStandard,
+                                     colorsBackground: $colorsBackground,
+                                     colorsBackgroundStandard: $colorsBackgroundStandard,
+                                     dayDetailHide: $dayDetailHide,
+                                     selectedValue: $selectedValue,
+                                     dayArray: $dayArray,
+                                     rainFalls: $rainFalls,
+                                     weekdayArray: $weekdayArray,
+                                     windInfo: $windInfo,
+                                     tempInfo: $tempInfo,
+                                     gustInfo: $gustInfo,
+                                     weatherIcon: $weatherIcon,
+                                     feltTempArray: $feltTempArray,
+                                     opacity: $opacity,
+                                     dewPointArray: $dewPointArray)
+                
+                ToDoView()
+                
+//                }
                 .offset(x: UIDevice.isIpad ?   20 :   0,
                         y: UIDevice.isIpad ? 250 : 150)
                 ///
