@@ -115,7 +115,6 @@ struct DayDetail: View {
     @State private var dewPointArray: [Double] = Array(repeating: Double(), count: sizeArray24)
     
     var body: some View {
-//        NavigationStack {
         ScrollView {
             VStack (alignment: .leading) {
                 ///
@@ -278,10 +277,9 @@ struct DayDetail: View {
                 }
                 .offset(x: UIDevice.isIpad ? 0 : 0,
                         y: UIDevice.isIpad ? -115 : -115)
-//                ZStack {
-                    ///
-                    /// Viser data for aktuell option:
-                    ///
+                ///
+                /// Viser data for aktuell option:
+                ///
                 DayDetailDayDataView(weather: weather,
                                      option: MenuTitleToOption(menuTitle: menuTitle),
                                      arrayDayIcons: $arrayDayIcons,
@@ -304,9 +302,9 @@ struct DayDetail: View {
                                      opacity: $opacity,
                                      dewPointArray: $dewPointArray)
                 
-                ToDoView()
                 
-//                }
+//                ToDoView()
+                
                 .offset(x: UIDevice.isIpad ?   20 :   0,
                         y: UIDevice.isIpad ? 250 : 150)
                 ///
@@ -314,6 +312,8 @@ struct DayDetail: View {
                 /// mellom .humidity hvor høyden på Chart() er mindre enn de andre opsjonene.
                 ///
                 .modifier(DayDetailOffsetViewModifier(option: MenuTitleToOption(menuTitle: menuTitle)))
+                
+                ToDoView()
             }
             Spacer()
         }

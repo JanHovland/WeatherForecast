@@ -100,7 +100,7 @@ struct DayOverview: View {
                                 detailView.toggle()
                             }
                         }
-                        .sheet(isPresented: $detailView, content: {
+                        .fullScreenCover(isPresented: $detailView, content: {
                             DayDetail(weather: weather,
                                       dateSelected: $dateSelected,
                                       dayDetailHide: $dayDetailHide,
@@ -110,7 +110,7 @@ struct DayOverview: View {
                             .frame(maxWidth: .infinity, maxHeight: .infinity)
                             .padding(.top, paddingTop)
                             .padding(.leading, paddingLeading)
-                            .clearModalBackground()
+                            .background(.gray.opacity(0.1))
                         })
                     }
                     .listStyle(.sidebar)
