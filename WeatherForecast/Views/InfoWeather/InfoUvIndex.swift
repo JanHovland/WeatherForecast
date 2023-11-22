@@ -40,7 +40,6 @@ struct InfoUvIndex : View {
                 .lineLimit(12)
                 .textFieldStyle(.roundedBorder)
                 .disabled(true)
-                .font(.footnote)
             
             Spacer()
         }

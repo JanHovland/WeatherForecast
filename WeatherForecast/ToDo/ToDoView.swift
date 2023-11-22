@@ -380,11 +380,11 @@ var toDo_2 =
           🟢 Sikt
           🟢 Lufttrykk
    74. 🟢 Rettet "Sikt" som viser 0 til 0 km
-   75. 🔴 Ta bort scroll indicator
+   75. 🟢 Ta bort scroll indicator
    76. 🔴 Nye tilpasninger for Chart (nå er det munig å scrolle Info...)
           🔴 Dette må legges inn i:
-             🔴 Værforbehold
-             🔴 UV-index
+             🟢 Værforbehold
+             🟢 UV-index
              🔴 Vind
              🔴 Nedbør
              🔴 Føles som
