@@ -301,12 +301,12 @@ struct DayDetail: View {
                                      feltTempArray: $feltTempArray,
                                      opacity: $opacity,
                                      dewPointArray: $dewPointArray)
-                .modifier(DayDetailOffsetViewModifier(option: MenuTitleToOption(menuTitle: menuTitle)))
+                .modifier(DayDetailOffsetChartViewModifier(option: MenuTitleToOption(menuTitle: menuTitle)))
                 ///
                 /// Viser utvidet informasjon om været:
                 ///
                 DayDetailInfo(weather: weather,
-                              option: MenuTitleToOption(menuTitle: menuTitle), // option,
+                              option: MenuTitleToOption(menuTitle: menuTitle),  
                               index: index,
                               dayArray: $dayArray,
                               weekdayArray: $weekdayArray,

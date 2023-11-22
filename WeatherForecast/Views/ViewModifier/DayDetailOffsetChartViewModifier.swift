@@ -1,5 +1,5 @@
 //
-//  DayDetailOffsetViewModifier.swift
+//  DayDetailOffsetChartViewModifier.swift
 //  WeatherForecast
 //
 //  Created by Jan Hovland on 04/01/2023.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct DayDetailOffsetViewModifier: ViewModifier {
+struct DayDetailOffsetChartViewModifier: ViewModifier {
     let option: EnumType
     
     @ViewBuilder

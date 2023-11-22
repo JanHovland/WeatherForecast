@@ -40,7 +40,7 @@
 		DB256530296C14140007EBF9 /* DayDetailBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB25652F296C14140007EBF9 /* DayDetailBackground.swift */; };
 		DB2676F229D5CE5900C642B9 /* SelectedValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2676F129D5CE5900C642B9 /* SelectedValue.swift */; };
 		DB26AEC1296F22DE007B4B88 /* PrecipitationFindRestOfDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB26AEC0296F22DE007B4B88 /* PrecipitationFindRestOfDay.swift */; };
-		DB2727F42965CA77003B0903 /* DayDetailOffsetViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2727F32965CA77003B0903 /* DayDetailOffsetViewModifier.swift */; };
+		DB2727F42965CA77003B0903 /* DayDetailOffsetChartViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2727F32965CA77003B0903 /* DayDetailOffsetChartViewModifier.swift */; };
 		DB2727F62965DA41003B0903 /* DayDetailChartOffsetViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2727F52965DA41003B0903 /* DayDetailChartOffsetViewModifier.swift */; };
 		DB2727F82965E132003B0903 /* FindAverageArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2727F72965E132003B0903 /* FindAverageArray.swift */; };
 		DB2727FA2968944C003B0903 /* DayDetailChartYaxis.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2727F92968944C003B0903 /* DayDetailChartYaxis.swift */; };
@@ -215,7 +215,7 @@
 		DB25652F296C14140007EBF9 /* DayDetailBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayDetailBackground.swift; sourceTree = "<group>"; };
 		DB2676F129D5CE5900C642B9 /* SelectedValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedValue.swift; sourceTree = "<group>"; };
 		DB26AEC0296F22DE007B4B88 /* PrecipitationFindRestOfDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrecipitationFindRestOfDay.swift; sourceTree = "<group>"; };
-		DB2727F32965CA77003B0903 /* DayDetailOffsetViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayDetailOffsetViewModifier.swift; sourceTree = "<group>"; };
+		DB2727F32965CA77003B0903 /* DayDetailOffsetChartViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayDetailOffsetChartViewModifier.swift; sourceTree = "<group>"; };
 		DB2727F52965DA41003B0903 /* DayDetailChartOffsetViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayDetailChartOffsetViewModifier.swift; sourceTree = "<group>"; };
 		DB2727F72965E132003B0903 /* FindAverageArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindAverageArray.swift; sourceTree = "<group>"; };
 		DB2727F92968944C003B0903 /* DayDetailChartYaxis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayDetailChartYaxis.swift; sourceTree = "<group>"; };
@@ -497,7 +497,7 @@
 				DB2727F52965DA41003B0903 /* DayDetailChartOffsetViewModifier.swift */,
 				DB2727F92968944C003B0903 /* DayDetailChartYaxis.swift */,
 				DB054768297086B20034AFBD /* DayDetailMenuDataViewOffsetViewModifier.swift */,
-				DB2727F32965CA77003B0903 /* DayDetailOffsetViewModifier.swift */,
+				DB2727F32965CA77003B0903 /* DayDetailOffsetChartViewModifier.swift */,
 				DB8C17D229DDD58E00198DCB /* DayDetailPositionViewModifier.swift */,
 				DB75926C2ADAD6C300B772A9 /* ValueAtPositionChart.swift */,
 				DB6DE821297C5AF4005BCCF9 /* WeatherForecastViewModifier.swift */,
@@ -948,7 +948,7 @@
 				DB919BC22940B43100E69644 /* FindSunUpDown.swift in Sources */,
 				DB2B415229A68139008BB364 /* SunRiseOrSet.swift in Sources */,
 				DB130442297F02BF00D399F8 /* WeatherForecastSelectCardView.swift in Sources */,
-				DB2727F42965CA77003B0903 /* DayDetailOffsetViewModifier.swift in Sources */,
+				DB2727F42965CA77003B0903 /* DayDetailOffsetChartViewModifier.swift in Sources */,
 				DBFEC1402A7402E6003FC4FB /* WeatherInfo.swift in Sources */,
 				DB019A402ADA82CF004E4286 /* FindChartDataUvIndex.swift in Sources */,
 				DBB4CCCC288869E900B5C5C8 /* WeatherForecast.swift in Sources */,
