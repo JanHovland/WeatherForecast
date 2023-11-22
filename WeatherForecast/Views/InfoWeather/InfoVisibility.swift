@@ -45,8 +45,7 @@ struct InfoVisibility: View {
             
             Spacer()
         }
-        .frame(width: UIDevice.isIpad ? 490 : 350,
-               height: UIDevice.isIpad ? 300 : 300)
+        .frame(width: UIDevice.isIpad ? 490 : 350)
         .onChange(of: dayArray) { oldDayArray, dayArray in
             /// Bygger opp værmeldingen:
             ///

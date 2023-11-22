@@ -44,8 +44,7 @@ struct InfoFeelsLike: View {
             
             Spacer()
         }
-        .frame(width: UIDevice.isIpad ? 490 : 350,
-               height: UIDevice.isIpad ? 300 : 300)
+        .frame(width: UIDevice.isIpad ? 490 : 350)
         .onChange(of: index) { oldIndex, index in
             ///
             /// Finner fellsLikeArray:

@@ -54,8 +54,7 @@ struct InfoHumidity: View {
             
             Spacer()
         }
-        .frame(width: UIDevice.isIpad ? 490 : 350,
-               height: UIDevice.isIpad ? 400 : 500)
+        .frame(width: UIDevice.isIpad ? 490 : 350)
         .onChange(of: index) { oldIndex, index in
             ///
             /// Resetter humidityArray:
