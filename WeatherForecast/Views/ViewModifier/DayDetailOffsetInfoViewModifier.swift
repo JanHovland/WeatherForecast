@@ -34,8 +34,8 @@ struct DayDetailOffsetInfoViewModifier: ViewModifier {
         } else if self.option == .visibility {
             content.offset(y: UIDevice.isIpad ? -300 : -245)
             
-        } else {
-            content.offset(y: UIDevice.isIpad ? -345 : -245)
+        } else if self.option == .airPressure {
+            content.offset(y: UIDevice.isIpad ? -290 : -200)
         }
     }
 }

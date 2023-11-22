@@ -55,7 +55,6 @@ struct InfoPrecipitation: View {
             }
             Spacer()
         }
-        .font(.subheadline)
         .frame(width: UIDevice.isIpad ? 490 : 350,
                height: UIDevice.isIpad ? 300 : 300)
         .offset(y: UIDevice.isIpad ? 10 : 5)

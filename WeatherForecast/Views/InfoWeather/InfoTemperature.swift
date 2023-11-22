@@ -33,7 +33,6 @@ struct InfoTemperature : View {
             
             Spacer()
         }
-        .font(.subheadline)
         .frame(width: UIDevice.isIpad ? 490 : 350,
                height: UIDevice.isIpad ? 300 : 300)
         .onChange(of: index) { oldIndex, index in

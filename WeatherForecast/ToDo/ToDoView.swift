@@ -383,8 +383,8 @@ var toDo_2 =
    75. 🟢 Ta bort scroll indicator
    76. 🟢 Hindre ScrollView i å overse safe area
           🟢 DayDetail() .padding(.top, 0.2) linje 324
-   76. 🔴 Nye tilpasninger for Chart (nå er det munig å scrolle Info...)
-          🔴 Dette må legges inn i:
+   76. 🟢 Nye tilpasninger for Chart (nå er det munig å scrolle Info...)
+          🟢 Dette må legges inn i:
              🟢 Værforbehold
              🟢 UV-index
              🟢 Vind
@@ -392,7 +392,7 @@ var toDo_2 =
              🟢 Føles som
              🟢 Luftfuktighet
              🟢 Sikt
-             🔴 Lufttrykk
+             🟢 Lufttrykk
    77. 🔴 Nye verdier inn under Chart:
              - Sannsynlighet for nedbør
              - Total nedbørsmengde

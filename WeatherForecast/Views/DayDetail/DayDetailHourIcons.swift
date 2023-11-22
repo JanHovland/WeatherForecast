@@ -179,7 +179,7 @@ struct DayDetailHourIcons: View {
                 } else {
                     spacing = 1
                     fontSize = 17
-                    padding = 12.25
+                    padding = 11.25
                 }
             }
         }
