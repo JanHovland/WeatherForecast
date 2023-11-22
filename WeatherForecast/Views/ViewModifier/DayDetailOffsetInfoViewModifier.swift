@@ -25,11 +25,11 @@ struct DayDetailOffsetInfoViewModifier: ViewModifier {
         } else if self.option == .precipitation {
             content.offset(y: UIDevice.isIpad ? -350 : -255)
             
+        } else if self.option == .feelsLike {
+            content.offset(y: UIDevice.isIpad ? -325 : -275)
+            
         } else if self.option == .humidity {
             content.offset(y: UIDevice.isIpad ? -365: -270)
-            
-        } else if self.option == .precipitation{
-            content.offset(y: UIDevice.isIpad ? -340 : -250)
             
         } else {
             content.offset(y: UIDevice.isIpad ? -345 : -245)
