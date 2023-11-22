@@ -391,7 +391,7 @@ var toDo_2 =
              🟢 Nedbør
              🟢 Føles som
              🟢 Luftfuktighet
-             🔴 Sikt
+             🟢 Sikt
              🔴 Lufttrykk
    77. 🔴 Nye verdier inn under Chart:
              - Sannsynlighet for nedbør

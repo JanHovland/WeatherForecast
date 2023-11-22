@@ -40,7 +40,7 @@ struct DayDetailHourIcons: View {
                 } else {
                     spacing = 0.20
                     fontSize = 15
-                    padding = 11.50
+                    padding = 11
                 }
             }
         } else if option == .uvIndex {
@@ -62,7 +62,7 @@ struct DayDetailHourIcons: View {
                 } else {
                     spacing = 14.5
                     fontSize = 15
-                    padding = 10.25
+                    padding = 9.35
                 }
             }
         } else if option == .wind {
@@ -90,7 +90,7 @@ struct DayDetailHourIcons: View {
                 } else {
                     spacing = 7.5
                     fontSize = 15
-                    padding = 10.25
+                    padding = 9.75
                 }
             }
         } else if option == .feelsLike {
@@ -111,9 +111,9 @@ struct DayDetailHourIcons: View {
                     fontSize = 11.5
                     padding = 5.5
                 } else {
-                    spacing = 1.25
+                    spacing = 1
                     fontSize = 15
-                    padding = 11
+                    padding = 10.65
                 }
             }
         } else if option == .visibility {
@@ -129,13 +129,13 @@ struct DayDetailHourIcons: View {
             }
             .task {
                 if UIDevice.isiPhone {
-                    spacing = -1.5
-                    fontSize = 12.5
-                    padding = 7
+                    spacing = 2
+                    fontSize = 13
+                    padding = 7.60
                 } else {
-                    spacing = 10.5
+                    spacing = 12
                     fontSize = 15
-                    padding = 8
+                    padding = 9.25
                 }
             }
         } else if option == .humidity {
@@ -153,11 +153,11 @@ struct DayDetailHourIcons: View {
                 if UIDevice.isiPhone {
                     spacing = 2.0
                     fontSize = 12.5
-                    padding = 5.25
+                    padding = 4.75
                 } else {
-                    spacing = 15.25
+                    spacing = 13
                     fontSize = 15
-                    padding = 5.5  
+                    padding = 5.0
                 }
             }
         } else if option == .airPressure {
