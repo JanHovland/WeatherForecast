@@ -115,7 +115,7 @@ struct DayDetail: View {
     @State private var dewPointArray: [Double] = Array(repeating: Double(), count: sizeArray24)
     
     var body: some View {
-        ScrollView {
+        ScrollView(showsIndicators: false) {
             VStack (alignment: .leading) {
                 ///
                 /// Viser menyvalget og knapp for avslutning:
@@ -303,10 +303,10 @@ struct DayDetail: View {
                                      dewPointArray: $dewPointArray)
                 .modifier(DayDetailOffsetViewModifier(option: MenuTitleToOption(menuTitle: menuTitle)))
                 ///
-                /// Ytterligere informasjon for været for aktuell option:
+                /// Viser utvidet informasjon om været:
                 ///
                 DayDetailInfo(weather: weather,
-                              option: option,
+                              option: MenuTitleToOption(menuTitle: menuTitle), // option,
                               index: index,
                               dayArray: $dayArray,
                               weekdayArray: $weekdayArray,
@@ -315,6 +315,7 @@ struct DayDetail: View {
                               weatherIcon: $weatherIcon)
                 .modifier(DayDetailOffsetInfoViewModifier(option: MenuTitleToOption(menuTitle: menuTitle)))
             }
+            .padding(.leading, 15)
             Spacer()
         }
         .onChange(of: index) { oldIndex, index in
@@ -342,6 +343,9 @@ struct DayDetail: View {
                                                                 option: MenuTitleToOption(menuTitle: menuTitle),
                                                                 option1: option1)
             hourIconArray = value.2
+            windInfo = value.4
+            tempInfo = value.5
+
         }
         .onChange(of: MenuTitleToOption(menuTitle: menuTitle)) { oldOption, option in
             ///
@@ -368,6 +372,8 @@ struct DayDetail: View {
                                                                 option: MenuTitleToOption(menuTitle: menuTitle),
                                                                 option1: option1)
             hourIconArray = value.2
+            windInfo = value.4
+            tempInfo = value.5
         }
         .task {
             ///
@@ -391,6 +397,8 @@ struct DayDetail: View {
                                                                 option: MenuTitleToOption(menuTitle: menuTitle),
                                                                 option1: option1)
             hourIconArray = value.2            ///
+            windInfo = value.4
+            tempInfo = value.5
             /// Resetter selectedValue fra gesture i DayDetailChart():
             ///
             selectedValue.icon  = ""

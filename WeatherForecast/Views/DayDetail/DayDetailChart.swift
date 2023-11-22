@@ -510,19 +510,6 @@ struct DayDetailChart: View {
                                  position: .top,
                                  spacing: 6)
                 .chartXSelection(value: $selectedIndex)
-                ///                
-                /// Viser utvidet informasjon om været:
-                ///
-//                VStack (alignment: .leading) {
-//                    DayDetailInfo(weather: weather,
-//                                  option: option,
-//                                  index: index,
-//                                  dayArray: $dayArray,
-//                                  weekdayArray: $weekdayArray,
-//                                  windInfo: $windInfo,
-//                                  tempInfo: $tempInfo,
-//                                  weatherIcon: $weatherIcon)
-//                }
                 .offset(y: UIDevice.isIpad ? 10 : 10)
             }
             ///
