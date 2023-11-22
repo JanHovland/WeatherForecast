@@ -390,7 +390,7 @@ var toDo_2 =
              🟢 Vind
              🟢 Nedbør
              🟢 Føles som
-             🔴 Luftfuktighet
+             🟢 Luftfuktighet
              🔴 Sikt
              🔴 Lufttrykk
    77. 🔴 Nye verdier inn under Chart:

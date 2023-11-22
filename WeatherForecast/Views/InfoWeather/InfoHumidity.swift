@@ -54,7 +54,7 @@ struct InfoHumidity: View {
             
             Spacer()
         }
-        .font(UIDevice.isIpad ? .subheadline : .caption2)
+//        .font(UIDevice.isIpad ? .subheadline : .caption2)
         .frame(width: UIDevice.isIpad ? 490 : 350,
                height: UIDevice.isIpad ? 400 : 500)
         .onChange(of: index) { oldIndex, index in
