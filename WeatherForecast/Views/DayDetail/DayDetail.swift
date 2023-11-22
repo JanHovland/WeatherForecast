@@ -306,7 +306,7 @@ struct DayDetail: View {
                 /// Viser utvidet informasjon om været:
                 ///
                 DayDetailInfo(weather: weather,
-                              option: MenuTitleToOption(menuTitle: menuTitle),  
+                              option: MenuTitleToOption(menuTitle: menuTitle),
                               index: index,
                               dayArray: $dayArray,
                               weekdayArray: $weekdayArray,
@@ -317,7 +317,11 @@ struct DayDetail: View {
             }
             .padding(.leading, 15)
             Spacer()
-        }
+        } /// end ScrollView
+        ///
+        /// .padding(.top, 0.2) hindrer ScrollView å overse safe area
+        ///
+        .padding(.top, 0.2)
         .onChange(of: index) { oldIndex, index in
             ///
             /// Finner menuSystemName

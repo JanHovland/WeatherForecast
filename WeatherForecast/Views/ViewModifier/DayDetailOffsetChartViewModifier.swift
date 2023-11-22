@@ -19,6 +19,9 @@ struct DayDetailOffsetChartViewModifier: ViewModifier {
         } else if self.option == .uvIndex {
             content.offset(y: UIDevice.isIpad ? -150: -270)
             
+        } else if self.option == .wind {
+            content.offset(y: UIDevice.isIpad ? -140: -185)
+            
         } else if self.option == .humidity {
             content.offset(y: UIDevice.isIpad ? -365: -270)
             

@@ -381,11 +381,13 @@ var toDo_2 =
           🟢 Lufttrykk
    74. 🟢 Rettet "Sikt" som viser 0 til 0 km
    75. 🟢 Ta bort scroll indicator
+   76. 🟢 Hindre ScrollView i å overse safe area
+          🟢 DayDetail() .padding(.top, 0.2) linje 324
    76. 🔴 Nye tilpasninger for Chart (nå er det munig å scrolle Info...)
           🔴 Dette må legges inn i:
              🟢 Værforbehold
              🟢 UV-index
-             🔴 Vind
+             🟢 Vind
              🔴 Nedbør
              🔴 Føles som
              🔴 Luftfuktighet
