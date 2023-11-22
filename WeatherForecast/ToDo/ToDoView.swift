@@ -393,7 +393,7 @@ var toDo_2 =
              🟢 Luftfuktighet
              🟢 Sikt
              🟢 Lufttrykk
-   77. 🔴 Chart uvIndex for iPad mangler visning hittil i dag
+   77. 🟢 Chart uvIndex for iPad mangler visning hittil i dag
    78. 🔴 Nye verdier inn under Chart:
              - Sannsynlighet for nedbør
              - Total nedbørsmengde

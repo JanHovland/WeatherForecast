@@ -311,7 +311,7 @@ struct DayDetailChart: View {
                                 y: .value("Value", $0.value)
                             )
                             .interpolationMethod(.catmullRom)
-                            .foregroundStyle(by: .value("Type", String(localized: "UV-index")))
+                            .foregroundStyle(by: .value("Type", "\($0.type)"))
                             .lineStyle(StrokeStyle(lineWidth: 1))
                         }
                         if let selectedIndex {
