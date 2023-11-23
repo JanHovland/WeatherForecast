@@ -153,7 +153,6 @@ struct DayDetailChart: View {
 
     let markColors : [Color] = [.blue, .cyan, .indigo, .primary, .orange]
 
-    
     var body: some View {
         VStack (alignment: .center) {
             ///
@@ -346,7 +345,7 @@ struct DayDetailChart: View {
                             }
                         }
                         PointMark(x: .value("Hour", uvIndexMaxIndex),
-                                  y: .value("Amount", uvIndexMax))
+                                  y: .value("Value", uvIndexMax))
                         .symbol(.circle)
                         .annotation(position: .top) {
                             Text("H")
@@ -395,7 +394,7 @@ struct DayDetailChart: View {
                             }
                         }
                         PointMark(x: .value("Hour", visibilityMaxIndex),
-                                  y: .value("Amount", visibilityMax))
+                                  y: .value("Value", visibilityMax))
                         .symbol(.circle)
                         .annotation(position: .top) {
                             Text("H")
@@ -443,7 +442,7 @@ struct DayDetailChart: View {
                             }
                         }
                         PointMark(x: .value("Hour", airPressureMaxIndex),
-                                  y: .value("Amount", airPressureMax))
+                                  y: .value("Value", airPressureMax))
                         .symbol(.circle)
                         .annotation(position: .top) {
                             Text("H")
@@ -491,7 +490,7 @@ struct DayDetailChart: View {
                             }
                         }
                         PointMark(x: .value("Hour", humidityMaxIndex),
-                                  y: .value("Amount", humidityMax))
+                                  y: .value("Value", humidityMax))
                         .symbol(.circle)
                         .annotation(position: .top) {
                             Text("H")

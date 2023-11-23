@@ -8,19 +8,30 @@
 import SwiftUI
 import WeatherKit
 
-func FindChartDataProbability(date: Date) -> [NewProbability] {
+func FindChartDataProbability(date: Date) -> ([NewProbability],
+                                              Double,
+                                              Int,
+                                              Double,
+                                              Int, PrecificationData) {
+    
     let value : (Date,Date) = DateRange(date: date)
     var i: Int = 0
     var nData = NewProbability(type: "", hour: 0, value: 0.00)
     var newProbability : [NewProbability] = []
+    
+    var min: Double = 0.00
+    var minIndex: Int = 0
+    var max: Double = 0.00
+    var maxIndex: Int = 0
+    
+    var precificationData = PrecificationData()
+    
     newProbability.removeAll()
     hourForecast!.forEach  {
         if $0.date >= value.0 &&
             $0.date < value.1 {
             if $0.precipitation.description.count > 0 {
                 nData.type = $0.precipitation.description.firstUppercased
-//            } else {
-//                nData.type = String(localized: "None")
             }
             nData.hour = i
             ///
@@ -30,6 +41,22 @@ func FindChartDataProbability(date: Date) -> [NewProbability] {
             formatter.numberStyle = .decimal
             formatter.maximumFractionDigits = 0
             if $0.precipitationChance > 0.00 {
+                
+                if i == 0 {
+                    min = Double(formatter.string(from: $0.precipitationChance * 100.00 as NSNumber)!)!
+                    minIndex = i
+                    max = Double(formatter.string(from: $0.precipitationChance * 100.00 as NSNumber)!)!
+                    maxIndex = i
+                } else {
+                    if $0.precipitationChance > max {
+                        max = Double(formatter.string(from: $0.precipitationChance * 100.00 as NSNumber)!)!
+                        maxIndex = i
+                    }
+                    if $0.precipitationChance < min {
+                        min = Double(formatter.string(from: $0.precipitationChance * 100.00 as NSNumber)!)!
+                        minIndex = i
+                    }
+                }
                 nData.value = Double(formatter.string(from: $0.precipitationChance * 100.00 as NSNumber)!)!
             } else {
                 nData.value = 0.00
@@ -38,5 +65,5 @@ func FindChartDataProbability(date: Date) -> [NewProbability] {
             i = i + 1
         }
     }
-    return newProbability
+    return (newProbability, min, minIndex, max, maxIndex, precificationData)
 }

@@ -12,7 +12,14 @@ import Charts
 struct ChartViewNewProbability: View {
     let index: Int
     let newData: [NewProbability]
+    let min: Double
+    let minIndex: Int
+    let max: Double
+    let maxIndex: Int
+    
     @State private var selectedIndex: Int?
+    
+    @State private var markColors : [Color] = [.blue, .cyan, .indigo, .primary, .orange]
     
     @Environment(CurrentWeather.self) private var currentWeather
     
@@ -43,6 +50,25 @@ struct ChartViewNewProbability: View {
                         .offset(yStart: UIDevice.isIpad ? -10 : -10) /// Viser verdien relativt til største verdi av "Value"
                         .zIndex(-1)
                 }
+                PointMark(x: .value("Hour", minIndex),
+                          y: .value("Value", min))
+                .symbol(.circle)
+                .annotation(position: .top) {
+                    if min > 0.00 {
+                        Text("L")
+                            .font(.footnote.weight(.bold))
+                            .opacity(0.50)
+                    }
+                }
+                PointMark(x: .value("Hour", maxIndex),
+                          y: .value("Value", max))
+                .symbol(.circle)
+                .annotation(position: .top) {
+                    Text("H")
+                        .font(.footnote.weight(.bold))
+                        .opacity(0.50)
+                }
+
                 ///
                 /// Markerer den tidligere delen av dagen:
                 ///
@@ -54,6 +80,7 @@ struct ChartViewNewProbability: View {
             }
             .frame(width: UIDevice.isIpad ? 520 : 350, height: UIDevice.isIpad ? 150 : 200)
             .chartXScale(domain: 0...24)
+            .chartForegroundStyleScale(range: markColors)
             .modifier(DayDetailChartYaxis(option: .probability, from: 0, to: 100))
             .chartYAxisLabel(ShowUnit(option: .probability),
                              position: .top,

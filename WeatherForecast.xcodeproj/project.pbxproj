@@ -138,6 +138,7 @@
 		DB919BC22940B43100E69644 /* FindSunUpDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB919BC12940B43100E69644 /* FindSunUpDown.swift */; };
 		DB91F33A2AF92F0E00D94E07 /* FindTimeFromAmPm.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB91F3392AF92F0E00D94E07 /* FindTimeFromAmPm.swift */; };
 		DB9299E329C4CBE2002BA87A /* TranslateCountry.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9299E229C4CBE2002BA87A /* TranslateCountry.swift */; };
+		DB9383632B0FEEA3007A7BFC /* PrecificationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9383622B0FEEA3007A7BFC /* PrecificationData.swift */; };
 		DB9D0B0228F027B0002ABA9E /* WindView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9D0B0128F027B0002ABA9E /* WindView.swift */; };
 		DB9D0B2128F09549002ABA9E /* FeelsLike.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9D0B2028F09549002ABA9E /* FeelsLike.swift */; };
 		DB9E26DF2AF39F6B00DF3AE9 /* AQLimit.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9E26DE2AF39F6B00DF3AE9 /* AQLimit.swift */; };
@@ -315,6 +316,7 @@
 		DB919BC12940B43100E69644 /* FindSunUpDown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindSunUpDown.swift; sourceTree = "<group>"; };
 		DB91F3392AF92F0E00D94E07 /* FindTimeFromAmPm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindTimeFromAmPm.swift; sourceTree = "<group>"; };
 		DB9299E229C4CBE2002BA87A /* TranslateCountry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateCountry.swift; sourceTree = "<group>"; };
+		DB9383622B0FEEA3007A7BFC /* PrecificationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrecificationData.swift; sourceTree = "<group>"; };
 		DB9D0B0128F027B0002ABA9E /* WindView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindView.swift; sourceTree = "<group>"; };
 		DB9D0B2028F09549002ABA9E /* FeelsLike.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeelsLike.swift; sourceTree = "<group>"; };
 		DB9E26DE2AF39F6B00DF3AE9 /* AQLimit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AQLimit.swift; sourceTree = "<group>"; };
@@ -381,11 +383,11 @@
 				DB417E7C2AE18BAD00E77C4F /* FindChartDataFeelTemperature.swift */,
 				DB60E9B32AD9BA4100F8E723 /* FindChartDataHumidity.swift */,
 				DBB99D382AE425BE0022B6E9 /* FindChartDataPrecipitation.swift */,
+				DB2E44ED2B0F439E00DC77AD /* FindChartDataProbability.swift */,
 				DB0B17612ADFDD2A0034116A /* FindChartDataTemperature.swift */,
 				DB019A3F2ADA82CF004E4286 /* FindChartDataUvIndex.swift */,
 				DB019A3D2ADA79B5004E4286 /* FindChartDataVisibility.swift */,
 				DB0B17632AE014DB0034116A /* FindChartDataWind.swift */,
-				DB2E44ED2B0F439E00DC77AD /* FindChartDataProbability.swift */,
 			);
 			path = ChartData;
 			sourceTree = "<group>";
@@ -563,6 +565,7 @@
 				DBDBCC63295215D7005AEB05 /* WeatherType.swift */,
 				DB2D4948294A3C9B00DCDC4B /* WindInfo.swift */,
 				DB660BDD2AF80CF40081EA04 /* WeatherApiMoon.swift */,
+				DB9383622B0FEEA3007A7BFC /* PrecificationData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -948,6 +951,7 @@
 				DB85F9EB294751AF00D14013 /* IndexPointMarkFromHour.swift in Sources */,
 				DB4A0C3F29AE85D00055AAD7 /* DaysBetween.swift in Sources */,
 				DB919BC02940B38A00E69644 /* MetApiSun.swift in Sources */,
+				DB9383632B0FEEA3007A7BFC /* PrecificationData.swift in Sources */,
 				DB4FA8C52AEF937E00533266 /* MoonView.swift in Sources */,
 				DB3DBBB62B0D38CE00FAEE12 /* DayDetailOffsetInfoViewModifier.swift in Sources */,
 				DB29283F29425CC7007C0A56 /* DayDetailInfo.swift in Sources */,

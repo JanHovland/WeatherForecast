@@ -20,11 +20,15 @@ struct InfoTemperature : View {
     @Environment(WeatherInfo.self) private var weatherInfo
     @Environment(DateSettings.self) private var dateSettings
 
+    @State private var text: String = ""
+    @State private var text1: String = ""
+    @State private var min: Double = 0.00
+    @State private var max: Double = 0.00
+    @State private var minIndex: Int = 0
+    @State private var maxIndex: Int = 0
 
-    @State private var text : String = ""
-    @State private var text1 : String = ""
-    
     @State private var newProbability: [NewProbability] = []
+    @State private var precificationData = PrecificationData()
     
     var body: some View {
         VStack (alignment: .leading) {
@@ -38,7 +42,45 @@ struct InfoTemperature : View {
             /// Viser Chart for "Sannsynlighet for nedbør"
             ///
             ChartViewNewProbability(index: index,
-                                    newData: newProbability)
+                                    newData: newProbability,
+                                    min: min,
+                                    minIndex: minIndex,
+                                    max: max,
+                                    maxIndex: maxIndex)
+            ///
+            /// Total nedbørsmengde
+            ///
+            Text("Total amount of precipitation")
+                .fontWeight(.bold)
+                .padding(.bottom, 20)
+
+            HStack {
+                HStack {
+                    Text("Rain")
+                        .fontWeight(.bold)
+                    Spacer()
+                }
+                HStack {
+                    Spacer()
+                    Text("\(Int(precificationData.rain)) mm")
+                        .fontWeight(.bold)
+                }
+            }
+
+            HStack {
+                HStack {
+                    Text("Snow")
+                        .fontWeight(.bold)
+                    Spacer()
+                }
+                HStack {
+                    Spacer()
+                    Text("\(Int(precificationData.snow)) mm")
+                        .fontWeight(.bold)
+                }
+            }
+            .padding(.bottom, 20)
+
             ///
             /// Overskrift for informasjon om været:
             ///
@@ -58,7 +100,7 @@ struct InfoTemperature : View {
             ///
             /// Finner newProbability
             ///
-            newProbability = FindChartDataProbability(date: dateSettings.dates[index])
+            (newProbability, min, minIndex, max, maxIndex, precificationData)  = FindChartDataProbability(date: dateSettings.dates[index])
             /// Bygger opp værmeldingen:
             ///
             (text, text1) = Forecast(index: index,
@@ -72,7 +114,7 @@ struct InfoTemperature : View {
             ///
             /// Finner newProbability
             ///
-            newProbability = FindChartDataProbability(date: dateSettings.dates[index])
+            (newProbability, min, minIndex, max, maxIndex, precificationData) = FindChartDataProbability(date: dateSettings.dates[index])
             ///
             /// Bygger opp værmeldingen:
             ///
