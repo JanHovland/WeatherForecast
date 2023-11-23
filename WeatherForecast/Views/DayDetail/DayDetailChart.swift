@@ -204,9 +204,11 @@ struct DayDetailChart: View {
                                   y: .value("Value", windMin))
                         .symbol(.circle)
                         .annotation(position: .top) {
-                            Text("L")
-                                .font(.footnote.weight(.bold))
-                                .opacity(0.50)
+                            if windMin > 0.00 {
+                                Text("L")
+                                    .font(.footnote.weight(.bold))
+                                    .opacity(0.50)
+                            }
                         }
                         PointMark(x: .value("Hour", windMaxIndex),
                                   y: .value("Value", windMax))
@@ -337,9 +339,11 @@ struct DayDetailChart: View {
                                   y: .value("Value", uvIndexMin))
                         .symbol(.circle)
                         .annotation(position: .top) {
-                            Text("L")
-                                .font(.footnote.weight(.bold))
-                                .opacity(0.50)
+                            if uvIndexMin > 0.00  {
+                                Text("L")
+                                    .font(.footnote.weight(.bold))
+                                    .opacity(0.50)
+                            }
                         }
                         PointMark(x: .value("Hour", uvIndexMaxIndex),
                                   y: .value("Amount", uvIndexMax))
@@ -384,9 +388,11 @@ struct DayDetailChart: View {
                                   y: .value("Value", visibilityMin))
                         .symbol(.circle)
                         .annotation(position: .top) {
-                            Text("L")
-                                .font(.footnote.weight(.bold))
-                                .opacity(0.50)
+                            if visibilityMin > 0.00 {
+                                Text("L")
+                                    .font(.footnote.weight(.bold))
+                                    .opacity(0.50)
+                            }
                         }
                         PointMark(x: .value("Hour", visibilityMaxIndex),
                                   y: .value("Amount", visibilityMax))
@@ -430,9 +436,11 @@ struct DayDetailChart: View {
                                   y: .value("Value", airPressureMin))
                         .symbol(.circle)
                         .annotation(position: .top) {
-                            Text("L")
-                                .font(.footnote.weight(.bold))
-                                .opacity(0.50)
+                            if airPressureMin > 0.00 {
+                                Text("L")
+                                    .font(.footnote.weight(.bold))
+                                    .opacity(0.50)
+                            }
                         }
                         PointMark(x: .value("Hour", airPressureMaxIndex),
                                   y: .value("Amount", airPressureMax))
@@ -476,9 +484,11 @@ struct DayDetailChart: View {
                                   y: .value("Value", humidityMin))
                         .symbol(.circle)
                         .annotation(position: .top) {
-                            Text("L")
-                                .font(.footnote.weight(.bold))
-                                .opacity(0.50)
+                            if humidityMin > 0.00 {
+                                Text("L")
+                                    .font(.footnote.weight(.bold))
+                                    .opacity(0.50)
+                            }
                         }
                         PointMark(x: .value("Hour", humidityMaxIndex),
                                   y: .value("Amount", humidityMax))
