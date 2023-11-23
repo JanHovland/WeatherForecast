@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import WeatherKit
+import Charts
 
 struct InfoTemperature : View {
     
@@ -16,25 +18,47 @@ struct InfoTemperature : View {
     
     @Environment(CurrentWeather.self) private var currentWeather
     @Environment(WeatherInfo.self) private var weatherInfo
+    @Environment(DateSettings.self) private var dateSettings
+
 
     @State private var text : String = ""
     @State private var text1 : String = ""
-
+    
+    @State private var newProbability: [NewProbability] = []
+    
     var body: some View {
         VStack (alignment: .leading) {
-            
+            ///
+            /// Overskrift:
+            ///
+            Text("Probability of precipitation")
+                .fontWeight(.bold)
+                .padding(.bottom, 50)
+            ///
+            /// Viser Chart for "Sannsynlighet for nedbør"
+            ///
+            ChartViewNewProbability(index: index,
+                                    newData: newProbability)
+            ///
+            /// Overskrift for informasjon om været:
+            ///
             Text(index == 0 ? String(localized: "Weather forecast") : String(localized: "Daily view"))
                 .fontWeight(.bold)
-            
-           TextField("", text: $text, axis: .vertical)
+            ///
+            /// Detaljer om været:
+            ///
+            TextField("", text: $text, axis: .vertical)
                 .lineLimit(0...10)
                 .textFieldStyle(.roundedBorder)
                 .disabled(true)
-            
             Spacer()
         }
         .frame(width: UIDevice.isIpad ? 490 : 350)
         .onChange(of: index) { oldIndex, index in
+            ///
+            /// Finner newProbability
+            ///
+            newProbability = FindChartDataProbability(date: dateSettings.dates[index])
             /// Bygger opp værmeldingen:
             ///
             (text, text1) = Forecast(index: index,
@@ -45,6 +69,11 @@ struct InfoTemperature : View {
                                          offsetSec: weatherInfo.offsetSec)
         }
         .task {
+            ///
+            /// Finner newProbability
+            ///
+            newProbability = FindChartDataProbability(date: dateSettings.dates[index])
+            ///
             /// Bygger opp værmeldingen:
             ///
             (text, text1) = Forecast(index: index,

@@ -77,3 +77,10 @@ struct NewPrecipitation: Identifiable {
     var value: Double
 }
 
+struct NewProbability: Identifiable {
+    var id = UUID()
+    var type: String
+    var hour: Int
+    var value: Double
+}
+

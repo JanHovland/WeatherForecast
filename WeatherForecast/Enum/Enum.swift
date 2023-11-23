@@ -16,6 +16,7 @@ enum EnumType {
     case humidity
     case airPressure
     case precipitation
+    case probability
     case dewPoint
     case forward
     case backward

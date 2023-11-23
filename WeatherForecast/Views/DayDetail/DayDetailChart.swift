@@ -141,7 +141,7 @@ struct DayDetailChart: View {
     @State private var newVisibility: [NewVisibility] = []
     @State private var newAirPressure: [NewAirPressure] = []
     @State private var newPrecification: [NewPrecipitation] = []
-    
+
     let rangeTempMinValue =  9
     let rangeTempMaxValue =  9
     let rangeGustValue = 15
@@ -506,7 +506,7 @@ struct DayDetailChart: View {
                 ///
                 .modifier(DayDetailChartYaxis(option: option, from: rangeFrom, to: rangeTo))
                 .chartForegroundStyleScale(range: markColors)
-                .chartYAxisLabel(showUnit(option: option),
+                .chartYAxisLabel(ShowUnit(option: option),
                                  position: .top,
                                  spacing: 6)
                 .chartXSelection(value: $selectedIndex)
@@ -745,7 +745,6 @@ struct DayDetailChart: View {
             }
         }
         .onChange(of: option) { oldOption, option in
-            
             let val01 : ([Double],
                          [String],
                          [String],
@@ -912,7 +911,6 @@ struct DayDetailChart: View {
         /// Må hente nye verdier ved gesture på Chart for å endre index:
         ///
         .onChange(of: index) { oldIndex, index in
-            
             let val1 : ([Double],
                         [String],
                         [String],

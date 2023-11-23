@@ -78,6 +78,7 @@ struct MoonView: View {
                     Text(FindTimeFromAmPm(time: currentWeather.moonrise))
                 }
             }
+
             ///
             /// Månenedgang:
             ///

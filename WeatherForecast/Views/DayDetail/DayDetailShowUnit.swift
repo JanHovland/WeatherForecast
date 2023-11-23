@@ -7,15 +7,15 @@
 
 import Foundation
 
-func showUnit (option: EnumType) -> String {
+func ShowUnit (option: EnumType) -> String {
     
     switch option {
         
     case .dewPoint:
-        return "º"         /// "ºC"
+        return "º C"         /// "ºC"
         
     case .temperature:
-        return "º"         /// "ºC"
+        return "º C"         /// "ºC"
         
     case .wind :
         return " m/s"
@@ -35,6 +35,9 @@ func showUnit (option: EnumType) -> String {
     case .airPressure:
         return " hPa"
         
+    case .probability:
+        return " %"
+
     default:
         return ""
     }

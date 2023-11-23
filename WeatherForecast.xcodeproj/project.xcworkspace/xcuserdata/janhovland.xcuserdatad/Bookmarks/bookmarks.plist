@@ -14,11 +14,11 @@
 					<key>EndingLineNumber</key>
 					<string>307</string>
 					<key>StartingColumnNumber</key>
-					<string>50</string>
+					<string>0</string>
 					<key>StartingLineNumber</key>
 					<string>306</string>
 					<key>Timestamp</key>
-					<string>722369694.239032</string>
+					<string>722425605.304979</string>
 				</dict>
 				<key>rebasable-url</key>
 				<dict>
@@ -34,12 +34,12 @@
 			<key>text-context</key>
 			<dict>
 				<key>focused</key>
-				<string>
+				<string>                    } else if option == .uvIndex {
 </string>
 				<key>leading</key>
 				<string>                                .opacity(0.50)
                         }
-                    } else if option == .uvIndex {</string>
+</string>
 				<key>trailing</key>
 				<string>                        ForEach(newUvIndex) {
                             LineMark (
