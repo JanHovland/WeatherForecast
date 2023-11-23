@@ -51,11 +51,7 @@ struct MoonView: View {
                 .frame(width: 150, height: 150)
                 .clipShape(Circle())
                 .foregroundColor(.white)
-                .overlay(
-                    RoundedRectangle(cornerRadius: 90)
-                        .foregroundColor(.black.opacity(0.05))
-                    
-                )
+//
             ///
             /// Viser styrken på lyset fra månen:
             ///
