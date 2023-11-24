@@ -12,7 +12,8 @@ func FindChartDataProbability(date: Date) -> ([NewProbability],
                                               Double,
                                               Int,
                                               Double,
-                                              Int, PrecificationData) {
+                                              Int, 
+                                              PrecificationData) {
     
     let value : (Date,Date) = DateRange(date: date)
     var i: Int = 0
@@ -27,6 +28,7 @@ func FindChartDataProbability(date: Date) -> ([NewProbability],
     var precificationData = PrecificationData()
     
     newProbability.removeAll()
+    
     hourForecast!.forEach  {
         if $0.date >= value.0 &&
             $0.date < value.1 {
@@ -62,6 +64,20 @@ func FindChartDataProbability(date: Date) -> ([NewProbability],
                 nData.value = 0.00
             }
             newProbability.append(nData)
+            ///
+            /// Finner precificationData
+            ///
+            if $0.precipitation.description.firstUppercased == String(localized: "Rain") {
+                precificationData.rain = precificationData.rain + $0.precipitationAmount.value
+            } else if $0.precipitation.description.firstUppercased == String(localized: "Snow") {
+                precificationData.snow = precificationData.snow + $0.precipitationAmount.value
+            } else if $0.precipitation.description.firstUppercased == String(localized: "Hail") {
+                precificationData.hail = precificationData.hail + $0.precipitationAmount.value
+            } else if $0.precipitation.description.firstUppercased == String(localized: "Mixed") {
+                precificationData.mixed = precificationData.mixed + $0.precipitationAmount.value
+            } else if $0.precipitation.description.firstUppercased == String(localized: "Sleet") {
+                precificationData.sleet = precificationData.sleet + $0.precipitationAmount.value
+            }
             i = i + 1
         }
     }

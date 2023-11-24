@@ -56,7 +56,10 @@ struct InfoTemperature : View {
 
             HStack {
                 HStack {
-                    Text("Rain")
+                    ///
+                    /// Legger til et mellomrom for å vise "Regn"
+                    ///
+                    Text("Rain ")
                         .fontWeight(.bold)
                     Spacer()
                 }
@@ -70,17 +73,62 @@ struct InfoTemperature : View {
             HStack {
                 HStack {
                     Text("Snow")
-                        .fontWeight(.bold)
                     Spacer()
                 }
                 HStack {
                     Spacer()
                     Text("\(Int(precificationData.snow)) mm")
-                        .fontWeight(.bold)
+                }
+            }
+            .fontWeight(.bold)
+            
+            VStack {
+                if precificationData.hail > 0.00 {
+                    HStack {
+                        HStack {
+                            Text("Hail")
+                                .fontWeight(.bold)
+                            Spacer()
+                        }
+                        HStack {
+                            Spacer()
+                            Text("\(Int(precificationData.hail)) mm")
+                        }
+                    }
+                    .fontWeight(.bold)
+                }
+                
+                if precificationData.mixed > 0.00 {
+                    HStack {
+                        HStack {
+                            Text("Mixed")
+                            Spacer()
+                        }
+                        HStack {
+                            Spacer()
+                            Text("\(Int(precificationData.mixed)) mm")
+                        }
+                    }
+                    .fontWeight(.bold)
+                }
+                
+                if precificationData.sleet > 0.00 {
+                    HStack {
+                        HStack {
+                            Text("Sleet")
+                                .fontWeight(.bold)
+                            Spacer()
+                        }
+                        HStack {
+                            Spacer()
+                            Text("\(Int(precificationData.sleet)) mm")
+                                .fontWeight(.bold)
+                        }
+                    }
+                    .padding(.bottom, 20)
                 }
             }
             .padding(.bottom, 20)
-
             ///
             /// Overskrift for informasjon om været:
             ///
