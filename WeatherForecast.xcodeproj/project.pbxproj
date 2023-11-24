@@ -500,8 +500,10 @@
 		DB2727F02965C882003B0903 /* ViewModifier */ = {
 			isa = PBXGroup;
 			children = (
+				DBDD98612AFE4284002FC9E5 /* AirQualityInformationViewModifier.swift */,
 				DB4EFDF42AF3BFD40021AABB /* AirQualityViewModifier.swift */,
 				DB25652F296C14140007EBF9 /* DayDetailBackground.swift */,
+				DB3DBBB52B0D38CE00FAEE12 /* DayDetailOffsetInfoViewModifier.swift */,
 				DB2727F52965DA41003B0903 /* DayDetailChartOffsetViewModifier.swift */,
 				DB2727F92968944C003B0903 /* DayDetailChartYaxis.swift */,
 				DB054768297086B20034AFBD /* DayDetailMenuDataViewOffsetViewModifier.swift */,
@@ -509,8 +511,6 @@
 				DB8C17D229DDD58E00198DCB /* DayDetailPositionViewModifier.swift */,
 				DB75926C2ADAD6C300B772A9 /* ValueAtPositionChart.swift */,
 				DB6DE821297C5AF4005BCCF9 /* WeatherForecastViewModifier.swift */,
-				DBDD98612AFE4284002FC9E5 /* AirQualityInformationViewModifier.swift */,
-				DB3DBBB52B0D38CE00FAEE12 /* DayDetailOffsetInfoViewModifier.swift */,
 			);
 			path = ViewModifier;
 			sourceTree = "<group>";
