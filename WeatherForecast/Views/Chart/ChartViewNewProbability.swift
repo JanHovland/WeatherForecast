@@ -55,7 +55,7 @@ struct ChartViewNewProbability: View {
                 .symbol(.circle)
                 .annotation(position: .top) {
                     if min > 0.00 {
-                        Text("L")
+                        Text("\(Int(min)) %")
                             .font(.footnote.weight(.bold))
                             .opacity(0.50)
                     }
@@ -64,11 +64,10 @@ struct ChartViewNewProbability: View {
                           y: .value("Value", max))
                 .symbol(.circle)
                 .annotation(position: .top) {
-                    Text("H")
+                    Text("\(Int(max)) %")
                         .font(.footnote.weight(.bold))
                         .opacity(0.50)
                 }
-
                 ///
                 /// Markerer den tidligere delen av dagen:
                 ///
