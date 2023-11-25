@@ -148,3 +148,14 @@ func DateRange(date: Date) -> (from: Date, to: Date) {
     to = Calendar.current.date(byAdding: .day, value: 1, to: date)!
     return (date, to)
 }
+
+func GetCurrentDeviationHursFromUTC() -> Int {
+        let localTimeZoneAbbreviation: Int = TimeZone.current.secondsFromGMT()
+        let gmtAbbreviation = (localTimeZoneAbbreviation / 3600)
+        return gmtAbbreviation
+}
+
+func GetHourFromDate(date: Date) -> Int {
+    return Calendar.current.component(.hour, from: Date())
+}
+

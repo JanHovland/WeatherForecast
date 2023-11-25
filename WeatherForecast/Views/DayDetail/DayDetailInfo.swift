@@ -12,7 +12,7 @@ struct DayDetailInfo: View {
     
     var weather: Weather
     var option : EnumType
-    var index : Int
+    @Binding var index : Int
     @Binding var dayArray: [Double]
     @Binding var weekdayArray: [String]
     @Binding var windInfo: [WindInfo]
@@ -23,7 +23,7 @@ struct DayDetailInfo: View {
         switch option {
             
         case .temperature :
-            InfoTemperature(index: index,
+            InfoTemperature(index: $index,
                             dayArray : $dayArray,
                             tempInfo: $tempInfo,
                             weekdayArray: $weekdayArray)

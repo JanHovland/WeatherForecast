@@ -307,7 +307,7 @@ struct DayDetail: View {
                 ///
                 DayDetailInfo(weather: weather,
                               option: MenuTitleToOption(menuTitle: menuTitle),
-                              index: index,
+                              index: $index,
                               dayArray: $dayArray,
                               weekdayArray: $weekdayArray,
                               windInfo: $windInfo,
