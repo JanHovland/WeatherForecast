@@ -678,9 +678,9 @@
 			isa = PBXGroup;
 			children = (
 				DB4A8DAD294877B30067C4F8 /* InfoAirPressure.swift */,
-				DB85F9EC294760B000D14013 /* InfoFeelsLike.swift */,
 				DB4A8DAF29487EDA0067C4F8 /* InfoHumidity.swift */,
 				DB17F6B32961FAD500FC2A0B /* InfoPrecipitation.swift */,
+				DB85F9EC294760B000D14013 /* InfoFeelsLike.swift */,
 				DB85F9E42947263C00D14013 /* InfoTemperature.swift */,
 				DB85F9E62947267400D14013 /* InfoUvIndex.swift */,
 				DB85F9E8294726D500D14013 /* InfoWind.swift */,

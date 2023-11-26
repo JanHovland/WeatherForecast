@@ -57,10 +57,38 @@ struct InfoTemperature : View {
             /// Viser oversikt over nedbør siste 24t og neste 24t
             ///  Ved index > 0 vises
             ///
-            PrecificationView(index: index,
-                              precification: precification)
-            .offset(y: UIDevice.isIpad ? -20 : 0)
-            
+            if index == 0 {
+                if precification.rainLast24  == 0.00,
+                   precification.snowLast24 == 0.00,
+                   precification.hailLast24 == 0.00,
+                   precification.mixedLast24 == 0.00,
+                   precification.sleetLast24 == 0.00 {
+                    ShowItemNoPrecification()
+                } else {
+                    PrecificationView(index: index, precification: precification)
+                }
+                
+                if precification.rainNext24  == 0.00,
+                   precification.snowNext24 == 0.00,
+                   precification.hailNext24 == 0.00,
+                   precification.mixedNext24 == 0.00,
+                   precification.sleetNext24 == 0.00 {
+                    ShowItemNoPrecification()
+                } else {
+                    PrecificationView(index: index, precification: precification)
+                }
+            } else {
+                
+                if precification.rainThisDay  == 0.00,
+                   precification.snowThisDay == 0.00,
+                   precification.hailThisDay == 0.00,
+                   precification.mixedThisDay == 0.00,
+                   precification.sleetThisDay == 0.00 {
+                    ShowItemNoPrecification()
+                } else {
+                    PrecificationView(index: index, precification: precification)
+                }
+            }
             Spacer()
         }
         .frame(width: UIDevice.isIpad ? 490 : 350)
@@ -108,7 +136,9 @@ struct PrecificationView: View {
             if index == 0 {
                 List {
                     Section(header: Text("Last 24 hours")) {
-                        ShowItem(heading: String(localized: "Rain "), value: precification.rainLast24)
+                        if precification.rainLast24 > 0.00 {
+                            ShowItem(heading: String(localized: "Rain "), value: precification.rainLast24)
+                        }
                         if precification.snowLast24 > 0.00 {
                             ShowItem(heading: String(localized: "Snow"), value: precification.snowLast24)
                         }
@@ -123,7 +153,9 @@ struct PrecificationView: View {
                         }
                     }
                     Section(header: Text("Next 24 hours")) {
-                        ShowItem(heading: String(localized: "Rain "), value: precification.rainNext24)
+                        if precification.rainNext24 > 0.00 {
+                            ShowItem(heading: String(localized: "Rain "), value: precification.rainNext24)
+                        }
                         if precification.snowNext24 > 0.00 {
                             ShowItem(heading: String(localized: "Snow"), value: precification.snowNext24)
                         }
@@ -141,7 +173,9 @@ struct PrecificationView: View {
             } else {
                 List {
                     Section() {
-                        ShowItem(heading: String(localized: "Rain "), value: precification.rainThisDay)
+                        if precification.rainThisDay > 0.00 {
+                            ShowItem(heading: String(localized: "Rain "), value: precification.rainThisDay)
+                        }
                         if precification.snowThisDay > 0.00 {
                             ShowItem(heading: String(localized: "Snow"), value: precification.snowThisDay)
                         }
@@ -166,10 +200,13 @@ struct PrecificationView: View {
 struct ShowItem: View {
     let heading: String
     let value: Double
+    
+    @State private var colorDot: String = ""
+    
     var body: some View {
         HStack {
             HStack {
-                Text(heading)
+                Text(colorDot + " " + heading)
                 Spacer()
             }
             HStack {
@@ -177,9 +214,42 @@ struct ShowItem: View {
                 Text(String(format: "%.1f", value) + " mm")
             }
         }
+        .task {
+            
+            if heading.contains(String(localized: "Rain ")) {
+                colorDot = "🔵"
+            } else if heading.contains(String(localized: "Snow")) {
+                colorDot = "⚪️"
+            } else if heading.contains(String(localized: "Hail")) {
+                colorDot = "🔴"
+            } else if heading.contains(String(localized: "Mixed")) {
+                colorDot = "🟠"
+            } else if heading.contains(String(localized: "Sleet")) {
+                colorDot = "🟡"
+            }
+        }
     }
+    
 }
 
+struct ShowItemNoPrecification: View {
+    var body: some View {
+        NavigationView {
+            List {
+                Section(header: Text("Today"))  {
+                    HStack {
+                        HStack {
+                            Text("No precification")
+                            Spacer()
+                        }
+                    }
+                }
+            }
+            .navigationBarHidden(true)
+            .listStyle(.insetGrouped)
+        }
+    }
+}
 
 /// Bygger opp værmeldingen:
 ///

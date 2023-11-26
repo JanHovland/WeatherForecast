@@ -19,6 +19,7 @@ struct ActivityIndicator: View {
         VStack {
             ProgressView()
             .opacity(opacity)
+            .controlSize(.large)
         }
     }
 }
