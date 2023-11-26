@@ -10,15 +10,12 @@ import WeatherKit
 import CoreLocation
 
 func FindChartDataProbability(date: Date,
-                              index: Int,
-                              latitude: Double,
-                              longitude: Double) async -> ([NewProbability],
+                              index: Int) -> ([NewProbability],
                                               Double,
                                               Int,
                                               Double,
-                                              Int, 
-                                              PrecificationLast24h,
-                                              PrecificationNext24h) {
+                                              Int,
+                                              Precification) {
     
     let value : (Date,Date) = DateRange(date: date)
     var i: Int = 0
@@ -28,11 +25,7 @@ func FindChartDataProbability(date: Date,
     var minIndex: Int = 0
     var max: Double = 0.00
     var maxIndex: Int = 0
-    var precificationLast24h = PrecificationLast24h()
-    var precificationNext24h = PrecificationNext24h()
-    
-    var hourForecastLast: Forecast<HourWeather>?
-    var hourForecastNext: Forecast<HourWeather>?
+    var precification = Precification()
     
     newProbability.removeAll()
     hourForecast!.forEach  {
@@ -78,63 +71,50 @@ func FindChartDataProbability(date: Date,
     
     print("index = \(index)")
     
-    ///
-    /// Tilpasser datoen idag, for 24t siden og 24t frem i tid
-    ///
-    let toDay = date.adding(hours: GetCurrentDeviationHursFromUTC()).setTime(hour: GetHourFromDate(date: Date()), min: 0, sec: 0)!
-    let fromLast24 = toDay.adding(days: -1)
-    let toNext24 = toDay.adding(days: 1)
-    let location = CLLocation(latitude: latitude, longitude: longitude)
-    do {
-        hourForecastLast = try await WeatherService.shared.weather(for: location,
-                                                                       including: .hourly(startDate: fromLast24,
-                                                                                          endDate: toDay))
-    } catch {
-        debugPrint(error)
-    }
-    ///
-    /// Finner nedbøren de siste 24 timene
-    ///
-    hourForecastLast!.forEach  {
-        if $0.date >= fromLast24 &&
-            $0.date < toDay {
-            print($0.date)
-            if $0.precipitation.description.firstUppercased == String(localized: "Rain ") {
-                precificationLast24h.rainLast24 += $0.precipitationAmount.value
-            } else if $0.precipitation.description.firstUppercased == String(localized: "Snow") {
-                precificationLast24h.snowLast24 += $0.precipitationAmount.value
-            } else if $0.precipitation.description.firstUppercased == String(localized: "Hail") {
-                precificationLast24h.hailLast24 += $0.precipitationAmount.value
-            } else if $0.precipitation.description.firstUppercased == String(localized: "Mixed") {
-                precificationLast24h.mixedLast24 += $0.precipitationAmount.value
-            } else if $0.precipitation.description.firstUppercased == String(localized: "Sleet") {
-                precificationLast24h.sleetLast24 += $0.precipitationAmount.value
+    if index == 0 {
+        ///
+        /// Tilpasser datoen idag, for 24t siden og 24t frem i tid
+        ///
+        let toDay = date.adding(hours: GetCurrentDeviationHursFromUTC()).setTime(hour: GetHourFromDate(date: Date()), min: 0, sec: 0)!
+        let fromLast24 = toDay.adding(days: -1)
+        let toNext24 = toDay.adding(days: 1)
+        ///
+        /// Finner nedbøren de siste 24 timene
+        ///
+        hourForecast!.forEach  {
+            if $0.date >= fromLast24 &&
+                $0.date < toDay {
+                print($0.date)
+                if $0.precipitation.description.firstUppercased == String(localized: "Rain ") {
+                    precification.rainLast24 += $0.precipitationAmount.value
+                } else if $0.precipitation.description.firstUppercased == String(localized: "Snow") {
+                    precification.snowLast24 += $0.precipitationAmount.value * 10.0
+                } else if $0.precipitation.description.firstUppercased == String(localized: "Hail") {
+                    precification.hailLast24 += $0.precipitationAmount.value
+                } else if $0.precipitation.description.firstUppercased == String(localized: "Mixed") {
+                    precification.mixedLast24 += $0.precipitationAmount.value
+                } else if $0.precipitation.description.firstUppercased == String(localized: "Sleet") {
+                    precification.sleetLast24 += $0.precipitationAmount.value
+                }
             }
         }
-    }
-    ///
-    /// Finner nedbøren de neste 24 timene
-    ///
-    do {
-        hourForecastNext = try await WeatherService.shared.weather(for: location,
-                                                                   including: .hourly(startDate: toDay,
-                                                                                      endDate: toNext24))
-    } catch {
-        debugPrint(error)
-    }
-    hourForecastNext!.forEach  {
-        if $0.date >= toDay &&
-            $0.date < toNext24 {
-            if $0.precipitation.description.firstUppercased == String(localized: "Rain ") {
-                precificationNext24h.rainNext24 += $0.precipitationAmount.value
-            } else if $0.precipitation.description.firstUppercased == String(localized: "Snow") {
-                precificationNext24h.snowNext24 += $0.precipitationAmount.value
-            } else if $0.precipitation.description.firstUppercased == String(localized: "Hail") {
-                precificationNext24h.hailNext24 += $0.precipitationAmount.value
-            } else if $0.precipitation.description.firstUppercased == String(localized: "Mixed") {
-                precificationNext24h.mixedNext24 += $0.precipitationAmount.value
-            } else if $0.precipitation.description.firstUppercased == String(localized: "Sleet") {
-                precificationNext24h.sleetNext24 += $0.precipitationAmount.value
+        ///
+        /// Finner nedbøren de neste 24 timene
+        ///
+        hourForecast!.forEach  {
+            if $0.date >= toDay &&
+                $0.date < toNext24 {
+                if $0.precipitation.description.firstUppercased == String(localized: "Rain ") {
+                    precification.rainNext24 += $0.precipitationAmount.value
+                } else if $0.precipitation.description.firstUppercased == String(localized: "Snow") {
+                    precification.snowNext24 += $0.precipitationAmount.value * 10.0
+                } else if $0.precipitation.description.firstUppercased == String(localized: "Hail") {
+                    precification.hailNext24 += $0.precipitationAmount.value
+                } else if $0.precipitation.description.firstUppercased == String(localized: "Mixed") {
+                    precification.mixedNext24 += $0.precipitationAmount.value
+                } else if $0.precipitation.description.firstUppercased == String(localized: "Sleet") {
+                    precification.sleetNext24 += $0.precipitationAmount.value
+                }
             }
         }
     }
@@ -144,6 +124,5 @@ func FindChartDataProbability(date: Date,
             minIndex,
             max,
             maxIndex,
-            precificationLast24h,
-            precificationNext24h)
+            precification)
 }

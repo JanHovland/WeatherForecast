@@ -337,7 +337,8 @@ struct WeatherForecast: View {
             ///
             /// Finner hourForecast:
             ///
-            let startDate = Date().setTime(hour: 0, min: 0, sec: 0)
+            let start = Date().setTime(hour: 0, min: 0, sec: 0)
+            let startDate = start?.adding(days: -1)
             let endDate = (Calendar.current.date(byAdding: .day, value: 11, to: startDate ?? Date())!).setTime(hour: 0, min: 0, sec: 0)
             
             let location = CLLocation(latitude: weatherInfo.latitude ?? 0.00, longitude: weatherInfo.longitude ?? 0.00)

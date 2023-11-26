@@ -28,8 +28,7 @@ struct InfoTemperature : View {
     @State private var maxIndex: Int = 0
 
     @State private var newProbability: [NewProbability] = []
-    @State private var precificationLast24h = PrecificationLast24h()
-    @State private var precificationNext24h = PrecificationNext24h()
+    @State private var precification = Precification()
 
     var body: some View {
         VStack (alignment: .leading) {
@@ -56,36 +55,36 @@ struct InfoTemperature : View {
                 .padding(.bottom, 20)
             ///
             /// Viser oversikt over nedbør siste 24t og neste 24t
+            ///  Ved index > 0 vises
             ///
-            PrecificationView(pLast24h: precificationLast24h,
-                              pNext24h: precificationNext24h)
+            PrecificationView(index: index,
+                              precification: precification)
+            
             Spacer()
         }
         .frame(width: UIDevice.isIpad ? 490 : 350)
-//        .onChange(of: index) { oldIndex, index in
-//            ///
-//            /// Finner newProbability
-//            ///
-//            (newProbability, min, minIndex, max, maxIndex, precificationLast24h, precificationNext24h)  = await  FindChartDataProbability(date: dateSettings.dates[index])
-//            /// Bygger opp værmeldingen:
-//            ///
-//            (text, text1) = Forecast(index: index,
-//                                         dayArray: dayArray,
-//                                         weekdayArray: weekdayArray,
-//                                         tempInfo: tempInfo,
-//                                         date: currentWeather.date,
-//                                         offsetSec: weatherInfo.offsetSec)
-//        }
-        .task {
-            
+        .onChange(of: index) { oldIndex, index in
             ///
             /// Finner newProbability
             ///
-            (newProbability, min, minIndex, max, maxIndex, precificationLast24h, precificationNext24h)
-            = await FindChartDataProbability(date: dateSettings.dates[index],
-                                             index: index,
-                                             latitude: weatherInfo.latitude ?? 0.00,
-                                             longitude: weatherInfo.longitude ?? 0.00)
+            (newProbability, min, minIndex, max, maxIndex, precification) = FindChartDataProbability(date: dateSettings.dates[index],
+                                             index: index)
+            ///
+            /// Bygger opp værmeldingen:
+            ///
+            (text, text1) = Forecast(index: index,
+                                         dayArray: dayArray,
+                                         weekdayArray: weekdayArray,
+                                         tempInfo: tempInfo,
+                                         date: dateSettings.dates[index],
+                                         offsetSec: weatherInfo.offsetSec)
+        }
+        .task {
+            ///
+            /// Finner newProbability
+            ///
+            (newProbability, min, minIndex, max, maxIndex, precification) = FindChartDataProbability(date: dateSettings.dates[index],
+                                             index: index)
             ///
             /// Bygger opp værmeldingen:
             ///
@@ -100,44 +99,65 @@ struct InfoTemperature : View {
 }
 
 struct PrecificationView: View {
-    let pLast24h: PrecificationLast24h
-    let pNext24h: PrecificationNext24h
+    let index: Int
+    let precification: Precification
     
     var body: some View {
         NavigationView {
-            List {
-                Section(header: Text("Last 24 hours")) {
-                    ShowItem(heading: String(localized: "Rain "), value: pLast24h.rainLast24)
-                    if pLast24h.snowLast24 > 0.00 {
-                        ShowItem(heading: String(localized: "Snow"), value: pLast24h.snowLast24)
+            if index == 0 {
+                List {
+                    Section(header: Text("Last 24 hours")) {
+                        ShowItem(heading: String(localized: "Rain "), value: precification.rainLast24)
+                        if precification.snowLast24 > 0.00 {
+                            ShowItem(heading: String(localized: "Snow"), value: precification.snowLast24)
+                        }
+                        if precification.hailLast24 > 0.00 {
+                            ShowItem(heading: String(localized: "Hail"), value: precification.hailLast24)
+                        }
+                        if precification.mixedLast24 > 0.00 {
+                            ShowItem(heading: String(localized: "Mixed"), value: precification.mixedLast24)
+                        }
+                        if precification.sleetLast24 > 0.00 {
+                            ShowItem(heading: String(localized: "Sleet"), value: precification.sleetLast24)
+                        }
                     }
-                    if pLast24h.hailLast24 > 0.00 {
-                        ShowItem(heading: String(localized: "Hail"), value: pLast24h.hailLast24)
-                    }
-                    if pLast24h.mixedLast24 > 0.00 {
-                        ShowItem(heading: String(localized: "Mixed"), value: pLast24h.mixedLast24)
-                    }
-                    if pLast24h.sleetLast24 > 0.00 {
-                        ShowItem(heading: String(localized: "Sleet"), value: pLast24h.sleetLast24)
+                    Section(header: Text("Next 24 hours")) {
+                        ShowItem(heading: String(localized: "Rain "), value: precification.rainNext24)
+                        if precification.snowNext24 > 0.00 {
+                            ShowItem(heading: String(localized: "Snow"), value: precification.snowNext24)
+                        }
+                        if precification.hailNext24 > 0.00 {
+                            ShowItem(heading: String(localized: "Hail"), value: precification.hailNext24)
+                        }
+                        if precification.mixedNext24 > 0.00 {
+                            ShowItem(heading: String(localized: "Mixed"), value: precification.mixedNext24)
+                        }
+                        if precification.sleetNext24 > 0.00 {
+                            ShowItem(heading: String(localized: "Sleet"), value: precification.sleetNext24)
+                        }
                     }
                 }
-                Section(header: Text("Next 24 hours")) {
-                    ShowItem(heading: String(localized: "Rain "), value: pNext24h.rainNext24)
-                    if pNext24h.snowNext24 > 0.00 {
-                        ShowItem(heading: String(localized: "Snow"), value: pNext24h.snowNext24)
-                    }
-                    if pNext24h.hailNext24 > 0.00 {
-                        ShowItem(heading: String(localized: "Hail"), value: pNext24h.hailNext24)
-                    }
-                    if pNext24h.mixedNext24 > 0.00 {
-                        ShowItem(heading: String(localized: "Mixed"), value: pNext24h.mixedNext24)
-                    }
-                    if pNext24h.sleetNext24 > 0.00 {
-                        ShowItem(heading: String(localized: "Sleet"), value: pNext24h.sleetNext24)
+            } else {
+                List {
+                    Section() {
+                        ShowItem(heading: String(localized: "Rain "), value: precification.rainThisDay)
+                        if precification.snowThisDay > 0.00 {
+                            ShowItem(heading: String(localized: "Snow"), value: precification.snowThisDay)
+                        }
+                        if precification.hailThisDay > 0.00 {
+                            ShowItem(heading: String(localized: "Hail"), value: precification.hailThisDay)
+                        }
+                        if precification.mixedThisDay > 0.00 {
+                            ShowItem(heading: String(localized: "Mixed"), value: precification.mixedThisDay)
+                        }
+                        if precification.sleetThisDay > 0.00 {
+                            ShowItem(heading: String(localized: "Sleet"), value: precification.sleetThisDay)
+                        }
                     }
                 }
             }
         }
+        .navigationBarHidden(true)
         .listStyle(.insetGrouped)
     }
 }

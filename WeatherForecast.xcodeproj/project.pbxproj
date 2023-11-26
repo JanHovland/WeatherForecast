@@ -557,6 +557,7 @@
 				DBC6B3162AF81F1300D27E30 /* MoonRecord.swift */,
 				DBD442C52ADFC6CA0001020A /* NewData.swift */,
 				DB82F5BF2971D8B700818841 /* Place.swift */,
+				DB9383622B0FEEA3007A7BFC /* PrecificationData.swift */,
 				DBE02B3B29335D9600B1FB05 /* RainFall.swift */,
 				DB2676F129D5CE5900C642B9 /* SelectedValue.swift */,
 				DB7B6504294B8F16009822E5 /* Temperature.swift */,
@@ -565,7 +566,6 @@
 				DBDBCC63295215D7005AEB05 /* WeatherType.swift */,
 				DB2D4948294A3C9B00DCDC4B /* WindInfo.swift */,
 				DB660BDD2AF80CF40081EA04 /* WeatherApiMoon.swift */,
-				DB9383622B0FEEA3007A7BFC /* PrecificationData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
