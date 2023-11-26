@@ -201,12 +201,20 @@ struct ShowItem: View {
     let heading: String
     let value: Double
     
-    @State private var colorDot: String = ""
-    
     var body: some View {
         HStack {
             HStack {
-                Text(colorDot + " " + heading)
+                if heading.contains(String(localized: "Rain ")) {
+                    Text("🔵" + " " + heading)
+                } else if heading.contains(String(localized: "Snow")) {
+                    Text("⚪️" + " " + heading)
+                } else if heading.contains(String(localized: "Hail")) {
+                    Text("🔴" + " " + heading)
+                } else if heading.contains(String(localized: "Mixed")) {
+                    Text("🟣" + " " + heading)
+                } else if heading.contains(String(localized: "Sleet")) {
+                    Text("🟡" + " " + heading)
+                }
                 Spacer()
             }
             HStack {
@@ -214,22 +222,9 @@ struct ShowItem: View {
                 Text(String(format: "%.1f", value) + " mm")
             }
         }
-        .task {
-            
-            if heading.contains(String(localized: "Rain ")) {
-                colorDot = "🔵"
-            } else if heading.contains(String(localized: "Snow")) {
-                colorDot = "⚪️"
-            } else if heading.contains(String(localized: "Hail")) {
-                colorDot = "🔴"
-            } else if heading.contains(String(localized: "Mixed")) {
-                colorDot = "🟠"
-            } else if heading.contains(String(localized: "Sleet")) {
-                colorDot = "🟡"
-            }
-        }
+        .modifier(ShowItemViewModifier(heading: heading))
+        
     }
-    
 }
 
 struct ShowItemNoPrecification: View {
@@ -239,8 +234,12 @@ struct ShowItemNoPrecification: View {
                 Section(header: Text("Today"))  {
                     HStack {
                         HStack {
-                            Text("No precification")
+                            Text("Precification")
                             Spacer()
+                        }
+                        HStack {
+                            Spacer()
+                            Text("0 mm")
                         }
                     }
                 }
@@ -637,6 +636,3 @@ func TextFromWeatherType(weatherTypes : [WeatherType], type: String) -> String {
 
     return text
 }
-
-
-

@@ -117,6 +117,29 @@ func FindChartDataProbability(date: Date,
                 }
             }
         }
+    } else {
+        ///
+        /// Dtoen er avhengig av index
+        ///
+        let fromDate = date.setTime(hour: 0, min: 0, sec: 0)!
+        let toDate = fromDate.adding(days: 1)
+ 
+        hourForecast!.forEach  {
+            if $0.date >= fromDate &&
+                $0.date < toDate {
+                if $0.precipitation.description.firstUppercased == String(localized: "Rain ") {
+                    precification.rainThisDay += $0.precipitationAmount.value
+                } else if $0.precipitation.description.firstUppercased == String(localized: "Snow") {
+                    precification.snowThisDay += $0.precipitationAmount.value * 10.0
+                } else if $0.precipitation.description.firstUppercased == String(localized: "Hail") {
+                    precification.hailThisDay += $0.precipitationAmount.value
+                } else if $0.precipitation.description.firstUppercased == String(localized: "Mixed") {
+                    precification.mixedThisDay += $0.precipitationAmount.value
+                } else if $0.precipitation.description.firstUppercased == String(localized: "Sleet") {
+                    precification.sleetThisDay += $0.precipitationAmount.value
+                }
+            }
+        }
     }
     
     return (newProbability, 
