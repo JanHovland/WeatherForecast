@@ -59,6 +59,7 @@ struct InfoTemperature : View {
             ///
             PrecificationView(index: index,
                               precification: precification)
+            .offset(y: UIDevice.isIpad ? -20 : 0)
             
             Spacer()
         }
