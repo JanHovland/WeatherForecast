@@ -13,7 +13,7 @@ struct DayDetailHourIcons: View {
     let option: EnumType
     let index: Int
     let weather: Weather
-    let date: Date
+//    let date: Date
     @Binding var hourIconArray: [String]
     
     @State private var spacing: CGFloat = 0.00
@@ -128,9 +128,9 @@ struct DayDetailHourIcons: View {
             }
             .task {
                 if UIDevice.isiPhone {
-                    spacing = 2
+                    spacing = 1
                     fontSize = 13
-                    padding = 7.60
+                    padding = 5.50
                 } else {
                     spacing = 12
                     fontSize = 15

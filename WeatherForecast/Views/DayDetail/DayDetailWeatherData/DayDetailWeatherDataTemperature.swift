@@ -20,7 +20,7 @@ struct DayDetailWeatherDataTemperature: View {
     @State private var dataArray: [Double] = Array(repeating: Double(), count: sizeArray24)
     
     var body: some View {
-        if menuTitle == String(localized: "Weather conditions") {
+        if menuTitle == String(localized: "Temperature") {
             VStack {
                 if index == 0 {
                     VStack {

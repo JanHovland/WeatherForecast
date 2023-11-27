@@ -16,7 +16,7 @@ struct DayDetailWeatherData: View {
     @Binding var arrayDayIcons: [String]
     
     var body: some View {
-        if menuTitle == String(localized: "Weather conditions") {
+        if menuTitle == String(localized: "Temperature") {
             DayDetailWeatherDataTemperature(weather: weather,
                                             menuTitle: $menuTitle,
                                             index: $index,

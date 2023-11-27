@@ -174,7 +174,7 @@ struct DayDetail: View {
                     ForEach(Array(dateArray.enumerated()), id: \.element) { idx, element in
                         VStack {
                             Text(weekdayArray[idx])
-                                .font(.system(size: UIDevice.isIpad ? 17 : 14, weight: .bold)) // 11.5, weight: .bold))
+                                .font(.system(size: UIDevice.isIpad ? 17 : 14, weight: .bold))
                                 .offset(y: 10)
                             Text(element.description)
                                 .padding(8)
@@ -182,7 +182,7 @@ struct DayDetail: View {
                                 .foregroundColor(colorsForeground[idx])
                                 .background(colorsBackground[idx])
                                 .clipShape(Circle())
-                                .offset(y: UIDevice.isIpad ? 3 : 8) // 5)
+                                .offset(y: UIDevice.isIpad ? 3 : 5)
                                 .onTapGesture {
                                     ///
                                     /// Resetter og oppdater forgrunnen for aktuell indeks:
@@ -253,30 +253,21 @@ struct DayDetail: View {
                                       arrayDayIcons: $arrayDayIcons,
                                       opacity: $opacity)
                 ///
-                /// Markere natt og dag og image rekken for aktuell dag:
+                /// Viser natt og dag:
                 ///
-                VStack (alignment: .leading) {
-                    ///
-                    /// Viser natt og dag:
-                    ///
-                    SunDayAndNight(xMax: UIDevice.isIpad ? 525 : 352,
-                                   index : index,
-                                   sunRises: $sunRises,
-                                   sunSets: $sunSets)
-                    .padding(.bottom, 10)
-                    .padding(.top, 5)
-                    ///
-                    /// Viser image rekken:
-                    ///
-                    DayDetailHourIcons(option: MenuTitleToOption(menuTitle: menuTitle),
-                                       index: index,
-                                       weather: weather,
-                                       date: index == 0 ? dateSettings.dates[index].setTime(hour: 0, min: 0, sec: 0)! : dateSettings.dates[index],
-                                       hourIconArray: $hourIconArray)
-                    
-                }
-                .offset(x: UIDevice.isIpad ? 0 : 0,
-                        y: UIDevice.isIpad ? -115 : -115)
+                SunDayAndNight(xMax: UIDevice.isIpad ? 525 : 352,
+                               index : index,
+                               sunRises: $sunRises,
+                               sunSets: $sunSets)
+                .modifier(SunDayAndNightViewModifier(menuTitle: $menuTitle))
+                ///
+                /// Viser image rekken:
+                ///
+                DayDetailHourIcons(option: MenuTitleToOption(menuTitle: menuTitle),
+                                   index: index,
+                                   weather: weather,
+                                   hourIconArray: $hourIconArray)
+                .modifier(DayDetailHourIconsViewModifier(menuTitle: $menuTitle))
                 ///
                 /// Viser data for aktuell option:
                 ///
@@ -384,6 +375,7 @@ struct DayDetail: View {
             /// Finner menuSystemName
             ///
             menuSystemName = FindMenySystemImage(menuTitle: menuTitle)
+            
             let value: ([Double],
                         [String],
                         [String],
@@ -400,7 +392,7 @@ struct DayDetail: View {
                                                                 date: dateSettings.dates[index],
                                                                 option: MenuTitleToOption(menuTitle: menuTitle),
                                                                 option1: option1)
-            hourIconArray = value.2            ///
+            hourIconArray = value.2
             windInfo = value.4
             tempInfo = value.5
             /// Resetter selectedValue fra gesture i DayDetailChart():
@@ -432,6 +424,7 @@ struct DayDetail: View {
                 dateSettings.index = i
                 dateSettings.dates.append(date)
             }
+            
             if dateArray.contains(dateSelected) {
                 ///
                 /// Finn valgt index i dateArray:

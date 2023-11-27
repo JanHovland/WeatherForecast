@@ -54,7 +54,7 @@ struct Sun : View {
                            index: 0,
                            sunRises: $sunRises,
                            sunSets: $sunSets)
-            .offset(x: UIDevice.isIpad ? -7.5 : -6.0)
+                       .offset(x: UIDevice.isIpad ? -7.5 : -6.0)
             ///
             /// Finner solnedgang:
             ///

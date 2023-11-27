@@ -29,8 +29,8 @@ func FindChartDataTemperature(weather: Weather,
     
     var tempInfo: [Temperature]
     
-    let rangeTempMinValue =  12
-    let rangeTempMaxValue =  12
+    let rangeTempMinValue =  15
+    let rangeTempMaxValue =  15
 
     let value : ([Double],
                  [String],
@@ -57,7 +57,7 @@ func FindChartDataTemperature(weather: Weather,
     var n: NewTemperature = NewTemperature(type: "", hour: 0, value: 0.00)
     for i in 0..<tempInfo[tempType].data.count {
         array.append(tempInfo[tempType].data[i].temp)
-        n.type = String(localized: "Weather conditions")
+        n.type = String(localized: "Temperature")
         n.hour = i
         n.value = tempInfo[tempType].data[i].temp
         new.append(n)
