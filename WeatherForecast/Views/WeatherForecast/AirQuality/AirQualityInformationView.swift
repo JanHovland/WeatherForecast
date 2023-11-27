@@ -80,7 +80,7 @@ struct AirQualityInformationView: View {
             ZStack {
                 HStack {
                     Image(systemName: image)
-                        .renderingMode(.original)
+                        .symbolRenderingMode(.multicolor)
                         .font(Font.headline.weight(.regular))
                     Spacer()
                 }
@@ -91,6 +91,7 @@ struct AirQualityInformationView: View {
                             dismiss()
                         }, label: {
                             Image(systemName: "x.circle")
+                                .symbolRenderingMode(.multicolor)
                                 .font(.title2.weight(.thin))
                                 .foregroundColor(.primary)
                         })
@@ -117,7 +118,7 @@ struct AirQualityInformationView: View {
                 HStack {
                     Spacer()
                     Image(systemName: image)
-                        .renderingMode(.original)
+                        .symbolRenderingMode(.multicolor)
                         .font(Font.largeTitle.weight(.regular))
                     Spacer()
                 }

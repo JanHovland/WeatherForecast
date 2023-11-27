@@ -39,12 +39,14 @@ struct SunRiseOrSet: View {
                     .offset(y: UIDevice.isIpad ? -6.50 : -6.50)
                 VStack {
                     if option == .sunrise {
-                        Image(systemName: "sunrise")
+                        Image(systemName: "sunrise.fill")
+                            .symbolRenderingMode(.multicolor)
                         Text("Sunrise")
                             .font(.footnote)
                             .offset(y: UIDevice.isIpad ? 10 : 10)
                     } else if option == .sunset {
-                        Image(systemName: "sunset")
+                        Image(systemName: "sunset.fill")
+                            .symbolRenderingMode(.multicolor)
                         Text("Sunset")
                             .font(.footnote)
                             .offset(y: UIDevice.isIpad ? 10 : 10)

@@ -16,7 +16,7 @@ struct WindView : View {
             ///
             HStack {
                 Image(systemName: "wind")
-                    .renderingMode(.original)
+                    .symbolRenderingMode(.multicolor)
                     .font(Font.headline.weight(.regular))
                 Text("WIND")
                     .font(.system(size: 15, weight: .bold))
@@ -40,6 +40,7 @@ struct WindView : View {
                     .opacity(0.50)
                     .frame(width: 150, height: 150)
                     Image(systemName: "arrowtriangle.up.fill")
+                        .symbolRenderingMode(.multicolor)
                         .frame(width: 7, height: 7)
                         .font(.system(size: 10, weight: .light))
                         .padding(.top, -80)
@@ -75,6 +76,7 @@ struct WindView : View {
                             .frame(width: 2, height: 41 )
                     }
                     Image(systemName: "arrowtriangle.down.fill")
+                        .symbolRenderingMode(.multicolor)
                         .frame(width: 7, height: 7)
                         .font(.system(size: 12, weight: .light))
                 }

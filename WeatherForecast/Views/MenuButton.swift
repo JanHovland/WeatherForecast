@@ -17,8 +17,10 @@ struct MenuButton: View {
         VStack {
             HStack {
                 Image(systemName: menuSystemName)
+                    .symbolRenderingMode(.multicolor)
                     .font(.system(size: 15))
                 Image(systemName: "chevron.down")
+                    .symbolRenderingMode(.multicolor)
                     .font(.system(size: 17))
             }
             .padding(4)

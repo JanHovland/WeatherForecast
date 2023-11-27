@@ -56,15 +56,11 @@ struct HourOverview: View {
                                     Text(FormatDateToString(date: hourItem.date, format: "HH:mm", offsetSec: weatherInfo.offsetSec))
                                         .font(.footnote)
                                 }
-                                Image(systemName: "\(hourItem.symbolName)")
                                 ///
-                                /// Dette brukes for å fylle symbolene:
+                                /// Viser image med .fill
                                 ///
-                                    .frame(width: 20, height: 20)
+                                Image(systemName: ConvertImageToFill(image: hourItem.symbolName))
                                     .symbolRenderingMode(.multicolor)
-                                    .foregroundStyle(.primary)
-                                    .font(.title3)
-                                    .padding(.top, -10)
                                 ///
                                 /// Viser precipitationChance:
                                 ///
@@ -135,3 +131,4 @@ struct HourOverview: View {
     }
      
 }
+

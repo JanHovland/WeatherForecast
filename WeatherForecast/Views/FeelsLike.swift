@@ -18,7 +18,7 @@ struct FeelsLike : View {
             ///
             HStack {
                 Image(systemName: "thermometer.medium")
-                    .renderingMode(.original)
+                    .symbolRenderingMode(.multicolor)
                     .font(Font.headline.weight(.regular))
                 Text("FEELS LIKE")
                     .font(.system(size: 15, weight: .bold))

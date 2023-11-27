@@ -25,6 +25,7 @@ struct Sun : View {
             VStack {
                 HStack {
                     Image(systemName: "sunrise.fill")
+                        .symbolRenderingMode(.multicolor)
                         .font(Font.headline.weight(.regular))
                     Text("SUN RISE")
                         .font(.system(size: 15, weight: .bold))

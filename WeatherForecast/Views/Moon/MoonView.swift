@@ -23,7 +23,7 @@ struct MoonView: View {
                 ///
                 HStack {
                     Image(systemName: "moon")
-                        .renderingMode(.original)
+                        .symbolRenderingMode(.multicolor)
                         .font(Font.headline.weight(.regular))
                     Text("MOON")
                         .font(.system(size: 15, weight: .bold))
@@ -50,8 +50,7 @@ struct MoonView: View {
                 .resizable()
                 .frame(width: 150, height: 150)
                 .clipShape(Circle())
-                .foregroundColor(.white)
-//
+                .symbolRenderingMode(.multicolor)
             ///
             /// Viser styrken på lyset fra månen:
             ///

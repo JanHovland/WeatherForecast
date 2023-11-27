@@ -99,7 +99,6 @@ struct DayDetailHourIcons: View {
                     VStack {
                         Image(systemName: "\(element.description)")
                             .font(.system(size: fontSize))
-
                             .symbolRenderingMode(.multicolor)
                             .padding(.horizontal, padding)
                     }

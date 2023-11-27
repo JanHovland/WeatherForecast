@@ -96,7 +96,7 @@ struct WeatherForecast: View {
                                 }
                                 ZStack {
                                     Image(systemName: "ellipsis.circle")
-                                        .renderingMode(.original)
+                                        .symbolRenderingMode(.multicolor)
                                         .font(.system(size: 30, weight: .light))
                                         .contextMenu {
                                             ///
@@ -132,6 +132,7 @@ struct WeatherForecast: View {
                                                 HStack {
                                                     Text("Delete this place")
                                                     Image(systemName: "x.circle")
+                                                        .symbolRenderingMode(.multicolor)
                                                 }
                                             })
                                         }
@@ -167,7 +168,7 @@ struct WeatherForecast: View {
                                 }
                                 ZStack {
                                     Image(systemName: "ellipsis.circle")
-                                        .renderingMode(.original)
+                                        .symbolRenderingMode(.multicolor)
                                         .font(.system(size: 30, weight: .light))
                                         .offset(x:  170,
                                                 y:  -55)
@@ -206,6 +207,7 @@ struct WeatherForecast: View {
                                                 HStack {
                                                     Text("Delete this place")
                                                     Image(systemName: "x.circle")
+                                                        .symbolRenderingMode(.multicolor)
                                                 }
                                             })
                                         }                                }

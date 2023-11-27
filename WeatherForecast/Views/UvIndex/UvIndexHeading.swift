@@ -11,7 +11,7 @@ struct UvIndexHeading: View {
     var body: some View {
         HStack {
             Image(systemName: "sun.max.fill")
-                .foregroundColor(.primary)
+                .symbolRenderingMode(.multicolor)
                 .font(Font.headline.weight(.regular))
             Text("UV-INDEX")
                 .font(.system(size: 15, weight: .bold))

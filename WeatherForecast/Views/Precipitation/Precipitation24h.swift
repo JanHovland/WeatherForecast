@@ -23,7 +23,7 @@ struct Precipitation24h : View {
             ///
             HStack {
                 Image(systemName: "drop.fill")
-                    .renderingMode(.original)
+                    .symbolRenderingMode(.multicolor)
                     .font(Font.headline.weight(.regular))
                 Text("PRECIPITATION")
                     .font(.system(size: 15, weight: .bold))

@@ -12,6 +12,7 @@ struct WeatherForecastSelectCardView: View {
     var body: some View {
         VStack {
             Image("Cloud")
+                .symbolRenderingMode(.multicolor)
                 .resizable()
                 .frame(height: UIDevice.isIpad ? 90 : 90)
                 .clipped()

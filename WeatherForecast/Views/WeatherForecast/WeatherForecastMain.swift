@@ -47,6 +47,7 @@ struct WeatherForecastMain: View {
                             .opacity(0.5)
                     } icon: {
                         Image(systemName: "magnifyingglass")
+                            .symbolRenderingMode(.multicolor)
                     }
                 }
                 NavigationLink(destination: WeatherForecast(expOption: .intern,
@@ -77,6 +78,7 @@ struct WeatherForecastMain: View {
                                     } icon: {
                                         if myPlace.extCountryName == String(localized: "Norway") {
                                             Image(systemName: "mappin.circle")
+                                                .symbolRenderingMode(.multicolor)
                                                 .font(.system(size: 27))
                                         } else {
                                             Text(myPlace.extFlag)
@@ -175,6 +177,7 @@ struct RefreshMyPlaces: View {
             Text("Refresh my places")
         } icon: {
             Image(systemName: "mappin.circle")
+                .symbolRenderingMode(.multicolor)
         }
     }
 }

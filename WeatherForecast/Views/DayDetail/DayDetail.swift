@@ -160,7 +160,7 @@ struct DayDetail: View {
                         }
                     } label: {
                         Image(systemName: "x.circle.fill")
-                            .symbolRenderingMode(.hierarchical)
+                            .symbolRenderingMode(.multicolor)
                             .font(.system(size: 22, weight: .bold))
                             .foregroundColor(.secondary)
                     }

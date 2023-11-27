@@ -27,6 +27,7 @@ struct MenuContent: View {
         }) {
             HStack {
                 Image(systemName: "cloud.sun.rain.fill")
+                    .symbolRenderingMode(.multicolor)
                 Text(String(localized: "Weather conditions"))
             }
         }
@@ -39,6 +40,7 @@ struct MenuContent: View {
         }) {
             HStack {
                 Image(systemName: "sun.max")
+                    .symbolRenderingMode(.multicolor)
                 Text(String(localized: "UV-index"))
             }
         }
@@ -51,6 +53,7 @@ struct MenuContent: View {
         }) {
             HStack {
                 Image(systemName: "wind")
+                    .symbolRenderingMode(.multicolor)
                 Text(String(localized: "Wind"))
             }
         }
@@ -63,6 +66,7 @@ struct MenuContent: View {
         }) {
             HStack {
                 Image(systemName: "drop")
+                    .symbolRenderingMode(.multicolor)
                 Text(String(localized: "Rain"))
             }
         }
@@ -75,6 +79,7 @@ struct MenuContent: View {
         }) {
             HStack {
                 Image(systemName: "thermometer.medium")
+                    .symbolRenderingMode(.multicolor)
                 Text(String(localized: "Feels like"))
             }
         }
@@ -87,6 +92,7 @@ struct MenuContent: View {
         }) {
             HStack {
                 Image(systemName: "humidity")
+                    .symbolRenderingMode(.multicolor)
                 Text(String(localized: "Humidity"))
             }
         }
@@ -99,6 +105,7 @@ struct MenuContent: View {
         }) {
             HStack {
                 Image(systemName: "eye")
+                    .symbolRenderingMode(.multicolor)
                 Text(String(localized: "Visibility"))
             }
         }
@@ -111,6 +118,7 @@ struct MenuContent: View {
         }) {
             HStack {
                 Image(systemName: "gauge.medium")
+                    .symbolRenderingMode(.multicolor)
                 Text(String(localized: "Air pressure"))
             }
         }

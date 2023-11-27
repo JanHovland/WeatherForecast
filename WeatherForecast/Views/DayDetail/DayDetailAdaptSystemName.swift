@@ -31,12 +31,13 @@ struct DayDetailAdaptSystemName: View {
              "aqi.high":
             Image(systemName:"\(systemName)")
                 .symbolRenderingMode(.multicolor)
-                .foregroundStyle(.primary, Color.yellow)
+//                .foregroundStyle(.primary, Color.yellow)
             
         default:
             Image(systemName:"\(systemName)")
-                .symbolRenderingMode(.palette)
-                .foregroundStyle(.primary, Color.accentColor)
+//                .symbolRenderingMode(.palette)
+                .symbolRenderingMode(.multicolor)
+//                .foregroundStyle(.primary, Color.accentColor)
         }
     }
 }

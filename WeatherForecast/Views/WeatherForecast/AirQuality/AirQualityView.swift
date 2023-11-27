@@ -29,23 +29,23 @@ struct AirQualityView: View {
                 HStack {
                     if currentWeather.aqi == 1 {
                         Image(systemName: "aqi.low")
-                            .renderingMode(.original)
+                            .symbolRenderingMode(.multicolor)
                             .font(Font.headline.weight(.regular))
                     } else if currentWeather.aqi == 2 {
                         Image(systemName: "aqi.medium")
-                            .renderingMode(.original)
+                            .symbolRenderingMode(.multicolor)
                             .font(Font.headline.weight(.regular))
                     } else if currentWeather.aqi == 3 {
                         Image(systemName: "aqi.medium")
-                            .renderingMode(.original)
+                            .symbolRenderingMode(.multicolor)
                             .font(Font.headline.weight(.regular))
                     } else if currentWeather.aqi == 4 {
                         Image(systemName: "aqi.high")
-                            .renderingMode(.original)
+                            .symbolRenderingMode(.multicolor)
                             .font(Font.headline.weight(.regular))
                     } else if currentWeather.aqi == 5 {
                         Image(systemName: "aqi.high")
-                            .renderingMode(.original)
+                            .symbolRenderingMode(.multicolor)
                             .font(Font.headline.weight(.regular))
                     }
                     Text("AIR QUALITY")
@@ -443,7 +443,7 @@ struct AirQualityView: View {
                     ZStack {
                         HStack {
                             Image(systemName: "exclamationmark.triangle.fill")
-                                .renderingMode(.original)
+                                .symbolRenderingMode(.multicolor)
                                 .font(Font.headline.weight(.regular))
                             Text("AIR QUALITY")
                                 .font(.system(size: 15, weight: .bold))

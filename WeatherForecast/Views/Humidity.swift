@@ -18,7 +18,7 @@ struct Humidity : View {
             ///
             HStack {
                 Image(systemName: "humidity")
-                    .renderingMode(.original)
+                    .symbolRenderingMode(.multicolor)
                     .font(Font.headline.weight(.regular))
                 Text("HUMIDITY")
                     .font(.system(size: 15, weight: .bold))

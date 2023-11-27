@@ -25,7 +25,7 @@ struct iconWindView: View {
                         Image(systemName: "location.north.fill")
                             .rotationEffect(Angle(degrees: degrees + 180), anchor: .center)
                             .font(.system(size: fontSize))
-                            .foregroundColor(.primary)
+                            .symbolRenderingMode(.multicolor)
                             .padding(.horizontal, padding)
                     }
                 }

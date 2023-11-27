@@ -18,7 +18,7 @@ struct Visibility : View {
             ///
             HStack {
                 Image(systemName: "eye.fill")
-                    .renderingMode(.original)
+                    .symbolRenderingMode(.multicolor)
                     .font(Font.headline.weight(.regular))
                 Text("VISIBILITY")
                     .font(.system(size: 15, weight: .bold))
