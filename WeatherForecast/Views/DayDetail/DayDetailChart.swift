@@ -213,9 +213,11 @@ struct DayDetailChart: View {
                                   y: .value("Value", windMax))
                         .symbol(.circle)
                         .annotation(position: .top) {
-                            Text("H")
-                                .font(.footnote.weight(.bold))
-                                .opacity(0.50)
+                            if windMax > 0.00 {
+                                Text("H")
+                                    .font(.footnote.weight(.bold))
+                                    .opacity(0.50)
+                            }
                         }
                     } else if option == .temperature {
                         ForEach(newTemperature) {
@@ -348,9 +350,11 @@ struct DayDetailChart: View {
                                   y: .value("Value", uvIndexMax))
                         .symbol(.circle)
                         .annotation(position: .top) {
-                            Text("H")
-                                .font(.footnote.weight(.bold))
-                                .opacity(0.50)
+                            if uvIndexMax > 0.00 {
+                                Text("H")
+                                    .font(.footnote.weight(.bold))
+                                    .opacity(0.50)
+                            }
                         }
                         
                     } else if option == .visibility {
@@ -397,9 +401,11 @@ struct DayDetailChart: View {
                                   y: .value("Value", visibilityMax))
                         .symbol(.circle)
                         .annotation(position: .top) {
-                            Text("H")
-                                .font(.footnote.weight(.bold))
-                                .opacity(0.50)
+                            if visibilityMax > 0.00 {
+                                Text("H")
+                                    .font(.footnote.weight(.bold))
+                                    .opacity(0.50)
+                            }
                         }
                     } else if option == .airPressure {
                         let description = String(localized: "Airpressure")
@@ -445,9 +451,11 @@ struct DayDetailChart: View {
                                   y: .value("Value", airPressureMax))
                         .symbol(.circle)
                         .annotation(position: .top) {
-                            Text("H")
-                                .font(.footnote.weight(.bold))
-                                .opacity(0.50)
+                            if airPressureMax > 0.00 {
+                                Text("H")
+                                    .font(.footnote.weight(.bold))
+                                    .opacity(0.50)
+                            }
                         }
                     } else if option == .humidity  {
                         let description = String(localized: "Humidity")
@@ -493,9 +501,11 @@ struct DayDetailChart: View {
                                   y: .value("Value", humidityMax))
                         .symbol(.circle)
                         .annotation(position: .top) {
-                            Text("H")
-                                .font(.footnote.weight(.bold))
-                                .opacity(0.50)
+                            if humidityMax > 0.00 {
+                                Text("H")
+                                    .font(.footnote.weight(.bold))
+                                    .opacity(0.50)
+                            }
                         }
                     }
                     ///
