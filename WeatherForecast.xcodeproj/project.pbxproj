@@ -514,9 +514,9 @@
 				DB054768297086B20034AFBD /* DayDetailMenuDataViewOffsetViewModifier.swift */,
 				DB2727F32965CA77003B0903 /* DayDetailOffsetChartViewModifier.swift */,
 				DB8C17D229DDD58E00198DCB /* DayDetailPositionViewModifier.swift */,
+				DB3E19212B14E3EE001FDF07 /* ImageViewModifier.swift */,
 				DB75926C2ADAD6C300B772A9 /* ValueAtPositionChart.swift */,
 				DB6DE821297C5AF4005BCCF9 /* WeatherForecastViewModifier.swift */,
-				DB3E19212B14E3EE001FDF07 /* ImageViewModifier.swift */,
 			);
 			path = ViewModifier;
 			sourceTree = "<group>";

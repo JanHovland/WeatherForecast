@@ -241,7 +241,7 @@ struct DayDetail: View {
                     ///
                     Text(GetTimeFromDay(date: currentWeather.date.adding(days: index), format: "EEEE d. MMMM yyyy"))
                 }
-                .padding(.leading, UIDevice.isIpad ? 170 : 97.5)
+                .padding(.leading, UIDevice.isIpad ? 170 : 75)
                 .padding(.top, 2)
                 ///
                 /// Viser meny og kort værinformasjon:

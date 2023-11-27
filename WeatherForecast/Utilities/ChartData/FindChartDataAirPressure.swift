@@ -63,11 +63,12 @@ func FindChartDataAirPressure(weather: Weather,
     ///
     /// Beregner rangeFrom
     ///
-    rangeFrom = Int(min)
+    rangeFrom = Int(min) - 5
     ///
     /// Beregner rangeTo
     ///
-    rangeTo = Int(max)
+    rangeTo = Int(max) + 5
+    
     
     return (new, min, max, minIndex, maxIndex, rangeFrom, rangeTo)
 
