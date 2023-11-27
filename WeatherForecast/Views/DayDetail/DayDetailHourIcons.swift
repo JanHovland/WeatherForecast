@@ -25,9 +25,9 @@ struct DayDetailHourIcons: View {
             HStack (spacing: spacing) {
                 ForEach(Array(hourIconArray.enumerated()), id: \.element) { idx, element in
                     VStack {
-                        Image(systemName: "\(element.description)")
+                        Image(systemName: ConvertImageToFill(image: element.description))
                             .font(.system(size: fontSize))
-                            .symbolRenderingMode(.multicolor)
+                            .modifier(ImageViewModifier(image: ConvertImageToFill(image: element.description)))
                             .padding(.horizontal, padding)
                     }
                 }

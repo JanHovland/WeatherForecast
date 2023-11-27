@@ -60,7 +60,11 @@ struct HourOverview: View {
                                 /// Viser image med .fill
                                 ///
                                 Image(systemName: ConvertImageToFill(image: hourItem.symbolName))
-                                    .symbolRenderingMode(.multicolor)
+                                    .modifier(ImageViewModifier(image: ConvertImageToFill(image: hourItem.symbolName)))
+                                    .frame(width: 20, height: 20)
+                                    .foregroundStyle(.primary)
+                                    .font(.title3)
+                                    .padding(.top, -10)
                                 ///
                                 /// Viser precipitationChance:
                                 ///

@@ -72,11 +72,10 @@ struct DayOverview: View {
                             Text(FormatDateToString(date: dayItem.date, format: "E d MMM", offsetSec: weatherInfo.offsetSec))
                                 .foregroundColor(.cyan)
                             ///
-                            /// Viser symbolName:
+                            /// Viser image med .fill
                             ///
-                            Image(systemName: "\(dayItem.symbolName)")
-                                .symbolRenderingMode(.multicolor)
-                                .foregroundStyle(.primary)
+                            Image(systemName: ConvertImageToFill(image: dayItem.symbolName))
+                                .modifier(ImageViewModifier(image: ConvertImageToFill(image: dayItem.symbolName)))
                                 .font(.title3)
                                 .padding(.top, -10)
                             ///

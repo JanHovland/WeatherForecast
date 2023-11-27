@@ -27,3 +27,4 @@ func ConvertImageToFill(image: String) -> String {
     }
     return imageOut
 }
+
