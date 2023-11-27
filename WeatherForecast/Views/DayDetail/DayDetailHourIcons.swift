@@ -13,7 +13,6 @@ struct DayDetailHourIcons: View {
     let option: EnumType
     let index: Int
     let weather: Weather
-//    let date: Date
     @Binding var hourIconArray: [String]
     
     @State private var spacing: CGFloat = 0.00
@@ -132,9 +131,9 @@ struct DayDetailHourIcons: View {
                     fontSize = 13
                     padding = 5.50
                 } else {
-                    spacing = 12
+                    spacing = 9
                     fontSize = 15
-                    padding = 9.25
+                    padding = 7.50
                 }
             }
         } else if option == .humidity {
