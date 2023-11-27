@@ -27,7 +27,7 @@ struct ChartViewNewProbability: View {
         VStack {
             Chart {
                 ForEach(newData) {
-                    LineMark (
+                    BarMark (
                         x: .value("Hour", $0.hour),
                         y: .value("Value", $0.value)
                     )
@@ -64,9 +64,11 @@ struct ChartViewNewProbability: View {
                           y: .value("Value", max))
                 .symbol(.circle)
                 .annotation(position: .top) {
-                    Text("\(Int(max)) %")
-                        .font(.footnote.weight(.bold))
-                        .opacity(0.50)
+                    if max > 0.00 {
+                        Text("\(Int(max)) %")
+                            .font(.footnote.weight(.bold))
+                            .opacity(0.50)
+                    }
                 }
                 ///
                 /// Markerer den tidligere delen av dagen:

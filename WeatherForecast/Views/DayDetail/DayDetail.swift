@@ -174,15 +174,15 @@ struct DayDetail: View {
                     ForEach(Array(dateArray.enumerated()), id: \.element) { idx, element in
                         VStack {
                             Text(weekdayArray[idx])
-                                .font(.system(size: UIDevice.isIpad ? 17 : 11.5, weight: .bold))
+                                .font(.system(size: UIDevice.isIpad ? 17 : 14, weight: .bold)) // 11.5, weight: .bold))
                                 .offset(y: 10)
                             Text(element.description)
                                 .padding(8)
-                                .font(.system(size: UIDevice.isIpad ? 17 : 11.5, weight: .regular))
+                                .font(.system(size: UIDevice.isIpad ? 17 : 14, weight: .regular))
                                 .foregroundColor(colorsForeground[idx])
                                 .background(colorsBackground[idx])
                                 .clipShape(Circle())
-                                .offset(y: UIDevice.isIpad ? 3 : 5)
+                                .offset(y: UIDevice.isIpad ? 3 : 8) // 5)
                                 .onTapGesture {
                                     ///
                                     /// Resetter og oppdater forgrunnen for aktuell indeks:
