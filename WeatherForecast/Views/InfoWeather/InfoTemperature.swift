@@ -475,7 +475,7 @@ private func Forecast(index: Int,
         text = text + "."
     }
     
-    text1 = "Høyeste følte temperatur er lavere i dag enn i går."
+    text1 = String(localized: "The highest felt temperature is lower today than yesterday.")
     
     return (text, text1)
 }
