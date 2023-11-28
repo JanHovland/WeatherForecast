@@ -83,8 +83,9 @@ func FindChartDataProbability(date: Date,
         ///
         hourForecast!.forEach  {
             if $0.date >= fromLast24 &&
-                $0.date < toDay {
-                print($0.date)
+                $0.date <  toDay {
+                print("\(toDay) \($0.date)")
+                print("PrecipitationAmount =  \($0.precipitationAmount)")
                 if $0.precipitation.description.firstUppercased == String(localized: "Rain ") {
                     precification.rainLast24 += $0.precipitationAmount.value
                 } else if $0.precipitation.description.firstUppercased == String(localized: "Snow") {
@@ -104,6 +105,8 @@ func FindChartDataProbability(date: Date,
         hourForecast!.forEach  {
             if $0.date >= toDay &&
                 $0.date < toNext24 {
+                print("\(toNext24) \($0.date)")
+                print("PrecipitationAmount =  \($0.precipitationAmount)")
                 if $0.precipitation.description.firstUppercased == String(localized: "Rain ") {
                     precification.rainNext24 += $0.precipitationAmount.value
                 } else if $0.precipitation.description.firstUppercased == String(localized: "Snow") {

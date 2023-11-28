@@ -1423,20 +1423,28 @@
 /* No comment provided by engineer. */
 "Temperature " = "Værforbehold";
 
+/* No comment provided by engineer. */
+"Freshly fallen dry snow has a water value of around 0.1, which means that 10 centimeters of snow when melted gives 1 centimeter of water. 1 millimeter of precipitation gives a snow depth of 10 millimeters. In older snow, many of the snow crystals' small spikes and sharp edges have disappeared. The rounder crystals take up less space, and the snow sinks together. The higher the temperature, the faster this process goes. Fresh snow can have a water value of up to 0.2–0.3 if it accumulates while it is snowing. Beyond spring, the water value of the snow cover is usually 0.2–0.3 in the lowlands and 0.3–0.5 in mountainous areas."
+=
+"Nyfallen tørr snø har en vannverdi på rundt 0,1, som betyr at 10 centimeter snø ved smelting gir 1 centimeter vann. 1 millimeter nedbør gir en snødybde på 10 millimeter. I eldre snø har mange av snøkrystallenes små pigger og skarpe kanter forsvunnet. De rundere krystallene tar mindre plass, og snøen synker sammen. Jo høyere temperatur, jo raskere går denne prosessen. Nysnø kan ha en vannverdi på opptil 0,2–0,3 dersom den samler seg mens det snør. Utover våren er vannverdien til snødekket vanligvis 0,2–0,3 i lavlandet og 0,3–0,5 i fjellområder.";
 
+/* No comment provided by engineer. */
+"LAST 24 HOURS" = "SISTE 24 TIMER";
 
- 
+/* No comment provided by engineer. */
+"NEXT 24 HOURS" = "NESTE 24 TIMER";
 
+/* No comment provided by engineer. */
+"0.0 mm" = "0,0 mm";
 
+/* No comment provided by engineer. */
+"Day differences" = "Dagsforskjeller";
 
+/* No comment provided by engineer. */
+"Today" = "I dag";
 
-
-
-
-
-
-
-
+/* No comment provided by engineer. */
+"Yesterday" = "I går";
 
 
 

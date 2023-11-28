@@ -19,17 +19,19 @@ struct InfoTemperature : View {
     @Environment(CurrentWeather.self) private var currentWeather
     @Environment(WeatherInfo.self) private var weatherInfo
     @Environment(DateSettings.self) private var dateSettings
-
+    
     @State private var text: String = ""
     @State private var text1: String = ""
+    @State private var text2: String = String(localized: "Freshly fallen dry snow has a water value of around 0.1, which means that 10 centimeters of snow when melted gives 1 centimeter of water. 1 millimeter of precipitation gives a snow depth of 10 millimeters. In older snow, many of the snow crystals' small spikes and sharp edges have disappeared. The rounder crystals take up less space, and the snow sinks together. The higher the temperature, the faster this process goes. Fresh snow can have a water value of up to 0.2–0.3 if it accumulates while it is snowing. Beyond spring, the water value of the snow cover is usually 0.2–0.3 in the lowlands and 0.3–0.5 in mountainous areas.")
+    
     @State private var min: Double = 0.00
     @State private var max: Double = 0.00
     @State private var minIndex: Int = 0
     @State private var maxIndex: Int = 0
-
+    
     @State private var newProbability: [NewProbability] = []
     @State private var precification = Precification()
-
+    
     var body: some View {
         VStack (alignment: .leading) {
             ///
@@ -54,88 +56,46 @@ struct InfoTemperature : View {
                 .fontWeight(.bold)
                 .padding(.bottom, 20)
             ///
+            /// Dersom det er kommet snø kommer dette opp:
+            ///
+            if precification.snowLast24 > 0.00 ||
+                precification.snowNext24 > 0.00 ||
+                precification.snowThisDay > 0.00 {
+                TextField("", text: $text2, axis: .vertical)
+                    .lineLimit(20)
+                    .textFieldStyle(.roundedBorder)
+                    .disabled(true)
+                    .padding(.horizontal, 10)
+            }
+            ///
             /// Viser oversikt over nedbør siste 24t og neste 24t
             ///  Ved index > 0 vises
             ///
+            
             if index == 0 {
-                if precification.rainLast24  == 0.00,
-                   precification.snowLast24 == 0.00,
-                   precification.hailLast24 == 0.00,
-                   precification.mixedLast24 == 0.00,
-                   precification.sleetLast24 == 0.00 {
-                    ShowItemNoPrecification()
-                } else {
-                    PrecificationView(index: index, precification: precification)
-                }
-                
-                if precification.rainNext24  == 0.00,
-                   precification.snowNext24 == 0.00,
-                   precification.hailNext24 == 0.00,
-                   precification.mixedNext24 == 0.00,
-                   precification.sleetNext24 == 0.00 {
-                    ShowItemNoPrecification()
-                } else {
-                    PrecificationView(index: index, precification: precification)
-                }
-            } else {
-                
-                if precification.rainThisDay  == 0.00,
-                   precification.snowThisDay == 0.00,
-                   precification.hailThisDay == 0.00,
-                   precification.mixedThisDay == 0.00,
-                   precification.sleetThisDay == 0.00 {
-                    ShowItemNoPrecification()
-                } else {
-                    PrecificationView(index: index, precification: precification)
-                }
-            }
-            Spacer()
-        }
-        .frame(width: UIDevice.isIpad ? 490 : 350)
-        .onChange(of: index) { oldIndex, index in
-            ///
-            /// Finner newProbability
-            ///
-            (newProbability, min, minIndex, max, maxIndex, precification) = FindChartDataProbability(date: dateSettings.dates[index],
-                                             index: index)
-            ///
-            /// Bygger opp værmeldingen:
-            ///
-            (text, text1) = Forecast(index: index,
-                                         dayArray: dayArray,
-                                         weekdayArray: weekdayArray,
-                                         tempInfo: tempInfo,
-                                         date: dateSettings.dates[index],
-                                         offsetSec: weatherInfo.offsetSec)
-        }
-        .task {
-            ///
-            /// Finner newProbability
-            ///
-            (newProbability, min, minIndex, max, maxIndex, precification) = FindChartDataProbability(date: dateSettings.dates[index],
-                                             index: index)
-            ///
-            /// Bygger opp værmeldingen:
-            ///
-            (text, text1) = Forecast(index: index,
-                                         dayArray: dayArray,
-                                         weekdayArray: weekdayArray,
-                                         tempInfo: tempInfo,
-                                         date: dateSettings.dates[index],
-                                         offsetSec: weatherInfo.offsetSec)
-        }
-    }
-}
-
-struct PrecificationView: View {
-    let index: Int
-    let precification: Precification
-    
-    var body: some View {
-        NavigationView {
-            if index == 0 {
-                List {
-                    Section(header: Text("Last 24 hours")) {
+                VStack (alignment: .leading) {
+                    ///
+                    /// Viser nedbør de siste 24 timene
+                    ///
+                    Text("LAST 24 HOURS")
+                        .opacity(0.50)
+                        .padding(.top, 10)
+                    if precification.rainLast24 == 0.00,
+                        precification.snowLast24 == 0.00,
+                        precification.hailLast24 == 0.00,
+                        precification.mixedLast24 == 0.00,
+                        precification.sleetLast24 == 0.00 {
+                        HStack {
+                            HStack {
+                                Text("Precification")
+                                Spacer()
+                            }
+                            HStack {
+                                Spacer()
+                                Text("0.0 mm")
+                            }
+                        }
+                    } else {
                         if precification.rainLast24 > 0.00 {
                             ShowItem(heading: String(localized: "Rain "), value: precification.rainLast24)
                         }
@@ -152,7 +112,28 @@ struct PrecificationView: View {
                             ShowItem(heading: String(localized: "Sleet"), value: precification.sleetLast24)
                         }
                     }
-                    Section(header: Text("Next 24 hours")) {
+                    ///
+                    /// Viser nedbør de neste 24 timene
+                    ///
+                    Text("NEXT 24 HOURS")
+                        .opacity(0.50)
+                        .padding(.top, 20)
+                    if precification.rainNext24 == 0.00,
+                        precification.snowNext24 == 0.00,
+                        precification.hailNext24 == 0.00,
+                        precification.mixedNext24 == 0.00,
+                        precification.sleetNext24 == 0.00 {
+                        HStack {
+                            HStack {
+                                Text("Precification")
+                                Spacer()
+                            }
+                            HStack {
+                                Spacer()
+                                Text("0.0 mm")
+                            }
+                        }
+                    } else {
                         if precification.rainNext24 > 0.00 {
                             ShowItem(heading: String(localized: "Rain "), value: precification.rainNext24)
                         }
@@ -171,29 +152,93 @@ struct PrecificationView: View {
                     }
                 }
             } else {
-                List {
-                    Section() {
-                        if precification.rainThisDay > 0.00 {
-                            ShowItem(heading: String(localized: "Rain "), value: precification.rainThisDay)
-                        }
-                        if precification.snowThisDay > 0.00 {
-                            ShowItem(heading: String(localized: "Snow"), value: precification.snowThisDay)
-                        }
-                        if precification.hailThisDay > 0.00 {
-                            ShowItem(heading: String(localized: "Hail"), value: precification.hailThisDay)
-                        }
-                        if precification.mixedThisDay > 0.00 {
-                            ShowItem(heading: String(localized: "Mixed"), value: precification.mixedThisDay)
-                        }
-                        if precification.sleetThisDay > 0.00 {
-                            ShowItem(heading: String(localized: "Sleet"), value: precification.sleetThisDay)
-                        }
-                    }
+                Text("Nedbør->")
+            }
+            ///
+            /// Værvarsel:
+            ///
+            Text("WeatherForecast")
+                .fontWeight(.bold)
+                .padding(.bottom, 20)
+                .padding(.top, 20)
+          
+            TextField("", text: $text, axis: .vertical)
+                .lineLimit(20)
+                .textFieldStyle(.roundedBorder)
+                .disabled(true)
+                .padding(.horizontal, 10)
+            ///
+            ///  Dagsforskjeller:
+            ///
+            Text("Day differences")
+                .fontWeight(.bold)
+                .padding(.bottom, 20)
+                .padding(.top, 20)
+
+            TextField("", text: $text1, axis: .vertical)
+                .lineLimit(20)
+                .textFieldStyle(.roundedBorder)
+                .disabled(true)
+                .padding(.horizontal, 10)
+            ///
+            /// Viser forskjeller på følt temperatur:
+            ///
+            HStack {
+                HStack {
+                    Text("Today")
+                        .fontWeight(.bold)
+                    Spacer()
+                }
+                HStack {
+                    Spacer()
+                    Text("-2.0 ºC")
+                }
+            }
+
+            HStack {
+                HStack {
+                    Text("Yesterday")
+                        .fontWeight(.bold)
+                    Spacer()
+                }
+                HStack {
+                    Spacer()
+                    Text("2.0 ºC")
                 }
             }
         }
-        .navigationBarHidden(true)
-        .listStyle(.insetGrouped)
+        .frame(width: UIDevice.isIpad ? 490 : 350)
+        .onChange(of: index) { oldIndex, index in
+            ///
+            /// Finner newProbability
+            ///
+            (newProbability, min, minIndex, max, maxIndex, precification) = FindChartDataProbability(date: dateSettings.dates[index],
+                index: index)
+            ///
+            /// Bygger opp værmeldingen:
+            ///
+            (text, text1) = Forecast(index: index,
+                                     dayArray: dayArray,
+                                     weekdayArray: weekdayArray,
+                                     tempInfo: tempInfo,
+                                     date: dateSettings.dates[index],
+                                     offsetSec: weatherInfo.offsetSec)
+        }
+        .task {
+            ///
+            /// Finner newProbability
+            ///
+            (newProbability, min, minIndex, max, maxIndex, precification) = FindChartDataProbability(date: dateSettings.dates[index],                                                                                      index: index)
+            ///
+            /// Bygger opp værmeldingen:
+            ///
+            (text, text1) = Forecast(index: index,
+                                     dayArray: dayArray,
+                                     weekdayArray: weekdayArray,
+                                     tempInfo: tempInfo,
+                                     date: dateSettings.dates[index],
+                                     offsetSec: weatherInfo.offsetSec)
+        }
     }
 }
 
@@ -205,21 +250,47 @@ struct ShowItem: View {
         HStack {
             HStack {
                 if heading.contains(String(localized: "Rain ")) {
-                    Text("🔵" + " " + heading)
+                    HStack {
+                        Text("🔵")
+                            .font(.system(size: 7))
+                         Text(" " + heading)
+                        Spacer()
+                    }
                 } else if heading.contains(String(localized: "Snow")) {
-                    Text("⚪️" + " " + heading)
+                    HStack {
+                        Text("⚪️")
+                            .font(.system(size: 7))
+                        Text(" " + heading)
+                        Spacer()
+                    }
                 } else if heading.contains(String(localized: "Hail")) {
-                    Text("🔴" + " " + heading)
+                    HStack {
+                        Text("🔴")
+                            .font(.system(size: 7))
+                        Text(" " + heading)
+                        Spacer()
+                    }
                 } else if heading.contains(String(localized: "Mixed")) {
-                    Text("🟣" + " " + heading)
+                    HStack {
+                        Text("🟣")
+                            .font(.system(size: 7))
+                        Text(" " + heading)
+                        Spacer()
+                    }
                 } else if heading.contains(String(localized: "Sleet")) {
-                    Text("🟡" + " " + heading)
+                    HStack {
+                        Text("🟡")
+                            .font(.system(size: 7))
+                        Text(" " + heading)
+                        Spacer()
+                    }
                 }
                 Spacer()
             }
             HStack {
                 Spacer()
-                Text(String(format: "%.1f", value) + " mm")
+                let string = String(format: "%.1f", value).replacingOccurrences(of: ".", with: ",")
+                Text(string + " mm")
             }
         }
         .modifier(ShowItemViewModifier(heading: heading))
@@ -227,29 +298,7 @@ struct ShowItem: View {
     }
 }
 
-struct ShowItemNoPrecification: View {
-    var body: some View {
-        NavigationView {
-            List {
-                Section(header: Text("Today"))  {
-                    HStack {
-                        HStack {
-                            Text("Precification")
-                            Spacer()
-                        }
-                        HStack {
-                            Spacer()
-                            Text("0 mm")
-                        }
-                    }
-                }
-            }
-            .navigationBarHidden(true)
-            .listStyle(.insetGrouped)
-        }
-    }
-}
-
+///
 /// Bygger opp værmeldingen:
 ///
 private func Forecast(index: Int,
@@ -426,7 +475,7 @@ private func Forecast(index: Int,
         text = text + "."
     }
     
-    text1 = "Samme som i går"
+    text1 = "Høyeste følte temperatur er lavere i dag enn i går."
     
     return (text, text1)
 }
@@ -440,7 +489,7 @@ private func TempInfoValues(tempInfo: [Temperature],
     /// option1 = min eller max
     
     @Environment(CurrentWeather.self) var currentWeather
-
+    
     var value: Double = 0.00
     var index: Int = 0
     var array: [Double] = []
@@ -523,7 +572,7 @@ private func WeatherOverView(dayTempInfo: [DayTempInfo]) -> String {
     
     var weatherTypes: [WeatherType] = []
     weatherTypes.removeAll()
-
+    
     var weatherType = WeatherType()
     
     var firstType: String = ""
@@ -632,7 +681,7 @@ func TextFromWeatherType(weatherTypes : [WeatherType], type: String) -> String {
         } else {
             text = text + ".\n"
         }
-   }
-
+    }
+    
     return text
 }
