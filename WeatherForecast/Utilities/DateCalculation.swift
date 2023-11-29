@@ -13,8 +13,6 @@ import Foundation
 ///
 /// GetLocalDate(date: Date()) gir den lokale tiden     2023-02-05 09:30:00 +0000  UTC+1
 ///
-/// NB! NB! : print() setter alltid fiden til UTC + 0
-///
 /// =================================================================
 
 ///

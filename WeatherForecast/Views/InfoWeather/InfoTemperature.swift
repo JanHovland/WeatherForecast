@@ -493,21 +493,14 @@ private func Forecast(index: Int,
     toDay = date
     toMorrow = toDay.adding(days: 1)
     yesterDay = toDay.adding(days: -1)
-    
-    print("toDay     = \(toDay)")
-    print("toMorrow  = \(toMorrow)")
-    print("yesterDay = \(yesterDay)")
-    
     arrayToDay.removeAll()
     arrayYesterDay.removeAll()
-    
     hourForecast!.forEach  {
         if $0.date >= toDay &&
             $0.date < toMorrow {
             arrayToDay.append($0.apparentTemperature.value)
         }
     }
-    
     hourForecast!.forEach  {
         if $0.date >= yesterDay &&
             $0.date < toDay {

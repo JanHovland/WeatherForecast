@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 func FindMoonUpDown(url: String,
                     key: String,
                     latitude : Double?,
@@ -35,7 +34,6 @@ func FindMoonUpDown(url: String,
             let urlSession = URLSession.shared
             let (jsonData, _) = try await urlSession.data(from: url)
             let metApiMoon = try? JSONDecoder().decode(WeatherApiMoon.self, from: jsonData)
-            debugPrint(metApiMoon as Any)
             ///
             /// Oppdaterer moonRecord:
             ///
