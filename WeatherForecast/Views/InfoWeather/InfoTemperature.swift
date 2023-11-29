@@ -476,6 +476,16 @@ private func Forecast(index: Int,
     }
     
     text1 = String(localized: "The highest felt temperature is lower today than yesterday.")
+
+    ///
+    /// Finner følt temperatur i dag og i går:
+    ///
+
+//        hourForecast!.forEach  {
+//        if $0.date >= value.0 &&
+//            $0.date < value.1 {
+//        }
+//    }
     
     return (text, text1)
 }

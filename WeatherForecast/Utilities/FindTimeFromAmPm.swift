@@ -23,9 +23,7 @@ func FindTimeFromAmPm(time: String) -> String {
     if time == "No moonrise" {
         return String(localized: "No moonrise")
     }
-    if newTime.count > 0 {
-        
-        
+    if time.count > 0 {
         ///
         /// legger til "0" :
         ///
@@ -57,7 +55,9 @@ func FindTimeFromAmPm(time: String) -> String {
         /// Oppdaterer avhengig av "AM" eller "PM"
         ///
         if stringAmPm == "PM" {
-            hour = hour + 12
+            if hour < 12 {
+                hour = hour + 12
+            } 
         }
         if stringAmPm == "AM" {
             if hour >= 12 {

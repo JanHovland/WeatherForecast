@@ -65,20 +65,6 @@ struct MoonView: View {
                 }
             }
             ///
-            /// Måneoppgang:
-            ///
-            HStack {
-                HStack {
-                   Text("MoonRise")
-                    Spacer()
-                }
-                HStack {
-                    Spacer()
-                    Text(FindTimeFromAmPm(time: currentWeather.moonrise))
-                }
-            }
-
-            ///
             /// Månenedgang:
             ///
             HStack {
@@ -89,6 +75,19 @@ struct MoonView: View {
                 HStack {
                     Spacer()
                     Text(FindTimeFromAmPm(time: currentWeather.moonset))
+                }
+            }
+            ///
+            /// Måneoppgang:
+            ///
+            HStack {
+                HStack {
+                   Text("MoonRise")
+                    Spacer()
+                }
+                HStack {
+                    Spacer()
+                    Text(FindTimeFromAmPm(time: currentWeather.moonrise))
                 }
             }
             ///
