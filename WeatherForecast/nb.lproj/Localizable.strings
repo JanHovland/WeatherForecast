@@ -1447,7 +1447,13 @@
 "Yesterday" = "I går";
 
 /* No comment provided by engineer. */
-"The highest felt temperature is lower today than yesterday." = "Høyeste følte temperatur er lavere i dag enn i går.";
+"The felt temperature today is higher than yesterday." = "Den følte temperaturen i dag er høyere enn i går.";
+
+/* No comment provided by engineer. */
+"The felt temperature today is the same as yesterday." = "Den følte temperaturen i dag er den samme som i går.";
+
+/* No comment provided by engineer. */
+"The felt temperature today is lower than yesterday." = "Den følte temperaturen i dag er lavere enn i går.";
 
 
 

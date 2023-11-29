@@ -24,6 +24,9 @@ struct InfoTemperature : View {
     @State private var text1: String = ""
     @State private var text2: String = String(localized: "Freshly fallen dry snow has a water value of around 0.1, which means that 10 centimeters of snow when melted gives 1 centimeter of water. 1 millimeter of precipitation gives a snow depth of 10 millimeters. In older snow, many of the snow crystals' small spikes and sharp edges have disappeared. The rounder crystals take up less space, and the snow sinks together. The higher the temperature, the faster this process goes. Fresh snow can have a water value of up to 0.2–0.3 if it accumulates while it is snowing. Beyond spring, the water value of the snow cover is usually 0.2–0.3 in the lowlands and 0.3–0.5 in mountainous areas.")
     
+    @State private var feltTempToDay: Double = 0.00
+    @State private var feltTempYesterDay: Double = 0.00
+    
     @State private var min: Double = 0.00
     @State private var max: Double = 0.00
     @State private var minIndex: Int = 0
@@ -191,7 +194,7 @@ struct InfoTemperature : View {
                 }
                 HStack {
                     Spacer()
-                    Text("-2.0 ºC")
+                    Text("\(feltTempToDay, specifier: "%.1f") ºC")
                 }
             }
 
@@ -203,7 +206,7 @@ struct InfoTemperature : View {
                 }
                 HStack {
                     Spacer()
-                    Text("2.0 ºC")
+                    Text("\(feltTempYesterDay, specifier: "%.1f") ºC")
                 }
             }
         }
@@ -217,12 +220,12 @@ struct InfoTemperature : View {
             ///
             /// Bygger opp værmeldingen:
             ///
-            (text, text1) = Forecast(index: index,
-                                     dayArray: dayArray,
-                                     weekdayArray: weekdayArray,
-                                     tempInfo: tempInfo,
-                                     date: dateSettings.dates[index],
-                                     offsetSec: weatherInfo.offsetSec)
+            (text, text1, feltTempToDay, feltTempYesterDay) = Forecast(index: index,
+                                                                       dayArray: dayArray,
+                                                                       weekdayArray: weekdayArray,
+                                                                       tempInfo: tempInfo,
+                                                                       date: dateSettings.dates[index],
+                                                                       offsetSec: weatherInfo.offsetSec)
         }
         .task {
             ///
@@ -232,12 +235,12 @@ struct InfoTemperature : View {
             ///
             /// Bygger opp værmeldingen:
             ///
-            (text, text1) = Forecast(index: index,
-                                     dayArray: dayArray,
-                                     weekdayArray: weekdayArray,
-                                     tempInfo: tempInfo,
-                                     date: dateSettings.dates[index],
-                                     offsetSec: weatherInfo.offsetSec)
+            (text, text1, feltTempToDay, feltTempYesterDay) = Forecast(index: index,
+                                                                       dayArray: dayArray,
+                                                                       weekdayArray: weekdayArray,
+                                                                       tempInfo: tempInfo,
+                                                                       date: dateSettings.dates[index],
+                                                                       offsetSec: weatherInfo.offsetSec)
         }
     }
 }
@@ -306,13 +309,15 @@ private func Forecast(index: Int,
                       weekdayArray: [String],
                       tempInfo: [Temperature],
                       date: Date,
-                      offsetSec: Int) -> (String, String) {
+                      offsetSec: Int) -> (String, String, Double, Double) {
     
     
     var dayTempInfo: [DayTempInfo] = []
     
     var text: String = ""
     var text1: String = ""
+    var feltTempToDay = Double()
+    var feltTempYesterDay = Double()
     var weekDay: String = ""
     
     var minTemp: Double = 0.00
@@ -329,6 +334,13 @@ private func Forecast(index: Int,
     
     var indexMinAppearentTemp: Int = 0
     var indexMaxAppearentTemp: Int = 0
+    
+    var toDay = Date()
+    var toMorrow = Date()
+    var yesterDay = Date()
+    
+    var arrayToDay: [Double] = Array(repeating: Double(), count: sizeArray24)
+    var arrayYesterDay: [Double] = Array(repeating: Double(), count: sizeArray24)
     
     ///
     /// Finner minimum temperaturen (vanlig temperatur) :
@@ -474,20 +486,48 @@ private func Forecast(index: Int,
         text = text + IndexToHour(index: indexMaxAppearentTemp)
         text = text + "."
     }
-    
-    text1 = String(localized: "The highest felt temperature is lower today than yesterday.")
-
     ///
     /// Finner følt temperatur i dag og i går:
     ///
-
-//        hourForecast!.forEach  {
-//        if $0.date >= value.0 &&
-//            $0.date < value.1 {
-//        }
-//    }
     
-    return (text, text1)
+    toDay = date
+    toMorrow = toDay.adding(days: 1)
+    yesterDay = toDay.adding(days: -1)
+    
+    print("toDay     = \(toDay)")
+    print("toMorrow  = \(toMorrow)")
+    print("yesterDay = \(yesterDay)")
+    
+    arrayToDay.removeAll()
+    arrayYesterDay.removeAll()
+    
+    hourForecast!.forEach  {
+        if $0.date >= toDay &&
+            $0.date < toMorrow {
+            arrayToDay.append($0.apparentTemperature.value)
+        }
+    }
+    
+    hourForecast!.forEach  {
+        if $0.date >= yesterDay &&
+            $0.date < toDay {
+            arrayYesterDay.append($0.apparentTemperature.value)
+        }
+    }
+    ///
+    /// Finner den høyest følte temperaturen i dag og i går
+    ///
+    if arrayToDay.max()! > arrayYesterDay.max()! {
+        text1 = String(localized: "The felt temperature today is higher than yesterday.")
+    } else if arrayToDay.max()! == arrayYesterDay.max()! {
+        text1 = String(localized: "The felt temperature today is the same as yesterday.")
+    } else {
+        text1 = String(localized: "The felt temperature today is lower than yesterday.")
+    }
+    feltTempToDay = arrayToDay.max()!
+    feltTempYesterDay = arrayYesterDay.max()!
+
+    return (text, text1, feltTempToDay, feltTempYesterDay)
 }
 
 private func TempInfoValues(tempInfo: [Temperature],
