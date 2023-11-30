@@ -587,7 +587,7 @@
 "The felt temperature today will extend from " = "Den følte temperaturen i dag vil strekke seg fra ";
 
 /* No comment provided by engineer. */
-"The lowest felt temperature on " = "Den lavest følte temperatur på ";
+"The lowest felt temperature on " = "Den laveste følte temperatur på ";
 
 /* No comment provided by engineer. */
 " and the highest felt temperature will be " = " og den høyeste følte temperatur blir ";
@@ -1454,6 +1454,11 @@
 
 /* No comment provided by engineer. */
 "The felt temperature today is lower than yesterday." = "Den følte temperaturen i dag er lavere enn i går.";
+
+/* No comment provided by engineer. */
+" and the highest is " = " og den høyeste er ";
+/* No comment provided by engineer. */
+"The highest felt temperature " = "Den høyeste følte temperaturen er ";
 
 
 

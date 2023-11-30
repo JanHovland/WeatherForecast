@@ -510,8 +510,8 @@ private func Forecast(index: Int,
         text = text + "º"
         text = text + String(localized: " at ")
         text = text + IndexToHour(index: indexMinAppearentTemp)
-        text = text + ",\n"
-        text = text + String(localized: "the highest ")
+        text = text + ".\n"
+        text = text + String(localized: "The highest felt temperature ")
         text = text + "\(Int(maxAppearentTemp.rounded()))"
         text = text + "º"
         text = text + String(localized: " kl. ")
