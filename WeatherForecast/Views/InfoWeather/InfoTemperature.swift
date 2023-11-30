@@ -71,10 +71,8 @@ struct InfoTemperature : View {
                     .padding(.horizontal, 10)
             }
             ///
-            /// Viser oversikt over nedbør siste 24t og neste 24t
-            ///  Ved index > 0 vises
+            /// Ved index > 0 vises vises oversikt over nedbør siste 24t og neste 24t
             ///
-            
             if index == 0 {
                 VStack (alignment: .leading) {
                     ///
@@ -155,7 +153,41 @@ struct InfoTemperature : View {
                     }
                 }
             } else {
-                Text("Nedbør->")
+                ///
+                /// Viser oversikt over nedbør denne dagen
+                ///
+                if precification.rainThisDay == 0.00,
+                    precification.snowThisDay == 0.00,
+                    precification.hailThisDay == 0.00,
+                    precification.mixedThisDay == 0.00,
+                    precification.sleetThisDay == 0.00 {
+                    HStack {
+                        HStack {
+                            Text("Precification")
+                            Spacer()
+                        }
+                        HStack {
+                            Spacer()
+                            Text("0.0 mm")
+                        }
+                    }
+                } else {
+                    if precification.rainThisDay > 0.00 {
+                        ShowItem(heading: String(localized: "Rain "), value: precification.rainThisDay)
+                    }
+                    if precification.snowThisDay > 0.00 {
+                        ShowItem(heading: String(localized: "Snow"), value: precification.snowThisDay)
+                    }
+                    if precification.hailThisDay > 0.00 {
+                        ShowItem(heading: String(localized: "Hail"), value: precification.hailThisDay)
+                    }
+                    if precification.mixedThisDay > 0.00 {
+                        ShowItem(heading: String(localized: "Mixed"), value: precification.mixedThisDay)
+                    }
+                    if precification.sleetThisDay > 0.00 {
+                        ShowItem(heading: String(localized: "Sleet"), value: precification.sleetThisDay)
+                    }
+                }
             }
             ///
             /// Værvarsel:
