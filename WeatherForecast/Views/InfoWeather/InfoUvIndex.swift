@@ -29,6 +29,9 @@ struct InfoUvIndex : View {
     @State private var uvIndexToDay: Int = 0
     @State private var uvIndexYesterDay: Int = 0
     
+    @State private var factorToDay: CGFloat = 1.00
+    @State private var factorYesterDay: CGFloat = 1.00
+    
     var body: some View {
         VStack (alignment: .leading) {
             
@@ -53,37 +56,13 @@ struct InfoUvIndex : View {
                     .textFieldStyle(.roundedBorder)
                     .disabled(true)
                 ///
-                /// Viser nivået i dag
+                /// Viser nivået i dag og i går
                 ///
-                HStack {
-                    HStack {
-                        Text("Today")
-                        Spacer()
-                    }
-                    HStack {
-                        Spacer()
-                        Text("\(uvIndexToDay)")
-                            .fontWeight(.bold)
-                            .modifier(ForegroundUvIndexViewModifier(value: uvIndexToDay))
-                    }
-                }
-                .padding(10)
-                ///
-                /// Viser nivået i går
-                ///
-                HStack {
-                    HStack {
-                        Text("Yesterday")
-                        Spacer()
-                    }
-                    HStack {
-                        Spacer()
-                        Text("\(uvIndexYesterDay)")
-                            .fontWeight(.bold)
-                            .modifier(ForegroundUvIndexViewModifier(value: uvIndexToDay))
-                    }
-                }
-                .padding(10)
+                ProgressView(value: 0.5)
+                    .progressViewStyle(UvIndexProgressViewStyle(uvIndexToDay: uvIndexToDay,
+                                                                uvIndexYesterDay: uvIndexYesterDay,
+                                                                factorToDay: factorToDay,
+                                                                factorYesterDay: factorYesterDay))
             }
             ///
             /// Om uv-imdexen
@@ -103,19 +82,19 @@ struct InfoUvIndex : View {
         .task {
             max = dayArray.max()!
             
-            (text1, text2, uvIndexToDay, uvIndexYesterDay) =  Forecast(index: index,
-                                                                       weekdayArray: weekdayArray,
-                                                                       max: max,
-                                                                       date: dateSettings.dates[index],
-                                                                       offsetSec: weatherInfo.offsetSec)
+            (text1, text2, uvIndexToDay, uvIndexYesterDay, factorToDay, factorYesterDay) =  Forecast(index: index,
+                                                                                                     weekdayArray: weekdayArray,
+                                                                                                     max: max,
+                                                                                                     date: dateSettings.dates[index],
+                                                                                                     offsetSec: weatherInfo.offsetSec)
         }
         .onChange(of: index) { oldIndex, index in
             
-            (text1, text2, uvIndexToDay, uvIndexYesterDay) =  Forecast(index: index,
-                                                                       weekdayArray: weekdayArray,
-                                                                       max: max,
-                                                                       date: dateSettings.dates[index],
-                                                                       offsetSec: weatherInfo.offsetSec)
+            (text1, text2, uvIndexToDay, uvIndexYesterDay, factorToDay, factorYesterDay) =  Forecast(index: index,
+                                                                                                     weekdayArray: weekdayArray,
+                                                                                                     max: max,
+                                                                                                     date: dateSettings.dates[index],
+                                                                                                     offsetSec: weatherInfo.offsetSec)
         }
     }
     
@@ -125,7 +104,7 @@ private func Forecast(index: Int,
                       weekdayArray: [String],
                       max: Double,
                       date: Date,
-                      offsetSec: Int) -> (String, String, Int, Int) {
+                      offsetSec: Int) -> (String, String, Int, Int, CGFloat, CGFloat) {
     
     var text: String = ""
     var weekDay: String = ""
@@ -142,6 +121,9 @@ private func Forecast(index: Int,
     
     var uvIndexToDay = Int()
     var uvIndexYesterDay = Int()
+    
+    var factorToDay: CGFloat = 1.00
+    var factorYesterDay: CGFloat = 1.00
     
     if index == 0 {
         text = String(localized: "Now it is ")
@@ -192,15 +174,73 @@ private func Forecast(index: Int,
     ///
     uvIndexToDay = arrayToDay.max()!
     uvIndexYesterDay = arrayYesterDay.max()!
-    
-    if uvIndexYesterDay > uvIndexYesterDay {
+    if uvIndexToDay > uvIndexYesterDay {
         text2 = String(localized: "The uvIndex today is higher than yesterday.")
+        factorToDay = 1
+        factorYesterDay =  CGFloat(uvIndexYesterDay / uvIndexToDay)
     } else if uvIndexYesterDay == uvIndexYesterDay {
         text2 = String(localized: "The uvIndex today is the same as yesterday.")
+        factorToDay = 1.00
+        factorYesterDay = 1.00
     } else {
         text2 = String(localized: "The uvIndex today is lower than yesterday.")
+        factorToDay = CGFloat(uvIndexToDay / uvIndexYesterDay)
+        factorYesterDay = 1
     }
-    
-    return (text, text2, uvIndexToDay, uvIndexYesterDay)
+
+    return (text, text2, uvIndexToDay, uvIndexYesterDay, factorToDay, factorYesterDay)
     
 }
+
+struct UvIndexProgressViewStyle: ProgressViewStyle {
+    var uvIndexToDay: Int
+    var uvIndexYesterDay: Int
+    var factorToDay: CGFloat
+    var factorYesterDay: CGFloat
+    
+    func makeBody(configuration: Configuration) -> some View {
+        VStack (alignment: .leading) {
+            HStack {
+                HStack {
+                    RoundedRectangle(cornerRadius: 5)
+                        .frame(width: (UIDevice.isIpad ? 430 : 290) * factorToDay, height: 20)
+                        .foregroundColor(.white)
+                        .overlay (
+                            HStack {
+                                Text("I dag")
+                                    .foregroundStyle(.black)
+                                    .padding(.leading, 5)
+                                Spacer()
+                            }
+                        )
+                    Spacer()
+                }
+                HStack {
+                    Spacer()
+                    Text("\(uvIndexToDay)")
+                }
+            }
+            HStack {
+                HStack {
+                    RoundedRectangle(cornerRadius: 5)
+                        .frame(width: (UIDevice.isIpad ? 430 : 290) * factorYesterDay, height: 20)
+                        .foregroundColor(.gray)
+                        .overlay (
+                            HStack {
+                                Text("I går")
+                                    .padding(.leading, 5)
+                                Spacer()
+                            }
+                        )
+                    Spacer()
+                }
+                HStack {
+                    Spacer()
+                    Text("\(uvIndexYesterDay)")
+                }
+            }
+        }
+        .padding(5)
+    }
+}
+
