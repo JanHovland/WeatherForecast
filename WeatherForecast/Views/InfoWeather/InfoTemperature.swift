@@ -521,7 +521,6 @@ private func Forecast(index: Int,
     ///
     /// Finner følt temperatur i dag og i går:
     ///
-    
     toDay = date
     toMorrow = toDay.adding(days: 1)
     yesterDay = toDay.adding(days: -1)
@@ -542,15 +541,16 @@ private func Forecast(index: Int,
     ///
     /// Finner den høyest følte temperaturen i dag og i går
     ///
-    if arrayToDay.max()! > arrayYesterDay.max()! {
+    feltTempToDay = arrayToDay.max()!
+    feltTempYesterDay = arrayYesterDay.max()!
+    
+    if feltTempToDay > feltTempYesterDay {
         text1 = String(localized: "The felt temperature today is higher than yesterday.")
-    } else if arrayToDay.max()! == arrayYesterDay.max()! {
+    } else if feltTempToDay == feltTempYesterDay {
         text1 = String(localized: "The felt temperature today is the same as yesterday.")
     } else {
         text1 = String(localized: "The felt temperature today is lower than yesterday.")
     }
-    feltTempToDay = arrayToDay.max()!
-    feltTempYesterDay = arrayYesterDay.max()!
 
     return (text, text1, feltTempToDay, feltTempYesterDay)
 }

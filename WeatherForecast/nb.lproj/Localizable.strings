@@ -1139,7 +1139,7 @@
 "Show weather for places in CloudKit" = "Vis været for stedene i CloudKit";
 
 /* No comment provided by engineer. */
-" the level is low all day." = " lavt nivå hele dagen.";
+" the level is low all day." = " UV-indeksen vil holde seg lavt hele dagen.";
 
 /* No comment provided by engineer. */
 " the level is high all day." = " nivået er høyt deler av dagen.";
@@ -1457,8 +1457,17 @@
 
 /* No comment provided by engineer. */
 " and the highest is " = " og den høyeste er ";
+
 /* No comment provided by engineer. */
 "The highest felt temperature " = "Den høyeste følte temperaturen er ";
 
+/* No comment provided by engineer. */
+"The uvIndex today is higher than yesterday." = "UV-strålingen i dag er på et høyere nivå enn i går.";
+
+/* No comment provided by engineer. */
+"The uvIndex today is the same as yesterday." = "UV-strålingen i dag er på samme nivå som i går.";
+
+/* No comment provided by engineer. */
+"The uvIndex today is lower than yesterday." = "UV-strålingen i dag er på et lavere nivå enn i går.";
 
 

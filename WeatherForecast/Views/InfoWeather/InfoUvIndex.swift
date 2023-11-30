@@ -10,31 +10,87 @@ import SwiftUI
 struct InfoUvIndex : View {
     
     var index: Int
-
+    
     @Environment(CurrentWeather.self) private var currentWeather
-
+    
     @Binding var dayArray : [Double]
     @Binding var weatherIcon : [WeatherIcon]
     @Binding var weekdayArray: [String]
     
     @Environment(WeatherInfo.self) private var weatherInfo
+    @Environment(DateSettings.self) private var dateSettings
     
     @State private var info : String = ""
     @State private var max : Double = 0.00
     @State private var option1: EnumType = .number12
     @State private var text : String = String(localized: "The UV index of the World Health Organization (UVI) measures ultraviolet radiation. The higher the UVI, the greater the chance of skin damage, and the faster the damage can occur. UVI can give you the necessary information about when you should protect yourself from the sun, and when you should avoid staying outdoors. WHO recommends that you stay in the shade or use sunscreen, a hat or protective clothing when the level is 3 (moderate) or higher.")
+    @State private var text1 : String = ""
+    @State private var text2 : String = ""
+    @State private var uvIndexToDay: Int = 0
+    @State private var uvIndexYesterDay: Int = 0
     
     var body: some View {
         VStack (alignment: .leading) {
             
-            Text(Forecast(index: index,
-                          weekdayArray: weekdayArray,
-                          max: max,
-                          date: currentWeather.date,
-                          offsetSec: weatherInfo.offsetSec))
-                
+            Text(text1)
+                .lineLimit(12)
+                .textFieldStyle(.roundedBorder)
+                .disabled(true)
+            
+            if index == 0 {
+                ///
+                ///  Dagsforskjeller:
+                ///
+                Text("Day differences")
+                    .fontWeight(.bold)
+                    .padding(.bottom, 20)
+                    .padding(.top, 10)
+                ///
+                /// info om forskjellene
+                ///
+                TextField("", text: $text2, axis: .vertical)
+                    .lineLimit(12)
+                    .textFieldStyle(.roundedBorder)
+                    .disabled(true)
+                ///
+                /// Viser nivået i dag
+                ///
+                HStack {
+                    HStack {
+                        Text("Today")
+                        Spacer()
+                    }
+                    HStack {
+                        Spacer()
+                        Text("\(uvIndexToDay)")
+                            .fontWeight(.bold)
+                            .modifier(ForegroundUvIndexViewModifier(value: uvIndexToDay))
+                    }
+                }
+                .padding(10)
+                ///
+                /// Viser nivået i går
+                ///
+                HStack {
+                    HStack {
+                        Text("Yesterday")
+                        Spacer()
+                    }
+                    HStack {
+                        Spacer()
+                        Text("\(uvIndexYesterDay)")
+                            .fontWeight(.bold)
+                            .modifier(ForegroundUvIndexViewModifier(value: uvIndexToDay))
+                    }
+                }
+                .padding(10)
+            }
+            ///
+            /// Om uv-imdexen
+            ///
             Text(String(localized: "About the UV-index"))
                 .fontWeight(.bold)
+                .padding(.top, index == 0 ? 20 : 0)
             
             TextField("", text: $text, axis: .vertical)
                 .lineLimit(12)
@@ -46,6 +102,20 @@ struct InfoUvIndex : View {
         .frame(width: UIDevice.isIpad ? 490 : 350)
         .task {
             max = dayArray.max()!
+            
+            (text1, text2, uvIndexToDay, uvIndexYesterDay) =  Forecast(index: index,
+                                                                       weekdayArray: weekdayArray,
+                                                                       max: max,
+                                                                       date: dateSettings.dates[index],
+                                                                       offsetSec: weatherInfo.offsetSec)
+        }
+        .onChange(of: index) { oldIndex, index in
+            
+            (text1, text2, uvIndexToDay, uvIndexYesterDay) =  Forecast(index: index,
+                                                                       weekdayArray: weekdayArray,
+                                                                       max: max,
+                                                                       date: dateSettings.dates[index],
+                                                                       offsetSec: weatherInfo.offsetSec)
         }
     }
     
@@ -55,13 +125,24 @@ private func Forecast(index: Int,
                       weekdayArray: [String],
                       max: Double,
                       date: Date,
-                      offsetSec: Int) -> String {
+                      offsetSec: Int) -> (String, String, Int, Int) {
     
     var text: String = ""
     var weekDay: String = ""
     
     let text1 = String(localized: " Remember to use suncream, a hat or protective clothing when the level is 3 (moderate) or higher.")
- 
+    var text2: String = ""
+    
+    var toDay = Date()
+    var toMorrow = Date()
+    var yesterDay = Date()
+    
+    var arrayToDay: [Int] = Array(repeating: Int(), count: sizeArray24)
+    var arrayYesterDay: [Int] = Array(repeating: Int(), count: sizeArray24)
+    
+    var uvIndexToDay = Int()
+    var uvIndexYesterDay = Int()
+    
     if index == 0 {
         text = String(localized: "Now it is ")
         text = text + "\(FormatDateToString(date: date, format: ("EEEE d. MMMM HH:mm"), offsetSec: offsetSec))"
@@ -86,5 +167,40 @@ private func Forecast(index: Int,
         text = text + "\n"
     }
     
-    return text
+    ///
+    /// Finner Uv-indeks i dag og i går:
+    ///
+    toDay = date.setTime(hour: 0, min: 0, sec: 0)!
+    toMorrow = toDay.adding(days: 1)
+    yesterDay = toDay.adding(days: -1)
+    arrayToDay.removeAll()
+    arrayYesterDay.removeAll()
+    hourForecast!.forEach  {
+        if $0.date >= toDay &&
+            $0.date < toMorrow {
+            arrayToDay.append($0.uvIndex.value)
+        }
+    }
+    hourForecast!.forEach  {
+        if $0.date >= yesterDay &&
+            $0.date < toDay {
+            arrayYesterDay.append($0.uvIndex.value)
+        }
+    }
+    ///
+    /// Finner den høyestuvIndex  i dag og i går
+    ///
+    uvIndexToDay = arrayToDay.max()!
+    uvIndexYesterDay = arrayYesterDay.max()!
+    
+    if uvIndexYesterDay > uvIndexYesterDay {
+        text2 = String(localized: "The uvIndex today is higher than yesterday.")
+    } else if uvIndexYesterDay == uvIndexYesterDay {
+        text2 = String(localized: "The uvIndex today is the same as yesterday.")
+    } else {
+        text2 = String(localized: "The uvIndex today is lower than yesterday.")
+    }
+    
+    return (text, text2, uvIndexToDay, uvIndexYesterDay)
+    
 }
