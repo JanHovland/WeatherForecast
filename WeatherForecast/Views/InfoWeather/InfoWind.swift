@@ -83,9 +83,13 @@ struct InfoWind : View {
             ///
             /// Beskrivelse av Beaufort skalaen
             ///
-            
-            
-
+            VStack(alignment: .leading) {
+                Text("bft              Beskrivelse                   m/s")
+                Text("0\t\t\tFlau vind\t\t\t\t<0.5")
+                Text("1\t\t\tStille\t\t\t\t\t0.5 - 1,5")
+            }
+            .padding(.leading, 10)
+     
             Spacer()
         }
         .frame(width: UIDevice.isIpad ? 490 : 350)
