@@ -10,17 +10,23 @@ import SwiftUI
 struct InfoWind : View {
 
     var index: Int
+    var option: EnumType
     @Binding var dayArray : [Double]
     @Binding var windInfo : [WindInfo]
     @Binding var weekdayArray: [String]
 
     @State private var text : String = String(localized: "The wind speed is calculated based on the average over a short period of time. Gusts are sudden changes in wind strength above the average speed. A gust usually lasts less than 20 seconds.")
-
-    @State private var text1 : String = "" // String(localized: "The wind ")
-    @Environment(CurrentWeather.self) private var currentWeather
+    @State private var text1 : String = ""
+    @State private var text2 : String = ""
     
+    @Environment(CurrentWeather.self) private var currentWeather
     @Environment(WeatherInfo.self) private var weatherInfo
-
+    
+    @State private var windToDay: Double = 10.00
+    @State private var windYesterDay: Double = 20.00
+    @State private var factorToDay: Double = 0.50
+    @State private var factorYesterDay: Double = 1.00
+    
     var body: some View {
         VStack (alignment: .leading) {
 
@@ -31,14 +37,54 @@ struct InfoWind : View {
                 .lineLimit(10)
                 .textFieldStyle(.roundedBorder)
                 .disabled(true)
-
+            ///
+            ///  Dagsforskjeller:
+            ///
+            if index == 0 {
+                Text("Day differences")
+                    .fontWeight(.bold)
+                    .padding(.bottom, 20)
+                    .padding(.top, 10)
+                ///
+                /// info om forskjellene
+                ///
+                TextField("", text: $text2, axis: .vertical)
+                    .lineLimit(12)
+                    .textFieldStyle(.roundedBorder)
+                    .disabled(true)
+                ///
+                /// Viser nivået i dag og i går
+                ///
+                ProgressView(value: 0.5)
+                    .progressViewStyle(ProgressViewStyleModifier(option: option,
+                                                                 valueToDay: windToDay,
+                                                                 valueYesterDay: windYesterDay,
+                                                                 factorToDay: factorToDay,
+                                                                 factorYesterDay: factorYesterDay))
+            }
+            ///
+            /// Om vinden
+            ///
             Text(String(localized: "About wind speed and gusts"))
                 .fontWeight(.bold)
+                .padding(.top, 10)
 
             TextField("", text: $text, axis: .vertical)
                 .lineLimit(10)
                 .textFieldStyle(.roundedBorder)
                 .disabled(true)
+            ///
+            /// Overskrift Beaufort skalaen
+            ///
+            Text("Beaufort-scale")
+                .fontWeight(.bold)
+                .padding(.bottom, 20)
+                .padding(.top, 10)
+            ///
+            /// Beskrivelse av Beaufort skalaen
+            ///
+            
+            
 
             Spacer()
         }
@@ -47,22 +93,22 @@ struct InfoWind : View {
             ///
             /// Bygger opp værmeldingen:
             ///
-            text1 = Forecast(index: index,
-                             dayArray: dayArray,
-                             weekdayArray: weekdayArray,
-                             windInfo: windInfo,
-                             date: currentWeather.date,
-                             offsetSec: weatherInfo.offsetSec)
+            (text1, text2, windToDay, windYesterDay, factorToDay, factorYesterDay) = Forecast(index: index,
+                                                                                              dayArray: dayArray,
+                                                                                              weekdayArray: weekdayArray,
+                                                                                              windInfo: windInfo,
+                                                                                              date: currentWeather.date,
+                                                                                              offsetSec: weatherInfo.offsetSec)
         }
         .task {
             ///
             /// Bygger opp værmeldingen:
             ///
-            text1 = Forecast(index: index,
-                             dayArray: dayArray,
-                             weekdayArray: weekdayArray,
-                             windInfo: windInfo,
-                             date: currentWeather.date,
+            (text1, text2, windToDay, windYesterDay, factorToDay, factorYesterDay) = Forecast(index: index,
+                                                                                       dayArray: dayArray,
+                                                                                       weekdayArray: weekdayArray,
+                                                                                       windInfo: windInfo,
+                                                                                       date: currentWeather.date,
                              offsetSec: weatherInfo.offsetSec)
         }
     }
@@ -76,10 +122,22 @@ private func Forecast(index: Int,
                       weekdayArray: [String],
                       windInfo: [WindInfo],
                       date: Date,
-                      offsetSec: Int) -> String {
+                      offsetSec: Int) -> (String, String, Double, Double, Double, Double) {
 
     var text : String = ""
+    var text1 : String = ""
     var weekDay: String = ""
+    var toDay = Date()
+    var toMorrow = Date()
+    var yesterDay = Date()
+    
+    var windToDay: Double = 0.00
+    var windYesterDay: Double = 0.00
+    var factorToDay: Double = 1.00
+    var factorYesterDay: Double = 1.00
+    
+    var arrayToDay: [Double] = Array(repeating: Double(), count: sizeArray24)
+    var arrayYesterDay: [Double] = Array(repeating: Double(), count: sizeArray24)
 
     let minWindSpeed  = WindInfoValues(windInfo: windInfo,
                                        option: .windSpeed,
@@ -134,8 +192,53 @@ private func Forecast(index: Int,
         text = text + "\(Int(maxGustSpeed.rounded()))"
         text = text + " m/s."
     }
+    ///
+    /// Finner Uv-indeks i dag og i går:
+    ///
+    toDay = date.setTime(hour: 0, min: 0, sec: 0)!
+    toMorrow = toDay.adding(days: 1)
+    yesterDay = toDay.adding(days: -1)
+    arrayToDay.removeAll()
+    arrayYesterDay.removeAll()
+    hourForecast!.forEach  {
+        if $0.date >= toDay &&
+            $0.date < toMorrow {
+            ///
+            /// km/h
+            ///
+            arrayToDay.append($0.wind.speed.value)
+        }
+    }
+    hourForecast!.forEach  {
+        if $0.date >= yesterDay &&
+            $0.date < toDay {
+            ///
+            /// km/h
+            ///
+            arrayYesterDay.append($0.wind.speed.value)
+        }
+    }
+    ///
+    /// Finner den høyeste følt emperatur i dag og i går
+    ///
+    windToDay = arrayToDay.max()! * 1000 / 3600
+    windYesterDay = arrayYesterDay.max()! * 1000 / 3600
+    
+    if windToDay > windYesterDay {
+        text1 = String(localized: "The highest wind speed today is higher than yesterday.")
+        factorToDay = 1
+        factorYesterDay = windYesterDay / windToDay
+    } else if windToDay == windYesterDay {
+        text1 = String(localized: "The highest wind speed today is the same as yesterday.")
+        factorToDay = 1.00
+        factorYesterDay = 1.00
+    } else {
+        text1 = String(localized: "The highest wind speed today is lower than yesterday.")
+        factorToDay = windToDay / windYesterDay
+        factorYesterDay = 1
+    }
 
-    return text
+    return (text, text1, windToDay, windYesterDay, factorToDay, factorYesterDay)
 }
 
 private func WindInfoValues(windInfo: [WindInfo], option : EnumType, option1 : EnumType) -> Double {

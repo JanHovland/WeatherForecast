@@ -1470,4 +1470,13 @@
 /* No comment provided by engineer. */
 "The uvIndex today is lower than yesterday." = "UV-strålingen i dag er på et lavere nivå enn i går.";
 
+/* No comment provided by engineer. */
+"The highest wind speed today is higher than yesterday." = "Den høyeste vindhastigheten i dag er høyere enn i går.";
+
+/* No comment provided by engineer. */
+"The highest wind speed today is the same as yesterday." = "Den høyeste vindstyrken i dag er den samme som i går.";
+
+/* No comment provided by engineer. */
+"The highest wind speed today is lower than yesterday." = "Den høyeste vindhastigheten i dag er lavere enn i går.";
+
 

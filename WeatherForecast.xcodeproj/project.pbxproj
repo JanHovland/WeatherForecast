@@ -154,6 +154,7 @@
 		DBB4CCD2288869EA00B5C5C8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DBB4CCD1288869EA00B5C5C8 /* Preview Assets.xcassets */; };
 		DBB6905628FB0202006FA016 /* DayOverview.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB6905528FB0202006FA016 /* DayOverview.swift */; };
 		DBB99D392AE425BE0022B6E9 /* FindChartDataPrecipitation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB99D382AE425BE0022B6E9 /* FindChartDataPrecipitation.swift */; };
+		DBC475D12B19F0E8006ACDCB /* ProgressViewStyleModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC475D02B19F0E8006ACDCB /* ProgressViewStyleModifier.swift */; };
 		DBC65DE72907FE6B004635FE /* DateCalculation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC65DE62907FE6B004635FE /* DateCalculation.swift */; };
 		DBC6B3172AF81F1300D27E30 /* MoonRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC6B3162AF81F1300D27E30 /* MoonRecord.swift */; };
 		DBC9697C29005915009C089E /* ToDoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC9697B29005915009C089E /* ToDoView.swift */; };
@@ -338,6 +339,7 @@
 		DBB4CCD1288869EA00B5C5C8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		DBB6905528FB0202006FA016 /* DayOverview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayOverview.swift; sourceTree = "<group>"; };
 		DBB99D382AE425BE0022B6E9 /* FindChartDataPrecipitation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindChartDataPrecipitation.swift; sourceTree = "<group>"; };
+		DBC475D02B19F0E8006ACDCB /* ProgressViewStyleModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressViewStyleModifier.swift; sourceTree = "<group>"; };
 		DBC65DE62907FE6B004635FE /* DateCalculation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCalculation.swift; sourceTree = "<group>"; };
 		DBC6B3162AF81F1300D27E30 /* MoonRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoonRecord.swift; sourceTree = "<group>"; };
 		DBC9697B29005915009C089E /* ToDoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoView.swift; sourceTree = "<group>"; };
@@ -518,11 +520,12 @@
 				DB054768297086B20034AFBD /* DayDetailMenuDataViewOffsetViewModifier.swift */,
 				DB2727F32965CA77003B0903 /* DayDetailOffsetChartViewModifier.swift */,
 				DB8C17D229DDD58E00198DCB /* DayDetailPositionViewModifier.swift */,
+				DBF209D42B18E4C200F37926 /* ForegroundUvIndexViewModifier.swift */,
 				DB3E19212B14E3EE001FDF07 /* ImageViewModifier.swift */,
+				DBC475D02B19F0E8006ACDCB /* ProgressViewStyleModifier.swift */,
+				DBD295A12B1509D800275D5E /* SunDayAndNightViewModifier.swift */,
 				DB75926C2ADAD6C300B772A9 /* ValueAtPositionChart.swift */,
 				DB6DE821297C5AF4005BCCF9 /* WeatherForecastViewModifier.swift */,
-				DBD295A12B1509D800275D5E /* SunDayAndNightViewModifier.swift */,
-				DBF209D42B18E4C200F37926 /* ForegroundUvIndexViewModifier.swift */,
 			);
 			path = ViewModifier;
 			sourceTree = "<group>";
@@ -993,6 +996,7 @@
 				DB8C17D129DDB72300198DCB /* DayDetailShowSelection.swift in Sources */,
 				DB6968A9290F029000936C0E /* WeatherAlertRecord.swift in Sources */,
 				DBAC1A1A297FF4FC00D50DE6 /* GetCurrentLocation.swift in Sources */,
+				DBC475D12B19F0E8006ACDCB /* ProgressViewStyleModifier.swift in Sources */,
 				DB17F6AA295DF57100FC2A0B /* DayDetailWeatherDataVisibility.swift in Sources */,
 				DB5C0C5C2917CF9700141BDC /* UvIndexCurrentDescription.swift in Sources */,
 				DB9299E329C4CBE2002BA87A /* TranslateCountry.swift in Sources */,

@@ -37,6 +37,7 @@ struct DayDetailInfo: View {
             
         case .wind :
             InfoWind(index: index,
+                     option: option,
                      dayArray : $dayArray,
                      windInfo : $windInfo,
                      weekdayArray: $weekdayArray)

@@ -27,9 +27,9 @@ struct InfoUvIndex : View {
     @State private var text : String = String(localized: "The UV index of the World Health Organization (UVI) measures ultraviolet radiation. The higher the UVI, the greater the chance of skin damage, and the faster the damage can occur. UVI can give you the necessary information about when you should protect yourself from the sun, and when you should avoid staying outdoors. WHO recommends that you stay in the shade or use sunscreen, a hat or protective clothing when the level is 3 (moderate) or higher.")
     @State private var text1 : String = ""
     @State private var text2 : String = ""
+    
     @State private var uvIndexToDay: Double = 0.00
     @State private var uvIndexYesterDay: Double = 0.00
-    
     @State private var factorToDay: Double = 1.00
     @State private var factorYesterDay: Double = 1.00
     
@@ -60,11 +60,11 @@ struct InfoUvIndex : View {
                 /// Viser nivået i dag og i går
                 ///
                 ProgressView(value: 0.5)
-                    .progressViewStyle(ProgressStyleView(option: option,
-                                                         uvIndexToDay: uvIndexToDay,
-                                                         uvIndexYesterDay: uvIndexYesterDay,
-                                                         factorToDay: factorToDay,
-                                                         factorYesterDay: factorYesterDay))
+                    .progressViewStyle(ProgressViewStyleModifier(option: option,
+                                                                 valueToDay: uvIndexToDay,
+                                                                 valueYesterDay: uvIndexYesterDay,
+                                                                 factorToDay: factorToDay,
+                                                                 factorYesterDay: factorYesterDay))
             }
             ///
             /// Om uv-imdexen
@@ -150,7 +150,6 @@ private func Forecast(index: Int,
         }
         text = text + "\n"
     }
-    
     ///
     /// Finner Uv-indeks i dag og i går:
     ///
@@ -172,7 +171,7 @@ private func Forecast(index: Int,
         }
     }
     ///
-    /// Finner den høyestuvIndex  i dag og i går
+    /// Finner den høyest uvIndex  i dag og i går
     ///
     uvIndexToDay = Double(arrayToDay.max()!)
     uvIndexYesterDay = Double(arrayYesterDay.max()!)
@@ -192,62 +191,5 @@ private func Forecast(index: Int,
     /// https://stackoverflow.com/questions/34929932/round-up-double-to-2-decimal-places?rq=3
     return (text, text2, uvIndexToDay, uvIndexYesterDay, factorToDay, factorYesterDay)
     
-}
-
-struct ProgressStyleView: ProgressViewStyle {
-    var option: EnumType
-    var uvIndexToDay: Double
-    var uvIndexYesterDay: Double
-    var factorToDay: CGFloat
-    var factorYesterDay: CGFloat
-    
-    func makeBody(configuration: Configuration) -> some View {
-        VStack (alignment: .leading) {
-            HStack {
-                HStack {
-                    RoundedRectangle(cornerRadius: 5)
-                        .frame(width: (UIDevice.isIpad ? 430 : 290) * factorToDay, height: 20)
-                        .foregroundColor(.white)
-                        .overlay (
-                            HStack {
-                                Text("I dag")
-                                    .foregroundStyle(.black)
-                                    .padding(.leading, 5)
-                                Spacer()
-                            }
-                        )
-                    Spacer()
-                }
-                HStack {
-                    Spacer()
-                    if option == .uvIndex {
-                        Text("\(Int(uvIndexToDay))")
-                    }
-                }
-            }
-            HStack {
-                HStack {
-                    RoundedRectangle(cornerRadius: 5)
-                        .frame(width: (UIDevice.isIpad ? 430 : 290) * factorYesterDay, height: 20)
-                        .foregroundColor(.gray)
-                        .overlay (
-                            HStack {
-                                Text("I går")
-                                    .padding(.leading, 5)
-                                Spacer()
-                            }
-                        )
-                    Spacer()
-                }
-                HStack {
-                    Spacer()
-                    if option == .uvIndex {
-                        Text("\(Int(uvIndexYesterDay))")
-                    }
-                }
-            }
-        }
-        .padding(5)
-    }
 }
 
