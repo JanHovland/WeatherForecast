@@ -10,6 +10,7 @@ import SwiftUI
 struct InfoUvIndex : View {
     
     var index: Int
+    var option: EnumType
     
     @Environment(CurrentWeather.self) private var currentWeather
     
@@ -26,11 +27,11 @@ struct InfoUvIndex : View {
     @State private var text : String = String(localized: "The UV index of the World Health Organization (UVI) measures ultraviolet radiation. The higher the UVI, the greater the chance of skin damage, and the faster the damage can occur. UVI can give you the necessary information about when you should protect yourself from the sun, and when you should avoid staying outdoors. WHO recommends that you stay in the shade or use sunscreen, a hat or protective clothing when the level is 3 (moderate) or higher.")
     @State private var text1 : String = ""
     @State private var text2 : String = ""
-    @State private var uvIndexToDay: Int = 0
-    @State private var uvIndexYesterDay: Int = 0
+    @State private var uvIndexToDay: Double = 0.00
+    @State private var uvIndexYesterDay: Double = 0.00
     
-    @State private var factorToDay: CGFloat = 1.00
-    @State private var factorYesterDay: CGFloat = 1.00
+    @State private var factorToDay: Double = 1.00
+    @State private var factorYesterDay: Double = 1.00
     
     var body: some View {
         VStack (alignment: .leading) {
@@ -59,10 +60,11 @@ struct InfoUvIndex : View {
                 /// Viser nivået i dag og i går
                 ///
                 ProgressView(value: 0.5)
-                    .progressViewStyle(UvIndexProgressViewStyle(uvIndexToDay: uvIndexToDay,
-                                                                uvIndexYesterDay: uvIndexYesterDay,
-                                                                factorToDay: factorToDay,
-                                                                factorYesterDay: factorYesterDay))
+                    .progressViewStyle(ProgressStyleView(option: option,
+                                                         uvIndexToDay: uvIndexToDay,
+                                                         uvIndexYesterDay: uvIndexYesterDay,
+                                                         factorToDay: factorToDay,
+                                                         factorYesterDay: factorYesterDay))
             }
             ///
             /// Om uv-imdexen
@@ -104,7 +106,7 @@ private func Forecast(index: Int,
                       weekdayArray: [String],
                       max: Double,
                       date: Date,
-                      offsetSec: Int) -> (String, String, Int, Int, CGFloat, CGFloat) {
+                      offsetSec: Int) -> (String, String, Double, Double, Double, Double) {
     
     var text: String = ""
     var weekDay: String = ""
@@ -116,14 +118,14 @@ private func Forecast(index: Int,
     var toMorrow = Date()
     var yesterDay = Date()
     
-    var arrayToDay: [Int] = Array(repeating: Int(), count: sizeArray24)
-    var arrayYesterDay: [Int] = Array(repeating: Int(), count: sizeArray24)
+    var arrayToDay: [Double] = Array(repeating: Double(), count: sizeArray24)
+    var arrayYesterDay: [Double] = Array(repeating: Double(), count: sizeArray24)
     
-    var uvIndexToDay = Int()
-    var uvIndexYesterDay = Int()
+    var uvIndexToDay: Double = 1.00
+    var uvIndexYesterDay: Double = 1.00
     
-    var factorToDay: CGFloat = 1.00
-    var factorYesterDay: CGFloat = 1.00
+    var factorToDay: Double = 1.00
+    var factorYesterDay: Double = 1.00
     
     if index == 0 {
         text = String(localized: "Now it is ")
@@ -160,41 +162,42 @@ private func Forecast(index: Int,
     hourForecast!.forEach  {
         if $0.date >= toDay &&
             $0.date < toMorrow {
-            arrayToDay.append($0.uvIndex.value)
+            arrayToDay.append(Double($0.uvIndex.value))
         }
     }
     hourForecast!.forEach  {
         if $0.date >= yesterDay &&
             $0.date < toDay {
-            arrayYesterDay.append($0.uvIndex.value)
+            arrayYesterDay.append(Double($0.uvIndex.value))
         }
     }
     ///
     /// Finner den høyestuvIndex  i dag og i går
     ///
-    uvIndexToDay = arrayToDay.max()!
-    uvIndexYesterDay = arrayYesterDay.max()!
+    uvIndexToDay = Double(arrayToDay.max()!)
+    uvIndexYesterDay = Double(arrayYesterDay.max()!)
     if uvIndexToDay > uvIndexYesterDay {
         text2 = String(localized: "The uvIndex today is higher than yesterday.")
         factorToDay = 1
-        factorYesterDay =  CGFloat(uvIndexYesterDay / uvIndexToDay)
-    } else if uvIndexYesterDay == uvIndexYesterDay {
+        factorYesterDay = uvIndexYesterDay / uvIndexToDay
+    } else if uvIndexToDay == uvIndexYesterDay {
         text2 = String(localized: "The uvIndex today is the same as yesterday.")
         factorToDay = 1.00
         factorYesterDay = 1.00
     } else {
         text2 = String(localized: "The uvIndex today is lower than yesterday.")
-        factorToDay = CGFloat(uvIndexToDay / uvIndexYesterDay)
+        factorToDay = uvIndexToDay / uvIndexYesterDay
         factorYesterDay = 1
     }
-
+    /// https://stackoverflow.com/questions/34929932/round-up-double-to-2-decimal-places?rq=3
     return (text, text2, uvIndexToDay, uvIndexYesterDay, factorToDay, factorYesterDay)
     
 }
 
-struct UvIndexProgressViewStyle: ProgressViewStyle {
-    var uvIndexToDay: Int
-    var uvIndexYesterDay: Int
+struct ProgressStyleView: ProgressViewStyle {
+    var option: EnumType
+    var uvIndexToDay: Double
+    var uvIndexYesterDay: Double
     var factorToDay: CGFloat
     var factorYesterDay: CGFloat
     
@@ -217,7 +220,9 @@ struct UvIndexProgressViewStyle: ProgressViewStyle {
                 }
                 HStack {
                     Spacer()
-                    Text("\(uvIndexToDay)")
+                    if option == .uvIndex {
+                        Text("\(Int(uvIndexToDay))")
+                    }
                 }
             }
             HStack {
@@ -236,7 +241,9 @@ struct UvIndexProgressViewStyle: ProgressViewStyle {
                 }
                 HStack {
                     Spacer()
-                    Text("\(uvIndexYesterDay)")
+                    if option == .uvIndex {
+                        Text("\(Int(uvIndexYesterDay))")
+                    }
                 }
             }
         }

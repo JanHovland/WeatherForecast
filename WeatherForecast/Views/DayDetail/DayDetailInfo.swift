@@ -30,6 +30,7 @@ struct DayDetailInfo: View {
             
         case .uvIndex :
             InfoUvIndex(index: index,
+                        option: option,
                         dayArray : $dayArray,
                         weatherIcon: $weatherIcon,
                         weekdayArray: $weekdayArray)
