@@ -124,7 +124,7 @@ struct InfoWind : View {
                 }
             }
             .font(.callout)
-            .listStyle(.insetGrouped)
+            .background(.background)
             ///
             /// Overskrift om Beaufort skalaen
             ///
