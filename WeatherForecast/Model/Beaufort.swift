@@ -7,7 +7,8 @@
 
 import SwiftUI
 
-struct Beaufort {
+struct Beaufort: Identifiable {
+    var id = UUID()
     var image: String = ""
     var value: Int = 0
     var description: String = ""

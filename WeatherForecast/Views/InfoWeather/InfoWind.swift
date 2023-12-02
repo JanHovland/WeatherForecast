@@ -18,6 +18,7 @@ struct InfoWind : View {
     @State private var text : String = String(localized: "The wind speed is calculated based on the average over a short period of time. Gusts are sudden changes in wind strength above the average speed. A gust usually lasts less than 20 seconds.")
     @State private var text1 : String = ""
     @State private var text2 : String = ""
+    @State private var text3: String = String(localized: "The Beaufort wind scale expresses how strongly the wind blows at a certain speed. The Beaufort scale can make it easier to understand how much wind is reported, and what effect it can have. Each value on the scale corresponds to a wind speed.")
     
     @Environment(CurrentWeather.self) private var currentWeather
     @Environment(WeatherInfo.self) private var weatherInfo
@@ -69,7 +70,8 @@ struct InfoWind : View {
             ///
             Text(String(localized: "About wind speed and gusts"))
                 .fontWeight(.bold)
-                .padding(.top, 10)
+                .padding(.top, 20)
+                .padding(.bottom, 20)
 
             TextField("", text: $text, axis: .vertical)
                 .lineLimit(10)
@@ -81,39 +83,63 @@ struct InfoWind : View {
             Text("Beaufort-scale")
                 .fontWeight(.bold)
                 .padding(.bottom, 20)
-                .padding(.top, 10)
+                .padding(.top, 20)
             ///
             /// Beskrivelse av Beaufort skalaen
             ///
             VStack(alignment: .leading) {
-                Text("bft              Beskrivelse                   m/s")
-                Text("0\t\t\tFlau vind\t\t\t\t<0.5")
-                Text("1\t\t\tStille\t\t\t\t\t0.5 - 1,5")
+                HStack {
+                    HStack {
+                        Text("bft")
+                        Spacer()
+                    }
+                    HStack {
+                        Text("Description")
+                        Spacer()
+                    }
+                    HStack {
+                        Text("m/s")
+                        Spacer()
+                    }
+                }
+                ForEach(beaufort) { bf in
+                    HStack {
+                        HStack (spacing: 10) {
+                            Image(bf.image)
+                                .resizable()
+                                .frame(width: 20, height: 20)
+                            Text("\(bf.value)")
+                            Spacer()
+                        }
+                        HStack {
+                            Text(bf.description)
+                            Spacer()
+                        }
+                        HStack {
+                            Text(bf.range)
+                            Spacer()
+                        }
+                    }
+                    Spacer()
+                }
             }
+            .font(.callout)
+            .listStyle(.insetGrouped)
+            ///
+            /// Overskrift om Beaufort skalaen
+            ///
+            Text("About the Beaufort-scale")
+                .fontWeight(.bold)
+                .padding(.bottom, 20)
+                .padding(.top, 20)
+            ///
+            /// Om Beaufort skalaen
+            ///
+            TextField("", text: $text3, axis: .vertical)
+                .lineLimit(12)
+                .textFieldStyle(.roundedBorder)
+                .disabled(true)
 
-            VStack(alignment: .leading) {
-                Image("Beaufort 0")
-                    .resizable()
-                    .frame(width: 10.0, height: 10.0)
-                Image("Beaufort 1")
-                    .resizable()
-                    .frame(width: 15.0, height: 15.0)
-                Image("Beaufort 2")
-                    .resizable()
-                    .frame(width: 20.0, height: 20.0)
-                Image("Beaufort 3")
-                Image("Beaufort 4")
-                Image("Beaufort 5")
-                Image("Beaufort 6")
-                Image("Beaufort 7")
-                Image("Beaufort 8")
-                Image("Beaufort 9")
-                Image("Beaufort 10")
-                Image("Beaufort 11")
-                Image("Beaufort 12")
-            }
-            .padding(.leading, 10)
-     
             Spacer()
         }
         .frame(width: UIDevice.isIpad ? 490 : 350)
@@ -132,19 +158,22 @@ struct InfoWind : View {
             ///
             /// Bygger opp beaufort:
             ///
-            let bft0 =  Beaufort(image: "Beaufort 0",  value: 0,  description: "Stille",       range: "< 0,5")
-            let bft1 =  Beaufort(image: "Beaufort 1",  value: 1,  description: "Flau vind",    range: "0,5 - 1,5")
-            let bft2 =  Beaufort(image: "Beaufort 2",  value: 2,  description: "Svak vind",    range: "1,6 - 3,2")
-            let bft3 =  Beaufort(image: "Beaufort 3",  value: 3,  description: "Lett bris",    range: "3,3 - 5,4")
-            let bft4 =  Beaufort(image: "Beaufort 4",  value: 4,  description: "Laber bris",   range: "5,5 - 7.9")
-            let bft5 =  Beaufort(image: "Beaufort 5",  value: 5,  description: "Frisk bris",   range: "8,0 - 10,7")
-            let bft6 =  Beaufort(image: "Beaufort 6",  value: 6,  description: "Liten kuling", range: "10,8 - 13,8")
-            let bft7 =  Beaufort(image: "Beaufort 7",  value: 7,  description: "Stiv kuling",  range: "13,9 - 17,1")
-            let bft8 =  Beaufort(image: "Beaufort 8",  value: 8,  description: "Sterk kuling", range: "17,2 - 20,7")
-            let bft9 =  Beaufort(image: "Beaufort 9",  value: 9,  description: "Liten storm",  range: "20.8 - 24,4")
-            let bft10 = Beaufort(image: "Beaufort 10", value: 10, description: "Full storm",   range: "24,5 - 28,4")
-            let bft11 = Beaufort(image: "Beaufort 11", value: 11, description: "Sterk storm",  range: "28,5 - 32,6")
-            let bft12 = Beaufort(image: "Beaufort 12", value: 12, description: "Orkan",        range: "> 32,7")
+            
+            beaufort.removeAll()
+            
+            let bft0 =  Beaufort(id: UUID(), image: "Beaufort 0",  value: 0,  description: "Stille",       range: "< 0,5")
+            let bft1 =  Beaufort(id: UUID(), image: "Beaufort 1",  value: 1,  description: "Flau vind",    range: "0,5 - 1,5")
+            let bft2 =  Beaufort(id: UUID(), image: "Beaufort 2",  value: 2,  description: "Svak vind",    range: "1,6 - 3,2")
+            let bft3 =  Beaufort(id: UUID(), image: "Beaufort 3",  value: 3,  description: "Lett bris",    range: "3,3 - 5,4")
+            let bft4 =  Beaufort(id: UUID(), image: "Beaufort 4",  value: 4,  description: "Laber bris",   range: "5,5 - 7.9")
+            let bft5 =  Beaufort(id: UUID(), image: "Beaufort 5",  value: 5,  description: "Frisk bris",   range: "8,0 - 10,7")
+            let bft6 =  Beaufort(id: UUID(), image: "Beaufort 6",  value: 6,  description: "Liten kuling", range: "10,8 - 13,8")
+            let bft7 =  Beaufort(id: UUID(), image: "Beaufort 7",  value: 7,  description: "Stiv kuling",  range: "13,9 - 17,1")
+            let bft8 =  Beaufort(id: UUID(), image: "Beaufort 8",  value: 8,  description: "Sterk kuling", range: "17,2 - 20,7")
+            let bft9 =  Beaufort(id: UUID(), image: "Beaufort 9",  value: 9,  description: "Liten storm",  range: "20.8 - 24,4")
+            let bft10 = Beaufort(id: UUID(), image: "Beaufort 10", value: 10, description: "Full storm",   range: "24,5 - 28,4")
+            let bft11 = Beaufort(id: UUID(), image: "Beaufort 11", value: 11, description: "Sterk storm",  range: "28,5 - 32,6")
+            let bft12 = Beaufort(id: UUID(), image: "Beaufort 12", value: 12, description: "Orkan",        range: "> 32,7")
 
             beaufort.append(bft0)
             beaufort.append(bft1)
@@ -159,7 +188,7 @@ struct InfoWind : View {
             beaufort.append(bft10)
             beaufort.append(bft11)
             beaufort.append(bft12)
-
+            ///
             /// Bygger opp værmeldingen:
             ///
             (text1, text2, windToDay, windYesterDay, factorToDay, factorYesterDay) = Forecast(index: index,
