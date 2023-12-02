@@ -46,4 +46,5 @@ let NH3: String = "NO\u{2083}"
 
 let sizeArray10: Int = 10
 let sizeArray12: Int = 12
+let sizeArray13: Int = 13
 let sizeArray24: Int = 24

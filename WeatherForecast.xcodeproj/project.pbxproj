@@ -115,6 +115,7 @@
 		DB7B50DA2AF1492A00A61BA1 /* AppsForIPhone.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7B50D92AF1492A00A61BA1 /* AppsForIPhone.swift */; };
 		DB7B50DC2AF1498E00A61BA1 /* AppsForIPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7B50DB2AF1498E00A61BA1 /* AppsForIPad.swift */; };
 		DB7B6505294B8F16009822E5 /* Temperature.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7B6504294B8F16009822E5 /* Temperature.swift */; };
+		DB8293662B1B40D50055BE65 /* Beaufort.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8293652B1B40D50055BE65 /* Beaufort.swift */; };
 		DB82F5B92971CF9800818841 /* CloudKitPlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB82F5B82971CF9800818841 /* CloudKitPlace.swift */; };
 		DB82F5BC2971D0F800818841 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB82F5BB2971D0F800818841 /* Config.swift */; };
 		DB82F5BE2971D59D00818841 /* weatherforecast_cloudkit-development.ckdb in Resources */ = {isa = PBXBuildFile; fileRef = DB82F5BD2971D59D00818841 /* weatherforecast_cloudkit-development.ckdb */; };
@@ -298,6 +299,7 @@
 		DB7B50D92AF1492A00A61BA1 /* AppsForIPhone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsForIPhone.swift; sourceTree = "<group>"; };
 		DB7B50DB2AF1498E00A61BA1 /* AppsForIPad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsForIPad.swift; sourceTree = "<group>"; };
 		DB7B6504294B8F16009822E5 /* Temperature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Temperature.swift; sourceTree = "<group>"; };
+		DB8293652B1B40D50055BE65 /* Beaufort.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beaufort.swift; sourceTree = "<group>"; };
 		DB82F5B82971CF9800818841 /* CloudKitPlace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitPlace.swift; sourceTree = "<group>"; };
 		DB82F5BB2971D0F800818841 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		DB82F5BD2971D59D00818841 /* weatherforecast_cloudkit-development.ckdb */ = {isa = PBXFileReference; lastKnownFileType = text; path = "weatherforecast_cloudkit-development.ckdb"; sourceTree = "<group>"; };
@@ -561,6 +563,7 @@
 				DBCD43722AEE2BE9007543BE /* AirQuality.swift */,
 				DBCD43762AEE3AA2007543BE /* AirQualityRecord.swift */,
 				DB9E26DE2AF39F6B00DF3AE9 /* AQLimit.swift */,
+				DB8293652B1B40D50055BE65 /* Beaufort.swift */,
 				DB696899290E715900936C0E /* CurrentWeatherRecord.swift */,
 				DB274789294C87690082B63B /* DayTempInfo.swift */,
 				DB112ADD2964B906000F6862 /* FeltTemp.swift */,
@@ -1041,6 +1044,7 @@
 				DB75926D2ADAD6C300B772A9 /* ValueAtPositionChart.swift in Sources */,
 				DB4A1F372A9F775300E4D1EB /* SettingView.swift in Sources */,
 				DB43C45B28F8833F007D44EC /* AirPressure.swift in Sources */,
+				DB8293662B1B40D50055BE65 /* Beaufort.swift in Sources */,
 				DB2727F62965DA41003B0903 /* DayDetailChartOffsetViewModifier.swift in Sources */,
 				DB5C0C322915263600141BDC /* MenuTitleToOption.swift in Sources */,
 				DB0230C528E4E5D700DCE15C /* WeatherForecastDetail.swift in Sources */,

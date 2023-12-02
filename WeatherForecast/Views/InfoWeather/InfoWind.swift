@@ -27,6 +27,8 @@ struct InfoWind : View {
     @State private var factorToDay: Double = 0.50
     @State private var factorYesterDay: Double = 1.00
     
+    @State private var beaufort: [Beaufort] = Array(repeating: Beaufort(), count: sizeArray13)
+    
     var body: some View {
         VStack (alignment: .leading) {
 
@@ -88,6 +90,28 @@ struct InfoWind : View {
                 Text("0\t\t\tFlau vind\t\t\t\t<0.5")
                 Text("1\t\t\tStille\t\t\t\t\t0.5 - 1,5")
             }
+
+            VStack(alignment: .leading) {
+                Image("Beaufort 0")
+                    .resizable()
+                    .frame(width: 10.0, height: 10.0)
+                Image("Beaufort 1")
+                    .resizable()
+                    .frame(width: 15.0, height: 15.0)
+                Image("Beaufort 2")
+                    .resizable()
+                    .frame(width: 20.0, height: 20.0)
+                Image("Beaufort 3")
+                Image("Beaufort 4")
+                Image("Beaufort 5")
+                Image("Beaufort 6")
+                Image("Beaufort 7")
+                Image("Beaufort 8")
+                Image("Beaufort 9")
+                Image("Beaufort 10")
+                Image("Beaufort 11")
+                Image("Beaufort 12")
+            }
             .padding(.leading, 10)
      
             Spacer()
@@ -106,6 +130,36 @@ struct InfoWind : View {
         }
         .task {
             ///
+            /// Bygger opp beaufort:
+            ///
+            let bft0 =  Beaufort(image: "Beaufort 0",  value: 0,  description: "Stille",       range: "< 0,5")
+            let bft1 =  Beaufort(image: "Beaufort 1",  value: 1,  description: "Flau vind",    range: "0,5 - 1,5")
+            let bft2 =  Beaufort(image: "Beaufort 2",  value: 2,  description: "Svak vind",    range: "1,6 - 3,2")
+            let bft3 =  Beaufort(image: "Beaufort 3",  value: 3,  description: "Lett bris",    range: "3,3 - 5,4")
+            let bft4 =  Beaufort(image: "Beaufort 4",  value: 4,  description: "Laber bris",   range: "5,5 - 7.9")
+            let bft5 =  Beaufort(image: "Beaufort 5",  value: 5,  description: "Frisk bris",   range: "8,0 - 10,7")
+            let bft6 =  Beaufort(image: "Beaufort 6",  value: 6,  description: "Liten kuling", range: "10,8 - 13,8")
+            let bft7 =  Beaufort(image: "Beaufort 7",  value: 7,  description: "Stiv kuling",  range: "13,9 - 17,1")
+            let bft8 =  Beaufort(image: "Beaufort 8",  value: 8,  description: "Sterk kuling", range: "17,2 - 20,7")
+            let bft9 =  Beaufort(image: "Beaufort 9",  value: 9,  description: "Liten storm",  range: "20.8 - 24,4")
+            let bft10 = Beaufort(image: "Beaufort 10", value: 10, description: "Full storm",   range: "24,5 - 28,4")
+            let bft11 = Beaufort(image: "Beaufort 11", value: 11, description: "Sterk storm",  range: "28,5 - 32,6")
+            let bft12 = Beaufort(image: "Beaufort 12", value: 12, description: "Orkan",        range: "> 32,7")
+
+            beaufort.append(bft0)
+            beaufort.append(bft1)
+            beaufort.append(bft2)
+            beaufort.append(bft3)
+            beaufort.append(bft4)
+            beaufort.append(bft5)
+            beaufort.append(bft6)
+            beaufort.append(bft7)
+            beaufort.append(bft8)
+            beaufort.append(bft9)
+            beaufort.append(bft10)
+            beaufort.append(bft11)
+            beaufort.append(bft12)
+
             /// Bygger opp værmeldingen:
             ///
             (text1, text2, windToDay, windYesterDay, factorToDay, factorYesterDay) = Forecast(index: index,
