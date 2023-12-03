@@ -24,6 +24,7 @@ struct DayDetailInfo: View {
             
         case .temperature :
             InfoTemperature(index: $index,
+                            option: option,
                             dayArray : $dayArray,
                             tempInfo: $tempInfo,
                             weekdayArray: $weekdayArray)

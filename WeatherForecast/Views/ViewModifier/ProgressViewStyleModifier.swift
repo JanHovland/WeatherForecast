@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ProgressViewStyleModifier: ProgressViewStyle {
+    var progressWidth: CGFloat
     var option: EnumType
     var valueToDay: Double
     var valueYesterDay: Double
@@ -19,7 +20,7 @@ struct ProgressViewStyleModifier: ProgressViewStyle {
             HStack {
                 HStack {
                     RoundedRectangle(cornerRadius: 5)
-                        .frame(width: (UIDevice.isIpad ? 400 : 260) * factorToDay, height: 20)
+                        .frame(width: progressWidth * factorToDay, height: 20)
                         .foregroundColor(.white)
                         .overlay (
                             HStack {
@@ -38,14 +39,14 @@ struct ProgressViewStyleModifier: ProgressViewStyle {
                     } else if option == .uvIndex {
                         Text("\(Int(valueToDay))")
                     } else {
-                       Text("\(valueToDay, specifier: "%.1f")")
+                        Text("\(valueToDay, specifier: "%.1f")")
                     }
                 }
             }
             HStack {
                 HStack {
                     RoundedRectangle(cornerRadius: 5)
-                        .frame(width: (UIDevice.isIpad ? 400 : 260) * factorYesterDay, height: 20)
+                        .frame(width: progressWidth * factorYesterDay, height: 20)
                         .foregroundColor(.gray)
                         .overlay (
                             HStack {
@@ -63,7 +64,7 @@ struct ProgressViewStyleModifier: ProgressViewStyle {
                     } else if option == .uvIndex {
                         Text("\(Int(valueYesterDay))")
                     } else {
-                       Text("\(valueYesterDay, specifier: "%.1f")")
+                        Text("\(valueYesterDay, specifier: "%.1f")")
                     }
                 }
             }

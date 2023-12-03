@@ -59,7 +59,8 @@ struct InfoWind : View {
                 /// Viser nivået i dag og i går
                 ///
                 ProgressView(value: 0.5)
-                    .progressViewStyle(ProgressViewStyleModifier(option: option,
+                    .progressViewStyle(ProgressViewStyleModifier(progressWidth: CGFloat(UIDevice.isIpad ? 400 : 260),
+                                                                 option: option,
                                                                  valueToDay: windToDay,
                                                                  valueYesterDay: windYesterDay,
                                                                  factorToDay: factorToDay,
@@ -143,17 +144,6 @@ struct InfoWind : View {
             Spacer()
         }
         .frame(width: UIDevice.isIpad ? 490 : 350)
-        .onChange(of: index) { oldIndex, index in
-            ///
-            /// Bygger opp værmeldingen:
-            ///
-            (text1, text2, windToDay, windYesterDay, factorToDay, factorYesterDay) = Forecast(index: index,
-                                                                                              dayArray: dayArray,
-                                                                                              weekdayArray: weekdayArray,
-                                                                                              windInfo: windInfo,
-                                                                                              date: currentWeather.date,
-                                                                                              offsetSec: weatherInfo.offsetSec)
-        }
         .task {
             ///
             /// Bygger opp beaufort:
@@ -197,6 +187,17 @@ struct InfoWind : View {
                                                                                        windInfo: windInfo,
                                                                                        date: currentWeather.date,
                              offsetSec: weatherInfo.offsetSec)
+        }
+        .onChange(of: index) { oldIndex, index in
+            ///
+            /// Bygger opp værmeldingen:
+            ///
+            (text1, text2, windToDay, windYesterDay, factorToDay, factorYesterDay) = Forecast(index: index,
+                                                                                              dayArray: dayArray,
+                                                                                              weekdayArray: weekdayArray,
+                                                                                              windInfo: windInfo,
+                                                                                              date: currentWeather.date,
+                                                                                              offsetSec: weatherInfo.offsetSec)
         }
     }
 }
@@ -280,7 +281,7 @@ private func Forecast(index: Int,
         text = text + " m/s."
     }
     ///
-    /// Finner Uv-indeks i dag og i går:
+    /// Finner vindstyrke i dag og i går:
     ///
     toDay = date.setTime(hour: 0, min: 0, sec: 0)!
     toMorrow = toDay.adding(days: 1)

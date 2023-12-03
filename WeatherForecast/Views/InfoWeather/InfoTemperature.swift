@@ -12,6 +12,8 @@ import Charts
 struct InfoTemperature : View {
     
     @Binding var index: Int
+    
+    var option: EnumType
     @Binding var dayArray: [Double]
     @Binding var tempInfo: [Temperature]
     @Binding var weekdayArray: [String]
@@ -35,6 +37,9 @@ struct InfoTemperature : View {
     @State private var newProbability: [NewProbability] = []
     @State private var precification = Precification()
     
+    @State private var factorToDay: Double = 1.00
+    @State private var factorYesterDay: Double = 1.00
+
     var body: some View {
         VStack (alignment: .leading) {
             ///
@@ -209,40 +214,41 @@ struct InfoTemperature : View {
                 .fontWeight(.bold)
                 .padding(.bottom, 20)
                 .padding(.top, 20)
-
+            ///
+            /// Viser dagsforskjellene på følt temperatur
+            ///
             TextField("", text: $text1, axis: .vertical)
                 .lineLimit(20)
                 .textFieldStyle(.roundedBorder)
                 .disabled(true)
                 .padding(.horizontal, 10)
-            ///
-            /// Viser forskjeller på følt temperatur:
-            ///
-            HStack {
-                HStack {
-                    Text("Today")
-                        .fontWeight(.bold)
-                    Spacer()
-                }
-                HStack {
-                    Spacer()
-                    Text("\(feltTempToDay, specifier: "%.1f") ºC")
-                }
+            if UIDevice.isIpad {
+                
             }
-
-            HStack {
-                HStack {
-                    Text("Yesterday")
-                        .fontWeight(.bold)
-                    Spacer()
-                }
-                HStack {
-                    Spacer()
-                    Text("\(feltTempYesterDay, specifier: "%.1f") ºC")
-                }
-            }
+            ProgressView(value: 0.5)
+                .progressViewStyle(ProgressViewStyleModifier(progressWidth: CGFloat(UIDevice.isIpad ? 240 : 160),
+                                                             option: option,
+                                                             valueToDay: feltTempToDay,
+                                                             valueYesterDay: feltTempYesterDay,
+                                                             factorToDay: factorToDay,
+                                                             factorYesterDay: factorYesterDay))
         }
         .frame(width: UIDevice.isIpad ? 490 : 350)
+        .task {
+            ///
+            /// Finner newProbability
+            ///
+            (newProbability, min, minIndex, max, maxIndex, precification) = FindChartDataProbability(date: dateSettings.dates[index],                                                                                      index: index)
+            ///
+            /// Bygger opp værmeldingen:
+            ///
+            (text, text1, feltTempToDay, feltTempYesterDay, factorToDay, factorYesterDay) = Forecast(index: index,
+                                                                                                     dayArray: dayArray,
+                                                                                                     weekdayArray: weekdayArray,
+                                                                                                     tempInfo: tempInfo,
+                                                                                                     date: dateSettings.dates[index],
+                                                                                                     offsetSec: weatherInfo.offsetSec)
+        }
         .onChange(of: index) { oldIndex, index in
             ///
             /// Finner newProbability
@@ -252,27 +258,12 @@ struct InfoTemperature : View {
             ///
             /// Bygger opp værmeldingen:
             ///
-            (text, text1, feltTempToDay, feltTempYesterDay) = Forecast(index: index,
-                                                                       dayArray: dayArray,
-                                                                       weekdayArray: weekdayArray,
-                                                                       tempInfo: tempInfo,
-                                                                       date: dateSettings.dates[index],
-                                                                       offsetSec: weatherInfo.offsetSec)
-        }
-        .task {
-            ///
-            /// Finner newProbability
-            ///
-            (newProbability, min, minIndex, max, maxIndex, precification) = FindChartDataProbability(date: dateSettings.dates[index],                                                                                      index: index)
-            ///
-            /// Bygger opp værmeldingen:
-            ///
-            (text, text1, feltTempToDay, feltTempYesterDay) = Forecast(index: index,
-                                                                       dayArray: dayArray,
-                                                                       weekdayArray: weekdayArray,
-                                                                       tempInfo: tempInfo,
-                                                                       date: dateSettings.dates[index],
-                                                                       offsetSec: weatherInfo.offsetSec)
+            (text, text1, feltTempToDay, feltTempYesterDay, factorToDay, factorYesterDay) = Forecast(index: index,
+                                                                                                     dayArray: dayArray,
+                                                                                                     weekdayArray: weekdayArray,
+                                                                                                     tempInfo: tempInfo,
+                                                                                                     date: dateSettings.dates[index],
+                                                                                                     offsetSec: weatherInfo.offsetSec)
         }
     }
 }
@@ -341,7 +332,7 @@ private func Forecast(index: Int,
                       weekdayArray: [String],
                       tempInfo: [Temperature],
                       date: Date,
-                      offsetSec: Int) -> (String, String, Double, Double) {
+                      offsetSec: Int) -> (String, String, Double, Double, Double, Double) {
     
     
     var dayTempInfo: [DayTempInfo] = []
@@ -433,6 +424,9 @@ private func Forecast(index: Int,
                                                                type: appearentType)
     maxAppearentTemp = value5.0
     indexMaxAppearentTemp = value5.1
+    
+    var factorToDay: Double = 1.00
+    var factorYesterDay: Double = 1.00
     
     if index == 0 {
         text = ""
@@ -546,13 +540,19 @@ private func Forecast(index: Int,
     
     if feltTempToDay > feltTempYesterDay {
         text1 = String(localized: "The felt temperature today is higher than yesterday.")
+        factorToDay = 1
+        factorYesterDay = feltTempYesterDay / feltTempToDay
     } else if feltTempToDay == feltTempYesterDay {
         text1 = String(localized: "The felt temperature today is the same as yesterday.")
+        factorToDay = 1.00
+        factorYesterDay = 1.00
     } else {
         text1 = String(localized: "The felt temperature today is lower than yesterday.")
+        factorToDay = feltTempToDay / feltTempYesterDay
+        factorYesterDay = 1
     }
 
-    return (text, text1, feltTempToDay, feltTempYesterDay)
+    return (text, text1, feltTempToDay, feltTempYesterDay, factorToDay, factorYesterDay)
 }
 
 private func TempInfoValues(tempInfo: [Temperature],
