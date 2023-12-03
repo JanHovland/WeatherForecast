@@ -17,7 +17,7 @@ struct AppsForIPhone: View {
     @Environment(CurrentWeather.self) private var currentWeather
 
     var body: some View {
-        Group {
+        VStack {
             HStack (spacing: 8) {
                 ///
                 /// Viser luftkvaliteten:
@@ -51,9 +51,7 @@ struct AppsForIPhone: View {
                 ///
                 Visibility(weather: weather)
             }
-        }
-        
-        Group {
+
             HStack (spacing: 8) {
                 ///
                 /// Viser Uv indeksen:

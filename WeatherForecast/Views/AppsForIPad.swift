@@ -15,7 +15,7 @@ struct AppsForIPad: View {
     @Binding var sunSets : [String]
     
     var body: some View {
-        Group {
+        VStack {
             HStack (spacing: 8) {
                 ///
                 /// Viser luftkvaliteten:
