@@ -58,6 +58,7 @@ struct DayDetailInfo: View {
         case .humidity:
             InfoHumidity(index: index,
                          weather: weather,
+                         option: option,
                          weekdayArray: $weekdayArray)
 
         case .visibility :

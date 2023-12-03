@@ -38,6 +38,8 @@ struct ProgressViewStyleModifier: ProgressViewStyle {
                         Text("\(valueToDay,specifier: "%.1f") m/s")
                     } else if option == .uvIndex {
                         Text("\(Int(valueToDay))")
+                    } else if option == .humidity {
+                        Text("\(valueToDay,specifier: "%.0f") %")
                     } else {
                         Text("\(valueToDay, specifier: "%.1f")")
                     }
@@ -63,6 +65,8 @@ struct ProgressViewStyleModifier: ProgressViewStyle {
                         Text("\(valueYesterDay,specifier: "%.1f") m/s")
                     } else if option == .uvIndex {
                         Text("\(Int(valueYesterDay))")
+                    } else if option == .humidity {
+                        Text("\(valueToDay,specifier: "%.0f") %")
                     } else {
                         Text("\(valueYesterDay, specifier: "%.1f")")
                     }
