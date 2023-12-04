@@ -19,8 +19,6 @@ struct ChartViewNewProbability: View {
     
     @State private var selectedIndex: Int?
     
-    @State private var markColors : [Color] = [.blue, .cyan, .indigo, .primary, .orange]
-    
     @Environment(CurrentWeather.self) private var currentWeather
     
     var body: some View {
@@ -50,21 +48,21 @@ struct ChartViewNewProbability: View {
                         .offset(yStart: UIDevice.isIpad ? -10 : -10) /// Viser verdien relativt til største verdi av "Value"
                         .zIndex(-1)
                 }
-                PointMark(x: .value("Hour", minIndex),
-                          y: .value("Value", min))
-                .symbol(.circle)
-                .annotation(position: .top) {
-                    if min > 0.00 {
+                if min > 0.00 {
+                    PointMark(x: .value("Hour", minIndex),
+                              y: .value("Value", min))
+                    .symbol(.circle)
+                    .annotation(position: .top) {
                         Text("\(Int(min)) %")
                             .font(.footnote.weight(.bold))
                             .opacity(0.50)
                     }
                 }
-                PointMark(x: .value("Hour", maxIndex),
-                          y: .value("Value", max))
-                .symbol(.circle)
-                .annotation(position: .top) {
-                    if max > 0.00 {
+                if max > 0.00 {
+                    PointMark(x: .value("Hour", maxIndex),
+                              y: .value("Value", max))
+                    .symbol(.circle)
+                    .annotation(position: .top) {
                         Text("\(Int(max)) %")
                             .font(.footnote.weight(.bold))
                             .opacity(0.50)
@@ -81,7 +79,6 @@ struct ChartViewNewProbability: View {
             }
             .frame(width: UIDevice.isIpad ? 520 : 350, height: UIDevice.isIpad ? 150 : 200)
             .chartXScale(domain: 0...24)
-            .chartForegroundStyleScale(range: markColors)
             .modifier(DayDetailChartYaxis(option: .probability, from: 0, to: 100))
             .chartYAxisLabel(ShowUnit(option: .probability),
                              position: .top,
