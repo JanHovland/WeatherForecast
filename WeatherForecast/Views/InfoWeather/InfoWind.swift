@@ -47,7 +47,7 @@ struct InfoWind : View {
                 Text("Day differences")
                     .fontWeight(.bold)
                     .padding(.bottom, 20)
-                    .padding(.top, 10)
+                    .padding(.top, 20)
                 ///
                 /// info om forskjellene
                 ///

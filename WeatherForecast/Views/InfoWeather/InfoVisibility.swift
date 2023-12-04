@@ -37,7 +37,9 @@ struct InfoVisibility: View {
             
             Text(String(localized: "About visibility"))
                 .fontWeight(.bold)
-            
+                .padding(.bottom, 20)
+                .padding(.top, 20)
+
             TextField("", text: $text, axis: .vertical)
                 .lineLimit(10)
                 .textFieldStyle(.roundedBorder)

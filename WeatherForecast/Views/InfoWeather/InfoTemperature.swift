@@ -63,6 +63,7 @@ struct InfoTemperature : View {
             Text("Total amount of precipitation")
                 .fontWeight(.bold)
                 .padding(.bottom, 20)
+                .padding(.top, 20)
             ///
             /// Dersom det er kommet snø kommer dette opp:
             ///

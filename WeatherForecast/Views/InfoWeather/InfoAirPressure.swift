@@ -37,7 +37,9 @@ struct InfoAirPressure: View {
             
             Text(String(localized: "About air pressure"))
                 .fontWeight(.bold)
-            
+                .padding(.bottom, 20)
+                .padding(.top, 20)
+
             TextField("", text: $text1, axis: .vertical)
                 .lineLimit(10)
                 .textFieldStyle(.roundedBorder)

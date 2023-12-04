@@ -72,8 +72,9 @@ struct InfoUvIndex : View {
             ///
             Text(String(localized: "About the UV-index"))
                 .fontWeight(.bold)
-                .padding(.top, index == 0 ? 20 : 0)
-            
+                .padding(.bottom, 20)
+                .padding(.top, 20)
+
             TextField("", text: $text, axis: .vertical)
                 .lineLimit(12)
                 .textFieldStyle(.roundedBorder)

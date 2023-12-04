@@ -394,21 +394,21 @@ var toDo_2 =
              🟢 Sikt
              🟢 Lufttrykk
    77. 🟢 Chart uvIndex for iPad mangler visning hittil i dag
-   78. 🔴 Nye verdier inn under Chart:
+   78. 🟢 Nye verdier inn under Chart:
              - Sannsynlighet for nedbør
              - Total nedbørsmengde
              - Siste 24 timer
              - Neste 24 timer
              - Dagsforskjeller
-             🔴 Dette må legges inn i:
-                  🔴 Værforbehold
-                  🔴 UV-index
-                  🔴 Vind
-                  🔴 Nedbør
-                  🔴 Føles som
-                  🔴 Luftfuktighet
-                  🔴 Sikt
-                  🔴 Lufttrykk
+             🟢 Dette må legges inn i:
+                  🟢 Værforbehold
+                  🟢 UV-index
+                  🟢 Vind
+                  🟢 Nedbør
+                  🟢 Føles som
+                  🟢 Luftfuktighet
+                  🟢 Sikt
+                  🟢 Lufttrykk
    79. 🔴 Vurdere å legge inn "snøvarsel" i løpet av perioden på alle menyvalg.
    80. 🔴 .
           🔴 .
