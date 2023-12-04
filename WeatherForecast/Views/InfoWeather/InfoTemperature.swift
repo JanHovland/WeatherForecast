@@ -226,7 +226,7 @@ struct InfoTemperature : View {
                 
             }
             ProgressView(value: 0.5)
-                .progressViewStyle(ProgressViewStyleModifier(progressWidth: CGFloat(UIDevice.isIpad ? 410: 270),
+                .progressViewStyle(ProgressViewStyleModifier(progressWidth: CGFloat(UIDevice.isIpad ? 390: 250),
                                                              option: option,
                                                              valueToDay: feltTempToDay,
                                                              valueYesterDay: feltTempYesterDay,
@@ -238,7 +238,8 @@ struct InfoTemperature : View {
             ///
             /// Finner newProbability
             ///
-            (newProbability, min, minIndex, max, maxIndex, precification) = FindChartDataProbability(date: dateSettings.dates[index],                                                                                      index: index)
+            (newProbability, min, minIndex, max, maxIndex, precification) = FindChartDataProbability(date: dateSettings.dates[index],
+                                                                                                     index: index)
             ///
             /// Bygger opp værmeldingen:
             ///
@@ -254,7 +255,7 @@ struct InfoTemperature : View {
             /// Finner newProbability
             ///
             (newProbability, min, minIndex, max, maxIndex, precification) = FindChartDataProbability(date: dateSettings.dates[index],
-                index: index)
+                                                                                                     index: index)
             ///
             /// Bygger opp værmeldingen:
             ///
