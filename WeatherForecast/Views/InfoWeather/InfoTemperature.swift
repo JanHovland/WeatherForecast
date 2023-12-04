@@ -226,7 +226,7 @@ struct InfoTemperature : View {
                 
             }
             ProgressView(value: 0.5)
-                .progressViewStyle(ProgressViewStyleModifier(progressWidth: CGFloat(UIDevice.isIpad ? 240 : 160),
+                .progressViewStyle(ProgressViewStyleModifier(progressWidth: CGFloat(UIDevice.isIpad ? 410: 270),
                                                              option: option,
                                                              valueToDay: feltTempToDay,
                                                              valueYesterDay: feltTempYesterDay,
@@ -540,18 +540,19 @@ private func Forecast(index: Int,
     
     if feltTempToDay > feltTempYesterDay {
         text1 = String(localized: "The felt temperature today is higher than yesterday.")
-        factorToDay = 1
-        factorYesterDay = feltTempYesterDay / feltTempToDay
+        factorToDay = 1.00
+        factorYesterDay = 0.50
     } else if feltTempToDay == feltTempYesterDay {
         text1 = String(localized: "The felt temperature today is the same as yesterday.")
         factorToDay = 1.00
         factorYesterDay = 1.00
     } else {
         text1 = String(localized: "The felt temperature today is lower than yesterday.")
-        factorToDay = feltTempToDay / feltTempYesterDay
-        factorYesterDay = 1
-    }
+        factorToDay = 0.50
+        factorYesterDay = 1.00
 
+    }
+    
     return (text, text1, feltTempToDay, feltTempYesterDay, factorToDay, factorYesterDay)
 }
 
