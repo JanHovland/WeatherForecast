@@ -70,7 +70,7 @@ struct ProgressViewStyleModifier: ProgressViewStyle {
                     } else if option == .humidity {
                         Text("\(valueYesterDay,specifier: "%.1f") %")
                     } else if option == .temperature {
-                        Text("\(valueToDay,specifier: "%.1f") ºC")
+                        Text("\(valueYesterDay,specifier: "%.1f") ºC")
                     } else {
                         Text("\(valueYesterDay, specifier: "%.1f")")
                     }
