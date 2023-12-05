@@ -409,8 +409,10 @@ var toDo_2 =
                   🟢 Luftfuktighet
                   🟢 Sikt
                   🟢 Lufttrykk
-   79. 🔴 Vurdere å legge inn "snøvarsel" i løpet av perioden på alle menyvalg.
-   80. 🔴 .
+   79. 🔴 Vise koordinatene ved å velge et sted
+          🔴 https://github.com/tomha2014/LearnMapKitiOS17/blob/main/LearnMapKitiOS17/ContentView.swift
+   80. 🔴 Vurdere å legge inn "snøvarsel" i løpet av perioden på alle menyvalg.
+   81. 🔴 .
           🔴 .
 """
 

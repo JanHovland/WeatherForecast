@@ -9,6 +9,10 @@ import SwiftUI
 import MapKit
 
 ///  https://www.createwithswift.com/using-expanded-swiftui-support-for-mapkit/?ref=create-with-swift-newsletter
+///
+///  https://github.com/tomha2014/LearnMapKitiOS17
+///
+///  https://levelup.gitconnected.com/implementing-address-autocomplete-using-swiftui-and-mapkit-c094d08cda24
 
 struct MapDetailView: View {
     
