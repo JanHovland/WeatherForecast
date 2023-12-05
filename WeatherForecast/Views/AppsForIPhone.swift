@@ -18,6 +18,11 @@ struct AppsForIPhone: View {
 
     var body: some View {
         VStack {
+            ///
+            /// Viser kart
+            ///
+            MapDetailView()
+            
             HStack (spacing: 8) {
                 ///
                 /// Viser luftkvaliteten:

@@ -49,6 +49,7 @@
 		DB28AD66298D63BD001C9F0B /* WeatherInformation in Resources */ = {isa = PBXBuildFile; fileRef = DB28AD65298D63BD001C9F0B /* WeatherInformation */; };
 		DB29283F29425CC7007C0A56 /* DayDetailInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB29283E29425CC7007C0A56 /* DayDetailInfo.swift */; };
 		DB2B415229A68139008BB364 /* SunRiseOrSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2B415129A68139008BB364 /* SunRiseOrSet.swift */; };
+		DB2C02882B1EF9AA0074D9FA /* MapDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2C02872B1EF9AA0074D9FA /* MapDetailView.swift */; };
 		DB2C677328E72F04002EC5C1 /* GetForwardGeoCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2C677228E72F04002EC5C1 /* GetForwardGeoCode.swift */; };
 		DB2C677528E72F43002EC5C1 /* FormatPlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2C677428E72F43002EC5C1 /* FormatPlace.swift */; };
 		DB2D4949294A3C9B00DCDC4B /* WindInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2D4948294A3C9B00DCDC4B /* WindInfo.swift */; };
@@ -233,6 +234,7 @@
 		DB28AD65298D63BD001C9F0B /* WeatherInformation */ = {isa = PBXFileReference; lastKnownFileType = text; path = WeatherInformation; sourceTree = "<group>"; };
 		DB29283E29425CC7007C0A56 /* DayDetailInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayDetailInfo.swift; sourceTree = "<group>"; };
 		DB2B415129A68139008BB364 /* SunRiseOrSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunRiseOrSet.swift; sourceTree = "<group>"; };
+		DB2C02872B1EF9AA0074D9FA /* MapDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapDetailView.swift; sourceTree = "<group>"; };
 		DB2C677228E72F04002EC5C1 /* GetForwardGeoCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetForwardGeoCode.swift; sourceTree = "<group>"; };
 		DB2C677428E72F43002EC5C1 /* FormatPlace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatPlace.swift; sourceTree = "<group>"; };
 		DB2D4948294A3C9B00DCDC4B /* WindInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindInfo.swift; sourceTree = "<group>"; };
@@ -532,6 +534,14 @@
 			path = ViewModifier;
 			sourceTree = "<group>";
 		};
+		DB2C02862B1EF9780074D9FA /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				DB2C02872B1EF9AA0074D9FA /* MapDetailView.swift */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
 		DB2E44EF2B0FA64700DC77AD /* Chart */ = {
 			isa = PBXGroup;
 			children = (
@@ -718,6 +728,7 @@
 		DB8A7EF62903C730002DFD73 /* DayDetail */ = {
 			isa = PBXGroup;
 			children = (
+				DB2C02862B1EF9780074D9FA /* Map */,
 				DB17F69C295DEBFC00FC2A0B /* DayDetailWeatherData */,
 				DBFD2DD5295B539D00293B4D /* Icon */,
 				DB86FC0F2912A24C0019D12F /* DayDetail.swift */,
@@ -1024,6 +1035,7 @@
 				DBDDEA0129BDC86000301E77 /* RefreshOffset.swift in Sources */,
 				DB2E44EE2B0F439E00DC77AD /* FindChartDataProbability.swift in Sources */,
 				DB27478A294C87690082B63B /* DayTempInfo.swift in Sources */,
+				DB2C02882B1EF9AA0074D9FA /* MapDetailView.swift in Sources */,
 				DB8B5F9628F2BEF5002C3AE3 /* Visibility.swift in Sources */,
 				DB17F69E295DEC6A00FC2A0B /* DayDetailWeatherDataTemperature.swift in Sources */,
 				DBD2B5982A9D0D5100721184 /* Constant.swift in Sources */,
