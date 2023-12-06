@@ -33,10 +33,10 @@ struct MapDetailView: View {
                                                                   longitude: 0.00),
                                    span: MKCoordinateSpan(latitudeDelta: 0.0,
                                                           longitudeDelta: 0.0)))
-    
     var body: some View {
         VStack {
-            Map (position : $position) {
+            Map (position : $position,
+                 interactionModes: .all) {
                 ///
                 /// Markere posisjonen
                 ///
@@ -48,6 +48,11 @@ struct MapDetailView: View {
             ///
             .frame(width: UIDevice.isIpad ? 765 : 370, height: UIDevice.isIpad ? 280 : 230)
             .mapStyle(.standard(elevation: .realistic))
+            .mapControls {
+                MapCompass()
+                MapScaleView()
+                MapPitchToggle()
+            }
         }
         ///
         /// Modifier for VStack
@@ -63,11 +68,11 @@ struct MapDetailView: View {
             ///
             /// Oppdaterer location
             ///
-            location = CLLocationCoordinate2D(latitude: weatherInfo.latitude ?? 0.00, 
+            location = CLLocationCoordinate2D(latitude: weatherInfo.latitude ?? 0.00,
                                               longitude: weatherInfo.longitude ?? 0.00)
-            regionCenter =  CLLocationCoordinate2D(latitude: weatherInfo.latitude ?? 0.00, 
+            regionCenter =  CLLocationCoordinate2D(latitude: weatherInfo.latitude ?? 0.00,
                                                    longitude: weatherInfo.longitude ?? 0.00)
-            regionSpan = MKCoordinateSpan(latitudeDelta: 0.125, 
+            regionSpan = MKCoordinateSpan(latitudeDelta: 0.125,
                                           longitudeDelta: 0.125)
             position = .region(MKCoordinateRegion(center: regionCenter, span: regionSpan))
         }
