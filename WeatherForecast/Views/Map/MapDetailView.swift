@@ -52,7 +52,10 @@ struct MapDetailView: View {
             .mapStyle(.standard(elevation: .realistic))
             .mapControls {
                 MapCompass()
-                MapUserLocationButton()
+                ///
+                /// MapUserLocationButton() går tilbake til min posisjon
+                ///
+                // MapUserLocationButton()
                 MapScaleView()
             }
         }
