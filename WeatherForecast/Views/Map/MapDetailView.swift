@@ -40,24 +40,14 @@ struct MapDetailView: View {
                 ///
                 /// Markere posisjonen
                 ///
-//                Marker(weatherInfo.placeName,
-//                       coordinate: location)
-//                .annotationTitles(.automatic)
-                UserAnnotation()
+                Marker(weatherInfo.placeName,
+                       coordinate: location)
             }
             ///
             /// Modifier for selve kartet
             ///
             .frame(width: UIDevice.isIpad ? 765 : 370, height: UIDevice.isIpad ? 280 : 230)
             .mapStyle(.standard(elevation: .realistic))
-            .mapControls {
-                MapCompass()
-                ///
-                /// MapUserLocationButton() går tilbake til min posisjon
-                ///
-                // MapUserLocationButton()
-                MapScaleView()
-            }
         }
         ///
         /// Modifier for VStack

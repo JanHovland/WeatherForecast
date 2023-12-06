@@ -409,7 +409,8 @@ var toDo_2 =
                   🟢 Luftfuktighet
                   🟢 Sikt
                   🟢 Lufttrykk
-   79. 🔴 Ved å trykke på knappen på Map kommer jeg tilbake til meg selv
+   79. 🟢 Ved å trykke på knappen på Map kommer jeg tilbake til meg selv
+          🟢 Kommentert bort MapUserLocationButton()
    80. 🔴 Vise koordinatene ved å velge et sted
           🔴 https://github.com/tomha2014/LearnMapKitiOS17/blob/main/LearnMapKitiOS17/ContentView.swift
    81. 🔴 Vurdere å legge inn "snøvarsel" i løpet av perioden på alle menyvalg.
