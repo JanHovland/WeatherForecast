@@ -155,6 +155,8 @@
 		DBB4CCCE288869EA00B5C5C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DBB4CCCD288869EA00B5C5C8 /* Assets.xcassets */; };
 		DBB4CCD2288869EA00B5C5C8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DBB4CCD1288869EA00B5C5C8 /* Preview Assets.xcassets */; };
 		DBB6905628FB0202006FA016 /* DayOverview.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB6905528FB0202006FA016 /* DayOverview.swift */; };
+		DBB7AECE2B224EF40066E1BF /* MapFetchInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB7AECD2B224EF30066E1BF /* MapFetchInformation.swift */; };
+		DBB7AED02B224F440066E1BF /* MapOpen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB7AECF2B224F440066E1BF /* MapOpen.swift */; };
 		DBB99D392AE425BE0022B6E9 /* FindChartDataPrecipitation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB99D382AE425BE0022B6E9 /* FindChartDataPrecipitation.swift */; };
 		DBC475D12B19F0E8006ACDCB /* ProgressViewStyleModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC475D02B19F0E8006ACDCB /* ProgressViewStyleModifier.swift */; };
 		DBC65DE72907FE6B004635FE /* DateCalculation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC65DE62907FE6B004635FE /* DateCalculation.swift */; };
@@ -342,6 +344,8 @@
 		DBB4CCCF288869EA00B5C5C8 /* WeatherForecast.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WeatherForecast.entitlements; sourceTree = "<group>"; };
 		DBB4CCD1288869EA00B5C5C8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		DBB6905528FB0202006FA016 /* DayOverview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayOverview.swift; sourceTree = "<group>"; };
+		DBB7AECD2B224EF30066E1BF /* MapFetchInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapFetchInformation.swift; sourceTree = "<group>"; };
+		DBB7AECF2B224F440066E1BF /* MapOpen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapOpen.swift; sourceTree = "<group>"; };
 		DBB99D382AE425BE0022B6E9 /* FindChartDataPrecipitation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindChartDataPrecipitation.swift; sourceTree = "<group>"; };
 		DBC475D02B19F0E8006ACDCB /* ProgressViewStyleModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressViewStyleModifier.swift; sourceTree = "<group>"; };
 		DBC65DE62907FE6B004635FE /* DateCalculation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCalculation.swift; sourceTree = "<group>"; };
@@ -539,6 +543,8 @@
 			isa = PBXGroup;
 			children = (
 				DB2C02872B1EF9AA0074D9FA /* MapDetailView.swift */,
+				DBB7AECD2B224EF30066E1BF /* MapFetchInformation.swift */,
+				DBB7AECF2B224F440066E1BF /* MapOpen.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -998,6 +1004,7 @@
 				DB130442297F02BF00D399F8 /* WeatherForecastSelectCardView.swift in Sources */,
 				DB2727F42965CA77003B0903 /* DayDetailOffsetChartViewModifier.swift in Sources */,
 				DBFEC1402A7402E6003FC4FB /* WeatherInfo.swift in Sources */,
+				DBB7AED02B224F440066E1BF /* MapOpen.swift in Sources */,
 				DB019A402ADA82CF004E4286 /* FindChartDataUvIndex.swift in Sources */,
 				DBB4CCCC288869E900B5C5C8 /* WeatherForecast.swift in Sources */,
 				DB235A5D29825FEE00FE586B /* FindCurrentWeather.swift in Sources */,
@@ -1106,6 +1113,7 @@
 				DB51164228E442F300DEB1BF /* WeatherForecastMain.swift in Sources */,
 				DB17F6A8295DF4DC00FC2A0B /* DayDetailWeatherDataHumidity.swift in Sources */,
 				DB17F6A4295DF39C00FC2A0B /* DayDetailWeatherDataPrecifitation.swift in Sources */,
+				DBB7AECE2B224EF40066E1BF /* MapFetchInformation.swift in Sources */,
 				DB6968A1290EFC0900936C0E /* MinuteForecastRecord.swift in Sources */,
 				DBD497A22A4EAE9C0075B350 /* LocationsHandler.swift in Sources */,
 				DB019A3C2ADA766C004E4286 /* FindChartDataAirPressure.swift in Sources */,

@@ -411,10 +411,13 @@ var toDo_2 =
                   🟢 Lufttrykk
    79. 🟢 Ved å trykke på knappen på Map kommer jeg tilbake til meg selv
           🟢 Kommentert bort MapUserLocationButton()
-   80. 🔴 Vise koordinatene ved å velge et sted
-          🔴 https://github.com/tomha2014/LearnMapKitiOS17/blob/main/LearnMapKitiOS17/ContentView.swift
-   81. 🔴 Vurdere å legge inn "snøvarsel" i løpet av perioden på alle menyvalg.
-   82. 🔴 .
+   80. 🔴 Tilpasse meny oppe til venstre
+   81. 🔴 Avslutte appen når ved manglende data fra Internett API
+   82. 🔴 iPad: Avslutte appen når det velges et nytt sted
+          🔴 Legg inn melding
+   83. 🔴 Bruk ▼ og ▲ for å vise forurensinger
+   84. 🔴 Vurdere å legge inn "snøvarsel" i løpet av perioden på alle menyvalg.
+   85. 🔴 .
           🔴 .
 """
 

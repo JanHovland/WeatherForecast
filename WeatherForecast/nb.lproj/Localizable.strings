@@ -1489,7 +1489,7 @@
 "About the Beaufort-scale" = "Om Beaufort-skalaen";
 
 /* No comment provided by engineer. */
-"The Beaufort wind scale expresses how strongly the wind blows at a certain speed. The Beaufort scale can make it easier to understand how much wind is reported, and what effect it can have. Each value on the scale corresponds to a wind speed."="Beauforts vindskala uttrykker hvor kraftig vinden blåser ved en bestemt hastighet. Beafort-skalaern kan gjøre det enklere å forstå hvor mye vind som meldes, og hvilken effekt den kan ha. Hver verrdi på skalaen korresponderer med en vindhastighet.";
+"The Beaufort wind scale expresses how strongly the wind blows at a certain speed. The Beaufort scale can make it easier to understand how much wind is reported, and what effect it can have. Each value on the scale corresponds to a wind speed."="Beauforts vindskala uttrykker hvor kraftig vinden blåser ved en bestemt hastighet. Beafort-skalaern kan gjøre det enklere å forstå hvor mye vind som meldes, og hvilken effekt den kan ha. Hver verdi på skalaen korresponderer med en vindhastighet.";
 
 /* No comment provided by engineer. */
 "The average humidity today is higher than yesterday." = "Gjennomsnittlig luftfuktighet i dag er høyere enn i går.";
@@ -1499,4 +1499,7 @@
 
 /* No comment provided by engineer. */
 "The average humidity today is lower than yesterday." = "Gjennomsnittlig luftfuktighet i dag er lavere enn i går.";
+
+/* No comment provided by engineer. */
+"Select a place" = "Velg et sted";
 

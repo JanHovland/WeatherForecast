@@ -13,6 +13,8 @@ import MapKit
 ///  https://github.com/tomha2014/LearnMapKitiOS17
 ///
 ///  https://levelup.gitconnected.com/implementing-address-autocomplete-using-swiftui-and-mapkit-c094d08cda24
+///
+///  https://www.youtube.com/watch?v=rWpfyJ8xoj0
 
 struct MapDetailView: View {
     
@@ -20,7 +22,7 @@ struct MapDetailView: View {
     @Environment(WeatherInfo.self) private var weatherInfo
     
     ///
-    /// Må initialisere alle @State private var:_
+    /// Må initialisere alle @State private var: 
     ///
     @State private var location = CLLocationCoordinate2D(latitude: 0.00, longitude: 0.00)
     @State private var regionCenter = CLLocationCoordinate2D(latitude: 0.00, longitude: 0.00)
@@ -33,19 +35,42 @@ struct MapDetailView: View {
                                                                   longitude: 0.00),
                                    span: MKCoordinateSpan(latitudeDelta: 0.0,
                                                           longitudeDelta: 0.0)))
+    
+    @State private var pinLocation = CLLocationCoordinate2D()
+    
     var body: some View {
         VStack {
-            Map (position : $position,
-                 interactionModes: .all) {
+            MapReader { reader in
+                Map (position : $position,
+                     interactionModes: .all) {
+                }
                 ///
-                /// Markere posisjonen
+                /// Simulerer en "Meny" oppe til venstre
                 ///
-                Marker(weatherInfo.placeName,
-                       coordinate: location)
+                .overlay (alignment: .topTrailing) {
+                    Button(action: {
+                    }) {
+                        Image(systemName: "info.circle")
+                            .resizable()
+                            .frame(width: 25, height: 25)
+                            .foregroundStyle(.white)
+                            .opacity(0.50)
+                    }
+                    .padding(5)
+                    .background()
+                    .cornerRadius(10)
+                }
+                ///
+                /// Modifier for selve kartet
+                ///
+                .onTapGesture(perform: { screenCoord in
+                    ///
+                    /// Finner koordinatene og  deretter informasjon om stedet
+                    ///
+                    pinLocation = reader.convert(screenCoord, from: .local)!
+                    MapFetchInformation(latitude: pinLocation.latitude, longitude: pinLocation.longitude)
+                })
             }
-            ///
-            /// Modifier for selve kartet
-            ///
             .frame(width: UIDevice.isIpad ? 765 : 370, height: UIDevice.isIpad ? 280 : 230)
             .mapStyle(.standard(elevation: .realistic))
             .mapControls {
@@ -53,29 +78,28 @@ struct MapDetailView: View {
                 MapScaleView()
                 MapPitchToggle()
             }
-        }
-        ///
-        /// Modifier for VStack
-        ///
-        .frame(width: UIDevice.isIpad ? 785 : 390, height: UIDevice.isIpad ? 300 : 250)
-        .background(
-            RoundedRectangle(cornerRadius: 15,
-                             style: .continuous)
-            .fill(Color("Background#01").opacity(currentWeather.isDaylight == true ? 0.85 : 0.35))
-            .saturation(1)
-        )
-        .task {
             ///
-            /// Oppdaterer location
+            /// Modifier for VStack
             ///
-            location = CLLocationCoordinate2D(latitude: weatherInfo.latitude ?? 0.00,
-                                              longitude: weatherInfo.longitude ?? 0.00)
-            regionCenter =  CLLocationCoordinate2D(latitude: weatherInfo.latitude ?? 0.00,
-                                                   longitude: weatherInfo.longitude ?? 0.00)
-            regionSpan = MKCoordinateSpan(latitudeDelta: 0.125,
-                                          longitudeDelta: 0.125)
-            position = .region(MKCoordinateRegion(center: regionCenter, span: regionSpan))
+            .frame(width: UIDevice.isIpad ? 785 : 390, height: UIDevice.isIpad ? 300 : 250)
+            .background(
+                RoundedRectangle(cornerRadius: 15,
+                                 style: .continuous)
+                .fill(Color("Background#01").opacity(currentWeather.isDaylight == true ? 0.85 : 0.35))
+                .saturation(1)
+            )
+            .task {
+                ///
+                /// Oppdaterer location
+                ///
+                location = CLLocationCoordinate2D(latitude: weatherInfo.latitude ?? 0.00,
+                                                  longitude: weatherInfo.longitude ?? 0.00)
+                regionCenter =  CLLocationCoordinate2D(latitude: weatherInfo.latitude ?? 0.00,
+                                                       longitude: weatherInfo.longitude ?? 0.00)
+                regionSpan = MKCoordinateSpan(latitudeDelta: 0.125,
+                                              longitudeDelta: 0.125)
+                position = .region(MKCoordinateRegion(center: regionCenter, span: regionSpan))
+            }
         }
     }
 }
-
