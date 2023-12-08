@@ -411,7 +411,8 @@ var toDo_2 =
                   🟢 Lufttrykk
    79. 🟢 Ved å trykke på knappen på Map kommer jeg tilbake til meg selv
           🟢 Kommentert bort MapUserLocationButton()
-   80. 🔴 Tilpasse meny oppe til venstre
+   80. 🟢 Tilpasse meny oppe til venstre
+          🟢 Legg inn "Tap for info" og image "info.square"
    81. 🔴 Avslutte appen når ved manglende data fra Internett API
    82. 🔴 iPad: Avslutte appen når det velges et nytt sted
           🔴 Legg inn melding

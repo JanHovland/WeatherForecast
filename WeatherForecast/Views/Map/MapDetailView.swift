@@ -50,15 +50,19 @@ struct MapDetailView: View {
                 .overlay (alignment: .topTrailing) {
                     Button(action: {
                     }) {
-                        Image(systemName: "info.circle")
-                            .resizable()
-                            .frame(width: 25, height: 25)
-                            .foregroundStyle(.white)
-                            .opacity(0.50)
+                        HStack {
+                            Text("Tap for info")
+                            Image(systemName: "info.circle")
+                                .resizable()
+                                .frame(width: 25, height: 25)
+                                .foregroundStyle(.white)
+                                .opacity(0.50)
+                        }
                     }
                     .padding(5)
                     .background()
                     .cornerRadius(10)
+                    .font(.caption2)
                 }
                 ///
                 /// Modifier for selve kartet
