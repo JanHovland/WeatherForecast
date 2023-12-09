@@ -31,4 +31,5 @@ struct AirQualityHeadlineView: View {
     }
     .foregroundColor(.secondary)
     .font(.footnote)
+    .padding(.horizontal, 10)
 }}

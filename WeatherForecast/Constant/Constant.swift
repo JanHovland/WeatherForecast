@@ -48,3 +48,10 @@ let sizeArray10: Int = 10
 let sizeArray12: Int = 12
 let sizeArray13: Int = 13
 let sizeArray24: Int = 24
+
+
+let aqSO2: String = String(localized: "Sulphur dioxide")
+let aqNO2: String = String(localized: "Nitrogen dioxide")
+let aqPM: String = String(localized: "Particulates")
+let aqO3: String = String(localized: "Ozone")
+let aqCO: String = String(localized: "Carbon monoxide CO")
