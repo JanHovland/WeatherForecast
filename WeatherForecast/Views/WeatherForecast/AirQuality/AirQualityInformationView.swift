@@ -190,7 +190,7 @@ struct AirQualityInformationView: View {
                 ///
                 /// Viser utvidet info om SO2
                 ///
-                SectionView(showSection: $showSO2, title: $titleSO2, content: $contentSO2)
+                CollapsibleView(showSection: $showSO2, title: $titleSO2, content: $contentSO2)
                 ///
                 /// Viser  NO2:
                 ///
@@ -222,7 +222,7 @@ struct AirQualityInformationView: View {
                 ///
                 /// Viser utvidet info om NO2
                 ///
-                SectionView(showSection: $showNO2, title: $titleNO2, content: $contentNO2)
+                CollapsibleView(showSection: $showNO2, title: $titleNO2, content: $contentNO2)
                 ///
                 /// Viser  PM10:
                 ///
@@ -283,7 +283,7 @@ struct AirQualityInformationView: View {
                 ///
                 /// Viser utvidet info om PM10 og PM2_5
                 ///
-                SectionView(showSection: $showPM, title: $titlePM, content: $contentPM)
+                CollapsibleView(showSection: $showPM, title: $titlePM, content: $contentPM)
                 ///
                 /// Viser  O3:
                 ///
@@ -316,7 +316,7 @@ struct AirQualityInformationView: View {
                 ///
                 /// Viser utvidet info om O3
                 ///
-                SectionView(showSection: $showO3, title: $titleO3, content: $contentO3)
+                CollapsibleView(showSection: $showO3, title: $titleO3, content: $contentO3)
                 ///
                 /// Viser  CO:
                 ///
@@ -349,7 +349,7 @@ struct AirQualityInformationView: View {
                 ///
                 /// Viser utvidet info om CO
                 ///
-                SectionView(showSection: $showCO, title: $titleCO, content: $contentCO)
+                CollapsibleView(showSection: $showCO, title: $titleCO, content: $contentCO)
                 ///
                 /// Ammoniakk
                 ///
@@ -363,7 +363,7 @@ struct AirQualityInformationView: View {
                 ///
                 /// Viser utvidet info om Ammoniakk
                 ///
-                SectionView(showSection: $showAmmonia, title: $titleAmmonia, content: $contentAmmonia)
+                CollapsibleView(showSection: $showAmmonia, title: $titleAmmonia, content: $contentAmmonia)
                 ///
                 ///  NO
                 ///
@@ -377,7 +377,7 @@ struct AirQualityInformationView: View {
                 ///
                 /// Viser utvidet info om NO
                 ///
-                SectionView(showSection: $showNO, title: $titleNO, content: $contentNO)
+                CollapsibleView(showSection: $showNO, title: $titleNO, content: $contentNO)
                 ///
                 /// VOC
                 ///
@@ -391,7 +391,7 @@ struct AirQualityInformationView: View {
                 ///
                 /// Viser utvidet info om VOC
                 ///
-                SectionView(showSection: $showVOC, title: $titleVOC, content: $contentVOC)
+                CollapsibleView(showSection: $showVOC, title: $titleVOC, content: $contentVOC)
                 Spacer()
             }
             .offset(y : UIDevice.isIpad ? 0 : -25)
@@ -512,67 +512,3 @@ var AirQualityGenerally: some View {
         .foregroundColor(.red)
 }
 
-struct SectionView: View {
-    @Binding var showSection: Bool
-    @Binding var title: String
-    @Binding var content: String
-    
-    var body: some View {
-        VStack {
-            SectionDetailView(title: $title, content: $content, show: $showSection)
-        }
-        .padding(.leading, 10)
-        .padding(.top, 10)
-    }
-}
-
-struct SectionDetailView: View {
-    @Binding var title: String
-    @Binding var content: String
-    @Binding var show: Bool
-    
-    var body: some View {
-        
-        Section(
-            header: SectionHeader(
-                title: $title,
-                isOn: $show
-            )
-        ) {
-            if show {
-                Text(content)
-                    .foregroundColor(.black)
-                    .background(
-                        RoundedRectangle(cornerRadius: 5,
-                                         style: .continuous)
-                        .fill(Color("LightYellow"))
-                        .saturation(1)
-                    )
-                    .padding(.top, 20)
-            }
-        }
-    }
-}
-
-struct SectionHeader: View {
-    
-    @Binding var title: String
-    @Binding var isOn: Bool
-    
-    var body: some View {
-        Button(action: {
-            isOn.toggle()
-        }, label: {
-            Image(systemName: isOn ? "chevron.down" : "chevron.right")
-                .foregroundColor(.blue)
-                .font(.title3)
-        })
-        .font(Font.caption)
-        .foregroundColor(.accentColor)
-        .frame(maxWidth: .infinity, alignment: .trailing)
-        .overlay(
-            Text(title),
-            alignment: .leading
-        )
-    }
-}

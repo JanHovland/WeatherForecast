@@ -99,6 +99,9 @@
 		DB66C19D2AF6427A00C2722E /* AirQualityHeadlineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB66C19C2AF6427A00C2722E /* AirQualityHeadlineView.swift */; };
 		DB66C19F2AF6438000C2722E /* AirQualityPollutionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB66C19E2AF6438000C2722E /* AirQualityPollutionView.swift */; };
 		DB66C1A32AF65A6500C2722E /* FindMoonUpDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB66C1A22AF65A6500C2722E /* FindMoonUpDown.swift */; };
+		DB679FD72B25B030008C7330 /* CollapsibleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB679FD62B25B030008C7330 /* CollapsibleView.swift */; };
+		DB679FD92B25B06C008C7330 /* CollapsibleDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB679FD82B25B06C008C7330 /* CollapsibleDetailView.swift */; };
+		DB679FDB2B25B0AC008C7330 /* CollapsibleHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB679FDA2B25B0AC008C7330 /* CollapsibleHeader.swift */; };
 		DB69689A290E715900936C0E /* CurrentWeatherRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB696899290E715900936C0E /* CurrentWeatherRecord.swift */; };
 		DB69689D290E973500936C0E /* CurrentWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB69689C290E973500936C0E /* CurrentWeather.swift */; };
 		DB69689F290E97F900936C0E /* DateSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB69689E290E97F900936C0E /* DateSettings.swift */; };
@@ -286,6 +289,9 @@
 		DB66C19C2AF6427A00C2722E /* AirQualityHeadlineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirQualityHeadlineView.swift; sourceTree = "<group>"; };
 		DB66C19E2AF6438000C2722E /* AirQualityPollutionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirQualityPollutionView.swift; sourceTree = "<group>"; };
 		DB66C1A22AF65A6500C2722E /* FindMoonUpDown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindMoonUpDown.swift; sourceTree = "<group>"; };
+		DB679FD62B25B030008C7330 /* CollapsibleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollapsibleView.swift; sourceTree = "<group>"; };
+		DB679FD82B25B06C008C7330 /* CollapsibleDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollapsibleDetailView.swift; sourceTree = "<group>"; };
+		DB679FDA2B25B0AC008C7330 /* CollapsibleHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollapsibleHeader.swift; sourceTree = "<group>"; };
 		DB696899290E715900936C0E /* CurrentWeatherRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeatherRecord.swift; sourceTree = "<group>"; };
 		DB69689C290E973500936C0E /* CurrentWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeather.swift; sourceTree = "<group>"; };
 		DB69689E290E97F900936C0E /* DateSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateSettings.swift; sourceTree = "<group>"; };
@@ -421,6 +427,7 @@
 		DB13AD3F28E345D200C910E3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				DB679FD52B25AFE5008C7330 /* Collapsible */,
 				DB2E44EF2B0FA64700DC77AD /* Chart */,
 				DBB0E7B5290C2B9C0015F556 /* AirPressure */,
 				DB8A7EF62903C730002DFD73 /* DayDetail */,
@@ -654,6 +661,16 @@
 				DB4FA8C42AEF937E00533266 /* MoonView.swift */,
 			);
 			path = Moon;
+			sourceTree = "<group>";
+		};
+		DB679FD52B25AFE5008C7330 /* Collapsible */ = {
+			isa = PBXGroup;
+			children = (
+				DB679FD82B25B06C008C7330 /* CollapsibleDetailView.swift */,
+				DB679FDA2B25B0AC008C7330 /* CollapsibleHeader.swift */,
+				DB679FD62B25B030008C7330 /* CollapsibleView.swift */,
+			);
+			path = Collapsible;
 			sourceTree = "<group>";
 		};
 		DB69689B290E96FB00936C0E /* Class */ = {
@@ -1035,11 +1052,13 @@
 				DB51163A28E43BDE00DEB1BF /* OpenCage.swift in Sources */,
 				DB66C19F2AF6438000C2722E /* AirQualityPollutionView.swift in Sources */,
 				DB17F6AE295ECF0C00FC2A0B /* UvIndexDescription.swift in Sources */,
+				DB679FDB2B25B0AC008C7330 /* CollapsibleHeader.swift in Sources */,
 				DB86FC102912A24C0019D12F /* DayDetail.swift in Sources */,
 				DB760C072AE6D24C000B08D1 /* WeatherForecastSearchPlace.swift in Sources */,
 				DB4EFDF52AF3BFD40021AABB /* AirQualityViewModifier.swift in Sources */,
 				DB0B17622ADFDD2A0034116A /* FindChartDataTemperature.swift in Sources */,
 				DBDDEA0129BDC86000301E77 /* RefreshOffset.swift in Sources */,
+				DB679FD92B25B06C008C7330 /* CollapsibleDetailView.swift in Sources */,
 				DB2E44EE2B0F439E00DC77AD /* FindChartDataProbability.swift in Sources */,
 				DB27478A294C87690082B63B /* DayTempInfo.swift in Sources */,
 				DB2C02882B1EF9AA0074D9FA /* MapDetailView.swift in Sources */,
@@ -1085,6 +1104,7 @@
 				DB69689A290E715900936C0E /* CurrentWeatherRecord.swift in Sources */,
 				DB17F6B0295F6BA100FC2A0B /* WindDirection.swift in Sources */,
 				DB51163E28E43C6700DEB1BF /* ActivityIndicator.swift in Sources */,
+				DB679FD72B25B030008C7330 /* CollapsibleView.swift in Sources */,
 				DB9D0B0228F027B0002ABA9E /* WindView.swift in Sources */,
 				DBF3DEAD28F5EF0F00509CF4 /* HourOverview.swift in Sources */,
 				DBB4CCCA288869E900B5C5C8 /* WeatherForecastApp.swift in Sources */,
