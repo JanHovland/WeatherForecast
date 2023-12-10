@@ -413,8 +413,8 @@ var toDo_2 =
           🟢 Kommentert bort MapUserLocationButton()
    80. 🟢 Tilpasse meny oppe til venstre
           🟢 Legg inn "Tap for info" og image "info.square"
-   81. 🔴 Bruk ▼ og ▲ for å vise forurensinger jgr list style bar = .sidebar
-   82. 🔴 Avslutte appen når ved manglende data fra Internett API
+   81. 🟢 Bruk ▼ og ▲ for å vise collapsable forurensinger jgr list style bar = .sidebar
+   82. 🔴 Avslutte appen når ved manglende data fra Internett API's
    83. 🔴 iPad: Avslutte appen når det velges et nytt sted
           🔴 Legg inn melding
    84. 🔴 Vurdere å legge inn "snøvarsel" i løpet av perioden på alle menyvalg.

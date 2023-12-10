@@ -427,8 +427,9 @@
 		DB13AD3F28E345D200C910E3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				DB679FDE2B25BAF8008C7330 /* AppsFor */,
 				DBB0E7B5290C2B9C0015F556 /* AirPressure */,
+				DB66C19B2AF641EF00C2722E /* AirQuality */,
+				DB679FDE2B25BAF8008C7330 /* AppsFor */,
 				DB2E44EF2B0FA64700DC77AD /* Chart */,
 				DB679FD52B25AFE5008C7330 /* Collapsible */,
 				DB8A7EF62903C730002DFD73 /* DayDetail */,
@@ -907,7 +908,6 @@
 		DBC65DE12907C3D7004635FE /* WeatherForecast */ = {
 			isa = PBXGroup;
 			children = (
-				DB66C19B2AF641EF00C2722E /* AirQuality */,
 				DBB4CCCB288869E900B5C5C8 /* WeatherForecast.swift */,
 				DB0230C428E4E5D700DCE15C /* WeatherForecastDetail.swift */,
 				DB51164128E442F300DEB1BF /* WeatherForecastMain.swift */,
