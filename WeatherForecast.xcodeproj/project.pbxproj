@@ -427,31 +427,27 @@
 		DB13AD3F28E345D200C910E3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				DB679FDE2B25BAF8008C7330 /* AppsFor */,
 				DBB0E7B5290C2B9C0015F556 /* AirPressure */,
 				DB2E44EF2B0FA64700DC77AD /* Chart */,
 				DB679FD52B25AFE5008C7330 /* Collapsible */,
 				DB8A7EF62903C730002DFD73 /* DayDetail */,
+				DB679FDF2B25BB71008C7330 /* FeelsLike */,
 				DB235A5B29825FA500FE586B /* FindCurrent */,
+				DB679FE02B25BBA0008C7330 /* Hour */,
+				DB679FE12B25BBB8008C7330 /* Humidity */,
 				DB85F9E3294725F200D14013 /* InfoWeather */,
 				DB2C02862B1EF9780074D9FA /* Map */,
+				DB679FDC2B25BA7B008C7330 /* Menu */,
 				DB66C1A42AF65B1B00C2722E /* Moon */,
 				DB6400BD29098E1E0013C3B7 /* Precipitation */,
 				DBBDDAD429CB0A7500A3281E /* Settings */,
 				DB8A7EFD2906B9A1002DFD73 /* Sun */,
 				DB5C0C522917CD4500141BDC /* UvIndex */,
 				DB2727F02965C882003B0903 /* ViewModifier */,
+				DB679FE22B25BC51008C7330 /* Visibility */,
 				DBC65DE12907C3D7004635FE /* WeatherForecast */,
-				DB7B50DB2AF1498E00A61BA1 /* AppsForIPad.swift */,
-				DB7B50D92AF1492A00A61BA1 /* AppsForIPhone.swift */,
-				DBB6905528FB0202006FA016 /* DayOverview.swift */,
-				DB9D0B2028F09549002ABA9E /* FeelsLike.swift */,
-				DBF3DEAC28F5EF0F00509CF4 /* HourOverview.swift */,
-				DB8B5F8F28F1D5A2002C3AE3 /* Humidity.swift */,
-				DB2340C729030E66005F8974 /* MenuButton.swift */,
-				DB2340C529030CA8005F8974 /* MenuContent.swift */,
-				DBECD4E02AE971A6005FD489 /* RefreshOffsetView.swift */,
-				DB8B5F9528F2BEF5002C3AE3 /* Visibility.swift */,
-				DB9D0B0128F027B0002ABA9E /* WindView.swift */,
+				DB679FDD2B25BAAA008C7330 /* Wind */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -487,6 +483,7 @@
 				DBD497A12A4EAE9C0075B350 /* LocationsHandler.swift */,
 				DB5C0C312915263600141BDC /* MenuTitleToOption.swift */,
 				DBDDEA0029BDC86000301E77 /* RefreshOffset.swift */,
+				DBECD4E02AE971A6005FD489 /* RefreshOffsetView.swift */,
 				DBF1038429A92C56008B4281 /* SearchBar.swift */,
 				DB7B036729B31E7A00B4618A /* ServerResponse.swift */,
 				DB9299E229C4CBE2002BA87A /* TranslateCountry.swift */,
@@ -673,6 +670,64 @@
 			path = Collapsible;
 			sourceTree = "<group>";
 		};
+		DB679FDC2B25BA7B008C7330 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				DB2340C729030E66005F8974 /* MenuButton.swift */,
+				DB2340C529030CA8005F8974 /* MenuContent.swift */,
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
+		DB679FDD2B25BAAA008C7330 /* Wind */ = {
+			isa = PBXGroup;
+			children = (
+				DB9D0B0128F027B0002ABA9E /* WindView.swift */,
+			);
+			path = Wind;
+			sourceTree = "<group>";
+		};
+		DB679FDE2B25BAF8008C7330 /* AppsFor */ = {
+			isa = PBXGroup;
+			children = (
+				DB7B50DB2AF1498E00A61BA1 /* AppsForIPad.swift */,
+				DB7B50D92AF1492A00A61BA1 /* AppsForIPhone.swift */,
+			);
+			path = AppsFor;
+			sourceTree = "<group>";
+		};
+		DB679FDF2B25BB71008C7330 /* FeelsLike */ = {
+			isa = PBXGroup;
+			children = (
+				DB9D0B2028F09549002ABA9E /* FeelsLike.swift */,
+			);
+			path = FeelsLike;
+			sourceTree = "<group>";
+		};
+		DB679FE02B25BBA0008C7330 /* Hour */ = {
+			isa = PBXGroup;
+			children = (
+				DBF3DEAC28F5EF0F00509CF4 /* HourOverview.swift */,
+			);
+			path = Hour;
+			sourceTree = "<group>";
+		};
+		DB679FE12B25BBB8008C7330 /* Humidity */ = {
+			isa = PBXGroup;
+			children = (
+				DB8B5F8F28F1D5A2002C3AE3 /* Humidity.swift */,
+			);
+			path = Humidity;
+			sourceTree = "<group>";
+		};
+		DB679FE22B25BC51008C7330 /* Visibility */ = {
+			isa = PBXGroup;
+			children = (
+				DB8B5F9528F2BEF5002C3AE3 /* Visibility.swift */,
+			);
+			path = Visibility;
+			sourceTree = "<group>";
+		};
 		DB69689B290E96FB00936C0E /* Class */ = {
 			isa = PBXGroup;
 			children = (
@@ -765,6 +820,7 @@
 				DBA2AA5429237EC700581301 /* DayDetailShowUnit.swift */,
 				DB8C17D029DDB72300198DCB /* DayDetailShowSelection.swift */,
 				DB17F69A295DB7A000FC2A0B /* DayDetailWeatherData.swift */,
+				DBB6905528FB0202006FA016 /* DayOverview.swift */,
 			);
 			path = DayDetail;
 			sourceTree = "<group>";
