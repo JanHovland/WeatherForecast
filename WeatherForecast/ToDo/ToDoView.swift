@@ -417,8 +417,9 @@ var toDo_2 =
    82. 🔴 Avslutte appen når ved manglende data fra Internett API's
    83. 🔴 iPad: Avslutte appen når det velges et nytt sted
           🔴 Legg inn melding
-   84. 🔴 Vurdere å legge inn "snøvarsel" i løpet av perioden på alle menyvalg.
-   85. 🔴 .
+   84. 🔴 Hvordan behandle det når noen "settings" mangler.
+   85. 🔴 Vurdere å legge inn "snøvarsel" i løpet av perioden på alle menyvalg.
+   86. 🔴 .
           🔴 .
 """
 

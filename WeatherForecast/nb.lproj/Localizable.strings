@@ -1043,9 +1043,6 @@
 "511 Network Authentication Required,\nIndicates that the client needs to authenticate to gain network access." = "511 Nettverksautentisering kreves,\nIndikerer at klienten må autentisere seg for å få nettverkstilgang.\n\nAvslutt appen.";
 
 /* No comment provided by engineer. */
-"Error finding 'hourForecast'.\n\nExit the app." = "Feil med å finne 'hourForecast'.\n\nAvslutt appen.";
-
-/* No comment provided by engineer. */
 "No value for hourForecast.\n\nExit the app." = "Ingen verdi for hourForecast.\n\nAvslutt appen.";
 
 /* No comment provided by engineer. */
@@ -1163,18 +1160,14 @@
 "The hourForecast is empty.\n\nPlease note that this alert will only show for a few seconds."  = "HourForecast er tom.\n\nVær oppmerksom på at dette varselet bare vises i noen få sekunder.";
 
 /* No comment provided by engineer. */
-"Find data for the the Sun" = "Finn data for solen";
+"Find data for the the Sun or the Moon." = "Finn data for solen eller månen.";
 
 /* No comment provided by engineer. */
-"The Sun data is empty.\n\nPlease note that this alert will only show for a few seconds."
-   = "Data for solen er tomme.\n\nVær oppmerksom på at dette varselet bare vises i noen få sekunder.";
+"The Sun or Moon data are empty.\n\nPlease note that this alert will only show for a few seconds.\nThen the app will terminate."
+   = "Sol- eller månedataene er tomme.\n\nVær oppmerksom på at dette varselet bare vises i noen få sekunder.\nDeretter avsluttes appen.";
 
 /* No comment provided by engineer. */
 "Find the weather data" = "Finn vær data";
-
-/* No comment provided by engineer. */
-"The weather is empty.\n\nPlease note that this alert will only show for a few seconds."
- = "Finner ikke vær data.\n\nVær oppmerksom på at dette varselet bare vises i noen få sekunder.";
 
 /* No comment provided by engineer. */
 "Missing coordinates from FindCurrentLocation()" = "Mangler koordinater fra FindCurrentLocation()";
@@ -1518,3 +1511,25 @@
 /* No comment provided by engineer. */
 "Nitric oxide (NO)" = "Nitrogenoksid (NO)";
 
+/* No comment provided by engineer. */
+"No coordinates found.\n\nPlease note that this alert will only show for a few seconds.\nThen the app will terminate." = "Ingen koordinater funnet.\n\nVær oppmerksom på at dette varselet bare vises i noen få sekunder.\nDeretter vil appen avsluttes.";
+
+/* No comment provided by engineer. */
+"Terminate this app" = "Avslutt denne appen";
+
+/* No comment provided by engineer. */
+"The hourForecast is empty.\n\nPlease note that this alert will only show for a few seconds.\nThen the app will terminate." = "Timevarselet er tomt.\n\nVær oppmerksom på at dette varselet bare vises i noen få sekunder.\nDeretter vil appen avsluttes.";
+
+/* No comment provided by engineer. */
+"Error finding 'hourForecast'." = "Feil ved å finne 'hourForecast'.";
+
+/* No comment provided by engineer. */
+"Find data for the Air Quality." = "Finn data for luftkvaliteten.";
+
+/* No comment provided by engineer. */
+"The Air Quality data is empty.\n\nPlease note that this alert will only show for a few seconds.\nThen the app will terminate."
+= "Luftkvalitetsdataene er tomme.\n\nVær oppmerksom på at dette varselet bare vises i noen få sekunder.\nDeretter vil appen avsluttes.";
+
+/* No comment provided by engineer. */
+"The Weather data is empty.\n\nPlease note that this alert will only show for a few seconds.\nThen the app will terminate."
+ = "Værdataene er tomme.\n\nVær oppmerksom på at dette varselet bare vises i noen få sekunder.\nDeretter avsluttes appen.";

@@ -88,7 +88,7 @@ struct WeatherForecast: View {
                         /// Dette er kanskje en feil i iPadOS 17.2 (21C5029g) ?
                         ///
                         ScrollView (.vertical, showsIndicators: false) {
-                           VStack {
+                            VStack {
                                 VStack {
                                     Text(weatherInfo.placeName.count > 0 ? weatherInfo.placeName : "No placeName")
                                         .font(.system(size: 40, weight: .light))
@@ -147,7 +147,7 @@ struct WeatherForecast: View {
                                 AppsForIPad(weather: weather,
                                             sunRises: $sunRises,
                                             sunSets: $sunSets)
-                             }
+                            }
                             .listStyle(.insetGrouped)
                             .navigationBarHidden(true)
                             ///
@@ -196,7 +196,7 @@ struct WeatherForecast: View {
                                                         weatherInfo.countryName = ""
                                                         weatherInfo.offsetString = ""
                                                         weatherInfo.offsetSec = 0
-                                                       
+                                                        
                                                     } else {
                                                         title = "Delete a place"
                                                         message = value.1
@@ -227,53 +227,56 @@ struct WeatherForecast: View {
                     }
                     Spacer()
                 }
-            } 
-        }
-        .alert(title, isPresented: $showAlert) {
-        }
-        message: {
-            Text(message)
-        }
-        .navigationBarTitleDisplayMode(.inline)
-            ///
-            /// SwiftUI gives us equivalents to UIKit’s viewDidAppear() and viewDidDisappear() in the form of onAppear() and onDisappear().
-            ///
-        .onAppear {
-            Task.init {
-                ///
-                /// Sjekker innstillingene:
-                ///
-                let key1 = UserDefaults.standard.object(forKey: "KeyOpenCage") as? String ?? ""
-                let urlOpenCage1 = UserDefaults.standard.object(forKey: "UrlOpenCage") as? String ?? ""
-                let urlMetNo1 = UserDefaults.standard.object(forKey: "UrlMetNo") as? String ?? ""
-                let urlOpenWeather1 = UserDefaults.standard.object(forKey: "UrlOpenWeather") as? String ?? ""
-
-                if key1 == "" || urlOpenCage1 == "" || urlMetNo1 == "" || urlOpenWeather1 == "" {
-                    title = "Missing data in one or more of the Settings.\n"
-                    message = "Select Settings and enter the missing values."
-                    showAlert.toggle()
-                } else {
-                    ///
-                    /// Sjekker om internet er tilkoplet:
-                    ///
-                    var value : (Bool, LocalizedStringKey)
-                    value = ConnectToInternet()
-                    if value.0 == false {
-                        title = value.1
-                        message = "No Internet connection for this device."
-                        showAlert.toggle()
-                        ///
-                        /// Lagger inn en forsinkelse på 10 sekunder:
-                        ///
-                        sleep(10)
-                    }
-                    ///
-                    /// Kaller opp refresh()
-                    ///
-                    await Refresh()
-                }
             }
         }
+        .alert(title, isPresented: $showAlert) {
+            Button("Terminate this app", role: .cancel) {
+                UIApplication.shared.perform(#selector(NSXPCConnection.suspend))
+            }
+        }
+    message: {
+        Text(message)
+    }
+    .navigationBarTitleDisplayMode(.inline)
+        ///
+        /// SwiftUI gives us equivalents to UIKit’s viewDidAppear() and viewDidDisappear() in the form of onAppear() and onDisappear().
+        ///
+    .onAppear {
+        Task.init {
+            ///
+            /// Sjekker innstillingene:
+            ///
+            let key1 = UserDefaults.standard.object(forKey: "KeyOpenCage") as? String ?? ""
+            let urlOpenCage1 = UserDefaults.standard.object(forKey: "UrlOpenCage") as? String ?? ""
+            let urlMetNo1 = UserDefaults.standard.object(forKey: "UrlMetNo") as? String ?? ""
+            let urlOpenWeather1 = UserDefaults.standard.object(forKey: "UrlOpenWeather") as? String ?? ""
+            
+            if key1 == "" || urlOpenCage1 == "" || urlMetNo1 == "" || urlOpenWeather1 == "" {
+                title = "Missing data in one or more of the Settings.\n"
+                message = "Select Settings and enter the missing values."
+                showAlert.toggle()
+            } else {
+                ///
+                /// Sjekker om internet er tilkoplet:
+                ///
+                var value : (Bool, LocalizedStringKey)
+                value = ConnectToInternet()
+                if value.0 == false {
+                    title = value.1
+                    message = "No Internet connection for this device."
+                    showAlert.toggle()
+                    ///
+                    /// Lagger inn en forsinkelse på 10 sekunder:
+                    ///
+                    sleep(10)
+                }
+                ///
+                /// Kaller opp refresh()
+                ///
+                await Refresh()
+            }
+        }
+    }
     }
     ///
     /// Rutine for oppfriskning:
@@ -327,12 +330,12 @@ struct WeatherForecast: View {
             if weatherInfo.latitude == 0.00 && weatherInfo.longitude == 0.00 {
                 persist = false
                 title = "Missing coordinates from FindCurrentLocation()"
-                message = "No coordinates found.\n\nPlease note that this alert will only show for a few seconds."
+                message = "No coordinates found.\n\nPlease note that this alert will only show for a few seconds.\nThen the app will terminate."
                 showAlert.toggle()
                 ///
                 /// Lukker denne meldingen etter 10 sekunder:
                 ///
-                dismissAlert(seconds: 10)
+                DismissAlertAndExitApp(seconds: 10)
             }
         }
         if persist == true {
@@ -357,7 +360,7 @@ struct WeatherForecast: View {
                                                                                           endDate: endDate!))
             } catch {
                 debugPrint(error)
-                title = "Error finding 'hourForecast'.\n\nExit the app."
+                title = "Error finding 'hourForecast'."
                 message = ServerResponse(error: error.localizedDescription)
                 showAlert.toggle()
             }
@@ -367,12 +370,12 @@ struct WeatherForecast: View {
             if hourForecast?.isEmpty == true {
                 persist = false
                 title = "Find the hourForecast data"
-                message = "The hourForecast is empty.\n\nPlease note that this alert will only show for a few seconds and then the App will automatically shut down."
+                message = "The hourForecast is empty.\n\nPlease note that this alert will only show for a few seconds.\nThen the app will terminate."
                 showAlert.toggle()
                 ///
                 /// Lukker denne meldingen etter 10 sekunder:
                 ///
-                dismissAlert(seconds: 10)
+                DismissAlertAndExitApp(seconds: 10)
             }
             ///
             /// Går bare videre dersom persist er true:
@@ -417,13 +420,13 @@ struct WeatherForecast: View {
                 ///
                 if sunRises.isEmpty == true || sunSets.isEmpty == true {
                     persist = false
-                    title = "Find data for the the Sun"
-                    message = "The Sun data is empty.\n\nPlease note that this alert will only show for a few seconds."
+                    title = "Find data for the the Sun or the Moon."
+                    message = "The Sun or Moon data are empty.\n\nPlease note that this alert will only show for a few seconds.\nThen the app will terminate."
                     showAlert.toggle()
                     ///
                     /// Lukker denne meldingen etter 10 sekunder:
                     ///
-                    dismissAlert(seconds: 10)
+                    DismissAlertAndExitApp(seconds: 10)
                 }
                 ///
                 /// Går bare videre dersom persist er true:
@@ -438,100 +441,105 @@ struct WeatherForecast: View {
                                          key: UserDefaults.standard.object(forKey: "KeyOpenWeather") as? String ?? "",
                                          latitude : weatherInfo.latitude ?? 0.00,
                                          longitude:  weatherInfo.longitude ?? 0.00)
-                    ///
-                    /// Resetter weather og oppdaterer currentWearher:
-                    ///
-                    weather = nil
-                    do {
-                        self.weather = try await weatherService.weather(for: location)
-                        currentWeather.dt = 0
-                        if let weather,
-                           status == "" {
-                           ///
-                            /// Legger inn Airquality:
-                            ///
-                            /// Air Quality Index. Possible values: 1, 2, 3, 4, 5. Where 1 = Good, 2 = Fair, 3 = Moderate, 4 = Poor, 5 = Very Poor.
-                            if airQuality.aqi == 1 {
-                                currentWeather.image = "aqi.low"
-                            } else if airQuality.aqi == 2 {
-                                currentWeather.image = "aqi.medium"
-                            } else if airQuality.aqi == 3 {
-                                currentWeather.image = "aqi.medium"
-                            } else if airQuality.aqi == 4 {
-                                currentWeather.image = "aqi.high"
-                            } else if airQuality.aqi == 5 {
-                                currentWeather.image = "aqi.high"
+                    
+                    if status.count > 0 {
+                        persist = false
+                        title = "Find data for the Air Quality."
+                        message = "The Air Quality data is empty.\n\nPlease note that this alert will only show for a few seconds.\nThen the app will terminate."
+                        showAlert.toggle()
+                        ///
+                        /// Lukker denne meldingen etter 10 sekunder:
+                        ///
+                        DismissAlertAndExitApp(seconds: 10)
+                    }
+                    
+                    if persist == true {
+                        ///
+                        /// Resetter weather og oppdaterer currentWearher:
+                        ///
+                        weather = nil
+                        do {
+                            self.weather = try await weatherService.weather(for: location)
+                            if let weather,
+                               status == "" {
+                                ///
+                                /// Legger inn Airquality:
+                                ///
+                                /// Air Quality Index. Possible values: 1, 2, 3, 4, 5. Where 1 = Good, 2 = Fair, 3 = Moderate, 4 = Poor, 5 = Very Poor.
+                                if airQuality.aqi == 1 {
+                                    currentWeather.image = "aqi.low"
+                                } else if airQuality.aqi == 2 {
+                                    currentWeather.image = "aqi.medium"
+                                } else if airQuality.aqi == 3 {
+                                    currentWeather.image = "aqi.medium"
+                                } else if airQuality.aqi == 4 {
+                                    currentWeather.image = "aqi.high"
+                                } else if airQuality.aqi == 5 {
+                                    currentWeather.image = "aqi.high"
+                                }
+                                currentWeather.aqi = airQuality.aqi
+                                ///  Сoncentration of CO (Carbon monoxide), μg/m3
+                                currentWeather.co = airQuality.co
+                                /// Сoncentration of NO (Nitrogen monoxide), μg/m3
+                                currentWeather.no = airQuality.no
+                                /// Сoncentration of NO2 (Nitrogen dioxide), μg/m3
+                                currentWeather.no2 = airQuality.no2
+                                /// Сoncentration of O3 (Ozone), μg/m
+                                currentWeather.o3 = airQuality.o3
+                                /// Сoncentration of SO2 (Sulphur dioxide), μg/m3
+                                currentWeather.so2 = airQuality.so2
+                                ///  Сoncentration of PM2.5 (Fine particles matter), μg/m3
+                                currentWeather.pm2_5 = airQuality.pm2_5
+                                /// Сoncentration of PM10 (Coarse particulate matter), μg/m3
+                                currentWeather.pm10 = airQuality.pm10
+                                /// Сoncentration of NH3 (Ammonia), μg/m3
+                                currentWeather.nh3 = airQuality.nh3
+                                ///  Date and time, Unix, UTC
+                                currentWeather.dt = airQuality.dt
+                                /// moonPhase
+                                currentWeather.moonPhase = moonRecord.moonPhase
+                                /// moonrise
+                                currentWeather.moonrise = moonRecord.moonrise
+                                /// moonset
+                                currentWeather.moonset = moonRecord.moonset
+                                /// moonIllumination
+                                currentWeather.moonIllumination = moonRecord.moonIllumination
+                                /// isMoonUp
+                                currentWeather.isMoonUp = moonRecord.isMoonUp
+                                /// isSunUp
+                                currentWeather.isSunUp = moonRecord.isSunUp
+                                ///
+                                /// Oppdaterer currentWeather:
+                                ///
+                                currentWeather.date = weather.currentWeather.date
+                                currentWeather.hour = Int(FormatDateToString(date: currentWeather.date, format: ("HH"), offsetSec: weatherInfo.offsetSec))!
+                                currentWeather.cloudCover = weather.currentWeather.cloudCover
+                                currentWeather.condition = weather.currentWeather.condition.description
+                                currentWeather.symbolName = weather.currentWeather.symbolName
+                                currentWeather.dewPoint = weather.currentWeather.dewPoint.value
+                                currentWeather.humidity = weather.currentWeather.humidity
+                                currentWeather.pressure = weather.currentWeather.pressure.value
+                                currentWeather.isDaylight = weather.currentWeather.isDaylight
+                                currentWeather.temperature = weather.currentWeather.temperature.value
+                                currentWeather.apparentTemperature = weather.currentWeather.apparentTemperature.value
+                                currentWeather.uvIndex = weather.currentWeather.uvIndex.value
+                                currentWeather.visibility = weather.currentWeather.visibility.value
+                                currentWeather.windSpeed = weather.currentWeather.wind.speed.value
+                                currentWeather.windGust = weather.currentWeather.wind.gust?.value ?? 0.00
+                                currentWeather.windDirection = weather.currentWeather.wind.direction.value
                             }
-                            currentWeather.aqi = airQuality.aqi
-                            ///  Сoncentration of CO (Carbon monoxide), μg/m3
-                            currentWeather.co = airQuality.co
-                            /// Сoncentration of NO (Nitrogen monoxide), μg/m3
-                            currentWeather.no = airQuality.no
-                            /// Сoncentration of NO2 (Nitrogen dioxide), μg/m3
-                            currentWeather.no2 = airQuality.no2
-                            /// Сoncentration of O3 (Ozone), μg/m
-                            currentWeather.o3 = airQuality.o3
-                            /// Сoncentration of SO2 (Sulphur dioxide), μg/m3
-                            currentWeather.so2 = airQuality.so2
-                            ///  Сoncentration of PM2.5 (Fine particles matter), μg/m3
-                            currentWeather.pm2_5 = airQuality.pm2_5
-                            /// Сoncentration of PM10 (Coarse particulate matter), μg/m3
-                            currentWeather.pm10 = airQuality.pm10
-                            /// Сoncentration of NH3 (Ammonia), μg/m3
-                            currentWeather.nh3 = airQuality.nh3
-                            ///  Date and time, Unix, UTC
-                            currentWeather.dt = airQuality.dt
-                            /// moonPhase
-                            currentWeather.moonPhase = moonRecord.moonPhase
-                            /// moonrise
-                            currentWeather.moonrise = moonRecord.moonrise
-                            /// moonset
-                            currentWeather.moonset = moonRecord.moonset
-                            /// moonIllumination
-                            currentWeather.moonIllumination = moonRecord.moonIllumination
-                            /// isMoonUp
-                            currentWeather.isMoonUp = moonRecord.isMoonUp
-                            /// isSunUp
-                            currentWeather.isSunUp = moonRecord.isSunUp
-                             ///
-                            /// Oppdaterer currentWeather:
-                            ///
-                            currentWeather.date = weather.currentWeather.date
-                            currentWeather.hour = Int(FormatDateToString(date: currentWeather.date, format: ("HH"), offsetSec: weatherInfo.offsetSec))!
-                            currentWeather.cloudCover = weather.currentWeather.cloudCover
-                            currentWeather.condition = weather.currentWeather.condition.description
-                            currentWeather.symbolName = weather.currentWeather.symbolName
-                            currentWeather.dewPoint = weather.currentWeather.dewPoint.value
-                            currentWeather.humidity = weather.currentWeather.humidity
-                            currentWeather.pressure = weather.currentWeather.pressure.value
-                            currentWeather.isDaylight = weather.currentWeather.isDaylight
-                            currentWeather.temperature = weather.currentWeather.temperature.value
-                            currentWeather.apparentTemperature = weather.currentWeather.apparentTemperature.value
-                            currentWeather.uvIndex = weather.currentWeather.uvIndex.value
-                            currentWeather.visibility = weather.currentWeather.visibility.value
-                            currentWeather.windSpeed = weather.currentWeather.wind.speed.value
-                            currentWeather.windGust = weather.currentWeather.wind.gust?.value ?? 0.00
-                            currentWeather.windDirection = weather.currentWeather.wind.direction.value
-                        }
-                        ///
-                        /// Gir feilmelding og avslutter hvis weather == nil:
-                        ///
-                        else {
-                            persist = false
-                            title = "Find the weather data"
-                            message = "The weather is empty.\n\nPlease note that this alert will only show for a few seconds."
+                        } catch {
+                            debugPrint(error)
+                            title = "Error finding 'weather'"
+                            message = ServerResponse(error: error.localizedDescription)
                             showAlert.toggle()
                             ///
                             /// Lukker denne meldingen etter 10 sekunder:
                             ///
-                            dismissAlert(seconds: 10)
+                            DismissAlertAndExitApp(seconds: 10)
                         }
-                    } catch {
-                        debugPrint(error)
-                        title = "Error finding 'weather'"
-                        message = ServerResponse(error: error.localizedDescription)
-                    }
-                }
+                    } /// if persist == true
+                } /// if persist == true
                 ///
                 /// Skjuler ActivityIndicator:
                 ///
@@ -540,9 +548,19 @@ struct WeatherForecast: View {
         }
     }
     
-    func dismissAlert(seconds: Double) {
+    func DismissAlertAndExitApp(seconds: Double) {
         DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
             showAlert = false
+            ///
+            /// https://stackoverflow.com/questions/73061848/quit-an-app-swift-programmatically-without-crash-log-in-firebase
+            ///** If you use exit(0), your application will be rejected due to the following reason:
+            ///
+            /// We found that your app includes a UI control for quitting the app.
+            /// This is not in compliance with the iOS Human Interface Guidelines, as required by the App Store Review Guidelines.
+            /// To avoid any such rejections, suspend the application using the following code snippet.
+            ///     UIApplication.shared.perform(#selector(NSXPCConnection.suspend))
+            ///
+            UIApplication.shared.perform(#selector(NSXPCConnection.suspend))
         }
     }
     
