@@ -84,7 +84,7 @@ struct WeatherForecast: View {
                 if let weather {
                     if UIDevice.isIpad {
                         ///
-                        /// Benytter ScrollView() på iPad, men når jeg velger nest sted så krasjer aooen.
+                        /// Benytter ScrollView() på iPad, men når jeg velger det neste stedet så krasjer aooen.
                         /// Dette er kanskje en feil i iPadOS 17.2 (21C5029g) ?
                         ///
                         ScrollView (.vertical, showsIndicators: false) {
@@ -234,49 +234,49 @@ struct WeatherForecast: View {
                 UIApplication.shared.perform(#selector(NSXPCConnection.suspend))
             }
         }
-    message: {
-        Text(message)
-    }
-    .navigationBarTitleDisplayMode(.inline)
-        ///
-        /// SwiftUI gives us equivalents to UIKit’s viewDidAppear() and viewDidDisappear() in the form of onAppear() and onDisappear().
-        ///
-    .onAppear {
-        Task.init {
+        message: {
+            Text(message)
+        }
+        .navigationBarTitleDisplayMode(.inline)
             ///
-            /// Sjekker innstillingene:
+            /// SwiftUI gives us equivalents to UIKit’s viewDidAppear() and viewDidDisappear() in the form of onAppear() and onDisappear().
             ///
-            let key1 = UserDefaults.standard.object(forKey: "KeyOpenCage") as? String ?? ""
-            let urlOpenCage1 = UserDefaults.standard.object(forKey: "UrlOpenCage") as? String ?? ""
-            let urlMetNo1 = UserDefaults.standard.object(forKey: "UrlMetNo") as? String ?? ""
-            let urlOpenWeather1 = UserDefaults.standard.object(forKey: "UrlOpenWeather") as? String ?? ""
-            
-            if key1 == "" || urlOpenCage1 == "" || urlMetNo1 == "" || urlOpenWeather1 == "" {
-                title = "Missing data in one or more of the Settings.\n"
-                message = "Select Settings and enter the missing values."
-                showAlert.toggle()
-            } else {
+        .onAppear {
+            Task.init {
                 ///
-                /// Sjekker om internet er tilkoplet:
+                /// Sjekker innstillingene:
                 ///
-                var value : (Bool, LocalizedStringKey)
-                value = ConnectToInternet()
-                if value.0 == false {
-                    title = value.1
-                    message = "No Internet connection for this device."
+                let key1 = UserDefaults.standard.object(forKey: "KeyOpenCage") as? String ?? ""
+                let urlOpenCage1 = UserDefaults.standard.object(forKey: "UrlOpenCage") as? String ?? ""
+                let urlMetNo1 = UserDefaults.standard.object(forKey: "UrlMetNo") as? String ?? ""
+                let urlOpenWeather1 = UserDefaults.standard.object(forKey: "UrlOpenWeather") as? String ?? ""
+                
+                if key1 == "" || urlOpenCage1 == "" || urlMetNo1 == "" || urlOpenWeather1 == "" {
+                    title = "Missing data in one or more of the Settings.\n"
+                    message = "Select Settings and enter the missing values."
                     showAlert.toggle()
+                } else {
                     ///
-                    /// Lagger inn en forsinkelse på 10 sekunder:
+                    /// Sjekker om internet er tilkoplet:
                     ///
-                    sleep(10)
+                    var value : (Bool, LocalizedStringKey)
+                    value = ConnectToInternet()
+                    if value.0 == false {
+                        title = value.1
+                        message = "No Internet connection for this device."
+                        showAlert.toggle()
+                        ///
+                        /// Lagger inn en forsinkelse på 10 sekunder:
+                        ///
+                        sleep(10)
+                    }
+                    ///
+                    /// Kaller opp refresh()
+                    ///
+                    await Refresh()
                 }
-                ///
-                /// Kaller opp refresh()
-                ///
-                await Refresh()
             }
         }
-    }
     }
     ///
     /// Rutine for oppfriskning:
