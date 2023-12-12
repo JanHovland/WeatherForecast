@@ -73,8 +73,15 @@ struct WeatherForecast: View {
     
     @State private var persist: Bool = true
     
+    @State private var settingsMissing: Bool = false
+    
     var body: some View {
         VStack {
+            
+            if settingsMissing {
+                SettingView()
+            }
+            
             ActivityIndicator(opacity: $opacityIndicator)
                 .offset(y: UIDevice.isIpad ? -375 : -325)
             ///
@@ -252,9 +259,11 @@ struct WeatherForecast: View {
                 let urlOpenWeather1 = UserDefaults.standard.object(forKey: "UrlOpenWeather") as? String ?? ""
                 
                 if key1 == "" || urlOpenCage1 == "" || urlMetNo1 == "" || urlOpenWeather1 == "" {
-                    title = "Missing data in one or more of the Settings.\n"
-                    message = "Select Settings and enter the missing values."
-                    showAlert.toggle()
+                    ///
+                    /// Åpner SettingView()
+                    ///
+                    settingsMissing = true
+                    opacityIndicator = 0.00
                 } else {
                     ///
                     /// Sjekker om internet er tilkoplet:
