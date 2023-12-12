@@ -411,11 +411,11 @@ var toDo_2 =
                   🟢 Lufttrykk
    79. 🟢 Tilpasse meny oppe til venstre
           🟢 Legg inn "Tap for info" og image "info.square"
-   80. 🟢 Bruk ▼ og ▲ for å vise collapsable forurensinger jgr list style bar = .sidebar
+   80. 🟢 Bruk ▼ og ▲ for å vise "collapsable" forurensinger.
    81. 🟢 Avslutte appen når ved manglende data fra Internett API's
    82. 🟢 iPad: Avslutte appen når det velges et nytt sted
-          🟣🟣🟣🟣 Dette er en feil i iPadOS, så jeg avventer oppdatering
-   83. 🟢 Behandle når noen "settings" mangler.
+          🟣🟣🟣🟣 Dette er en feil i iPadOS, så jeg avventer oppdatering.
+   83. 🟢 Behandle når noen "Innstillinger" mangler.
           🟢 Åpner SettingsView()
    84. 🔴 Vurdere å legge inn "snøvarsel" i løpet av perioden på alle menyvalg.
           🔴 Værforhold (Temperatur)
@@ -426,8 +426,12 @@ var toDo_2 =
           🔴 Luftfuktighet
           🔴 Sikt
           🔴 Lufttrykk
-   85. 🔴 Erstatte Geosatellite fra Met.no
-   86. 🔴 .
+   85. 🔴 Lokal værmelding sin meny
+          🔴 Erstatte "Slett" med "Lagre i MINE STEDER"
+          🔴 Legg inn riktig flagg på de lokale stedene jeg har lagret.
+   86. 🔴 Erstatte Geosatellite fra Met.no
+          🔴
+   87. 🔴 .
           🔴 .
 """
 
