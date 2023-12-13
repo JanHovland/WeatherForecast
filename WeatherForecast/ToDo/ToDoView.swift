@@ -417,21 +417,14 @@ var toDo_2 =
           🟣🟣🟣🟣 Dette er en feil i iPadOS, så jeg avventer oppdatering.
    83. 🟢 Behandle når noen "Innstillinger" mangler.
           🟢 Åpner SettingsView()
-   84. 🔴 Vurdere å legge inn "snøvarsel" i løpet av perioden på alle menyvalg.
-          🔴 Værforhold (Temperatur)
-          🔴 UV-index
-          🔴 Vind
-          🔴 Nedbør
-          🔴 Føles som
-          🔴 Luftfuktighet
-          🔴 Sikt
-          🔴 Lufttrykk
-   85. 🔴 Lokal værmelding sin meny
+   84. 🔴 Legge inn et varselsfelt helt øverst på skjermen
+   85. 🔴 Lokal værmelding sin meny må endres:
           🔴 Erstatte "Slett" med "Lagre i MINE STEDER"
           🔴 Legg inn riktig flagg på de lokale stedene jeg har lagret.
-   86. 🔴 Erstatte Geosatellite fra Met.no
+   86. 🔴 Erstatte Geosatellite fra met.no
+   87. 🔴 Kan alt fra CurrentWeather legges inn i WeatherInfo?
           🔴
-   87. 🔴 .
+   88. 🔴 .
           🔴 .
 """
 

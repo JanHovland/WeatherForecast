@@ -241,51 +241,51 @@ struct WeatherForecast: View {
                 UIApplication.shared.perform(#selector(NSXPCConnection.suspend))
             }
         }
-        message: {
-            Text(message)
-        }
-        .navigationBarTitleDisplayMode(.inline)
+    message: {
+        Text(message)
+    }
+    .navigationBarTitleDisplayMode(.inline)
+        ///
+        /// SwiftUI gives us equivalents to UIKit’s viewDidAppear() and viewDidDisappear() in the form of onAppear() and onDisappear().
+        ///
+    .onAppear {
+        Task.init {
             ///
-            /// SwiftUI gives us equivalents to UIKit’s viewDidAppear() and viewDidDisappear() in the form of onAppear() and onDisappear().
+            /// Sjekker innstillingene:
             ///
-        .onAppear {
-            Task.init {
+            let key1 = UserDefaults.standard.object(forKey: "KeyOpenCage") as? String ?? ""
+            let urlOpenCage1 = UserDefaults.standard.object(forKey: "UrlOpenCage") as? String ?? ""
+            let urlMetNo1 = UserDefaults.standard.object(forKey: "UrlMetNo") as? String ?? ""
+            let urlOpenWeather1 = UserDefaults.standard.object(forKey: "UrlOpenWeather") as? String ?? ""
+            
+            if key1 == "" || urlOpenCage1 == "" || urlMetNo1 == "" || urlOpenWeather1 == "" {
                 ///
-                /// Sjekker innstillingene:
+                /// Åpner SettingView()
                 ///
-                let key1 = UserDefaults.standard.object(forKey: "KeyOpenCage") as? String ?? ""
-                let urlOpenCage1 = UserDefaults.standard.object(forKey: "UrlOpenCage") as? String ?? ""
-                let urlMetNo1 = UserDefaults.standard.object(forKey: "UrlMetNo") as? String ?? ""
-                let urlOpenWeather1 = UserDefaults.standard.object(forKey: "UrlOpenWeather") as? String ?? ""
-                
-                if key1 == "" || urlOpenCage1 == "" || urlMetNo1 == "" || urlOpenWeather1 == "" {
+                settingsMissing = true
+                opacityIndicator = 0.00
+            } else {
+                ///
+                /// Sjekker om internet er tilkoplet:
+                ///
+                var value : (Bool, LocalizedStringKey)
+                value = ConnectToInternet()
+                if value.0 == false {
+                    title = value.1
+                    message = "No Internet connection for this device."
+                    showAlert.toggle()
                     ///
-                    /// Åpner SettingView()
+                    /// Lagger inn en forsinkelse på 10 sekunder:
                     ///
-                    settingsMissing = true
-                    opacityIndicator = 0.00
-                } else {
-                    ///
-                    /// Sjekker om internet er tilkoplet:
-                    ///
-                    var value : (Bool, LocalizedStringKey)
-                    value = ConnectToInternet()
-                    if value.0 == false {
-                        title = value.1
-                        message = "No Internet connection for this device."
-                        showAlert.toggle()
-                        ///
-                        /// Lagger inn en forsinkelse på 10 sekunder:
-                        ///
-                        sleep(10)
-                    }
-                    ///
-                    /// Kaller opp refresh()
-                    ///
-                    await Refresh()
+                    sleep(10)
                 }
+                ///
+                /// Kaller opp refresh()
+                ///
+                await Refresh()
             }
         }
+    }
     }
     ///
     /// Rutine for oppfriskning:
@@ -344,7 +344,7 @@ struct WeatherForecast: View {
                 ///
                 /// Lukker denne meldingen etter 10 sekunder:
                 ///
-                DismissAlertAndExitApp(seconds: 10)
+                DismissAlertAndExitApp(seconds: 10, alert: &showAlert)
             }
         }
         if persist == true {
@@ -384,7 +384,7 @@ struct WeatherForecast: View {
                 ///
                 /// Lukker denne meldingen etter 10 sekunder:
                 ///
-                DismissAlertAndExitApp(seconds: 10)
+                DismissAlertAndExitApp(seconds: 10, alert: &showAlert)
             }
             ///
             /// Går bare videre dersom persist er true:
@@ -435,7 +435,7 @@ struct WeatherForecast: View {
                     ///
                     /// Lukker denne meldingen etter 10 sekunder:
                     ///
-                    DismissAlertAndExitApp(seconds: 10)
+                    DismissAlertAndExitApp(seconds: 10, alert: &showAlert)
                 }
                 ///
                 /// Går bare videre dersom persist er true:
@@ -459,7 +459,7 @@ struct WeatherForecast: View {
                         ///
                         /// Lukker denne meldingen etter 10 sekunder:
                         ///
-                        DismissAlertAndExitApp(seconds: 10)
+                        DismissAlertAndExitApp(seconds: 10, alert: &showAlert)
                     }
                     
                     if persist == true {
@@ -545,7 +545,8 @@ struct WeatherForecast: View {
                             ///
                             /// Lukker denne meldingen etter 10 sekunder:
                             ///
-                            DismissAlertAndExitApp(seconds: 10)
+                            DismissAlertAndExitApp(seconds: 10, alert: &showAlert)
+                            
                         }
                     } /// if persist == true
                 } /// if persist == true
@@ -557,21 +558,4 @@ struct WeatherForecast: View {
         }
     }
     
-    func DismissAlertAndExitApp(seconds: Double) {
-        DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
-            showAlert = false
-            ///
-            /// https://stackoverflow.com/questions/73061848/quit-an-app-swift-programmatically-without-crash-log-in-firebase
-            ///** If you use exit(0), your application will be rejected due to the following reason:
-            ///
-            /// We found that your app includes a UI control for quitting the app.
-            /// This is not in compliance with the iOS Human Interface Guidelines, as required by the App Store Review Guidelines.
-            /// To avoid any such rejections, suspend the application using the following code snippet.
-            ///     UIApplication.shared.perform(#selector(NSXPCConnection.suspend))
-            ///
-            UIApplication.shared.perform(#selector(NSXPCConnection.suspend))
-        }
-    }
-    
 }
-

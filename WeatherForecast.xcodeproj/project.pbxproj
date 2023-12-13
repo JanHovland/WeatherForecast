@@ -161,6 +161,7 @@
 		DBB7AECE2B224EF40066E1BF /* MapFetchInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB7AECD2B224EF30066E1BF /* MapFetchInformation.swift */; };
 		DBB7AED02B224F440066E1BF /* MapOpen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB7AECF2B224F440066E1BF /* MapOpen.swift */; };
 		DBB99D392AE425BE0022B6E9 /* FindChartDataPrecipitation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB99D382AE425BE0022B6E9 /* FindChartDataPrecipitation.swift */; };
+		DBC42CB62B299F5200148296 /* DismissAlertAndExitApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC42CB52B299F5200148296 /* DismissAlertAndExitApp.swift */; };
 		DBC475D12B19F0E8006ACDCB /* ProgressViewStyleModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC475D02B19F0E8006ACDCB /* ProgressViewStyleModifier.swift */; };
 		DBC65DE72907FE6B004635FE /* DateCalculation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC65DE62907FE6B004635FE /* DateCalculation.swift */; };
 		DBC6B3172AF81F1300D27E30 /* MoonRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC6B3162AF81F1300D27E30 /* MoonRecord.swift */; };
@@ -353,6 +354,7 @@
 		DBB7AECD2B224EF30066E1BF /* MapFetchInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapFetchInformation.swift; sourceTree = "<group>"; };
 		DBB7AECF2B224F440066E1BF /* MapOpen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapOpen.swift; sourceTree = "<group>"; };
 		DBB99D382AE425BE0022B6E9 /* FindChartDataPrecipitation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindChartDataPrecipitation.swift; sourceTree = "<group>"; };
+		DBC42CB52B299F5200148296 /* DismissAlertAndExitApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissAlertAndExitApp.swift; sourceTree = "<group>"; };
 		DBC475D02B19F0E8006ACDCB /* ProgressViewStyleModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressViewStyleModifier.swift; sourceTree = "<group>"; };
 		DBC65DE62907FE6B004635FE /* DateCalculation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCalculation.swift; sourceTree = "<group>"; };
 		DBC6B3162AF81F1300D27E30 /* MoonRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoonRecord.swift; sourceTree = "<group>"; };
@@ -494,6 +496,7 @@
 				DBDBCC6529521B99005AEB05 /* WeatherTranslateType.swift */,
 				DB17F6AF295F6BA100FC2A0B /* WindDirection.swift */,
 				DB3E191F2B149DE0001FDF07 /* ConvertImage.swift */,
+				DBC42CB52B299F5200148296 /* DismissAlertAndExitApp.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -1070,6 +1073,7 @@
 				DB2D4949294A3C9B00DCDC4B /* WindInfo.swift in Sources */,
 				DB17F6AC295DF5EE00FC2A0B /* DayDetailWeatherDataAirPressure.swift in Sources */,
 				DB6DE822297C5AF4005BCCF9 /* WeatherForecastViewModifier.swift in Sources */,
+				DBC42CB62B299F5200148296 /* DismissAlertAndExitApp.swift in Sources */,
 				DB0B17642AE014DB0034116A /* FindChartDataWind.swift in Sources */,
 				DBFD2DD9295B541100293B4D /* iconWindView.swift in Sources */,
 				DB919BC22940B43100E69644 /* FindSunUpDown.swift in Sources */,
@@ -1387,7 +1391,7 @@
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
@@ -1431,7 +1435,7 @@
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
