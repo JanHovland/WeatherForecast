@@ -418,15 +418,18 @@ var toDo_2 =
           🟣🟣🟣🟣 Dette er en feil i iPadOS 21D5026f, så jeg avventer oppdatering.
    83. 🟢 Behandle når noen "Innstillinger" mangler.
           🟢 Åpner SettingsView()
-   84. 🔴 Vise endringen av lengden av degen fra en dag til en annen
-   85. 🔴 Legge inn et varselsfelt helt øverst på skjermen
-   86. 🔴 Lokal værmelding sin meny må endres:
-          🔴 Erstatte "Slett" med "Lagre i MINE STEDER"
-          🔴 Legg inn riktig flagg på de lokale stedene jeg har lagret.
-   87. 🔴 Erstatte Geosatellite fra met.no
-   88. 🔴 Kan alt fra CurrentWeather legges inn i WeatherInfo?
+   84. 🟢 Vise endringen av lengden av degen fra en dag til en annen
+   85. 🔴 "MINE STEDER" sin meny må endres:
+          🔴 Legg inn "Avbryt"
+   86. 🔴 "Søk etter" sin meny må endres:
+          🔴 legg inn "Lagre"
+          🔴 Legg inn "Avbryt"
+   87. 🔴 Legg inn riktig flagg på de lokale stedene jeg har lagret.
+   88. 🔴 Erstatte Geosatellite fra met.no
+   89. 🔴 Kan alt fra CurrentWeather legges inn i WeatherInfo?
           🔴
-   89. 🔴 .
+   90. 🔴 Legge inn et varselsfelt om snø helt øverst på skjermen
+   91. 🔴 .
           🔴 .
 """
 
