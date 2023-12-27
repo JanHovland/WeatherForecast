@@ -394,7 +394,7 @@ struct WeatherForecast: View {
                 /// Finner soloppgang og solnedgang:
                 ///
                 let url = UserDefaults.standard.object(forKey: "UrlMetNo") as? String ?? ""
-                let value : (String, [String], [String]) =
+                let value : (String, [String], [String], Int, Int) =
                 await FindSunUpDown(url: url,
                                     offset: weatherInfo.offsetString,
                                     days: 10,
@@ -409,6 +409,13 @@ struct WeatherForecast: View {
                     sunRises.removeAll()
                     sunSets.removeAll()
                 }
+                
+                ///
+                /// Oppdatere lengden av dagen
+                ///
+                weatherInfo.dayLength = value.3
+                weatherInfo.dayIncrease = value.4
+
                 ///
                 /// Finner data for månen:
                 ///

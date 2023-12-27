@@ -42,6 +42,14 @@ import Observation
     var placeOffsetString: String = ""
     var placeOffsetSec: Int = 0
     
+    ///
+    /// Økning / minking av lenden på dagslys
+    ///
+    
+    var dayLength: Int = 0
+    var dayIncrease: Int = 0
+
+    ///
     /// https://openweathermap.org/api/air-pollution#concept
     /// Air Quality Index. Possible values: 1, 2, 3, 4, 5. Where 1 = Good, 2 = Fair, 3 = Moderate, 4 = Poor, 5 = Very Poor.
     var aqi = Int()

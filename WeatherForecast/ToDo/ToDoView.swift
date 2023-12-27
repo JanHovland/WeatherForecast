@@ -413,18 +413,20 @@ var toDo_2 =
           🟢 Legg inn "Tap for info" og image "info.square"
    80. 🟢 Bruk ▼ og ▲ for å vise "collapsable" forurensinger.
    81. 🟢 Avslutte appen når ved manglende data fra Internett API's
+          🟢 Ny func  DismissAlertAndExitApp(seconds: Double, alert:  inout Bool)
    82. 🟢 iPad: Avslutte appen når det velges et nytt sted
-          🟣🟣🟣🟣 Dette er en feil i iPadOS, så jeg avventer oppdatering.
+          🟣🟣🟣🟣 Dette er en feil i iPadOS 21D5026f, så jeg avventer oppdatering.
    83. 🟢 Behandle når noen "Innstillinger" mangler.
           🟢 Åpner SettingsView()
-   84. 🔴 Legge inn et varselsfelt helt øverst på skjermen
-   85. 🔴 Lokal værmelding sin meny må endres:
+   84. 🔴 Vise endringen av lengden av degen fra en dag til en annen
+   85. 🔴 Legge inn et varselsfelt helt øverst på skjermen
+   86. 🔴 Lokal værmelding sin meny må endres:
           🔴 Erstatte "Slett" med "Lagre i MINE STEDER"
           🔴 Legg inn riktig flagg på de lokale stedene jeg har lagret.
-   86. 🔴 Erstatte Geosatellite fra met.no
-   87. 🔴 Kan alt fra CurrentWeather legges inn i WeatherInfo?
+   87. 🔴 Erstatte Geosatellite fra met.no
+   88. 🔴 Kan alt fra CurrentWeather legges inn i WeatherInfo?
           🔴
-   88. 🔴 .
+   89. 🔴 .
           🔴 .
 """
 

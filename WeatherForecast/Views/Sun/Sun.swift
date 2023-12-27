@@ -17,6 +17,8 @@ struct Sun : View {
     @Binding var sunRises : [String]
     @Binding var sunSets : [String]
     
+    @Environment(WeatherInfo.self) private var weatherInfo
+    
     var body: some View {
         VStack {
             ///
@@ -54,7 +56,7 @@ struct Sun : View {
                            index: 0,
                            sunRises: $sunRises,
                            sunSets: $sunSets)
-                       .offset(x: UIDevice.isIpad ? -7.5 : -6.0)
+            .offset(x: UIDevice.isIpad ? -7.5 : -6.0)
             ///
             /// Finner solnedgang:
             ///
@@ -64,6 +66,28 @@ struct Sun : View {
             } else {
                 Text("")
             }
+            
+            ///
+            /// Viser lengden på dagen
+            ///
+            
+            HStack {
+                HStack {
+                    Text("\(weatherInfo.dayLength / 60)t  \(weatherInfo.dayLength % 60)m")
+                    Spacer()
+                }
+                HStack {
+                    Spacer()
+                    let increase = String(localized: "Increase")
+                    let decrease = String(localized: "Decrease")
+                    if weatherInfo.dayIncrease >= 0 {
+                        Text("\(increase) \(weatherInfo.dayIncrease)m")
+                    } else {
+                        Text("\(decrease) \(weatherInfo.dayIncrease)m")
+                    }
+                }
+            }
+            
         }
         .padding(.leading, 10)
         .padding(.bottom, 15)

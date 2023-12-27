@@ -146,6 +146,7 @@
 		DB91F33A2AF92F0E00D94E07 /* FindTimeFromAmPm.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB91F3392AF92F0E00D94E07 /* FindTimeFromAmPm.swift */; };
 		DB9299E329C4CBE2002BA87A /* TranslateCountry.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9299E229C4CBE2002BA87A /* TranslateCountry.swift */; };
 		DB9383632B0FEEA3007A7BFC /* PrecificationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9383622B0FEEA3007A7BFC /* PrecificationData.swift */; };
+		DB9ADEB02B3C30F00001B275 /* SunDailyIncrease.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9ADEAF2B3C30F00001B275 /* SunDailyIncrease.swift */; };
 		DB9D0B0228F027B0002ABA9E /* WindView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9D0B0128F027B0002ABA9E /* WindView.swift */; };
 		DB9D0B2128F09549002ABA9E /* FeelsLike.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9D0B2028F09549002ABA9E /* FeelsLike.swift */; };
 		DB9E26DF2AF39F6B00DF3AE9 /* AQLimit.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9E26DE2AF39F6B00DF3AE9 /* AQLimit.swift */; };
@@ -337,6 +338,7 @@
 		DB91F3392AF92F0E00D94E07 /* FindTimeFromAmPm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindTimeFromAmPm.swift; sourceTree = "<group>"; };
 		DB9299E229C4CBE2002BA87A /* TranslateCountry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateCountry.swift; sourceTree = "<group>"; };
 		DB9383622B0FEEA3007A7BFC /* PrecificationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrecificationData.swift; sourceTree = "<group>"; };
+		DB9ADEAF2B3C30F00001B275 /* SunDailyIncrease.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunDailyIncrease.swift; sourceTree = "<group>"; };
 		DB9D0B0128F027B0002ABA9E /* WindView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindView.swift; sourceTree = "<group>"; };
 		DB9D0B2028F09549002ABA9E /* FeelsLike.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeelsLike.swift; sourceTree = "<group>"; };
 		DB9E26DE2AF39F6B00DF3AE9 /* AQLimit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AQLimit.swift; sourceTree = "<group>"; };
@@ -489,6 +491,7 @@
 				DBECD4E02AE971A6005FD489 /* RefreshOffsetView.swift */,
 				DBF1038429A92C56008B4281 /* SearchBar.swift */,
 				DB7B036729B31E7A00B4618A /* ServerResponse.swift */,
+				DB9ADEAF2B3C30F00001B275 /* SunDailyIncrease.swift */,
 				DB9299E229C4CBE2002BA87A /* TranslateCountry.swift */,
 				DB0965D72949FBC700B76812 /* TranslateDay.swift */,
 				DB6E420C28F9CA8500936EB8 /* TranslateWeatherCondition.swift */,
@@ -1116,6 +1119,7 @@
 				DB86FC102912A24C0019D12F /* DayDetail.swift in Sources */,
 				DB760C072AE6D24C000B08D1 /* WeatherForecastSearchPlace.swift in Sources */,
 				DB4EFDF52AF3BFD40021AABB /* AirQualityViewModifier.swift in Sources */,
+				DB9ADEB02B3C30F00001B275 /* SunDailyIncrease.swift in Sources */,
 				DB0B17622ADFDD2A0034116A /* FindChartDataTemperature.swift in Sources */,
 				DBDDEA0129BDC86000301E77 /* RefreshOffset.swift in Sources */,
 				DB679FD92B25B06C008C7330 /* CollapsibleDetailView.swift in Sources */,

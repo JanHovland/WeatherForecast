@@ -12,11 +12,15 @@ func FindSunUpDown(url: String,
                    days: Int,
                    latitude : Double?,
                    longitude: Double?,
-                   offsetSec: Int) async -> (String, [String], [String]) {
+                   offsetSec: Int) async -> (String, [String], [String], Int, Int) {
     
     var sunRise: [String] = Array(repeating: "", count: sizeArray10)
     var sunSet: [String] = Array(repeating: "", count: sizeArray10)
+    var gesternRise: String = ""
+    var gesternSet: String = ""
     var errors : String = ""
+    var dayLength: Int = 0
+    var dayIncrease: Int = 0
     var timeRise : String = ""
     var timeSet : String = ""
     var lat: String = ""
@@ -41,7 +45,10 @@ func FindSunUpDown(url: String,
     sunRise = []
     sunSet = []
     
-    for i in 0...9 {
+    dayIncrease = 0
+    dayLength = 0
+    
+    for i in -1...9 {
         let date = Date().adding(days: i)
         let calculatedDate = FormatDateToString(date: date, format: "yyyy-MM-dd", offsetSec: offsetSec)
         let urlString = url + "lat=" + lat + "&lon=" + lon + "&date=" + calculatedDate + "&offset=" + offset
@@ -71,8 +78,16 @@ func FindSunUpDown(url: String,
                 errors = "\(error)"
             }
         }
-        sunRise.append(timeRise)
-        sunSet.append(timeSet)
+        if i == -1 {
+            gesternRise = timeRise
+            gesternSet = timeSet
+       } else {
+            sunRise.append(timeRise)
+            sunSet.append(timeSet)
+       }
     }
-    return (errors, sunRise, sunSet)
+    dayLength = SunDailyLength(from: sunRise[0], to: sunSet[0])
+    dayIncrease = dayLength - SunDailyLength(from: gesternRise, to: gesternSet)
+    
+    return (errors, sunRise, sunSet, dayLength, dayIncrease)
 }

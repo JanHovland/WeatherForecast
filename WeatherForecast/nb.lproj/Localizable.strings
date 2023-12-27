@@ -1533,3 +1533,13 @@
 /* No comment provided by engineer. */
 "The Weather data is empty.\n\nPlease note that this alert will only show for a few seconds.\nThen the app will terminate."
  = "Værdataene er tomme.\n\nVær oppmerksom på at dette varselet bare vises i noen få sekunder.\nDeretter avsluttes appen.";
+
+/* No comment provided by engineer. */
+"Decrease" = "-";
+
+/* No comment provided by engineer. */
+"Increase" = "+";
+
+
+
+
