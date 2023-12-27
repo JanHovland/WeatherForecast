@@ -68,25 +68,22 @@ struct Sun : View {
             }
             
             ///
-            /// Viser lengden på dagen
+            /// Viser lengden på dagen og økning siden i går
             ///
             
             HStack {
-                HStack {
-                    Text("\(weatherInfo.dayLength / 60)t  \(weatherInfo.dayLength % 60)m")
-                    Spacer()
-                }
-                HStack {
-                    Spacer()
-                    let increase = String(localized: "Increase")
-                    let decrease = String(localized: "Decrease")
-                    if weatherInfo.dayIncrease >= 0 {
-                        Text("\(increase) \(weatherInfo.dayIncrease)m")
-                    } else {
-                        Text("\(decrease) \(weatherInfo.dayIncrease)m")
-                    }
+                Image(systemName: "sunrise.fill")
+                    .symbolRenderingMode(.multicolor)
+                Text("\(weatherInfo.dayLength / 60)t \(weatherInfo.dayLength % 60)m")
+                let increase = String(localized: "Increase")
+                let decrease = String(localized: "Decrease")
+                if weatherInfo.dayIncrease >= 0 {
+                    Text("\(increase) \(weatherInfo.dayIncrease)m")
+                } else {
+                    Text("\(decrease) \(weatherInfo.dayIncrease)m")
                 }
             }
+            .padding(.top, 5)
             
         }
         .padding(.leading, 10)
