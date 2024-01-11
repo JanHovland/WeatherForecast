@@ -1535,10 +1535,7 @@
  = "Værdataene er tomme.\n\nVær oppmerksom på at dette varselet bare vises i noen få sekunder.\nDeretter avsluttes appen.";
 
 /* No comment provided by engineer. */
-"Decrease" = "-";
-
-/* No comment provided by engineer. */
-"Increase" = "+";
+"New Moon" = "Nymåne";
 
 
 

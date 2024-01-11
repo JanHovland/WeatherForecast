@@ -15,7 +15,7 @@ func FindMoonPhaseImage(moonPhase: String,
     var daysToFullMoon: Int = 0
     
     if moonPhase == String(localized: "New Moon") {
-        if moonIllumination == 0 {
+        if moonIllumination > 0 || moonIllumination <= 1 {
             image = "Nymåne"
             daysToFullMoon = 14
         }
