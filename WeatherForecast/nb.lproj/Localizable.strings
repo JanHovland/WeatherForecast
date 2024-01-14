@@ -1537,6 +1537,12 @@
 /* No comment provided by engineer. */
 "New Moon" = "Nymåne";
 
+/* No comment provided by engineer. */
+"No placeName" = "Ukjent sted";
+
+/* No comment provided by engineer. */
+"No countryName" = "Ukjent land";
+
 
 
 

@@ -75,6 +75,9 @@ struct WeatherForecast: View {
     
     @State private var settingsMissing: Bool = false
     
+    let noPlaceName: String = String(localized: "No placeName")
+    let noCountryName: String = String(localized: "No countryName")
+
     var body: some View {
         VStack {
             
@@ -97,9 +100,9 @@ struct WeatherForecast: View {
                         ScrollView (.vertical, showsIndicators: false) {
                             VStack {
                                 VStack {
-                                    Text(weatherInfo.placeName.count > 0 ? weatherInfo.placeName : "No placeName")
+                                    Text(weatherInfo.placeName.count > 0 ? weatherInfo.placeName : noPlaceName)
                                         .font(.system(size: 40, weight: .light))
-                                    Text(weatherInfo.countryName.count > 0 ? weatherInfo.countryName : "No countryName")
+                                    Text(weatherInfo.countryName.count > 0 ? weatherInfo.countryName : noCountryName)
                                 }
                                 ZStack {
                                     Image(systemName: "ellipsis.circle")
@@ -111,30 +114,34 @@ struct WeatherForecast: View {
                                             ///
                                             Button (action: {
                                                 Task.init {
-                                                    let place: Place = Place(place : weatherInfo.placeName,
-                                                                             lon: weatherInfo.latitude,
-                                                                             lat: weatherInfo.longitude)
-                                                    var value: (Bool, LocalizedStringKey)
-                                                    value = await DeleteOnePlace(place)
-                                                    if value.0 == true {
-                                                        title = "Delete a place"
-                                                        message = value.1
-                                                        showAlert.toggle()
-                                                        ///
-                                                        /// Sletter deler av weatherInfo:
-                                                        ///
-                                                        weatherInfo.latitude = 0.00
-                                                        weatherInfo.longitude = 0.00
-                                                        weatherInfo.placeName = ""
-                                                        weatherInfo.countryName = ""
-                                                        weatherInfo.offsetString = ""
-                                                        weatherInfo.offsetSec = 0
-                                                    } else {
-                                                        title = "Delete a place"
-                                                        message = value.1
-                                                        showAlert.toggle()
-                                                    }
+                                                    title = "test"
+                                                    showAlert.toggle()
                                                 }
+//                                                Task.init {
+//                                                    let place: Place = Place(place : weatherInfo.placeName,
+//                                                                             lon: weatherInfo.latitude,
+//                                                                             lat: weatherInfo.longitude)
+//                                                    var value: (Bool, LocalizedStringKey)
+//                                                    value = await DeleteOnePlace(place)
+//                                                    if value.0 == true {
+//                                                        title = "Delete a place"
+//                                                        message = value.1
+//                                                        showAlert.toggle()
+//                                                        ///
+//                                                        /// Sletter deler av weatherInfo:
+//                                                        ///
+//                                                        weatherInfo.latitude = 0.00
+//                                                        weatherInfo.longitude = 0.00
+//                                                        weatherInfo.placeName = ""
+//                                                        weatherInfo.countryName = ""
+//                                                        weatherInfo.offsetString = ""
+//                                                        weatherInfo.offsetSec = 0
+//                                                    } else {
+//                                                        title = "Delete a place"
+//                                                        message = value.1
+//                                                        showAlert.toggle()
+//                                                    }
+//                                                }
                                             }, label: {
                                                 HStack {
                                                     Text("Delete this place")
@@ -169,9 +176,9 @@ struct WeatherForecast: View {
                         ScrollView (.vertical, showsIndicators: false) {
                             VStack {
                                 VStack {
-                                    Text(weatherInfo.placeName.count > 0 ? weatherInfo.placeName : "No placeName")
+                                    Text(weatherInfo.placeName.count > 0 ? weatherInfo.placeName : noPlaceName)
                                         .font(.system(size: 40, weight: .light))
-                                    Text(weatherInfo.countryName.count > 0 ? weatherInfo.countryName : "No countryName")
+                                    Text(weatherInfo.countryName.count > 0 ? weatherInfo.countryName : noCountryName)
                                 }
                                 ZStack {
                                     Image(systemName: "ellipsis.circle")
@@ -238,7 +245,12 @@ struct WeatherForecast: View {
         }
         .alert(title, isPresented: $showAlert) {
             Button("Terminate this app", role: .cancel) {
-                UIApplication.shared.perform(#selector(NSXPCConnection.suspend))
+//                UIApplication.shared.perform(#selector(NSXPCConnection.suspend))
+                weatherInfo.placeName = ""
+                weatherInfo.countryName = ""
+                /// blanker WeatherForecast:
+//                weatherInfo.offsetString = ""
+                return
             }
         }
     message: {

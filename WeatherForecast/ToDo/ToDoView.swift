@@ -419,17 +419,22 @@ var toDo_2 =
    83. 🟢 Behandle når noen "Innstillinger" mangler.
           🟢 Åpner SettingsView()
    84. 🟢 Vise endringen av lengden av degen fra en dag til en annen
-   85. 🔴 "MINE STEDER" sin meny må endres:
+   85. 🟢 "No placeName" og "No countryName"
+          🟢 let noPlaceName: String = String(localized: "No placeName")
+          🟢 let noCountryName: String = String(localized: "No countryName")
+   86. 🔴 Flere .alert ref. WeatherForecast.swift
+   87. 🔴 "MINE STEDER" sin meny må endres:
+          🔴 Legg inn "Lagre"
           🔴 Legg inn "Avbryt"
-   86. 🔴 "Søk etter" sin meny må endres:
+   88. 🔴 "Søk etter" sin meny må endres:
           🔴 legg inn "Lagre"
           🔴 Legg inn "Avbryt"
-   87. 🔴 Legg inn riktig flagg på de lokale stedene jeg har lagret.
-   88. 🔴 Erstatte Geosatellite fra met.no
-   89. 🔴 Kan alt fra CurrentWeather legges inn i WeatherInfo?
+   89. 🔴 Legg inn riktig flagg på de lokale stedene jeg har lagret.
+   90. 🔴 Erstatte Geosatellite fra met.no
+   91. 🔴 Kan alt fra CurrentWeather legges inn i WeatherInfo?
           🔴
-   90. 🔴 Legge inn et varselsfelt om snø helt øverst på skjermen
-   91. 🔴 .
+   92. 🔴 Legge inn et varselsfelt om snø helt øverst på skjermen
+   93. 🔴 .
           🔴 .
 """
 
