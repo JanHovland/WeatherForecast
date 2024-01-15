@@ -68,7 +68,8 @@ struct WeatherForecast: View {
     @State private var message: LocalizedStringKey = ""
     @State private var title: LocalizedStringKey = ""
     @State private var showAlert: Bool = false
-    
+    @State private var showAlertFile: Bool = false
+
     @State private var array: [Double] = Array(repeating: Double(), count: sizeArray24)
     
     @State private var persist: Bool = true
@@ -110,45 +111,69 @@ struct WeatherForecast: View {
                                         .font(.system(size: 30, weight: .light))
                                         .contextMenu {
                                             ///
-                                            /// Slette dette stedet:
+                                            /// Lagre det lokale stedet
                                             ///
-                                            Button (action: {
-                                                Task.init {
-                                                    title = "test"
-                                                    showAlert.toggle()
-                                                }
-//                                                Task.init {
-//                                                    let place: Place = Place(place : weatherInfo.placeName,
-//                                                                             lon: weatherInfo.latitude,
-//                                                                             lat: weatherInfo.longitude)
-//                                                    var value: (Bool, LocalizedStringKey)
-//                                                    value = await DeleteOnePlace(place)
-//                                                    if value.0 == true {
-//                                                        title = "Delete a place"
-//                                                        message = value.1
-//                                                        showAlert.toggle()
-//                                                        ///
-//                                                        /// Sletter deler av weatherInfo:
-//                                                        ///
-//                                                        weatherInfo.latitude = 0.00
-//                                                        weatherInfo.longitude = 0.00
-//                                                        weatherInfo.placeName = ""
-//                                                        weatherInfo.countryName = ""
-//                                                        weatherInfo.offsetString = ""
-//                                                        weatherInfo.offsetSec = 0
-//                                                    } else {
-//                                                        title = "Delete a place"
-//                                                        message = value.1
-//                                                        showAlert.toggle()
-//                                                    }
-//                                                }
-                                            }, label: {
-                                                HStack {
-                                                    Text("Delete this place")
-                                                    Image(systemName: "x.circle")
-                                                        .symbolRenderingMode(.multicolor)
-                                                }
-                                            })
+                                            if weatherInfo.localPlaceName.count > 0 {
+                                                ///
+                                                /// Lagre dette stedet:
+                                                ///
+                                                Button (action: {
+                                                    Task.init {
+                                                        title = "Save"
+                                                        showAlertFile.toggle()
+                                                    }
+                                                }, label: {
+                                                    HStack {
+                                                        Text("Save this place")
+                                                        Image(systemName: "square.and.arrow.up")
+                                                            .symbolRenderingMode(.multicolor)
+                                                    }
+                                                })
+                                                ///
+                                                /// Avbryt
+                                                ///
+                                                Button (action: {
+                                                    Task.init {
+                                                        title = "Cancel"
+                                                    }
+                                                }, label: {
+                                                    HStack {
+                                                        Text("Cancel")
+                                                        Image(systemName: "x.circle")
+                                                            .symbolRenderingMode(.multicolor)
+                                                    }
+                                                })
+                                            } else {
+                                                ///
+                                                /// Slette dette stedet
+                                                ///
+                                                Button (action: {
+                                                    Task.init {
+                                                        title = "Delete"
+                                                        showAlertFile.toggle()
+                                                    }
+                                                }, label: {
+                                                    HStack {
+                                                        Text("Delete this place")
+                                                        Image(systemName: "delete.right")
+                                                            .symbolRenderingMode(.multicolor)
+                                                    }
+                                                })
+                                                ///
+                                                /// Avbryt
+                                                ///
+                                                Button (action: {
+                                                    Task.init {
+                                                        title = "Cancel"
+                                                    }
+                                                }, label: {
+                                                    HStack {
+                                                        Text("Cancel")
+                                                        Image(systemName: "x.circle")
+                                                            .symbolRenderingMode(.multicolor)
+                                                    }
+                                                })
+          }
                                         }
                                 }
                                 .offset(x:  350,
@@ -243,14 +268,25 @@ struct WeatherForecast: View {
                 }
             }
         }
+        ///
+        /// Oppdatering av stedene
+        ///
+        .alert(title, isPresented: $showAlertFile) {
+            Button(title, role: .cancel) {
+                
+                if title == LocalizedStringKey("Save") {
+                    print("Lagre")
+                } else {
+                    print("Slett")
+                }
+            }
+        }
+        ///
+        /// Avslutter appen
+        ///
         .alert(title, isPresented: $showAlert) {
             Button("Terminate this app", role: .cancel) {
-//                UIApplication.shared.perform(#selector(NSXPCConnection.suspend))
-                weatherInfo.placeName = ""
-                weatherInfo.countryName = ""
-                /// blanker WeatherForecast:
-//                weatherInfo.offsetString = ""
-                return
+                UIApplication.shared.perform(#selector(NSXPCConnection.suspend))
             }
         }
     message: {
@@ -311,6 +347,9 @@ struct WeatherForecast: View {
             ///
             /// Oppdaterer placeName, latitude og longitude:
             ///
+            weatherInfo.localLatitude = 0.00
+            weatherInfo.localLongitude = 0.00
+            weatherInfo.localPlaceName = ""
             weatherInfo.latitude = extLatitude
             weatherInfo.longitude = extLongitude
             weatherInfo.placeName = extPlaceName

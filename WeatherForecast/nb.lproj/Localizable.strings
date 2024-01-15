@@ -1198,7 +1198,7 @@
 
 /* No comment provided by engineer. */
 "The time zones are set relative to UTC.\n\nUTC is often used to indicate time zones and then indicates the deviation from the time as it is indicated at the prime meridian. UTC is thus the successor to Greenwich Mean Time (GMT).\n\nExample for Norway:\n\nCET (Central European Time) = UTC+1h.\n\nDaylight Saving Time:\n\nCEST (Central European Summer Time) = UTC+2h" =
-"Tidssonene blir satt i forhold til UTC.\n\nUTC brukes ofte for å indikere tidssoner og indikerer deretter avviket fra klokkeslettet slik det er indikert ved nollmeridianen. UTC er dermed etterfølgeren til Greenwich Mean Time (GMT).\n\nEksempel for Norge:\n\nCET (Central European Time) = UTC+1t.\n\nSommertid:\n\nCEST (Central European Summer Time) = UTC+2t";
+"Tidssonene blir satt i forhold til UTC.\n\nUTC brukes ofte for å indikere tidssoner og indikerer deretter avviket fra klokkeslettet slik det er indikert ved nullmeridianen. UTC er dermed etterfølgeren til Greenwich Mean Time (GMT).\n\nEksempel for Norge:\n\nCET (Central European Time) = UTC+1t.\n\nSommertid:\n\nCEST (Central European Summer Time) = UTC+2t";
 
 /* No comment provided by engineer. */
 "Search ..." = "Søk etter ...";
@@ -1210,7 +1210,7 @@
 "Refresh my places" = "Oppdater stedene mine";
 
 /* No comment provided by engineer. */
-"Delete this place" = "Slett";
+"Delete this place" = "Slett dette stedet";
 
 /* No comment provided by engineer. */
 "AIR QUALITY" = "LUFT KVALITET";
@@ -1542,6 +1542,18 @@
 
 /* No comment provided by engineer. */
 "No countryName" = "Ukjent land";
+
+/* No comment provided by engineer. */
+"Save this place" = "Lagre dette stedet";
+
+/* No comment provided by engineer. */
+"Save" = "Lagre";
+
+/* No comment provided by engineer. */
+"Cancel" = "Avbryt";
+
+/* No comment provided by engineer. */
+"Delete" = "Slett";
 
 
 
