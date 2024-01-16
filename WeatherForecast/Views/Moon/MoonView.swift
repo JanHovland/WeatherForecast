@@ -62,6 +62,7 @@ struct MoonView: View {
                 HStack {
                     Spacer()
                     Text("\(currentWeather.moonIllumination) %")
+                        .font(Font.system(.callout, design: .monospaced))
                 }
             }
             ///
@@ -75,6 +76,7 @@ struct MoonView: View {
                 HStack {
                     Spacer()
                     Text(FindTimeFromAmPm(time: currentWeather.moonrise))
+                        .font(Font.system(.callout, design: .monospaced))
                 }
             }
             ///
@@ -88,6 +90,7 @@ struct MoonView: View {
                 HStack {
                     Spacer()
                     Text(FindTimeFromAmPm(time: currentWeather.moonset))
+                        .font(Font.system(.callout, design: .monospaced))
                 }
             }
             ///
@@ -101,6 +104,7 @@ struct MoonView: View {
                 HStack {
                     Spacer()
                     Text("\(daysToFullMoon) d")
+                        .font(Font.system(.callout, design: .monospaced))
                 }
             }
             Spacer()
