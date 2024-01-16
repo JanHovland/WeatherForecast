@@ -27,6 +27,7 @@ func GetForwardGeoCode(place: String, key: String, urlOpenCage: String) async ->
             } else {
                 geoRecord.flag = "🏳️"
             }
+            
             if openCage.results[i].components.type != nil {
                 geoRecord.type = openCage.results[i].components.type!
             } else {

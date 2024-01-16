@@ -69,6 +69,7 @@ struct WeatherForecast: View {
     @State private var title: LocalizedStringKey = ""
     @State private var showAlert: Bool = false
     @State private var showAlertFile: Bool = false
+    @State private var showAlertCloudKit: Bool = false
 
     @State private var array: [Double] = Array(repeating: Double(), count: sizeArray24)
     
@@ -78,6 +79,12 @@ struct WeatherForecast: View {
     
     let noPlaceName: String = String(localized: "No placeName")
     let noCountryName: String = String(localized: "No countryName")
+    
+    let wishToDelete: String = String(localized: "Do you want to delete")
+    let wishToSave: String = String(localized: "Do you want to save")
+    
+    let addedDeleteMessage: LocalizedStringKey = "It can take some time until the place is deleted on CloudKit.\nSelect \"Refresh my places\""
+    let addedSaveMessage: LocalizedStringKey = "It can take some time until the place is saved on CloudKit.\nSelect \"Refresh my places\""
 
     var body: some View {
         VStack {
@@ -222,6 +229,7 @@ struct WeatherForecast: View {
                                                 Button (action: {
                                                     Task.init {
                                                         title = "Save"
+                                                        message = "\(wishToSave) \(weatherInfo.localPlaceName) ?"
                                                         showAlertFile.toggle()
                                                     }
                                                 }, label: {
@@ -252,6 +260,7 @@ struct WeatherForecast: View {
                                                 Button (action: {
                                                     Task.init {
                                                         title = "Delete"
+                                                        message = "\(wishToDelete) \(weatherInfo.placeName) ?"
                                                         showAlertFile.toggle()
                                                     }
                                                 }, label: {
@@ -275,7 +284,7 @@ struct WeatherForecast: View {
                                                             .symbolRenderingMode(.multicolor)
                                                     }
                                                 })
-          }
+                                            }
                                         }
                                 }
 
@@ -298,17 +307,47 @@ struct WeatherForecast: View {
             }
         }
         ///
-        /// Oppdatering av stedene
+        /// Oppdatering av stedene og sletting av et sted
         ///
         .alert(title, isPresented: $showAlertFile) {
-            Button(title, role: .cancel) {
-                
-                if title == LocalizedStringKey("Save") {
+            if title == LocalizedStringKey("Save") {
+                Button("OK", role: .destructive) {
                     print("Lagre")
-                } else {
+                }
+            } else {
+                Button("OK", role: .destructive) {
                     print("Slett")
+                    ///
+                    /// Slette et sted
+                    ///
+                    Task.init {
+                        let place: Place = Place(place : weatherInfo.placeName,
+                                                 lon: weatherInfo.latitude,
+                                                 lat: weatherInfo.longitude)
+                        let (status, messageDelete) = await DeleteOnePlace(place)
+                        if status == true {
+                            title = "Delete"
+                            message = addedDeleteMessage
+                            showAlertCloudKit.toggle()
+                            ///
+                            /// Sletter deler av weatherInfo:
+                            ///
+                            weatherInfo.latitude = 0.00
+                            weatherInfo.longitude = 0.00
+                            weatherInfo.placeName = ""
+                            weatherInfo.countryName = ""
+                            weatherInfo.offsetString = ""
+                            weatherInfo.offsetSec = 0
+                        } else {
+                            title = "Delete"
+                            message = messageDelete
+                            showAlertCloudKit.toggle()
+                        }
+                    }
                 }
             }
+        } message: {
+            Text(message)
         }
         ///
         /// Avslutter appen
@@ -318,6 +357,14 @@ struct WeatherForecast: View {
                 UIApplication.shared.perform(#selector(NSXPCConnection.suspend))
             }
         }
+        ///
+        /// Status CloudKit
+        ///
+        .alert(title, isPresented: $showAlertCloudKit) {
+            
+
+        }
+
     message: {
         Text(message)
     }

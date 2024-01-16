@@ -57,6 +57,7 @@ struct CloudKitPlace {
         placeRecord["dst"] = place.dst
         placeRecord["zoneName"] = place.zoneName
         placeRecord["zoneShortName"] = place.zoneShortName
+        
         do {
             try await database.save(placeRecord)
         } catch {

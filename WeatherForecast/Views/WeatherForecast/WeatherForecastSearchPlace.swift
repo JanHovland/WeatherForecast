@@ -115,7 +115,8 @@ struct WeatherForecastSearchPlace: View {
                                     places.append(place)
                                     places.sort(by: {$0.place < $1.place})
                                     title = "Save place"
-                                    message = value.1
+                                    message = "It can take some time until the place is saved on CloudKit.\nSelect \"Refresh my places\""
+//                                    value.1
                                     showAlert.toggle()
                                 } else {
                                     ///
