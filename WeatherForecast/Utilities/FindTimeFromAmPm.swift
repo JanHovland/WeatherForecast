@@ -43,21 +43,35 @@ func FindTimeFromAmPm(time: String) -> String {
         let start1 = newTime.index(newTime.startIndex, offsetBy: 0)
         let end1 = newTime.index(newTime.startIndex, offsetBy: 1)
         let range1 = start1...end1
-        hour = Int(String(newTime[range1]))!
+        ///
+        /// Det hender at det ikke kommer noen måneoppgang
+        ///
+        if Int(String(newTime[range1])) != nil {
+            hour = Int(String(newTime[range1]))!
+        } else {
+            hour = -1
+        }
         ///
         /// Finner minute
         ///
         let start2 = newTime.index(newTime.startIndex, offsetBy: 3)
         let end2 = newTime.index(newTime.startIndex, offsetBy: 4)
         let range2 = start2...end2
-        minute = Int(String(newTime[range2]))!
+        ///
+        /// Det hender at det ikke kommer noen måneoppgang
+        ///
+        if Int(String(newTime[range2])) != nil {
+            minute = Int(String(newTime[range2]))!
+        } else {
+            minute = -1
+        }
         ///
         /// Oppdaterer avhengig av "AM" eller "PM"
         ///
         if stringAmPm == "PM" {
             if hour < 12 {
                 hour = hour + 12
-            } 
+            }
         }
         if stringAmPm == "AM" {
             if hour >= 12 {
@@ -76,5 +90,8 @@ func FindTimeFromAmPm(time: String) -> String {
         }
         timeOut = newHour + ":" + newMinute
     }
+    if hour == -1, minute == -1 {
+       timeOut = "  -  "
+    } 
     return timeOut
-}
+ }
