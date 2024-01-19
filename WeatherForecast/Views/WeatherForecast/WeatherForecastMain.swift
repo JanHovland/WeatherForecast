@@ -57,7 +57,11 @@ struct WeatherForecastMain: View {
                                                             extLongitude: weatherInfo.longitude ?? 0.00,
                                                             extOffsetString: "+0200",
                                                             extOffsetSec: 7200)) {
-                    Label("Local weatherForecast", systemImage: "cloud.sun.rain.fill")
+                    HStack (spacing:20) {
+                        Image(systemName: "cloud.sun.rain.fill")
+                            .symbolRenderingMode(.multicolor)
+                        Text("Local weatherForecast")
+                    }
                 }
                 Section("My places") {
                     ScrollView (showsIndicators: false) {
