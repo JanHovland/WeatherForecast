@@ -44,23 +44,30 @@ struct WeatherForecastMain: View {
                 NavigationLink(destination: WeatherForecastSearchPlace()) {
                     Label {
                         Text("Search ...")
-                            .opacity(0.5)
+                            .opacity(0.50)
                     } icon: {
                         Image(systemName: "magnifyingglass")
-                            .symbolRenderingMode(.multicolor)
                     }
                 }
+                ///
+                /// Bruker local offsetString
+                /// Bruker local offsetSec
+                ///
                 NavigationLink(destination: WeatherForecast(expOption: .intern,
                                                             extPlaceName: weatherInfo.placeName,
                                                             extCountryName: weatherInfo.countryName,
                                                             extLatitude: weatherInfo.latitude ?? 0.00,
                                                             extLongitude: weatherInfo.longitude ?? 0.00,
-                                                            extOffsetString: "+0200",
-                                                            extOffsetSec: 7200)) {
+                                                            extOffsetString: weatherInfo.localOffsetString,
+                                                            extOffsetSec: weatherInfo.localOffsetSec)) {
                     HStack (spacing:20) {
-                        Image(systemName: "cloud.sun.rain.fill")
-                            .symbolRenderingMode(.multicolor)
-                        Text("Local weatherForecast")
+                        Label {
+                            Text("Local weatherForecast")
+                        } icon: {
+                            Image(systemName: "cloud.sun.rain.fill")
+                                .font(.subheadline)
+                                .symbolRenderingMode(.multicolor)
+                        }
                     }
                 }
                 Section("My places") {
