@@ -424,19 +424,25 @@ var toDo_2 =
           🟢 let noCountryName: String = String(localized: "No countryName")
    86. 🟢 Lagring virker ikke !!!!! fra "Søk etter"
           🟣 Det tar bare veldig lang til å oppdatere CloudKit
-   87. 🔴 Flere .alert ref. WeatherForecast.swift
-   88. 🔴 "MINE STEDER" sin meny må endres:
-          🔴 Legg inn "Lagre"
-          🔴 Legg inn "Avbryt"
-   89. 🔴 "Søk etter" sin meny må endres:
+   87. 🟢 Krasjer noen ganger med manglende månenedgang FindTimeFromAmPm()
+          🟢 Månenedgang
+          🟢 Måneoppgang
+   88. 🟢 Flere .alert ref. WeatherForecast.swift
+   89. 🔴 "Lokal værmelding" sin meny må endres:
+          🔴 Legg inn "Lagre dette stedet"
+          🔴 Legg inn riktig flagg på de lokale stedene jeg har lagret.
+          🟢 Legg inn "Avbryt"
+   90. 🟢 "Mine steder" sin meny må endres:
+          🟢 legg inn "Slett dette stedet"
+          🟢 Legg inn "Avbryt"
+   91. 🔴 "Søk etter" sin meny må endres:
           🔴 legg inn "Lagre"
           🔴 Legg inn "Avbryt"
-   90. 🔴 Legg inn riktig flagg på de lokale stedene jeg har lagret.
-   91. 🔴 Erstatte Geosatellite fra met.no
-   92. 🔴 Kan alt fra CurrentWeather legges inn i WeatherInfo?
+   92. 🔴 Erstatte Geosatellite fra met.no
+   93. 🔴 Kan alt fra CurrentWeather legges inn i WeatherInfo?
           🔴
-   93. 🔴 Legge inn et varselsfelt om snø helt øverst på skjermen
-   94. 🔴 .
+   94. 🔴 Legge inn et varselsfelt om snø helt øverst på skjermen
+   95. 🔴 .
           🔴 .
 """
 

@@ -44,7 +44,7 @@ func FindTimeFromAmPm(time: String) -> String {
         let end1 = newTime.index(newTime.startIndex, offsetBy: 1)
         let range1 = start1...end1
         ///
-        /// Det hender at det ikke kommer noen måneoppgang
+        /// Det hender at det ikke kommer noen måneoppgang/månenedgang
         ///
         if Int(String(newTime[range1])) != nil {
             hour = Int(String(newTime[range1]))!
@@ -58,7 +58,7 @@ func FindTimeFromAmPm(time: String) -> String {
         let end2 = newTime.index(newTime.startIndex, offsetBy: 4)
         let range2 = start2...end2
         ///
-        /// Det hender at det ikke kommer noen måneoppgang
+        /// Det hender at det ikke kommer noen måneoppgang/månenedgang
         ///
         if Int(String(newTime[range2])) != nil {
             minute = Int(String(newTime[range2]))!
