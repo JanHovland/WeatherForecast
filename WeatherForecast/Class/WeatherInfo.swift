@@ -30,7 +30,7 @@ import Observation
     var localCondition: String = ""
     var localTemperature: Double = 0.00
     var localLowTemperature: Double = 0.00
-    var localHighTemperature: Double = 0.00
+    var localHighTemperature: Double = 0.00 
     var localIsDaylight: Bool = false
     var localFlag: String = ""
     var localCountry: String = ""
