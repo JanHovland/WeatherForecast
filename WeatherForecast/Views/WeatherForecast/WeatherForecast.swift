@@ -312,7 +312,39 @@ struct WeatherForecast: View {
         .alert(title, isPresented: $showAlertFile) {
             if title == LocalizedStringKey("Save") {
                 Button("OK", role: .destructive) {
-                    print("Lagre")
+                    Task.init {
+                        ///
+                        /// Lagre et lokale stedet
+                        ///
+                        let place = Place(place: weatherInfo.localPlaceName,
+                                          flag: weatherInfo.localFlag,
+                                          country: weatherInfo.localCountry,
+                                          lon: weatherInfo.localLongitude,
+                                          lat: weatherInfo.localLatitude,
+                                          offsetSec: weatherInfo.localOffsetSec,
+                                          offsetString: weatherInfo.localOffsetString,
+                                          dst: weatherInfo.localDst,
+                                          zoneName: weatherInfo.localZoneName,
+                                          zoneShortName: weatherInfo.localZoneShortName)
+                        
+                        let value: (Bool, LocalizedStringKey)
+                        value = await SaveNewPlace(place)
+                        if value.0 == true {
+                            ///
+                            /// Stedet er lagret
+                            ///
+                            title = "Save place"
+                            message = "It can take some time until the place is saved on CloudKit.\nSelect \"Refresh my places\""
+                            showAlertCloudKit.toggle()
+                        } else {
+                            ///
+                            /// Stedet ble ikke lagret:
+                            ///
+                            title = "Save place"
+                            message = value.1
+                            showAlertCloudKit.toggle()
+                        }
+                    }
                 }
             } else {
                 Button("OK", role: .destructive) {
@@ -358,16 +390,13 @@ struct WeatherForecast: View {
             }
         }
         ///
-        /// Status CloudKit
+        /// Status for lagrinh på CloudKit
         ///
         .alert(title, isPresented: $showAlertCloudKit) {
-            
-
         }
-
-    message: {
-        Text(message)
-    }
+        message: {
+            Text(message)
+        }
     .navigationBarTitleDisplayMode(.inline)
         ///
         /// SwiftUI gives us equivalents to UIKit’s viewDidAppear() and viewDidDisappear() in the form of onAppear() and onDisappear().
@@ -436,7 +465,7 @@ struct WeatherForecast: View {
             ///
             /// Finner currentLocation:
             ///
-            let value1: (Double, Double, String, String, Int, Date, String, Double, Double, Double, Bool, String, String)
+            let value1: (Double, Double, String, String, Int, Date, String, Double, Double, Double, Bool, String, String, Int, String, String)
             value1 = await FindCurrentLocation()
             weatherInfo.latitude = value1.0
             weatherInfo.longitude = value1.1
@@ -460,6 +489,9 @@ struct WeatherForecast: View {
             weatherInfo.localIsDaylight = value1.10
             weatherInfo.localFlag = value1.11
             weatherInfo.localCountry = TranslateCountry(country: value1.12)
+            weatherInfo.localDst = value1.13
+            weatherInfo.localZoneName = value1.14
+            weatherInfo.localZoneShortName = value1.15
             ///
             /// Sjekker om det kommer koordinater fra FindCurrentLocation:
             ///

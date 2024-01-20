@@ -24,14 +24,17 @@ func FindCurrentLocation() async -> (latitude: Double,
                                      highTemperature: Double,
                                      isDaylight: Bool,
                                      flag: String,
-                                     country: String)  {
+                                     country: String,
+                                     dst: Int,
+                                     zoneName: String,
+                                     zoneShortName: String)  {
     var geoRecord: GeoRecord
     var weather: Weather?
     let weatherService = WeatherService.shared
     var latitude: Double = 0.00
     var longitude: Double = 0.00
     var offsetString: String = ""
-//    var offsetSec: Int = 0
+    var offsetSec: Int = 0
     var condition: String = ""
     var date: Date = Date()
     var temperature: Double = 0.00
@@ -40,7 +43,9 @@ func FindCurrentLocation() async -> (latitude: Double,
     var isDaylight: Bool = false
     var flag: String = ""
     var country: String = ""
-
+    var dst: Int = 0                        /// Sommertid DailySaving Time
+    var zoneShortName: String = ""
+    var zoneName: String = ""
     
     let value : (Double, Double)
     value = await GetCurrentLocation()
@@ -60,7 +65,14 @@ func FindCurrentLocation() async -> (latitude: Double,
     /// Tilpasser offset : "+0100" -> "+01:00"
     ///
     offsetString = AdjustOffset(geoRecord.offsetString)
-//    offsetSec = geoRecord.offsetSec
+    offsetSec = geoRecord.offsetSec
+    ///
+    /// Finner dst og zone names
+    ///
+    dst = geoRecord.dst
+    zoneName = geoRecord.zoneName
+    zoneShortName = geoRecord.zoneShortName
+    ///
     ///
     /// Finner flagg og land:
     ///
@@ -94,7 +106,7 @@ func FindCurrentLocation() async -> (latitude: Double,
             longitude,
             geoRecord.place,
             offsetString,
-            geoRecord.offsetSec, //offsetSec,
+            offsetSec,
             date,
             condition,
             temperature,
@@ -102,5 +114,8 @@ func FindCurrentLocation() async -> (latitude: Double,
             highTemperature,
             isDaylight,
             flag,
-            country)
+            country,
+            dst,
+            zoneName,
+            zoneShortName)
 }

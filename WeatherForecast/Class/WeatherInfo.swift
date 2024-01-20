@@ -34,6 +34,10 @@ import Observation
     var localIsDaylight: Bool = false
     var localFlag: String = ""
     var localCountry: String = ""
+    var localDst = 0
+    var localZoneName = ""
+    var localZoneShortName = ""
+
     ///
     /// Lokale variabler for valgt sted:
     ///
