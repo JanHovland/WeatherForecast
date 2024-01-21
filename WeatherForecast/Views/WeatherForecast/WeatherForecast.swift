@@ -333,7 +333,7 @@ struct WeatherForecast: View {
                             /// Stedet er lagret
                             ///
                             title = "Save place"
-                            message = "It can take some time until the place is saved on CloudKit.\nSelect \"Refresh my places\""
+                            message = "\nIt can take some time until the place is saved on CloudKit.\nSelect \"Refresh my places\""
                             showAlertCloudKit.toggle()
                         } else {
                             ///

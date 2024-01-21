@@ -1562,8 +1562,8 @@
 "Do you want to save" = "Ønsker du å lagre";
 
 /* No comment provided by engineer. */
-"It can take some time until the place is deleted on CloudKit.\nSelect \"Refresh my places\"" = "Det kan ta litt tid før stedet er slettet på CloudKit.\nVelg \"Oppdater mine steder\"";
+"\nIt can take some time until the place is deleted on CloudKit.\nSelect \"Refresh my places\"" = "\nDet kan ta litt tid før stedet er slettet på CloudKit.\nVelg \"Oppdater mine steder\"";
 
 /* No comment provided by engineer. */
-"It can take some time until the place is saved on CloudKit.\nSelect \"Refresh my places\"" = "Det kan ta litt tid før stedet er lagret på CloudKit.\nVelg \"Oppdater mine steder\"";
+"\nIt can take some time until the place is saved on CloudKit.\nSelect \"Refresh my places\"" = "\nDet kan ta litt tid før stedet er lagret på CloudKit.\nVelg \"Oppdater mine steder\"";
 

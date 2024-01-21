@@ -428,9 +428,9 @@ var toDo_2 =
           🟢 Månenedgang
           🟢 Måneoppgang
    88. 🟢 Flere .alert ref. WeatherForecast.swift
-   89. 🔴 "Lokal værmelding" sin meny må endres:
-          🔴 Legg inn "Lagre dette stedet"
-          🔴 Legg inn riktig flagg på de lokale stedene jeg har lagret.
+   89. 🟢 "Lokal værmelding" sin meny må endres:
+          🟢 Legg inn "Lagre dette stedet"
+          🟢 Legg inn riktig flagg på de lokale stedene jeg har lagret.
           🟢 Legg inn "Avbryt"
    90. 🟢 "Mine steder" sin meny må endres:
           🟢 legg inn "Slett dette stedet"
