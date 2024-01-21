@@ -436,8 +436,9 @@ var toDo_2 =
           🟢 legg inn "Slett dette stedet"
           🟢 Legg inn "Avbryt"
    91. 🔴 "Søk etter" sin meny må endres:
-          🔴 legg inn "Lagre"
-          🔴 Legg inn "Avbryt"
+          🔴 Legg inn Meny (lagres direkte i dag):
+             🔴 Legg inn "Lagre"
+             🔴 Legg inn "Avbryt"
    92. 🔴 Erstatte Geosatellite fra met.no
    93. 🔴 Kan alt fra CurrentWeather legges inn i WeatherInfo?
           🔴
