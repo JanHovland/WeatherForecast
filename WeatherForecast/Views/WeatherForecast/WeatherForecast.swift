@@ -39,13 +39,13 @@ import CloudKit
 ///
 struct WeatherForecast: View {
     
-    var expOption: EnumType = .intern
-    var extPlaceName: String = ""
-    var extCountryName: String = ""
-    var extLatitude: Double = 0.00
-    var extLongitude: Double = 0.00
-    var extOffsetString: String = ""
-    var extOffsetSec: Int = 0
+    var expOption: EnumType
+    var extPlaceName: String
+    var extCountryName: String
+    var extLatitude: Double
+    var extLongitude: Double
+    var extOffsetString: String
+    var extOffsetSec: Int
     
     let weatherService = WeatherService.shared
     
@@ -180,7 +180,7 @@ struct WeatherForecast: View {
                                                             .symbolRenderingMode(.multicolor)
                                                     }
                                                 })
-          }
+                                            }
                                         }
                                 }
                                 .offset(x:  350,
@@ -287,7 +287,6 @@ struct WeatherForecast: View {
                                             }
                                         }
                                 }
-
                                 WeatherForecastDetail(weather: weather, geoRecord: geoRecord)
                                 HourOverview(weather: weather,
                                              sunRises: $sunRises,
@@ -311,7 +310,7 @@ struct WeatherForecast: View {
         ///
         .alert(title, isPresented: $showAlertFile) {
             if title == LocalizedStringKey("Save") {
-                Button("OK", role: .destructive) {
+                Button("Save", role: .destructive) {
                     Task.init {
                         ///
                         /// Lagre et lokale stedet
@@ -347,8 +346,7 @@ struct WeatherForecast: View {
                     }
                 }
             } else {
-                Button("OK", role: .destructive) {
-                    print("Slett")
+                Button("Delete", role: .destructive) {
                     ///
                     /// Slette et sted
                     ///
@@ -434,6 +432,7 @@ struct WeatherForecast: View {
                 }
                 ///
                 /// Kaller opp refresh()
+                ///  Dette virker kun på iPhone !!!!!
                 ///
                 await Refresh()
             }

@@ -87,17 +87,12 @@ struct WeatherForecastMain: View {
                                             .padding(.leading, 5)
                                             .foregroundStyle(.white)
                                     } icon: {
-                                        if myPlace.extCountryName == String(localized: "Norway") {
-                                            Image(systemName: "mappin.circle")
-                                                .symbolRenderingMode(.multicolor)
-                                                .font(.system(size: 27))
-                                        } else {
-                                            Text(myPlace.extFlag)
-                                                .font(.title)
-                                                .foregroundColor(.blue)
-                                        }
+                                        Text(myPlace.extFlag)
+                                            .font(.title)
+                                            .foregroundColor(.blue)
                                     }
                                 }
+                                
                             }
                         }
                     }

@@ -10,10 +10,6 @@ import Foundation
 func SunDailyLength(from: String, to: String) -> Int {
     var result: Int = 0
     
-    if from == "" || to == "" {
-        return 10
-    }
-    
     let fromFirstTwoRange = from.startIndex..<from.index(from.startIndex, offsetBy: 2)
     let hourFrom = String(from[fromFirstTwoRange])
     

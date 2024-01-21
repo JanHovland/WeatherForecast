@@ -16,7 +16,7 @@ func AdjustOffset(_ offset: String) -> (String) {
     var a: String = ""
     var b: String = ""
     var c: String = ""
-
+    
     if offset.count == 5 {
         let start = offset.index(offset.startIndex, offsetBy: 0)
         let end = offset.index(offset.endIndex, offsetBy: -2)
@@ -28,6 +28,7 @@ func AdjustOffset(_ offset: String) -> (String) {
         b = String(offset[range1])
         c = a + ":" + b
         return c
+    } else {
+        return offset
     }
-    return ""
 }
