@@ -797,10 +797,10 @@
 "The place has been deleted" = "Stedet er nå slettet";
 
 /* No comment provided by engineer. */
-"'%@' exist in CloudKit" = "'%@' finnes allerede i CloudKit.";
+"\n'%@' exist in CloudKit" = "\n'%@' finnes allerede i CloudKit.";
 
 /* No comment provided by engineer. */
-"'%@' does not exist in CloudKit" = "'%@' finnes ikke i CloudKit.";
+"\n'%@' does not exist in CloudKit" = "\n'%@' finnes ikke i CloudKit.";
 
 /* No comment provided by engineer. */
 "'%@' has been deleted" = "'%@' er slettet";

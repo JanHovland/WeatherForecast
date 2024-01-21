@@ -76,9 +76,9 @@ func ExistPlace(_ place: Place) async -> (exist: Bool, err: LocalizedStringKey, 
         exist = try await CloudKitPlace.ExistPlace(place)
         err = ""
         if exist == true {
-            message = "'\(place.place)' exist in CloudKit"
+            message = "\n'\(place.place)' exist in CloudKit"
         } else {
-            message = "'\(place.place)' does not exist in CloudKit"
+            message = "\n'\(place.place)' does not exist in CloudKit"
         }
     } catch {
         err  = LocalizedStringKey(error.localizedDescription)
