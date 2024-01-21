@@ -439,11 +439,14 @@ var toDo_2 =
           🔴 Legg inn Meny (lagres direkte i dag):
              🔴 Legg inn "Lagre"
              🔴 Legg inn "Avbryt"
-   92. 🔴 Erstatte Geosatellite fra met.no
-   93. 🔴 Kan alt fra CurrentWeather legges inn i WeatherInfo?
+   92. 🔴 Oppdater navnet på landene fra en liste:
+          🔴 Lage denne listen
+          🔴 Kalle denne listen ved lagring av et sted
+   93. 🔴 Erstatte Geosatellite fra met.no
+   94. 🔴 Kan alt fra CurrentWeather legges inn i WeatherInfo?
           🔴
-   94. 🔴 Legge inn et varselsfelt om snø helt øverst på skjermen
-   95. 🔴 .
+   95. 🔴 Legge inn et varselsfelt om snø helt øverst på skjermen
+   96. 🔴 .
           🔴 .
 """
 

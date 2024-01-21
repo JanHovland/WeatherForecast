@@ -1567,3 +1567,6 @@
 /* No comment provided by engineer. */
 "\nIt can take some time until the place is saved on CloudKit.\nSelect \"Refresh my places\"" = "\nDet kan ta litt tid før stedet er lagret på CloudKit.\nVelg \"Oppdater mine steder\"";
 
+/* No comment provided by engineer. */
+"Österreich" = "Østerrike";
+

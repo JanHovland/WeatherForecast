@@ -141,6 +141,8 @@ struct WeatherForecastSearchPlace: View {
         message: {
             Text(message)
         }
+        .navigationTitle("Search ...")
+        .navigationBarTitleDisplayMode(.inline)
         .overlay (
             VStack (spacing: 0) {
                 HStack {
@@ -152,9 +154,8 @@ struct WeatherForecastSearchPlace: View {
                     }
                     Spacer()
                 }
-                .offset(y: UIDevice.isIpad ? -295 : -290)
+                .offset(y: UIDevice.isIpad ? -270 : -290)
             }
-            
         )
     }
 }
