@@ -388,7 +388,7 @@ struct WeatherForecast: View {
             }
         }
         ///
-        /// Status for lagrinh på CloudKit
+        /// Status for lagring på CloudKit
         ///
         .alert(title, isPresented: $showAlertCloudKit) {
         }

@@ -36,111 +36,58 @@ struct WeatherForecastSearchPlace: View {
             ///
             /// Legger inn det første tegnet i søkefeltet:
             ///
-            .onChange(of: searchText) { oldText, text in
-                if searchText.count > 0 {
-                    
-                } else {
-                    geoRecords.removeAll()
-                    ///
-                    /// Fjerner tastaturet:
-                    ///
-                    UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+                .onChange(of: searchText) { oldText, text in
+                    if searchText.count > 0 {
+                        
+                    } else {
+                        geoRecords.removeAll()
+                        ///
+                        /// Fjerner tastaturet:
+                        ///
+                        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+                    }
                 }
-            }
             ///
             /// Trykker 'retur' (iPhone) eller '􁂆' (iPad):
             ///
-            .onSubmit {
-                Task.init {
-                    ///
-                    ///  Må finne longitude og latiude for dette stedet:
-                    ///
-                    let key = UserDefaults.standard.object(forKey: "KeyOpenCage") as? String ?? ""
-                    let urlOpenCage = UserDefaults.standard.object(forKey: "UrlOpenCage") as? String ?? ""
-                    ///
-                    /// Finn georecords :
-                    ///
-                    geoRecords = await GetForwardGeoCode(place: searchText,
-                                                         key: key,
-                                                         urlOpenCage: urlOpenCage)
-                    ///
-                    /// Dersom det ikke finnes noen geoRecords kommer det en feilmelding:
-                    ///
-                    if geoRecords.count == 0 {
-                        title = "Find places"
-                        message = "The search for '\(searchText)' did not find any record."
-                        showAlert.toggle()
+                .onSubmit {
+                    Task.init {
+                        ///
+                        ///  Må finne longitude og latiude for dette stedet:
+                        ///
+                        let key = UserDefaults.standard.object(forKey: "KeyOpenCage") as? String ?? ""
+                        let urlOpenCage = UserDefaults.standard.object(forKey: "UrlOpenCage") as? String ?? ""
+                        ///
+                        /// Finn georecords :
+                        ///
+                        geoRecords = await GetForwardGeoCode(place: searchText,
+                                                             key: key,
+                                                             urlOpenCage: urlOpenCage)
+                        ///
+                        /// Dersom det ikke finnes noen geoRecords kommer det en feilmelding:
+                        ///
+                        if geoRecords.count == 0 {
+                            title = "Find places"
+                            message = "The search for '\(searchText)' did not find any record."
+                            showAlert.toggle()
+                        }
                     }
                 }
-            }
             List {
                 ForEach(geoRecords) { record in
-                    VStack {
-                        HStack {
-                            Text(record.flag)
-                            Text(record.country)
-                            Text(record.formatted)
-                        }
-                        .onTapGesture {
-                            places.removeAll()
-                            ///
-                            ///  Lagre dette stedet:
-                            ///
-                            Task.init {
-                                var lon: Double = 0.00
-                                var lat: Double = 0.00
-                                if record.longitude != nil {
-                                    lon = record.longitude!
-                                }
-                                if record.latitude != nil {
-                                    lat = record.latitude!
-                                }
-                                let place = Place(place: searchText,
-                                                  flag: record.flag,
-                                                  country: record.country,
-                                                  lon: lon,
-                                                  lat: lat,
-                                                  offsetSec: record.offsetSec,
-                                                  offsetString: record.offsetString,
-                                                  dst: record.dst,
-                                                  zoneName: record.zoneName,
-                                                  zoneShortName: record.zoneShortName)
-                                let value: (Bool, LocalizedStringKey)
-                                value = await SaveNewPlace(place)
-                                if value.0 == true {
-                                    searchText = ""
-                                    ///
-                                    /// Stedet er lagret
-                                    ///
-                                    places.append(place)
-                                    places.sort(by: {$0.place < $1.place})
-                                    title = "Save place"
-                                    message = "\nIt can take some time until the place is saved on CloudKit.\nSelect \"Refresh my places\""
-                                    showAlert.toggle()
-                                } else {
-                                    ///
-                                    /// Stedet ble ikke lagret:
-                                    ///
-                                    title = "Save place"
-                                    message = value.1
-                                    showAlert.toggle()
-                                }
+                    NavigationLink(destination: SafeNewPlace(geoRecord: record)) {
+                        VStack {
+                            HStack {
+                                Text(record.flag)
+                                Text(record.country)
+                                Text(record.formatted)
                             }
-                        }
-                    }
+                        }}
                 }
             }
             
         }
         .offset(y: -20)
-        ///
-        ///  Viser meldingene:
-        ///
-        .alert(title, isPresented: $showAlert) {
-        }
-        message: {
-            Text(message)
-        }
         .navigationTitle("Search ...")
         .navigationBarTitleDisplayMode(.inline)
         .overlay (
@@ -154,8 +101,77 @@ struct WeatherForecastSearchPlace: View {
                     }
                     Spacer()
                 }
-                .offset(y: UIDevice.isIpad ? -270 : -290)
+                .offset(y: UIDevice.isIpad ? -295 : -290)
             }
         )
     }
+}
+
+struct SafeNewPlace: View {
+    var geoRecord: GeoRecord
+    
+    @State private var message: LocalizedStringKey = ""
+    @State private var title: LocalizedStringKey = ""
+    @State private var showAlertFile: Bool = false
+    
+    @Environment(\.dismiss) var dismiss
+    
+    var body: some View {
+        HStack {
+            Text(geoRecord.flag)
+            Text(geoRecord.country)
+            Text(geoRecord.formatted)
+        }
+        .navigationTitle("Selected place")
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Menu("Options") {
+                    ///
+                    /// Lagre det lokale stedet
+                    ///
+                    Button (action: {
+                        Task.init {
+                            title = "Save this place"
+                            showAlertFile.toggle()
+                        }
+                    }, label: {
+                        HStack {
+                            Text("Save this place")
+                            Image(systemName: "square.and.arrow.up")
+                                .symbolRenderingMode(.multicolor)
+                        }
+                    })
+                    ///
+                    /// Avbryt
+                    ///
+                    Button (action: {
+                        Task.init {
+                            title = "Cancel"
+                            dismiss()
+                        }
+                    }, label: {
+                        HStack {
+                            Text("Cancel")
+                            Image(systemName: "x.circle")
+                                .symbolRenderingMode(.multicolor)
+                        }
+                    })
+                }
+            }
+        }
+        .alert(isPresented: $showAlertFile) {
+            Alert(
+                title: Text(title),
+                message: Text(message),
+                primaryButton: .default(Text("Cancel")) {
+                    print("Cancel")
+                    dismiss()
+                },
+                secondaryButton: .destructive(Text("Save")) {
+                    print("Save")
+                }
+            )
+        }
+    }
+    
 }

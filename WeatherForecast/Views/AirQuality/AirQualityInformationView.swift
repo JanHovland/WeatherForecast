@@ -115,7 +115,7 @@ struct AirQualityInformationView: View {
                     Spacer()
                     VStack {
                         Button(action: {
-                            dismiss()
+                            
                         }, label: {
                             Image(systemName: "x.circle")
                                 .symbolRenderingMode(.multicolor)
