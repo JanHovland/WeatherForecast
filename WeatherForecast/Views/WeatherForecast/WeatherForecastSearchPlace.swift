@@ -75,7 +75,8 @@ struct WeatherForecastSearchPlace: View {
                 }
             List {
                 ForEach(geoRecords) { record in
-                    NavigationLink(destination: SafeNewPlace(geoRecord: record)) {
+                    NavigationLink(destination: SaveNewPlace(geoRecord: record,
+                                                             searchText: searchText)) {
                         VStack {
                             HStack {
                                 Text(record.flag)
@@ -107,13 +108,15 @@ struct WeatherForecastSearchPlace: View {
     }
 }
 
-struct SafeNewPlace: View {
+struct SaveNewPlace: View {
     var geoRecord: GeoRecord
+    var searchText: String
     
     @State private var message: LocalizedStringKey = ""
     @State private var title: LocalizedStringKey = ""
+    @State private var showAlert: Bool = false
     @State private var showAlertFile: Bool = false
-    
+
     @Environment(\.dismiss) var dismiss
     
     var body: some View {
@@ -159,6 +162,14 @@ struct SafeNewPlace: View {
                 }
             }
         }
+        ///
+        ///  Viser meldingene:
+        ///
+        .alert(title, isPresented: $showAlert) {
+        }
+        message: {
+            Text(message)
+        }
         .alert(isPresented: $showAlertFile) {
             Alert(
                 title: Text(title),
@@ -169,6 +180,39 @@ struct SafeNewPlace: View {
                 },
                 secondaryButton: .destructive(Text("Save")) {
                     print("Save")
+                    ///
+                    /// Lagre valgt sted
+                    ///
+                    Task.init {
+                        let place = Place(place: searchText,
+                                          flag: geoRecord.flag,
+                                          country: geoRecord.country,
+                                          lon: geoRecord.longitude,
+                                          lat: geoRecord.latitude,
+                                          offsetSec: geoRecord.offsetSec,
+                                          offsetString: geoRecord.offsetString,
+                                          dst: geoRecord.dst,
+                                          zoneName: geoRecord.zoneName,
+                                          zoneShortName: geoRecord.zoneShortName)
+                        
+                        let value: (Bool, LocalizedStringKey)
+                        value = await SaveNewPlace(place)
+                        if value.0 == true {
+                            ///
+                            /// Stedet er lagret
+                            ///
+                            title = "Save place"
+                            message = "\nIt can take some time until the place is saved on CloudKit.\nSelect \"Refresh my places\""
+                            showAlert.toggle()
+                        } else {
+                            ///
+                            /// Stedet ble ikke lagret:
+                            ///
+                            title = "Save place"
+                            message = value.1
+                            showAlert.toggle()
+                        }
+                    }
                 }
             )
         }
