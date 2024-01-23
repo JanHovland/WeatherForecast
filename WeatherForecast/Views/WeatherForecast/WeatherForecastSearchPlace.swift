@@ -27,6 +27,8 @@ struct WeatherForecastSearchPlace: View {
     @State private var sheetPlace: Bool = false
     @State private var indexSetDelete = IndexSet()
     
+    @Environment(\.dismiss) var dismiss
+    
     var body: some View {
         VStack {
             ActivityIndicator(opacity: $opacityIndicator)
@@ -47,9 +49,9 @@ struct WeatherForecastSearchPlace: View {
                         UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
                     }
                 }
-            ///
-            /// Trykker 'retur' (iPhone) eller '􁂆' (iPad):
-            ///
+                ///
+                /// Trykker 'retur' (iPhone) eller '􁂆' (iPad):
+                ///
                 .onSubmit {
                     Task.init {
                         ///
@@ -128,7 +130,7 @@ struct SaveNewPlace: View {
         .navigationTitle("Selected place")
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
-                Menu("Options") {
+                Menu("", systemImage: "line.3.horizontal") {
                     ///
                     /// Lagre det lokale stedet
                     ///

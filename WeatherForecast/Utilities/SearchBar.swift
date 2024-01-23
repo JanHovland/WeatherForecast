@@ -11,8 +11,12 @@ struct SearchBar: View {
     ///
     /// https://www.appcoda.com/swiftui-search-bar/
     ///
+    /// https://www.youtube.com/watch?v=iTqwa0DCIMA
+    ///
     @Binding var searchText: String
     @State  var isEditing = false
+    
+    @Environment(\.dismiss) var dismiss
     
     var body: some View {
         HStack {
@@ -43,16 +47,16 @@ struct SearchBar: View {
                 .onTapGesture {
                     self.isEditing = true
                 }
-            if isEditing {
-                Button(action: {
-                    self.isEditing = false
-                    self.searchText = ""
-                }) {
-                    Text("Cancel")
-                }
-                .padding(.trailing, 10)
-                .transition(.move(edge: .trailing))
-            }
+//            if isEditing {
+//                Button(action: {
+//                    self.isEditing = false
+//                    self.searchText = ""
+//                }) {
+//                    Text("Cancel")
+//                }
+//                .padding(.trailing, 10)
+//                .transition(.move(edge: .trailing))
+//            }
         }
         .padding(.horizontal, 10)
     }
