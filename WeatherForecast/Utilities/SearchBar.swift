@@ -47,16 +47,16 @@ struct SearchBar: View {
                 .onTapGesture {
                     self.isEditing = true
                 }
-//            if isEditing {
-//                Button(action: {
-//                    self.isEditing = false
-//                    self.searchText = ""
-//                }) {
-//                    Text("Cancel")
-//                }
-//                .padding(.trailing, 10)
-//                .transition(.move(edge: .trailing))
-//            }
+                if isEditing {
+                    Button(action: {
+                        self.isEditing = false
+                        self.searchText = ""
+                    }) {
+                        Text("Cancel")
+                    }
+                    .padding(.trailing, 10)
+                    .transition(.move(edge: .trailing))
+                }
         }
         .padding(.horizontal, 10)
     }
