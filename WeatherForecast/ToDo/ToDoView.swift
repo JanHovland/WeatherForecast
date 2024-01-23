@@ -435,10 +435,10 @@ var toDo_2 =
    90. 🟢 "Mine steder" sin meny må endres:
           🟢 legg inn "Slett dette stedet"
           🟢 Legg inn "Avbryt"
-   91. 🔴 "Søk etter" sin meny må endres:
-          🔴 Legg inn Meny (lagres direkte i dag):
-             🔴 Legg inn "Lagre"
-             🔴 Legg inn "Avbryt"
+   91. 🟢 "Søk etter" sin meny må endres:
+          🟢 Legg inn Meny (lagres direkte i dag):
+             🟢 Legg inn "Lagre"
+             🟢 Legg inn "Avbryt"
    92. 🔴 Oppdater navnet på landene fra en liste:
           🔴 Lage denne listen
           🔴 Kalle denne listen ved lagring av et sted
