@@ -445,7 +445,7 @@ var toDo_2 =
           🔴 Lage denne listen
           🔴 Kalle denne listen ved lagring av et sted
    93. 🔴 Erstatte Geosatellite fra met.no
-   94. 🔴 Kan alt fra CurrentWeather legges inn i WeatherInfo?
+   94. 🔴 Kan alt fra CurrentWeather legges inn i WeatherInfo? 
           🔴
    95. 🔴 Legge inn et varselsfelt om snø helt øverst på skjermen
    96. 🔴 .
