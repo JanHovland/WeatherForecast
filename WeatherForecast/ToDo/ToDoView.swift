@@ -440,6 +440,8 @@ var toDo_2 =
              🟢 Legg inn "Lagre"
              🟢 Legg inn "Avbryt"
    92. 🔴 Oppdater navnet på landene fra en liste:
+          🔴 https://api.first.org/v1/get-countries
+          🔴 API som returnerer JSON :  https://api.first.org/data/v1/countries
           🔴 Lage denne listen
           🔴 Kalle denne listen ved lagring av et sted
    93. 🔴 Erstatte Geosatellite fra met.no
