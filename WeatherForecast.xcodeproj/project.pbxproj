@@ -190,6 +190,9 @@
 		DBF209D52B18E4C200F37926 /* ForegroundUvIndexViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF209D42B18E4C200F37926 /* ForegroundUvIndexViewModifier.swift */; };
 		DBF2ABD729D4A4F0008ECB6C /* GetBaseDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF2ABD629D4A4F0008ECB6C /* GetBaseDate.swift */; };
 		DBF3DEAD28F5EF0F00509CF4 /* HourOverview.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF3DEAC28F5EF0F00509CF4 /* HourOverview.swift */; };
+		DBFA0FE82B60F45E0008E358 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFA0FE72B60F45E0008E358 /* Country.swift */; };
+		DBFA0FEA2B60F5A70008E358 /* FindCountries.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFA0FE92B60F5A70008E358 /* FindCountries.swift */; };
+		DBFA0FEC2B60F61E0008E358 /* CountryRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFA0FEB2B60F61D0008E358 /* CountryRecord.swift */; };
 		DBFD2DD22958612B00293B4D /* WeatherIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFD2DD12958612B00293B4D /* WeatherIcon.swift */; };
 		DBFD2DD7295B53BF00293B4D /* iconUvIndexView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFD2DD6295B53BF00293B4D /* iconUvIndexView.swift */; };
 		DBFD2DD9295B541100293B4D /* iconWindView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFD2DD8295B541100293B4D /* iconWindView.swift */; };
@@ -385,6 +388,10 @@
 		DBF209D42B18E4C200F37926 /* ForegroundUvIndexViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForegroundUvIndexViewModifier.swift; sourceTree = "<group>"; };
 		DBF2ABD629D4A4F0008ECB6C /* GetBaseDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetBaseDate.swift; sourceTree = "<group>"; };
 		DBF3DEAC28F5EF0F00509CF4 /* HourOverview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourOverview.swift; sourceTree = "<group>"; };
+		DBFA0FE72B60F45E0008E358 /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
+		DBFA0FE92B60F5A70008E358 /* FindCountries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindCountries.swift; sourceTree = "<group>"; };
+		DBFA0FEB2B60F61D0008E358 /* CountryRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryRecord.swift; sourceTree = "<group>"; };
+		DBFA0FED2B615A420008E358 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DBFD2DD12958612B00293B4D /* WeatherIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherIcon.swift; sourceTree = "<group>"; };
 		DBFD2DD6295B53BF00293B4D /* iconUvIndexView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iconUvIndexView.swift; sourceTree = "<group>"; };
 		DBFD2DD8295B541100293B4D /* iconWindView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iconWindView.swift; sourceTree = "<group>"; };
@@ -466,12 +473,15 @@
 				DB880FDA2989305F009E8FB7 /* AdjustOffset.swift */,
 				DB6DE823297D3017005BCCF9 /* ConnectToInternet.swift */,
 				DBC65DE62907FE6B004635FE /* DateCalculation.swift */,
+				DBC42CB52B299F5200148296 /* DismissAlertAndExitApp.swift */,
+				DB3E191F2B149DE0001FDF07 /* ConvertImage.swift */,
 				DB53CB3C29903FEB004D0C71 /* DateString.swift */,
 				DB4A0C3E29AE85D00055AAD7 /* DaysBetween.swift */,
 				DB2DB3D029D02B410046E38D /* DtTimeInterval.swift */,
 				DBCD43742AEE38C2007543BE /* FindAirQuality.swift */,
 				DB2727F72965E132003B0903 /* FindAverageArray.swift */,
 				DB53CB3E2991A37C004D0C71 /* FindDayOffsetFactor.swift */,
+				DBFA0FE92B60F5A70008E358 /* FindCountries.swift */,
 				DB5C0C2F29151C9600141BDC /* FindDataFromMenu.swift */,
 				DB8C17CE29DDB48100198DCB /* FindHourToCGFloat.swift */,
 				DBD497A32A4EAF160075B350 /* FindLocalPosition.swift */,
@@ -498,8 +508,6 @@
 				DB17F6AD295ECF0C00FC2A0B /* UvIndexDescription.swift */,
 				DBDBCC6529521B99005AEB05 /* WeatherTranslateType.swift */,
 				DB17F6AF295F6BA100FC2A0B /* WindDirection.swift */,
-				DB3E191F2B149DE0001FDF07 /* ConvertImage.swift */,
-				DBC42CB52B299F5200148296 /* DismissAlertAndExitApp.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -592,6 +600,8 @@
 				DBCD43762AEE3AA2007543BE /* AirQualityRecord.swift */,
 				DB9E26DE2AF39F6B00DF3AE9 /* AQLimit.swift */,
 				DB8293652B1B40D50055BE65 /* Beaufort.swift */,
+				DBFA0FEB2B60F61D0008E358 /* CountryRecord.swift */,
+				DBFA0FE72B60F45E0008E358 /* Country.swift */,
 				DB696899290E715900936C0E /* CurrentWeatherRecord.swift */,
 				DB274789294C87690082B63B /* DayTempInfo.swift */,
 				DB112ADD2964B906000F6862 /* FeltTemp.swift */,
@@ -877,6 +887,7 @@
 		DBB4CCC8288869E900B5C5C8 /* WeatherForecast */ = {
 			isa = PBXGroup;
 			children = (
+				DBFA0FED2B615A420008E358 /* Info.plist */,
 				DBD2B5962A9D0D2C00721184 /* Constant */,
 				DBCE690629DB123D0008E434 /* WeatherForecast.docc */,
 				DB82F5B32971CDF200818841 /* CloudKit */,
@@ -1050,12 +1061,14 @@
 				DB85F9E52947263C00D14013 /* InfoTemperature.swift in Sources */,
 				DB880FDB2989305F009E8FB7 /* AdjustOffset.swift in Sources */,
 				DB51163C28E43C1100DEB1BF /* GeoRecord.swift in Sources */,
+				DBFA0FEA2B60F5A70008E358 /* FindCountries.swift in Sources */,
 				DB66C19D2AF6427A00C2722E /* AirQualityHeadlineView.swift in Sources */,
 				DB4FA8C32AEF8EC800533266 /* AirQualityView.swift in Sources */,
 				DB2676F229D5CE5900C642B9 /* SelectedValue.swift in Sources */,
 				DB2C677528E72F43002EC5C1 /* FormatPlace.swift in Sources */,
 				DBA2AA51291FA04000581301 /* DayDetailAdaptSystemName.swift in Sources */,
 				DB6968A5290EFEB900936C0E /* HourlyForecastRecord.swift in Sources */,
+				DBFA0FE82B60F45E0008E358 /* Country.swift in Sources */,
 				DBECD4E12AE971A6005FD489 /* RefreshOffsetView.swift in Sources */,
 				DB5C0C3029151C9600141BDC /* FindDataFromMenu.swift in Sources */,
 				DBD295A22B1509D800275D5E /* SunDayAndNightViewModifier.swift in Sources */,
@@ -1106,6 +1119,7 @@
 				DB26AEC1296F22DE007B4B88 /* PrecipitationFindRestOfDay.swift in Sources */,
 				DBC65DE72907FE6B004635FE /* DateCalculation.swift in Sources */,
 				DB4A8DAC294857370067C4F8 /* InfoVisibility.swift in Sources */,
+				DBFA0FEC2B60F61E0008E358 /* CountryRecord.swift in Sources */,
 				DBB6905628FB0202006FA016 /* DayOverview.swift in Sources */,
 				DBCD43772AEE3AA2007543BE /* AirQualityRecord.swift in Sources */,
 				DB17F6A6295DF43700FC2A0B /* DayDetailWeatherDataFeelsLike.swift in Sources */,
@@ -1386,6 +1400,7 @@
 				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = WeatherForecast/Info.plist;
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "This app tracks your location for the main feature";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
@@ -1430,6 +1445,7 @@
 				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = WeatherForecast/Info.plist;
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "This app tracks your location for the main feature";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;

@@ -573,7 +573,7 @@ struct WeatherForecast: View {
                 ///
                 weatherInfo.dayLength = value.3
                 weatherInfo.dayIncrease = value.4
-
+                
                 ///
                 /// Finner data for månen:
                 ///
@@ -715,6 +715,12 @@ struct WeatherForecast: View {
                         }
                     } /// if persist == true
                 } /// if persist == true
+                if persist == true {
+//                    let url1 = UserDefaults.standard.object(forKey: "UrlCountry") as? String ?? ""
+                    let url1 = "https://restcountries.com/v3.1/all?fields=name"
+                    let (status, countries) : (String, [CountryRecord]) =
+                    await FindCountries(urlString: url1)
+                }
                 ///
                 /// Skjuler ActivityIndicator:
                 ///
@@ -722,5 +728,7 @@ struct WeatherForecast: View {
             }
         }
     }
-    
 }
+
+
+/// http://country.io/names.json
