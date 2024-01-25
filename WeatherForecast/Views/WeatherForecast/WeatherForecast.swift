@@ -92,7 +92,6 @@ struct WeatherForecast: View {
             if settingsMissing {
                 SettingView()
             }
-            
             ActivityIndicator(opacity: $opacityIndicator)
                 .offset(y: UIDevice.isIpad ? -375 : -325)
             ///
@@ -715,12 +714,6 @@ struct WeatherForecast: View {
                         }
                     } /// if persist == true
                 } /// if persist == true
-                if persist == true {
-//                    let url1 = UserDefaults.standard.object(forKey: "UrlCountry") as? String ?? ""
-                    let url1 = "https://restcountries.com/v3.1/all?fields=name"
-                    let (status, countries) : (String, [CountryRecord]) =
-                    await FindCountries(urlString: url1)
-                }
                 ///
                 /// Skjuler ActivityIndicator:
                 ///
@@ -730,5 +723,58 @@ struct WeatherForecast: View {
     }
 }
 
+/// Beskrivelse av feltene for:
+/// https://restcountries.com/v3.1/all?fields=
+///
+/// https://gitlab.com/restcountries/restcountries/-/blob/master/FIELDS.md
+///
 
-/// http://country.io/names.json
+func GetFlag(countryCode: String) -> String {
+    let base : UInt32 = 127397
+    var s = ""
+    if countryCode.count == 2 {
+        for v in countryCode.uppercased().unicodeScalars {
+            s.unicodeScalars.append(UnicodeScalar(base + v.value)!)
+        }
+    }
+    
+    return s
+}
+
+///
+/// Dette appen "Countries" bruker enormt mye memory.  Hvorfor
+///
+
+struct Countries: View {
+    @State private var countries: [CountryRecord] = []
+    @State private var searchText = ""
+    
+    var body: some View {
+        NavigationView {
+            List {
+                ForEach(countries, id: \.self) { item in
+                    ForEach(countries.filter { searchText.isEmpty || $0.name.contains(searchText) }, id: \.self) { item in
+                        HStack {
+                            Text(item.name)
+                            Text(item.code)
+                            Text(item.flag)
+                        }
+                    }
+                }
+            }
+            .searchable(text: $searchText)
+            .navigationBarTitle("Search for a country")
+        }
+        .task {
+            let url1 = "https://restcountries.com/v3.1/all?fields=name,cca2,flag"
+            var value1: (String, [CountryRecord])
+            await value1 = FindCountries(urlString: url1)
+            if value1.0 == "" {
+                countries = value1.1
+            } else {
+                countries.removeAll()
+            }
+        }
+    }
+}
+

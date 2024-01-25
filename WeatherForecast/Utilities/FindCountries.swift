@@ -10,6 +10,7 @@ import Foundation
 func FindCountries(urlString: String?)  async -> (String, [CountryRecord]) {
     
     var errors : String = ""
+    var countryRecord =  CountryRecord(id: UUID(), name: "", code: "", flag: "")
     var countryRecords : [CountryRecord] = []
     
     let url = URL(string: urlString ?? "")
@@ -21,8 +22,13 @@ func FindCountries(urlString: String?)  async -> (String, [CountryRecord]) {
             ///
             /// Oppdaterer countryRecord:
             ///
-            countryData?.forEach { value in
-                print(value.name.common)
+            countryData?.forEach { data in
+                countryRecord.id = UUID()
+                countryRecord.name = data.name.common
+                countryRecord.code = data.cca2
+                countryRecord.flag = data.flag
+                countryRecords.append(countryRecord)
+                countryRecords.sort(by: {$0.name < $1.name})
             }
          } catch {
             errors = "\(error)"

@@ -7,8 +7,10 @@
 
 import Foundation
 
-struct CountryRecord {
+struct CountryRecord: Hashable, Identifiable {
+    var id = UUID()
     var name: String = ""
     var code: String = ""
+    var flag: String = ""
 }
 
