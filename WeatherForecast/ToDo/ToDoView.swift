@@ -440,9 +440,8 @@ var toDo_2 =
              🟢 Legg inn "Lagre"
              🟢 Legg inn "Avbryt"
    92. 🔴 Oppdater navnet på landene fra en liste:
-          🔴 https://api.first.org/v1/get-countries
-          🔴 API som returnerer JSON :  https://api.first.org/data/v1/countries?limit=300&pretty=true
-          🔴 Lage denne listen
+          🟢 API som returnerer JSON :  "https://restcountries.com/v3.1/all?fields=name,cca2,flag"
+          🟢 Lage denne listen
           🔴 Kalle denne listen ved lagring av et sted
    93. 🔴 Erstatte Geosatellite fra met.no
    94. 🔴 Kan alt fra CurrentWeather legges inn i WeatherInfo? 

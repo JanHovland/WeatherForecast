@@ -723,12 +723,6 @@ struct WeatherForecast: View {
     }
 }
 
-/// Beskrivelse av feltene for:
-/// https://restcountries.com/v3.1/all?fields=
-///
-/// https://gitlab.com/restcountries/restcountries/-/blob/master/FIELDS.md
-///
-
 func GetFlag(countryCode: String) -> String {
     let base : UInt32 = 127397
     var s = ""
@@ -742,7 +736,7 @@ func GetFlag(countryCode: String) -> String {
 }
 
 ///
-/// Dette appen "Countries" bruker enormt mye memory.  Hvorfor
+/// https://blog.stackademic.com/search-data-in-swiftui-list-view-c62e990b3a32
 ///
 
 struct Countries: View {
@@ -750,22 +744,28 @@ struct Countries: View {
     @State private var searchText = ""
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             List {
-                ForEach(countries, id: \.self) { item in
-                    ForEach(countries.filter { searchText.isEmpty || $0.name.contains(searchText) }, id: \.self) { item in
-                        HStack {
-                            Text(item.name)
-                            Text(item.code)
-                            Text(item.flag)
-                        }
+                ForEach(searchResults, id: \.self) { item in
+                    HStack (spacing: 20) {
+                        Text(item.name)
+                        Text(item.code)
+                        Text(item.flag)
                     }
                 }
             }
-            .searchable(text: $searchText)
-            .navigationBarTitle("Search for a country")
+            .searchable(text: $searchText, placement: .automatic)
+            .listStyle(.plain)
         }
+        .padding(.leading, 10)
+        .navigationBarTitle("Search for a country")
+        .navigationBarTitleDisplayMode(.inline)
         .task {
+            /// Beskrivelse av feltene for:
+            /// https://restcountries.com/v3.1/all?fields=
+            ///
+            /// https://gitlab.com/restcountries/restcountries/-/blob/master/FIELDS.md
+            ///
             let url1 = "https://restcountries.com/v3.1/all?fields=name,cca2,flag"
             var value1: (String, [CountryRecord])
             await value1 = FindCountries(urlString: url1)
@@ -775,6 +775,16 @@ struct Countries: View {
                 countries.removeAll()
             }
         }
+        
+        //sort list using search text
+        var searchResults: [CountryRecord] {
+            if searchText.isEmpty {
+                return countries
+            } else {
+                return countries.filter { $0.name.localizedCaseInsensitiveContains(searchText) }
+            }
+        }
+        
     }
 }
-
+    

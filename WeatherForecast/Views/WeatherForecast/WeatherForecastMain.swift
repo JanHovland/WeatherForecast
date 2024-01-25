@@ -108,6 +108,9 @@ struct WeatherForecastMain: View {
                     NavigationLink(destination: RefreshOffsetView()) {
                         Label("Refresh offset", systemImage: "hourglass.circle")
                     }
+                    NavigationLink(destination: Countries()) {
+                        Label("Countries overview", systemImage: "flag")
+                    }
                     ///
                     /// Frisker opp stedene mine:
                     ///
@@ -183,7 +186,6 @@ struct RefreshMyPlaces: View {
             Text("Refresh my places")
         } icon: {
             Image(systemName: "mappin.circle")
-                .symbolRenderingMode(.multicolor)
         }
     }
 }
