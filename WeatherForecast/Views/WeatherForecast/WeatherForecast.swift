@@ -763,9 +763,11 @@ struct Countries: View {
                         .foregroundStyle(.green)
                         VStack (alignment: .leading) {
                             Text(item.name)
+                                .foregroundStyle(.green)
+                                .fontWeight(.heavy)
                             Text(item.code)
                             Text(item.flag)
-                                .font(.title2)
+                                .font(.title)
                             Text(item.capital)
                             Text("\(item.population)")
                         }
