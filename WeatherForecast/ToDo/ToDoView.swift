@@ -443,6 +443,7 @@ var toDo_2 =
           🟢 API som returnerer JSON :  "https://restcountries.com/v3.1/all?fields=name,cca2,flag"
           🟢 Lage denne listen
           🔴 Oppdatere Localizable.strings
+          🔴 Oppdatere TranslateCountry(country: String) -> String
    93. 🔴 Erstatte Geosatellite fra met.no
    94. 🔴 Kan alt fra CurrentWeather legges inn i WeatherInfo? 
           🔴
