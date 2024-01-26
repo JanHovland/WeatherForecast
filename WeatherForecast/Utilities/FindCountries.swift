@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 func FindCountries(urlString: String?)  async -> (String, [CountryRecord]) {
     
@@ -24,7 +25,7 @@ func FindCountries(urlString: String?)  async -> (String, [CountryRecord]) {
             ///
             countryData?.forEach { data in
                 countryRecord.id = UUID()
-                countryRecord.name = data.name.common
+                countryRecord.name = TranslateCountry(country: data.name.common)
                 countryRecord.code = data.cca2
                 countryRecord.flag = data.flag
                 

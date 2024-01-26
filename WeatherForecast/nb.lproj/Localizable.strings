@@ -1582,22 +1582,34 @@
 /* No comment provided by engineer. */
 "Countries overview" = "Oversikt land";
 
+/* No comment provided by engineer. */
+"Country: " = "Land: ";
+
+/* No comment provided by engineer. */
+"Land code: " = "Land kode: ";
+
+/* No comment provided by engineer. */
+"Flag: " = "Flagg: ";
+
+/* No comment provided by engineer. */
+"Capitol: " = "Hovedstad: ";
+
+/* No comment provided by engineer. */
+"Population: " = "Innbyggere: ";
+
+/* No comment provided by engineer. */
+"Afghanistan" = "Afganistan";
+"Algeria" = "Algerie";
+"American Samoa" = "Amerikansk Samoa";
+"Antarctica" = "Antarktis";
+"Antigua and Barbuda" = "Antigua og Barbuda";
+"Austria" = "Østerrike";
+"Azerbaijan" = "Aserbajdsjan";
+
+
 /*
-Afghanistan
-Albania
-Algeria
-American Samoa
-Andorra
-Angola
-Anguilla
-Antarctica
-Antigua and Barbuda
-Argentina
-Armenia
-Aruba
-Australia
-Austria
-Azerbaijan
+
+
 Bahamas
 Bahrain
 Bangladesh

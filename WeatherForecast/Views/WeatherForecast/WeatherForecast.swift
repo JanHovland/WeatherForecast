@@ -751,7 +751,7 @@ struct Countries: View {
         NavigationStack {
             List {
                 ForEach(searchResults, id: \.self) { item in
-                    LazyHStack (alignment: .top, spacing: UIDevice.isIpad ? 120 : 60) {
+                    LazyHStack (alignment: .top, spacing: UIDevice.isIpad ? 100 : 60) {
                         VStack (alignment: .leading) {
                             Text("Country: ")
                             Text("Land code: ")
@@ -774,12 +774,14 @@ struct Countries: View {
                     .padding(5)
                 }
             }
-            .searchable(text: $searchText, placement: .automatic)
             .listStyle(.plain)
+            .scrollIndicators(.hidden)
         }
+        .padding(.top, -20)
         .padding(.leading, 10)
         .navigationBarTitle("Search for a country")
-        .navigationBarTitleDisplayMode(.inline)
+        .navigationBarTitleDisplayMode(.large)
+        .searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .always))
         .task {
             /// Beskrivelse av feltene for:
             /// https://restcountries.com/v3.1/all?fields=
