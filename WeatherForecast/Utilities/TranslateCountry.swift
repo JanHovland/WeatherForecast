@@ -8,7 +8,7 @@
 import Foundation
 
 func TranslateCountry(country: String) -> String {
-    var nation: String = ""
+    var nation: String = ""             
     switch country {
     case "Afghanistan":             nation = String(localized: "Afghanistan")
     case "Algeria":                 nation = String(localized: "Algeria")
