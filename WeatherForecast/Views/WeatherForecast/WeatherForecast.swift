@@ -723,6 +723,10 @@ struct WeatherForecast: View {
     }
 }
 
+///
+/// Finne flagget til et land ut fra landskoden på 2 tegn
+///
+
 func GetFlag(countryCode: String) -> String {
     let base : UInt32 = 127397
     var s = ""
@@ -747,11 +751,27 @@ struct Countries: View {
         NavigationStack {
             List {
                 ForEach(searchResults, id: \.self) { item in
-                    HStack (spacing: 20) {
-                        Text(item.name)
-                        Text(item.code)
-                        Text(item.flag)
+                    LazyHStack (alignment: .top, spacing: UIDevice.isIpad ? 120 : 60) {
+                        VStack (alignment: .leading) {
+                            Text("Country: ")
+                            Text("Land code: ")
+                            Text("Flag: ")
+                            Text("Capitol: ")
+                            Text("Population: ")
+                            
+                        }
+                        .foregroundStyle(.green)
+                        VStack (alignment: .leading) {
+                            Text(item.name)
+                            Text(item.code)
+                            Text(item.flag)
+                                .font(.title2)
+                            Text(item.capital)
+                            Text("\(item.population)")
+                        }
                     }
+                    .font(.subheadline)
+                    .padding(5)
                 }
             }
             .searchable(text: $searchText, placement: .automatic)
@@ -766,7 +786,7 @@ struct Countries: View {
             ///
             /// https://gitlab.com/restcountries/restcountries/-/blob/master/FIELDS.md
             ///
-            let url1 = "https://restcountries.com/v3.1/all?fields=name,cca2,flag"
+            let url1 = "https://restcountries.com/v3.1/all?fields=name,cca2,flag,capital,population"
             var value1: (String, [CountryRecord])
             await value1 = FindCountries(urlString: url1)
             if value1.0 == "" {
@@ -775,8 +795,9 @@ struct Countries: View {
                 countries.removeAll()
             }
         }
-        
-        //sort list using search text
+        ///
+        /// Sort list using search text
+        ///
         var searchResults: [CountryRecord] {
             if searchText.isEmpty {
                 return countries

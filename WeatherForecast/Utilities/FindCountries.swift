@@ -27,6 +27,14 @@ func FindCountries(urlString: String?)  async -> (String, [CountryRecord]) {
                 countryRecord.name = data.name.common
                 countryRecord.code = data.cca2
                 countryRecord.flag = data.flag
+                
+                if data.capital.isEmpty {
+                    countryRecord.capital = "Unknown"
+                } else {
+                   let capital = data.capital[0]
+                   countryRecord.capital = capital
+                }
+                countryRecord.population = data.population
                 countryRecords.append(countryRecord)
                 countryRecords.sort(by: {$0.name < $1.name})
             }

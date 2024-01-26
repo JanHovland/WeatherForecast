@@ -3,7 +3,10 @@ import Foundation
 // MARK: - CountryInfoElement
 struct CountryInfoElement: Codable {
     let name: Name
-    let cca2, flag: String
+    let cca2: String
+    let capital : [String]
+    let flag: String
+    let population: Int
 }
 
 // MARK: - Name

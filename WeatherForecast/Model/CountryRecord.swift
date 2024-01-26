@@ -12,5 +12,7 @@ struct CountryRecord: Identifiable, Hashable  {
     var name: String = ""
     var code: String = ""
     var flag: String = ""
+    var capital: String = ""
+    var population: Int = 0
 }
 

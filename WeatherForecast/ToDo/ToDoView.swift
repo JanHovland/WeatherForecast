@@ -439,10 +439,10 @@ var toDo_2 =
           🟢 Legg inn Meny (lagres direkte i dag):
              🟢 Legg inn "Lagre"
              🟢 Legg inn "Avbryt"
-   92. 🔴 Oppdater navnet på landene fra en liste:
+   92. 🔴 Lage oversikt over alle landene:
           🟢 API som returnerer JSON :  "https://restcountries.com/v3.1/all?fields=name,cca2,flag"
           🟢 Lage denne listen
-          🔴 Kalle denne listen ved lagring av et sted
+          🔴 Oppdatere Localizable.strings
    93. 🔴 Erstatte Geosatellite fra met.no
    94. 🔴 Kan alt fra CurrentWeather legges inn i WeatherInfo? 
           🔴
