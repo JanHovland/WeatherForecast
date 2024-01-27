@@ -1577,9 +1577,6 @@
 "Options" = "Valg";
 
 /* No comment provided by engineer. */
-"Search for a country" = "Søk etter et land";
-
-/* No comment provided by engineer. */
 "Countries overview" = "Oversikt land";
 
 /* No comment provided by engineer. */
@@ -1596,6 +1593,9 @@
 
 /* No comment provided by engineer. */
 "Population: " = "Innbyggere: ";
+
+/* No comment provided by engineer. */
+"Unknown" = "Ukjent";
 
 /* No comment provided by engineer. */
 "Afghanistan" = "Afganistan";

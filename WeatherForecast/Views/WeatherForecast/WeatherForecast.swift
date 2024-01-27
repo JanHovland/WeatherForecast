@@ -758,18 +758,16 @@ struct Countries: View {
                             Text("Flag: ")
                             Text("Capitol: ")
                             Text("Population: ")
-                            
                         }
                         .foregroundStyle(.green)
                         VStack (alignment: .leading) {
                             Text(item.name)
                                 .foregroundStyle(.green)
-                                .fontWeight(.heavy)
                             Text(item.code)
                             Text(item.flag)
-                                .font(.title2)
                             if item.capital == "Unknown" {
-                                Text(item.capital)
+                                let capital = String(localized: "Unknown")
+                                Text(capital)
                                     .foregroundStyle(.red)
                             } else {
                                 Text(item.capital)
@@ -786,8 +784,8 @@ struct Countries: View {
         }
         .padding(.top, -20)
         .padding(.leading, 10)
-        .navigationBarTitle("Search for a country")
-        .navigationBarTitleDisplayMode(.large)
+        .navigationBarTitle("Countries overview")
+        .navigationBarTitleDisplayMode(.inline)
         .searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .always))
         .task {
             /// Beskrivelse av feltene for:
@@ -817,4 +815,4 @@ struct Countries: View {
         
     }
 }
-    
+
