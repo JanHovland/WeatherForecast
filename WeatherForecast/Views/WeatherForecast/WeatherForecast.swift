@@ -767,8 +767,13 @@ struct Countries: View {
                                 .fontWeight(.heavy)
                             Text(item.code)
                             Text(item.flag)
-                                .font(.title)
-                            Text(item.capital)
+                                .font(.title2)
+                            if item.capital == "Unknown" {
+                                Text(item.capital)
+                                    .foregroundStyle(.red)
+                            } else {
+                                Text(item.capital)
+                            }
                             Text("\(item.population)")
                         }
                     }

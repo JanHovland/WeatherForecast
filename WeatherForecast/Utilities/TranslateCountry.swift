@@ -63,7 +63,7 @@ func TranslateCountry(country: String) -> String {
         
     case "United Kingdom":                  nation = String(localized: "United Kingdom")
     case "United States":                   nation = String(localized: "United States")
-
+        
     default:                                nation = country
     }
     return nation
