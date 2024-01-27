@@ -26,27 +26,45 @@ func TranslateCountry(country: String) -> String {
     case "British Indian Ocean Territory":  nation = String(localized: "British Indian Ocean Territory")
     case "British Virgin Islands":          nation = String(localized: "British Virgin Islands")
         
-//    case "":              nation = String(localized: " ")
+    case "Cambodia":                        nation = String(localized: "Cambodia")
+    case "Cameroon":                        nation = String(localized: "Cameroon")
+    case "Canada":                          nation = String(localized: "Canada")
+    case "Cape Verde":                      nation = String(localized: "Cape Verde")
+    case "Caribbean Netherlands":           nation = String(localized: "Caribbean Netherlands")
+    case "Cayman Island":                   nation = String(localized: "Cayman Island")
+    case "Central African Republic":        nation = String(localized: "Central African Republic")
+    case "Chad":                            nation = String(localized: "Chad")
+    case "China":                           nation = String(localized: "China")
+    case "Christmas Island":                nation = String(localized: "Christmas Island")
+    case "Cocos (Keeling) Islands":         nation = String(localized: "Cocos (Keeling) Islands")
+    case "Comoros":                         nation = String(localized: "Comoros")
+    case "Cook Islands":                    nation = String(localized: "Cook Islands")
+    case "Croatia":                         nation = String(localized: "Croatia")
+    case "Cyprus":                          nation = String(localized: "Cyprus")
+    case "Czechia":                         nation = String(localized: "Czechia")
+    case "DR Congo":                        nation = String(localized: "DR Congo")
+    case "Denmark":                         nation = String(localized: "Denmark")
+    case "Deutschland":                     nation = String(localized: "Deutschland")
+    case "Dominican Republic":              nation = String(localized: "Dominican Republic")
+//    case "":                                nation = String(localized: "")
+//    case "":                                nation = String(localized: "")
 
-    case "China":                   nation = String(localized: "China")
-    case "Canada":                  nation = String(localized: "Canada")
 
-    case "Deutschland":             nation = String(localized: "Deutschland")
         
-    case "France":                  nation = String(localized: "France")
+    case "France":                          nation = String(localized: "France")
         
-    case "Norway":                  nation = String(localized: "Norway")
+    case "Norway":                          nation = String(localized: "Norway")
         
-    case "Russia":                  nation = String(localized: "Russia")
+    case "Russia":                          nation = String(localized: "Russia")
         
-    case "Spain":                   nation = String(localized: "Spain")
+    case "Spain":                           nation = String(localized: "Spain")
         
-    case "Turkey":                  nation = String(localized: "Turkey")
+    case "Turkey":                          nation = String(localized: "Turkey")
         
-    case "United Kingdom":          nation = String(localized: "United Kingdom")
-    case "United States":           nation = String(localized: "United States")
+    case "United Kingdom":                  nation = String(localized: "United Kingdom")
+    case "United States":                   nation = String(localized: "United States")
 
-    default:                        nation = country
+    default:                                nation = country
     }
     return nation
 }

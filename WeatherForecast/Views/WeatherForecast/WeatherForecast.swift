@@ -751,7 +751,7 @@ struct Countries: View {
         NavigationStack {
             List {
                 ForEach(searchResults, id: \.self) { item in
-                    LazyHStack (alignment: .top, spacing: UIDevice.isIpad ? 100 : 60) {
+                    LazyHStack (alignment: .top, spacing: UIDevice.isIpad ? 100 : 10) {
                         VStack (alignment: .leading) {
                             Text("Country: ")
                             Text("Land code: ")
@@ -773,7 +773,7 @@ struct Countries: View {
                         }
                     }
                     .font(.subheadline)
-                    .padding(5)
+                    .padding(2)
                 }
             }
             .listStyle(.plain)
