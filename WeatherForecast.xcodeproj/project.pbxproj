@@ -119,6 +119,7 @@
 		DB7B50DA2AF1492A00A61BA1 /* AppsForIPhone.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7B50D92AF1492A00A61BA1 /* AppsForIPhone.swift */; };
 		DB7B50DC2AF1498E00A61BA1 /* AppsForIPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7B50DB2AF1498E00A61BA1 /* AppsForIPad.swift */; };
 		DB7B6505294B8F16009822E5 /* Temperature.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7B6504294B8F16009822E5 /* Temperature.swift */; };
+		DB7D8D3B2B66401700A62B34 /* CountryName.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7D8D3A2B66401700A62B34 /* CountryName.swift */; };
 		DB8293662B1B40D50055BE65 /* Beaufort.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8293652B1B40D50055BE65 /* Beaufort.swift */; };
 		DB82F5B92971CF9800818841 /* CloudKitPlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB82F5B82971CF9800818841 /* CloudKitPlace.swift */; };
 		DB82F5BC2971D0F800818841 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB82F5BB2971D0F800818841 /* Config.swift */; };
@@ -314,6 +315,7 @@
 		DB7B50D92AF1492A00A61BA1 /* AppsForIPhone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsForIPhone.swift; sourceTree = "<group>"; };
 		DB7B50DB2AF1498E00A61BA1 /* AppsForIPad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsForIPad.swift; sourceTree = "<group>"; };
 		DB7B6504294B8F16009822E5 /* Temperature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Temperature.swift; sourceTree = "<group>"; };
+		DB7D8D3A2B66401700A62B34 /* CountryName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryName.swift; sourceTree = "<group>"; };
 		DB8293652B1B40D50055BE65 /* Beaufort.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beaufort.swift; sourceTree = "<group>"; };
 		DB82F5B82971CF9800818841 /* CloudKitPlace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitPlace.swift; sourceTree = "<group>"; };
 		DB82F5BB2971D0F800818841 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
@@ -554,6 +556,7 @@
 				DBD295A12B1509D800275D5E /* SunDayAndNightViewModifier.swift */,
 				DB75926C2ADAD6C300B772A9 /* ValueAtPositionChart.swift */,
 				DB6DE821297C5AF4005BCCF9 /* WeatherForecastViewModifier.swift */,
+				DB7D8D3A2B66401700A62B34 /* CountryName.swift */,
 			);
 			path = ViewModifier;
 			sourceTree = "<group>";
@@ -1139,6 +1142,7 @@
 				DB679FD92B25B06C008C7330 /* CollapsibleDetailView.swift in Sources */,
 				DB2E44EE2B0F439E00DC77AD /* FindChartDataProbability.swift in Sources */,
 				DB27478A294C87690082B63B /* DayTempInfo.swift in Sources */,
+				DB7D8D3B2B66401700A62B34 /* CountryName.swift in Sources */,
 				DB2C02882B1EF9AA0074D9FA /* MapDetailView.swift in Sources */,
 				DB8B5F9628F2BEF5002C3AE3 /* Visibility.swift in Sources */,
 				DB17F69E295DEC6A00FC2A0B /* DayDetailWeatherDataTemperature.swift in Sources */,

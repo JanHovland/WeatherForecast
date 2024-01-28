@@ -763,6 +763,7 @@ struct Countries: View {
                         VStack (alignment: .leading) {
                             Text(item.name)
                                 .foregroundStyle(.green)
+                                .modifier(CountryName(name: item.name, length: 35))
                             Text(item.code)
                             Text(item.flag)
                             if item.capital == "Unknown" {
@@ -779,7 +780,7 @@ struct Countries: View {
                     .padding(2)
                 }
             }
-            .listStyle(.plain)
+            .listStyle(.inset)
             .scrollIndicators(.hidden)
         }
         .padding(.top, -20)
