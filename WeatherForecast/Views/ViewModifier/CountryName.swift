@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CountryName : ViewModifier {
+struct CountryName : ViewModifier { 
     var name : String
     var length: Int
     
