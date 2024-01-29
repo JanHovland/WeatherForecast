@@ -38,7 +38,7 @@ struct Precipitation24h : View {
                 .padding(.leading, -20)
             Text("Last 24 h")
                 .padding(.top, -30)
-                .padding(.leading, -75)
+                .padding(.leading, -45)  
             
             /// Viser regn det neste døgn:
             ///

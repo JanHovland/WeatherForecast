@@ -67,6 +67,8 @@
 		DB43C45928F880B3007D44EC /* Sun.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB43C45828F880B3007D44EC /* Sun.swift */; };
 		DB43C45B28F8833F007D44EC /* AirPressure.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB43C45A28F8833F007D44EC /* AirPressure.swift */; };
 		DB43C45D28F979A3007D44EC /* FormatDateToString.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB43C45C28F979A3007D44EC /* FormatDateToString.swift */; };
+		DB44473E2B6832D000C6CEF7 /* GetFlag.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB44473D2B6832D000C6CEF7 /* GetFlag.swift */; };
+		DB4447402B68332900C6CEF7 /* CountriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB44473F2B68332900C6CEF7 /* CountriesView.swift */; };
 		DB4A0C3F29AE85D00055AAD7 /* DaysBetween.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4A0C3E29AE85D00055AAD7 /* DaysBetween.swift */; };
 		DB4A1F372A9F775300E4D1EB /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4A1F362A9F775300E4D1EB /* SettingView.swift */; };
 		DB4A8DAC294857370067C4F8 /* InfoVisibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4A8DAB294857370067C4F8 /* InfoVisibility.swift */; };
@@ -263,6 +265,8 @@
 		DB43C45828F880B3007D44EC /* Sun.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sun.swift; sourceTree = "<group>"; };
 		DB43C45A28F8833F007D44EC /* AirPressure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirPressure.swift; sourceTree = "<group>"; };
 		DB43C45C28F979A3007D44EC /* FormatDateToString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatDateToString.swift; sourceTree = "<group>"; };
+		DB44473D2B6832D000C6CEF7 /* GetFlag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetFlag.swift; sourceTree = "<group>"; };
+		DB44473F2B68332900C6CEF7 /* CountriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesView.swift; sourceTree = "<group>"; };
 		DB4A0C3E29AE85D00055AAD7 /* DaysBetween.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaysBetween.swift; sourceTree = "<group>"; };
 		DB4A1F362A9F775300E4D1EB /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		DB4A8DAB294857370067C4F8 /* InfoVisibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoVisibility.swift; sourceTree = "<group>"; };
@@ -445,6 +449,7 @@
 				DB679FDE2B25BAF8008C7330 /* AppsFor */,
 				DB2E44EF2B0FA64700DC77AD /* Chart */,
 				DB679FD52B25AFE5008C7330 /* Collapsible */,
+				DB44473F2B68332900C6CEF7 /* CountriesView.swift */,
 				DB8A7EF62903C730002DFD73 /* DayDetail */,
 				DB679FDF2B25BB71008C7330 /* FeelsLike */,
 				DB235A5B29825FA500FE586B /* FindCurrent */,
@@ -496,6 +501,7 @@
 				DB2C677428E72F43002EC5C1 /* FormatPlace.swift */,
 				DBF2ABD629D4A4F0008ECB6C /* GetBaseDate.swift */,
 				DBAC1A19297FF4FC00D50DE6 /* GetCurrentLocation.swift */,
+				DB44473D2B6832D000C6CEF7 /* GetFlag.swift */,
 				DB85F9EA294751AF00D14013 /* IndexPointMarkFromHour.swift */,
 				DBD497A12A4EAE9C0075B350 /* LocationsHandler.swift */,
 				DB5C0C312915263600141BDC /* MenuTitleToOption.swift */,
@@ -543,6 +549,7 @@
 			children = (
 				DBDD98612AFE4284002FC9E5 /* AirQualityInformationViewModifier.swift */,
 				DB4EFDF42AF3BFD40021AABB /* AirQualityViewModifier.swift */,
+				DB7D8D3A2B66401700A62B34 /* CountryName.swift */,
 				DB25652F296C14140007EBF9 /* DayDetailBackground.swift */,
 				DB3DBBB52B0D38CE00FAEE12 /* DayDetailOffsetInfoViewModifier.swift */,
 				DB2727F52965DA41003B0903 /* DayDetailChartOffsetViewModifier.swift */,
@@ -556,7 +563,6 @@
 				DBD295A12B1509D800275D5E /* SunDayAndNightViewModifier.swift */,
 				DB75926C2ADAD6C300B772A9 /* ValueAtPositionChart.swift */,
 				DB6DE821297C5AF4005BCCF9 /* WeatherForecastViewModifier.swift */,
-				DB7D8D3A2B66401700A62B34 /* CountryName.swift */,
 			);
 			path = ViewModifier;
 			sourceTree = "<group>";
@@ -1052,6 +1058,7 @@
 				DB43C45928F880B3007D44EC /* Sun.swift in Sources */,
 				DB69689D290E973500936C0E /* CurrentWeather.swift in Sources */,
 				DB417E7D2AE18BAD00E77C4F /* FindChartDataFeelTemperature.swift in Sources */,
+				DB44473E2B6832D000C6CEF7 /* GetFlag.swift in Sources */,
 				DBA2AA5529237EC700581301 /* DayDetailShowUnit.swift in Sources */,
 				DBCD43752AEE38C2007543BE /* FindAirQuality.swift in Sources */,
 				DBE5FA032AF1801400ADD3AE /* AirQualityInformationView.swift in Sources */,
@@ -1163,6 +1170,7 @@
 				DB5C0C562917CE3100141BDC /* UvIndexGraphicDisplay.swift in Sources */,
 				DB75926D2ADAD6C300B772A9 /* ValueAtPositionChart.swift in Sources */,
 				DB4A1F372A9F775300E4D1EB /* SettingView.swift in Sources */,
+				DB4447402B68332900C6CEF7 /* CountriesView.swift in Sources */,
 				DB43C45B28F8833F007D44EC /* AirPressure.swift in Sources */,
 				DB8293662B1B40D50055BE65 /* Beaufort.swift in Sources */,
 				DB2727F62965DA41003B0903 /* DayDetailChartOffsetViewModifier.swift in Sources */,

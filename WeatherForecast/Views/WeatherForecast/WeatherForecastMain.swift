@@ -108,7 +108,7 @@ struct WeatherForecastMain: View {
                     NavigationLink(destination: RefreshOffsetView()) {
                         Label("Refresh offset", systemImage: "hourglass.circle")
                     }
-                    NavigationLink(destination: Countries()) {
+                    NavigationLink(destination: CountriesView()) {
                         Label("Countries overview", systemImage: "flag")
                     }
                     ///
