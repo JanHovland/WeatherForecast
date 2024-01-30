@@ -1638,181 +1638,65 @@
 "French Guiana" = "Fransk Guyana";
 "French Polynesia" = "Fransk Polynesia";
 "French Southern and Antarctic Lands" = "Franske sørlige og antarktiske land";
-
-/*
- 
- 
-
-Gabon
-Gambia
-Georgia
-Germany
-Ghana
-Gibraltar
-Greece
-Greenland
-Grenada
-Guadeloupe
-Guam
-Guatemala
-Guernsey
-Guinea
-Guinea-Bissau
-Guyana
-Haiti
-Heard Island and McDonald Islands
-Honduras
-Hong Kong
-Hungary
-Iceland
-India
-Indonesia
-Iran
-Iraq
-Ireland
-Isle of Man
-Israel
-Italy
-Ivory Coast
-Jamaica
-Japan
-Jersey
-Jordan
-Kazakhstan
-Kenya
-Kiribati
-Kosovo
-Kuwait
-Kyrgyzstan
-Laos
-Latvia
-Lebanon
-Lesotho
-Liberia
-Libya
-Liechtenstein
-Lithuania
-Luxembourg
-Macau
-Madagascar
-Malawi
-Malaysia
-Maldives
-Mali
-Malta
-Marshall Islands
-Martinique
-Mauritania
-Mauritius
-Mayotte
-Mexico
-Micronesia
-Moldova
-Monaco
-Mongolia
-Montenegro
-Montserrat
-Morocco
-Mozambique
-Myanmar
-Namibia
-Nauru
-Nepal
-Netherlands
-New Caledonia
-New Zealand
-Nicaragua
-Niger
-Nigeria
-Niue
-Norfolk Island
-North Korea
-North Macedonia
-Northern Mariana Islands
-Norway
-Oman
-Pakistan
-Palau
-Palestine
-Panama
-Papua New Guinea
-Paraguay
-Peru
-Philippines
-Pitcairn Islands
-Poland
-Portugal
-Puerto Rico
-Qatar
-Republic of the Congo
-Romania
-Russia
-Rwanda
-Réunion
-Saint Barthélemy
-Saint Helena, Ascension and Tristan da Cunha
-Saint Kitts and Nevis
-Saint Lucia
-Saint Martin
-Saint Pierre and Miquelon
-Saint Vincent and the Grenadines
-Samoa
-San Marino
-Saudi Arabia
-Senegal
-Serbia
-Seychelles
-Sierra Leone
-Singapore
-Sint Maarten
-Slovakia
-Slovenia
-Solomon Islands
-Somalia
-South Africa
-South Georgia
-South Korea
-South Sudan
-Spain
-Sri Lanka
-Sudan
-Suriname
-Svalbard and Jan Mayen
-Sweden
-Switzerland
-Syria
-São Tomé and Príncipe
-Taiwan
-Tajikistan
-Tanzania
-Thailand
-Timor-Leste
-Togo
-Tokelau
-Tonga
-Trinidad and Tobago
-Tunisia
-Turkey
-Turkmenistan
-Turks and Caicos Islands
-Tuvalu
-Uganda
-Ukraine
-United Arab Emirates
-United Kingdom
-United States
-United States Minor Outlying Islands
-United States Virgin Islands
-Uruguay
-Uzbekistan
-Vanuatu
-Vatican City
-Venezuela
-Vietnam
-Wallis and Futuna
-Western Sahara
-Yemen
-Zambia
-Zimbabwe
-Åland Islands
-*/
+"Germany" = "Tyskland";
+"Greece" = "Hellas";
+"Greenland" = "Grønland";
+"Hungary" = "Ungarn";
+"Iceland" = "Island";
+"Iraq" = "Irak";
+"Ireland" = "Irland";
+"Italy" = "Italia";
+"Ivory Coast" = "Elfenbenskysten";
+"Kazakhstan" = "Kasakhstan";
+"Kyrgyzstan" = "Kirgisistan";
+"Lebanon" = "Libanon";
+"Lithuania" = "Litauen";
+"Madagascar" = "Madagaskar";
+"Maldives" = "Maldivene";
+"Marshall Islands" = "Marshalløyene";
+"Micronesia" = "Mikronesia";
+"Morocco" = "Marokko";
+"Mozambique" = "Mosambik";
+"Netherlands" = "Nederland";
+"New Caledonia" = "Ny Caledonia";
+"Norfolk Island" = "Norfolkøya";
+"North Korea" = "Nord-Korea";
+"North Macedonia" = "Nord-Makedonia";
+"Northern Mariana Islands" = "Nord-Marianene";
+"Palestine" = "Palestina";
+"Papua New Guinea" = "Papua Ny-Guinea";
+"Philippines" = "Filippinene";
+"Pitcairn Islands" = "Pitcairnøyene";
+"Poland" = "Polen";
+"Republic of the Congo" = "Republikken Kongo";
+"Russia" = "Russland";
+"Saint Barthélemy" = "Saint Barthelemy";
+"Saint Helena, Ascension and Tristan da" = "SSaint Helena, Ascension og Tristan da";
+"Saint Kitts and Nevis" = "Saint Kitts og Nevis";
+"Saudi Arabia" = "Saudi-Arabia";
+"Seychelles" = "Seychellene";
+"Solomon Islands" = "Solomon øyene";
+"South Africa" = "Sør-Afrika";
+"South Georgia" = "Sør-Georgia";
+"South Korea" = "Sør-Korea";
+"South Sudan" = "Sør-Sudan";
+"Suriname" = "Surinam";
+"Svalbard and Jan Mayen" = "Svalbard og Jan Mayen";
+"Sweden" = "Sverige";
+"Switzerland" = "Sveits";
+"São Tomé and Príncipe" = "São Tomé og Príncipe";
+"Tajikistan" = "Tadsjikistan";
+"Timor-Leste" = "Øst-Timor";
+"Trinidad and Tobago" = "Trinidad og Tobago";
+"Turkey" = "Tyrkia";
+"Turks and Caicos Islands" = "Turks- og Caicosøyene";
+"Ukraine" = "Ukraina";
+"United Arab Emirates" = "De forente arabiske emirater";
+"United States Minor Outlying Islands" = "USAs mindre ytre øyer";
+"United States Virgin Islands" = "De amerikanske jomfruøyene";
+"Uzbekistan" = "Usbekistan";
+"Vatican City" = "Vatikanet";
+"Wallis and Futuna" = "Wallis og Futuna";
+"Western Sahara" = "Vestre Sahara";
+"Yemen" = "Jemen";
+"Åland Islands" = "Åland";
