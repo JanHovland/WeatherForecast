@@ -439,12 +439,12 @@ var toDo_2 =
           🟢 Legg inn Meny (lagres direkte i dag):
              🟢 Legg inn "Lagre"
              🟢 Legg inn "Avbryt"
-   92. 🔴 Lage oversikt over alle landene:
+   92. 🟢 Lage oversikt over alle landene:
           🟢 API som returnerer JSON :  "https://restcountries.com/v3.1/all?fields=name,cca2,flag"
           🟢 Lage denne listen
-          🔴 Oppdatere Localizable.strings
-          🔴 Oppdatere TranslateCountry(country: String) -> String
-   93. 🔴 Sjekk månen rundt 100% (månen vises ikke)
+          🟢 Oppdatere Localizable.strings
+          🟢 Oppdatere TranslateCountry(country: String) -> String
+   93. 🟣 Sjekk månen rundt 100% (månen vises ikke)
    94. 🔴 Erstatte Geosatellite fra met.no
    95. 🔴 Kan alt fra CurrentWeather legges inn i WeatherInfo?
           🔴
