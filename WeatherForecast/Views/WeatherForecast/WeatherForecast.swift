@@ -107,7 +107,7 @@ struct WeatherForecast: View {
                                     Text(weatherInfo.countryName.count > 0 ? weatherInfo.countryName : noCountryName)
                                 }
                                 ZStack {
-                                    Image(systemName: "line.3.horizontal.circle")
+                                    Image(systemName: "line.3.horizontal")
                                         .symbolRenderingMode(.multicolor)
                                         .font(.system(size: 30, weight: .light))
                                         .offset(x: UIDevice.isiPhone ? 170 : 0,
