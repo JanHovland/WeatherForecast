@@ -84,4 +84,3 @@ struct CountriesView: View {
         
     }
 }
-

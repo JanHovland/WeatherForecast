@@ -46,12 +46,18 @@ func TranslateCountry(country: String) -> String {
     case "Denmark":                         nation = String(localized: "Denmark")
     case "Deutschland":                     nation = String(localized: "Deutschland")
     case "Dominican Republic":              nation = String(localized: "Dominican Republic")
-//    case "":                                nation = String(localized: "")
-//    case "":                                nation = String(localized: "")
-
-
+    case "Equatorial Guinea":               nation = String(localized: "Equatorial Guinea")
+    case "Estonia":                               nation = String(localized: "Estonia")
+    case "Ethiopia":                              nation = String(localized: "Ethiopia")
+    case "Falkland Islands":                      nation = String(localized: "Falkland Islands")
+    case "Faroe Islands":                         nation = String(localized: "Faroe Islands")
+    case "France":                                nation = String(localized: "France")
+    case "French Guiana":                         nation = String(localized: "French Guiana")
+    case "French Polynesia":                      nation = String(localized: "French Polynesia")
+    case "French Southern and Antarctic Lands":   nation = String(localized: "French Southern and Antarctic Lands")
         
-    case "France":                          nation = String(localized: "France")
+        
+//    case "": nation = String(localized: "")
         
     case "Norway":                          nation = String(localized: "Norway")
         

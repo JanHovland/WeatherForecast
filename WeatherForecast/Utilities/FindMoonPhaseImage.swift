@@ -72,8 +72,8 @@ func FindMoonPhaseImage(moonPhase: String,
                   moonIllumination <= 97 {
             image = "Voksende måne 5"
             daysToFullMoon = 2
-        } else if moonIllumination >= 98,
-                  moonIllumination <= 100 {
+        } else if moonIllumination > 98,
+                  moonIllumination <= 99 {
             image = "Voksende måne 6"
             daysToFullMoon = 1
         }
@@ -83,7 +83,7 @@ func FindMoonPhaseImage(moonPhase: String,
             daysToFullMoon = 30
         }
     } else if moonPhase == String(localized: "Waning Gibbous") {
-        if moonIllumination < 100 ,
+        if moonIllumination <= 99,
            moonIllumination >= 97 {
             image = "Minkende måne 1"
             daysToFullMoon = 29
