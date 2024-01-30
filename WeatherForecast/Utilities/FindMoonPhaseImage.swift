@@ -78,7 +78,8 @@ func FindMoonPhaseImage(moonPhase: String,
             daysToFullMoon = 1
         }
     } else if moonPhase == String(localized: "Full Moon") {
-        if moonIllumination == 100 {
+        if moonIllumination >= 99,
+           moonIllumination <= 100 {
             image = "Full måne"
             daysToFullMoon = 30
         }
