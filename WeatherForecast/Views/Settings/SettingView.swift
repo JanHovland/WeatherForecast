@@ -26,12 +26,6 @@ struct SettingView: View {
 
     var body: some View {
         VStack {
-            HStack {
-                Text("Setting")
-                    .font(.title)
-                Spacer()
-            }
-            .padding(.horizontal, 30)
             Form {
                 Section(header: Text("Key for OpenCage")) {
                     TextField("Key for OpenCage", text: $keyOpenCage)
@@ -70,6 +64,7 @@ struct SettingView: View {
             }
             .keyboardType(.asciiCapable)
         }
+        .navigationTitle("Setting")
     }
 }
 

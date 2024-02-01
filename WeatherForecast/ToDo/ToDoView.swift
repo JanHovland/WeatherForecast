@@ -458,12 +458,6 @@ struct ToDoView: View {
     var body: some View {
         ScrollView (showsIndicators: false) {
             VStack (alignment: .leading, spacing: 10) {
-                HStack {
-                    Spacer()
-                    Text(String(localized: "toDo"))
-                        .font(.title)
-                    Spacer()
-                }
                 Text(toDo_1)
                     .foregroundColor(.red)
                 Text(toDo_2)
@@ -471,6 +465,7 @@ struct ToDoView: View {
                 Spacer()
             }
             .padding(.leading, 10)
+            .navigationTitle("toDo")
         }
     }
 }

@@ -101,86 +101,6 @@ struct WeatherForecast: View {
                 if let weather {
                     ScrollView (.vertical, showsIndicators: false) {
                         VStack {
-                            VStack {
-                                Text(weatherInfo.placeName.count > 0 ? weatherInfo.placeName : noPlaceName)
-                                    .font(.system(size: 40, weight: .light))
-                                Text(weatherInfo.countryName.count > 0 ? weatherInfo.countryName : noCountryName)
-                            }
-                            ZStack {
-                                Image(systemName: "line.3.horizontal")
-                                    .symbolRenderingMode(.multicolor)
-                                    .font(.system(size: 30, weight: .light))
-                                    .offset(x: UIDevice.isiPhone ? 170 : 0,
-                                            y:  UIDevice.isiPhone ? -55 :0)
-                                    .contextMenu {
-                                        ///
-                                        /// Lagre det lokale stedet
-                                        ///
-                                        if weatherInfo.localPlaceName.count > 0 {
-                                            ///
-                                            /// Lagre dette stedet:
-                                            ///
-                                            Button (action: {
-                                                Task.init {
-                                                    title = "Save"
-                                                    showAlertFile.toggle()
-                                                }
-                                            }, label: {
-                                                HStack {
-                                                    Text("Save this place")
-                                                    Image(systemName: "square.and.arrow.up")
-                                                        .symbolRenderingMode(.multicolor)
-                                                }
-                                            })
-                                            ///
-                                            /// Avbryt
-                                            ///
-                                            Button (action: {
-                                                Task.init {
-                                                    title = "Cancel"
-                                                }
-                                            }, label: {
-                                                HStack {
-                                                    Text("Cancel")
-                                                    Image(systemName: "x.circle")
-                                                        .symbolRenderingMode(.multicolor)
-                                                }
-                                            })
-                                        } else {
-                                            ///
-                                            /// Slette dette stedet
-                                            ///
-                                            Button (action: {
-                                                Task.init {
-                                                    title = "Delete"
-                                                    showAlertFile.toggle()
-                                                }
-                                            }, label: {
-                                                HStack {
-                                                    Text("Delete this place")
-                                                    Image(systemName: "delete.right")
-                                                        .symbolRenderingMode(.multicolor)
-                                                }
-                                            })
-                                            ///
-                                            /// Avbryt
-                                            ///
-                                            Button (action: {
-                                                Task.init {
-                                                    title = "Cancel"
-                                                }
-                                            }, label: {
-                                                HStack {
-                                                    Text("Cancel")
-                                                    Image(systemName: "x.circle")
-                                                        .symbolRenderingMode(.multicolor)
-                                                }
-                                            })
-                                        }
-                                    }
-                            }
-                            .offset(x:  UIDevice.isIpad ? 350 : 0,
-                                    y:  UIDevice.isIpad ? -54.0 : 0)
                             WeatherForecastDetail(weather: weather, geoRecord: geoRecord)
                             HourOverview(weather: weather,
                                          sunRises: $sunRises,
@@ -197,6 +117,30 @@ struct WeatherForecast: View {
                             }
                         }
                         .listStyle(.insetGrouped)
+                        .navigationTitle("\(weatherInfo.placeName) \(weatherInfo.countryName)")
+                        .toolbar {
+                            Button {
+                                if weatherInfo.localPlaceName.count > 0 {
+                                    ///
+                                    /// Lagre det lokale stedet:
+                                    ///
+                                    Task.init {
+                                        title = "Save"
+                                        showAlertFile.toggle()
+                                    }
+                                } else {
+                                    ///
+                                    /// Slette et valgt sted
+                                    ///
+                                    Task.init {
+                                        title = "Delete"
+                                        showAlertFile.toggle()
+                                    }
+                                }
+                            } label: {
+                                Image(systemName: "line.3.horizontal")
+                            }
+                        }
                     }
                     Spacer()
                 }
