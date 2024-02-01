@@ -92,7 +92,6 @@ struct HourOverview: View {
                                         .foregroundColor(.mint)
                                         .font(.caption)
                                         .padding(.top, -10)
-                                    
                                 }
                                 ///
                                 /// Viser temperaturen:
@@ -109,18 +108,15 @@ struct HourOverview: View {
                         }
                     }
                 }
+                .padding()
             }
         }
         .task {
             ///
-            /// Oppdaterer bredden avhengig av on iPhone eller iPad:
+            /// Finner bredden uavhengig av iPhone eller iPad:
             ///
-            if UIDevice.isIpad {
-                width = 790
-            } else {
-                width = 390
-            }
-            ///
+            width = UIScreen.main.bounds.width
+             ///
             ///  Legger inn en factor på en time tidligere:
             ///
             let factor = -1
