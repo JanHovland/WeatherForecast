@@ -39,7 +39,10 @@ struct WeatherForecastMain: View {
 
     var body: some View {
         ActivityIndicator(opacity: $opacityIndicator)
-        NavigationView {
+        ///
+        /// Ved å benytte NavigationStack ser applikasjonen lik ut både IPhone og iPad
+        ///
+        NavigationStack {
             List {
                 NavigationLink(destination: WeatherForecastSearchPlace()) {
                     Label {
@@ -125,7 +128,6 @@ struct WeatherForecastMain: View {
             }
             .listStyle(InsetGroupedListStyle())
             .navigationBarTitle("Menu", displayMode: .inline)
-            
             ///
             ///  Viser meldingene:
             ///

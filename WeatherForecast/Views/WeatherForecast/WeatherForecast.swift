@@ -70,7 +70,7 @@ struct WeatherForecast: View {
     @State private var showAlert: Bool = false
     @State private var showAlertFile: Bool = false
     @State private var showAlertCloudKit: Bool = false
-
+    
     @State private var array: [Double] = Array(repeating: Double(), count: sizeArray24)
     
     @State private var persist: Bool = true
@@ -85,7 +85,7 @@ struct WeatherForecast: View {
     
     let addedDeleteMessage: LocalizedStringKey = "It can take some time until the place is deleted on CloudKit.\nSelect \"Refresh my places\""
     let addedSaveMessage: LocalizedStringKey = "It can take some time until the place is saved on CloudKit.\nSelect \"Refresh my places\""
-
+    
     var body: some View {
         VStack {
             
@@ -99,105 +99,104 @@ struct WeatherForecast: View {
             ///
             if weatherInfo.offsetString != ""  {
                 if let weather {
-                        ScrollView (.vertical, showsIndicators: false) {
+                    ScrollView (.vertical, showsIndicators: false) {
+                        VStack {
                             VStack {
-                                VStack {
-                                    Text(weatherInfo.placeName.count > 0 ? weatherInfo.placeName : noPlaceName)
-                                        .font(.system(size: 40, weight: .light))
-                                    Text(weatherInfo.countryName.count > 0 ? weatherInfo.countryName : noCountryName)
-                                }
-                                ZStack {
-                                    Image(systemName: "line.3.horizontal")
-                                        .symbolRenderingMode(.multicolor)
-                                        .font(.system(size: 30, weight: .light))
-                                        .offset(x: UIDevice.isiPhone ? 170 : 0,
-                                                y:  UIDevice.isiPhone ? -55 :0)
-                                        .contextMenu {
-                                            ///
-                                            /// Lagre det lokale stedet
-                                            ///
-                                            if weatherInfo.localPlaceName.count > 0 {
-                                                ///
-                                                /// Lagre dette stedet:
-                                                ///
-                                                Button (action: {
-                                                    Task.init {
-                                                        title = "Save"
-                                                        showAlertFile.toggle()
-                                                    }
-                                                }, label: {
-                                                    HStack {
-                                                        Text("Save this place")
-                                                        Image(systemName: "square.and.arrow.up")
-                                                            .symbolRenderingMode(.multicolor)
-                                                    }
-                                                })
-                                                ///
-                                                /// Avbryt
-                                                ///
-                                                Button (action: {
-                                                    Task.init {
-                                                        title = "Cancel"
-                                                    }
-                                                }, label: {
-                                                    HStack {
-                                                        Text("Cancel")
-                                                        Image(systemName: "x.circle")
-                                                            .symbolRenderingMode(.multicolor)
-                                                    }
-                                                })
-                                            } else {
-                                                ///
-                                                /// Slette dette stedet
-                                                ///
-                                                Button (action: {
-                                                    Task.init {
-                                                        title = "Delete"
-                                                        showAlertFile.toggle()
-                                                    }
-                                                }, label: {
-                                                    HStack {
-                                                        Text("Delete this place")
-                                                        Image(systemName: "delete.right")
-                                                            .symbolRenderingMode(.multicolor)
-                                                    }
-                                                })
-                                                ///
-                                                /// Avbryt
-                                                ///
-                                                Button (action: {
-                                                    Task.init {
-                                                        title = "Cancel"
-                                                    }
-                                                }, label: {
-                                                    HStack {
-                                                        Text("Cancel")
-                                                        Image(systemName: "x.circle")
-                                                            .symbolRenderingMode(.multicolor)
-                                                    }
-                                                })
-                                            }
-                                        }
-                                }
-                                .offset(x:  UIDevice.isIpad ? 350 : 0,
-                                        y:  UIDevice.isIpad ? -54.0 : 0)
-                                WeatherForecastDetail(weather: weather, geoRecord: geoRecord)
-                                HourOverview(weather: weather,
-                                             sunRises: $sunRises,
-                                             sunSets: $sunSets)
-                                if UIDevice.isIpad {
-                                    AppsForIPad(weather: weather,
-                                                sunRises: $sunRises,
-                                                sunSets: $sunSets)
-                                }
-                                if UIDevice.isiPhone {
-                                    AppsForIPhone(weather: weather,
-                                                  sunRises: $sunRises,
-                                                   sunSets: $sunSets)
-                                }
+                                Text(weatherInfo.placeName.count > 0 ? weatherInfo.placeName : noPlaceName)
+                                    .font(.system(size: 40, weight: .light))
+                                Text(weatherInfo.countryName.count > 0 ? weatherInfo.countryName : noCountryName)
                             }
-                            .listStyle(.insetGrouped)
-                            .navigationBarHidden(true)
+                            ZStack {
+                                Image(systemName: "line.3.horizontal")
+                                    .symbolRenderingMode(.multicolor)
+                                    .font(.system(size: 30, weight: .light))
+                                    .offset(x: UIDevice.isiPhone ? 170 : 0,
+                                            y:  UIDevice.isiPhone ? -55 :0)
+                                    .contextMenu {
+                                        ///
+                                        /// Lagre det lokale stedet
+                                        ///
+                                        if weatherInfo.localPlaceName.count > 0 {
+                                            ///
+                                            /// Lagre dette stedet:
+                                            ///
+                                            Button (action: {
+                                                Task.init {
+                                                    title = "Save"
+                                                    showAlertFile.toggle()
+                                                }
+                                            }, label: {
+                                                HStack {
+                                                    Text("Save this place")
+                                                    Image(systemName: "square.and.arrow.up")
+                                                        .symbolRenderingMode(.multicolor)
+                                                }
+                                            })
+                                            ///
+                                            /// Avbryt
+                                            ///
+                                            Button (action: {
+                                                Task.init {
+                                                    title = "Cancel"
+                                                }
+                                            }, label: {
+                                                HStack {
+                                                    Text("Cancel")
+                                                    Image(systemName: "x.circle")
+                                                        .symbolRenderingMode(.multicolor)
+                                                }
+                                            })
+                                        } else {
+                                            ///
+                                            /// Slette dette stedet
+                                            ///
+                                            Button (action: {
+                                                Task.init {
+                                                    title = "Delete"
+                                                    showAlertFile.toggle()
+                                                }
+                                            }, label: {
+                                                HStack {
+                                                    Text("Delete this place")
+                                                    Image(systemName: "delete.right")
+                                                        .symbolRenderingMode(.multicolor)
+                                                }
+                                            })
+                                            ///
+                                            /// Avbryt
+                                            ///
+                                            Button (action: {
+                                                Task.init {
+                                                    title = "Cancel"
+                                                }
+                                            }, label: {
+                                                HStack {
+                                                    Text("Cancel")
+                                                    Image(systemName: "x.circle")
+                                                        .symbolRenderingMode(.multicolor)
+                                                }
+                                            })
+                                        }
+                                    }
+                            }
+                            .offset(x:  UIDevice.isIpad ? 350 : 0,
+                                    y:  UIDevice.isIpad ? -54.0 : 0)
+                            WeatherForecastDetail(weather: weather, geoRecord: geoRecord)
+                            HourOverview(weather: weather,
+                                         sunRises: $sunRises,
+                                         sunSets: $sunSets)
+                            if UIDevice.isIpad {
+                                AppsForIPad(weather: weather,
+                                            sunRises: $sunRises,
+                                            sunSets: $sunSets)
+                            }
+                            if UIDevice.isiPhone {
+                                AppsForIPhone(weather: weather,
+                                              sunRises: $sunRises,
+                                              sunSets: $sunSets)
+                            }
+                        }
+                        .listStyle(.insetGrouped)
                     }
                     Spacer()
                 }
@@ -293,49 +292,49 @@ struct WeatherForecast: View {
         message: {
             Text(message)
         }
-    .navigationBarTitleDisplayMode(.inline)
-        ///
-        /// SwiftUI gives us equivalents to UIKit’s viewDidAppear() and viewDidDisappear() in the form of onAppear() and onDisappear().
-        ///
-    .onAppear {
-        Task.init {
+        .navigationBarTitleDisplayMode(.inline)
             ///
-            /// Sjekker innstillingene:
+            /// SwiftUI gives us equivalents to UIKit’s viewDidAppear() and viewDidDisappear() in the form of onAppear() and onDisappear().
             ///
-            let key1 = UserDefaults.standard.object(forKey: "KeyOpenCage") as? String ?? ""
-            let urlOpenCage1 = UserDefaults.standard.object(forKey: "UrlOpenCage") as? String ?? ""
-            let urlMetNo1 = UserDefaults.standard.object(forKey: "UrlMetNo") as? String ?? ""
-            let urlOpenWeather1 = UserDefaults.standard.object(forKey: "UrlOpenWeather") as? String ?? ""
-            
-            if key1 == "" || urlOpenCage1 == "" || urlMetNo1 == "" || urlOpenWeather1 == "" {
+        .onAppear {
+            Task.init {
                 ///
-                /// Åpner SettingView()
+                /// Sjekker innstillingene:
                 ///
-                settingsMissing = true
-                opacityIndicator = 0.00
-            } else {
-                ///
-                /// Sjekker om internet er tilkoplet:
-                ///
-                var value : (Bool, LocalizedStringKey)
-                value = ConnectToInternet()
-                if value.0 == false {
-                    title = value.1
-                    message = "No Internet connection for this device."
-                    showAlert.toggle()
+                let key1 = UserDefaults.standard.object(forKey: "KeyOpenCage") as? String ?? ""
+                let urlOpenCage1 = UserDefaults.standard.object(forKey: "UrlOpenCage") as? String ?? ""
+                let urlMetNo1 = UserDefaults.standard.object(forKey: "UrlMetNo") as? String ?? ""
+                let urlOpenWeather1 = UserDefaults.standard.object(forKey: "UrlOpenWeather") as? String ?? ""
+                
+                if key1 == "" || urlOpenCage1 == "" || urlMetNo1 == "" || urlOpenWeather1 == "" {
                     ///
-                    /// Lagger inn en forsinkelse på 10 sekunder:
+                    /// Åpner SettingView()
                     ///
-                    sleep(10)
+                    settingsMissing = true
+                    opacityIndicator = 0.00
+                } else {
+                    ///
+                    /// Sjekker om internet er tilkoplet:
+                    ///
+                    var value : (Bool, LocalizedStringKey)
+                    value = ConnectToInternet()
+                    if value.0 == false {
+                        title = value.1
+                        message = "No Internet connection for this device."
+                        showAlert.toggle()
+                        ///
+                        /// Lagger inn en forsinkelse på 10 sekunder:
+                        ///
+                        sleep(10)
+                    }
+                    ///
+                    /// Kaller opp refresh()
+                    ///  Dette virker kun på iPhone !!!!!
+                    ///
+                    await Refresh()
                 }
-                ///
-                /// Kaller opp refresh()
-                ///  Dette virker kun på iPhone !!!!!
-                ///
-                await Refresh()
             }
         }
-    }
     }
     ///
     /// Rutine for oppfriskning:
