@@ -15,7 +15,6 @@ struct HourOverview: View {
 
     @State private var fromDate: Date = Date()
     @State private var toDate: Date = Date()
-    @State private var width: Double = 0.00
     @State private var indexSunRise: Int = 0
     @State private var indexSunSet: Int = 0
     
@@ -24,19 +23,14 @@ struct HourOverview: View {
     var body: some View {
         
         VStack (alignment: .leading) {
-            VStack (alignment: .leading) {
-                if UIDevice.isIpad {
-                    Text("HOURLY FORECAST from one hour backwards and two days forward")
-                        .font(.body)
-                } else {
-                    Text("HOURLY FORECAST from one hour backwards and two days forward")
-                        .font(.footnote)
-                }
+            HStack () {
+                Spacer()
+                Text("HOURLY FORECAST from one hour backwards and two days forward")
+                    .font(UIDevice.isIpad ? .body : .footnote)
+                Spacer()
             }
             .opacity(0.50)
-            .padding(.leading,6)
             .padding(.top,10)
-            .padding(.bottom, -5)
             ScrollView (.horizontal, showsIndicators: false) {
                 HStack {
                     ForEach(weather.hourlyForecast, id: \.date) { hourItem in
@@ -104,19 +98,22 @@ struct HourOverview: View {
                                 SunRiseOrSet(option: .sunrise, date: hourItem.date, sunTime: sunRises)
                                 SunRiseOrSet(option: .sunset, date: hourItem.date, sunTime: sunSets)
                             }
+                            ///
+                            /// padding mellom elementene i HStack
+                            ///
                             .padding(7)
                         }
                     }
                 }
+                ///
+                /// padding på bunnen
+                ///
                 .padding()
             }
         }
+        .modifier(DayDetailBackground(dayLight: weather.currentWeather.isDaylight))
         .task {
             ///
-            /// Finner bredden uavhengig av iPhone eller iPad:
-            ///
-            width = UIScreen.main.bounds.width
-             ///
             ///  Legger inn en factor på en time tidligere:
             ///
             let factor = -1
@@ -126,9 +123,6 @@ struct HourOverview: View {
             ///
             toDate = Calendar.current.date(byAdding: .day, value: 2, to: fromDate)!
         }
-        .frame(width: CGFloat(width))
-        .modifier(DayDetailBackground(dayLight: weather.currentWeather.isDaylight))
     }
-     
 }
 
