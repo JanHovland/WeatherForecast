@@ -75,23 +75,13 @@ struct MapDetailView: View {
                     MapFetchInformation(latitude: pinLocation.latitude, longitude: pinLocation.longitude)
                 })
             }
-            .frame(width: UIDevice.isIpad ? 765 : 370, height: UIDevice.isIpad ? 280 : 230)
             .mapStyle(.standard(elevation: .realistic))
             .mapControls {
                 MapCompass()
                 MapScaleView()
                 MapPitchToggle()
             }
-            ///
-            /// Modifier for VStack
-            ///
-            .frame(width: UIDevice.isIpad ? 785 : 390, height: UIDevice.isIpad ? 300 : 250)
-            .background(
-                RoundedRectangle(cornerRadius: 15,
-                                 style: .continuous)
-                .fill(Color("Background#01").opacity(currentWeather.isDaylight == true ? 0.85 : 0.35))
-                .saturation(1)
-            )
+            .frame(height: UIDevice.isIpad ? 300 : 250)
             .task {
                 ///
                 /// Oppdaterer location
