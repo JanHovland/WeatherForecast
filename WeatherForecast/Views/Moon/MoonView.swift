@@ -43,8 +43,8 @@ struct MoonView: View {
             ///
             /// Viser selve månen:
             ///
-            let (image, daysToFullMoon) = FindMoonPhaseImage(moonPhase: currentWeather.moonPhase,
-                                                             moonIllumination: currentWeather.moonIllumination)
+            let (image, daysToFullMoon, distance) = FindMoonPhaseImage(moonPhase: currentWeather.moonPhase,
+                                                                       moonIllumination: currentWeather.moonIllumination)
 
             Image(image)
                 .resizable()
@@ -107,10 +107,24 @@ struct MoonView: View {
                         .font(Font.system(.callout, design: .monospaced))
                 }
             }
+            ///
+            /// Distanse til månen
+            ///
+            HStack {
+                HStack {
+                   Text("Distance")
+                    Spacer()
+                }
+                HStack {
+                    Spacer()
+                    Text("\(distance) km")
+                        .font(Font.system(.callout, design: .monospaced))
+                }
+            }
             Spacer()
         }
         .frame(width: UIDevice.isIpad ? 358 : 358,
-               height: UIDevice.isIpad ? 280 : 280)
+               height: UIDevice.isIpad ? 290 : 290)
         .padding(15)
         .modifier(DayDetailBackground(dayLight: currentWeather.isDaylight))
     }
