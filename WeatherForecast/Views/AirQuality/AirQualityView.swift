@@ -54,31 +54,29 @@ struct AirQualityView: View {
                 .opacity(0.50)
                 .padding(.top, UIDevice.isIpad ? 15 : 75)
                 .padding(.leading, UIDevice.isIpad ? -180 : -180)
-                if UIDevice.isiPhone {
-                    ZStack {
-                       Spacer()
-                        HStack {
-                            Spacer()
-                            Button("Information") {
-                                self.isModal = true
-                            }
-                            .padding(7)
-                            .foregroundColor(.primary)
-                            .buttonStyle(.bordered)
-                            .sheet(isPresented: $isModal, content: {
-                                AirQualityInformationView(image: currentWeather.image,
-                                                          so2: currentWeather.so2,
-                                                          no2: currentWeather.no2,
-                                                          pm10: currentWeather.pm10,
-                                                          pm2_5: currentWeather.pm2_5,
-                                                          o3: currentWeather.o3,
-                                                          co: currentWeather.co)
-                            })
+                ZStack {
+                    Spacer()
+                    HStack {
+                        Spacer()
+                        Button("Information") {
+                            self.isModal = true
                         }
-                        .padding(.trailing, 0)
+                        .padding(7)
+                        .foregroundColor(.primary)
+                        .buttonStyle(.bordered)
+                        .sheet(isPresented: $isModal, content: {
+                            AirQualityInformationView(image: currentWeather.image,
+                                                      so2: currentWeather.so2,
+                                                      no2: currentWeather.no2,
+                                                      pm10: currentWeather.pm10,
+                                                      pm2_5: currentWeather.pm2_5,
+                                                      o3: currentWeather.o3,
+                                                      co: currentWeather.co)
+                        })
                     }
-                    .offset(y: -20)
+                    .padding(.trailing, 0)
                 }
+                .offset(y: -20)
                 VStack {
                     ///
                     /// Viser status for luftkvaliteten:
@@ -458,7 +456,7 @@ struct AirQualityView: View {
             }
         }
         .frame(width: UIDevice.isIpad ? 358 : 358,
-               height: UIDevice.isIpad ? 280 : 280)
+               height: UIDevice.isIpad ? 290 : 290)
         .padding(15)
         .modifier(DayDetailBackground(dayLight: currentWeather.isDaylight))
     }
