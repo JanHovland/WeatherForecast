@@ -73,7 +73,8 @@ struct DayOverview: View {
                             Image(systemName: ConvertImageToFill(image: dayItem.symbolName))
                                 .modifier(ImageViewModifier(image: ConvertImageToFill(image: dayItem.symbolName)))
                                 .font(.title3)
-                                .frame(width: 10, height: 10)
+                                .frame(width: 10, height: 10
+                                )
                             ///
                             /// Viser temperaturen akkurat nå for den første datoen og de neste dagene:
                             ///
