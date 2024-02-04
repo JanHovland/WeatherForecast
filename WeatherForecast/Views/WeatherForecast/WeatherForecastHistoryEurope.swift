@@ -15,19 +15,13 @@ struct WeatherForecastHistoryEurope: View {
     let weather: Weather
     
     @State var player = AVPlayer(url: URL(string: "https://api.met.no/weatherapi/geosatellite/1.4/europe.mp4")!)
-
+    
     var body: some View {
-        VStack {
+        VStack (alignment: .center, spacing: 0) {
             Text("Geosatellite")
-//                .font(.title3)
-//                .padding(.top, 10)
-            ZStack {
-                VideoPlayer(player: player)
-                    .frame(height: 455)
-            }
-            Spacer()
+            VideoPlayer(player: player)
+                .frame(height: 455)
         }
-        .frame(width: 790, height: 520)
-        .modifier(DayDetailBackground(dayLight: weather.currentWeather.isDaylight))
+        Spacer()
     }
 }
