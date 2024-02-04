@@ -78,7 +78,8 @@ struct AirPressure : View {
             }
             .padding(.top, 10)
         }
-        .frame(width: 160, height: 180)
+        .frame(maxWidth: .infinity,
+               maxHeight: 180)
         .padding(15)
         .modifier(DayDetailBackground(dayLight: weather.currentWeather.isDaylight))
     }

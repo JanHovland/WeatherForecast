@@ -22,7 +22,8 @@ struct UvIndexGraphicDisplay: View {
             }
             .tint(gradient)
         }
-        .frame(width: 160, height: 2)
+        .frame(maxWidth: .infinity,
+               maxHeight: 2)
         .gaugeStyle(.accessoryLinear)
         .padding(.top, -5)
     }

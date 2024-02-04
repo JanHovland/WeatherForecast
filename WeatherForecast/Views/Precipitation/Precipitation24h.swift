@@ -50,7 +50,8 @@ struct Precipitation24h : View {
                 .padding(.bottom, -20)
             Spacer()
         }
-        .frame(width: 160, height: 180)
+        .frame(maxWidth: .infinity,
+               maxHeight: 180)
         .padding(15)
         .modifier(DayDetailBackground(dayLight: weather.currentWeather.isDaylight))
         .task {

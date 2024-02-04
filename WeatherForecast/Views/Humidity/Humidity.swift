@@ -44,7 +44,15 @@ struct Humidity : View {
             }
             Spacer()
         }
-        .frame(width: 160, height: 180)
+        .frame(maxWidth: .infinity,
+               maxHeight: 180)
+        
+//        frame(minWidth: 0, maxWidth: 500,
+//              minHeight: 0, maxHeight: 180,
+//              alignment: .center)
+        
+        
+        
         .padding(15)
         .modifier(DayDetailBackground(dayLight: currentWeather.isDaylight))
     }

@@ -97,7 +97,8 @@ struct WindView : View {
             }
             .padding(.bottom, 30)
         }
-        .frame(width: 160, height: 180)
+        .frame(maxWidth: .infinity,
+               maxHeight: 180)
         .padding()
         .modifier(DayDetailBackground(dayLight: weather.currentWeather.isDaylight)) 
     }
