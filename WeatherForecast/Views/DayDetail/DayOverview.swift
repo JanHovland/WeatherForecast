@@ -33,12 +33,7 @@ struct DayOverview: View {
     @State private var futureDate = Date()
     @State private var offsetDay = 2
     @State private var offsetHour = -1
-    
-    @State private var widthDevice = 0
-    
     @State private var spacing : CGFloat = 0
-    @State private var frameWidth : CGFloat = 0
-    @State private var frameHeight : CGFloat = 0
     @State private var paddingTop : CGFloat = 0
     @State private var paddingLeading : CGFloat = 0
     
@@ -66,26 +61,26 @@ struct DayOverview: View {
             .padding(.bottom, -5)
             
             ScrollView (.horizontal, showsIndicators: false) {
-                HStack {
+                HStack (spacing: 10) {
                     ForEach(weather.dailyForecast, id: \.date) { dayItem in
                         VStack (spacing: spacing) {
-                            Text(FormatDateToString(date: dayItem.date, format: "E d MMM", offsetSec: weatherInfo.offsetSec))
+                            Text(FormatDateToString(date: dayItem.date, format: "EEEE d MMM", offsetSec: weatherInfo.offsetSec))
                                 .foregroundColor(.cyan)
+                                .padding(.top, 10)
                             ///
                             /// Viser image med .fill
                             ///
                             Image(systemName: ConvertImageToFill(image: dayItem.symbolName))
                                 .modifier(ImageViewModifier(image: ConvertImageToFill(image: dayItem.symbolName)))
                                 .font(.title3)
-                                .padding(.top, -10)
+                                .frame(width: 10, height: 10)
                             ///
                             /// Viser temperaturen akkurat nå for den første datoen og de neste dagene:
                             ///
                             Text("\(Int(dayItem.highTemperature.value.rounded()))º")
                                 .font(.caption)
-                                .padding(.top, -5)
                         }
-                        .padding(7)
+                        .padding(10)
                         .onTapGesture {
                             /// Task.init starter hver gang ved hvert .onTapGesture:
                             ///
@@ -106,7 +101,6 @@ struct DayOverview: View {
                                       sunRises: $sunRises,
                                       sunSets: $sunSets, 
                                       dateSettings: dateSettings)
-                            .frame(maxWidth: .infinity, maxHeight: .infinity)
                             .padding(.top, paddingTop)
                             .padding(.leading, paddingLeading)
                             .background(.gray.opacity(0.1))
@@ -121,22 +115,15 @@ struct DayOverview: View {
             /// Oppdaterer bredden avhengig av on iPhone eller iPad:
             ///
             if UIDevice.isIpad {
-                widthDevice = 790
-                frameWidth = 640
-                frameHeight = 550
                 paddingTop = 60
                 paddingLeading = 321.0
                 spacing = 10
             } else {
-                widthDevice = 390
-                frameWidth = 390
-                frameHeight = 730
                 paddingTop = 0
                 paddingLeading = 0
                 spacing = 10
             }
         }
-        .frame(width: CGFloat(widthDevice))
         .modifier(DayDetailBackground(dayLight: weather.currentWeather.isDaylight))
     }
 }

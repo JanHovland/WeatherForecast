@@ -17,11 +17,8 @@ struct WeatherForecastHistoryEurope: View {
     @State var player = AVPlayer(url: URL(string: "https://api.met.no/weatherapi/geosatellite/1.4/europe.mp4")!)
     
     var body: some View {
-        VStack (alignment: .center, spacing: 0) {
-            Text("Geosatellite")
-            VideoPlayer(player: player)
-                .frame(height: 455)
-        }
-        Spacer()
+        VideoPlayer(player: player)
+            .frame(height: 650) // 666)
+            .offset(y: -10)
     }
 }
