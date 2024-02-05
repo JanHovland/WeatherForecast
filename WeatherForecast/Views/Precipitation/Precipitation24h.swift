@@ -27,9 +27,9 @@ struct Precipitation24h : View {
                     .font(Font.headline.weight(.regular))
                 Text("PRECIPITATION")
                     .font(.system(size: 15, weight: .bold))
+                Spacer()
             }
             .opacity(0.50)
-            .padding(.leading, -76)
             /// Viser regn de neste 24 timene:
             ///
             Text(Precipitation24hBackwards)
@@ -39,13 +39,11 @@ struct Precipitation24h : View {
             Text("Last 24 h")
                 .padding(.top, -30)
                 .padding(.leading, -45)  
-            
             /// Viser regn det neste døgn:
             ///
             let a = String(localized: "is expected the next day.")
             Text("\(Precipitation24hForwards) \(a)")
                 .lineLimit(4)
-                .padding(.top,10)
                 .padding(.leading, -21)
                 .padding(.bottom, -20)
             Spacer()
@@ -55,7 +53,6 @@ struct Precipitation24h : View {
         .padding(15)
         .modifier(DayDetailBackground(dayLight: weather.currentWeather.isDaylight))
         .task {
-            
             var lat: Double = 0.00
             var lon: Double = 0.00
             /// Bruker location for Varhaug:

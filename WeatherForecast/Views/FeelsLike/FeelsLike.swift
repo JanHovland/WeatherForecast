@@ -22,9 +22,9 @@ struct FeelsLike : View {
                     .font(Font.headline.weight(.regular))
                 Text("FEELS LIKE")
                     .font(.system(size: 15, weight: .bold))
+                Spacer()
             }
             .opacity(0.50)
-            .padding(.leading, -40)
             /// Viser hvordan temperaturen føles:
             ///
             Text("\(Int(currentWeather.apparentTemperature.rounded()))º")

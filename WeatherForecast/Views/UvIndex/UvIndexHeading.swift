@@ -15,9 +15,9 @@ struct UvIndexHeading: View {
                 .font(Font.headline.weight(.regular))
             Text("UV-INDEX")
                 .font(.system(size: 15, weight: .bold))
+            Spacer()
         }
         .opacity(0.50)
-        .padding(.leading, -40)
     }
 }
 

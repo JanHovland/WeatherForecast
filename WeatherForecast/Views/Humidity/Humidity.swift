@@ -22,9 +22,9 @@ struct Humidity : View {
                     .font(Font.headline.weight(.regular))
                 Text("HUMIDITY")
                     .font(.system(size: 15, weight: .bold))
+                Spacer()
             }
             .opacity(0.50)
-            .padding(.leading, -10)
             /// Viser luftfuktigheten:
             ///
             let humidity = Int(currentWeather.humidity * 100.0)
@@ -46,13 +46,6 @@ struct Humidity : View {
         }
         .frame(maxWidth: .infinity,
                maxHeight: 180)
-        
-//        frame(minWidth: 0, maxWidth: 500,
-//              minHeight: 0, maxHeight: 180,
-//              alignment: .center)
-        
-        
-        
         .padding(15)
         .modifier(DayDetailBackground(dayLight: currentWeather.isDaylight))
     }

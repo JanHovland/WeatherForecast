@@ -22,9 +22,9 @@ struct Visibility : View {
                     .font(Font.headline.weight(.regular))
                 Text("VISIBILITY")
                     .font(.system(size: 15, weight: .bold))
+                Spacer()
             }
             .opacity(0.50)
-            .padding(.leading, -80)
             /// Viser sikten:
             ///
             Text("\(Int((weather.currentWeather.visibility.value / 1000.00).rounded())) km")

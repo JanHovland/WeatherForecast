@@ -24,66 +24,70 @@ struct Sun : View {
             ///
             /// Viser overskriften for sol:
             ///
-            VStack {
-                HStack {
-                    Image(systemName: "sunrise.fill")
-                        .symbolRenderingMode(.multicolor)
-                        .font(Font.headline.weight(.regular))
-                    Text("SUN RISE")
-                        .font(.system(size: 15, weight: .bold))
-                }
+            HStack {
+                Image(systemName: "sunrise.fill")
+                    .symbolRenderingMode(.multicolor)
+                    .font(Font.headline.weight(.regular))
+                Text("SUN RISE")
+                    .font(.system(size: 15, weight: .bold))
+                Spacer()
             }
             .opacity(0.50)
-            .padding(.leading, -60)
-            .padding(.bottom, -35)
             ///
             /// Viser soloppgang:
             ///
-            VStack {
-                if !sunRises.isEmpty {
-                    Text("\(sunRises[0])")
-                } else {
-                    Text("")
+            ZStack {
+                HStack {
+                    Spacer()
+                    if !sunRises.isEmpty {
+                        Text("\(sunRises[0])")
+                    } else {
+                        Text("")
+                    }
+                    Spacer()
                 }
-            }
-            .font(.system(size: 40, weight: .light))
-            .padding(.top, 30)
-            .padding(.bottom, -40)
-            ///
-            /// Viser soloversikt dag og natt:
-            ///
-            SunDayAndNight(xMax: UIDevice.isIpad ? 170 : 170,
-                           index: 0,
-                           sunRises: $sunRises,
-                           sunSets: $sunSets)
-            .offset(x: UIDevice.isIpad ? -7.5 : -6.0)
-            ///
-            /// Finner solnedgang:
-            ///
-            let s = String(localized: "Sun set: ")
-            if !sunSets.isEmpty {
-                Text("\(s) \(sunSets[0])")
-            } else {
-                Text("")
-            }
-            ///
-            /// Viser lengden på dagen og økning siden i går
-            ///
-            HStack (spacing: 0) {
-                Image(systemName: "sunrise.fill")
-                    .symbolRenderingMode(.multicolor)
-                Text("\(weatherInfo.dayLength / 60)t \(weatherInfo.dayLength % 60)m")
-                if weatherInfo.dayIncrease >= 0 {
-                    Text("  + \(weatherInfo.dayIncrease)m")
-                } else {
-                    Text("  - \(weatherInfo.dayIncrease)m")
+                .font(.system(size: 40, weight: .light))
+                ///
+                /// Viser soloversikt dag og natt:
+                ///
+                SunDayAndNight(xMax: UIDevice.isIpad ? 170 : 170,
+                               index: 0,
+                               sunRises: $sunRises,
+                               sunSets: $sunSets)
+                .offset(y: 30)
+                ///
+                /// Finner solnedgang:
+                ///
+                HStack {
+                    Spacer()
+                    let s = String(localized: "Sun set: ")
+                    if !sunSets.isEmpty {
+                        Text("\(s) \(sunSets[0])")
+                    } else {
+                        Text("")
+                    }
+                    Spacer()
                 }
+                .offset(y:85)
+                ///
+                /// Viser lengden på dagen og økning siden i går
+                ///
+                HStack (spacing: 0) {
+                    Spacer()
+                    Image(systemName: "sunrise.fill")
+                        .symbolRenderingMode(.multicolor)
+                    Text("\(weatherInfo.dayLength / 60)t \(weatherInfo.dayLength % 60)m")
+                    if weatherInfo.dayIncrease >= 0 {
+                        Text("  + \(weatherInfo.dayIncrease)m")
+                    } else {
+                        Text("  - \(weatherInfo.dayIncrease)m")
+                    }
+                    Spacer()
+                }
+                .offset(y: 115)
             }
-            .padding(.top, 5)
-            
+            Spacer()
         }
-        .padding(.leading, 10)
-        .padding(.bottom, 15)
         .frame(maxWidth: .infinity,
                maxHeight: 180)
         .padding(15)

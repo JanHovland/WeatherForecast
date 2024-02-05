@@ -33,11 +33,9 @@ struct AirPressure : View {
                     .font(Font.headline.weight(.regular))
                 Text("AIR PRESSURE")
                     .font(.system(size: 15, weight: .bold))
+                Spacer()
             }
-            .opacity(0.85)
-            .padding(.leading, -18)
-            .padding(.top, 10) // -15)
-            
+            .opacity(0.50)
             ZStack (alignment: .center) {
                 Gauge(value: weather.currentWeather.pressure.value, in: minValue...maxValue) {
                     Label("", systemImage: "")

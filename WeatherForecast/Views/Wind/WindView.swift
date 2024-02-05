@@ -20,10 +20,9 @@ struct WindView : View {
                     .font(Font.headline.weight(.regular))
                 Text("WIND")
                     .font(.system(size: 15, weight: .bold))
+                Spacer()
             }
             .opacity(0.50)
-            .padding(.leading, -80)
-            .padding(.top, 30)
             /// Viser beskrivelse av vinden:
             ///
             ZStack {
@@ -95,12 +94,11 @@ struct WindView : View {
                     Text("m/s")
                 }
             }
-            .padding(.bottom, 30)
         }
         .frame(maxWidth: .infinity,
                maxHeight: 180)
-        .padding()
-        .modifier(DayDetailBackground(dayLight: weather.currentWeather.isDaylight)) 
+        .padding(15)
+        .modifier(DayDetailBackground(dayLight: weather.currentWeather.isDaylight))
     }
     
 }
