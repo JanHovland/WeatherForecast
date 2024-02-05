@@ -50,10 +50,10 @@ struct AirQualityView: View {
                     }
                     Text("AIR QUALITY")
                         .font(.system(size: 15, weight: .bold))
+                    Spacer()
                 }
                 .opacity(0.50)
-                .padding(.top, UIDevice.isIpad ? 25 : 75)
-                .padding(.leading, UIDevice.isIpad ? -180 : -180)
+                .padding(.top, UIDevice.isIpad ? 55 : 75)
                 ZStack {
                     Spacer()
                     HStack {
@@ -76,7 +76,7 @@ struct AirQualityView: View {
                     }
                     .padding(.trailing, 0)
                 }
-                .offset(y: -20)
+                .offset(y: -40 ) // -20)
                 VStack {
                     ///
                     /// Viser status for luftkvaliteten:
@@ -426,16 +426,18 @@ struct AirQualityView: View {
                     .padding(.top, -35)
                     .padding(.leading, 5)
                     ZStack {
-                        let v = "Max : "
-                        Text("\(v)100 \(aqUnit)")
-
-                            .foregroundColor(.red)
-                            .font(.footnote)
+                        HStack {
+                            Spacer()
+                            let v = "Max : "
+                            Text("\(v)100 \(aqUnit)")
+                                .foregroundColor(.red)
+                                .font(.footnote)
+                        }
                     }
-                    .offset(x: UIDevice.isIpad ? 124 : 124,
+                    .offset(x: -7,
                             y: UIDevice.isIpad ? -36 : -36)
                 }
-                .offset(y: UIDevice.isIpad ? 0 : -40)
+                .offset(y: UIDevice.isIpad ? -30 : -40)
             } else {
                 VStack {
                     ZStack {
@@ -461,5 +463,4 @@ struct AirQualityView: View {
         .modifier(DayDetailBackground(dayLight: currentWeather.isDaylight))
     }
 }
-
 
