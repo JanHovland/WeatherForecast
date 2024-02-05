@@ -444,12 +444,13 @@ var toDo_2 =
           🟢 Lage denne listen
           🟢 Oppdatere Localizable.strings
           🟢 Oppdatere TranslateCountry(country: String) -> String
-   93. 🟣 Sjekk månen rundt 100% (månen vises ikke)
-   94. 🔴 Erstatte Geosatellite fra met.no
-   95. 🔴 Kan alt fra CurrentWeather legges inn i WeatherInfo?
+   93. 🟢 Tilpaaset vertikal/horisontal Views for iPone og IPad
+   94. 🟣 Sjekk månen rundt 100% (månen vises ikke)
+   95. 🔴 Erstatte Geosatellite fra met.no
+   96. 🔴 Kan alt fra CurrentWeather legges inn i WeatherInfo?
           🔴
-   96. 🔴 Legge inn et varselsfelt om snø helt øverst på skjermen
-   97. 🔴 .
+   97. 🔴 Legge inn et varselsfelt om snø helt øverst på skjermen
+   98. 🔴 .
           🔴 .
 """
 
