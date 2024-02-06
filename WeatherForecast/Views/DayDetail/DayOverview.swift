@@ -46,15 +46,8 @@ struct DayOverview: View {
     
     var body: some View {
         VStack (alignment: .leading) {
-            VStack (alignment: .leading) {
-                if UIDevice.isIpad {
-                    Text("DAILY FORECAST")
-                        .font(.body)
-                } else {
-                    Text("DAILY FORECAST")
-                        .font(.footnote)
-                }
-            }
+            Text("DAILY FORECAST")
+                .font(UIDevice.isIpad ? .body : .footnote)
             .opacity(0.50)
             .padding(.leading,6)
             .padding(.top,10)
@@ -73,8 +66,7 @@ struct DayOverview: View {
                             Image(systemName: ConvertImageToFill(image: dayItem.symbolName))
                                 .modifier(ImageViewModifier(image: ConvertImageToFill(image: dayItem.symbolName)))
                                 .font(.title3)
-                                .frame(width: 10, height: 10
-                                )
+                                .frame(width: 10, height: 10)
                             ///
                             /// Viser temperaturen akkurat nå for den første datoen og de neste dagene:
                             ///

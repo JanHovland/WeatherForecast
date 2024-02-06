@@ -1160,7 +1160,7 @@
 "The hourForecast is empty.\n\nPlease note that this alert will only show for a few seconds."  = "HourForecast er tom.\n\nVær oppmerksom på at dette varselet bare vises i noen få sekunder.";
 
 /* No comment provided by engineer. */
-"Find data for the the Sun or the Moon." = "Finn data for solen eller månen.";
+"Find data for the the Sun or the Moon" = "Finn data for solen eller månen";
 
 /* No comment provided by engineer. */
 "The Sun or Moon data are empty.\n\nPlease note that this alert will only show for a few seconds.\nThen the app will terminate."
@@ -1524,7 +1524,7 @@
 "Error finding 'hourForecast'." = "Feil ved å finne 'hourForecast'.";
 
 /* No comment provided by engineer. */
-"Find data for the Air Quality." = "Finn data for luftkvaliteten.";
+"Find data for the Air Quality" = "Finn data for luftkvaliteten";
 
 /* No comment provided by engineer. */
 "The Air Quality data is empty.\n\nPlease note that this alert will only show for a few seconds.\nThen the app will terminate."
@@ -1536,6 +1536,9 @@
 
 /* No comment provided by engineer. */
 "New Moon" = "Nymåne";
+
+/* No comment provided by engineer. */
+"Error finding 'dailyForecast'" = "Kan ikke finne 'dailyForecast'";
 
 /* No comment provided by engineer. */
 "No placeName" = "Ukjent sted";
@@ -1706,3 +1709,11 @@
 "Western Sahara" = "Vestre Sahara";
 "Yemen" = "Jemen";
 "Åland Islands" = "Åland";
+
+/* No comment provided by engineer. */
+"Find the dailyForecast data" = "Finn dailyForcast data";
+
+/* No comment provided by engineer. */
+"The dailyForecast is empty." = "dailyForcast er tom.";
+
+ 

@@ -236,18 +236,18 @@ struct WeatherForecast: View {
         ///
         /// Avslutter appen
         ///
-        .alert(title, isPresented: $showAlert) {
-            Button("Terminate this app", role: .cancel) {
-                UIApplication.shared.perform(#selector(NSXPCConnection.suspend))
-            }
+        .alert(isPresented: $showAlert) {
+            Alert(title: Text(title),
+                  message: Text(message),
+                  dismissButton: .cancel(Text("Terminate this app")))
         }
         ///
         /// Status for lagring på CloudKit
         ///
         .alert(title, isPresented: $showAlertCloudKit) {
-        }
-        message: {
-            Text(message)
+            }
+            message: {
+                Text(message)
         }
         .navigationBarTitleDisplayMode(.inline)
             ///
@@ -351,12 +351,8 @@ struct WeatherForecast: View {
             if weatherInfo.latitude == 0.00 && weatherInfo.longitude == 0.00 {
                 persist = false
                 title = "Missing coordinates from FindCurrentLocation()"
-                message = "No coordinates found.\n\nPlease note that this alert will only show for a few seconds.\nThen the app will terminate."
+                message = "No coordinates found."
                 showAlert.toggle()
-                ///
-                /// Lukker denne meldingen etter 10 sekunder:
-                ///
-                DismissAlertAndExitApp(seconds: 10, alert: &showAlert)
             }
         }
         if persist == true {
@@ -368,13 +364,10 @@ struct WeatherForecast: View {
             let endDate = (Calendar.current.date(byAdding: .day, value: 11, to: startDate ?? Date())!).setTime(hour: 0, min: 0, sec: 0)
             
             let location = CLLocation(latitude: weatherInfo.latitude ?? 0.00, longitude: weatherInfo.longitude ?? 0.00)
-            
             ///
-            /// Her krasjer appen når den kjører på iPad, mener OK på iPhone (er det en feil i iPadOS 21C5046c ?)
+            /// Finner hourForecast
             ///
-            
             hourForecast = nil
-            
             do {
                 hourForecast = try await WeatherService.shared.weather(for: location,
                                                                        including: .hourly(startDate: startDate!,
@@ -391,12 +384,8 @@ struct WeatherForecast: View {
             if hourForecast?.isEmpty == true {
                 persist = false
                 title = "Find the hourForecast data"
-                message = "The hourForecast is empty.\n\nPlease note that this alert will only show for a few seconds.\nThen the app will terminate."
+                message = "The hourForecast is empty."
                 showAlert.toggle()
-                ///
-                /// Lukker denne meldingen etter 10 sekunder:
-                ///
-                DismissAlertAndExitApp(seconds: 10, alert: &showAlert)
             }
             ///
             /// Går bare videre dersom persist er true:
@@ -448,13 +437,9 @@ struct WeatherForecast: View {
                 ///
                 if sunRises.isEmpty == true || sunSets.isEmpty == true {
                     persist = false
-                    title = "Find data for the the Sun or the Moon."
-                    message = "The Sun or Moon data are empty.\n\nPlease note that this alert will only show for a few seconds.\nThen the app will terminate."
+                    title = "Find data for the the Sun or the Moon"
+                    message = "The Sun or Moon data are empty."
                     showAlert.toggle()
-                    ///
-                    /// Lukker denne meldingen etter 10 sekunder:
-                    ///
-                    DismissAlertAndExitApp(seconds: 10, alert: &showAlert)
                 }
                 ///
                 /// Går bare videre dersom persist er true:
@@ -472,13 +457,9 @@ struct WeatherForecast: View {
                     
                     if status.count > 0 {
                         persist = false
-                        title = "Find data for the Air Quality."
-                        message = "The Air Quality data is empty.\n\nPlease note that this alert will only show for a few seconds.\nThen the app will terminate."
+                        title = "Find data for the Air Quality"
+                        message = "The Air Quality data is empty."
                         showAlert.toggle()
-                        ///
-                        /// Lukker denne meldingen etter 10 sekunder:
-                        ///
-                        DismissAlertAndExitApp(seconds: 10, alert: &showAlert)
                     }
                     
                     if persist == true {
@@ -569,12 +550,61 @@ struct WeatherForecast: View {
                         }
                     } /// if persist == true
                 } /// if persist == true
+                
                 ///
                 /// Skjuler ActivityIndicator:
                 ///
                 opacityIndicator = 0.0
+            } /// if persist == true
+            if persist == true {
+                ///
+                /// Finner snøfallet i perioden ut fra weather.dailyForecast
+                ///
+                ///
+                /// Finner hourForecast
+                ///
+                dailyForecast = nil
+                
+                let location = CLLocation(latitude: weatherInfo.latitude ?? 0.00, longitude: weatherInfo.longitude ?? 0.00)
+                
+                let startDate = Date().setTime(hour: 0, min: 0, sec: 0)
+                let endDate = (Calendar.current.date(byAdding: .day, value: 10, to: startDate ?? Date())!).setTime(hour: 0, min: 0, sec: 0)
+
+                print("startDate = \(String(describing: startDate))")
+                print("endDate = \(String(describing: endDate))")
+
+                do {
+                    dailyForecast = try await WeatherService.shared.weather(for: location,
+                                                                            including: .daily(startDate: startDate!,
+                                                                                              endDate: endDate!))
+                } catch {
+                    debugPrint(error)
+                    title = "Error finding 'dailyForecast'"
+                    message = ServerResponse(error: error.localizedDescription)
+                    showAlert.toggle()
+                }
+                ///
+                /// Sjekker om hourForecast ikke er tom:
+                ///
+                if dailyForecast == nil {
+                    weatherInfo.offsetString = ""
+                    persist = false
+                    title = "Find the dailyForecast data"
+                    message = "The dailyForecast is empty."
+                    showAlert.toggle()
+                } else {
+                    ///
+                    /// Finner snømengden de neste dagene
+                    ///
+                    dailyForecast!.forEach  {
+                        if $0.date >= startDate! &&
+                            $0.date <= endDate! {
+                            print($0.date)
+                            print($0.snowfallAmount.value)
+                        }
+                    }
+                }
             }
         }
     }
 }
-

@@ -14,6 +14,7 @@ import CloudKit
 /// Oppretter hourForcast
 ///
 var hourForecast: Forecast<HourWeather>?
+var dailyForecast: Forecast<DayWeather>?
 
 struct MyPlace: Identifiable {
     let id = UUID()

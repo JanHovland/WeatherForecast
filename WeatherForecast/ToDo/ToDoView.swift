@@ -446,11 +446,16 @@ var toDo_2 =
           🟢 Oppdatere TranslateCountry(country: String) -> String
    93. 🟢 Tilpaaset vertikal/horisontal Views for iPone og IPad
    94. 🟣 Sjekk månen rundt 100% (månen vises ikke)
+   95. 🔴 Legge inn et varselsfelt om snø helt øverst på skjermen
+          🔴 Lage skjermbildet
+          🔴 Hente data (ref. DAG OVERSIKT)
+             weather.dailyForecast
+             /// The amount of snowfall for the day.
+             public var snowfallAmount: Measurement<UnitLength>
    95. 🔴 Erstatte Geosatellite fra met.no
    96. 🔴 Kan alt fra CurrentWeather legges inn i WeatherInfo?
           🔴
-   97. 🔴 Legge inn et varselsfelt om snø helt øverst på skjermen
-   98. 🔴 .
+   97. 🔴 .
           🔴 .
 """
 
