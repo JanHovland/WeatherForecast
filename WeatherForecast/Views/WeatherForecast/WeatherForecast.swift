@@ -47,7 +47,7 @@ struct WeatherForecast: View {
     var extOffsetString: String
     var extOffsetSec: Int
     
-    let weatherService = WeatherService.shared
+    var weatherService = WeatherService.shared
     
     @Environment(CurrentWeather.self) private var currentWeather
     @Environment(WeatherInfo.self) private var weatherInfo
@@ -102,14 +102,27 @@ struct WeatherForecast: View {
                     ScrollView (.vertical, showsIndicators: false) {
                         VStack {
                             WeatherForecastDetail(weather: weather, geoRecord: geoRecord)
+                            ///
+                            /// Viser eventuelt snøvarsel
+                            ///
+                            SnowWarningView()
+                            ///
+                            /// Viser dagsoversikten
+                            ///
                             HourOverview(weather: weather,
                                          sunRises: $sunRises,
                                          sunSets: $sunSets)
+                            ///
+                            /// Tilpasning til iPad
+                            ///
                             if UIDevice.isIpad {
                                 AppsForIPad(weather: weather,
                                             sunRises: $sunRises,
                                             sunSets: $sunSets)
                             }
+                            ///
+                            /// Tilpasning til iPhone
+                            ///
                             if UIDevice.isiPhone {
                                 AppsForIPhone(weather: weather,
                                               sunRises: $sunRises,
