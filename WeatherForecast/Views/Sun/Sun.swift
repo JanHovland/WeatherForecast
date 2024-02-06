@@ -50,7 +50,7 @@ struct Sun : View {
                 ///
                 /// Viser soloversikt dag og natt:
                 ///
-                SunDayAndNight(xMax: UIDevice.isIpad ? 170 : 170,
+                SunDayAndNight(xMax: UIDevice.isIpad ? 175 : 160,
                                index: 0,
                                sunRises: $sunRises,
                                sunSets: $sunSets)
