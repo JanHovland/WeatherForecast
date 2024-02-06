@@ -14,37 +14,53 @@ struct SnowWarningView: View {
     @Environment(WeatherInfo.self) private var weatherInfo
     
     var body: some View {
-        ScrollView (.horizontal, showsIndicators: false) {
-            HStack {
-                ForEach(snowWarning, id: \.self) { snow in
-                    Text(FormatDateToString(date: snow.date, format: "EEEE", offsetSec: weatherInfo.offsetSec).firstUppercased)
-                    if snow.value > 0.00 {
-                        Text(String(format: "%.1f", snow.value))
-                            .foregroundStyle(.red)
-                            .fontWeight(.bold)
+        VStack {
+            if !snowWarning.isEmpty {
+                Text("Snow for warning")
+                    .font(.title2)
+                    .foregroundStyle(.cyan)
+                    .fontWeight(.bold)
+                    .italic()
+                ScrollView (.horizontal, showsIndicators: false) {
+                    HStack(spacing: 20) {
+                        ForEach(snowWarning, id: \.self) { snow in
+                            VStack {
+                                Text(FormatDateToString(date: snow.date, format: "EEEE d. MMM", offsetSec: weatherInfo.offsetSec).firstUppercased)
+                                if snow.value == 0.00 {
+                                    Text("0 mm")
+                                        .foregroundStyle(.cyan)
+                                } else {
+                                    Text("\(String(format: "%.1f", snow.value)) mm")
+                                        .foregroundStyle(.cyan)
+                                }
+                            }
+                        }
+                        Spacer()
                     }
                 }
-                Spacer()
             }
         }
         .task {
             var sw = SnowWarning()
-            
-            sw.date = Date()
-            sw.value = 1.123
-            snowWarning.append(sw)
-            
-            sw.date = Date().adding(days: 1)
-            sw.value = 4.56
-            snowWarning.append(sw)
-            
+            snowWarning.removeAll()
+            let startDate = Date().setTime(hour: 0, min: 0, sec: 0)
+            let endDate = (Calendar.current.date(byAdding: .day, value: 10, to: startDate ?? Date())!).setTime(hour: 0, min: 0, sec: 0)
+            if !dailyForecast!.isEmpty {
+                dailyForecast!.forEach  {
+                    if $0.date >= startDate! &&
+                        $0.date <= endDate! {
+                        sw.date = $0.date
+                        sw.value = $0.snowfallAmount.value
+                        snowWarning.append(sw)
+                    }
+                }
+            }
         }
-        .frame(maxWidth: 400, // .infinity,
+        .frame(maxWidth: .infinity,
                maxHeight: 180)
         .padding(15)
         .modifier(DayDetailBackground(dayLight: currentWeather.isDaylight))
     }
-    
 }
 
 struct SnowWarning: Identifiable, Hashable {

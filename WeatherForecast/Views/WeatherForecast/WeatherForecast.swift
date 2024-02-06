@@ -586,7 +586,7 @@ struct WeatherForecast: View {
                 ///
                 /// Sjekker om hourForecast ikke er tom:
                 ///
-                if dailyForecast == nil {
+                if dailyForecast == nil || dailyForecast?.isEmpty == true {
                     weatherInfo.offsetString = ""
                     persist = false
                     title = "Find the dailyForecast data"
