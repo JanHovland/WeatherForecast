@@ -1719,4 +1719,7 @@
 /* No comment provided by engineer. */
 "Snow for warning" = "Varsel om nedbør som snø";
 
+/* No comment provided by engineer. */
+"snowWarning is empty." = "Snøvarslingen ineholder ikke data.";
+
 

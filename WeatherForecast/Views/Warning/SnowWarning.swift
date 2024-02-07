@@ -38,6 +38,9 @@ struct SnowWarningView: View {
                         Spacer()
                     }
                 }
+            } else {
+                Text("snowWarning is empty.")
+                    .foregroundStyle(.cyan)
             }
         }
         .task {
@@ -45,7 +48,7 @@ struct SnowWarningView: View {
             snowWarning.removeAll()
             let startDate = Date().setTime(hour: 0, min: 0, sec: 0)
             let endDate = (Calendar.current.date(byAdding: .day, value: 10, to: startDate ?? Date())!).setTime(hour: 0, min: 0, sec: 0)
-            if !dailyForecast!.isEmpty {
+            if dailyForecast != nil {
                 dailyForecast!.forEach  {
                     if $0.date >= startDate! &&
                         $0.date <= endDate! {

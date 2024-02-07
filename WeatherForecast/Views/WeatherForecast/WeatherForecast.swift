@@ -70,12 +70,10 @@ struct WeatherForecast: View {
     @State private var showAlert: Bool = false
     @State private var showAlertFile: Bool = false
     @State private var showAlertCloudKit: Bool = false
-    
     @State private var array: [Double] = Array(repeating: Double(), count: sizeArray24)
-    
     @State private var persist: Bool = true
-    
     @State private var settingsMissing: Bool = false
+    @State private var someSnow: Bool = false
     
     let noPlaceName: String = String(localized: "No placeName")
     let noCountryName: String = String(localized: "No countryName")
@@ -105,7 +103,11 @@ struct WeatherForecast: View {
                             ///
                             /// Viser eventuelt snøvarsel
                             ///
-                            SnowWarningView()
+                            if someSnow == true {
+                                SnowWarningView()
+                            } else {
+                                EmptyView()
+                            }
                             ///
                             /// Viser dagsoversikten
                             ///
@@ -584,26 +586,25 @@ struct WeatherForecast: View {
                     showAlert.toggle()
                 }
                 ///
-                /// Sjekker om hourForecast ikke er tom:
+                /// Sjekker om hourForecast inneholder noen verdier > 0,00
                 ///
-                if dailyForecast == nil || dailyForecast?.isEmpty == true {
+                if dailyForecast != nil {
+                    someSnow = false
+                    dailyForecast!.forEach  {
+                        if $0.date >= startDate! &&
+                            $0.date <= endDate! {
+                            if $0.snowfallAmount.value > 0.00 {
+                                someSnow = true
+                            }
+                        }
+                    }
+                } else {
                     weatherInfo.offsetString = ""
                     persist = false
                     title = "Find the dailyForecast data"
                     message = "The dailyForecast is empty."
                     showAlert.toggle()
-                } else {
-                    ///
-                    /// Finner snømengden de neste dagene
-                    ///
-                    dailyForecast!.forEach  {
-                        if $0.date >= startDate! &&
-                            $0.date <= endDate! {
-                            print($0.date)
-                            print($0.snowfallAmount.value)
-                        }
-                    }
-                }
+                } 
             }
         }
     }
