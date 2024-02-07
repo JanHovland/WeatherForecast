@@ -416,6 +416,7 @@ var toDo_2 =
           🟢 Ny func  DismissAlertAndExitApp(seconds: Double, alert:  inout Bool)
    82. 🟢 iPad: Avslutte appen når det velges et nytt sted
           🟣🟣🟣🟣 Dette er en feil i iPadOS 21D5026f, så jeg avventer oppdatering.
+          🟢 Dette er ikke et problem lenger med de siste oppdateringene.
    83. 🟢 Behandle når noen "Innstillinger" mangler.
           🟢 Åpner SettingsView()
    84. 🟢 Vise endringen av lengden av degen fra en dag til en annen
@@ -446,16 +447,16 @@ var toDo_2 =
           🟢 Oppdatere TranslateCountry(country: String) -> String
    93. 🟢 Tilpaaset vertikal/horisontal Views for iPone og IPad
    94. 🟣 Sjekk månen rundt 100% (månen vises ikke)
-   95. 🔴 Legge inn et varselsfelt om snø helt øverst på skjermen
-          🔴 Lage skjermbildet
-          🔴 Hente data (ref. DAG OVERSIKT)
-             weather.dailyForecast
-             /// The amount of snowfall for the day.
-             public var snowfallAmount: Measurement<UnitLength>
-   95. 🔴 Erstatte Geosatellite fra met.no
-   96. 🔴 Kan alt fra CurrentWeather legges inn i WeatherInfo?
+   95. 🟢 Legge inn et varselsfelt om snø helt øverst på skjermen
+          🟢 Lage skjermbildet
+          🟢 Hente data fra global variabel dailyForecast
+   96. 🔴 Tilpasse bredden på Views fra "DAG OVERSIKT"
+   97. 🔴 Nye tilpasninger fra Apple "Været"
           🔴
-   97. 🔴 .
+   98. 🔴 Erstatte Geosatellite fra met.no
+   99. 🔴 Kan alt fra CurrentWeather legges inn i WeatherInfo?
+          🔴
+  100. 🔴 .
           🔴 .
 """
 

@@ -18,18 +18,13 @@ struct SnowWarningView: View {
             if !snowWarning.isEmpty {
                 Text("Snow for warning")
                     .font(.title2)
-                    .foregroundStyle(.cyan)
-                    .fontWeight(.bold)
-                    .italic()
+                    .foregroundStyle(.yellow)
                 ScrollView (.horizontal, showsIndicators: false) {
                     HStack(spacing: 20) {
                         ForEach(snowWarning, id: \.self) { snow in
                             VStack {
-                                Text(FormatDateToString(date: snow.date, format: "EEEE d. MMM", offsetSec: weatherInfo.offsetSec).firstUppercased)
-                                if snow.value == 0.00 {
-                                    Text("0 mm")
-                                        .foregroundStyle(.cyan)
-                                } else {
+                                if snow.value > 0.00 {
+                                    Text(FormatDateToString(date: snow.date, format: "EEEE d. MMM", offsetSec: weatherInfo.offsetSec).firstUppercased)
                                     Text("\(String(format: "%.1f", snow.value)) mm")
                                         .foregroundStyle(.cyan)
                                 }
@@ -44,7 +39,7 @@ struct SnowWarningView: View {
             }
         }
         .task {
-            var sw = SnowWarning()
+            var warning = SnowWarning()
             snowWarning.removeAll()
             let startDate = Date().setTime(hour: 0, min: 0, sec: 0)
             let endDate = (Calendar.current.date(byAdding: .day, value: 10, to: startDate ?? Date())!).setTime(hour: 0, min: 0, sec: 0)
@@ -52,15 +47,15 @@ struct SnowWarningView: View {
                 dailyForecast!.forEach  {
                     if $0.date >= startDate! &&
                         $0.date <= endDate! {
-                        sw.date = $0.date
-                        sw.value = $0.snowfallAmount.value
-                        snowWarning.append(sw)
+                        warning.date = $0.date
+                        warning.value = $0.snowfallAmount.value
+                        snowWarning.append(warning)
                     }
                 }
             }
         }
         .frame(maxWidth: .infinity,
-               maxHeight: 180)
+               idealHeight: 65)
         .padding(15)
         .modifier(DayDetailBackground(dayLight: currentWeather.isDaylight))
     }
