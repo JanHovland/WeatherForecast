@@ -1717,7 +1717,7 @@
 "The dailyForecast is empty." = "dailyForcast er tom.";
 
 /* No comment provided by engineer. */
-"Snow for warning" = "Varsel om nedbør som snø";
+"Warning for snow from " = "Snøvarsel fra ";
 
 /* No comment provided by engineer. */
 "snowWarning is empty." = "Snøvarslingen ineholder ikke data.";

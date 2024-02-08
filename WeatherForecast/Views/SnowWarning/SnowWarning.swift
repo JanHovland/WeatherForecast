@@ -16,9 +16,11 @@ struct SnowWarningView: View {
     var body: some View {
         VStack {
             if !snowWarning.isEmpty {
-                Text("Snow for warning")
-                    .font(.title2)
-                    .foregroundStyle(.yellow)
+                HStack (spacing: 0) {
+                    Text("Warning for snow from ")
+                    Text(FormatDateToString(date: snowWarning[0].date, format: "EEEE d. MMMM yyyy", offsetSec: weatherInfo.offsetSec))
+                }
+                .opacity(0.50)
                 ScrollView (.horizontal, showsIndicators: false) {
                     HStack(spacing: 20) {
                         ForEach(snowWarning, id: \.self) { snow in

@@ -463,11 +463,11 @@
 				DB66C1A42AF65B1B00C2722E /* Moon */,
 				DB6400BD29098E1E0013C3B7 /* Precipitation */,
 				DBBDDAD429CB0A7500A3281E /* Settings */,
+				DBB0B8882B72283A00069145 /* SnowWarning */,
 				DB8A7EFD2906B9A1002DFD73 /* Sun */,
 				DB5C0C522917CD4500141BDC /* UvIndex */,
 				DB2727F02965C882003B0903 /* ViewModifier */,
 				DB679FE22B25BC51008C7330 /* Visibility */,
-				DBB0B8882B72283A00069145 /* Warning */,
 				DBC65DE12907C3D7004635FE /* WeatherForecast */,
 				DB679FDD2B25BAAA008C7330 /* Wind */,
 			);
@@ -865,12 +865,12 @@
 			path = Sun;
 			sourceTree = "<group>";
 		};
-		DBB0B8882B72283A00069145 /* Warning */ = {
+		DBB0B8882B72283A00069145 /* SnowWarning */ = {
 			isa = PBXGroup;
 			children = (
 				DBB0B8892B72286300069145 /* SnowWarning.swift */,
 			);
-			path = Warning;
+			path = SnowWarning;
 			sourceTree = "<group>";
 		};
 		DBB0E7B5290C2B9C0015F556 /* AirPressure */ = {
