@@ -115,204 +115,199 @@ struct DayDetail: View {
     @State private var dewPointArray: [Double] = Array(repeating: Double(), count: sizeArray24)
     
     var body: some View {
-        ScrollView(showsIndicators: false) {
+        VStack {
             VStack (alignment: .leading) {
                 ///
                 /// Viser menyvalget og knapp for avslutning:
                 ///
-                if UIDevice.current.model == "iPhone" {
-                    HStack (alignment: .center) {
-                        Spacer()
-                        Image(systemName: FindMenySystemImage(menuTitle: menuTitle))
-                            .font(.body)
-                            .symbolRenderingMode(.multicolor)
-                        Text(menuTitle)
-                        ///
-                        /// Fonten skaleres automatisk ned til 65%
-                        ///
-                            .minimumScaleFactor(0.65)
-                        Spacer()
-                    }
-                    .padding(.top, 10)
-                } else if UIDevice.current.model ==  "iPad" {
-                    HStack (alignment: .center) {
+                VStack {
+                    HStack {
                         HStack (alignment: .center) {
+                            Spacer()
                             Image(systemName: FindMenySystemImage(menuTitle: menuTitle))
                                 .font(.body)
                                 .symbolRenderingMode(.multicolor)
                             Text(menuTitle)
-                            ///
-                            /// Fonten skaleres automatisk ned til 65%
-                            ///
-                                .minimumScaleFactor(0.65)
+                            Spacer()
                         }
+                        .overlay (
+                            HStack {
+                                Spacer()
+                                Button {
+                                    ///
+                                    /// Rutine for å avslutte DayDetail():
+                                    ///
+                                    Task.init {
+                                        presentationMode.wrappedValue.dismiss()
+                                    }
+                                } label: {
+                                    Image(systemName: "x.circle.fill")
+                                        .symbolRenderingMode(.multicolor)
+                                        .font(.system(size: 22, weight: .bold))
+                                        .foregroundColor(.secondary)
+                                }
+                                .padding(.trailing, 20)
+                            }
+                        )
                     }
-                    .padding(.top, 10)
-                    .padding(.horizontal, 200)
                 }
-                VStack {
-                    Button {
-                        ///
-                        /// Rutine for å avslutte DayDetail():
-                        ///
-                        Task.init {
-                            presentationMode.wrappedValue.dismiss()
-                        }
-                    } label: {
-                        Image(systemName: "x.circle.fill")
-                            .symbolRenderingMode(.multicolor)
-                            .font(.system(size: 22, weight: .bold))
-                            .foregroundColor(.secondary)
-                    }
-                }
-                .offset(x: UIDevice.isIpad ? 500 : 325,
-                        y: UIDevice.isIpad ? -25 : -24)
+                .padding(.top, 30)
                 ///
                 /// Viser ukedag og dato:
                 ///
-                HStack (spacing: UIDevice.isIpad ? 18 : 2.0) {
-                    ForEach(Array(dateArray.enumerated()), id: \.element) { idx, element in
-                        VStack {
-                            Text(weekdayArray[idx])
-                                .font(.system(size: UIDevice.isIpad ? 17 : 14, weight: .bold))
-                                .offset(y: 10)
-                            Text(element.description)
-                                .padding(8)
-                                .font(.system(size: UIDevice.isIpad ? 17 : 14, weight: .regular))
-                                .foregroundColor(colorsForeground[idx])
-                                .background(colorsBackground[idx])
-                                .clipShape(Circle())
-                                .offset(y: UIDevice.isIpad ? 3 : 5)
-                                .onTapGesture {
-                                    ///
-                                    /// Resetter og oppdater forgrunnen for aktuell indeks:
-                                    ///
-                                    colorsForeground = updateForegroundColors(index: idx,
-                                                                              colorsForegroundStandard: colorsForegroundStandard,
-                                                                              foregroundColor: Color(.black),
-                                                                              foregroundColorIndex1: Color(.black))
-                                    ///
-                                    /// Resetter og oppdater bakgrunnen for aktuell indeks:
-                                    ///
-                                    colorsBackground = updateBackgroundColors(index: idx,
-                                                                              colorsBackgroundStandard: colorsBackgroundStandard,
-                                                                              backGroundColor: .primary,
-                                                                              backgroundColorIndex1: Color(.systemMint))
-                                    ///
-                                    /// Tar vare på index:
-                                    ///
-                                    index = idx
-                                    /// Finner dagens høyeste og laveste temperatur:
-                                    ///
-                                    let value : ([Double],
-                                                 [String],
-                                                 [String],
-                                                 [RainFall],
-                                                 [WindInfo],
-                                                 [Temperature],
-                                                 [Double],
-                                                 [WeatherIcon],
-                                                 [Double],
-                                                 [FeltTemp],
-                                                 [Double],
-                                                 [NewPrecipitation]) = FindDataFromMenu(info: "DayDetail .onTapGesture ",
-                                                                                        weather: weather,
-                                                                                        date: dateSettings.dates[index],
-                                                                                        option: MenuTitleToOption(menuTitle: menuTitle),
-                                                                                        option1: option1)
-                                    arrayDayIcons = value.1
-                                    hourIconArray = value.2
-                                    windInfo = value.4
-                                    tempInfo = value.5
-                                    gustInfo = value.6
-                                    weatherIcon = value.7
-                                    feltTempArray = value.9
+                VStack {
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        HStack (spacing: 50) {
+                            ForEach(Array(dateArray.enumerated()), id: \.element) { idx, element in
+                                VStack {
+                                    Text(weekdayArray[idx])
+                                        .font(.system(size: 17, weight: .bold))
+                                    Text(element.description)
+                                        .padding(8)
+                                        .font(.system(size: 17, weight: .regular))
+                                        .foregroundColor(colorsForeground[idx])
+                                        .background(colorsBackground[idx])
+                                        .clipShape(Circle())
+                                        .onTapGesture {
+                                            ///
+                                            /// Resetter og oppdater forgrunnen for aktuell indeks:
+                                            ///
+                                            colorsForeground = updateForegroundColors(index: idx,
+                                                                                      colorsForegroundStandard: colorsForegroundStandard,
+                                                                                      foregroundColor: Color(.black),
+                                                                                      foregroundColorIndex1: Color(.black))
+                                            ///
+                                            /// Resetter og oppdater bakgrunnen for aktuell indeks:
+                                            ///
+                                            colorsBackground = updateBackgroundColors(index: idx,
+                                                                                      colorsBackgroundStandard: colorsBackgroundStandard,
+                                                                                      backGroundColor: .primary,
+                                                                                      backgroundColorIndex1: Color(.systemMint))
+                                            ///
+                                            /// Tar vare på index:
+                                            ///
+                                            index = idx
+                                            /// Finner dagens høyeste og laveste temperatur:
+                                            ///
+                                            let value : ([Double],
+                                                         [String],
+                                                         [String],
+                                                         [RainFall],
+                                                         [WindInfo],
+                                                         [Temperature],
+                                                         [Double],
+                                                         [WeatherIcon],
+                                                         [Double],
+                                                         [FeltTemp],
+                                                         [Double],
+                                                         [NewPrecipitation]) = FindDataFromMenu(info: "DayDetail .onTapGesture ",
+                                                                                                weather: weather,
+                                                                                                date: dateSettings.dates[index],
+                                                                                                option: MenuTitleToOption(menuTitle: menuTitle),
+                                                                                                option1: option1)
+                                            arrayDayIcons = value.1
+                                            hourIconArray = value.2
+                                            windInfo = value.4
+                                            tempInfo = value.5
+                                            gustInfo = value.6
+                                            weatherIcon = value.7
+                                            feltTempArray = value.9
+                                        }
                                 }
+                            }
                         }
-                        .padding(.leading, UIDevice.isIpad ? 0 : 5)
+                    } // ScrollView
+                    .padding(20)
+                    
+                    VStack (alignment: .center) {
+                        ///
+                        /// Viser riktig dato,  meny og kort værinformasjon:
+                        ///
+                        HStack {
+                            HStack (alignment: .center) {
+                                Spacer()
+                                Text(GetTimeFromDay(date: currentWeather.date.adding(days: index), format: "EEEE d. MMMM yyyy"))
+                                Spacer()
+                            }
+                            .overlay(
+                                HStack {
+                                    Spacer()
+                                    DayDetailMenuDataView(weather: weather,
+                                                          index: $index,
+                                                          menuSystemName: $menuSystemName,
+                                                          menuTitle: $menuTitle,
+                                                          arrayDayIcons: $arrayDayIcons,
+                                                          opacity: $opacity)
+                                    .padding(.trailing, 20)
+                                }
+                            )
+                        }
                     }
-                }
-                .padding(.trailing, UIDevice.isIpad ? 60 : 0)
-                ///Viser temperaturen akkurat nå avhengig av index:
-                ///
-                VStack (alignment: .center) {
                     ///
-                    /// Viser riktig dato:
+                    /// Viser meny og kort værinformasjon:
                     ///
-                    Text(GetTimeFromDay(date: currentWeather.date.adding(days: index), format: "EEEE d. MMMM yyyy"))
+////                    ///
+//                    /// Viser natt og dag:
+//                    ///
+//                    SunDayAndNight(xMax: UIDevice.isIpad ? 525 : 352,
+//                                   index : index,
+//                                   sunRises: $sunRises,
+//                                   sunSets: $sunSets)
+//                    .modifier(SunDayAndNightViewModifier(menuTitle: $menuTitle))
+//                    ///
+//                    /// Viser image rekken:
+//                    ///
+//                    DayDetailHourIcons(option: MenuTitleToOption(menuTitle: menuTitle),
+//                                       index: index,
+//                                       weather: weather,
+//                                       hourIconArray: $hourIconArray)
+//                    .modifier(DayDetailHourIconsViewModifier(menuTitle: $menuTitle))
+//                    ///
+//                    /// Viser data for aktuell option:
+//                    ///
+//                    DayDetailDayDataView(weather: weather,
+//                                         option: MenuTitleToOption(menuTitle: menuTitle),
+//                                         arrayDayIcons: $arrayDayIcons,
+//                                         dateArray: $dateSettings.dates,
+//                                         index: $index,
+//                                         colorsForeground: $colorsForeground,
+//                                         colorsForegroundStandard: $colorsForegroundStandard,
+//                                         colorsBackground: $colorsBackground,
+//                                         colorsBackgroundStandard: $colorsBackgroundStandard,
+//                                         dayDetailHide: $dayDetailHide,
+//                                         selectedValue: $selectedValue,
+//                                         dayArray: $dayArray,
+//                                         rainFalls: $rainFalls,
+//                                         weekdayArray: $weekdayArray,
+//                                         windInfo: $windInfo,
+//                                         tempInfo: $tempInfo,
+//                                         gustInfo: $gustInfo,
+//                                         weatherIcon: $weatherIcon,
+//                                         feltTempArray: $feltTempArray,
+//                                         opacity: $opacity,
+//                                         dewPointArray: $dewPointArray)
+//                    .modifier(DayDetailOffsetChartViewModifier(option: MenuTitleToOption(menuTitle: menuTitle)))
+//                    ///
+//                    /// Viser utvidet informasjon om været:
+//                    ///
+//                    DayDetailInfo(weather: weather,
+//                                  option: MenuTitleToOption(menuTitle: menuTitle),
+//                                  index: $index,
+//                                  dayArray: $dayArray,
+//                                  weekdayArray: $weekdayArray,
+//                                  windInfo: $windInfo,
+//                                  tempInfo: $tempInfo,
+//                                  weatherIcon: $weatherIcon)
+//                    .modifier(DayDetailOffsetInfoViewModifier(option: MenuTitleToOption(menuTitle: menuTitle)))
+                    Spacer()
                 }
-                .padding(.leading, UIDevice.isIpad ? 170 : 75)
-                .padding(.top, 2)
-                ///
-                /// Viser meny og kort værinformasjon:
-                ///
-                DayDetailMenuDataView(weather: weather,
-                                      index: $index,
-                                      menuSystemName: $menuSystemName,
-                                      menuTitle: $menuTitle,
-                                      arrayDayIcons: $arrayDayIcons,
-                                      opacity: $opacity)
-                ///
-                /// Viser natt og dag:
-                ///
-                SunDayAndNight(xMax: UIDevice.isIpad ? 525 : 352,
-                               index : index,
-                               sunRises: $sunRises,
-                               sunSets: $sunSets)
-                .modifier(SunDayAndNightViewModifier(menuTitle: $menuTitle))
-                ///
-                /// Viser image rekken:
-                ///
-                DayDetailHourIcons(option: MenuTitleToOption(menuTitle: menuTitle),
-                                   index: index,
-                                   weather: weather,
-                                   hourIconArray: $hourIconArray)
-                .modifier(DayDetailHourIconsViewModifier(menuTitle: $menuTitle))
-                ///
-                /// Viser data for aktuell option:
-                ///
-                DayDetailDayDataView(weather: weather,
-                                     option: MenuTitleToOption(menuTitle: menuTitle),
-                                     arrayDayIcons: $arrayDayIcons,
-                                     dateArray: $dateSettings.dates,
-                                     index: $index,
-                                     colorsForeground: $colorsForeground,
-                                     colorsForegroundStandard: $colorsForegroundStandard,
-                                     colorsBackground: $colorsBackground,
-                                     colorsBackgroundStandard: $colorsBackgroundStandard,
-                                     dayDetailHide: $dayDetailHide,
-                                     selectedValue: $selectedValue,
-                                     dayArray: $dayArray,
-                                     rainFalls: $rainFalls,
-                                     weekdayArray: $weekdayArray,
-                                     windInfo: $windInfo,
-                                     tempInfo: $tempInfo,
-                                     gustInfo: $gustInfo,
-                                     weatherIcon: $weatherIcon,
-                                     feltTempArray: $feltTempArray,
-                                     opacity: $opacity,
-                                     dewPointArray: $dewPointArray)
-                .modifier(DayDetailOffsetChartViewModifier(option: MenuTitleToOption(menuTitle: menuTitle)))
-                ///
-                /// Viser utvidet informasjon om været:
-                ///
-                DayDetailInfo(weather: weather,
-                              option: MenuTitleToOption(menuTitle: menuTitle),
-                              index: $index,
-                              dayArray: $dayArray,
-                              weekdayArray: $weekdayArray,
-                              windInfo: $windInfo,
-                              tempInfo: $tempInfo,
-                              weatherIcon: $weatherIcon)
-                .modifier(DayDetailOffsetInfoViewModifier(option: MenuTitleToOption(menuTitle: menuTitle)))
+                .frame(maxWidth: .infinity,
+                       maxHeight: 1000)
+                .modifier(DayDetailBackground(dayLight: currentWeather.isDaylight))
             }
             .padding(.leading, 15)
             Spacer()
         } /// end ScrollView
-        ///
-        /// .padding(.top, 0.2) hindrer ScrollView å overse safe area
-        ///
-        .padding(.top, 0.2)
         .onChange(of: index) { oldIndex, index in
             ///
             /// Finner menuSystemName

@@ -87,16 +87,22 @@ struct DayOverview: View {
                                 detailView.toggle()
                             }
                         }
-                        .fullScreenCover(isPresented: $detailView, content: {
+                         .fullScreenCover(isPresented: $detailView, content: {
+//                            .sheet(isPresented: $detailView, content: {
                             DayDetail(weather: weather,
                                       dateSelected: $dateSelected,
                                       dayDetailHide: $dayDetailHide,
                                       sunRises: $sunRises,
                                       sunSets: $sunSets, 
                                       dateSettings: dateSettings)
-                            .padding(.top, paddingTop)
-                            .padding(.leading, paddingLeading)
-                            .background(.gray.opacity(0.1))
+//                            .padding(.top, paddingTop)
+//                            .padding(.leading, paddingLeading)
+//                            .background(.gray.opacity(0.1))
+                            .frame(maxWidth: .infinity,
+                                   maxHeight: .infinity)
+//                            .background(Color.blue)
+//                            .ignoresSafeArea(edges: .all)
+
                         })
                     }
                     .listStyle(.sidebar)

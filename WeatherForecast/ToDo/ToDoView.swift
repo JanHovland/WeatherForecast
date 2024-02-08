@@ -451,12 +451,13 @@ var toDo_2 =
           🟢 Lage skjermbildet
           🟢 Hente data fra global variabel dailyForecast
    96. 🔴 Tilpasse bredden på Views fra "DAG OVERSIKT"
-   97. 🔴 Nye tilpasninger fra Apple "Været"
+   97. 🔴 Gå gjennom dismiss
+   98. 🔴 Nye tilpasninger fra Apple "Været"
           🔴
-   98. 🔴 Erstatte Geosatellite fra met.no
-   99. 🔴 Kan alt fra CurrentWeather legges inn i WeatherInfo?
+   99. 🔴 Erstatte Geosatellite fra met.no
+  100. 🔴 Kan alt fra CurrentWeather legges inn i WeatherInfo?
           🔴
-  100. 🔴 .
+  101. 🔴 .
           🔴 .
 """
 
