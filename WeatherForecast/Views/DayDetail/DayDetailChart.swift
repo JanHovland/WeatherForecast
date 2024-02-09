@@ -514,7 +514,10 @@ struct DayDetailChart: View {
                     )
                     .foregroundStyle(.black.opacity(0.35))
                 }
-                .frame(width: frameWidth, height: frameHeight)
+                .frame(maxWidth: .infinity, //    frameWidth,
+                       minHeight: 200,
+                       maxHeight: 250) //frameHeight)
+                .padding()
                 .chartXScale(domain: 0...24)
                 ///
                 /// Endrer y aksen for:

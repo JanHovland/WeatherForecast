@@ -34,16 +34,16 @@
 			<key>text-context</key>
 			<dict>
 				<key>focused</key>
-				<string>                    ///
+				<string>///
 </string>
 				<key>leading</key>
 				<string>                        }
-                    }
-</string>
+                        
+                        </string>
 				<key>trailing</key>
-				<string>                    /// Viser meny og kort værinformasjon:
-                    ///
-////                    ///
+				<string>                        /// Viser meny og kort værinformasjon:
+                        ///
+                        DayDetailWeatherData(weather: weather,
 </string>
 			</dict>
 			<key>type</key>

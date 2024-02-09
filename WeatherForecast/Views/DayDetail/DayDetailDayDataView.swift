@@ -98,6 +98,7 @@ struct DayDetailDayDataView: View {
                 bottom = 110
             }
         }
-        .frame(width: width, height: height)
+        .frame(maxWidth: .infinity,           //width,
+               maxHeight: height)
     }
 }

@@ -41,7 +41,7 @@ struct InfoTemperature : View {
     @State private var factorYesterDay: Double = 1.00
 
     var body: some View {
-        VStack (alignment: .leading) {
+        VStack (alignment: .center) {
             ///
             /// Overskrift:
             ///
@@ -234,7 +234,8 @@ struct InfoTemperature : View {
                                                              factorToDay: factorToDay,
                                                              factorYesterDay: factorYesterDay))
         }
-        .frame(width: UIDevice.isIpad ? 490 : 350)
+        .frame(maxWidth: .infinity,
+               maxHeight: 3000)
         .task {
             ///
             /// Finner newProbability
@@ -430,131 +431,133 @@ private func Forecast(index: Int,
     var factorToDay: Double = 1.00
     var factorYesterDay: Double = 1.00
     
-    if index == 0 {
-        text = ""
+    if !tempInfo.isEmpty {
+        
+        if index == 0 {
+            text = ""
+            ///
+            /// Legger inn temperaturen akkurat nå:
+            ///
+            text = text + String(localized: "Now it is ")
+            text = text + "\(FormatDateToString(date: date, format: ("EEEE d. MMMM HH:mm"), offsetSec: offsetSec)) " + String(localized: " with ")
+            text = text + "\(Int(tempInfo[tempType].data[IndexPointMarkFromHour(offsetSec: offsetSec)].temp.rounded()))" + "º"
+            text = text + String(localized: " and ")
+            text = text + tempInfo[tempType].data[IndexPointMarkFromHour(offsetSec: offsetSec)].condition.firstLowercased
+            text = text + "."
+            text = text + "\n"
+            ///
+            /// Legger inn høyeste vind hastighet:
+            ///
+            text = text + String(localized: "Max windspeed ")
+            text = text + "\(Int((maxWind).rounded()))" + " m/s"
+            text = text + String(localized: " at ")
+            text = text + IndexToHour(index: indexMaxWind)
+            text = text + ".\n"
+            ///
+            /// Legger inn høyeste vindkast:
+            ///
+            text = text + String(localized: "Max gust ")
+            text = text + "\(Int((maxGust).rounded()))" + " m/s"
+            text = text + String(localized: " at ")
+            text = text + IndexToHour(index: indexMaxGust)
+            text = text + ".\n"
+            ///
+            /// Legger inn temperaturen for dagent:
+            ///
+            text = text + WeatherOverView(dayTempInfo: dayTempInfo)
+            text = text + String(localized: "The temperature today will extend from ")
+            text = text + "\(Int(minTemp.rounded()))"
+            text = text + "º"
+            text = text + String(localized: " to ")
+            text = text + "\(Int(maxTemp.rounded()))"
+            text = text + "º.\n"
+            ///
+            /// Legger inn følt temperatur for dagent:
+            ///
+            text = text + String(localized: "The felt temperature today will extend from ")
+            text = text + "\(Int(minAppearentTemp.rounded()))"
+            text = text + "º"
+            text = text + String(localized: " to ")
+            text = text + "\(Int(maxAppearentTemp.rounded()))"
+            text = text + "º."
+        } else {
+            ///
+            /// Legger inn laveste og høyeste temperatur:
+            ///
+            text = ""
+            text = text + String(localized: "The lowest temperature on ")
+            weekDay = TranslateDay(index: index, weekdayArray: weekdayArray)
+            text = text + weekDay
+            text = text + String(localized: " will be ")
+            text = text + "\(Int(minTemp.rounded()))"
+            text = text + "º"
+            text = text + String(localized: " at ")
+            text = text + IndexToHour(index: indexMin)
+            text = text + ",\n"
+            text = text + String(localized: "the highest ")
+            text = text + "\(Int(maxTemp.rounded()))"
+            text = text + "º"
+            text = text + String(localized: " kl. ")
+            text = text + IndexToHour(index: indexMax)
+            text = text + ".\n"
+            ///
+            /// Legger inn laveste og høyeste følt temperatur:
+            ///
+            text = text + String(localized: "The lowest felt temperature on ")
+            text = text + String(localized: " will be ")
+            text = text + "\(Int(minAppearentTemp.rounded()))"
+            text = text + "º"
+            text = text + String(localized: " at ")
+            text = text + IndexToHour(index: indexMinAppearentTemp)
+            text = text + ".\n"
+            text = text + String(localized: "The highest felt temperature ")
+            text = text + "\(Int(maxAppearentTemp.rounded()))"
+            text = text + "º"
+            text = text + String(localized: " kl. ")
+            text = text + IndexToHour(index: indexMaxAppearentTemp)
+            text = text + "."
+        }
         ///
-        /// Legger inn temperaturen akkurat nå:
+        /// Finner følt temperatur i dag og i går:
         ///
-        text = text + String(localized: "Now it is ")
-        text = text + "\(FormatDateToString(date: date, format: ("EEEE d. MMMM HH:mm"), offsetSec: offsetSec)) " + String(localized: " with ")
-        text = text + "\(Int(tempInfo[tempType].data[IndexPointMarkFromHour(offsetSec: offsetSec)].temp.rounded()))" + "º"
-        text = text + String(localized: " and ")
-        text = text + tempInfo[tempType].data[IndexPointMarkFromHour(offsetSec: offsetSec)].condition.firstLowercased
-        text = text + "."
-        text = text + "\n"
+        toDay = date
+        toMorrow = toDay.adding(days: 1)
+        yesterDay = toDay.adding(days: -1)
+        arrayToDay.removeAll()
+        arrayYesterDay.removeAll()
+        hourForecast!.forEach  {
+            if $0.date >= toDay &&
+                $0.date < toMorrow {
+                arrayToDay.append($0.apparentTemperature.value)
+            }
+        }
+        hourForecast!.forEach  {
+            if $0.date >= yesterDay &&
+                $0.date < toDay {
+                arrayYesterDay.append($0.apparentTemperature.value)
+            }
+        }
         ///
-        /// Legger inn høyeste vind hastighet:
+        /// Finner den høyest følte temperaturen i dag og i går
         ///
-        text = text + String(localized: "Max windspeed ")
-        text = text + "\(Int((maxWind).rounded()))" + " m/s"
-        text = text + String(localized: " at ")
-        text = text + IndexToHour(index: indexMaxWind)
-        text = text + ".\n"
-        ///
-        /// Legger inn høyeste vindkast:
-        ///
-        text = text + String(localized: "Max gust ")
-        text = text + "\(Int((maxGust).rounded()))" + " m/s"
-        text = text + String(localized: " at ")
-        text = text + IndexToHour(index: indexMaxGust)
-        text = text + ".\n"
-        ///
-        /// Legger inn temperaturen for dagent:
-        ///
-        text = text + WeatherOverView(dayTempInfo: dayTempInfo)
-        text = text + String(localized: "The temperature today will extend from ")
-        text = text + "\(Int(minTemp.rounded()))"
-        text = text + "º"
-        text = text + String(localized: " to ")
-        text = text + "\(Int(maxTemp.rounded()))"
-        text = text + "º.\n"
-        ///
-        /// Legger inn følt temperatur for dagent:
-        ///
-        text = text + String(localized: "The felt temperature today will extend from ")
-        text = text + "\(Int(minAppearentTemp.rounded()))"
-        text = text + "º"
-        text = text + String(localized: " to ")
-        text = text + "\(Int(maxAppearentTemp.rounded()))"
-        text = text + "º."
-    } else {
-        ///
-        /// Legger inn laveste og høyeste temperatur:
-        ///
-        text = ""
-        text = text + String(localized: "The lowest temperature on ")
-        weekDay = TranslateDay(index: index, weekdayArray: weekdayArray)
-        text = text + weekDay
-        text = text + String(localized: " will be ")
-        text = text + "\(Int(minTemp.rounded()))"
-        text = text + "º"
-        text = text + String(localized: " at ")
-        text = text + IndexToHour(index: indexMin)
-        text = text + ",\n"
-        text = text + String(localized: "the highest ")
-        text = text + "\(Int(maxTemp.rounded()))"
-        text = text + "º"
-        text = text + String(localized: " kl. ")
-        text = text + IndexToHour(index: indexMax)
-        text = text + ".\n"
-        ///
-        /// Legger inn laveste og høyeste følt temperatur:
-        ///
-        text = text + String(localized: "The lowest felt temperature on ")
-        text = text + String(localized: " will be ")
-        text = text + "\(Int(minAppearentTemp.rounded()))"
-        text = text + "º"
-        text = text + String(localized: " at ")
-        text = text + IndexToHour(index: indexMinAppearentTemp)
-        text = text + ".\n"
-        text = text + String(localized: "The highest felt temperature ")
-        text = text + "\(Int(maxAppearentTemp.rounded()))"
-        text = text + "º"
-        text = text + String(localized: " kl. ")
-        text = text + IndexToHour(index: indexMaxAppearentTemp)
-        text = text + "."
-    }
-    ///
-    /// Finner følt temperatur i dag og i går:
-    ///
-    toDay = date
-    toMorrow = toDay.adding(days: 1)
-    yesterDay = toDay.adding(days: -1)
-    arrayToDay.removeAll()
-    arrayYesterDay.removeAll()
-    hourForecast!.forEach  {
-        if $0.date >= toDay &&
-            $0.date < toMorrow {
-            arrayToDay.append($0.apparentTemperature.value)
+        feltTempToDay = arrayToDay.max()!
+        feltTempYesterDay = arrayYesterDay.max()!
+        
+        if feltTempToDay > feltTempYesterDay {
+            text1 = String(localized: "The felt temperature today is higher than yesterday.")
+            factorToDay = 1.00
+            factorYesterDay = 0.50
+        } else if feltTempToDay == feltTempYesterDay {
+            text1 = String(localized: "The felt temperature today is the same as yesterday.")
+            factorToDay = 1.00
+            factorYesterDay = 1.00
+        } else {
+            text1 = String(localized: "The felt temperature today is lower than yesterday.")
+            factorToDay = 0.50
+            factorYesterDay = 1.00
+            
         }
     }
-    hourForecast!.forEach  {
-        if $0.date >= yesterDay &&
-            $0.date < toDay {
-            arrayYesterDay.append($0.apparentTemperature.value)
-        }
-    }
-    ///
-    /// Finner den høyest følte temperaturen i dag og i går
-    ///
-    feltTempToDay = arrayToDay.max()!
-    feltTempYesterDay = arrayYesterDay.max()!
-    
-    if feltTempToDay > feltTempYesterDay {
-        text1 = String(localized: "The felt temperature today is higher than yesterday.")
-        factorToDay = 1.00
-        factorYesterDay = 0.50
-    } else if feltTempToDay == feltTempYesterDay {
-        text1 = String(localized: "The felt temperature today is the same as yesterday.")
-        factorToDay = 1.00
-        factorYesterDay = 1.00
-    } else {
-        text1 = String(localized: "The felt temperature today is lower than yesterday.")
-        factorToDay = 0.50
-        factorYesterDay = 1.00
-
-    }
-    
     return (text, text1, feltTempToDay, feltTempYesterDay, factorToDay, factorYesterDay)
 }
 
@@ -579,59 +582,63 @@ private func TempInfoValues(tempInfo: [Temperature],
     ///
     /// Finner data fra tempType == 0 som er vanlig temperatur:
     ///
-    for i in 0..<tempInfo[type].data.count {
-        if option == .tempTemp {
-            array.append(tempInfo[tempType].data[i].temp)
-        } else if option == .windSpeed {
-            array.append(tempInfo[tempType].data[i].wind)
-        } else if option == .gustSpeed {
-            array.append(tempInfo[tempType].data[i].gust)
-        } else if option == .appearentTemp {
-            array.append(tempInfo[appearentType].data[i].temp)
-        }
-    }
-    ///
-    /// Finner min og max:
-    ///
-    if type == tempType {
-        if option1 == .min {
-            value = array.min() ?? 0.00
-        } else if option1 == .max {
-            value = array.max()!
-        }
-        ///
-        /// Finn index til value:
-        ///
-        for i in 0..<array.count {
-            if array[i] == value {
-                index = i
-                break
+    if !tempInfo.isEmpty {
+        for i in 0..<tempInfo[type].data.count {
+            if option == .tempTemp {
+                array.append(tempInfo[tempType].data[i].temp)
+            } else if option == .windSpeed {
+                array.append(tempInfo[tempType].data[i].wind)
+            } else if option == .gustSpeed {
+                array.append(tempInfo[tempType].data[i].gust)
+            } else if option == .appearentTemp {
+                array.append(tempInfo[appearentType].data[i].temp)
             }
         }
-    } else if type == appearentType {
-        if option1 == .min {
-            value = array.min()!
-        } else if option1 == .max {
-            value = array.max()!
-        }
+        
         ///
-        /// Finn index til value:
+        /// Finner min og max:
         ///
-        for i in 0..<array.count {
-            if array[i] == value {
-                index = i
-                break
+        if type == tempType {
+            if option1 == .min {
+                value = array.min() ?? 0.00
+            } else if option1 == .max {
+                value = array.max()!
+            }
+            ///
+            /// Finn index til value:
+            ///
+            for i in 0..<array.count {
+                if array[i] == value {
+                    index = i
+                    break
+                }
+            }
+        } else if type == appearentType {
+            if option1 == .min {
+                value = array.min()!
+            } else if option1 == .max {
+                value = array.max()!
+            }
+            ///
+            /// Finn index til value:
+            ///
+            for i in 0..<array.count {
+                if array[i] == value {
+                    index = i
+                    break
+                }
             }
         }
-    }
-    
-    /// Bygger opp [dayTempInfo] :
-    ///
-    for i in 0..<tempInfo.count {
-        dayTempInfo1.condition = tempInfo[tempType].data[i].condition
-        dayTempInfo1.hour = IndexToHour(index: i)
-        dayTempInfo1.type = tempInfo[tempType].data[i].condition
-        dayTempInfo.append(dayTempInfo1)
+        
+        /// Bygger opp [dayTempInfo] :
+        ///
+        for i in 0..<tempInfo.count {
+            dayTempInfo1.condition = tempInfo[tempType].data[i].condition
+            dayTempInfo1.hour = IndexToHour(index: i)
+            dayTempInfo1.type = tempInfo[tempType].data[i].condition
+            dayTempInfo.append(dayTempInfo1)
+        }
+        
     }
     return (value, index, dayTempInfo)
 }
