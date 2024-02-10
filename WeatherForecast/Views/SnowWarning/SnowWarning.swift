@@ -18,7 +18,8 @@ struct SnowWarningView: View {
             if !snowWarning.isEmpty {
                 HStack (spacing: 0) {
                     Text("Warning for snow from ")
-                    Text("\(FormatDateToString(date: snowWarning[0].date, format: "EEEE d. MMMM yyyy", offsetSec: weatherInfo.offsetSec)).")
+//                    Text("\(FormatDateToString(date: snowWarning[0].date, format: "EEEE d. MMMM yyyy", offsetSec: weatherInfo.offsetSec)).")
+                    Text("\(FormatDateToString(date: Date().setTime(hour: 0, min: 0, sec: 0)!, format: "EEEE d. MMMM yyyy", offsetSec: weatherInfo.offsetSec)).")
                 }
                 .opacity(0.50)
                 ScrollView (.horizontal, showsIndicators: false) {

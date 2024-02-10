@@ -177,11 +177,9 @@ struct SaveNewPlace: View {
                 title: Text(title),
                 message: Text(message),
                 primaryButton: .default(Text("Cancel")) {
-                    print("Cancel")
                     dismiss()
                 },
                 secondaryButton: .destructive(Text("Save")) {
-                    print("Save")
                     ///
                     /// Lagre valgt sted
                     ///

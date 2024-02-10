@@ -361,7 +361,8 @@ struct WeatherForecast: View {
             ///
             /// Finner hourForecast:
             ///
-            let start = Date().setTime(hour: 0, min: 0, sec: 0)
+            let date = Date().adding(seconds: weatherInfo.offsetSec)
+            let start = date.setTime(hour: 0, min: 0, sec: 0)
             let startDate = start?.adding(days: -1)
             let endDate = (Calendar.current.date(byAdding: .day, value: 11, to: startDate ?? Date())!).setTime(hour: 0, min: 0, sec: 0)
             
@@ -569,12 +570,9 @@ struct WeatherForecast: View {
                 
                 let location = CLLocation(latitude: weatherInfo.latitude ?? 0.00, longitude: weatherInfo.longitude ?? 0.00)
                 
-                let startDate = Date().setTime(hour: 0, min: 0, sec: 0)
+                let date = Date().adding(seconds: weatherInfo.offsetSec)
+                let startDate = date.setTime(hour: 0, min: 0, sec: 0)
                 let endDate = (Calendar.current.date(byAdding: .day, value: 10, to: startDate ?? Date())!).setTime(hour: 0, min: 0, sec: 0)
-
-                print("startDate = \(String(describing: startDate))")
-                print("endDate = \(String(describing: endDate))")
-
                 do {
                     dailyForecast = try await WeatherService.shared.weather(for: location,
                                                                             including: .daily(startDate: startDate!,
