@@ -234,8 +234,12 @@ struct InfoTemperature : View {
                                                              factorToDay: factorToDay,
                                                              factorYesterDay: factorYesterDay))
         }
+        ///
+        /// Legg merke til maxHeight ikke må begrense scrollimg, så legg inn en stor verdi.
+        ///
         .frame(maxWidth: .infinity,
                maxHeight: 3000)
+        .padding(15)
         .task {
             ///
             /// Finner newProbability

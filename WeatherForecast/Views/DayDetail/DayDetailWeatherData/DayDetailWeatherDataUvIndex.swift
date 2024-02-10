@@ -23,33 +23,30 @@ struct DayDetailWeatherDataUvIndex: View {
             VStack {
                 if index == 0 {
                     VStack {
-                        HStack (spacing: 4) {
-                            HStack {
+                        HStack (alignment: .center) {
+                            HStack (alignment: .center) {
                                 Text("\(weather.currentWeather.uvIndex.value)")
                                     .font(.title)
                             }
-                            HStack (alignment: .lastTextBaseline) {
+                            HStack (alignment: .center) {
                                 Text(UvIndexCurrentDescription(weather: weather))
                                     .font(.title3)
                             }
                         }
-                        .offset(x: UIDevice.isIpad ? -70 : -70)
-                        .padding(.leading, 10)
                     }
                     VStack {
                         Text(String(localized: "UTI from the World Health Organization."))
                             .font(.subheadline)
                             .opacity(0.5)
                     }
-                    .padding(.bottom, 8)
                  } else {
                     VStack {
-                        HStack (spacing: 4) {
-                            HStack {
+                        HStack (alignment: .center) {
+                            HStack (alignment: .center) {
                                 Text(String("\(Int(round(dataArray.max()!)))"))
                                     .font(.title)
                             }
-                            HStack (alignment: .lastTextBaseline) {
+                            HStack (alignment: .center) {
                                 ///
                                 /// Viser bekrivelsen av uvIndeks:
                                 ///
@@ -57,17 +54,15 @@ struct DayDetailWeatherDataUvIndex: View {
                                     .font(.title3)
                             }
                         }
-                        .offset(x: UIDevice.isIpad ? -70 : -70)
-                        .padding(.leading, 30)
                     }
                     VStack {
                         Text(String(localized: "UTI from the World Health Organization."))
                             .font(.subheadline)
                             .opacity(0.5)
                     }
-                    .padding(.bottom, 8)
                 }
             }
+            .padding(.leading, 10)
             ///
             /// Oppdaterer dataArray ved ending av index:
             ///

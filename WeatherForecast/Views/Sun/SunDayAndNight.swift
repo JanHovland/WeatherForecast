@@ -80,7 +80,7 @@ struct SunDayAndNight: View {
                 .offset(x: offset1)
                 .opacity(index == 0 ? 1.00 : 0.00)
         }
-        .padding(.top, 65)
+        .padding(20)
         .onAppear {
             ///
             /// Oppdaterer "sunRise" og "sunSet" :

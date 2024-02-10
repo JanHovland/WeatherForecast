@@ -41,7 +41,6 @@ struct DayDetailWeatherDataFeelsLike: View {
                             .opacity(0.5)
                         }
                     }
-                    .offset(x: UIDevice.isIpad ? -10 : 0)
                     .padding(.bottom, 8)
 
                 } else {
@@ -64,7 +63,6 @@ struct DayDetailWeatherDataFeelsLike: View {
                             .opacity(0.5)
                         }
                     }
-                    .offset(x: UIDevice.isIpad ? -20 : 0)
                 }
             }
             ///

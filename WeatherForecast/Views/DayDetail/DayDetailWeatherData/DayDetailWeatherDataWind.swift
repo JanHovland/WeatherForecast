@@ -56,7 +56,6 @@ struct DayDetailWeatherDataWind: View {
                                 .font(.title)
                         }
                     }
-                    .offset(x: UIDevice.isIpad ? -15 : -15)
                     VStack {
                         HStack (spacing: 2) {
                             Text(String(localized: "Gust up to "))

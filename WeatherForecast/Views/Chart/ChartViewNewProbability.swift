@@ -77,13 +77,15 @@ struct ChartViewNewProbability: View {
                 .foregroundStyle(.black.opacity(0.35))
 
             }
-            .frame(width: UIDevice.isIpad ? 520 : 350, height: UIDevice.isIpad ? 150 : 200)
             .chartXScale(domain: 0...24)
             .modifier(DayDetailChartYaxis(option: .probability, from: 0, to: 100))
             .chartYAxisLabel(ShowUnit(option: .probability),
                              position: .top,
                              spacing: 6)
             .chartXSelection(value: $selectedIndex)
+            .frame(maxWidth: .infinity,
+                   minHeight: 150)
+            .padding(15)
         }
         .modifier(DayDetailChartOffsetViewModifier(option: .probability))
     }

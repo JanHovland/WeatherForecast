@@ -39,7 +39,6 @@ struct DayDetailWeatherDataAirPressure: View {
                         }
                         .font(.subheadline)
                         .opacity(0.5)
-                        .offset(x: UIDevice.isIpad ? -20 : -20)
                     }
                     .padding(.bottom, 8)
                 } else {

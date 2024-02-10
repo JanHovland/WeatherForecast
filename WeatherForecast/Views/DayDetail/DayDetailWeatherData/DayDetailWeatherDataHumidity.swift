@@ -23,21 +23,23 @@ struct DayDetailWeatherDataHumidity: View {
             VStack {
                 if index == 0 {
                     VStack {
-                        VStack {
+                        HStack (alignment: .center) {
+                            Spacer()
                             let humidity = Double(weather.currentWeather.humidity.description)! * 100.0
                             Text("\(Int(humidity)) %")
                                 .font(.title)
-                                .offset(x: UIDevice.isIpad ? -32 : -20)
+                            Spacer()
                         }
                         VStack {
-                            HStack (spacing: 4) {
+                            HStack (alignment: .center) {
+                                Spacer()
                                 Text(String(localized: "The dew point: "))
                                 let dewPoint = weather.currentWeather.dewPoint.value
                                 Text("\(Int(dewPoint.rounded()))º")
+                                Spacer()
                             }
                             .font(.subheadline)
                             .opacity(0.5)
-                            .offset(x: UIDevice.isIpad ? -5 : 5)
                         }
                     }
                 } else {
@@ -45,7 +47,6 @@ struct DayDetailWeatherDataHumidity: View {
                         VStack {
                             Text("\(Int(FindAverageArray(array: dataArray).rounded())) %")
                                 .font(.title)
-                                .offset(x: UIDevice.isIpad ? -20 : 15)
                         }
                         VStack {
                             Text(String(localized: "Average"))

@@ -16,39 +16,42 @@ struct DayDetailWeatherData: View {
     @Binding var arrayDayIcons: [String]
     
     var body: some View {
-        if menuTitle == String(localized: "Temperature") {
-            DayDetailWeatherDataTemperature(weather: weather,
-                                            menuTitle: $menuTitle,
-                                            index: $index,
-                                            arrayDayIcons: $arrayDayIcons)
-        } else if menuTitle == String(localized: "UV-index") {
-            DayDetailWeatherDataUvIndex(weather: weather,
-                                        menuTitle: $menuTitle,
-                                        index: $index)
-        } else if menuTitle == String(localized: "Wind") {
-            DayDetailWeatherDataWind(weather: weather,
-                                     menuTitle: $menuTitle,
-                                     index: $index)
-        } else if menuTitle == String(localized: "Rain") {
-            DayDetailWeatherDataPrecifitation(weather: weather,
-                                              menuTitle: $menuTitle,
-                                              index: $index)
-        } else if menuTitle == String(localized: "Feels like") {
-            DayDetailWeatherDataFeelsLike(weather: weather,
-                                          menuTitle: $menuTitle,
-                                          index: $index)
-        } else if menuTitle == String(localized: "Humidity") {
-            DayDetailWeatherDataHumidity(weather: weather,
-                                         menuTitle: $menuTitle,
-                                         index: $index)
-        } else if menuTitle == String(localized: "Visibility") {
-            DayDetailWeatherDataVisibility(weather: weather,
-                                           menuTitle: $menuTitle,
-                                           index: $index)
-        } else if menuTitle == String(localized: "Air pressure") {
-            DayDetailWeatherDataAirPressure(weather: weather,
+        VStack {
+            if menuTitle == String(localized: "Temperature") ||
+                menuTitle == String(localized: "Weather conditions") {
+                DayDetailWeatherDataTemperature(weather: weather,
+                                                menuTitle: $menuTitle,
+                                                index: $index,
+                                                arrayDayIcons: $arrayDayIcons)
+            } else if menuTitle == String(localized: "UV-index") {
+                DayDetailWeatherDataUvIndex(weather: weather,
                                             menuTitle: $menuTitle,
                                             index: $index)
+            } else if menuTitle == String(localized: "Wind") {
+                DayDetailWeatherDataWind(weather: weather,
+                                         menuTitle: $menuTitle,
+                                         index: $index)
+            } else if menuTitle == String(localized: "Rain") {
+                DayDetailWeatherDataPrecifitation(weather: weather,
+                                                  menuTitle: $menuTitle,
+                                                  index: $index)
+            } else if menuTitle == String(localized: "Feels like") {
+                DayDetailWeatherDataFeelsLike(weather: weather,
+                                              menuTitle: $menuTitle,
+                                              index: $index)
+            } else if menuTitle == String(localized: "Humidity") {
+                DayDetailWeatherDataHumidity(weather: weather,
+                                             menuTitle: $menuTitle,
+                                             index: $index)
+            } else if menuTitle == String(localized: "Visibility") {
+                DayDetailWeatherDataVisibility(weather: weather,
+                                               menuTitle: $menuTitle,
+                                               index: $index)
+            } else if menuTitle == String(localized: "Air pressure") {
+                DayDetailWeatherDataAirPressure(weather: weather,
+                                                menuTitle: $menuTitle,
+                                                index: $index)
+            }
         }
     }
 }

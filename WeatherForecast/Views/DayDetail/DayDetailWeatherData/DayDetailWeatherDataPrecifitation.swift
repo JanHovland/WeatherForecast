@@ -31,7 +31,6 @@ struct DayDetailWeatherDataPrecifitation: View {
                             Text(Precipitation24hBackwards)
                                 .font(.title)
                         }
-                        .offset(x: UIDevice.isIpad ? -55 : -45)
                         HStack (alignment: .lastTextBaseline) {
                             Text(String(localized: "Totally the last 24 hours."))
                                 .font(.title3)
@@ -45,7 +44,6 @@ struct DayDetailWeatherDataPrecifitation: View {
                             Text("\(Int(dataArray.reduce(0, +).rounded())) mm")
                                 .font(.title)
                         }
-                        .offset(x: UIDevice.isIpad ? -55 : -40)
                         HStack (alignment: .lastTextBaseline) {
                             Text(String(localized: "Totally this day."))
                                 .font(.title3)
