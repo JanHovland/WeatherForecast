@@ -29,7 +29,7 @@ func FindMoonPhaseImage(moonPhase: String,
             distance = 400044
         }
     } else if moonPhase == String(localized: "Waxing Crescent") { /// Voksende månesigd
-        if moonIllumination > 0,
+        if moonIllumination >= 0,
            moonIllumination <= 1 {
             image = "Voksende månesigd 1"
             daysToFullMoon = 14
