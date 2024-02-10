@@ -14,28 +14,28 @@ struct DayDetailOffsetInfoViewModifier: ViewModifier {
     func body(content: Content) -> some View {
         
         if self.option == .temperature {
-            content.offset(y: UIDevice.isIpad ? -225 : -160)
+            content.offset(y: UIDevice.isIpad ? -60 : -20)
 
         } else if self.option == .uvIndex {
-            content.offset(y: UIDevice.isIpad ? -320 : -260)
+            content.offset(y: UIDevice.isIpad ? -60 : -40)
             
         } else if self.option == .wind {
-            content.offset(y: UIDevice.isIpad ? -290 : -210)
+            content.offset(y: UIDevice.isIpad ? -60 : -40)
             
         } else if self.option == .precipitation {
-            content.offset(y: UIDevice.isIpad ? -320 : -225)
+            content.offset(y: UIDevice.isIpad ? -60 : -40)
             
         } else if self.option == .feelsLike {
-            content.offset(y: UIDevice.isIpad ? -295 : -235)
+            content.offset(y: UIDevice.isIpad ? -60 : -40)
             
         } else if self.option == .humidity {
-            content.offset(y: UIDevice.isIpad ? -300 : -210)
+            content.offset(y: UIDevice.isIpad ? -60 : -40)
             
         } else if self.option == .visibility {
-            content.offset(y: UIDevice.isIpad ? -300 : -190)
+            content.offset(y: UIDevice.isIpad ? -60 : -40)
             
         } else if self.option == .airPressure {
-            content.offset(y: UIDevice.isIpad ? -290 : -200)
+            content.offset(y: UIDevice.isIpad ? -60 : -40)
         }
     }
 }

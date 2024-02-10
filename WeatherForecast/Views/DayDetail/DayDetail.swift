@@ -307,9 +307,7 @@ struct DayDetail: View {
                                       windInfo: $windInfo,
                                       tempInfo: $tempInfo,
                                       weatherIcon: $weatherIcon)
-                        .offset(y: -40)
-                        
-//                       .modifier(DayDetailOffsetInfoViewModifier(option: MenuTitleToOption(menuTitle: menuTitle)))
+                       .modifier(DayDetailOffsetInfoViewModifier(option: MenuTitleToOption(menuTitle: menuTitle)))
                     }
                 }
             }
