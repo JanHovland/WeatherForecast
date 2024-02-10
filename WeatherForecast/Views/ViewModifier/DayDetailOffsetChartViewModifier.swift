@@ -14,8 +14,8 @@ struct DayDetailOffsetChartViewModifier: ViewModifier {
     func body(content: Content) -> some View {
         
         if self.option == .temperature {
-            content.offset(y: UIDevice.isIpad ? -40 : -100)
-            
+           content.offset(y: UIDevice.isIpad ? -100 : -100)
+
         } else if self.option == .uvIndex {
             content.offset(y: UIDevice.isIpad ? -120 : -200)
             

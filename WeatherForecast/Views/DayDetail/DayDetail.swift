@@ -252,17 +252,12 @@ struct DayDetail: View {
                         ///
                         /// Viser meny og kort værinformasjon:
                         ///
-                        HStack {
-                            Spacer()
-                            DayDetailWeatherData(weather: weather,
-                                                 menuTitle: $menuTitle,
-                                                 index: $index,
-                                                 arrayDayIcons: $arrayDayIcons)
-                            .offset(y: -20)
-                            .opacity(opacity == 1.00 ? 1.00 : 0.00)
-                            Spacer()
-                        }
-                         
+                        DayDetailWeatherData(weather: weather,
+                                             menuTitle: $menuTitle,
+                                             index: $index,
+                                             arrayDayIcons: $arrayDayIcons)
+                        .offset(y: -20)
+                        .opacity(opacity == 1.00 ? 1.00 : 0.00)
                         ///
                         /// Viser image rekken:
                         ///
@@ -270,47 +265,51 @@ struct DayDetail: View {
                                            index: index,
                                            weather: weather,
                                            hourIconArray: $hourIconArray)
-//                        .modifier(DayDetailHourIconsViewModifier(menuTitle: $menuTitle))
-//                        
-//                        ///
-//                        /// Viser data for aktuell option:
-//                        ///
-//                        DayDetailDayDataView(weather: weather,
-//                                             option: MenuTitleToOption(menuTitle: menuTitle),
-//                                             arrayDayIcons: $arrayDayIcons,
-//                                             dateArray: $dateSettings.dates,
-//                                             index: $index,
-//                                             colorsForeground: $colorsForeground,
-//                                             colorsForegroundStandard: $colorsForegroundStandard,
-//                                             colorsBackground: $colorsBackground,
-//                                             colorsBackgroundStandard: $colorsBackgroundStandard,
-//                                             dayDetailHide: $dayDetailHide,
-//                                             selectedValue: $selectedValue,
-//                                             dayArray: $dayArray,
-//                                             rainFalls: $rainFalls,
-//                                             weekdayArray: $weekdayArray,
-//                                             windInfo: $windInfo,
-//                                             tempInfo: $tempInfo,
-//                                             gustInfo: $gustInfo,
-//                                             weatherIcon: $weatherIcon,
-//                                             feltTempArray: $feltTempArray,
-//                                             opacity: $opacity,
-//                                             dewPointArray: $dewPointArray)
-//                        
-//                        .modifier(DayDetailOffsetChartViewModifier(option: MenuTitleToOption(menuTitle: menuTitle)))
-//                        ///
-//                        /// Viser utvidet informasjon om været:
-//                        ///
-//                        DayDetailInfo(weather: weather,
-//                                      option: MenuTitleToOption(menuTitle: menuTitle),
-//                                      index: $index,
-//                                      dayArray: $dayArray,
-//                                      weekdayArray: $weekdayArray,
-//                                      windInfo: $windInfo,
-//                                      tempInfo: $tempInfo,
-//                                      weatherIcon: $weatherIcon)
-//                        
-////                        .modifier(DayDetailOffsetInfoViewModifier(option: MenuTitleToOption(menuTitle: menuTitle)))
+                        
+                        ///
+                        /// Vurdere en vieWModifier for .offset
+                        ///
+                        .offset(y: -30)
+                        ///
+                        /// Viser data for aktuell option:
+                        ///
+                        DayDetailDayDataView(weather: weather,
+                                             option: MenuTitleToOption(menuTitle: menuTitle),
+                                             arrayDayIcons: $arrayDayIcons,
+                                             dateArray: $dateSettings.dates,
+                                             index: $index,
+                                             colorsForeground: $colorsForeground,
+                                             colorsForegroundStandard: $colorsForegroundStandard,
+                                             colorsBackground: $colorsBackground,
+                                             colorsBackgroundStandard: $colorsBackgroundStandard,
+                                             dayDetailHide: $dayDetailHide,
+                                             selectedValue: $selectedValue,
+                                             dayArray: $dayArray,
+                                             rainFalls: $rainFalls,
+                                             weekdayArray: $weekdayArray,
+                                             windInfo: $windInfo,
+                                             tempInfo: $tempInfo,
+                                             gustInfo: $gustInfo,
+                                             weatherIcon: $weatherIcon,
+                                             feltTempArray: $feltTempArray,
+                                             opacity: $opacity,
+                                             dewPointArray: $dewPointArray)
+                        
+                        .modifier(DayDetailOffsetChartViewModifier(option: MenuTitleToOption(menuTitle: menuTitle)))
+                        ///
+                        /// Viser utvidet informasjon om været:
+                        ///
+                        DayDetailInfo(weather: weather,
+                                      option: MenuTitleToOption(menuTitle: menuTitle),
+                                      index: $index,
+                                      dayArray: $dayArray,
+                                      weekdayArray: $weekdayArray,
+                                      windInfo: $windInfo,
+                                      tempInfo: $tempInfo,
+                                      weatherIcon: $weatherIcon)
+                        .offset(y: -40)
+                        
+//                       .modifier(DayDetailOffsetInfoViewModifier(option: MenuTitleToOption(menuTitle: menuTitle)))
                     }
                 }
             }
