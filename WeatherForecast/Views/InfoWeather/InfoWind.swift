@@ -143,7 +143,12 @@ struct InfoWind : View {
 
             Spacer()
         }
-        .frame(width: UIDevice.isIpad ? 490 : 350)
+        ///
+        /// Legg merke til maxHeight ikke må begrense scrollimg, så legg inn en stor verdi.
+        ///
+        .frame(maxWidth: .infinity,
+               maxHeight: 3000)
+        .padding(15)
         .task {
             ///
             /// Bygger opp beaufort:

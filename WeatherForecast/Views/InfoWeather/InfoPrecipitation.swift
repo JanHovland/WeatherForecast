@@ -55,8 +55,9 @@ struct InfoPrecipitation: View {
             }
             Spacer()
         }
-        .frame(width: UIDevice.isIpad ? 490 : 350)
-        .offset(y: UIDevice.isIpad ? 10 : 5)
+        .frame(maxWidth: .infinity,
+               maxHeight: 3000)
+        .padding(15)
         .onChange(of: index) { oldIndex, index in
             dataArray.removeAll()
             snowArray.removeAll()

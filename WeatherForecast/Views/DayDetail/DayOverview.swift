@@ -54,10 +54,10 @@ struct DayOverview: View {
             .padding(.bottom, -5)
             
             ScrollView (.horizontal, showsIndicators: false) {
-                HStack (spacing: 10) {
+                HStack (spacing: 7) {
                     ForEach(weather.dailyForecast, id: \.date) { dayItem in
                         VStack (spacing: spacing) {
-                            Text(FormatDateToString(date: dayItem.date, format: "EEEE d MMM", offsetSec: weatherInfo.offsetSec))
+                            Text(FormatDateToString(date: dayItem.date, format: "EEEE d MMM", offsetSec: weatherInfo.offsetSec).firstUppercased)
                                 .foregroundColor(.cyan)
                                 .padding(.top, 10)
                             ///

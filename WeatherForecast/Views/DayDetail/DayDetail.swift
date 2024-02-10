@@ -226,7 +226,7 @@ struct DayDetail: View {
                         HStack {
                             HStack (alignment: .center) {
                                 Spacer()
-                                Text(GetTimeFromDay(date: currentWeather.date.adding(days: index), format: "EEEE d. MMMM yyyy"))
+                                Text(GetTimeFromDay(date: currentWeather.date.adding(days: index), format: "EEEE d. MMMM yyyy").firstUppercased)
                                 Spacer()
                             }
                             .overlay(

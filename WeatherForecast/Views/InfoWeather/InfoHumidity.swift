@@ -84,7 +84,9 @@ struct InfoHumidity: View {
             
             Spacer()
         }
-        .frame(width: UIDevice.isIpad ? 490 : 350)
+        .frame(maxWidth: .infinity,
+               maxHeight: 3000)
+        .padding(15)
         .task {
             ///
             /// Resetter humidityArray:
