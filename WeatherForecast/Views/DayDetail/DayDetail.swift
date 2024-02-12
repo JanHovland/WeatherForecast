@@ -269,32 +269,32 @@ struct DayDetail: View {
                         .modifier(DayDetailHourIconsModifier(menuTitle: $menuTitle))
                         .padding(10)
 
-//                        ///
-//                        /// Viser data for aktuell option:
-//                        ///
-//                        DayDetailDayDataView(weather: weather,
-//                                             option: MenuTitleToOption(menuTitle: menuTitle),
-//                                             arrayDayIcons: $arrayDayIcons,
-//                                             dateArray: $dateSettings.dates,
-//                                             index: $index,
-//                                             colorsForeground: $colorsForeground,
-//                                             colorsForegroundStandard: $colorsForegroundStandard,
-//                                             colorsBackground: $colorsBackground,
-//                                             colorsBackgroundStandard: $colorsBackgroundStandard,
-//                                             dayDetailHide: $dayDetailHide,
-//                                             selectedValue: $selectedValue,
-//                                             dayArray: $dayArray,
-//                                             rainFalls: $rainFalls,
-//                                             weekdayArray: $weekdayArray,
-//                                             windInfo: $windInfo,
-//                                             tempInfo: $tempInfo,
-//                                             gustInfo: $gustInfo,
-//                                             weatherIcon: $weatherIcon,
-//                                             feltTempArray: $feltTempArray,
-//                                             opacity: $opacity,
-//                                             dewPointArray: $dewPointArray)
-//                        
-//                        .modifier(DayDetailOffsetChartViewModifier(option: MenuTitleToOption(menuTitle: menuTitle)))
+                        ///
+                        /// Viser data for aktuell option:
+                        ///
+                        DayDetailDayDataView(weather: weather,
+                                             option: MenuTitleToOption(menuTitle: menuTitle),
+                                             arrayDayIcons: $arrayDayIcons,
+                                             dateArray: $dateSettings.dates,
+                                             index: $index,
+                                             colorsForeground: $colorsForeground,
+                                             colorsForegroundStandard: $colorsForegroundStandard,
+                                             colorsBackground: $colorsBackground,
+                                             colorsBackgroundStandard: $colorsBackgroundStandard,
+                                             dayDetailHide: $dayDetailHide,
+                                             selectedValue: $selectedValue,
+                                             dayArray: $dayArray,
+                                             rainFalls: $rainFalls,
+                                             weekdayArray: $weekdayArray,
+                                             windInfo: $windInfo,
+                                             tempInfo: $tempInfo,
+                                             gustInfo: $gustInfo,
+                                             weatherIcon: $weatherIcon,
+                                             feltTempArray: $feltTempArray,
+                                             opacity: $opacity,
+                                             dewPointArray: $dewPointArray)
+                        
+                        .modifier(DayDetailOffsetChartViewModifier(option: MenuTitleToOption(menuTitle: menuTitle)))
 //                        ///
 //                        /// Viser utvidet informasjon om været:
 //                        ///
