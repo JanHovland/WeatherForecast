@@ -146,7 +146,7 @@ struct DayDetail: View {
                                         .font(.system(size: 22, weight: .bold))
                                         .foregroundColor(.secondary)
                                 }
-                                .padding(.trailing, 20)
+//                                .padding(.trailing, 20)
                             }
                         )
                     }
@@ -217,8 +217,6 @@ struct DayDetail: View {
                             }
                         }
                     } // ScrollView
-                    .padding(20)
-                    
                     VStack (alignment: .center) {
                         ///
                         /// Viser riktig dato,  meny og kort værinformasjon:
@@ -238,7 +236,6 @@ struct DayDetail: View {
                                                           menuTitle: $menuTitle,
                                                           arrayDayIcons: $arrayDayIcons,
                                                           opacity: $opacity)
-                                    .padding(.trailing, 20)
                                 }
                             )
                         }
@@ -295,18 +292,18 @@ struct DayDetail: View {
                                              dewPointArray: $dewPointArray)
                         
                         .modifier(DayDetailOffsetChartViewModifier(option: MenuTitleToOption(menuTitle: menuTitle)))
-//                        ///
-//                        /// Viser utvidet informasjon om været:
-//                        ///
-//                        DayDetailInfo(weather: weather,
-//                                      option: MenuTitleToOption(menuTitle: menuTitle),
-//                                      index: $index,
-//                                      dayArray: $dayArray,
-//                                      weekdayArray: $weekdayArray,
-//                                      windInfo: $windInfo,
-//                                      tempInfo: $tempInfo,
-//                                      weatherIcon: $weatherIcon)
-//                       .modifier(DayDetailOffsetInfoViewModifier(option: MenuTitleToOption(menuTitle: menuTitle)))
+                        ///
+                        /// Viser utvidet informasjon om været:
+                        ///
+                        DayDetailInfo(weather: weather,
+                                      option: MenuTitleToOption(menuTitle: menuTitle),
+                                      index: $index,
+                                      dayArray: $dayArray,
+                                      weekdayArray: $weekdayArray,
+                                      windInfo: $windInfo,
+                                      tempInfo: $tempInfo,
+                                      weatherIcon: $weatherIcon)
+                       .modifier(DayDetailOffsetInfoViewModifier(option: MenuTitleToOption(menuTitle: menuTitle)))
                     }
                 }
             }

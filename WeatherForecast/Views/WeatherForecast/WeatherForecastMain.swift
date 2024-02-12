@@ -141,6 +141,8 @@ struct WeatherForecastMain: View {
         .task {
             await RefreshPlaces()
         }
+        .padding(.leading, 5)
+        .padding(.trailing, 20)
     }
     
     func RefreshPlaces() async {

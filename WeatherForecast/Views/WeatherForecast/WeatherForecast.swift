@@ -294,6 +294,7 @@ struct WeatherForecast: View {
                 }
             }
         }
+//        .padding(.horizontal, 10)
     }
     ///
     /// Rutine for oppfriskning:

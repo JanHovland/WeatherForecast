@@ -74,9 +74,8 @@ struct AirQualityView: View {
                                                       co: currentWeather.co)
                         })
                     }
-                    .padding(.trailing, 0)
                 }
-                .offset(y: -40 ) // -20)
+                .offset(y: -40)
                 VStack {
                     ///
                     /// Viser status for luftkvaliteten:
