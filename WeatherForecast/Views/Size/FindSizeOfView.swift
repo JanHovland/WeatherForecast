@@ -27,9 +27,10 @@ struct FindSizeOfView: View {
         
         return HStack {
             Spacer()
-            Text("Width: \(Int(screenSize.screenWidth))")
-            Text("Height: \(Int(screenSize.screenHeight))")
+            Text("Width: \(Int(width))")
+            Text("Height: \(Int(height))")
             Spacer()
         }
+        .padding(.top, 5)
     }
 }

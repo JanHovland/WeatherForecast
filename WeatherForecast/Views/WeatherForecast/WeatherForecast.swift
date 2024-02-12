@@ -97,7 +97,7 @@ struct WeatherForecast: View {
             ///
             FindSizeOfView()
                 .frame(maxWidth: .infinity,
-                       maxHeight: 25)
+                       maxHeight: 30)
                 .modifier(DayDetailBackground(dayLight: weather?.currentWeather.isDaylight ?? false ))
                 .offset(y: -30)
                 .opacity(opacitySize)
