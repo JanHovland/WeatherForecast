@@ -1,23 +1,23 @@
 //
-//  SunDayAndNightModifier.swift
+//  DayDetailHourIconsModifiier.swift
 //  WeatherForecast
 //
 //  Created by Jan Hovland on 12/02/2024.
 //
 
 import SwiftUI
-import Foundation
 
-struct SunDayAndNightModifiier: ViewModifier {
+struct DayDetailHourIconsModifier: ViewModifier {
     @Binding var menuTitle: String
     
     @ViewBuilder
     func body(content: Content) -> some View {
         if menuTitle == String(localized: "Temperature") ||
             menuTitle == String(localized: "Weather conditions") {
-            content.offset(y: UIDevice.isIpad ? 0 : 0)
+            content.offset(y: UIDevice.isIpad ? -50 : -50)
         } else {
-            content.offset(y: UIDevice.isIpad ? 5 : 5)
+            content.offset(y: UIDevice.isIpad ? -40 : -40)
         }
     }
 }
+

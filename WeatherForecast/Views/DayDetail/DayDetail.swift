@@ -253,25 +253,22 @@ struct DayDetail: View {
                         ///
                         /// Viser meny og kort værinformasjon:
                         ///
-//                        DayDetailWeatherData(weather: weather,
-//                                             menuTitle: $menuTitle,
-//                                             index: $index,
-//                                             arrayDayIcons: $arrayDayIcons)
-//                        .offset(y: -20)
-//                        .opacity(opacity == 1.00 ? 1.00 : 0.00)
-//                        ///
-//                        /// Viser image rekken:
-//                        ///
-//                        DayDetailHourIcons(option: MenuTitleToOption(menuTitle: menuTitle),
-//                                           index: index,
-//                                           weather: weather,
-//                                           hourIconArray: $hourIconArray)
-//                        
-//                        ///
-//                        /// Vurdere en vieWModifier for .offset
-//                        ///
-//                        .offset(y: -10)
-//                        .padding(10)
+                        DayDetailWeatherData(weather: weather,
+                                             menuTitle: $menuTitle,
+                                             index: $index,
+                                             arrayDayIcons: $arrayDayIcons)
+                        .offset(y: -20)
+                        .opacity(opacity == 1.00 ? 1.00 : 0.00)
+                        ///
+                        /// Viser image rekken:
+                        ///
+                        DayDetailHourIcons(option: MenuTitleToOption(menuTitle: menuTitle),
+                                           index: index,
+                                           weather: weather,
+                                           hourIconArray: $hourIconArray)
+                        .modifier(DayDetailHourIconsModifier(menuTitle: $menuTitle))
+                        .padding(10)
+
 //                        ///
 //                        /// Viser data for aktuell option:
 //                        ///
@@ -315,7 +312,7 @@ struct DayDetail: View {
             }
             .frame(maxWidth: .infinity,
                    maxHeight: 3000)
-            .padding(.leading, 15)
+            .padding()
             Spacer()
         } /// end ScrollView
         .onChange(of: index) { oldIndex, index in

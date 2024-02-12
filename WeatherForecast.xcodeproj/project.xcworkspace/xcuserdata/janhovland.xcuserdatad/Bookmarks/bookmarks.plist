@@ -43,7 +43,7 @@
 				<key>trailing</key>
 				<string>                        /// Viser meny og kort værinformasjon:
                         ///
-//                        DayDetailWeatherData(weather: weather,
+                        DayDetailWeatherData(weather: weather,
 </string>
 			</dict>
 			<key>type</key>
