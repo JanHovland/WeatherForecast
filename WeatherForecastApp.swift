@@ -18,11 +18,13 @@ struct WeatherForecastApp: App {
         @State var dateSettings = DateSettings()
         @State var currentWeather = CurrentWeather()
         @State var weatherInfo = WeatherInfo()
+        @State var screenSize = ScreenSize()
         WindowGroup {
             WeatherForecastMain()
                 .environment(dateSettings)
                 .environment(currentWeather)
                 .environment(weatherInfo)
+                .environment(screenSize)
         }
     }
 }

@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct FindSizeOfView: View {
+    
+    @Environment(ScreenSize.self) private var screenSize
+    
     var body: some View {
         // Pass GeometryProxy to a function
         GeometryReader { geometry in
@@ -19,10 +22,13 @@ struct FindSizeOfView: View {
         let width = geometry.size.width
         let height = geometry.size.height
         
+        screenSize.screenWidth = geometry.size.width
+        screenSize.screenHeight = geometry.size.height
+        
         return HStack {
             Spacer()
-            Text("Width: \(Int(width))")
-            Text("Height: \(Int(height))")
+            Text("Width: \(Int(screenSize.screenWidth))")
+            Text("Height: \(Int(screenSize.screenHeight))")
             Spacer()
         }
     }

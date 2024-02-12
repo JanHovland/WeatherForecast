@@ -57,6 +57,7 @@ struct WeatherForecast: View {
     @State private var weather : Weather?
     @State private var geoRecord = GeoRecord()
     @State private var opacityIndicator: Double = 1.00
+    @State private var opacitySize: Double = 0.00
     ///
     /// Inneholder soloppgang og solnedgang for 10 dager:
     ///
@@ -99,6 +100,8 @@ struct WeatherForecast: View {
                        maxHeight: 25)
                 .modifier(DayDetailBackground(dayLight: weather?.currentWeather.isDaylight ?? false ))
                 .offset(y: -30)
+                .opacity(opacitySize)
+
             ///
             /// weatherInfo.offsetString settes til "" når et sted blir slettet.
             ///
@@ -565,6 +568,10 @@ struct WeatherForecast: View {
                 /// Skjuler ActivityIndicator:
                 ///
                 opacityIndicator = 0.0
+                ///
+                /// Viser opacitySize
+                ///
+                opacitySize = 1.00
             } /// if persist == true
             if persist == true {
                 ///

@@ -87,6 +87,7 @@
 		DB554E3D2B7A0634009A25F5 /* SunDayAndNightModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB554E3C2B7A0634009A25F5 /* SunDayAndNightModifier.swift */; };
 		DB554E3F2B7A1244009A25F5 /* DayDetailHourIconsModifiier.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB554E3E2B7A1244009A25F5 /* DayDetailHourIconsModifiier.swift */; };
 		DB554E5D2B7A9642009A25F5 /* FindSizeOfView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB554E5C2B7A9642009A25F5 /* FindSizeOfView.swift */; };
+		DB554E5F2B7A9DE4009A25F5 /* ScreenSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB554E5E2B7A9DE4009A25F5 /* ScreenSize.swift */; };
 		DB5C0C2E29151B6900141BDC /* Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5C0C2D29151B6900141BDC /* Enum.swift */; };
 		DB5C0C3029151C9600141BDC /* FindDataFromMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5C0C2F29151C9600141BDC /* FindDataFromMenu.swift */; };
 		DB5C0C322915263600141BDC /* MenuTitleToOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5C0C312915263600141BDC /* MenuTitleToOption.swift */; };
@@ -288,6 +289,7 @@
 		DB554E3C2B7A0634009A25F5 /* SunDayAndNightModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunDayAndNightModifier.swift; sourceTree = "<group>"; };
 		DB554E3E2B7A1244009A25F5 /* DayDetailHourIconsModifiier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayDetailHourIconsModifiier.swift; sourceTree = "<group>"; };
 		DB554E5C2B7A9642009A25F5 /* FindSizeOfView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindSizeOfView.swift; sourceTree = "<group>"; };
+		DB554E5E2B7A9DE4009A25F5 /* ScreenSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenSize.swift; sourceTree = "<group>"; };
 		DB5C0C2D29151B6900141BDC /* Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enum.swift; sourceTree = "<group>"; };
 		DB5C0C2F29151C9600141BDC /* FindDataFromMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindDataFromMenu.swift; sourceTree = "<group>"; };
 		DB5C0C312915263600141BDC /* MenuTitleToOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTitleToOption.swift; sourceTree = "<group>"; };
@@ -450,7 +452,6 @@
 		DB13AD3F28E345D200C910E3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				DB554E5B2B7A9619009A25F5 /* Size */,
 				DBB0E7B5290C2B9C0015F556 /* AirPressure */,
 				DB66C19B2AF641EF00C2722E /* AirQuality */,
 				DB679FDE2B25BAF8008C7330 /* AppsFor */,
@@ -468,6 +469,7 @@
 				DB66C1A42AF65B1B00C2722E /* Moon */,
 				DB6400BD29098E1E0013C3B7 /* Precipitation */,
 				DBBDDAD429CB0A7500A3281E /* Settings */,
+				DB554E5B2B7A9619009A25F5 /* Size */,
 				DBB0B8882B72283A00069145 /* SnowWarning */,
 				DB8A7EFD2906B9A1002DFD73 /* Sun */,
 				DB5C0C522917CD4500141BDC /* UvIndex */,
@@ -777,6 +779,7 @@
 				DB69689C290E973500936C0E /* CurrentWeather.swift */,
 				DB69689E290E97F900936C0E /* DateSettings.swift */,
 				DBFEC13F2A7402E6003FC4FB /* WeatherInfo.swift */,
+				DB554E5E2B7A9DE4009A25F5 /* ScreenSize.swift */,
 			);
 			path = Class;
 			sourceTree = "<group>";
@@ -1246,6 +1249,7 @@
 				DB17F6B229601AD000FC2A0B /* DayDetailMenuDataView.swift in Sources */,
 				DB7B50DA2AF1492A00A61BA1 /* AppsForIPhone.swift in Sources */,
 				DB554E3F2B7A1244009A25F5 /* DayDetailHourIconsModifiier.swift in Sources */,
+				DB554E5F2B7A9DE4009A25F5 /* ScreenSize.swift in Sources */,
 				DBC6B3172AF81F1300D27E30 /* MoonRecord.swift in Sources */,
 				DB554E5D2B7A9642009A25F5 /* FindSizeOfView.swift in Sources */,
 				DB51164228E442F300DEB1BF /* WeatherForecastMain.swift in Sources */,
