@@ -14,10 +14,10 @@ struct DayDetailOffsetInfoViewModifier: ViewModifier {
     func body(content: Content) -> some View {
         
         if self.option == .temperature {
-            content.offset(y: UIDevice.isIpad ? -60 : -20)
+            content.offset(y: UIDevice.isIpad ? -60 : -40)
 
         } else if self.option == .uvIndex {
-            content.offset(y: UIDevice.isIpad ? -60 : -40)
+            content.offset(y: UIDevice.isIpad ? -60 : -120)
             
         } else if self.option == .wind {
             content.offset(y: UIDevice.isIpad ? -60 : -40)
