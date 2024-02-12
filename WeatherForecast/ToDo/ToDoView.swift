@@ -450,9 +450,12 @@ var toDo_2 =
    95. 🟢 Legge inn et varselsfelt om snø helt øverst på skjermen
           🟢 Lage skjermbildet
           🟢 Hente data fra global variabel dailyForecast
-   96. 🔴 Tilpasse bredden på Views fra "DAG OVERSIKT"
+   96. 🟢 Tilpasse bredden på Views fra "DAG OVERSIKT"
+   97. 🔴 Korrekt horzontal bredde
+          🔴 "@Environment(\"."verticalSizeClass") -> .compact .regular"
    97. 🔴 Gå gjennom dismiss
    98. 🔴 Nye tilpasninger fra Apple "Været"
+          🔴 Gjennomsnittsverdier
           🔴
    99. 🔴 Erstatte Geosatellite fra met.no
   100. 🔴 Kan alt fra CurrentWeather legges inn i WeatherInfo?

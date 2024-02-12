@@ -86,12 +86,19 @@ struct WeatherForecast: View {
     
     var body: some View {
         VStack {
-            
             if settingsMissing {
                 SettingView()
             }
             ActivityIndicator(opacity: $opacityIndicator)
                 .offset(y: UIDevice.isIpad ? -375 : -325)
+            ///
+            /// Finner høde og bredde avhengig av IPhone og iPad
+            ///
+            FindSizeOfView()
+                .frame(maxWidth: .infinity,
+                       maxHeight: 25)
+                .modifier(DayDetailBackground(dayLight: weather?.currentWeather.isDaylight ?? false ))
+                .offset(y: -30)
             ///
             /// weatherInfo.offsetString settes til "" når et sted blir slettet.
             ///
@@ -294,7 +301,6 @@ struct WeatherForecast: View {
                 }
             }
         }
-//        .padding(.horizontal, 10)
     }
     ///
     /// Rutine for oppfriskning:
