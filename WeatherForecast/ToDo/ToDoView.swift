@@ -453,8 +453,8 @@ var toDo_2 =
    96. 🟢 Tilpasse bredden på Views fra "DAG OVERSIKT"
    97. 🟢 Korrekt horzontal bredde
           🟢 Bruker GeometryReader for å finne bredde og høyde
-   98. 🔴 Gå gjennom dismiss
-          🔴 @Environment(\"."dismiss) var dismiss
+   98. 🟢 Gå gjennom dismiss
+          🟢 @Environment(\"."dismiss) var dismiss
    99. 🔴 Nye tilpasninger fra Apple "Været"
           🔴 Gjennomsnittsverdier
           🔴
