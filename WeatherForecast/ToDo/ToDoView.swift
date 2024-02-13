@@ -451,16 +451,17 @@ var toDo_2 =
           🟢 Lage skjermbildet
           🟢 Hente data fra global variabel dailyForecast
    96. 🟢 Tilpasse bredden på Views fra "DAG OVERSIKT"
-   97. 🔴 Korrekt horzontal bredde
-          🔴 "@Environment(\"."verticalSizeClass") -> .compact .regular"
-   97. 🔴 Gå gjennom dismiss
-   98. 🔴 Nye tilpasninger fra Apple "Været"
+   97. 🟢 Korrekt horzontal bredde
+          🟢 Bruker GeometryReader for å finne bredde og høyde
+   98. 🔴 Gå gjennom dismiss
+          🔴 @Environment(\"."dismiss) var dismiss
+   99. 🔴 Nye tilpasninger fra Apple "Været"
           🔴 Gjennomsnittsverdier
           🔴
-   99. 🔴 Erstatte Geosatellite fra met.no
-  100. 🔴 Kan alt fra CurrentWeather legges inn i WeatherInfo?
+  100. 🔴 Erstatte Geosatellite fra met.no
+  101. 🔴 Kan alt fra CurrentWeather legges inn i WeatherInfo?
           🔴
-  101. 🔴 .
+  102. 🔴 .
           🔴 .
 """
 
@@ -480,4 +481,7 @@ struct ToDoView: View {
         }
     }
 }
+/*
+@Environment(\.dismiss) var dismiss
+ */
 

@@ -52,8 +52,6 @@ struct WeatherForecast: View {
     @Environment(CurrentWeather.self) private var currentWeather
     @Environment(WeatherInfo.self) private var weatherInfo
     
-    @Environment(\.dismiss) var dismissScreen
-    
     @State private var weather : Weather?
     @State private var geoRecord = GeoRecord()
     @State private var opacityIndicator: Double = 1.00

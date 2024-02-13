@@ -17,7 +17,6 @@ struct AirQualityInformationView: View {
     let o3: Double
     let co: Double
 
-    @Environment(\.dismiss) var dismiss
     @Environment(WeatherInfo.self) private var weatherInfo
     @Environment(CurrentWeather.self) private var currentWeather
     

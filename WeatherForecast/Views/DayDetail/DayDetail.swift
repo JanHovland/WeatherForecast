@@ -40,6 +40,7 @@ struct DayDetail: View {
     @Environment(\.presentationMode) var presentationMode
     @Environment(CurrentWeather.self) private var currentWeather
     @Environment(WeatherInfo.self) private var weatherInfo
+    @Environment(\.dismiss) var dismiss
     
     @State private var dateArray : [String] = Array(repeating: "", count: sizeArray10)
     @State private var dateDateArray: [Date] = Array(repeating: Date(), count: sizeArray10)
@@ -138,7 +139,7 @@ struct DayDetail: View {
                                     /// Rutine for å avslutte DayDetail():
                                     ///
                                     Task.init {
-                                        presentationMode.wrappedValue.dismiss()
+                                        dismiss()
                                     }
                                 } label: {
                                     Image(systemName: "x.circle.fill")
@@ -146,7 +147,6 @@ struct DayDetail: View {
                                         .font(.system(size: 22, weight: .bold))
                                         .foregroundColor(.secondary)
                                 }
-//                                .padding(.trailing, 20)
                             }
                         )
                     }

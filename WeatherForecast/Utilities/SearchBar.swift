@@ -16,8 +16,6 @@ struct SearchBar: View {
     @Binding var searchText: String
     @State  var isEditing = false
     
-    @Environment(\.dismiss) var dismiss
-    
     var body: some View {
         HStack {
             TextField("Search ...", text: $searchText)
