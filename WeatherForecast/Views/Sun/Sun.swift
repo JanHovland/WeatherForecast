@@ -81,7 +81,7 @@ struct Sun : View {
                     if weatherInfo.dayIncrease >= 0 {
                         Text("  + \(weatherInfo.dayIncrease)m")
                     } else {
-                        Text("  - \(weatherInfo.dayIncrease)m")
+                        Text("  \(weatherInfo.dayIncrease)m")
                     }
                     Spacer()
                 }
