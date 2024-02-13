@@ -12,7 +12,6 @@ struct FindSizeOfView: View {
     @Environment(ScreenSize.self) private var screenSize
     
     var body: some View {
-        // Pass GeometryProxy to a function
         GeometryReader { geometry in
             self.createCustomView(geometry: geometry)
         }
