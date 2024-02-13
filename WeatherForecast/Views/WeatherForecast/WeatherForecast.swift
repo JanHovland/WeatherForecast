@@ -98,8 +98,10 @@ struct WeatherForecast: View {
                        maxHeight: 30)
                 .modifier(DayDetailBackground(dayLight: weather?.currentWeather.isDaylight ?? false ))
                 .offset(y: -30)
-                .opacity(opacitySize)
-
+                ///
+                /// Skjuler FindSizeOfView()
+                ///
+                .opacity(0.00) // opacitySize)
             ///
             /// weatherInfo.offsetString settes til "" når et sted blir slettet.
             ///
