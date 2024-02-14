@@ -40,6 +40,7 @@ struct DayDetail: View {
     @Environment(\.presentationMode) var presentationMode
     @Environment(CurrentWeather.self) private var currentWeather
     @Environment(WeatherInfo.self) private var weatherInfo
+    @Environment(ScreenSize.self) private var screenSize
     @Environment(\.dismiss) var dismiss
     
     @State private var dateArray : [String] = Array(repeating: "", count: sizeArray10)
@@ -242,11 +243,10 @@ struct DayDetail: View {
                         ///
                         /// Viser natt og dag:
                         ///
-                        SunDayAndNight(xMax: UIDevice.isIpad ? 775 : 352,
+                        SunDayAndNight(xMax: UIDevice.isIpad ? screenSize.screenWidth * 0.975 : screenSize.screenWidth * 0.95,
                                        index : index,
                                        sunRises: $sunRises,
                                        sunSets: $sunSets)
-                        .modifier(SunDayAndNightModifiier(menuTitle: $menuTitle))
                         ///
                         /// Viser meny og kort værinformasjon:
                         ///
@@ -254,7 +254,6 @@ struct DayDetail: View {
                                              menuTitle: $menuTitle,
                                              index: $index,
                                              arrayDayIcons: $arrayDayIcons)
-                        .offset(y: -20)
                         .opacity(opacity == 1.00 ? 1.00 : 0.00)
                         ///
                         /// Viser image rekken:
@@ -264,8 +263,6 @@ struct DayDetail: View {
                                            weather: weather,
                                            hourIconArray: $hourIconArray)
                         .modifier(DayDetailHourIconsModifier(menuTitle: $menuTitle))
-                        .padding(10)
-
                         ///
                         /// Viser data for aktuell option:
                         ///

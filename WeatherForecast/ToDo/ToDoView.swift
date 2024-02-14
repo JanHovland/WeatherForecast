@@ -453,15 +453,17 @@ var toDo_2 =
    96. 🟢 Tilpasse bredden på Views fra "DAG OVERSIKT"
    97. 🟢 Korrekt horzontal bredde
           🟢 Bruker GeometryReader for å finne bredde og høyde
+          🔴 Tilpasse bredden på "Dagen"
    98. 🟢 Gå gjennom dismiss
           🟢 @Environment(\"."dismiss) var dismiss
-   99. 🔴 Nye tilpasninger fra Apple "Været"
+   99. 🔴 Legge inn avstand under bl.a. Værforhold
+  100. 🔴 Nye tilpasninger fra Apple "Været"
           🔴 Gjennomsnittsverdier
           🔴
-  100. 🔴 Erstatte Geosatellite fra met.no
-  101. 🔴 Kan alt fra CurrentWeather legges inn i WeatherInfo?
+  101. 🔴 Erstatte Geosatellite fra met.no
+  102. 🔴 Kan alt fra CurrentWeather legges inn i WeatherInfo?
           🔴
-  102. 🔴 .
+  103. 🔴 .
           🔴 .
 """
 

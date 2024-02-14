@@ -14,9 +14,12 @@ struct DayDetailHourIconsModifier: ViewModifier {
     func body(content: Content) -> some View {
         if menuTitle == String(localized: "Temperature") ||
             menuTitle == String(localized: "Weather conditions") {
-            content.offset(y: UIDevice.isIpad ? -50 : -50)
+            content
+                .offset(y: UIDevice.isIpad ? -20 : -20)
+                .padding(.bottom, UIDevice.isIpad ? 30 : 20) 
         } else {
-            content.offset(y: UIDevice.isIpad ? -40 : -40)
+            content
+                .offset(y: UIDevice.isIpad ? -20 : -20)
         }
     }
 }

@@ -18,7 +18,7 @@
 					<key>StartingLineNumber</key>
 					<string>249</string>
 					<key>Timestamp</key>
-					<string>729528291.894194</string>
+					<string>729630907.935595</string>
 				</dict>
 				<key>rebasable-url</key>
 				<dict>
@@ -37,8 +37,8 @@
 				<string>                        ///
 </string>
 				<key>leading</key>
-				<string>                                       sunSets: $sunSets)
-                        .modifier(SunDayAndNightModifiier(menuTitle: $menuTitle))
+				<string>                                       sunRises: $sunRises,
+                                       sunSets: $sunSets)
 </string>
 				<key>trailing</key>
 				<string>                        /// Viser meny og kort værinformasjon:
