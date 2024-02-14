@@ -459,20 +459,20 @@ var toDo_2 =
    99. 🟢 Legge inn avstand under bl.a. Værforhold
   100. 🔴 Endre på bredden på "I dag" og "I går"
           🔴 Værforhold
-          🔴 UI-indeks
           🔴 Vind
           🔴 Nedbør
           🔴 Føles som
           🔴 Luftfuktighet
           🔴 Sikt
           🔴 Luftttykk
-  101. 🔴 Nye tilpasninger fra Apple "Været"
+  101. 🔴 Justere X kalt fra "DAG OVERSIKT" (litt til venstre)
+  102. 🔴 Nye tilpasninger fra Apple "Været"
           🔴 Gjennomsnittsverdier
           🔴
-  102. 🔴 Erstatte Geosatellite fra met.no
   103. 🔴 Kan alt fra CurrentWeather legges inn i WeatherInfo?
           🔴
-  104. 🔴 .
+  104. 🔴 Erstatte Geosatellite fra met.no
+  105. 🔴 .
           🔴 .
 """
 
