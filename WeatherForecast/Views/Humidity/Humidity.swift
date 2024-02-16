@@ -21,7 +21,7 @@ struct Humidity : View {
                     .symbolRenderingMode(.multicolor)
                     .font(Font.headline.weight(.regular))
                 Text("HUMIDITY")
-                    .font(.system(size: 15, weight: .bold))
+                    .font(.system(size: UIDevice.isIpad ? 15.00 : 13.50, weight: .bold))
                 Spacer()
             }
             .opacity(0.50)
@@ -45,7 +45,7 @@ struct Humidity : View {
             Spacer()
         }
         .frame(maxWidth: .infinity,
-               maxHeight: 180)
+               maxHeight: 200)
         .padding(15)
         .modifier(DayDetailBackground(dayLight: currentWeather.isDaylight))
     }

@@ -458,7 +458,7 @@ var toDo_2 =
           🟢 @Environment(\"."dismiss) var dismiss
    99. 🟢 Legge inn avstand under bl.a. Værforhold
   100. 🟢 Justere X kalt fra "DAG OVERSIKT" (litt til venstre)
-  101. 🔴 Endre på bredden på "I dag" og "I går"
+  101. 🟢 Endre på bredden på "I dag" og "I går"
           🟢 Værforhold
           🟢 UV-indeks
           🟢 Vind
