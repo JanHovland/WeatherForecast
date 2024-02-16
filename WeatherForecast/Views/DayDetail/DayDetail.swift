@@ -132,6 +132,7 @@ struct DayDetail: View {
                             Text(menuTitle)
                             Spacer()
                         }
+                        .padding(.vertical, 10)
                         .overlay (
                             HStack {
                                 Spacer()
@@ -147,7 +148,7 @@ struct DayDetail: View {
                                         .symbolRenderingMode(.multicolor)
                                         .font(.system(size: 22, weight: .bold))
                                         .foregroundColor(.red)
-                                        .padding(.trailing, 20)
+                                        .padding(.trailing, 10)
                                 }
                             }
                         )
@@ -229,6 +230,7 @@ struct DayDetail: View {
                                 Text(GetTimeFromDay(date: currentWeather.date.adding(days: index), format: "EEEE d. MMMM yyyy").firstUppercased)
                                 Spacer()
                             }
+                            .padding(.top, 30)
                             .overlay(
                                 HStack {
                                     Spacer()
