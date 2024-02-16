@@ -459,13 +459,10 @@ var toDo_2 =
    99. 🟢 Legge inn avstand under bl.a. Værforhold
   100. 🟢 Justere X kalt fra "DAG OVERSIKT" (litt til venstre)
   101. 🔴 Endre på bredden på "I dag" og "I går"
-          🔴 Værforhold
-          🔴 Vind
-          🔴 Nedbør
-          🔴 Føles som
-          🔴 Luftfuktighet
-          🔴 Sikt
-          🔴 Luftttykk
+          🟢 Værforhold
+          🟢 UV-indeks
+          🟢 Vind
+          🟢 Luftfuktighet
   102. 🔴 Nye tilpasninger fra Apple "Været"
           🔴 Gjennomsnittsverdier
           🔴

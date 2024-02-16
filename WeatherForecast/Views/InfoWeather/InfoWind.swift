@@ -22,6 +22,7 @@ struct InfoWind : View {
     
     @Environment(CurrentWeather.self) private var currentWeather
     @Environment(WeatherInfo.self) private var weatherInfo
+    @Environment(ScreenSize.self) private var screenSize
     
     @State private var windToDay: Double = 10.00
     @State private var windYesterDay: Double = 20.00
@@ -59,7 +60,7 @@ struct InfoWind : View {
                 /// Viser nivået i dag og i går
                 ///
                 ProgressView(value: 0.5)
-                    .progressViewStyle(ProgressViewStyleModifier(progressWidth: CGFloat(UIDevice.isIpad ? 390 : 250),
+                    .progressViewStyle(ProgressViewStyleModifier(progressWidth: CGFloat(UIDevice.isIpad ? screenSize.screenWidth * 0.825 : screenSize.screenWidth * 0.70),
                                                                  option: option,
                                                                  valueToDay: windToDay,
                                                                  valueYesterDay: windYesterDay,

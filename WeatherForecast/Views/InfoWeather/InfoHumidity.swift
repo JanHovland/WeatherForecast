@@ -17,6 +17,7 @@ struct InfoHumidity: View {
     @Environment(DateSettings.self) private var dateSettings
     @Environment(CurrentWeather.self) private var currentWeather
     @Environment(WeatherInfo.self) private var weatherInfo
+    @Environment(ScreenSize.self) private var screenSize
 
     @State private var text : String = String(localized: "The average humidity today is ")
     @State private var humidityArray : [Double] = Array(repeating: Double(), count: sizeArray24)
@@ -55,8 +56,7 @@ struct InfoHumidity: View {
             /// Viser nivået i dag og i går
             ///
             ProgressView(value: 0.5)
-                .progressViewStyle(ProgressViewStyleModifier(progressWidth: CGFloat(UIDevice.isIpad ? 390 : 250),
-                                                             option: option,
+                .progressViewStyle(ProgressViewStyleModifier(progressWidth: CGFloat(UIDevice.isIpad ? screenSize.screenWidth * 0.825: screenSize.screenWidth * 0.675),                                                                                 option: option,
                                                              valueToDay: humidityToDay,
                                                              valueYesterDay: humidityYesterDay,
                                                              factorToDay: factorToDay,

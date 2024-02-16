@@ -21,6 +21,7 @@ struct InfoTemperature : View {
     @Environment(CurrentWeather.self) private var currentWeather
     @Environment(WeatherInfo.self) private var weatherInfo
     @Environment(DateSettings.self) private var dateSettings
+    @Environment(ScreenSize.self) private var screenSize
     
     @State private var text: String = ""
     @State private var text1: String = ""
@@ -227,7 +228,7 @@ struct InfoTemperature : View {
                 
             }
             ProgressView(value: 0.5)
-                .progressViewStyle(ProgressViewStyleModifier(progressWidth: CGFloat(UIDevice.isIpad ? 390: 250),
+                .progressViewStyle(ProgressViewStyleModifier(progressWidth: CGFloat(UIDevice.isIpad ? screenSize.screenWidth * 0.825: screenSize.screenWidth * 0.70),
                                                              option: option,
                                                              valueToDay: feltTempToDay,
                                                              valueYesterDay: feltTempYesterDay,
