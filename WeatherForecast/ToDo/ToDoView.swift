@@ -457,7 +457,8 @@ var toDo_2 =
    98. 🟢 Gå gjennom dismiss
           🟢 @Environment(\"."dismiss) var dismiss
    99. 🟢 Legge inn avstand under bl.a. Værforhold
-  100. 🔴 Endre på bredden på "I dag" og "I går"
+  100. 🟢 Justere X kalt fra "DAG OVERSIKT" (litt til venstre)
+  101. 🔴 Endre på bredden på "I dag" og "I går"
           🔴 Værforhold
           🔴 Vind
           🔴 Nedbør
@@ -465,7 +466,6 @@ var toDo_2 =
           🔴 Luftfuktighet
           🔴 Sikt
           🔴 Luftttykk
-  101. 🔴 Justere X kalt fra "DAG OVERSIKT" (litt til venstre)
   102. 🔴 Nye tilpasninger fra Apple "Været"
           🔴 Gjennomsnittsverdier
           🔴

@@ -146,7 +146,8 @@ struct DayDetail: View {
                                     Image(systemName: "x.circle.fill")
                                         .symbolRenderingMode(.multicolor)
                                         .font(.system(size: 22, weight: .bold))
-                                        .foregroundColor(.secondary)
+                                        .foregroundColor(.red)
+                                        .padding(.trailing, 20)
                                 }
                             }
                         )
