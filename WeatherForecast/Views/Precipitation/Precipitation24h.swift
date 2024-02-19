@@ -37,8 +37,8 @@ struct Precipitation24h : View {
                 .padding(.top, 10)
                 .padding(.leading, -20)
             Text("Last 24 h")
-                .padding(.top, -30)
-                .padding(.leading, -45)  
+                .padding(.top, -22)
+                .padding(.leading, -45)
             /// Viser regn det neste døgn:
             ///
             let a = String(localized: "is expected the next day.")
