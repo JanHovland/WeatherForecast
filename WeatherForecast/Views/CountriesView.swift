@@ -52,14 +52,13 @@ struct CountriesView: View {
                     .padding(2)
                 }
             }
+            .searchable(text: $searchText)
             .listStyle(.inset)
             .scrollIndicators(.hidden)
         }
-        .padding(.top, -20)
         .padding(.leading, 10)
         .navigationBarTitle("Countries overview")
         .navigationBarTitleDisplayMode(.inline)
-        .searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .always))
         .alert(title, isPresented: $showAlert) {
             }
             message: {
