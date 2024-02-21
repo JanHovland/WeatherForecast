@@ -1722,4 +1722,7 @@
 /* No comment provided by engineer. */
 "snowWarning is empty." = "Snøvarslingen ineholder ikke data.";
 
+/* No comment provided by engineer. */
+"Update setting for RestCountries." = "Oppdater innstilling for RestCountries.";
+
 

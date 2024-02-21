@@ -463,13 +463,15 @@ var toDo_2 =
           🟢 UV-indeks
           🟢 Vind
           🟢 Luftfuktighet
-  102. 🔴 Nye tilpasninger fra Apple "Været"
+  102. 🟢 Legge inn settings for:
+          🟢 https://restcountries.com/v3.1/all?fields=name,cca2,flag,capital,population          🔴
+  103. 🔴 Nye tilpasninger fra Apple "Været"
           🔴 Gjennomsnittsverdier
           🔴
-  103. 🔴 Kan alt fra CurrentWeather legges inn i WeatherInfo?
+  104. 🔴 Kan alt fra CurrentWeather legges inn i WeatherInfo?
           🔴
-  104. 🔴 Erstatte Geosatellite fra met.no
-  105. 🔴 .
+  105. 🔴 Erstatte Geosatellite fra met.no
+  106. 🔴 .
           🔴 .
 """
 

@@ -12,8 +12,12 @@ import SwiftUI
 ///
 
 struct CountriesView: View {
+
     @State private var countries: [CountryRecord] = []
     @State private var searchText = ""
+    @State private var message: LocalizedStringKey = ""
+    @State private var title: LocalizedStringKey = ""
+    @State private var showAlert: Bool = false
     
     var body: some View {
         NavigationStack {
@@ -56,19 +60,32 @@ struct CountriesView: View {
         .navigationBarTitle("Countries overview")
         .navigationBarTitleDisplayMode(.inline)
         .searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .always))
+        .alert(title, isPresented: $showAlert) {
+            }
+            message: {
+                Text(message)
+        }
         .task {
             /// Beskrivelse av feltene for:
             /// https://restcountries.com/v3.1/all?fields=
             ///
             /// https://gitlab.com/restcountries/restcountries/-/blob/master/FIELDS.md
             ///
-            let url1 = "https://restcountries.com/v3.1/all?fields=name,cca2,flag,capital,population"
-            var value1: (String, [CountryRecord])
-            await value1 = FindCountries(urlString: url1)
-            if value1.0 == "" {
-                countries = value1.1
+            
+            let url1 = UserDefaults.standard.object(forKey: "UrlRestCountries") as? String ?? ""
+            if url1 == "" {
+                Task.init {
+                    title = "Update setting for RestCountries."
+                    showAlert.toggle()
+                }
             } else {
-                countries.removeAll()
+                var value1: (String, [CountryRecord])
+                await value1 = FindCountries(urlString: url1)
+                if value1.0 == "" {
+                    countries = value1.1
+                } else {
+                    countries.removeAll()
+                }
             }
         }
         ///
