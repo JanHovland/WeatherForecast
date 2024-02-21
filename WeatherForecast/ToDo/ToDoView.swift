@@ -465,11 +465,10 @@ var toDo_2 =
           🟢 Luftfuktighet
   102. 🟢 Legge inn settings for:
           🟢 https://restcountries.com/v3.1/all?fields=name,cca2,flag,capital,population  
-  103. 🔴 Legg søkefelt på land
+  103. 🟢 Legg søkefelt på land
   104. 🔴 Nye tilpasninger fra Apple "Været"
           🔴 Gjennomsnittsverdier temperatur
           🔴 Gjennomsnittsverdier nedbør
-
   105. 🔴 Kan alt fra CurrentWeather legges inn i WeatherInfo?
           🔴
   106. 🔴 Erstatte Geosatellite fra met.no
