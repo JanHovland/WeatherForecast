@@ -44,5 +44,6 @@ struct DayDetailMenuDataView: View {
                         menuTitle: $menuTitle)
             .opacity(opacity == 1.00 ? 1.00 : 0.00)
         }
+        .padding(.trailing, 10)
     }
 }

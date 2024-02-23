@@ -327,7 +327,7 @@ struct DayDetailChart: View {
                                     showSelectedValue
                                 }
                                 .foregroundStyle(Color.white.opacity(0.15))
-                                .offset(yStart: -10) /// Viser verdien relativt til største verdi av "Value"
+                                .offset(yStart: 0) /// Viser verdien relativt til største verdi av "Value"
                                 .zIndex(-1)
                         }
                         ///

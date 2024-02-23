@@ -16,10 +16,11 @@ struct DayDetailHourIconsModifier: ViewModifier {
             menuTitle == String(localized: "Weather conditions") {
             content
                 .offset(y: UIDevice.isIpad ? -20 : -20)
-                .padding(.bottom, UIDevice.isIpad ? 30 : 20) 
+                .padding(.bottom, UIDevice.isIpad ? 60 : 40)
         } else {
             content
                 .offset(y: UIDevice.isIpad ? -20 : -20)
+                .padding(.bottom, UIDevice.isIpad ? 60 : 40)  
         }
     }
 }

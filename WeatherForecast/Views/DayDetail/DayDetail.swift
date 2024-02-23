@@ -148,7 +148,7 @@ struct DayDetail: View {
                                         .symbolRenderingMode(.multicolor)
                                         .font(.system(size: 22, weight: .bold))
                                         .foregroundColor(.red)
-                                        .padding(.trailing, 10)
+                                        .padding(.trailing, 20)
                                 }
                             }
                         )
