@@ -1725,4 +1725,7 @@
 /* No comment provided by engineer. */
 "Update setting for RestCountries." = "Oppdater innstilling for RestCountries.";
 
+/* No comment provided by engineer. */
+"Unknown" = "ukjent";
+
 

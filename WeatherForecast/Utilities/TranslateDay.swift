@@ -13,9 +13,9 @@ func TranslateDay(index: Int,
     
     var weekDay : String = ""
     
-    let day = weekdayArray[index]
+    let day = weekdayArray[index].firstLowercased
     
-    switch day {
+    switch day  {
         
     case "man." :
         weekDay = String(localized: "monday")
@@ -60,7 +60,7 @@ func TranslateDay(index: Int,
         weekDay = String(localized: "sunday")
         
     default:
-        weekDay = ""
+        weekDay = "Unknown"
     }
     
     return weekDay
