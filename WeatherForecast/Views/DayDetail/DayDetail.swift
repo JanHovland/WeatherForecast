@@ -264,7 +264,8 @@ struct DayDetail: View {
                         DayDetailHourIcons(option: MenuTitleToOption(menuTitle: menuTitle),
                                            index: index,
                                            weather: weather,
-                                           hourIconArray: $hourIconArray)
+                                           hourIconArray: $hourIconArray,
+                                           width: screenSize.screenWidth)
                         .modifier(DayDetailHourIconsModifier(menuTitle: $menuTitle))
                         ///
                         /// Viser data for aktuell option:

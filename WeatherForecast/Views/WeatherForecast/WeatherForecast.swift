@@ -101,7 +101,7 @@ struct WeatherForecast: View {
                 ///
                 /// Skjuler FindSizeOfView()
                 ///
-                .opacity(0.00) // opacitySize)
+//                .opacity(0.00) // opacitySize)
             ///
             /// weatherInfo.offsetString settes til "" når et sted blir slettet.
             ///

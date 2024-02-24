@@ -14,11 +14,15 @@ struct DayDetailHourIcons: View {
     let index: Int
     let weather: Weather
     @Binding var hourIconArray: [String]
+    let width: Double
     
-    @State private var spacing: CGFloat = 0.00
+    @Environment(ScreenSize.self) private var screenSize
+    
+    @State private var spacing: CGFloat = 0.00    /// Må fjernes !!!!!!!!
     @State private var fontSize: CGFloat = 0.00
     @State private var padding: CGFloat = 0.00
-    
+    @State private var trailing: CGFloat = 0.00
+
     var body: some View {
         VStack {
             if option == .temperature {
@@ -28,21 +32,17 @@ struct DayDetailHourIcons: View {
                             Image(systemName: ConvertImageToFill(image: element.description))
                                 .font(.system(size: fontSize))
                                 .modifier(ImageViewModifier(image: ConvertImageToFill(image: element.description)))
-                                .padding(.horizontal, padding)
                         }
                     }
                 }
+                .padding(.trailing, trailing)
                 .task {
-                    if UIDevice.isiPhone {
-                        spacing = -1.5
-                        fontSize = 12.5
-                        padding = 6.50
-                    } else {
-                        spacing = 0.20
-                        fontSize = 15
-                        padding = 11
-                    }
+                    (fontSize, spacing, trailing) = AdjustValues(option: option)
                 }
+                .onChange(of: screenSize.screenWidth) {
+                    (fontSize, spacing, trailing) = AdjustValues(option: option)
+               }
+
             } else if option == .uvIndex {
                 HStack (spacing: spacing) {
                     ForEach(Array(hourIconArray.enumerated()), id: \.element) { idx, element in
@@ -56,11 +56,11 @@ struct DayDetailHourIcons: View {
                 }
                 .task {
                     if UIDevice.isiPhone {
-                        spacing = 6.25
+//                        spacing = 6.25
                         fontSize = 13
                         padding = 7
                     } else {
-                        spacing = 14.5
+//                        spacing = 14.5
                         fontSize = 15
                         padding = 9.35
                     }
@@ -84,11 +84,11 @@ struct DayDetailHourIcons: View {
                 }
                 .task {
                     if UIDevice.isiPhone {
-                        spacing = 1.5
+//                        spacing = 1.5
                         fontSize = 14
                         padding = 6
                     } else {
-                        spacing = 7.5
+//                        spacing = 7.5
                         fontSize = 15
                         padding = 9.75
                     }
@@ -106,11 +106,11 @@ struct DayDetailHourIcons: View {
                 }
                 .task {
                     if UIDevice.isiPhone {
-                        spacing = 2
+//                        spacing = 2
                         fontSize = 11.5
                         padding = 5.5
                     } else {
-                        spacing = 1
+//                        spacing = 1
                         fontSize = 15
                         padding = 10.65
                     }
@@ -128,11 +128,11 @@ struct DayDetailHourIcons: View {
                 }
                 .task {
                     if UIDevice.isiPhone {
-                        spacing = 1
+//                        spacing = 1
                         fontSize = 13
                         padding = 5.50
                     } else {
-                        spacing = 9
+//                        spacing = 9
                         fontSize = 15
                         padding = 7.50
                     }
@@ -150,11 +150,11 @@ struct DayDetailHourIcons: View {
                 }
                 .task {
                     if UIDevice.isiPhone {
-                        spacing = 2.0
+//                        spacing = 2.0
                         fontSize = 12.5
                         padding = 4.75
                     } else {
-                        spacing = 13
+//                        spacing = 13
                         fontSize = 15
                         padding = 5.0
                     }
@@ -172,11 +172,11 @@ struct DayDetailHourIcons: View {
                 }
                 .task {
                     if UIDevice.isiPhone {
-                        spacing = 1
+//                        spacing = 1
                         fontSize = 14
                         padding = 5.75
                     } else {
-                        spacing = 1
+//                        spacing = 1
                         fontSize = 17
                         padding = 11.25
                     }
@@ -185,7 +185,34 @@ struct DayDetailHourIcons: View {
         }
         .frame(maxWidth: .infinity,
                maxHeight: 50)
-        .padding(20)
+        .padding(.vertical, 20)
+    }
+    
+    func AdjustValues(option: EnumType) -> (CGFloat, CGFloat, CGFloat) {
+        var fontSize: CGFloat = 0.00
+        var spacing: CGFloat = 0.00
+        var trailing: CGFloat = 0.00
+         
+        if option == .temperature {
+            if UIDevice.isiPhone {
+                ///
+                /// 368 x 709 from GeometryReader
+                ///
+                fontSize = 12
+                if width < 700   { spacing = 10; trailing = 35 } else { spacing = 40; trailing = 40 }
+            } else {
+                ///
+                /// 809 x 1087 from GeometryReader
+                ///
+                fontSize = 15
+                if width < 1000  { spacing = 40; trailing = 40 } else { spacing = 65 ; trailing = 40}
+            }
+        }
+
+        
+        
+        return (fontSize, spacing, trailing)
+        
     }
 }
  
