@@ -466,22 +466,30 @@ var toDo_2 =
   102. 🟢 Legge inn settings for:
           🟢 https://restcountries.com/v3.1/all?fields=name,cca2,flag,capital,population  
   103. 🟢 Legg søkefelt på land
-  104. 🔴 DayDetailHourIconsModifier() må tilpasses for:
+  104. 🟢 DayDetailHourIconsModifier() må tilpasse bredden for:
           🟢 Værforhold
           🟢 UV-indeks
+          🟢 Vind
+          🟢 Føles som
+          🟢 Luftfuktighet
+          🟢 Sikt
+          🟢 Lufttrykk
+  105. 🔴 Tilpasse DayDetailHourIcons() avhengig av screenSize.screenWidth:
+          🔴 Værforhold
+          🔴 UV-indeks
           🔴 Vind
           🔴 Nedbør
           🔴 Føles som
           🔴 Luftfuktighet
           🔴 Sikt
           🔴 Lufttrykk
-  105. 🔴 Nye tilpasninger fra Apple "Været"
+  106. 🔴 Nye tilpasninger fra Apple "Været"
           🔴 Gjennomsnittsverdier temperatur
           🔴 Gjennomsnittsverdier nedbør
-  106. 🔴 Kan alt fra CurrentWeather legges inn i WeatherInfo?
+  107. 🔴 Kan alt fra CurrentWeather legges inn i WeatherInfo?
           🔴
-  107. 🔴 Erstatte Geosatellite fra met.no
-  108. 🔴 .
+  108. 🔴 Erstatte Geosatellite fra met.no
+  109. 🔴 .
           🔴 .
 """
 

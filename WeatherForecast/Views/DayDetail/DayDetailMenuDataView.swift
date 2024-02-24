@@ -31,9 +31,8 @@ struct DayDetailMenuDataView: View {
             .padding(4)
             .symbolRenderingMode(.hierarchical)
             .font(.system(size: 22, weight: .bold))
-            .foregroundColor(.secondary)
-            .background(Color(.systemGray5))
-            .cornerRadius(15)
+            .background(Color(.systemGray3))
+            .cornerRadius(12.5)
             .opacity(opacity == 1.00 ? 1.00 : 0.00)
         }
         .contextMenu()  {
