@@ -79,4 +79,11 @@ import Observation
     /// isSunUp
     var isSunUp = Int()
     
+    ///
+    /// Økning / minking av lenden på dagslys
+    ///
+    
+    var dayLength: Int = 0
+    var dayIncrease: Int = 0
+    
 }

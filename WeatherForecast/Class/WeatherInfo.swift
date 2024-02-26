@@ -46,33 +46,4 @@ import Observation
     var placeOffsetString: String = ""
     var placeOffsetSec: Int = 0
     
-    ///
-    /// Økning / minking av lenden på dagslys
-    ///
-    
-    var dayLength: Int = 0
-    var dayIncrease: Int = 0
-
-    ///
-    /// https://openweathermap.org/api/air-pollution#concept
-    /// Air Quality Index. Possible values: 1, 2, 3, 4, 5. Where 1 = Good, 2 = Fair, 3 = Moderate, 4 = Poor, 5 = Very Poor.
-    var aqi = Int()
-    ///  Сoncentration of CO (Carbon monoxide), μg/m3
-    var co = Double()
-    /// Сoncentration of NO (Nitrogen monoxide), μg/m3
-    var no = Double()
-    /// Сoncentration of NO2 (Nitrogen dioxide), μg/m3
-    var no2 = Double()
-    /// Сoncentration of O3 (Ozone), μg/m
-    var o3 = Double()
-    /// Сoncentration of SO2 (Sulphur dioxide), μg/m3
-    var so2 = Double()
-    ///  Сoncentration of PM2.5 (Fine particles matter), μg/m3
-    var pm2_5 = Double()
-    /// Сoncentration of PM10 (Coarse particulate matter), μg/m3
-    var pm10 = Double()
-    /// Сoncentration of NH3 (Ammonia), μg/m3
-    var nh3 = Double()
-    ///  Date and time, Unix, UTC
-    var dt = Int()
 }

@@ -486,10 +486,8 @@ var toDo_2 =
   106. 🔴 Nye tilpasninger fra Apple "Været"
           🔴 Gjennomsnittsverdier temperatur
           🔴 Gjennomsnittsverdier nedbør
-  107. 🔴 Kan alt fra CurrentWeather legges inn i WeatherInfo?
-          🔴
-  108. 🔴 Erstatte Geosatellite fra met.no
-  109. 🔴 .
+  107. 🔴 Erstatte Geosatellite fra met.no
+  108. 🔴 .
           🔴 .
 """
 

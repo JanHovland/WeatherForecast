@@ -17,7 +17,8 @@ struct Sun : View {
     @Binding var sunRises : [String]
     @Binding var sunSets : [String]
     
-    @Environment(WeatherInfo.self) private var weatherInfo
+    @Environment(CurrentWeather.self) private var currentWeather
+
     @Environment(ScreenSize.self) private var screenSize
     
     var body: some View {
@@ -77,11 +78,11 @@ struct Sun : View {
                     Spacer()
                     Image(systemName: "sunrise.fill")
                         .symbolRenderingMode(.multicolor)
-                    Text("\(weatherInfo.dayLength / 60)t \(weatherInfo.dayLength % 60)m")
-                    if weatherInfo.dayIncrease >= 0 {
-                        Text("  + \(weatherInfo.dayIncrease)m")
+                    Text("\(currentWeather.dayLength / 60)t \(currentWeather.dayLength % 60)m")
+                    if currentWeather.dayIncrease >= 0 {
+                        Text("  + \(currentWeather.dayIncrease)m")
                     } else {
-                        Text("  \(weatherInfo.dayIncrease)m")
+                        Text("  \(currentWeather.dayIncrease)m")
                     }
                     Spacer()
                 }

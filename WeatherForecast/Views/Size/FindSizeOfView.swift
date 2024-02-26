@@ -18,6 +18,7 @@ struct FindSizeOfView: View {
     }
     
     func createCustomView(geometry: GeometryProxy) -> some View {
+        
         let width = geometry.size.width
         let height = geometry.size.height
         

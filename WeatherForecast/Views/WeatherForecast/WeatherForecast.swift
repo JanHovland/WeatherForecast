@@ -29,7 +29,7 @@ import CloudKit
 ///
 /// https://blog.prototypr.io/ios-16-for-product-designers-and-design-engineers-38b5f8408481
 ///
-/// https://www.hackingwithswift.com/quick-start/swiftui/how-to-use-environmentobject-to-share-data-between-views
+/// ttps://www.hackingwithswift.com/quick-start/swiftui/how-to-use-environmentobject-to-share-data-between-views
 ///
 /// https://www.andyibanez.com/posts/using-corelocation-with-swiftui/
 ///
@@ -37,6 +37,15 @@ import CloudKit
 ///
 /// https://swiftuirecipes.com/blog/file-tree-with-expanding-list-in-swiftui
 ///
+
+///
+//*     How to use Unified logging:
+///     import OSLog
+///     let value = 12345
+///     let logger = Logger(subsystem: "com.janhovland.WeatherForecast", category: "WeatherForecastMain")
+///     logger.debug("The value is \(value, format: .)")
+///
+
 struct WeatherForecast: View {
     
     var expOption: EnumType
@@ -74,6 +83,7 @@ struct WeatherForecast: View {
     @State private var settingsMissing: Bool = false
     @State private var someSnow: Bool = false
     
+
     let noPlaceName: String = String(localized: "No placeName")
     let noCountryName: String = String(localized: "No countryName")
     
@@ -101,7 +111,7 @@ struct WeatherForecast: View {
                 ///
                 /// Skjuler FindSizeOfView()
                 ///
-//                .opacity(0.00) // opacitySize)
+                .opacity(opacitySize)
             ///
             /// weatherInfo.offsetString settes til "" når et sted blir slettet.
             ///
@@ -423,13 +433,11 @@ struct WeatherForecast: View {
                     sunRises.removeAll()
                     sunSets.removeAll()
                 }
-                
                 ///
                 /// Oppdatere lengden av dagen
                 ///
-                weatherInfo.dayLength = value.3
-                weatherInfo.dayIncrease = value.4
-                
+                currentWeather.dayLength = value.3
+                currentWeather.dayIncrease = value.4
                 ///
                 /// Finner data for månen:
                 ///

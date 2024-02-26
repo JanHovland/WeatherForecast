@@ -22,10 +22,11 @@ struct DayDetailHourIcons: View {
     @State private var fontSize: CGFloat = 0.00
     @State private var padding: CGFloat = 0.00
     @State private var trailing: CGFloat = 0.00
-
+    
     var body: some View {
         VStack {
             if option == .temperature {
+                
                 HStack (spacing: spacing) {
                     ForEach(Array(hourIconArray.enumerated()), id: \.element) { idx, element in
                         VStack {
