@@ -78,7 +78,7 @@ func FindMoonPhaseImage(moonPhase: String,
             image = "Voksende måne 2"
             daysToFullMoon = 6
             distance = 389915
-        } else if moonIllumination > 73,
+        } else if moonIllumination >= 74,
                   moonIllumination <= 81 {
             image = "Voksende måne 3"
             daysToFullMoon = 5
@@ -93,7 +93,7 @@ func FindMoonPhaseImage(moonPhase: String,
             image = "Voksende måne 5"
             daysToFullMoon = 3
             distance = 400784
-        } else if moonIllumination > 94,
+        } else if moonIllumination >= 95,
                   moonIllumination <= 97 {
             image = "Voksende måne 6"
             daysToFullMoon = 2
@@ -116,12 +116,12 @@ func FindMoonPhaseImage(moonPhase: String,
             image = "Minkende måne 1"
             daysToFullMoon = 29
             distance = 402492
-        } else if moonIllumination < 98 ,
+        } else if moonIllumination <= 97 ,
                   moonIllumination >= 96 {
             image = "Minkende måne 2"
             daysToFullMoon = 28
             distance = 404232
-        } else if moonIllumination < 95 ,
+        } else if moonIllumination <= 95 ,
                   moonIllumination >= 91 {
             image = "Minkende måne 3"
             daysToFullMoon = 27
@@ -131,7 +131,7 @@ func FindMoonPhaseImage(moonPhase: String,
             image = "Minkende måne 4"
             daysToFullMoon = 26
             distance = 405656
-        } else if moonIllumination < 85,
+        } else if moonIllumination <= 84,
                   moonIllumination >= 78 {
             image = "Minkende måne 5"
             daysToFullMoon = 25
@@ -146,7 +146,7 @@ func FindMoonPhaseImage(moonPhase: String,
             image = "Minkende måne 7"
             daysToFullMoon = 23
             distance = 400605
-        } else if moonIllumination <=  60,
+        } else if moonIllumination <= 60,
                   moonIllumination >= 51 {
             image = "Siste kvarter"
             daysToFullMoon = 22
@@ -180,18 +180,18 @@ func FindMoonPhaseImage(moonPhase: String,
                   moonIllumination >= 13 {
             image = "Minkende månesigd 3"
             daysToFullMoon = 18
-            distance = 37370
+            distance = 373790
         } else if moonIllumination <= 21,
                   moonIllumination >= 13 {
             image = "Minkende månesigd 4"
             daysToFullMoon = 18
             distance = 373790
-        } else if moonIllumination < 14,
+        } else if moonIllumination <= 14,
                   moonIllumination >= 6 {
             image = "Minkende månesigd 5"
             daysToFullMoon = 17
             distance = 368060
-        } else if moonIllumination < 5,
+        } else if moonIllumination <= 5,
                   moonIllumination >= 2 {
             image = "Minkende månesigd 6"
             daysToFullMoon = 16
