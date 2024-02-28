@@ -9,6 +9,15 @@ import SwiftUI
 import CoreLocation
 import WeatherKit
 import CloudKit
+import OSLog
+
+///
+///
+/// Initialet logger = Logger(subsystem: "com.janhovland.WeatherForecast", category: "WeatherForecastMain")
+///
+///
+
+let logger = Logger(subsystem: "com.janhovland.WeatherForecast", category: "WeatherForecastMain")
 
 ///
 /// Oppretter hourForcast

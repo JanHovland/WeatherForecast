@@ -111,7 +111,7 @@ struct WeatherForecast: View {
                 ///
                 /// Skjuler FindSizeOfView()
                 ///
-                .opacity(opacitySize)
+                .opacity(0.00)
             ///
             /// weatherInfo.offsetString settes til "" når et sted blir slettet.
             ///
@@ -324,6 +324,7 @@ struct WeatherForecast: View {
         ///
         opacityIndicator = 1.0
         if expOption == .selection {
+            logger.debug("Find the selected Location")
             ///
             /// Oppdaterer placeName, latitude og longitude:
             ///
@@ -337,6 +338,7 @@ struct WeatherForecast: View {
             weatherInfo.offsetString = AdjustOffset(extOffsetString)
             weatherInfo.offsetSec = extOffsetSec
         } else {
+            logger.debug("Find the current Location")
             ///
             /// Finner currentLocation:
             ///
