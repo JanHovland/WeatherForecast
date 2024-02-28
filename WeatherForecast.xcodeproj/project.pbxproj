@@ -120,7 +120,7 @@
 		DB760C072AE6D24C000B08D1 /* WeatherForecastSearchPlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB760C062AE6D24C000B08D1 /* WeatherForecastSearchPlace.swift */; };
 		DB7831F0289917B9003DD4B7 /* weather.png in Resources */ = {isa = PBXBuildFile; fileRef = DB7831EF289917B9003DD4B7 /* weather.png */; };
 		DB7B036829B31E7A00B4618A /* ServerResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7B036729B31E7A00B4618A /* ServerResponse.swift */; };
-		DB7B08C32928C68C0060A84E /* DayDetailHourIcons.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7B08C22928C68B0060A84E /* DayDetailHourIcons.swift */; };
+		DB7B08C32928C68C0060A84E /* DayDetailIcons.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7B08C22928C68B0060A84E /* DayDetailIcons.swift */; };
 		DB7B50DA2AF1492A00A61BA1 /* AppsForIPhone.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7B50D92AF1492A00A61BA1 /* AppsForIPhone.swift */; };
 		DB7B50DC2AF1498E00A61BA1 /* AppsForIPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7B50DB2AF1498E00A61BA1 /* AppsForIPad.swift */; };
 		DB7B6505294B8F16009822E5 /* Temperature.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7B6504294B8F16009822E5 /* Temperature.swift */; };
@@ -152,6 +152,7 @@
 		DB91F33A2AF92F0E00D94E07 /* FindTimeFromAmPm.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB91F3392AF92F0E00D94E07 /* FindTimeFromAmPm.swift */; };
 		DB9299E329C4CBE2002BA87A /* TranslateCountry.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9299E229C4CBE2002BA87A /* TranslateCountry.swift */; };
 		DB9383632B0FEEA3007A7BFC /* PrecificationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9383622B0FEEA3007A7BFC /* PrecificationData.swift */; };
+		DB94A47A2B8F246D00F12C8B /* DayDetailIconAdjustValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB94A4792B8F246D00F12C8B /* DayDetailIconAdjustValues.swift */; };
 		DB9ADEB02B3C30F00001B275 /* SunDailyIncrease.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9ADEAF2B3C30F00001B275 /* SunDailyIncrease.swift */; };
 		DB9D0B0228F027B0002ABA9E /* WindView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9D0B0128F027B0002ABA9E /* WindView.swift */; };
 		DB9D0B2128F09549002ABA9E /* FeelsLike.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9D0B2028F09549002ABA9E /* FeelsLike.swift */; };
@@ -322,7 +323,7 @@
 		DB760C062AE6D24C000B08D1 /* WeatherForecastSearchPlace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherForecastSearchPlace.swift; sourceTree = "<group>"; };
 		DB7831EF289917B9003DD4B7 /* weather.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = weather.png; sourceTree = "<group>"; };
 		DB7B036729B31E7A00B4618A /* ServerResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerResponse.swift; sourceTree = "<group>"; };
-		DB7B08C22928C68B0060A84E /* DayDetailHourIcons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayDetailHourIcons.swift; sourceTree = "<group>"; };
+		DB7B08C22928C68B0060A84E /* DayDetailIcons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayDetailIcons.swift; sourceTree = "<group>"; };
 		DB7B50D92AF1492A00A61BA1 /* AppsForIPhone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsForIPhone.swift; sourceTree = "<group>"; };
 		DB7B50DB2AF1498E00A61BA1 /* AppsForIPad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsForIPad.swift; sourceTree = "<group>"; };
 		DB7B6504294B8F16009822E5 /* Temperature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Temperature.swift; sourceTree = "<group>"; };
@@ -354,6 +355,7 @@
 		DB91F3392AF92F0E00D94E07 /* FindTimeFromAmPm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindTimeFromAmPm.swift; sourceTree = "<group>"; };
 		DB9299E229C4CBE2002BA87A /* TranslateCountry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateCountry.swift; sourceTree = "<group>"; };
 		DB9383622B0FEEA3007A7BFC /* PrecificationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrecificationData.swift; sourceTree = "<group>"; };
+		DB94A4792B8F246D00F12C8B /* DayDetailIconAdjustValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayDetailIconAdjustValues.swift; sourceTree = "<group>"; };
 		DB9ADEAF2B3C30F00001B275 /* SunDailyIncrease.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunDailyIncrease.swift; sourceTree = "<group>"; };
 		DB9D0B0128F027B0002ABA9E /* WindView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindView.swift; sourceTree = "<group>"; };
 		DB9D0B2028F09549002ABA9E /* FeelsLike.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeelsLike.swift; sourceTree = "<group>"; };
@@ -860,7 +862,8 @@
 				DBA2AA4E291C211600581301 /* DayDetailChart.swift */,
 				DB86FC04291120910019D12F /* DayDetailDayDataView.swift */,
 				DB5C0C332915676F00141BDC /* DayDetailFunctions.swift */,
-				DB7B08C22928C68B0060A84E /* DayDetailHourIcons.swift */,
+				DB7B08C22928C68B0060A84E /* DayDetailIcons.swift */,
+				DB94A4792B8F246D00F12C8B /* DayDetailIconAdjustValues.swift */,
 				DB29283E29425CC7007C0A56 /* DayDetailInfo.swift */,
 				DB17F6B129601AD000FC2A0B /* DayDetailMenuDataView.swift */,
 				DBA2AA5429237EC700581301 /* DayDetailShowUnit.swift */,
@@ -1091,7 +1094,7 @@
 				DBCD43752AEE38C2007543BE /* FindAirQuality.swift in Sources */,
 				DBE5FA032AF1801400ADD3AE /* AirQualityInformationView.swift in Sources */,
 				DBC9697C29005915009C089E /* ToDoView.swift in Sources */,
-				DB7B08C32928C68C0060A84E /* DayDetailHourIcons.swift in Sources */,
+				DB7B08C32928C68C0060A84E /* DayDetailIcons.swift in Sources */,
 				DB2C677328E72F04002EC5C1 /* GetForwardGeoCode.swift in Sources */,
 				DB85F9E72947267400D14013 /* InfoUvIndex.swift in Sources */,
 				DB101D882B0B787A00B9788C /* FindMenySystemImage.swift in Sources */,
@@ -1109,6 +1112,7 @@
 				DBFA0FE82B60F45E0008E358 /* Country.swift in Sources */,
 				DBECD4E12AE971A6005FD489 /* RefreshOffsetView.swift in Sources */,
 				DB5C0C3029151C9600141BDC /* FindDataFromMenu.swift in Sources */,
+				DB94A47A2B8F246D00F12C8B /* DayDetailIconAdjustValues.swift in Sources */,
 				DB4A8DAE294877B30067C4F8 /* InfoAirPressure.swift in Sources */,
 				DBE02B3C29335D9600B1FB05 /* RainFall.swift in Sources */,
 				DB5C0C582917CEE800141BDC /* UvIndexRestOfDay.swift in Sources */,

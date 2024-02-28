@@ -1,5 +1,5 @@
 //
-//  DayDetailHourIcons.swift
+//  DayDetailIcons.swift
 //  WeatherForecast
 //
 //  Created by Jan Hovland on 19/11/2022.
@@ -8,7 +8,7 @@
 import SwiftUI
 import WeatherKit
 
-struct DayDetailHourIcons: View {
+struct DayDetailIcons: View {
     
     let option: EnumType
     let index: Int
@@ -26,7 +26,6 @@ struct DayDetailHourIcons: View {
     var body: some View {
         VStack {
             if option == .temperature {
-                
                 HStack (spacing: spacing) {
                     ForEach(Array(hourIconArray.enumerated()), id: \.element) { idx, element in
                         VStack {
@@ -38,10 +37,10 @@ struct DayDetailHourIcons: View {
                 }
                 .padding(.trailing, trailing)
                 .task {
-                    (fontSize, spacing, trailing) = AdjustValues(option: option)
+                    (fontSize, spacing, trailing) = DayDetailIconAdjustValues(option: option, width: screenSize.screenWidth)
                 }
                 .onChange(of: screenSize.screenWidth) {
-                    (fontSize, spacing, trailing) = AdjustValues(option: option)
+                    (fontSize, spacing, trailing) = DayDetailIconAdjustValues(option: option, width: screenSize.screenWidth)
                }
 
             } else if option == .uvIndex {
@@ -189,31 +188,5 @@ struct DayDetailHourIcons: View {
         .padding(.vertical, 20)
     }
     
-    func AdjustValues(option: EnumType) -> (CGFloat, CGFloat, CGFloat) {
-        var fontSize: CGFloat = 0.00
-        var spacing: CGFloat = 0.00
-        var trailing: CGFloat = 0.00
-         
-        if option == .temperature {
-            if UIDevice.isiPhone {
-                ///
-                /// 368 x 709 from GeometryReader
-                ///
-                fontSize = 12
-                if width < 700   { spacing = 10; trailing = 35 } else { spacing = 40; trailing = 40 }
-            } else {
-                ///
-                /// 809 x 1087 from GeometryReader
-                ///
-                fontSize = 15
-                if width < 1000  { spacing = 40; trailing = 40 } else { spacing = 65 ; trailing = 40}
-            }
-        }
-
-        
-        
-        return (fontSize, spacing, trailing)
-        
-    }
 }
  

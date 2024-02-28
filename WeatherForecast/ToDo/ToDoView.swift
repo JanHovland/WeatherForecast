@@ -474,7 +474,7 @@ var toDo_2 =
           🟢 Luftfuktighet
           🟢 Sikt
           🟢 Lufttrykk
-  105. 🔴 Tilpasse DayDetailHourIcons() avhengig av screenSize.screenWidth:
+  105. 🔴 Tilpasse DayDetailIcons() avhengig av screenSize.screenWidth:
           🔴 Værforhold
           🔴 UV-indeks
           🔴 Vind

@@ -261,7 +261,7 @@ struct DayDetail: View {
                         ///
                         /// Viser image rekken:
                         ///
-                        DayDetailHourIcons(option: MenuTitleToOption(menuTitle: menuTitle),
+                        DayDetailIcons(option: MenuTitleToOption(menuTitle: menuTitle),
                                            index: index,
                                            weather: weather,
                                            hourIconArray: $hourIconArray,
