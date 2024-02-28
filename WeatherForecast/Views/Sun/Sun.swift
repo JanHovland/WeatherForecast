@@ -86,6 +86,7 @@ struct Sun : View {
                     }
                     Spacer()
                 }
+                .font(UIDevice.isIpad ? .body : .subheadline)
                 .offset(y: 115)
             }
             Spacer()
