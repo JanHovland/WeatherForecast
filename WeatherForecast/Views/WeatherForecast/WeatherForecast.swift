@@ -324,7 +324,6 @@ struct WeatherForecast: View {
         ///
         opacityIndicator = 1.0
         if expOption == .selection {
-            logger.debug("Find the selected Location")
             ///
             /// Oppdaterer placeName, latitude og longitude:
             ///
@@ -338,7 +337,6 @@ struct WeatherForecast: View {
             weatherInfo.offsetString = AdjustOffset(extOffsetString)
             weatherInfo.offsetSec = extOffsetSec
         } else {
-            logger.debug("Find the current Location")
             ///
             /// Finner currentLocation:
             ///

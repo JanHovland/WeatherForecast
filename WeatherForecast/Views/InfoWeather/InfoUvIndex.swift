@@ -117,10 +117,10 @@ private func Forecast(index: Int,
     
     var text: String = ""
     var weekDay: String = ""
+    @Environment(WeatherInfo.self) var weatherInfo
     
     let text1 = String(localized: " Remember to use suncream, a hat or protective clothing when the level is 3 (moderate) or higher.")
     var text2: String = ""
-    
     var toDay = Date()
     var toMorrow = Date()
     var yesterDay = Date()
@@ -136,7 +136,7 @@ private func Forecast(index: Int,
     
     if index == 0 {
         text = String(localized: "Now it is ")
-        text = text + "\(FormatDateToString(date: date, format: ("EEEE d. MMMM HH:mm"), offsetSec: offsetSec))"
+        text = text + "\(FormatDateToString(date: Date().adding(seconds: offsetSec), format: ("EEEE d. MMMM HH:mm"), offsetSec: 0))"
         text = text + String(localized: " and ")
         if max < 3.00 {
             text = text + String(localized: " the level is low all day.")

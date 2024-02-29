@@ -80,18 +80,16 @@ struct DayDetailIcons: View {
                             }
                         }
                     }
+                    Spacer()
                 }
+                .offset(x: offset)
                 .task {
-                    if UIDevice.isiPhone {
-//                        spacing = 1.5
-                        fontSize = 14
-                        padding = 6
-                    } else {
-//                        spacing = 7.5
-                        fontSize = 15
-                        padding = 9.75
-                    }
+                    (fontSize, spacing, offset) = DayDetailIconAdjustValues(option: option, width: screenSize.screenWidth)
                 }
+                .onChange(of: screenSize.screenWidth) {
+                    (fontSize, spacing, offset) = DayDetailIconAdjustValues(option: option, width: screenSize.screenWidth)
+               }
+                
             } else if option == .feelsLike {
                 HStack (spacing: spacing) {
                     ForEach(Array(hourIconArray.enumerated()), id: \.element) { idx, element in

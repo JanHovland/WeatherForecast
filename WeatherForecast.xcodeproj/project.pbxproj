@@ -563,6 +563,7 @@
 				DB4EFDF42AF3BFD40021AABB /* AirQualityViewModifier.swift */,
 				DB7D8D3A2B66401700A62B34 /* CountryName.swift */,
 				DB25652F296C14140007EBF9 /* DayDetailBackground.swift */,
+				DB554E3E2B7A1244009A25F5 /* DayDetailHourIconsModifiier.swift */,
 				DB3DBBB52B0D38CE00FAEE12 /* DayDetailOffsetInfoViewModifier.swift */,
 				DB2727F52965DA41003B0903 /* DayDetailChartOffsetViewModifier.swift */,
 				DB2727F92968944C003B0903 /* DayDetailChartYaxis.swift */,
@@ -574,7 +575,6 @@
 				DBC475D02B19F0E8006ACDCB /* ProgressViewStyleModifier.swift */,
 				DB75926C2ADAD6C300B772A9 /* ValueAtPositionChart.swift */,
 				DB6DE821297C5AF4005BCCF9 /* WeatherForecastViewModifier.swift */,
-				DB554E3E2B7A1244009A25F5 /* DayDetailHourIconsModifiier.swift */,
 			);
 			path = ViewModifier;
 			sourceTree = "<group>";

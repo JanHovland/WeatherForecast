@@ -28,13 +28,21 @@ func DayDetailIconAdjustValues(option: EnumType, width: CGFloat) -> (CGFloat, CG
         }
     } else if option == .uvIndex {
         if UIDevice.isiPhone {
-            logger.debug("iPhone \(width)")
             fontSize = 14
             if width < 709   { spacing = 20; offset = 15 }   else { spacing = 45; offset = 25 }     // OK
         } else {
             fontSize = 15
             if width < 1087  { spacing = 53; offset = 42.5 } else { spacing = 77.5; offset = 55 }   // OK
         }
+    } else if option == .wind {
+        if UIDevice.isiPhone {
+            fontSize = 11
+            if width < 709   { spacing = 15; offset = 20 }   else { spacing = 44; offset = 35 }     // OK
+        } else {
+            fontSize = 15
+            if width < 1087  { spacing = 47.5; offset = 38 } else { spacing = 70; offset = 45 }     // OK
+        }
+
     }
     
     

@@ -444,7 +444,7 @@ private func Forecast(index: Int,
             /// Legger inn temperaturen akkurat nå:
             ///
             text = text + String(localized: "Now it is ")
-            text = text + "\(FormatDateToString(date: date, format: ("EEEE d. MMMM HH:mm"), offsetSec: offsetSec)) " + String(localized: " with ")
+            text = text + "\(FormatDateToString(date: Date().adding(seconds: offsetSec), format: ("EEEE d. MMMM HH:mm"), offsetSec: 0))" + String(localized: " with ")
             text = text + "\(Int(tempInfo[tempType].data[IndexPointMarkFromHour(offsetSec: offsetSec)].temp.rounded()))" + "º"
             text = text + String(localized: " and ")
             text = text + tempInfo[tempType].data[IndexPointMarkFromHour(offsetSec: offsetSec)].condition.firstLowercased

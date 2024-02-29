@@ -475,14 +475,14 @@ var toDo_2 =
           🟢 Sikt
           🟢 Lufttrykk
   105. 🔴 Tilpasse DayDetailIcons() avhengig av screenSize.screenWidth:
-          🟢 Værforhold
-          🔴 UV-indeks
+          🟢 Værforhold + klokkeslett
+          🟢 UV-indeks + klokkeslett
           🔴 Vind
           🔴 Nedbør
           🔴 Føles som
           🔴 Luftfuktighet
           🔴 Sikt
-          🔴 Lufttrykk
+          🔴 Lufttrykk  
   106. 🔴 Nye tilpasninger fra Apple "Været"
           🔴 Gjennomsnittsverdier temperatur
           🔴 Gjennomsnittsverdier nedbør
