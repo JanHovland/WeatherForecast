@@ -18,11 +18,12 @@ struct DayDetailIcons: View {
     
     @Environment(ScreenSize.self) private var screenSize
     
-    @State private var spacing: CGFloat = 0.00    /// Må fjernes !!!!!!!!
+    @State private var spacing: CGFloat = 0.00
     @State private var fontSize: CGFloat = 0.00
     @State private var padding: CGFloat = 0.00
-    @State private var trailing: CGFloat = 0.00
-    
+    @State private var trailing: CGFloat = 0.00 // må fjernes
+    @State private var leading: CGFloat = 0.00
+
     var body: some View {
         VStack {
             if option == .temperature {
@@ -34,8 +35,9 @@ struct DayDetailIcons: View {
                                 .modifier(ImageViewModifier(image: ConvertImageToFill(image: element.description)))
                         }
                     }
+                    Spacer()
                 }
-                .padding(.trailing, trailing)
+                .padding(.leading, leading)
                 .task {
                     (fontSize, spacing, trailing) = DayDetailIconAdjustValues(option: option, width: screenSize.screenWidth)
                 }
@@ -53,25 +55,22 @@ struct DayDetailIcons: View {
                                 .padding(.horizontal, padding)
                         }
                     }
+                    Spacer()
                 }
+                .padding(.leading, leading)
                 .task {
-                    if UIDevice.isiPhone {
-//                        spacing = 6.25
-                        fontSize = 13
-                        padding = 7
-                    } else {
-//                        spacing = 14.5
-                        fontSize = 15
-                        padding = 9.35
-                    }
+                    (fontSize, spacing, leading) = DayDetailIconAdjustValues(option: option, width: screenSize.screenWidth)
                 }
+                .onChange(of: screenSize.screenWidth) {
+                    (fontSize, spacing, leading) = DayDetailIconAdjustValues(option: option, width: screenSize.screenWidth)
+               }
             } else if option == .wind {
                 HStack (spacing: spacing) {
                     ForEach(Array(hourIconArray.enumerated()), id: \.element) { idx, element in
                         VStack {
                             if let degrees = Double(element) {
                                 ///
-                                /// Siden det ikke finnes et symbol som heter "location.siuth.fill" roteres "location.north.fill" 180º ekstra:
+                                /// Siden det ikke finnes et symbol som heter "location.south.fill" roteres "location.north.fill" 180º ekstra:
                                 ///
                                 Image(systemName: "location.north.fill")
                                     .rotationEffect(Angle(degrees: degrees + 180), anchor: .center)
