@@ -23,6 +23,7 @@ struct DayDetailIcons: View {
     @State private var padding: CGFloat = 0.00
     @State private var trailing: CGFloat = 0.00 // må fjernes
     @State private var leading: CGFloat = 0.00
+    @State private var offset: CGFloat = 0.00
 
     var body: some View {
         VStack {
@@ -37,12 +38,12 @@ struct DayDetailIcons: View {
                     }
                     Spacer()
                 }
-                .padding(.leading, leading)
+                .offset(x: offset)
                 .task {
-                    (fontSize, spacing, trailing) = DayDetailIconAdjustValues(option: option, width: screenSize.screenWidth)
+                    (fontSize, spacing, offset) = DayDetailIconAdjustValues(option: option, width: screenSize.screenWidth)
                 }
                 .onChange(of: screenSize.screenWidth) {
-                    (fontSize, spacing, trailing) = DayDetailIconAdjustValues(option: option, width: screenSize.screenWidth)
+                    (fontSize, spacing, offset) = DayDetailIconAdjustValues(option: option, width: screenSize.screenWidth)
                }
 
             } else if option == .uvIndex {
@@ -51,19 +52,18 @@ struct DayDetailIcons: View {
                         VStack {
                             Text("\(element.description)")
                                 .font(.system(size: fontSize))
-                                .symbolRenderingMode(.multicolor)
-                                .padding(.horizontal, padding)
                         }
                     }
                     Spacer()
                 }
-                .padding(.leading, leading)
+                .offset(x: offset)
                 .task {
-                    (fontSize, spacing, leading) = DayDetailIconAdjustValues(option: option, width: screenSize.screenWidth)
+                    (fontSize, spacing, offset) = DayDetailIconAdjustValues(option: option, width: screenSize.screenWidth)
                 }
                 .onChange(of: screenSize.screenWidth) {
-                    (fontSize, spacing, leading) = DayDetailIconAdjustValues(option: option, width: screenSize.screenWidth)
+                    (fontSize, spacing, offset) = DayDetailIconAdjustValues(option: option, width: screenSize.screenWidth)
                }
+                
             } else if option == .wind {
                 HStack (spacing: spacing) {
                     ForEach(Array(hourIconArray.enumerated()), id: \.element) { idx, element in
