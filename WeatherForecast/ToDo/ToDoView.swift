@@ -477,8 +477,7 @@ var toDo_2 =
   105. 🔴 Tilpasse DayDetailIcons() avhengig av screenSize.screenWidth:
           🟢 Værforhold + klokkeslett
           🟢 UV-indeks + klokkeslett
-          🔴 Vind
-          🔴 Nedbør
+          🟢 Vind
           🔴 Føles som
           🔴 Luftfuktighet
           🔴 Sikt
