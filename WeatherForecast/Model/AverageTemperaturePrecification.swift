@@ -7,6 +7,7 @@
 
 import Foundation
 
+/*
 // MARK: - AverageTemperaturePrecification
 struct AverageTemperaturePrecification: Codable {
     let latitude, longitude, generationtimeMS: Double
@@ -171,3 +172,5 @@ struct DailyUnits: Codable {
    }
  }
  */
+
+*/
