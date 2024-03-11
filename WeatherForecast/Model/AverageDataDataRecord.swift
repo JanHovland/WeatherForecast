@@ -10,8 +10,8 @@ import Foundation
 struct AverageDailyDataRecord {
     var time: [String]
     var precipitationSum: [Double]
-    var apparentTemperatureMin: [Double]
-    var apparentTemperatureMax: [Double]
+    var temperature2mMin: [Double]
+    var temperature2mMax: [Double]
 }
 
 

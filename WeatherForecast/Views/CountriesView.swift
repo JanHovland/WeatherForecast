@@ -23,8 +23,8 @@ struct CountriesView: View {
     
     @State private var averageDailyDataRecord = AverageDailyDataRecord(time: [""],
                                                                        precipitationSum: [0.00],
-                                                                       apparentTemperatureMin: [0.00],
-                                                                       apparentTemperatureMax: [0.00])
+                                                                       temperature2mMin: [0.00],
+                                                                       temperature2mMax: [0.00])
     @State private var ave = [Double]()
     
     var body: some View {
@@ -91,7 +91,7 @@ struct CountriesView: View {
 //                let urlString = "https://archive-api.open-meteo.com/v1/archive?latitude=52.52&longitude=13.41&timezone=auto&start_date=1994-01-01&end_date=2023-12-31&daily=temperature_2m_mean"
 //                let urlString = "https://archive-api.open-meteo.com/v1/archive?latitude=52.52&longitude=13.41&timezone=auto&start_date=2023-12-01&end_date=2023-12-31&daily=temperature_2m_mean,precipitation_unit"
 
-                let urlString =  "https://archive-api.open-meteo.com/v1/archive?latitude=52.52&longitude=13.41&timezone=auto&start_date=2023-12-01&end_date=2023-12-31&daily=precipitation_sum,apparent_temperature_min,apparent_temperature_max"
+                let urlString =  "https://archive-api.open-meteo.com/v1/archive?latitude=52.52&longitude=13.41&timezone=auto&start_date=1970-01-01&end_date=2023-12-31&daily=precipitation_sum,temperature_2m_min,temperature_2m_max"
                 
                 
                 let url = URL(string: urlString)
@@ -107,24 +107,24 @@ struct CountriesView: View {
                     
                     averageDailyDataRecord.time.removeAll()
                     averageDailyDataRecord.precipitationSum.removeAll()
-                    averageDailyDataRecord.apparentTemperatureMin.removeAll()
-                    averageDailyDataRecord.apparentTemperatureMax.removeAll()
+                    averageDailyDataRecord.temperature2mMin.removeAll()
+                    averageDailyDataRecord.temperature2mMax.removeAll()
                     
                     ave.removeAll()
                     
                     averageDailyDataRecord.time = (data?.daily.time)!
                     averageDailyDataRecord.precipitationSum = (data?.daily.precipitationSum)!
-                    averageDailyDataRecord.apparentTemperatureMin = (data?.daily.apparentTemperatureMin)!
-                    averageDailyDataRecord.apparentTemperatureMax = (data?.daily.apparentTemperatureMax)!
+                    averageDailyDataRecord.temperature2mMin = (data?.daily.temperature2mMin)!
+                    averageDailyDataRecord.temperature2mMax = (data?.daily.temperature2mMax)!
                     
                     for i in 0..<averageDailyDataRecord.time.count {
                         if averageDailyDataRecord.time[i].contains("-01-") {
-                            ave.append(averageDailyDataRecord.apparentTemperatureMin[i])
+                            ave.append(averageDailyDataRecord.temperature2mMin[i])
                         }
                     }
                     
-                    logger.notice("Average min temp = \(FindAverageArray(array: averageDailyDataRecord.apparentTemperatureMin))")
-                    logger.notice("Number og elements = \(averageDailyDataRecord.apparentTemperatureMin.count)")
+                    logger.notice("Average min temp = \(FindAverageArray(array: averageDailyDataRecord.temperature2mMin))")
+                    logger.notice("Number og elements = \(averageDailyDataRecord.temperature2mMax.count)")
                     logger.notice("Average januar temp from ave = \(FindAverageArray(array: ave))")
                     
                 }

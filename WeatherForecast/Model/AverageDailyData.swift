@@ -30,24 +30,24 @@ struct AverageDailyData: Codable {
 struct Daily: Codable {
     let time: [String]
     let precipitationSum: [Double]
-    let apparentTemperatureMin, apparentTemperatureMax: [Double]
+    let temperature2mMin, temperature2mMax: [Double]
 
     enum CodingKeys: String, CodingKey {
         case time
         case precipitationSum = "precipitation_sum"
-        case apparentTemperatureMin = "apparent_temperature_min"
-        case apparentTemperatureMax = "apparent_temperature_max"
+        case temperature2mMin = "temperature_2m_min"
+        case temperature2mMax = "temperature_2m_max"
     }
 }
 
 // MARK: - DailyUnits
 struct DailyUnits: Codable {
-    let time, precipitationSum, apparentTemperatureMin, apparentTemperatureMax: String
+    let time, precipitationSum, temperature2mMin, temperature2mMax: String
 
     enum CodingKeys: String, CodingKey {
         case time
         case precipitationSum = "precipitation_sum"
-        case apparentTemperatureMin = "apparent_temperature_min"
-        case apparentTemperatureMax = "apparent_temperature_max"
+        case temperature2mMin = "temperature_2m_min"
+        case temperature2mMax = "temperature_2m_max"
     }
 }
