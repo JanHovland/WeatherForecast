@@ -93,47 +93,59 @@ struct CountriesView: View {
 //                let urlString = "https://archive-api.open-meteo.com/v1/archive?latitude=52.52&longitude=13.41&timezone=auto&start_date=1994-01-01&end_date=2023-12-31&daily=temperature_2m_mean"
 //                let urlString = "https://archive-api.open-meteo.com/v1/archive?latitude=52.52&longitude=13.41&timezone=auto&start_date=2023-12-01&end_date=2023-12-31&daily=temperature_2m_mean,precipitation_unit"
 
-                let urlString =  "https://archive-api.open-meteo.com/v1/archive?latitude=52.52&longitude=13.41&timezone=auto&start_date=1970-01-01&end_date=2023-12-31&daily=precipitation_sum,temperature_2m_min,temperature_2m_max"
+//                let urlString =  "https://archive-api.open-meteo.com/v1/archive?latitude=52.52&longitude=13.41&timezone=auto&start_date=1994-01-01&end_date=2023-12-31&daily=precipitation_sum,temperature_2m_min,temperature_2m_max"
+//                
+//                
+//                let url = URL(string: urlString)
+//                let (jsonData, _) = try await urlSession.data(from: url!)
+//                let data = try? JSONDecoder().decode(AverageDailyData.self, from: jsonData)
+//                
+//                if data == nil {
+//                    logger.notice("nil Data, please try one more time !!!")
+//                } else {
+//                    
+//                    logger.notice("Stop fetching")
+//                    
+//                    averageDailyDataRecord.time.removeAll()
+//                    averageDailyDataRecord.precipitationSum.removeAll()
+//                    averageDailyDataRecord.temperature2mMin.removeAll()
+//                    averageDailyDataRecord.temperature2mMax.removeAll()
+//                    
+//                    averagePrecipitation.removeAll()
+//                    averageTemperatureMin.removeAll()
+//                    averageTemperatureMax.removeAll()
+//                    
+//                    averageDailyDataRecord.time = (data?.daily.time)!
+//                    averageDailyDataRecord.precipitationSum = (data?.daily.precipitationSum)!
+//                    averageDailyDataRecord.temperature2mMin = (data?.daily.temperature2mMin)!
+//                    averageDailyDataRecord.temperature2mMax = (data?.daily.temperature2mMax)!
+//                    
+//                    for i in 0..<averageDailyDataRecord.time.count {
+//                        if averageDailyDataRecord.time[i].contains("-01-") {
+//                            averagePrecipitation.append(averageDailyDataRecord.temperature2mMin[i])
+//                            averageTemperatureMin.append(averageDailyDataRecord.temperature2mMin[i])
+//                            averageTemperatureMax.append(averageDailyDataRecord.temperature2mMax[i])
+//                        }
+//                    }
+//                    
+//                    logger.notice("Number og elements = \(averageDailyDataRecord.temperature2mMax.count)")
+//                    logger.notice("Average precipitation = \(FindAverageArray(array: averagePrecipitation))")
+//                    logger.notice("Average averageTemperatureMin = \(FindAverageArray(array: averageTemperatureMin))")
+//                    logger.notice("Average averageTemperatureMax = \(FindAverageArray(array: averageTemperatureMax))")
+//
+//                }
                 
+                logger.notice("Start fetching")
                 
-                let url = URL(string: urlString)
-                let (jsonData, _) = try await urlSession.data(from: url!)
-                let data = try? JSONDecoder().decode(AverageDailyData.self, from: jsonData)
+                let urlString1 =  "https://archive-api.open-meteo.com/v1/archive?latitude=52.52&longitude=13.41&timezone=auto&start_date=1994-01-01&end_date=2023-12-31&hourly=precipitation,temperature_2m"
                 
-                if data == nil {
-                    logger.notice("nil Data, please try one more time !!!")
-                } else {
-                    
-                    logger.notice("Stop fetching")
-                    
-                    averageDailyDataRecord.time.removeAll()
-                    averageDailyDataRecord.precipitationSum.removeAll()
-                    averageDailyDataRecord.temperature2mMin.removeAll()
-                    averageDailyDataRecord.temperature2mMax.removeAll()
-                    
-                    averagePrecipitation.removeAll()
-                    averageTemperatureMin.removeAll()
-                    averageTemperatureMax.removeAll()
-                    
-                    averageDailyDataRecord.time = (data?.daily.time)!
-                    averageDailyDataRecord.precipitationSum = (data?.daily.precipitationSum)!
-                    averageDailyDataRecord.temperature2mMin = (data?.daily.temperature2mMin)!
-                    averageDailyDataRecord.temperature2mMax = (data?.daily.temperature2mMax)!
-                    
-                    for i in 0..<averageDailyDataRecord.time.count {
-                        if averageDailyDataRecord.time[i].contains("-01-") {
-                            averagePrecipitation.append(averageDailyDataRecord.temperature2mMin[i])
-                            averageTemperatureMin.append(averageDailyDataRecord.temperature2mMin[i])
-                            averageTemperatureMax.append(averageDailyDataRecord.temperature2mMax[i])
-                        }
-                    }
-                    
-                    logger.notice("Number og elements = \(averageDailyDataRecord.temperature2mMax.count)")
-                    logger.notice("Average precipitation = \(FindAverageArray(array: averagePrecipitation))")
-                    logger.notice("Average averageTemperatureMin = \(FindAverageArray(array: averageTemperatureMin))")
-                    logger.notice("Average averageTemperatureMax = \(FindAverageArray(array: averageTemperatureMax))")
+                let url1 = URL(string: urlString1)
+                let (jsonData1, _) = try await urlSession.data(from: url1!)
+                let data1 = try? JSONDecoder().decode(AverageHourlyData.self, from: jsonData1)
 
-                }
+                logger.notice("Stop fetching")
+                
+                
             }
             
             /// Beskrivelse av feltene for:
