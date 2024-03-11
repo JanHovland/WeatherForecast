@@ -15,20 +15,17 @@ import Foundation
 
 struct CountriesView: View {
     
-    
-    ///     import OSLog
-    ///     let value = 12345
-    ///     let logger = Logger(subsystem: "com.janhovland.WeatherForecast", category: "WeatherForecastMain")
-    //
-    
-
     @State private var countries: [CountryRecord] = []
     @State private var searchText = ""
     @State private var message: LocalizedStringKey = ""
     @State private var title: LocalizedStringKey = ""
     @State private var showAlert: Bool = false
     
-    @State private var arrayDataRecord = ArrayDataRecord(time: [""], temperature: [0.00])
+    @State private var averageDailyDataRecord = AverageDailyDataRecord(time: [""],
+                                                                       precipitationSum: [0.00],
+                                                                       apparentTemperatureMin: [0.00],
+                                                                       apparentTemperatureMax: [0.00])
+    @State private var ave = [Double]()
     
     var body: some View {
         NavigationStack {
@@ -79,7 +76,7 @@ struct CountriesView: View {
             
             Task.init {
                 ///
-                /// Dokumentasjon: https://open-meteo.com/en/docs/
+                /// Dokumentasjon: https://open-meteo.com/en/docs/historical-weather-api
                 ///
                 logger.notice("Start")
 
@@ -91,20 +88,46 @@ struct CountriesView: View {
                 ///
                 /// Husk å sette timezone=auto for å riktig tidssone
                 ///
-                let urlString = "https://archive-api.open-meteo.com/v1/archive?latitude=52.52&longitude=13.41&timezone=auto&start_date=1994-01-01&end_date=2023-12-31&daily=temperature_2m_mean"
+//                let urlString = "https://archive-api.open-meteo.com/v1/archive?latitude=52.52&longitude=13.41&timezone=auto&start_date=1994-01-01&end_date=2023-12-31&daily=temperature_2m_mean"
+//                let urlString = "https://archive-api.open-meteo.com/v1/archive?latitude=52.52&longitude=13.41&timezone=auto&start_date=2023-12-01&end_date=2023-12-31&daily=temperature_2m_mean,precipitation_unit"
 
+                let urlString =  "https://archive-api.open-meteo.com/v1/archive?latitude=52.52&longitude=13.41&timezone=auto&start_date=2023-12-01&end_date=2023-12-31&daily=precipitation_sum,apparent_temperature_min,apparent_temperature_max"
+                
+                
                 let url = URL(string: urlString)
                 let (jsonData, _) = try await urlSession.data(from: url!)
-                let data = try? JSONDecoder().decode(ArrayData.self, from: jsonData)
+                let data = try? JSONDecoder().decode(AverageDailyData.self, from: jsonData)
                 
-                logger.notice("Stop fetching")
-                
-                arrayDataRecord.time = (data?.daily.time)!
-                arrayDataRecord.temperature = (data?.daily.temperature2MMean)!
-                
-                logger.notice("Average temp = \(FindAverageArray(array: arrayDataRecord.temperature))")
-                logger.notice("Number og elements = \(arrayDataRecord.temperature.count)")
-                
+                if data == nil {
+                    logger.notice("nil Data, please try one more time !!!")
+                } else {
+                    
+                    
+                    logger.notice("Stop fetching")
+                    
+                    averageDailyDataRecord.time.removeAll()
+                    averageDailyDataRecord.precipitationSum.removeAll()
+                    averageDailyDataRecord.apparentTemperatureMin.removeAll()
+                    averageDailyDataRecord.apparentTemperatureMax.removeAll()
+                    
+                    ave.removeAll()
+                    
+                    averageDailyDataRecord.time = (data?.daily.time)!
+                    averageDailyDataRecord.precipitationSum = (data?.daily.precipitationSum)!
+                    averageDailyDataRecord.apparentTemperatureMin = (data?.daily.apparentTemperatureMin)!
+                    averageDailyDataRecord.apparentTemperatureMax = (data?.daily.apparentTemperatureMax)!
+                    
+                    for i in 0..<averageDailyDataRecord.time.count {
+                        if averageDailyDataRecord.time[i].contains("-01-") {
+                            ave.append(averageDailyDataRecord.apparentTemperatureMin[i])
+                        }
+                    }
+                    
+                    logger.notice("Average min temp = \(FindAverageArray(array: averageDailyDataRecord.apparentTemperatureMin))")
+                    logger.notice("Number og elements = \(averageDailyDataRecord.apparentTemperatureMin.count)")
+                    logger.notice("Average januar temp from ave = \(FindAverageArray(array: ave))")
+                    
+                }
             }
            
             
