@@ -25,8 +25,10 @@ struct CountriesView: View {
                                                                        precipitationSum: [0.00],
                                                                        temperature2mMin: [0.00],
                                                                        temperature2mMax: [0.00])
-    @State private var ave = [Double]()
-    
+    @State private var averagePrecipitation = [Double]()
+    @State private var averageTemperatureMin = [Double]()
+    @State private var averageTemperatureMax = [Double]()
+
     var body: some View {
         NavigationStack {
             List {
@@ -102,7 +104,6 @@ struct CountriesView: View {
                     logger.notice("nil Data, please try one more time !!!")
                 } else {
                     
-                    
                     logger.notice("Stop fetching")
                     
                     averageDailyDataRecord.time.removeAll()
@@ -110,7 +111,9 @@ struct CountriesView: View {
                     averageDailyDataRecord.temperature2mMin.removeAll()
                     averageDailyDataRecord.temperature2mMax.removeAll()
                     
-                    ave.removeAll()
+                    averagePrecipitation.removeAll()
+                    averageTemperatureMin.removeAll()
+                    averageTemperatureMax.removeAll()
                     
                     averageDailyDataRecord.time = (data?.daily.time)!
                     averageDailyDataRecord.precipitationSum = (data?.daily.precipitationSum)!
@@ -119,17 +122,19 @@ struct CountriesView: View {
                     
                     for i in 0..<averageDailyDataRecord.time.count {
                         if averageDailyDataRecord.time[i].contains("-01-") {
-                            ave.append(averageDailyDataRecord.temperature2mMin[i])
+                            averagePrecipitation.append(averageDailyDataRecord.temperature2mMin[i])
+                            averageTemperatureMin.append(averageDailyDataRecord.temperature2mMin[i])
+                            averageTemperatureMax.append(averageDailyDataRecord.temperature2mMax[i])
                         }
                     }
                     
-                    logger.notice("Average min temp = \(FindAverageArray(array: averageDailyDataRecord.temperature2mMin))")
                     logger.notice("Number og elements = \(averageDailyDataRecord.temperature2mMax.count)")
-                    logger.notice("Average januar temp from ave = \(FindAverageArray(array: ave))")
-                    
+                    logger.notice("Average precipitation = \(FindAverageArray(array: averagePrecipitation))")
+                    logger.notice("Average averageTemperatureMin = \(FindAverageArray(array: averageTemperatureMin))")
+                    logger.notice("Average averageTemperatureMax = \(FindAverageArray(array: averageTemperatureMax))")
+
                 }
             }
-           
             
             /// Beskrivelse av feltene for:
             /// https://restcountries.com/v3.1/all?fields=
