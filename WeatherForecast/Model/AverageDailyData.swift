@@ -1,11 +1,11 @@
 // This file was generated from JSON Schema using quicktype, do not modify it directly.
 // To parse the JSON, add this file to your project and do:
 //
-//   let averageData = try? JSONDecoder().decode(AverageData.self, from: jsonData)
+//   let averageDailyData = try? JSONDecoder().decode(AverageDailyData.self, from: jsonData)
 
 import Foundation
 
-// MARK: - AverageData
+// MARK: - AverageDailyData
 struct AverageDailyData: Codable {
     let latitude, longitude, generationtimeMS: Double
     let utcOffsetSeconds: Int
@@ -29,25 +29,27 @@ struct AverageDailyData: Codable {
 // MARK: - Daily
 struct Daily: Codable {
     let time: [String]
-    let precipitationSum: [Double]
-    let temperature2mMin, temperature2mMax: [Double]
+    let precipitationSum, temperature2MMin, temperature2MMax, temperature2MMean: [Double]
 
     enum CodingKeys: String, CodingKey {
         case time
         case precipitationSum = "precipitation_sum"
-        case temperature2mMin = "temperature_2m_min"
-        case temperature2mMax = "temperature_2m_max"
+        case temperature2MMin = "temperature_2m_min"
+        case temperature2MMax = "temperature_2m_max"
+        case temperature2MMean = "temperature_2m_mean"
     }
 }
 
 // MARK: - DailyUnits
 struct DailyUnits: Codable {
-    let time, precipitationSum, temperature2mMin, temperature2mMax: String
+    let time, precipitationSum, temperature2MMin, temperature2MMax: String
+    let temperature2MMean: String
 
     enum CodingKeys: String, CodingKey {
         case time
         case precipitationSum = "precipitation_sum"
-        case temperature2mMin = "temperature_2m_min"
-        case temperature2mMax = "temperature_2m_max"
+        case temperature2MMin = "temperature_2m_min"
+        case temperature2MMax = "temperature_2m_max"
+        case temperature2MMean = "temperature_2m_mean"
     }
 }

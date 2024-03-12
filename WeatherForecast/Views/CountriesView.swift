@@ -23,11 +23,21 @@ struct CountriesView: View {
     
     @State private var averageDailyDataRecord = AverageDailyDataRecord(time: [""],
                                                                        precipitationSum: [0.00],
-                                                                       temperature2mMin: [0.00],
-                                                                       temperature2mMax: [0.00])
-    @State private var averagePrecipitation = [Double]()
-    @State private var averageTemperatureMin = [Double]()
-    @State private var averageTemperatureMax = [Double]()
+                                                                       temperature2MMin: [0.00],
+                                                                       temperature2MMax: [0.00],
+                                                                       temperature2MMean: [0.00])
+    @State private var averageDailyPrecipitation = [Double]()
+    @State private var averageDailyTemperatureMin = [Double]()
+    @State private var averageDailyTemperatureMax = [Double]()
+    @State private var averageDailyTemperatureMean = [Double]()
+
+    @State private var averageHourlyDataRecord = AverageHourlyDataRecord(time: [""],
+                                                                         precipitation: [0.00],
+                                                                         temperature2M: [0.00])
+    
+    @State private var averageHourlyPrecipitation = [Double]()
+    @State private var averageHourlyTemperature2M = [Double]()
+
 
     var body: some View {
         NavigationStack {
@@ -93,59 +103,95 @@ struct CountriesView: View {
 //                let urlString = "https://archive-api.open-meteo.com/v1/archive?latitude=52.52&longitude=13.41&timezone=auto&start_date=1994-01-01&end_date=2023-12-31&daily=temperature_2m_mean"
 //                let urlString = "https://archive-api.open-meteo.com/v1/archive?latitude=52.52&longitude=13.41&timezone=auto&start_date=2023-12-01&end_date=2023-12-31&daily=temperature_2m_mean,precipitation_unit"
 
-//                let urlString =  "https://archive-api.open-meteo.com/v1/archive?latitude=52.52&longitude=13.41&timezone=auto&start_date=1994-01-01&end_date=2023-12-31&daily=precipitation_sum,temperature_2m_min,temperature_2m_max"
-//                
-//                
-//                let url = URL(string: urlString)
-//                let (jsonData, _) = try await urlSession.data(from: url!)
-//                let data = try? JSONDecoder().decode(AverageDailyData.self, from: jsonData)
-//                
-//                if data == nil {
-//                    logger.notice("nil Data, please try one more time !!!")
-//                } else {
-//                    
-//                    logger.notice("Stop fetching")
-//                    
-//                    averageDailyDataRecord.time.removeAll()
-//                    averageDailyDataRecord.precipitationSum.removeAll()
-//                    averageDailyDataRecord.temperature2mMin.removeAll()
-//                    averageDailyDataRecord.temperature2mMax.removeAll()
-//                    
-//                    averagePrecipitation.removeAll()
-//                    averageTemperatureMin.removeAll()
-//                    averageTemperatureMax.removeAll()
-//                    
-//                    averageDailyDataRecord.time = (data?.daily.time)!
-//                    averageDailyDataRecord.precipitationSum = (data?.daily.precipitationSum)!
-//                    averageDailyDataRecord.temperature2mMin = (data?.daily.temperature2mMin)!
-//                    averageDailyDataRecord.temperature2mMax = (data?.daily.temperature2mMax)!
-//                    
-//                    for i in 0..<averageDailyDataRecord.time.count {
-//                        if averageDailyDataRecord.time[i].contains("-01-") {
-//                            averagePrecipitation.append(averageDailyDataRecord.temperature2mMin[i])
-//                            averageTemperatureMin.append(averageDailyDataRecord.temperature2mMin[i])
-//                            averageTemperatureMax.append(averageDailyDataRecord.temperature2mMax[i])
-//                        }
-//                    }
-//                    
-//                    logger.notice("Number og elements = \(averageDailyDataRecord.temperature2mMax.count)")
-//                    logger.notice("Average precipitation = \(FindAverageArray(array: averagePrecipitation))")
-//                    logger.notice("Average averageTemperatureMin = \(FindAverageArray(array: averageTemperatureMin))")
-//                    logger.notice("Average averageTemperatureMax = \(FindAverageArray(array: averageTemperatureMax))")
-//
-//                }
+                let urlString =  "https://archive-api.open-meteo.com/v1/archive?latitude=52.52&longitude=13.41&timezone=auto&start_date=1994-05-01&end_date=2023-05-31&daily=precipitation_sum,temperature_2m_min,temperature_2m_max,temperature_2m_mean"
+               
                 
-                logger.notice("Start fetching")
+                let url = URL(string: urlString)
+                let (jsonData, _) = try await urlSession.data(from: url!)
+                let data = try? JSONDecoder().decode(AverageDailyData.self, from: jsonData)
                 
-                let urlString1 =  "https://archive-api.open-meteo.com/v1/archive?latitude=52.52&longitude=13.41&timezone=auto&start_date=1994-01-01&end_date=2023-12-31&hourly=precipitation,temperature_2m"
-                
-                let url1 = URL(string: urlString1)
-                let (jsonData1, _) = try await urlSession.data(from: url1!)
-                let data1 = try? JSONDecoder().decode(AverageHourlyData.self, from: jsonData1)
+                if data == nil {
+                    logger.notice("nil Data, please try one more time !!!")
+                } else {
+                    
+                    logger.notice("Stop fetching")
+                    
+                    averageDailyDataRecord.time.removeAll()
+                    averageDailyDataRecord.precipitationSum.removeAll()
+                    averageDailyDataRecord.temperature2MMin.removeAll()
+                    averageDailyDataRecord.temperature2MMax.removeAll()
+                    averageDailyDataRecord.temperature2MMean.removeAll()
 
-                logger.notice("Stop fetching")
+                    averageDailyPrecipitation.removeAll()
+                    averageDailyTemperatureMin.removeAll()
+                    averageDailyTemperatureMax.removeAll()
+                    averageDailyTemperatureMean.removeAll()
+                    
+                    averageDailyDataRecord.time = (data?.daily.time)!
+                    averageDailyDataRecord.precipitationSum = (data?.daily.precipitationSum)!
+                    averageDailyDataRecord.temperature2MMin = (data?.daily.temperature2MMin)!
+                    averageDailyDataRecord.temperature2MMax = (data?.daily.temperature2MMax)!
+                    averageDailyDataRecord.temperature2MMean = (data?.daily.temperature2MMean)!
+
+                    for i in 0..<averageDailyDataRecord.time.count {
+                        if averageDailyDataRecord.time[i].contains("-05-") {
+                            averageDailyPrecipitation.append(averageDailyDataRecord.precipitationSum[i])
+                            averageDailyTemperatureMin.append(averageDailyDataRecord.temperature2MMin[i])
+                            averageDailyTemperatureMax.append(averageDailyDataRecord.temperature2MMax[i])
+                            averageDailyTemperatureMean.append(averageDailyDataRecord.temperature2MMean[i])
+                        }
+                    }
+                    
+                    logger.notice("Number of elements = \(averageDailyDataRecord.temperature2MMax.count)")
+                    logger.notice("Average min temp   = \(FindAverageArray(array: averageDailyTemperatureMin))")
+                    logger.notice("Average max temp   = \(FindAverageArray(array: averageDailyTemperatureMax))")
+                    logger.notice("Average mean temp  = \(FindAverageArray(array: averageDailyTemperatureMean))")
+
+                    // logger.notice("Average precipitation = \(FindAverageArray(array: averageDailyPrecipitation))")
+
+                }
                 
-                
+//                logger.notice("Start fetching hourly")
+//                
+//                let urlString1 =  "https://archive-api.open-meteo.com/v1/archive?latitude=52.52&longitude=13.41&timezone=auto&start_date=2013-03-12&end_date=2023-03-12&hourly=precipitation,temperature_2m"
+//                
+//                let url1 = URL(string: urlString1)
+//                let (jsonData1, _) = try await urlSession.data(from: url1!)
+//                let data1 = try? JSONDecoder().decode(AverageHourlyData.self, from: jsonData1)
+//
+//                logger.notice("Stop fetching hourly")
+//                
+//                averageHourlyDataRecord.time.removeAll()
+//                averageHourlyDataRecord.precipitation.removeAll()
+//                averageHourlyDataRecord.temperature2M.removeAll()
+//                
+//                averageHourlyPrecipitation.removeAll()
+//                averageHourlyTemperature2M.removeAll()
+//            
+//                averageHourlyDataRecord.time = (data1?.hourly.time)!
+//                averageHourlyDataRecord.precipitation = (data1?.hourly.precipitation)!
+//                averageHourlyDataRecord.temperature2M = (data1?.hourly.temperature2M)!
+//                
+//               
+//                for i in 0..<averageHourlyDataRecord.time.count {
+//                    if averageHourlyDataRecord.time[i].contains("-03-12") {
+//                        averageHourlyPrecipitation.append(averageHourlyDataRecord.precipitation[i])
+//                        averageHourlyTemperature2M.append(averageHourlyDataRecord.temperature2M[i])
+//                    }
+//                }
+//                
+//                logger.notice("After the for-loop -03-12")
+//
+//                logger.notice("count precification = \(averageHourlyPrecipitation.count)")
+//                logger.notice("count temperature2M = \(averageHourlyTemperature2M.count)")
+//
+//                
+//                logger.notice("Number of elements = \(averageHourlyDataRecord.time.count)")
+//                logger.notice("Average hourly precipitation = \(FindAverageArray(array: averageHourlyPrecipitation))")
+//                logger.notice("Average hourly temperature2M = \(FindAverageArray(array: averageHourlyTemperature2M))")
+//                logger.notice("Average hourly min temperature2M = \(averageHourlyTemperature2M.min()!)")
+//                logger.notice("Average hourly max temperature2M = \(averageHourlyTemperature2M.max()!)")
+
             }
             
             /// Beskrivelse av feltene for:
