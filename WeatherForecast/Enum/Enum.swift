@@ -8,6 +8,8 @@
 import Foundation
 
 enum EnumType {
+    case jan
+    case feb
     case temperature
     case uvIndex
     case wind

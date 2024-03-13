@@ -26,20 +26,6 @@ struct CountriesView: View {
                                                                        temperature2MMin: [0.00],
                                                                        temperature2MMax: [0.00],
                                                                        temperature2MMean: [0.00])
-    
-    @State private var meanTemperatureJan = [Double]()
-    @State private var meanTemperatureFeb = [Double]()
-    @State private var meanTemperatureMar = [Double]()
-    @State private var meanTemperatureApr = [Double]()
-    @State private var meanTemperatureMay = [Double]()
-    @State private var meanTemperatureJun = [Double]()
-    @State private var meanTemperatureJul = [Double]()
-    @State private var meanTemperatureAug = [Double]()
-    @State private var meanTemperatureSep = [Double]()
-    @State private var meanTemperatureOct = [Double]()
-    @State private var meanTemperatureNov = [Double]()
-    @State private var meanTemperatureDec = [Double]()
-
     @State private var averageDailyPrecipitation = [Double]()
     @State private var averageDailyTemperatureMin = [Double]()
     @State private var averageDailyTemperatureMax = [Double]()
@@ -148,31 +134,17 @@ struct CountriesView: View {
                 } else {
                     
                     logger.notice("Stop fetching")
-                    
+                    ///
+                    /// Resetter
+                    ///
                     averageDailyDataRecord.time.removeAll()
                     averageDailyDataRecord.precipitationSum.removeAll()
                     averageDailyDataRecord.temperature2MMin.removeAll()
                     averageDailyDataRecord.temperature2MMax.removeAll()
                     averageDailyDataRecord.temperature2MMean.removeAll()
-
-                    averageDailyPrecipitation.removeAll()
-                    averageDailyTemperatureMin.removeAll()
-                    averageDailyTemperatureMax.removeAll()
-                    averageDailyTemperatureMean.removeAll()
-                    
-                    meanTemperatureJan.removeAll()
-                    meanTemperatureFeb.removeAll()
-                    meanTemperatureMar.removeAll()
-                    meanTemperatureApr.removeAll()
-                    meanTemperatureMay.removeAll()
-                    meanTemperatureJun.removeAll()
-                    meanTemperatureJul.removeAll()
-                    meanTemperatureAug.removeAll()
-                    meanTemperatureSep.removeAll()
-                    meanTemperatureOct.removeAll()
-                    meanTemperatureNov.removeAll()
-                    meanTemperatureDec.removeAll()
-                    
+                    ///
+                    /// Oppdaterer
+                    ///
                     averageDailyDataRecord.time = (data?.daily.time)!
                     averageDailyDataRecord.precipitationSum = (data?.daily.precipitationSum)!
                     averageDailyDataRecord.temperature2MMin = (data?.daily.temperature2MMin)!
@@ -180,23 +152,34 @@ struct CountriesView: View {
                     averageDailyDataRecord.temperature2MMean = (data?.daily.temperature2MMean)!
 
                     
+                    averageDailyPrecipitation.removeAll()
+                    averageDailyTemperatureMin.removeAll()
+                    averageDailyTemperatureMax.removeAll()
+                    averageDailyTemperatureMean.removeAll()
+                    
                     for i in 0..<averageDailyDataRecord.time.count {
                         if averageDailyDataRecord.time[i].contains("-08-") {
                             averageDailyPrecipitation.append(averageDailyDataRecord.precipitationSum[i])
                             averageDailyTemperatureMin.append(averageDailyDataRecord.temperature2MMin[i])
                             averageDailyTemperatureMax.append(averageDailyDataRecord.temperature2MMax[i])
                             averageDailyTemperatureMean.append(averageDailyDataRecord.temperature2MMean[i])
-                            meanTemperatureAug.append(averageDailyDataRecord.temperature2MMean[i])
                         }
                     }
  
                     logger.notice("Number of elements = \(averageDailyDataRecord.temperature2MMax.count)")
 //                    logger.notice("Average min temp   = \(FindAverageArray(array: averageDailyTemperatureMin))")
 //                    logger.notice("Average max temp   = \(FindAverageArray(array: averageDailyTemperatureMax))")
-//                    logger.notice("Average mean temp  = \(FindAverageArray(array: averageDailyTemperatureMean))")
-
-                    logger.notice("meanTemperatureAug = \(FindAverageArray(array: meanTemperatureAug))")
-
+                    logger.notice("Average mean temp  = \(FindAverageArray(array: averageDailyTemperatureMean))")
+                    
+                    let (a, b, c, d) = MeanTemperatureMonth(averageDailyTime: averageDailyDataRecord.time,
+                                                            avarageDailyMin: averageDailyDataRecord.temperature2MMin,
+                                                            avarageDailyMax: averageDailyDataRecord.temperature2MMax,
+                                                            averageDailyMean: averageDailyDataRecord.temperature2MMean,
+                                                            aveargePercification: averageDailyDataRecord.precipitationSum,
+                                                            month: 8)
+                    
+                    logger.notice("Average mean temp for august = \(a)")
+                    
                     
                 }
                 
@@ -277,4 +260,52 @@ struct CountriesView: View {
         }
         
     }
+
+    func MeanTemperatureMonth (averageDailyTime: [String],
+                               avarageDailyMin: [Double],
+                               avarageDailyMax: [Double],
+                               averageDailyMean: [Double],
+                               aveargePercification: [Double],
+                               month: Int) -> (Double,
+                                               Double,
+                                               Double,
+                                               Double) {
+        
+        var valueMin = Double()
+        var valueMax = Double()
+        var valueMean = Double()
+        var valuePrecification = Double()
+        
+        var monthSelected: String = ""
+        
+        var averageDailyTemperatureMin = [Double]()
+        var averageDailyTemperatureMax = [Double]()
+        var averageDailyTemperatureMean = [Double]()
+        var averageDailyPrecipitation = [Double]()
+
+        
+        if month < 10 {
+            monthSelected = "-0" + String(month) + "-"
+        } else {
+            monthSelected = "-" + String(month) + "-"
+        }
+        
+        averageDailyTemperatureMin.removeAll()
+        averageDailyTemperatureMax.removeAll()
+        averageDailyTemperatureMean.removeAll()
+        averageDailyPrecipitation.removeAll()
+
+        for i in 0..<averageDailyTime.count {
+            if averageDailyTime[i].contains(monthSelected) {
+//                averageDailyPrecipitation.append(averageDailyDataRecord.precipitationSum[i])
+//                averageDailyTemperatureMin.append(averageDailyDataRecord.temperature2MMin[i])
+//                averageDailyTemperatureMax.append(averageDailyDataRecord.temperature2MMax[i])
+                averageDailyTemperatureMean.append(averageDailyMean[i])
+            }
+        }
+        
+        valueMean = FindAverageArray(array: averageDailyTemperatureMean)
+        return (valueMin, valueMax, valueMean, valuePrecification)
+    }
+
 }
