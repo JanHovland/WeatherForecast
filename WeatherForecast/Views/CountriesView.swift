@@ -26,6 +26,20 @@ struct CountriesView: View {
                                                                        temperature2MMin: [0.00],
                                                                        temperature2MMax: [0.00],
                                                                        temperature2MMean: [0.00])
+    
+    @State private var meanTemperatureJan = [Double]()
+    @State private var meanTemperatureFeb = [Double]()
+    @State private var meanTemperatureMar = [Double]()
+    @State private var meanTemperatureApr = [Double]()
+    @State private var meanTemperatureMay = [Double]()
+    @State private var meanTemperatureJun = [Double]()
+    @State private var meanTemperatureJul = [Double]()
+    @State private var meanTemperatureAug = [Double]()
+    @State private var meanTemperatureSep = [Double]()
+    @State private var meanTemperatureOct = [Double]()
+    @State private var meanTemperatureNov = [Double]()
+    @State private var meanTemperatureDec = [Double]()
+
     @State private var averageDailyPrecipitation = [Double]()
     @State private var averageDailyTemperatureMin = [Double]()
     @State private var averageDailyTemperatureMax = [Double]()
@@ -87,24 +101,43 @@ struct CountriesView: View {
         .task {
             
             Task.init {
+                
                 ///
                 /// Dokumentasjon: https://open-meteo.com/en/docs/historical-weather-api
                 ///
                 logger.notice("Start")
-
+                
                 let urlSession = URLSession.shared
                 ///
                 /// Normalen er temp over 30 år 1994-01-01 til og med 2023-12-31 = 10957 dager
                 ///
                 
+                let normalPerioden =
+                    """
+                    Ny normal i klimaforskningen
+                    16.12.2020 | Endret 18.1.2021
+                    Fra 1. januar 2021 blir 1991-2020 den nye perioden vi tar utgangspunkt i når vi snakker om hva som er normalt vær. Tidligere har vi brukt 1961-1990.
+                    Hvorfor bytter vi normalperiode?
+                    I 1935 ble det enighet i Verdens meteorologiorganisasjon (WMO) om at en trengte en felles referanse for klima, såkalte standard normaler.. De ble enige om at hver periode skulle vare 30 år. På den måten sikret man en lang nok dataperiode, men unngikk påvirkning fra kortvarige variasjoner. Den første  normalperioden skulle gå fra 1901 - 1930. Det ble også enighet om at normalene skulle byttes hvert 30. år.
+                    I 2014 vedtok WMO sin Klimakommisjon at normalene fortsatt skal dekke 30 år, men nå skal byttes hvert 10. år på grunn av klimaendringene. Klimaet i dag endrer seg så mye at normalene i slutten av perioden ikke lenger reflekterer det vanlige været i et område. Når klimaet endrer seg raskt, slik det gjør nå, må vi endre normalene hyppigere enn før for at de bedre skal beskrive det aktuelle klimaet.
+                    """
+                
+                let a = "https://archive-api.open-meteo.com/v1/archive?latitude="
+                let b = "&timezone=auto&daily=precipitation_sum,temperature_2m_min,temperature_2m_max,temperature_2m_mean"
+                
+                
+                let startDate = "1991-01-01"
+                let endDate = "2020-12-31"
+                
+                let lat = "\(58.6173)"
+                let lon = "\(5.6450)"
+                
                 ///
                 /// Husk å sette timezone=auto for å riktig tidssone
                 ///
-//                let urlString = "https://archive-api.open-meteo.com/v1/archive?latitude=52.52&longitude=13.41&timezone=auto&start_date=1994-01-01&end_date=2023-12-31&daily=temperature_2m_mean"
-//                let urlString = "https://archive-api.open-meteo.com/v1/archive?latitude=52.52&longitude=13.41&timezone=auto&start_date=2023-12-01&end_date=2023-12-31&daily=temperature_2m_mean,precipitation_unit"
-
-                let urlString =  "https://archive-api.open-meteo.com/v1/archive?latitude=52.52&longitude=13.41&timezone=auto&start_date=1994-05-01&end_date=2023-05-31&daily=precipitation_sum,temperature_2m_min,temperature_2m_max,temperature_2m_mean"
-               
+                let urlString =
+                a + lat + "&longitude=" + lon + b + "&start_date=" + startDate + "&end_date=" + endDate
+                
                 
                 let url = URL(string: urlString)
                 let (jsonData, _) = try await urlSession.data(from: url!)
@@ -127,28 +160,44 @@ struct CountriesView: View {
                     averageDailyTemperatureMax.removeAll()
                     averageDailyTemperatureMean.removeAll()
                     
+                    meanTemperatureJan.removeAll()
+                    meanTemperatureFeb.removeAll()
+                    meanTemperatureMar.removeAll()
+                    meanTemperatureApr.removeAll()
+                    meanTemperatureMay.removeAll()
+                    meanTemperatureJun.removeAll()
+                    meanTemperatureJul.removeAll()
+                    meanTemperatureAug.removeAll()
+                    meanTemperatureSep.removeAll()
+                    meanTemperatureOct.removeAll()
+                    meanTemperatureNov.removeAll()
+                    meanTemperatureDec.removeAll()
+                    
                     averageDailyDataRecord.time = (data?.daily.time)!
                     averageDailyDataRecord.precipitationSum = (data?.daily.precipitationSum)!
                     averageDailyDataRecord.temperature2MMin = (data?.daily.temperature2MMin)!
                     averageDailyDataRecord.temperature2MMax = (data?.daily.temperature2MMax)!
                     averageDailyDataRecord.temperature2MMean = (data?.daily.temperature2MMean)!
 
+                    
                     for i in 0..<averageDailyDataRecord.time.count {
-                        if averageDailyDataRecord.time[i].contains("-05-") {
+                        if averageDailyDataRecord.time[i].contains("-08-") {
                             averageDailyPrecipitation.append(averageDailyDataRecord.precipitationSum[i])
                             averageDailyTemperatureMin.append(averageDailyDataRecord.temperature2MMin[i])
                             averageDailyTemperatureMax.append(averageDailyDataRecord.temperature2MMax[i])
                             averageDailyTemperatureMean.append(averageDailyDataRecord.temperature2MMean[i])
+                            meanTemperatureAug.append(averageDailyDataRecord.temperature2MMean[i])
                         }
                     }
-                    
+ 
                     logger.notice("Number of elements = \(averageDailyDataRecord.temperature2MMax.count)")
-                    logger.notice("Average min temp   = \(FindAverageArray(array: averageDailyTemperatureMin))")
-                    logger.notice("Average max temp   = \(FindAverageArray(array: averageDailyTemperatureMax))")
-                    logger.notice("Average mean temp  = \(FindAverageArray(array: averageDailyTemperatureMean))")
+//                    logger.notice("Average min temp   = \(FindAverageArray(array: averageDailyTemperatureMin))")
+//                    logger.notice("Average max temp   = \(FindAverageArray(array: averageDailyTemperatureMax))")
+//                    logger.notice("Average mean temp  = \(FindAverageArray(array: averageDailyTemperatureMean))")
 
-                    // logger.notice("Average precipitation = \(FindAverageArray(array: averageDailyPrecipitation))")
+                    logger.notice("meanTemperatureAug = \(FindAverageArray(array: meanTemperatureAug))")
 
+                    
                 }
                 
 //                logger.notice("Start fetching hourly")
