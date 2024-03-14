@@ -26,15 +26,16 @@ struct CountriesView: View {
                                                                        temperature2MMin: [0.00],
                                                                        temperature2MMax: [0.00],
                                                                        temperature2MMean: [0.00])
-    @State private var averageDailyPrecipitation = [Double]()
-    @State private var averageDailyTemperatureMin = [Double]()
-    @State private var averageDailyTemperatureMax = [Double]()
-    @State private var averageDailyTemperatureMean = [Double]()
 
     @State private var averageHourlyDataRecord = AverageHourlyDataRecord(time: [""],
                                                                          precipitation: [0.00],
                                                                          temperature2M: [0.00])
     
+    @State private var averageYearMin: [Double] = Array(repeating: Double(), count: sizeArray12)
+    @State private var averageYearMax: [Double] = Array(repeating: Double(), count: sizeArray12)
+    @State private var averageYearMean: [Double] = Array(repeating: Double(), count: sizeArray12)
+    @State private var averageYearPrecification: [Double] = Array(repeating: Double(), count: sizeArray12)
+
     @State private var averageHourlyPrecipitation = [Double]()
     @State private var averageHourlyTemperature2M = [Double]()
 
@@ -150,36 +151,26 @@ struct CountriesView: View {
                     averageDailyDataRecord.temperature2MMin = (data?.daily.temperature2MMin)!
                     averageDailyDataRecord.temperature2MMax = (data?.daily.temperature2MMax)!
                     averageDailyDataRecord.temperature2MMean = (data?.daily.temperature2MMean)!
-
+                    ///
+                    ///
+                    ///
                     
-                    averageDailyPrecipitation.removeAll()
-                    averageDailyTemperatureMin.removeAll()
-                    averageDailyTemperatureMax.removeAll()
-                    averageDailyTemperatureMean.removeAll()
-                    
-                    for i in 0..<averageDailyDataRecord.time.count {
-                        if averageDailyDataRecord.time[i].contains("-08-") {
-                            averageDailyPrecipitation.append(averageDailyDataRecord.precipitationSum[i])
-                            averageDailyTemperatureMin.append(averageDailyDataRecord.temperature2MMin[i])
-                            averageDailyTemperatureMax.append(averageDailyDataRecord.temperature2MMax[i])
-                            averageDailyTemperatureMean.append(averageDailyDataRecord.temperature2MMean[i])
-                        }
-                    }
- 
-                    logger.notice("Number of elements = \(averageDailyDataRecord.temperature2MMax.count)")
-//                    logger.notice("Average min temp   = \(FindAverageArray(array: averageDailyTemperatureMin))")
-//                    logger.notice("Average max temp   = \(FindAverageArray(array: averageDailyTemperatureMax))")
-                    logger.notice("Average mean temp  = \(FindAverageArray(array: averageDailyTemperatureMean))")
-                    
-                    let (a, b, c, d) = MeanTemperatureMonth(averageDailyTime: averageDailyDataRecord.time,
+                    (averageYearMin[7],
+                     averageYearMax[7],
+                     averageYearMean[7],
+                     averageYearPrecification[7]) =
+                    MeanTemperatureMonth(averageDailyTime: averageDailyDataRecord.time,
                                                             avarageDailyMin: averageDailyDataRecord.temperature2MMin,
                                                             avarageDailyMax: averageDailyDataRecord.temperature2MMax,
                                                             averageDailyMean: averageDailyDataRecord.temperature2MMean,
                                                             aveargePercification: averageDailyDataRecord.precipitationSum,
                                                             month: 8)
                     
-                    logger.notice("Average mean temp for august = \(a)")
-                    
+                    logger.notice("Average min temp for august = \(averageYearMin[7])")
+                    logger.notice("Average max temp for august = \(averageYearMax[7])")
+                    logger.notice("Average mean temp for august = \(averageYearMean[7])")
+                    logger.notice("Average precification for august = \(averageYearPrecification[7])")
+
                     
                 }
                 
@@ -297,14 +288,18 @@ struct CountriesView: View {
 
         for i in 0..<averageDailyTime.count {
             if averageDailyTime[i].contains(monthSelected) {
-//                averageDailyPrecipitation.append(averageDailyDataRecord.precipitationSum[i])
-//                averageDailyTemperatureMin.append(averageDailyDataRecord.temperature2MMin[i])
-//                averageDailyTemperatureMax.append(averageDailyDataRecord.temperature2MMax[i])
+                averageDailyTemperatureMin.append(avarageDailyMin[i])
+                averageDailyTemperatureMax.append(avarageDailyMax[i])
                 averageDailyTemperatureMean.append(averageDailyMean[i])
+                averageDailyPrecipitation.append(aveargePercification[i])
             }
         }
-        
+
+        valueMin = FindAverageArray(array: averageDailyTemperatureMin)
+        valueMax = FindAverageArray(array: averageDailyTemperatureMax)
         valueMean = FindAverageArray(array: averageDailyTemperatureMean)
+        valuePrecification = FindAverageArray(array: averageDailyPrecipitation)
+        
         return (valueMin, valueMax, valueMean, valuePrecification)
     }
 
