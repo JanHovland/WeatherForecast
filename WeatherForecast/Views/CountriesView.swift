@@ -152,26 +152,20 @@ struct CountriesView: View {
                     averageDailyDataRecord.temperature2MMax = (data?.daily.temperature2MMax)!
                     averageDailyDataRecord.temperature2MMean = (data?.daily.temperature2MMean)!
                     ///
+                    /// Find average yearly data
                     ///
-                    ///
-                    
-                    (averageYearMin[7],
-                     averageYearMax[7],
-                     averageYearMean[7],
-                     averageYearPrecification[7]) =
-                    MeanTemperatureMonth(averageDailyTime: averageDailyDataRecord.time,
-                                                            avarageDailyMin: averageDailyDataRecord.temperature2MMin,
-                                                            avarageDailyMax: averageDailyDataRecord.temperature2MMax,
-                                                            averageDailyMean: averageDailyDataRecord.temperature2MMean,
-                                                            aveargePercification: averageDailyDataRecord.precipitationSum,
-                                                            month: 8)
-                    
+                    (averageYearMin,
+                     averageYearMax,
+                     averageYearMean,
+                     averageYearPrecification) = FindAverageYear(averageDailyTime: averageDailyDataRecord.time,
+                                                                 avarageDailyMin: averageDailyDataRecord.temperature2MMin,
+                                                                 avarageDailyMax: averageDailyDataRecord.temperature2MMax,
+                                                                 averageDailyMean: averageDailyDataRecord.temperature2MMean,
+                                                                 aveargePercification: averageDailyDataRecord.precipitationSum)
                     logger.notice("Average min temp for august = \(averageYearMin[7])")
                     logger.notice("Average max temp for august = \(averageYearMax[7])")
                     logger.notice("Average mean temp for august = \(averageYearMean[7])")
                     logger.notice("Average precification for august = \(averageYearPrecification[7])")
-
-                    
                 }
                 
 //                logger.notice("Start fetching hourly")
@@ -252,55 +246,62 @@ struct CountriesView: View {
         
     }
 
-    func MeanTemperatureMonth (averageDailyTime: [String],
-                               avarageDailyMin: [Double],
-                               avarageDailyMax: [Double],
-                               averageDailyMean: [Double],
-                               aveargePercification: [Double],
-                               month: Int) -> (Double,
-                                               Double,
-                                               Double,
-                                               Double) {
+    func FindAverageYear(averageDailyTime: [String],
+                         avarageDailyMin: [Double],
+                         avarageDailyMax: [Double],
+                         averageDailyMean: [Double],
+                         aveargePercification: [Double]) -> ([Double],
+                                                             [Double],
+                                                             [Double],
+                                                             [Double]) {
         
-        var valueMin = Double()
-        var valueMax = Double()
-        var valueMean = Double()
-        var valuePrecification = Double()
-        
+        var valueMin = [Double]()
+        var valueMax = [Double]()
+        var valueMean = [Double]()
+        var valuePrecification = [Double]()
         var monthSelected: String = ""
-        
         var averageDailyTemperatureMin = [Double]()
         var averageDailyTemperatureMax = [Double]()
         var averageDailyTemperatureMean = [Double]()
         var averageDailyPrecipitation = [Double]()
-
-        
-        if month < 10 {
-            monthSelected = "-0" + String(month) + "-"
-        } else {
-            monthSelected = "-" + String(month) + "-"
-        }
-        
-        averageDailyTemperatureMin.removeAll()
-        averageDailyTemperatureMax.removeAll()
-        averageDailyTemperatureMean.removeAll()
-        averageDailyPrecipitation.removeAll()
-
-        for i in 0..<averageDailyTime.count {
-            if averageDailyTime[i].contains(monthSelected) {
-                averageDailyTemperatureMin.append(avarageDailyMin[i])
-                averageDailyTemperatureMax.append(avarageDailyMax[i])
-                averageDailyTemperatureMean.append(averageDailyMean[i])
-                averageDailyPrecipitation.append(aveargePercification[i])
+        ///
+        /// Finding monthly data
+        ///
+        for month in 1...12 {
+            averageDailyTemperatureMin.removeAll()
+            averageDailyTemperatureMax.removeAll()
+            averageDailyTemperatureMean.removeAll()
+            averageDailyPrecipitation.removeAll()
+            ///
+            /// Formattering:
+            ///
+            if month < 10 {
+                monthSelected = "-0" + String(month) + "-"
+            } else {
+                monthSelected = "-" + String(month) + "-"
             }
+            ///
+            /// Finding data for a month:
+            ///
+            for i in 0..<averageDailyTime.count {
+                if averageDailyTime[i].contains(monthSelected) {
+                    averageDailyTemperatureMin.append(avarageDailyMin[i])
+                    averageDailyTemperatureMax.append(avarageDailyMax[i])
+                    averageDailyTemperatureMean.append(averageDailyMean[i])
+                    averageDailyPrecipitation.append(aveargePercification[i])
+                }
+            }
+            ///
+            /// Updating:
+            ///
+            valueMin.append(FindAverageArray(array: averageDailyTemperatureMin))
+            valueMax.append(FindAverageArray(array: averageDailyTemperatureMax))
+            valueMean.append(FindAverageArray(array: averageDailyTemperatureMean))
+            valuePrecification.append(FindAverageArray(array: averageDailyPrecipitation))
         }
-
-        valueMin = FindAverageArray(array: averageDailyTemperatureMin)
-        valueMax = FindAverageArray(array: averageDailyTemperatureMax)
-        valueMean = FindAverageArray(array: averageDailyTemperatureMean)
-        valuePrecification = FindAverageArray(array: averageDailyPrecipitation)
-        
+        ///
+        /// Eksport:
+        ///
         return (valueMin, valueMax, valueMean, valuePrecification)
     }
-
 }
