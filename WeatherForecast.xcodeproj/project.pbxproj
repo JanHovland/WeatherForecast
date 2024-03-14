@@ -188,6 +188,7 @@
 		DBD442C62ADFC6CA0001020A /* NewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD442C52ADFC6CA0001020A /* NewData.swift */; };
 		DBD497A22A4EAE9C0075B350 /* LocationsHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD497A12A4EAE9C0075B350 /* LocationsHandler.swift */; };
 		DBD497A42A4EAF160075B350 /* FindLocalPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD497A32A4EAF160075B350 /* FindLocalPosition.swift */; };
+		DBD4F1952BA38781001D5401 /* FindAverageYear.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD4F1942BA38781001D5401 /* FindAverageYear.swift */; };
 		DBDBCC64295215D7005AEB05 /* WeatherType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDBCC63295215D7005AEB05 /* WeatherType.swift */; };
 		DBDBCC6629521B99005AEB05 /* WeatherTranslateType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDBCC6529521B99005AEB05 /* WeatherTranslateType.swift */; };
 		DBDD98622AFE4284002FC9E5 /* AirQualityInformationViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDD98612AFE4284002FC9E5 /* AirQualityInformationViewModifier.swift */; };
@@ -397,6 +398,7 @@
 		DBD442C52ADFC6CA0001020A /* NewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewData.swift; sourceTree = "<group>"; };
 		DBD497A12A4EAE9C0075B350 /* LocationsHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsHandler.swift; sourceTree = "<group>"; };
 		DBD497A32A4EAF160075B350 /* FindLocalPosition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindLocalPosition.swift; sourceTree = "<group>"; };
+		DBD4F1942BA38781001D5401 /* FindAverageYear.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindAverageYear.swift; sourceTree = "<group>"; };
 		DBDBCC63295215D7005AEB05 /* WeatherType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherType.swift; sourceTree = "<group>"; };
 		DBDBCC6529521B99005AEB05 /* WeatherTranslateType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherTranslateType.swift; sourceTree = "<group>"; };
 		DBDD98612AFE4284002FC9E5 /* AirQualityInformationViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirQualityInformationViewModifier.swift; sourceTree = "<group>"; };
@@ -536,6 +538,7 @@
 				DB17F6AD295ECF0C00FC2A0B /* UvIndexDescription.swift */,
 				DBDBCC6529521B99005AEB05 /* WeatherTranslateType.swift */,
 				DB17F6AF295F6BA100FC2A0B /* WindDirection.swift */,
+				DBD4F1942BA38781001D5401 /* FindAverageYear.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -1214,6 +1217,7 @@
 				DBDBCC6629521B99005AEB05 /* WeatherTranslateType.swift in Sources */,
 				DB85F9E9294726D500D14013 /* InfoWind.swift in Sources */,
 				DB5C0C562917CE3100141BDC /* UvIndexGraphicDisplay.swift in Sources */,
+				DBD4F1952BA38781001D5401 /* FindAverageYear.swift in Sources */,
 				DB75926D2ADAD6C300B772A9 /* ValueAtPositionChart.swift in Sources */,
 				DBFD5B472B864C5600D627B0 /* AverageTemperaturePrecification.swift in Sources */,
 				DB4A1F372A9F775300E4D1EB /* SettingView.swift in Sources */,
