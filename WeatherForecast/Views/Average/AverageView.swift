@@ -47,5 +47,5 @@ struct AverageView : View {
             logger.notice("onTapGesture")
             self.isModal = true
         }
-    }
+     }
 }
