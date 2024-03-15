@@ -19,6 +19,7 @@ struct AirQualityInformationView: View {
 
     @Environment(WeatherInfo.self) private var weatherInfo
     @Environment(CurrentWeather.self) private var currentWeather
+    @Environment(\.dismiss) var dismiss
     
     @State private var so2Index: Int = 0
     @State private var no2Index: Int = 0
@@ -114,13 +115,14 @@ struct AirQualityInformationView: View {
                     Spacer()
                     VStack {
                         Button(action: {
-                            
+                            dismiss()
                         }, label: {
-                            Image(systemName: "x.circle")
+                            Image(systemName: "x.circle.fill")
                                 .symbolRenderingMode(.multicolor)
-                                .font(.title2.weight(.thin))
-                                .foregroundColor(.primary)
-                        })
+                                .font(.system(size: 22, weight: .bold))
+                                .foregroundColor(.red)
+                                .padding(.trailing, 20)
+                       })
                     }
                 }
             }

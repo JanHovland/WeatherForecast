@@ -157,9 +157,12 @@ struct SaveNewPlace: View {
                     }, label: {
                         HStack {
                             Text("Cancel")
-                            Image(systemName: "x.circle")
+                            Image(systemName: "x.circle.fill")
                                 .symbolRenderingMode(.multicolor)
-                        }
+                                .font(.system(size: 22, weight: .bold))
+                                .foregroundColor(.red)
+                                .padding(.trailing, 20)
+                       }
                     })
                 }
             }

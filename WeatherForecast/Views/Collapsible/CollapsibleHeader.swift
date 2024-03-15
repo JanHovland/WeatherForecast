@@ -16,7 +16,7 @@ struct CollapsibleHeader: View {
         Button(action: {
             isOn.toggle()
         }, label: {
-            Image(systemName: isOn ? "chevron.down" : "chevron.right")
+            Image(systemName: isOn ? "chevron.up" : "chevron.down")
                 .foregroundColor(.blue)
                 .font(.title3)
         })
