@@ -56,19 +56,9 @@ func FindAverageYear(averageDailyTime: [String],
                 valueSum += aveargePercification[i]
             }
         }
-        
-        logger.notice("Count = \(monthSelected) \(aveargePercification.count)")
-        //
-        //            logger.notice("averageDailyPrecipitation = \(averageDailyPrecipitation)")
-        logger.notice("valueSum = \(valueSum)")
-        ///
-        /// Finner gjennomsnittet for **alle**  månedene i 30 år
-        /// Må legge ut verdiene på ** hver** av de 12 månedene
-        ///
         valueMin.append(FindAverageArray(array: averageDailyTemperatureMin))
         valueMax.append(FindAverageArray(array: averageDailyTemperatureMax))
         valueMean.append(FindAverageArray(array: averageDailyTemperatureMean))
-        //            valuePrecification.append(FindAverageArray(array: averageDailyPrecipitation))
         valuePrecification.append(valueSum / 30.00)
     }
     ///
