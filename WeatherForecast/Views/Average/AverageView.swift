@@ -11,7 +11,6 @@ import WeatherKit
 struct AverageView : View {
     
     @Environment(CurrentWeather.self) private var currentWeather
-    @State private var isModal: Bool = false
     
     var body: some View {
         VStack {
@@ -24,28 +23,30 @@ struct AverageView : View {
                 Spacer()
             }
             .opacity(0.50)
-            HStack {
-                Spacer()
-                Text("\(Int(currentWeather.apparentTemperature.rounded()))º")
-                    .font(.system(size: 40, weight: .light))
-                    .padding(.top, 10)
-                Spacer()
-            }
-            Spacer()
+            
+            Text("\(Int(currentWeather.apparentTemperature.rounded()))º")
+                .font(.system(size: 40, weight: .light))
+                .padding(.top, 10)
+            let a = averageMonthPrecification[2]
+            Text("\(a)")
+                .font(.system(size: 40, weight: .light))
+                .padding(.top, 10)
         }
-        .sheet(isPresented: $isModal, content: {
-            AverageDetailView()
-        })
+        .onAppear{
+            (averageMonthMin,
+             averageMonthMax,
+             averageMonthMean,
+             averageMonthPrecification) = FindAverageYear(averageDailyTime: averageMonthlyDataRecord.time,
+                                                          avarageDailyMin: averageMonthlyDataRecord.temperature2MMin,
+                                                          avarageDailyMax: averageMonthlyDataRecord.temperature2MMax,
+                                                          averageDailyMean: averageMonthlyDataRecord.temperature2MMean,
+                                                          aveargePercification: averageMonthlyDataRecord.precipitationSum)
+            logger.notice("averageMonthPrecification")
+
+        }
         .frame(maxWidth: .infinity,
                maxHeight: 180)
         .padding()
         .modifier(DayDetailBackground(dayLight: currentWeather.isDaylight))
-        ///
-        /// Må plasseres helt på slutten for å kunne trykke på hele bildet og ikke bare på en tekst eller bilde
-        ///
-        .onTapGesture {
-            logger.notice("onTapGesture")
-            self.isModal = true
-        }
-     }
+    }
 }

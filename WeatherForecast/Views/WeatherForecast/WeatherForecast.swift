@@ -83,7 +83,6 @@ struct WeatherForecast: View {
     @State private var settingsMissing: Bool = false
     @State private var someSnow: Bool = false
     
-
     let noPlaceName: String = String(localized: "No placeName")
     let noCountryName: String = String(localized: "No countryName")
     
@@ -92,6 +91,8 @@ struct WeatherForecast: View {
     
     let addedDeleteMessage: LocalizedStringKey = "It can take some time until the place is deleted on CloudKit.\nSelect \"Refresh my places\""
     let addedSaveMessage: LocalizedStringKey = "It can take some time until the place is saved on CloudKit.\nSelect \"Refresh my places\""
+   
+    @State public var errorMessage: String = ""
     
     var body: some View {
         VStack {
@@ -629,6 +630,19 @@ struct WeatherForecast: View {
                     message = "The dailyForecast is empty."
                     showAlert.toggle()
                 } 
+            }
+            if persist == true {
+                (errorMessage, averageMonthlyDataRecord) = await GetAverageMonthlyWeather(urlPart1: "https://archive-api.open-meteo.com/v1/archive?latitude=",
+                                                                                          urlPart2: "&timezone=auto&daily=precipitation_sum,temperature_2m_min,temperature_2m_max,temperature_2m_mean",
+                                                                                          startDate: "1991-01-01",
+                                                                                          endDate: "2020-12-31",
+                                                                                          lat: weatherInfo.latitude ?? 0.00,
+                                                                                          lon: weatherInfo.longitude ?? 0.00)
+                if errorMessage.count > 0 {
+                    title = "AverageData"
+                    message = "No available average data."
+                    showAlert.toggle()
+                }
             }
         }
     }

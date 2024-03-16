@@ -20,10 +20,28 @@ import OSLog
 let logger = Logger(subsystem: "com.janhovland.WeatherForecast", category: "WeatherForecastMain")
 
 ///
-/// Oppretter hourForcast
+/// Oppretter global hourForcast
 ///
 var hourForecast: Forecast<HourWeather>?
+///
+/// Oppretter global dailyForecast
+///
 var dailyForecast: Forecast<DayWeather>?
+    ///
+    /// Månedlige global gjennomsnitt data Record
+    ///
+    var averageMonthlyDataRecord = AverageMonthlyDataRecord(time: [""],
+                                                            precipitationSum: [0.00],
+                                                            temperature2MMin: [0.00],
+                                                            temperature2MMax: [0.00],
+                                                            temperature2MMean: [0.00])
+    ///
+    /// Gjennomsnittlige global måneds data
+    ///
+    var averageMonthMin: [Double] = Array(repeating: Double(), count: sizeArray12)
+    var averageMonthMax: [Double] = Array(repeating: Double(), count: sizeArray12)
+    var averageMonthMean: [Double] = Array(repeating: Double(), count: sizeArray12)
+    var averageMonthPrecification: [Double] = Array(repeating: Double(), count: sizeArray12)
 
 struct MyPlace: Identifiable {
     let id = UUID()

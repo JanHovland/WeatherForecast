@@ -37,7 +37,6 @@ import Observation
     var localDst = 0
     var localZoneName = ""
     var localZoneShortName = ""
-
     ///
     /// Lokale variabler for valgt sted:
     ///
@@ -45,5 +44,20 @@ import Observation
     var placeLongitude: Double?
     var placeOffsetString: String = ""
     var placeOffsetSec: Int = 0
+//    ///
+//    /// Månedlige gjennomsnitt data Record
+//    ///
+//    var averageMonthlyDataRecord = AverageMonthlyDataRecord(time: [""],
+//                                                            precipitationSum: [0.00],
+//                                                            temperature2MMin: [0.00],
+//                                                            temperature2MMax: [0.00],
+//                                                            temperature2MMean: [0.00])
+//    ///
+//    /// Gjennomsnittlige måneds data
+//    ///
+//    var averageMonthMin: [Double] = Array(repeating: Double(), count: sizeArray12)
+//    var averageMonthMax: [Double] = Array(repeating: Double(), count: sizeArray12)
+//    var averageMonthMean: [Double] = Array(repeating: Double(), count: sizeArray12)
+//    var averageMonthPrecification: [Double] = Array(repeating: Double(), count: sizeArray12)
     
 }
