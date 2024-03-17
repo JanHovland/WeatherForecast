@@ -55,3 +55,4 @@ let aqNO2: String = String(localized: "Nitrogen dioxide")
 let aqPM: String = String(localized: "Particulates")
 let aqO3: String = String(localized: "Ozone")
 let aqCO: String = String(localized: "Carbon monoxide CO")
+

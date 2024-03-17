@@ -26,6 +26,9 @@ struct SettingView: View {
 
     @AppStorage("UrlRestCountries") var urlRestCountries = ""
     
+    @AppStorage("Url1OpenMeteo") var url1OpenMeteo = ""
+    @AppStorage("Url2OpenMeteo") var url2OpenMeteo = ""
+
     var body: some View {
         VStack {
             Form {
@@ -71,6 +74,16 @@ struct SettingView: View {
                 
                 Section(header: Text("Url for restcountries")) {
                     TextField("Url for restcountries", text: $urlRestCountries)
+                        .font(.footnote)
+                }
+                
+                Section(header: Text("Url1 OpenMeteo.com")) {
+                    TextField("Url1 OpenMeteo.com", text: $url1OpenMeteo)
+                        .font(.footnote)
+                }
+                
+                Section(header: Text("Url2 OpenMeteo.com")) {
+                    TextField("Url2 OpenMeteo.com", text: $url2OpenMeteo)
                         .font(.footnote)
                 }
                 

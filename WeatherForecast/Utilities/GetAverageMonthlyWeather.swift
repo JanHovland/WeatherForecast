@@ -28,28 +28,12 @@ func GetAverageMonthlyWeather(urlPart1: String,
     ///
     let urlSession = URLSession.shared
     ///
-    /// Normalen er temp over 30 år 1994-01-01 til og med 2023-12-31
-    ///
-    ///     Ny normal i klimaforskningen:
-    ///     16.12.2020 | Endret 18.1.2021
-    ///     Fra 1. januar 2021 blir 1991-2020 den nye perioden vi tar utgangspunkt i når vi snakker om hva som er normalt vær.
-    ///     Tidligere har vi brukt 1961-1990.
-    ///     Hvorfor bytter vi normalperiode?
-    ///     I 1935 ble det enighet i Verdens meteorologiorganisasjon (WMO) om at en trengte en felles referanse for klima,
-    ///     såkalte standard normaler.. De ble enige om at hver periode skulle vare 30 år.
-    ///     På den måten sikret man en lang nok dataperiode, men unngikk påvirkning fra kortvarige variasjoner.
-    ///     Den første  normalperioden skulle gå fra 1901 - 1930.
-    ///     Det ble også enighet om at normalene skulle byttes hvert 30. år.
-    ///     I 2014 vedtok WMO sin Klimakommisjon at normalene fortsatt skal dekke 30 år,
-    ///     men nå skal byttes hvert 10. år på grunn av klimaendringene.
-    ///     Klimaet i dag endrer seg så mye at normalene i slutten av perioden ikke lenger reflekterer det vanlige været i et område.
-    ///     Når klimaet endrer seg raskt, slik det gjør nå, må vi endre normalene hyppigere enn før for at
-    ///     de bedre skal beskrive det aktuelle klimaet.
-    ///
     /// Husk å sette timezone=auto for å riktig tidssone
     ///
     let urlString =
     urlPart1 + "\(lat)" + "&longitude=" + "\(lon)" + urlPart2 + "&start_date=" + startDate + "&end_date=" + endDate
+    logger.notice("urlString = \(urlString)")
+    logger.notice("Start fetch")
     let url = URL(string: urlString)
     ///
     /// Henter gjennomsnittsdata
@@ -60,6 +44,7 @@ func GetAverageMonthlyWeather(urlPart1: String,
         if data == nil {
             errorMessage = "No available average data."
         } else {
+            logger.notice("Stop fetch")
             ///
             /// Resetting av data
             ///
