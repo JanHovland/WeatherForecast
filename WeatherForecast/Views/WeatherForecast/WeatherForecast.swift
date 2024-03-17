@@ -638,8 +638,6 @@ struct WeatherForecast: View {
                                                                                           endDate: "2020-12-31",
                                                                                           lat: weatherInfo.latitude ?? 0.00,
                                                                                           lon: weatherInfo.longitude ?? 0.00)
-                logger.notice("errorMessage = \(errorMessage.stringKey!.count)")
-                
                 if errorMessage.stringKey!.count > 0 {
                     title = "AverageData"
                     message = errorMessage

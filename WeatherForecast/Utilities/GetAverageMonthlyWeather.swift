@@ -51,19 +51,15 @@ func GetAverageMonthlyWeather(urlPart1: String,
     let urlString =
     urlPart1 + "\(lat)" + "&longitude=" + "\(lon)" + urlPart2 + "&start_date=" + startDate + "&end_date=" + endDate
     let url = URL(string: urlString)
-    logger.notice("urlString = \(urlString)")
     ///
     /// Henter gjennomsnittsdata
     ///
     do {
-        logger.notice("Start fetching data")
         let (jsonData, _) = try await urlSession.data(from: url!)
         let data = try? JSONDecoder().decode(AverageDailyData.self, from: jsonData)
         if data == nil {
-            logger.notice("No available average data.")
             errorMessage = "No available average data."
         } else {
-            logger.notice("Stop fetching data")
             ///
             /// Resetting av data
             ///

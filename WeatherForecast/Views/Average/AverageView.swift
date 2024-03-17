@@ -41,8 +41,6 @@ struct AverageView : View {
                                                           avarageDailyMax: averageMonthlyDataRecord.temperature2MMax,
                                                           averageDailyMean: averageMonthlyDataRecord.temperature2MMean,
                                                           aveargePercification: averageMonthlyDataRecord.precipitationSum)
-            logger.notice("averageMonthPrecification")
-
         }
         .frame(maxWidth: .infinity,
                maxHeight: 180)
