@@ -23,7 +23,7 @@ struct AverageDetailView: View {
                 Text("Average")
                 Spacer()
             }
-            ZStack {
+            .overlay (
                 HStack {
                     Spacer()
                     VStack {
@@ -38,16 +38,16 @@ struct AverageDetailView: View {
                         })
                     }
                 }
-            }
-            .offset(y: UIDevice.isIpad ? -22.5 : -22.5)
-            ScrollView(showsIndicators: false) {
-                VStack {
-                    Text("Total ** precification** for mars = ") // \(weatherInfo.averageMonthPrecification[2])")
-                    padding(20)
-                    Spacer()
+            )
+            VStack {
+                if averageMonthPrecification[2] > 0.00 {
+                    Text("Total ** precification** for mars = \(averageMonthPrecification[2])")
+                        .padding(20)
                 }
                 
-            } /// ScrollView
+                
+            }
+            Spacer()
         }
         .frame(maxWidth: .infinity,
                maxHeight: .infinity)

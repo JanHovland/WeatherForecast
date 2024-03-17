@@ -11,6 +11,7 @@ import WeatherKit
 struct AverageView : View {
     
     @Environment(CurrentWeather.self) private var currentWeather
+    @State private var isModal: Bool = false
     
     var body: some View {
         VStack {
@@ -23,16 +24,35 @@ struct AverageView : View {
                 Spacer()
             }
             .opacity(0.50)
-            
-            Text("\(Int(currentWeather.apparentTemperature.rounded()))º")
-                .font(.system(size: 40, weight: .light))
-                .padding(.top, 10)
-            let a = averageMonthPrecification[2]
-            Text("\(a)")
-                .font(.system(size: 40, weight: .light))
-                .padding(.top, 10)
+//            .padding(.top, UIDevice.isIpad ? 55 : 75)
+            ZStack {
+                Spacer()
+                HStack {
+                    Spacer()
+                    Button("Information") {
+                        self.isModal = true
+                    }
+                    .padding(7)
+                    .foregroundColor(.primary)
+                    .buttonStyle(.bordered)
+                    .sheet(isPresented: $isModal, content: {
+                        AverageDetailView()
+                    })
+                }
+            }
+            .offset(y: -40)
+            VStack {
+                Text("\(Int(currentWeather.apparentTemperature.rounded()))º")
+                    .font(.system(size: 40, weight: .light))
+                
+                if averageMonthPrecification[2] > 0.00 {
+                    Text("\(averageMonthPrecification[2])")
+                        .font(.system(size: 40, weight: .light))
+                }
+            }
+            Spacer()
         }
-        .onAppear{
+        .onAppear {
             (averageMonthMin,
              averageMonthMax,
              averageMonthMean,
