@@ -13,10 +13,10 @@ func GetAverageMonthlyWeather(urlPart1: String,
                               startDate: String,
                               endDate: String,
                               lat: Double,
-                              lon: Double) async -> (String,
+                              lon: Double) async -> (LocalizedStringKey,
                                                      AverageMonthlyDataRecord) {
     
-    var errorMessage: String = ""
+    var errorMessage: LocalizedStringKey = ""
     var averageMonthlyDataRecord = AverageMonthlyDataRecord(time: [""],
                                                             precipitationSum: [0.00],
                                                             temperature2MMin: [0.00],

@@ -92,7 +92,7 @@ struct WeatherForecast: View {
     let addedDeleteMessage: LocalizedStringKey = "It can take some time until the place is deleted on CloudKit.\nSelect \"Refresh my places\""
     let addedSaveMessage: LocalizedStringKey = "It can take some time until the place is saved on CloudKit.\nSelect \"Refresh my places\""
    
-    @State public var errorMessage: String = ""
+    @State public var errorMessage: LocalizedStringKey = ""
     
     var body: some View {
         VStack {
@@ -638,9 +638,11 @@ struct WeatherForecast: View {
                                                                                           endDate: "2020-12-31",
                                                                                           lat: weatherInfo.latitude ?? 0.00,
                                                                                           lon: weatherInfo.longitude ?? 0.00)
-                if errorMessage.count > 0 {
+                logger.notice("errorMessage = \(errorMessage.stringKey!.count)")
+                
+                if errorMessage.stringKey!.count > 0 {
                     title = "AverageData"
-                    message = "No available average data."
+                    message = errorMessage
                     showAlert.toggle()
                 }
             }
