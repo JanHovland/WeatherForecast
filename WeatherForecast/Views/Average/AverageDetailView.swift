@@ -22,6 +22,14 @@ struct AverageDetailView: View {
                 Text("Average")
                 Spacer()
             }
+            .padding(5)
+            .background(
+                RoundedRectangle(
+                    cornerRadius: 10,
+                    style: .continuous
+                )
+                .fill(Color.blue)
+            )
             .overlay (
                 HStack {
                     Spacer()
@@ -38,15 +46,18 @@ struct AverageDetailView: View {
                     }
                 }
             )
-            VStack {
-                if averageMonthPrecification.count > 0 {
+            ScrollView(showsIndicators: false) {
+                VStack {
+                    Text("\(Int(currentWeather.apparentTemperature.rounded()))º")
+                    //                        .font(.system(size: 40, weight: .light))
                     Text("Precification mars = \(averageMonthPrecification[2])")
-                        .padding(20)
+                    Text("Precification mars = \(averageMonthPrecification[2])")
+                    Text("Precification mars = \(averageMonthPrecification[2])")
+                    Text("Precification mars = \(averageMonthPrecification[2])")
+                    Text("Precification mars = \(averageMonthPrecification[2])")
                 }
-                
-                
+                Spacer()
             }
-            Spacer()
         }
         .frame(maxWidth: .infinity,
                maxHeight: .infinity)

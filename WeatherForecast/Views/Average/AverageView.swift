@@ -15,39 +15,37 @@ struct AverageView : View {
     
     var body: some View {
         VStack {
+            HStack {
+                Image(systemName: "chart.line.uptrend.xyaxis")
+                    .symbolRenderingMode(.multicolor)
+                    .font(Font.headline.weight(.regular))
+                Text("AVERAGES")
+                    .font(.system(size: 15, weight: .bold))
+                Spacer()
+            }
+            .opacity(0.50)
+            ZStack {
+                Spacer()
                 HStack {
-                    Image(systemName: "chart.line.uptrend.xyaxis")
-                        .symbolRenderingMode(.multicolor)
-                        .font(Font.headline.weight(.regular))
-                    Text("AVERAGES")
-                        .font(.system(size: 15, weight: .bold))
                     Spacer()
-                }
-                .opacity(0.50)
-                ZStack {
-                    Spacer()
-                    HStack {
-                        Spacer()
-                        Button("Information") {
-                            self.isModal = true
-                        }
-                        .padding(7)
-                        .foregroundColor(.primary)
-                        .buttonStyle(.bordered)
-                        .sheet(isPresented: $isModal, content: {
-                            AverageDetailView()
-                        })
+                    Button("Information") {
+                        self.isModal = true
                     }
+                    .padding(7)
+                    .foregroundColor(.primary)
+                    .buttonStyle(.bordered)
+                    .sheet(isPresented: $isModal, content: {
+                        AverageDetailView()
+                    })
                 }
-                .offset(y: -40)
-                VStack {
-                    Text("\(Int(currentWeather.apparentTemperature.rounded()))º")
-                    //                        .font(.system(size: 40, weight: .light))
-                    Text("\(averageMonthPrecification[0])")
-                }
+            }
+            .offset(y: -40)
+            VStack {
+                Text("\(Int(currentWeather.apparentTemperature.rounded()))º")
+                Text("Precification mars = \(averageMonthPrecification[2])")
+            }
             Spacer()
         }
-
         .frame(maxWidth: .infinity,
                maxHeight: 180)
         .padding()
