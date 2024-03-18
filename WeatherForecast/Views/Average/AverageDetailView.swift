@@ -11,7 +11,6 @@ import Foundation
 struct AverageDetailView: View {
     
     @Environment(CurrentWeather.self) private var currentWeather
-//    @Environment(WeatherInfo.self) private var weatherInfo
     @Environment(\.dismiss) var dismiss
     
     var body: some View {
@@ -40,8 +39,8 @@ struct AverageDetailView: View {
                 }
             )
             VStack {
-                if averageMonthPrecification[2] > 0.00 {
-                    Text("Total ** precification** for mars = \(averageMonthPrecification[2])")
+                if averageMonthPrecification.count > 0 {
+                    Text("Precification mars = \(averageMonthPrecification[2])")
                         .padding(20)
                 }
                 

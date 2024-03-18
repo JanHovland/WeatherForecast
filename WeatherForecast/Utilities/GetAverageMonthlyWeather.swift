@@ -40,27 +40,15 @@ func GetAverageMonthlyWeather(urlPart1: String,
     ///
     do {
         let (jsonData, _) = try await urlSession.data(from: url!)
-        let data = try? JSONDecoder().decode(AverageDailyData.self, from: jsonData)
-        if data == nil {
-            errorMessage = "No available average data."
-        } else {
-            logger.notice("Stop fetch")
-            ///
-            /// Resetting av data
-            ///
-            averageMonthlyDataRecord.time.removeAll()
-            averageMonthlyDataRecord.precipitationSum.removeAll()
-            averageMonthlyDataRecord.temperature2MMin.removeAll()
-            averageMonthlyDataRecord.temperature2MMax.removeAll()
-            averageMonthlyDataRecord.temperature2MMean.removeAll()
+        if let data = try? JSONDecoder().decode(AverageDailyData.self, from: jsonData) {
             ///
             /// Oppdatering av averageMonthlyDataRecord
             ///
-            averageMonthlyDataRecord.time = (data?.daily.time)!
-            averageMonthlyDataRecord.precipitationSum = (data?.daily.precipitationSum)!
-            averageMonthlyDataRecord.temperature2MMin = (data?.daily.temperature2MMin)!
-            averageMonthlyDataRecord.temperature2MMax = (data?.daily.temperature2MMax)!
-            averageMonthlyDataRecord.temperature2MMean = (data?.daily.temperature2MMean)!
+            averageMonthlyDataRecord.time = (data.daily.time)
+            averageMonthlyDataRecord.precipitationSum = (data.daily.precipitationSum)
+            averageMonthlyDataRecord.temperature2MMin = (data.daily.temperature2MMin)
+            averageMonthlyDataRecord.temperature2MMax = (data.daily.temperature2MMax)
+            averageMonthlyDataRecord.temperature2MMean = (data.daily.temperature2MMean)
             ///
             /// Find average yearly data
             ///
@@ -72,9 +60,12 @@ func GetAverageMonthlyWeather(urlPart1: String,
                                                           avarageDailyMax: averageMonthlyDataRecord.temperature2MMax,
                                                           averageDailyMean: averageMonthlyDataRecord.temperature2MMean,
                                                           aveargePercification: averageMonthlyDataRecord.precipitationSum)
+            
+        } else {
+            errorMessage = "Nil data from JSONDecoder."
         }
     } catch {
-        logger.notice("Errors = \(error)")
+        debugPrint(error)
     }
     ///
     /// Returnerer data

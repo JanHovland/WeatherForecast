@@ -31,6 +31,9 @@ func FindAverageYear(averageDailyTime: [String],
     /// Finding monthly data
     ///
     for month in 1...12 {
+        ///
+        /// Resetting 
+        ///
         averageDailyTemperatureMin.removeAll()
         averageDailyTemperatureMax.removeAll()
         averageDailyTemperatureMean.removeAll()
