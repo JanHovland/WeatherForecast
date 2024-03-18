@@ -392,11 +392,6 @@ struct WeatherForecast: View {
             averageMonthlyDataRecord.temperature2MMax.removeAll()
             averageMonthlyDataRecord.temperature2MMean.removeAll()
             
-//            averageMonthMin.removeAll()
-//            averageMonthMax.removeAll()
-//            averageMonthMean.removeAll()
-//            averageMonthPrecification.removeAll()
-
             ///
             /// Normalen er temp over 30 år 1994-01-01 til og med 2023-12-31
             ///
@@ -462,24 +457,19 @@ struct WeatherForecast: View {
                                                                                               endDate: endDate,
                                                                                               lat: weatherInfo.latitude ?? 0.00,
                                                                                               lon: weatherInfo.longitude ?? 0.00)
-                    logger.notice("averageMonthPrecification.count = \(averageMonthPrecification.count)")
                     logger.notice("WeatherForecast -> averageMonthPrecification[0] = \(averageMonthPrecification[0])")
-                    
+                    logger.notice("averageMonthPrecification.count = \(averageMonthPrecification.count)")
                     ///
                     /// stringKey kommer fra extension LocalizedStringKey i Extensions.swift
                     ///
-                    if errorMessage.stringKey!.count > 0 {
-                        title = "AverageData"
-                        message = errorMessage
-                        showAlert.toggle()
-                    }
+//                    if errorMessage.stringKey!.count > 0 {
+//                        title = "AverageData"
+//                        message = errorMessage
+//                        showAlert.toggle()
+//                    }
                 }
             }
         }
-
-        
-        
-        
         if persist == true {
             ///
             /// Finner hourForecast:
