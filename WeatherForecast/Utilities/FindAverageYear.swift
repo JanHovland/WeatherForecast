@@ -65,7 +65,7 @@ func FindAverageYear(averageDailyTime: [String],
         valuePrecification.append(valueSum / 30.00)
     }
     ///
-    /// Eksporten må være spesifisert på ** hver** av de 12 månedene
+    /// Eksport  på ** hver** av de 12 månedene
     ///
     return (valueMin, valueMax, valueMean, valuePrecification)
 }

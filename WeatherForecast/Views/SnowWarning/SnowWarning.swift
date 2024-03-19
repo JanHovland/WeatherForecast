@@ -22,12 +22,14 @@ struct SnowWarningView: View {
                 }
                 .font(Font.headline.weight(.bold))
                 .padding(5)
+                .foregroundColor(.red)
                 .background(
                     RoundedRectangle(
-                        cornerRadius: 5,
+                        cornerRadius: 7.5,
                         style: .continuous
                     )
-                    .fill(Color.red)
+                    .fill(Color.white)
+                    .opacity(1.00)
                 )
                 ScrollView (.horizontal, showsIndicators: false) {
                     HStack(spacing: 20) {
@@ -43,9 +45,6 @@ struct SnowWarningView: View {
                         Spacer()
                     }
                 }
-            } else {
-                Text("snowWarning is empty.")
-                    .foregroundStyle(.cyan)
             }
         }
         .task {
