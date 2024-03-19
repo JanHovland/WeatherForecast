@@ -89,9 +89,6 @@ func GetAverageMonthlyWeather(urlPart1: String,
                                                               avarageDailyMax: averageMonthlyDataRecord.temperature2MMax,
                                                               averageDailyMean: averageMonthlyDataRecord.temperature2MMean,
                                                               aveargePercification: averageMonthlyDataRecord.precipitationSum)
-                
-            } else {
-                errorMessage = "Nil data from JSONDecoder."
             }
         }
     } catch {
