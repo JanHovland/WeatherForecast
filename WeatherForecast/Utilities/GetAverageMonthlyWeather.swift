@@ -22,7 +22,7 @@ func GetAverageMonthlyWeather(urlPart1: String,
                                                             temperature2MMin: [0.00],
                                                             temperature2MMax: [0.00],
                                                             temperature2MMean: [0.00])
-    
+     
     ///
     /// Dokumentasjon: https://open-meteo.com/en/docs/historical-weather-api
     ///
@@ -33,13 +33,24 @@ func GetAverageMonthlyWeather(urlPart1: String,
     let urlString =
     urlPart1 + "\(lat)" + "&longitude=" + "\(lon)" + urlPart2 + "&start_date=" + startDate + "&end_date=" + endDate
     logger.notice("urlString = \(urlString)")
-    logger.notice("Start fetch")
     let url = URL(string: urlString)
     ///
     /// Henter gjennomsnittsdata
     ///
     do {
-        let (jsonData, _) = try await urlSession.data(from: url!)
+        let (jsonData, response) = try await urlSession.data(from: url!)
+        ///
+        /// Finner statusCode fra response
+        ///
+        let res = response as? HTTPURLResponse
+        logger.notice("response = \(res!.statusCode)")
+        ///
+        /// 200 OK
+        /// The request succeeded.
+        ///
+        /// 400 Bad Request
+        /// The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).
+        ///
         if let data = try? JSONDecoder().decode(AverageDailyData.self, from: jsonData) {
             ///
             /// Oppdatering av averageMonthlyDataRecord
@@ -72,5 +83,4 @@ func GetAverageMonthlyWeather(urlPart1: String,
     ///
     return (errorMessage, averageMonthlyDataRecord)
 }
-
 
