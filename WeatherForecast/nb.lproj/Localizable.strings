@@ -1731,4 +1731,10 @@
 /* No comment provided by engineer. */
 "AVERAGES" = "GJENNOMSNITT";
 
+/* No comment provided by engineer. */
+"400 = Bad Request" = "400 = Dårlig forespørsel";
+
+/* No comment provided by engineer. */
+"429 = Too Many Requests, the user has sent too many requests in a given amount of time (\"rate limiting\")" = "For mange forespørsler, brukeren har sendt for mange forespørsler i løpet av en gitt tidsperiode (\"rate limiting\").\nVent og prøv så igjen senere.";
+
 

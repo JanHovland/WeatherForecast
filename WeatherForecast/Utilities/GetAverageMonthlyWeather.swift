@@ -17,6 +17,7 @@ func GetAverageMonthlyWeather(urlPart1: String,
                                                      AverageMonthlyDataRecord) {
     
     var errorMessage: LocalizedStringKey = ""
+    var httpStatus: Int = 0
     var averageMonthlyDataRecord = AverageMonthlyDataRecord(time: [""],
                                                             precipitationSum: [0.00],
                                                             temperature2MMin: [0.00],
@@ -43,6 +44,7 @@ func GetAverageMonthlyWeather(urlPart1: String,
         /// Finner statusCode fra response
         ///
         let res = response as? HTTPURLResponse
+        httpStatus = res!.statusCode
         logger.notice("response = \(res!.statusCode)")
         ///
         /// 200 OK
@@ -51,34 +53,46 @@ func GetAverageMonthlyWeather(urlPart1: String,
         /// 400 Bad Request
         /// The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).
         ///
-        
-        
-        
-        
-        
-        if let data = try? JSONDecoder().decode(AverageDailyData.self, from: jsonData) {
-            ///
-            /// Oppdatering av averageMonthlyDataRecord
-            ///
-            averageMonthlyDataRecord.time = (data.daily.time)
-            averageMonthlyDataRecord.precipitationSum = (data.daily.precipitationSum)
-            averageMonthlyDataRecord.temperature2MMin = (data.daily.temperature2MMin)
-            averageMonthlyDataRecord.temperature2MMax = (data.daily.temperature2MMax)
-            averageMonthlyDataRecord.temperature2MMean = (data.daily.temperature2MMean)
-            ///
-            /// Find average yearly data
-            ///
-            (averageMonthMin,
-             averageMonthMax,
-             averageMonthMean,
-             averageMonthPrecification) = FindAverageYear(averageDailyTime: averageMonthlyDataRecord.time,
-                                                          avarageDailyMin: averageMonthlyDataRecord.temperature2MMin,
-                                                          avarageDailyMax: averageMonthlyDataRecord.temperature2MMax,
-                                                          averageDailyMean: averageMonthlyDataRecord.temperature2MMean,
-                                                          aveargePercification: averageMonthlyDataRecord.precipitationSum)
-            
+        if httpStatus >= 400,
+           httpStatus <= 499 {
+            if httpStatus == 400 {
+                let msg = String(localized: "400 = Bad Request")
+                logger.notice("\(msg)")
+                errorMessage = LocalizedStringKey(msg)
+            } else if httpStatus == 429 {
+                let msg = String("429 = Too Many Requests, the user has sent too many requests in a given amount of time (\"rate limiting\")")
+                logger.notice("\(msg)")
+                errorMessage = LocalizedStringKey(msg)
+            } else {
+                let msg = "\(httpStatus)"
+                logger.notice("\(httpStatus)")
+                errorMessage = LocalizedStringKey(msg)
+            }
         } else {
-            errorMessage = "Nil data from JSONDecoder."
+            if let data = try? JSONDecoder().decode(AverageDailyData.self, from: jsonData) {
+                ///
+                /// Oppdatering av averageMonthlyDataRecord
+                ///
+                averageMonthlyDataRecord.time = (data.daily.time)
+                averageMonthlyDataRecord.precipitationSum = (data.daily.precipitationSum)
+                averageMonthlyDataRecord.temperature2MMin = (data.daily.temperature2MMin)
+                averageMonthlyDataRecord.temperature2MMax = (data.daily.temperature2MMax)
+                averageMonthlyDataRecord.temperature2MMean = (data.daily.temperature2MMean)
+                ///
+                /// Find average yearly data
+                ///
+                (averageMonthMin,
+                 averageMonthMax,
+                 averageMonthMean,
+                 averageMonthPrecification) = FindAverageYear(averageDailyTime: averageMonthlyDataRecord.time,
+                                                              avarageDailyMin: averageMonthlyDataRecord.temperature2MMin,
+                                                              avarageDailyMax: averageMonthlyDataRecord.temperature2MMax,
+                                                              averageDailyMean: averageMonthlyDataRecord.temperature2MMean,
+                                                              aveargePercification: averageMonthlyDataRecord.precipitationSum)
+                
+            } else {
+                errorMessage = "Nil data from JSONDecoder."
+            }
         }
     } catch {
         debugPrint(error)
