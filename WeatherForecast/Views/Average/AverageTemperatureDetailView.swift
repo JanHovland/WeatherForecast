@@ -1,5 +1,5 @@
 //
-//  AverageDetailView.swift
+//  AverageTemperatureDetailView.swift
 //  WeatherForecast
 //
 //  Created by Jan Hovland on 15/03/2024.
@@ -8,7 +8,7 @@
 import SwiftUI
 import Foundation
 
-struct AverageDetailView: View {
+struct AverageTemperatureDetailView: View {
     
     @Environment(CurrentWeather.self) private var currentWeather
     @Environment(\.dismiss) var dismiss

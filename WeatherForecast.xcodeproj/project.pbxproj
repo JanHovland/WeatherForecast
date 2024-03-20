@@ -168,7 +168,7 @@
 		DBAC1A1A297FF4FC00D50DE6 /* GetCurrentLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAC1A19297FF4FC00D50DE6 /* GetCurrentLocation.swift */; };
 		DBB0B88A2B72286300069145 /* SnowWarning.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB0B8892B72286300069145 /* SnowWarning.swift */; };
 		DBB426552BA43DAD00EF0C65 /* AverageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB426542BA43DAD00EF0C65 /* AverageView.swift */; };
-		DBB426572BA460CC00EF0C65 /* AverageDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB426562BA460CC00EF0C65 /* AverageDetailView.swift */; };
+		DBB426572BA460CC00EF0C65 /* AverageTemperatureDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB426562BA460CC00EF0C65 /* AverageTemperatureDetailView.swift */; };
 		DBB4CCCA288869E900B5C5C8 /* WeatherForecastApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB4CCC9288869E900B5C5C8 /* WeatherForecastApp.swift */; };
 		DBB4CCCC288869E900B5C5C8 /* WeatherForecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB4CCCB288869E900B5C5C8 /* WeatherForecast.swift */; };
 		DBB4CCCE288869EA00B5C5C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DBB4CCCD288869EA00B5C5C8 /* Assets.xcassets */; };
@@ -379,7 +379,7 @@
 		DBAC1A19297FF4FC00D50DE6 /* GetCurrentLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCurrentLocation.swift; sourceTree = "<group>"; };
 		DBB0B8892B72286300069145 /* SnowWarning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnowWarning.swift; sourceTree = "<group>"; };
 		DBB426542BA43DAD00EF0C65 /* AverageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AverageView.swift; sourceTree = "<group>"; };
-		DBB426562BA460CC00EF0C65 /* AverageDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AverageDetailView.swift; sourceTree = "<group>"; };
+		DBB426562BA460CC00EF0C65 /* AverageTemperatureDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AverageTemperatureDetailView.swift; sourceTree = "<group>"; };
 		DBB4CCC6288869E900B5C5C8 /* WeatherForecast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherForecast.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBB4CCC9288869E900B5C5C8 /* WeatherForecastApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherForecastApp.swift; sourceTree = "<group>"; };
 		DBB4CCCB288869E900B5C5C8 /* WeatherForecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherForecast.swift; sourceTree = "<group>"; };
@@ -927,7 +927,7 @@
 		DBB426532BA43D7E00EF0C65 /* Average */ = {
 			isa = PBXGroup;
 			children = (
-				DBB426562BA460CC00EF0C65 /* AverageDetailView.swift */,
+				DBB426562BA460CC00EF0C65 /* AverageTemperatureDetailView.swift */,
 				DBB426542BA43DAD00EF0C65 /* AverageView.swift */,
 			);
 			path = Average;
@@ -1248,7 +1248,7 @@
 				DB0230C528E4E5D700DCE15C /* WeatherForecastDetail.swift in Sources */,
 				DB5C0C542917CD9A00141BDC /* UvIndexHeading.swift in Sources */,
 				DB7B50DC2AF1498E00A61BA1 /* AppsForIPad.swift in Sources */,
-				DBB426572BA460CC00EF0C65 /* AverageDetailView.swift in Sources */,
+				DBB426572BA460CC00EF0C65 /* AverageTemperatureDetailView.swift in Sources */,
 				DB3E19222B14E3EE001FDF07 /* ImageViewModifier.swift in Sources */,
 				DBB99D392AE425BE0022B6E9 /* FindChartDataPrecipitation.swift in Sources */,
 				DB4A8DB029487EDA0067C4F8 /* InfoHumidity.swift in Sources */,

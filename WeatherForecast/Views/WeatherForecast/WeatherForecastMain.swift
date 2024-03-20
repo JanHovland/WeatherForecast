@@ -84,52 +84,55 @@ struct WeatherForecastMain: View {
                 /// Bruker local offsetString
                 /// Bruker local offsetSec
                 ///
-                NavigationLink(destination: WeatherForecast(expOption: .intern,
-                                                            extPlaceName: weatherInfo.placeName,
-                                                            extCountryName: weatherInfo.countryName,
-                                                            extLatitude: weatherInfo.latitude ?? 0.00,
-                                                            extLongitude: weatherInfo.longitude ?? 0.00,
-                                                            extOffsetString: weatherInfo.localOffsetString,
-                                                            extOffsetSec: weatherInfo.localOffsetSec)) {
-                    HStack (spacing:20) {
-                        Label {
-                            Text("Local weatherForecast")
-                        } icon: {
-                            Image(systemName: "cloud.sun.rain.fill")
-                                .font(.subheadline)
-                                .symbolRenderingMode(.multicolor)
-                        }
-                    }
-                }
-                Section("My places") {
-                    ScrollView (showsIndicators: false) {
-                        VStack(alignment: .leading, spacing: 15) {
-                            ForEach(myPlaces) { myPlace in
-                                NavigationLink(destination: WeatherForecast(expOption: .selection,
-                                                                            extPlaceName: myPlace.extPlaceName ,
-                                                                            extCountryName: myPlace.extCountryName,
-                                                                            extLatitude: myPlace.extLatitude ,
-                                                                            extLongitude: myPlace.extLongitude ,
-                                                                            extOffsetString: myPlace.extOffsetString,
-                                                                            extOffsetSec: myPlace.extOffsetSec)) {
-                                    
-                                    Label {
-                                        Text("\(myPlace.extPlaceName), \(myPlace.extCountryName)")
-                                            .padding(.leading, 5)
-                                            .foregroundStyle(.white)
-                                    } icon: {
-                                        Text(myPlace.extFlag)
-                                            .font(.title)
-                                            .foregroundColor(.blue)
-                                    }
-                                }
-                                
-                            }
-                        }
-                    }
-                    .frame(height: UIDevice.isIpad ? 275 : 230)
-                }
+//                NavigationLink(destination: WeatherForecast(expOption: .intern,
+//                                                            extPlaceName: weatherInfo.placeName,
+//                                                            extCountryName: weatherInfo.countryName,
+//                                                            extLatitude: weatherInfo.latitude ?? 0.00,
+//                                                            extLongitude: weatherInfo.longitude ?? 0.00,
+//                                                            extOffsetString: weatherInfo.localOffsetString,
+//                                                            extOffsetSec: weatherInfo.localOffsetSec)) {
+//                    HStack (spacing:20) {
+//                        Label {
+//                            Text("Local weatherForecast")
+//                        } icon: {
+//                            Image(systemName: "cloud.sun.rain.fill")
+//                                .font(.subheadline)
+//                                .symbolRenderingMode(.multicolor)
+//                        }
+//                    }
+//            0    }
+//                Section("My places") {
+//                    ScrollView (showsIndicators: false) {
+//                        VStack(alignment: .leading, spacing: 15) {
+//                            ForEach(myPlaces) { myPlace in
+//                                NavigationLink(destination: WeatherForecast(expOption: .selection,
+//                                                                            extPlaceName: myPlace.extPlaceName ,
+//                                                                            extCountryName: myPlace.extCountryName,
+//                                                                            extLatitude: myPlace.extLatitude ,
+//                                                                            extLongitude: myPlace.extLongitude ,
+//                                                                            extOffsetString: myPlace.extOffsetString,
+//                                                                            extOffsetSec: myPlace.extOffsetSec)) {
+//                                    
+//                                    Label {
+//                                        Text("\(myPlace.extPlaceName), \(myPlace.extCountryName)")
+//                                            .padding(.leading, 5)
+//                                            .foregroundStyle(.white)
+//                                    } icon: {
+//                                        Text(myPlace.extFlag)
+//                                            .font(.title)
+//                                            .foregroundColor(.blue)
+//                                    }
+//                                }
+//                                
+//                            }
+//                        }
+//                    }
+//                    .frame(height: UIDevice.isIpad ? 275 : 230)
+//                }
                 Section("Diverse") {
+                    NavigationLink(destination: AverageView()) {
+                        Label("AverageView", systemImage: "gear")
+                    }
                     NavigationLink(destination: SettingView()) {
                         Label("Settings", systemImage: "gear")
                     }
