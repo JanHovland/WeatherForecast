@@ -130,8 +130,8 @@ struct WeatherForecastMain: View {
 //                    .frame(height: UIDevice.isIpad ? 275 : 230)
 //                }
                 Section("Diverse") {
-                    NavigationLink(destination: AverageView()) {
-                        Label("AverageView", systemImage: "gear")
+                    NavigationLink(destination: AverageFirstView()) {
+                        Label("AverageFirstView", systemImage: "gear")
                     }
                     NavigationLink(destination: SettingView()) {
                         Label("Settings", systemImage: "gear")
