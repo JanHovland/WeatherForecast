@@ -9,6 +9,7 @@ import SwiftUI
 
 struct AverageFirstView: View {
     
+    @Environment(CurrentWeather.self) private var currentWeather
     @State private var isTemperature: Bool = false
     
     var body: some View {
@@ -60,5 +61,6 @@ struct AverageFirstView: View {
         .sheet(isPresented: $isTemperature, content: {
             AverageView()
         })
+        .modifier(DayDetailBackground(dayLight: currentWeather.isDaylight))
     }
 }

@@ -10,16 +10,17 @@ import SwiftUI
 struct AverageView : View {
     
     @Environment(\.dismiss) var dismiss
+    @Environment(CurrentWeather.self) private var currentWeather
     
     @State private var selection1: Bool = true
     @State private var selection2: Bool = false
     
-    @State private var isTemperature: Bool = false
+    @State private var isTemperature: Bool = true
     @State private var isPrecification: Bool = false
     
     
-    let color1 = Color(red: 127 / 255, green: 128 / 255, blue: 132 / 255).opacity(0.25)
-    let color2 = Color(red: 71 / 255, green: 75 / 255, blue: 76 / 255).opacity(0.75)
+    let color1 = Color(red: 127 / 255, green: 128 / 255, blue: 132 / 255).opacity(1.00)
+    let color2 = Color(red: 71 / 255, green: 75 / 255, blue: 76 / 255).opacity(1.00)
     
     var body: some View {
         VStack {
@@ -57,7 +58,7 @@ struct AverageView : View {
                     Text(String(localized: "Temperature"))
                         .padding(.vertical, 10)
                         .padding(.horizontal, 60)
-                        .background(selection1 == false ? color1 : color2)
+                        .background(selection1 == false ? color2 : color1)
                         .foregroundColor(.white)
                         .cornerRadius(7.5)
                 }
@@ -70,18 +71,22 @@ struct AverageView : View {
                     Text(String(localized: "Precification"))
                         .padding(.vertical, 10)
                         .padding(.horizontal, 60)
-                        .background(selection2 == false ? color1 : color2)
+                        .background(selection2 == false ? color2 : color1)
                         .foregroundColor(.white)
                         .cornerRadius(7.5)
                 }
             }
+            if isTemperature == true {
+                AverageTemperatureDetailView()
+            }
+            if isPrecification == true {
+                AveragePrecificationDetailView()
+            }
             Spacer()
         }
-        .sheet(isPresented: $isTemperature, content: {
-            AverageTemperatureDetailView()
-        })
-        .sheet(isPresented: $isPrecification, content: {
-            AveragePrecificationDetailView()
-        })
+        .frame(maxWidth: .infinity,
+               maxHeight: .infinity)
+        .padding()
+        .modifier(DayDetailBackground(dayLight: currentWeather.isDaylight))
     }
 }
