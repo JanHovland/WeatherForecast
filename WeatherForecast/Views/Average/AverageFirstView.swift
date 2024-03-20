@@ -13,8 +13,38 @@ struct AverageFirstView: View {
     
     var body: some View {
         VStack {
-            Text("Average Init")
+            HStack(spacing: UIDevice.isIpad ? 20 : 10) {
+                Image(systemName: "chart.line.uptrend.xyaxis")
+                    .font(Font.headline.weight(.regular))
+                Text("AVERAGES")
+                Spacer()
+            }
+            Text("+3º")
+                .font(.system(size: 40, weight: .light))
+            Text(String(localized: "above the normal highest daytime temperature."))
+            HStack {
+                HStack {
+                    Text(String(localized: "Today"))
+                    Spacer()
+                }
+                HStack {
+                    Spacer()
+                    Text("H: 8º")
+                }
+            }
+            HStack {
+                HStack {
+                    Text(String(localized: "Average"))
+                    Spacer()
+                }
+                HStack {
+                    Spacer()
+                    Text("H: 5º")
+                }
+            }
+            Spacer()
         }
+        .padding()
         .frame(maxWidth: .infinity,
                maxHeight: 180)
         .background(

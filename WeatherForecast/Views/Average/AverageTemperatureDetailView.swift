@@ -19,7 +19,7 @@ struct AverageTemperatureDetailView: View {
                 Spacer()
                 Image(systemName: "chart.line.uptrend.xyaxis")
                     .font(Font.headline.weight(.regular))
-                Text("Average")
+                Text("AVERAGES")
                 Spacer()
             }
             .padding(20)

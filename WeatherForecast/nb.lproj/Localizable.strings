@@ -1737,4 +1737,13 @@
 /* No comment provided by engineer. */
 "429 = Too Many Requests, the user has sent too many requests in a given amount of time (\"rate limiting\")" = "For mange forespørsler, brukeren har sendt for mange forespørsler i løpet av en gitt tidsperiode (\"rate limiting\").\nVent og prøv så igjen senere.";
 
+/* No comment provided by engineer. */
+"above the normal highest daytime temperature." = "over normalt høyeste dagstemperatur."; 
+
+
+
+
+
+
+
 
