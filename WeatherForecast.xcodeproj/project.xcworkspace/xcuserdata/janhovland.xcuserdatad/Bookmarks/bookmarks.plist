@@ -81,13 +81,13 @@
 				<key>focused</key>
 				<string>            </string>
 				<key>leading</key>
-				<string>            ///
-            let startDate: String = "1991-01-01"
-</string>
+				<string>//            ///
+//            let startDate: String = "1991-01-01"
+//</string>
 				<key>trailing</key>
 				<string>let endDate: String = "2020-12-31"
-            ///
-            /// Finner urlPart1 fra Settings()
+//            ///
+//            /// Finner urlPart1 fra Settings()
 </string>
 			</dict>
 			<key>type</key>
