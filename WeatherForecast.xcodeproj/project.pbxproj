@@ -58,6 +58,7 @@
 		DB2E44F12B0FA67100DC77AD /* ChartViewNewProbability.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2E44F02B0FA67100DC77AD /* ChartViewNewProbability.swift */; };
 		DB2F3AC429EBE73C00D332E1 /* WeatherForecastHistoryEurope.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2F3AC329EBE73C00D332E1 /* WeatherForecastHistoryEurope.swift */; };
 		DB2F3AC929ED56B600D332E1 /* WeatherForecast.drawio in Resources */ = {isa = PBXBuildFile; fileRef = DB2F3AC829ED56B500D332E1 /* WeatherForecast.drawio */; };
+		DB370C612BAB649000C8C80F /* AveragePrecificationDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB370C602BAB649000C8C80F /* AveragePrecificationDetailView.swift */; };
 		DB3DBBB62B0D38CE00FAEE12 /* DayDetailOffsetInfoViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3DBBB52B0D38CE00FAEE12 /* DayDetailOffsetInfoViewModifier.swift */; };
 		DB3E19202B149DE0001FDF07 /* ConvertImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3E191F2B149DE0001FDF07 /* ConvertImage.swift */; };
 		DB3E19222B14E3EE001FDF07 /* ImageViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3E19212B14E3EE001FDF07 /* ImageViewModifier.swift */; };
@@ -269,6 +270,7 @@
 		DB2E44F02B0FA67100DC77AD /* ChartViewNewProbability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewNewProbability.swift; sourceTree = "<group>"; };
 		DB2F3AC329EBE73C00D332E1 /* WeatherForecastHistoryEurope.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherForecastHistoryEurope.swift; sourceTree = "<group>"; };
 		DB2F3AC829ED56B500D332E1 /* WeatherForecast.drawio */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = WeatherForecast.drawio; sourceTree = "<group>"; };
+		DB370C602BAB649000C8C80F /* AveragePrecificationDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AveragePrecificationDetailView.swift; sourceTree = "<group>"; };
 		DB3DBBB52B0D38CE00FAEE12 /* DayDetailOffsetInfoViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayDetailOffsetInfoViewModifier.swift; sourceTree = "<group>"; };
 		DB3E191F2B149DE0001FDF07 /* ConvertImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertImage.swift; sourceTree = "<group>"; };
 		DB3E19212B14E3EE001FDF07 /* ImageViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewModifier.swift; sourceTree = "<group>"; };
@@ -929,6 +931,7 @@
 			children = (
 				DBB426562BA460CC00EF0C65 /* AverageTemperatureDetailView.swift */,
 				DBB426542BA43DAD00EF0C65 /* AverageView.swift */,
+				DB370C602BAB649000C8C80F /* AveragePrecificationDetailView.swift */,
 			);
 			path = Average;
 			sourceTree = "<group>";
@@ -1178,6 +1181,7 @@
 				DB235A5D29825FEE00FE586B /* FindCurrentWeather.swift in Sources */,
 				DB17F6B42961FAD500FC2A0B /* InfoPrecipitation.swift in Sources */,
 				DB43C45D28F979A3007D44EC /* FormatDateToString.swift in Sources */,
+				DB370C612BAB649000C8C80F /* AveragePrecificationDetailView.swift in Sources */,
 				DB7B036829B31E7A00B4618A /* ServerResponse.swift in Sources */,
 				DB53CB3D29903FEB004D0C71 /* DateString.swift in Sources */,
 				DB41EB7D2978065100167108 /* LocationService.swift in Sources */,

@@ -30,14 +30,7 @@ struct AverageView : View {
                 Text("Average")
                 Spacer()
             }
-            .padding(5)
-//            .background(
-//                RoundedRectangle(
-//                    cornerRadius: 10,
-//                    style: .continuous
-//                )
-//                .fill(Color.blue)
-//            )
+            .padding(20)
             .overlay (
                 HStack {
                     Spacer()
@@ -60,7 +53,6 @@ struct AverageView : View {
                     selection2 = false
                     isTemperature = true
                     isPrecification = false
-                    print("Temperature button tapped")
                 }) {
                     Text(String(localized: "Temperature"))
                         .padding(.vertical, 10)
@@ -69,14 +61,11 @@ struct AverageView : View {
                         .foregroundColor(.white)
                         .cornerRadius(7.5)
                 }
-                
                 Button(action: {
                     selection1 = false
                     selection2 = true
                     isTemperature = false
                     isPrecification = true
-                    
-                    print("Precification button tapped")
                 }) {
                     Text(String(localized: "Precification"))
                         .padding(.vertical, 10)
@@ -92,14 +81,7 @@ struct AverageView : View {
             AverageTemperatureDetailView()
         })
         .sheet(isPresented: $isPrecification, content: {
-            PreciView()
+            AveragePrecificationDetailView()
         })
     }
 }
-
-struct PreciView: View {
-    var body: some View {
-        Text("Preci View")
-    }
-}
-
