@@ -57,7 +57,7 @@ struct AverageView : View {
                 }) {
                     Text(String(localized: "Temperature"))
                         .padding(.vertical, 10)
-                        .padding(.horizontal, 60)
+                        .padding(.horizontal, UIDevice.isIpad ? 60 : 30)
                         .background(selection1 == false ? color2 : color1)
                         .foregroundColor(.white)
                         .cornerRadius(7.5)
@@ -70,7 +70,7 @@ struct AverageView : View {
                 }) {
                     Text(String(localized: "Precification"))
                         .padding(.vertical, 10)
-                        .padding(.horizontal, 60)
+                        .padding(.horizontal, UIDevice.isIpad ? 60 : 30)
                         .background(selection2 == false ? color2 : color1)
                         .foregroundColor(.white)
                         .cornerRadius(7.5)
