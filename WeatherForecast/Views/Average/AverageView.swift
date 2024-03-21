@@ -20,7 +20,7 @@ struct AverageView : View {
     
     
     let color1 = Color(red: 127 / 255, green: 128 / 255, blue: 132 / 255).opacity(1.00)
-    let color2 = Color(red: 71 / 255, green: 75 / 255, blue: 76 / 255).opacity(1.00)
+    let color2 = Color(red: 71 / 255, green: 75 / 255, blue: 76 / 255).opacity(0.50)
     
     var body: some View {
         VStack {
