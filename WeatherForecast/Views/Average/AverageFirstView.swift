@@ -53,7 +53,7 @@ struct AverageFirstView: View {
         }
         .sheet(isPresented: $isTemperature, content: {
             AverageView()
-                .background(Color("Background#01").opacity(currentWeather.isDaylight == false ? 0.85 : 0.35))
+                .background(Color("Background#01").opacity(currentWeather.isDaylight == true ? 0.85 : 0.35))
         })
         .modifier(DayDetailBackground(dayLight: currentWeather.isDaylight))
     }
