@@ -12,23 +12,23 @@ struct AveragePrecificationDetailView: View {
     
     @Environment(CurrentWeather.self) private var currentWeather
     @Environment(\.dismiss) var dismiss
+    @State private var info: String = ""
     
     var body: some View {
         VStack {
             ScrollView(showsIndicators: false) {
                 VStack {
-                    Text("Precification januar = \(averageMonthPrecification[0])")
-                    Text("Precification february = \(averageMonthPrecification[1])")
+                    HStack {
+                        Text(String(localized: "Overview"))
+                            .font(.system(size: 22, weight: .regular))
+                        Spacer()
+                    }
+                    .padding()
+ 
+                    Text(info)
+                        .padding()
+
                     Text("Precification mars = \(averageMonthPrecification[2])")
-                    Text("Precification april = \(averageMonthPrecification[3])")
-                    Text("Precification may = \(averageMonthPrecification[4])")
-                    Text("Precification june = \(averageMonthPrecification[5])")
-                    Text("Precification july = \(averageMonthPrecification[6])")
-                    Text("Precification august = \(averageMonthPrecification[7])")
-                    Text("Precification september = \(averageMonthPrecification[8])")
-                    Text("Precification october = \(averageMonthPrecification[9])")
-                    Text("Precification november = \(averageMonthPrecification[10])")
-                    Text("Precification desember = \(averageMonthPrecification[11])")
                 }
                 Spacer()
             }
@@ -36,5 +36,16 @@ struct AveragePrecificationDetailView: View {
         .frame(maxWidth: .infinity,
                maxHeight: .infinity)
         .padding()
+        .onAppear {
+            info = String(localized: "Normally it falls")
+            info = info + "117 mm "
+            info = info + String(localized: "precipitation from ")
+            info = info + "10. februar"
+            info = info + String(localized: " to ")
+            info = info + "11. mars"
+            info = info + " . "
+            info = info + String(localized: "In the last 30 days, the total has fallen ")
+            info = info + "183 mm."
+        }
     }
 }
