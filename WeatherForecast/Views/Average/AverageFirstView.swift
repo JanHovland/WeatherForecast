@@ -48,18 +48,12 @@ struct AverageFirstView: View {
         .padding()
         .frame(maxWidth: .infinity,
                maxHeight: 180)
-        .background(
-            RoundedRectangle(
-                cornerRadius: 15,
-                style: .continuous
-            )
-            .fill(Color(.lightGray).opacity(0.40))
-        )
         .onTapGesture {
             isTemperature.toggle()
         }
         .sheet(isPresented: $isTemperature, content: {
             AverageView()
+                .background(Color("Background#01").opacity(currentWeather.isDaylight == false ? 0.85 : 0.35))
         })
         .modifier(DayDetailBackground(dayLight: currentWeather.isDaylight))
     }

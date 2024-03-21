@@ -87,6 +87,5 @@ struct AverageView : View {
         .frame(maxWidth: .infinity,
                maxHeight: .infinity)
         .padding()
-        .modifier(DayDetailBackground(dayLight: currentWeather.isDaylight))
     }
 }
