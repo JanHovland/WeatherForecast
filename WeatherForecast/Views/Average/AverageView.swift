@@ -19,9 +19,9 @@ struct AverageView : View {
     @State private var isPrecification: Bool = false
     
     
-    let color1 = Color(red: 127 / 255, green: 128 / 255, blue: 132 / 255).opacity(1.00)
-    let color2 = Color(red: 71 / 255, green: 75 / 255, blue: 76 / 255).opacity(0.50)
-    
+    let color1 = Color(red: 58 / 255, green: 76 / 255, blue: 87 / 255).opacity(0.20)
+    let color2 = Color(red: 113 / 255, green: 123 / 255, blue: 132 / 255).opacity(1.00)
+
     var body: some View {
         VStack {
             HStack(spacing: UIDevice.isIpad ? 20 : 10) {
@@ -58,7 +58,7 @@ struct AverageView : View {
                     Text(String(localized: "Temperature"))
                         .padding(.vertical, 10)
                         .padding(.horizontal, UIDevice.isIpad ? 60 : 30)
-                        .background(selection1 == false ? color2 : color1)
+                        .background(selection1 == false ? color1 : color2)
                         .foregroundColor(.white)
                         .cornerRadius(7.5)
                 }
@@ -71,7 +71,7 @@ struct AverageView : View {
                     Text(String(localized: "Precification"))
                         .padding(.vertical, 10)
                         .padding(.horizontal, UIDevice.isIpad ? 60 : 30)
-                        .background(selection2 == false ? color2 : color1)
+                        .background(selection2 == false ? color1 : color2)
                         .foregroundColor(.white)
                         .cornerRadius(7.5)
                 }

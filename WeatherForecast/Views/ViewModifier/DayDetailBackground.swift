@@ -12,6 +12,9 @@ import SwiftUI
 /// https://www.swiftbysundell.com/articles/defining-dynamic-colors-in-swift/
 ///
 
+// #626178 = gammel grå for "Background#01"
+// #6390B8 = ny blå     for "Background#01"
+
 struct DayDetailBackground: ViewModifier {
     let dayLight: Bool
     
@@ -25,7 +28,7 @@ struct DayDetailBackground: ViewModifier {
                     cornerRadius: 15,
                     style: .continuous
                 )
-                .fill(Color("Background#01").opacity(dayLight == true ? 0.85 : 0.35))
+                .fill(Color("Background#01").opacity(dayLight == true ? 0.60 : 0.35))
                 ///
                 /// parameter = 1 er default verdi:
                 ///
