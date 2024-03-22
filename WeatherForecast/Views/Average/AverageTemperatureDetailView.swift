@@ -58,18 +58,18 @@ struct AverageTemperatureDetailView: View {
                     .padding()
                     
                     HStack {
-                        Text("Chart")
+                        Text("Chart #1")
                             .font(.system(size: 100, weight: .bold))
                     }
                     .padding()
-
+                    
                     HStack {
                         Text(String(localized: "Overview"))
                             .font(.system(size: 30, weight: .bold))
                         Spacer()
                     }
                     .padding()
- 
+                    
                     HStack {
                         Text(info)
                         Spacer()
@@ -82,7 +82,7 @@ struct AverageTemperatureDetailView: View {
                         Spacer()
                     }
                     .padding()
-
+                    
                     let f = String(localized: "Lowest daily average temperature for ")
                     let g = "mars"
                     let h = String(localized: " is ")
@@ -95,6 +95,55 @@ struct AverageTemperatureDetailView: View {
                         Spacer()
                     }
                     .padding()
+                    
+                    HStack {
+                        Text("Chart #2")
+                            .font(.system(size: 100, weight: .bold))
+                    }
+                    .padding()
+                    
+                    HStack {
+                        Text(String(localized: "About the normal range"))
+                            .font(.system(size: 30, weight: .bold))
+                        Spacer()
+                    }
+                    
+                    let u = String(localized: "The normal range shows the most common temperature measurements for")
+                    let v = "11"
+                    let w = "mars"
+                    let x = String(localized: "since")
+                    let y = String(localized: "1994")
+                    
+                    HStack {
+                        Text("\(u) \(v). \(w) \(x) \(y).\n")
+                        Spacer()
+                    }
+                    
+                    HStack {
+                        Text(String(localized: "About normal temperatures"))
+                            .font(.system(size: 30, weight: .bold))
+                        Spacer()
+                    }
+                    
+                    let l = String(localized: "Normally the highest temperature is based on the average temperature for ")
+                    let m = "11"
+                    let n = "mars"
+                    let o = String(localized: "every year since")
+                    let p = "1994"
+                    HStack {
+                        Text("\(l)\(m). \(n) \(o) \(p).")
+                        Spacer()
+                    }
+                    
+                    let q = String(localized: "Monthly averages reflect the highest and lowest daily temperatures since")
+                    let r = "1994"
+                    let s = String(localized: "For example, the monthly average for January is based on measurements from 1 January to 31 January every year since")
+                    let t = "1994"
+                    
+                    HStack {
+                        Text("\n\(q) \(r). \(s) \(t).")
+                        Spacer()
+                    }
                 }
                 Spacer()
             }

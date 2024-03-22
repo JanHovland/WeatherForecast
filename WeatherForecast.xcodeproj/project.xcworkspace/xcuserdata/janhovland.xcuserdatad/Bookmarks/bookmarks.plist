@@ -79,13 +79,13 @@
 			<key>text-context</key>
 			<dict>
 				<key>focused</key>
-				<string>            </string>
+				<string>//          </string>
 				<key>leading</key>
 				<string>//            ///
 //            let startDate: String = "1991-01-01"
-//</string>
+</string>
 				<key>trailing</key>
-				<string>let endDate: String = "2020-12-31"
+				<string>  let endDate: String = "2020-12-31"
 //            ///
 //            /// Finner urlPart1 fra Settings()
 </string>

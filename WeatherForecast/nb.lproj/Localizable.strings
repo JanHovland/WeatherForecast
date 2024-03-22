@@ -1794,7 +1794,29 @@
 /* No comment provided by engineer. */
 "Today highest" = "Dagens høyeste";
 
+/* No comment provided by engineer. */
+"About the normal range" = "Om normalområdet";
 
+/* No comment provided by engineer. */
+"Normally the highest temperature is based on the average temperature for " = "Normalt høyeste temperatur baseres på gjennomsnittstemperaturen for ";
+
+/* No comment provided by engineer. */
+"every year since" = "hvert år siden";
+
+/* No comment provided by engineer. */
+"About normal temperatures" = "Om normale temperaturer";
+
+/* No comment provided by engineer. */
+"Monthly averages reflect the highest and lowest daily temperatures since" = "Månedlige gjennomsnitt reflekterer høyeste og laveste dagstemperaturer siden";
+
+/* No comment provided by engineer. */
+"For example, the monthly average for January is based on measurements from 1 January to 31 January every year since" = "For eksempel baseres det månedlige gjennomsnitt for januar på målinger fra 1. januar til 31. januar hvert år siden";
+
+/* No comment provided by engineer. */
+"The normal range shows the most common temperature measurements for" = "Normalområdet viser de mest vanlige temperaturmålingene for";
+
+/* No comment provided by engineer. */
+"since" = "siden";
 
 
 
