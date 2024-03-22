@@ -44,8 +44,8 @@ struct AveragePrecificationDetailView: View {
                     .padding()
                                         
                     HStack {
-                        Text("Chart")
-                            .font(.system(size: 100, weight: .bold))
+                        Text("Chart #1")
+                            .font(.system(size: UIDevice.isIpad ? 100 : 60, weight: .bold))
                     }
                     .padding()
 
@@ -63,10 +63,28 @@ struct AveragePrecificationDetailView: View {
                     .padding()
                     
                     HStack {
-                        Text("Precification mars = \(averageMonthPrecification[2])")
-                        Spacer()
+                        Text("Chart #2")
+                            .font(.system(size: UIDevice.isIpad ? 100 : 60, weight: .bold))
                     }
                     .padding()
+
+                    HStack {
+                        Text(String(localized: "About normal rainfall"))
+                            .font(.system(size: 30, weight: .bold))
+                        Spacer()
+                    }
+                    
+                    let e = String(localized: "Normal rainfall is based on rainfall measurements since")
+                    let f = "1994"
+                    let g = String(localized: "When the precipitation falls as snow, the normal amount of precipitation is calculated based on the equivalent amount of liquid if the snow were melted into water, and not the snow depth.")
+                    
+                    HStack {
+                        Text("\(e) \(f) \n\(g)")
+                            .fontWeight(.bold)
+                            .opacity(0.50)
+                        Spacer()
+                    }
+                    
                 }
                 Spacer()
             }

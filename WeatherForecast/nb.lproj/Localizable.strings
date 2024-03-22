@@ -1818,6 +1818,15 @@
 /* No comment provided by engineer. */
 "since" = "siden";
 
+/* No comment provided by engineer. */
+"About normal rainfall" = "Om normal nedbørsmengde";
+
+/* No comment provided by engineer. */
+"Normal rainfall is based on rainfall measurements since" = "Normal nedbørsmengde er basert på nedbørsmålinger siden";
+
+/* No comment provided by engineer. */
+"When the precipitation falls as snow, the normal amount of precipitation is calculated based on the equivalent amount of liquid if the snow were melted into water, and not the snow depth." = "Når nedbøren faller som snø, blir normal nedbørsmengde regnet ut basert på tilsvarende væskemengde hvis snøen ble smeltet om til vann, og ikke snødybden.";
+
 
 
 
