@@ -1771,7 +1771,7 @@
 " and normally the highest temperature is " = " og normalt er høyeste temperatur ";
 
 /* No comment provided by engineer. */
-"º. Today's highest temperature is now " = "º. Dagens høyeste temperatur er nå ";
+"º. Today's highest temperature is now " = "º. Dagens høyeste temperatur er ";
 
 /* No comment provided by engineer. */
 "Monthly averages" = "Månedlige gjennomsnitt";
@@ -1786,10 +1786,13 @@
 " is " = " er ";
 
 /* No comment provided by engineer. */
-" over the normal" = " over normalen";
+"º over the normal" = "º over normalen";
 
 /* No comment provided by engineer. */
 "Normally the highest: " = "Normalt høyeste: ";
+
+/* No comment provided by engineer. */
+"Today highest" = "Dagens høyeste";
 
 
 

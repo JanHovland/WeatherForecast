@@ -20,7 +20,7 @@ struct AverageTemperatureDetailView: View {
                 VStack {
                     
                     let a = "+3"
-                    let b = String(localized: " over the normal")
+                    let b = String(localized: "º over the normal")
                     
                     VStack {
                         HStack {
@@ -32,15 +32,28 @@ struct AverageTemperatureDetailView: View {
                         
                         
                         let c = String(localized: "Normally the highest: ")
-                        let d = "6"
+                        let d = "5"
                         
                         HStack {
-                            Text("\(c) \(d)º ")
+                            Text("\(c)\(d)º ")
                                 .fontWeight(.bold)
                                 .opacity(0.50)
                             Spacer()
                         }
                         .padding(.bottom, 10)
+                        
+                        HStack {
+                            Text("Today highest")
+                            Spacer()
+                        }
+                        
+                        let e = "8"
+                        HStack {
+                            Text("\(e)º")
+                                .font(.system(size: 20, weight: .bold))
+                            Spacer()
+                        }
+                        
                     }
                     .padding()
                     
@@ -70,15 +83,15 @@ struct AverageTemperatureDetailView: View {
                     }
                     .padding()
 
-                    let c = String(localized: "Lowest daily average temperature for ")
-                    let d = "mars"
-                    let e = String(localized: " is ")
-                    let f = "3"
-                    let g = String(localized: "and highest daily average temperature is ")
-                    let h = "5"
+                    let f = String(localized: "Lowest daily average temperature for ")
+                    let g = "mars"
+                    let h = String(localized: " is ")
+                    let i = "3"
+                    let j = String(localized: "and highest daily average temperature is ")
+                    let k = "5"
                     
                     HStack {
-                        Text("\(c) \(d) \(e) \(f) º, \(g)º.")
+                        Text("\(f) \(g)\(h)\(i)º, \(j)\(k)º.")
                         Spacer()
                     }
                     .padding()
