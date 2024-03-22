@@ -25,10 +25,9 @@ struct AveragePrecificationDetailView: View {
                     VStack {
                         HStack {
                             Text("\(a) \(b)")
-                                .font(.system(size: 30, weight: .bold))
+                                .font(.system(size: 20, weight: .bold))
                             Spacer()
                         }
-                        .padding(.bottom, 10)
    
                         let c = String(localized: "Average over 30 days: ")
                         let d = "11,6 cm"
@@ -41,38 +40,37 @@ struct AveragePrecificationDetailView: View {
                         }
                         .padding(.bottom, 10)
                     }
-                    .padding()
                                         
                     HStack {
                         Text("Chart #1")
-                            .font(.system(size: UIDevice.isIpad ? 100 : 60, weight: .bold))
+                            .font(.system(size: UIDevice.isIpad ? 100 : 50, weight: .bold))
                     }
-                    .padding()
+                    .padding(.bottom, 10)
 
                     HStack {
                         Text(String(localized: "Overview"))
-                            .font(.system(size: 30, weight: .bold))
+                            .font(.system(size: 20, weight: .bold))
                         Spacer()
                     }
-                    .padding()
+                    .padding(.bottom, 10)
  
                     HStack {
                         Text(info)
                         Spacer()
                     }
-                    .padding()
                     
                     HStack {
                         Text("Chart #2")
-                            .font(.system(size: UIDevice.isIpad ? 100 : 60, weight: .bold))
+                            .font(.system(size: UIDevice.isIpad ? 100 : 50, weight: .bold))
                     }
                     .padding()
-
+ 
                     HStack {
                         Text(String(localized: "About normal rainfall"))
-                            .font(.system(size: 30, weight: .bold))
+                            .font(.system(size: 20, weight: .bold))
                         Spacer()
                     }
+                    .padding(.vertical, 10)
                     
                     let e = String(localized: "Normal rainfall is based on rainfall measurements since")
                     let f = "1994"

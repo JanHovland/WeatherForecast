@@ -25,11 +25,9 @@ struct AverageTemperatureDetailView: View {
                     VStack {
                         HStack {
                             Text("\(a) \(b)")
-                                .font(.system(size: 30, weight: .bold))
+                                .font(.system(size: 20, weight: .bold))
                             Spacer()
                         }
-                        .padding(.bottom, 10)
-                        
                         
                         let c = String(localized: "Normally the highest: ")
                         let d = "5"
@@ -55,33 +53,31 @@ struct AverageTemperatureDetailView: View {
                         }
                         
                     }
-                    .padding()
                     
                     HStack {
                         Text("Chart #1")
-                            .font(.system(size: 100, weight: .bold))
+                            .font(.system(size: UIDevice.isIpad ? 100 : 50, weight: .bold))
                     }
                     .padding()
                     
                     HStack {
                         Text(String(localized: "Overview"))
-                            .font(.system(size: 30, weight: .bold))
+                            .font(.system(size: 20, weight: .bold))
                         Spacer()
                     }
-                    .padding()
+                    .padding(.bottom, 10)
                     
                     HStack {
                         Text(info)
                         Spacer()
                     }
-                    .padding()
                     
                     HStack {
                         Text(String(localized: "Monthly averages"))
-                            .font(.system(size: 30, weight: .bold))
+                            .font(.system(size: 20, weight: .bold))
                         Spacer()
                     }
-                    .padding()
+                    .padding(.vertical, 10)
                     
                     let f = String(localized: "Lowest daily average temperature for ")
                     let g = "mars"
@@ -94,19 +90,19 @@ struct AverageTemperatureDetailView: View {
                         Text("\(f) \(g)\(h)\(i)º, \(j)\(k)º.")
                         Spacer()
                     }
-                    .padding()
                     
                     HStack {
                         Text("Chart #2")
-                            .font(.system(size: 100, weight: .bold))
+                            .font(.system(size: UIDevice.isIpad ? 100 : 50, weight: .bold))
                     }
                     .padding()
                     
                     HStack {
                         Text(String(localized: "About the normal range"))
-                            .font(.system(size: 30, weight: .bold))
+                            .font(.system(size: 20, weight: .bold))
                         Spacer()
                     }
+                    .padding(.vertical, 10)
                     
                     let u = String(localized: "The normal range shows the most common temperature measurements for")
                     let v = "11"
@@ -121,9 +117,10 @@ struct AverageTemperatureDetailView: View {
                     
                     HStack {
                         Text(String(localized: "About normal temperatures"))
-                            .font(.system(size: 30, weight: .bold))
+                            .font(.system(size: 20, weight: .bold))
                         Spacer()
                     }
+                    .padding(.vertical, 10)
                     
                     let l = String(localized: "Normally the highest temperature is based on the average temperature for ")
                     let m = "11"
