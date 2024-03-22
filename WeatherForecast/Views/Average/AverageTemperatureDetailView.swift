@@ -108,7 +108,7 @@ struct AverageTemperatureDetailView: View {
                     let v = "11"
                     let w = "mars"
                     let x = String(localized: "since")
-                    let y = String(localized: "1994")
+                    let y = yearFromNormal
                     
                     HStack {
                         Text("\(u) \(v). \(w) \(x) \(y).\n")
@@ -126,16 +126,16 @@ struct AverageTemperatureDetailView: View {
                     let m = "11"
                     let n = "mars"
                     let o = String(localized: "every year since")
-                    let p = "1994"
+                    let p = yearFromNormal
                     HStack {
                         Text("\(l)\(m). \(n) \(o) \(p).")
                         Spacer()
                     }
                     
                     let q = String(localized: "Monthly averages reflect the highest and lowest daily temperatures since")
-                    let r = "1994"
+                    let r = yearFromNormal
                     let s = String(localized: "For example, the monthly average for January is based on measurements from 1 January to 31 January every year since")
-                    let t = "1994"
+                    let t = yearFromNormal
                     
                     HStack {
                         Text("\n\(q) \(r). \(s) \(t).")

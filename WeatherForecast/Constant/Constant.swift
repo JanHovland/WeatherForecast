@@ -56,3 +56,8 @@ let aqPM: String = String(localized: "Particulates")
 let aqO3: String = String(localized: "Ozone")
 let aqCO: String = String(localized: "Carbon monoxide CO")
 
+///
+/// Det året normalen regnes fra
+///
+
+let yearFromNormal: String = "1994"
