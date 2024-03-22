@@ -19,8 +19,8 @@ struct AveragePrecificationDetailView: View {
             ScrollView(showsIndicators: false) {
                 VStack {
                     
-                    let a = "+6,6 cm"
-                    let b = String(localized: " more than usual.")
+                    let a = "+6,6"
+                    let b = String(localized: " cm more than usual.")
                     
                     VStack {
                         HStack {
@@ -29,8 +29,7 @@ struct AveragePrecificationDetailView: View {
                             Spacer()
                         }
                         .padding(.bottom, 10)
-                        
-                        
+   
                         let c = String(localized: "Average over 30 days: ")
                         let d = "11,6 cm"
                         
@@ -82,7 +81,7 @@ struct AveragePrecificationDetailView: View {
             info = info + "10. februar"
             info = info + String(localized: " to ")
             info = info + "11. mars"
-            info = info + " . "
+            info = info + ". "
             info = info + String(localized: "In the last 30 days, the total has fallen ")
             info = info + "183 mm."
         }
