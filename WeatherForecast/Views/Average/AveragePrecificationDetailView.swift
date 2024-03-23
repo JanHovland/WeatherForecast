@@ -101,3 +101,13 @@ struct AveragePrecificationDetailView: View {
         }
     }
 }
+
+/*
+averageDailyTime[i].contains(monthSelected)
+
+
+2024-02-20 til 2024-03-21
+
+"2024-"
+>= "-02-20" && <= "-03-21"
+*/

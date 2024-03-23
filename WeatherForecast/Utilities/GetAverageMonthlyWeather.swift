@@ -78,6 +78,11 @@ func GetAverageMonthlyWeather(urlPart1: String,
                 averageMonthlyDataRecord.temperature2MMin = (data.daily.temperature2MMin)
                 averageMonthlyDataRecord.temperature2MMax = (data.daily.temperature2MMax)
                 averageMonthlyDataRecord.temperature2MMean = (data.daily.temperature2MMean)
+                
+                
+                logger.notice("\(averageMonthlyDataRecord.time)")
+                logger.notice("\(averageMonthlyDataRecord.precipitationSum)")
+
                 ///
                 /// Find average yearly data
                 ///
@@ -89,6 +94,8 @@ func GetAverageMonthlyWeather(urlPart1: String,
                                                               avarageDailyMax: averageMonthlyDataRecord.temperature2MMax,
                                                               averageDailyMean: averageMonthlyDataRecord.temperature2MMean,
                                                               aveargePercification: averageMonthlyDataRecord.precipitationSum)
+                
+                logger.notice("\(averageMonthPrecification)")
             }
         }
     } catch {

@@ -55,15 +55,15 @@
 				<key>location-parameters</key>
 				<dict>
 					<key>EndingColumnNumber</key>
-					<string>12</string>
+					<string>0</string>
 					<key>EndingLineNumber</key>
 					<string>422</string>
 					<key>StartingColumnNumber</key>
 					<string>0</string>
 					<key>StartingLineNumber</key>
-					<string>422</string>
+					<string>421</string>
 					<key>Timestamp</key>
-					<string>732527804.15027</string>
+					<string>732904370.5810651</string>
 				</dict>
 				<key>rebasable-url</key>
 				<dict>
@@ -79,15 +79,16 @@
 			<key>text-context</key>
 			<dict>
 				<key>focused</key>
-				<string>//          </string>
+				<string>            ///
+</string>
 				<key>leading</key>
-				<string>//            ///
-//            let startDate: String = "1991-01-01"
+				<string>            let startDate: String = "2024-02-01"
+            let endDate: String = "2024-02-04  "
 </string>
 				<key>trailing</key>
-				<string>  let endDate: String = "2020-12-31"
-//            ///
-//            /// Finner urlPart1 fra Settings()
+				<string>            /// Finner urlPart1 fra Settings()
+            ///
+            let urlPart1 = UserDefaults.standard.object(forKey: "Url1OpenMeteo") as? String ?? ""
 </string>
 			</dict>
 			<key>type</key>

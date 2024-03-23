@@ -217,6 +217,8 @@
 		DBFD2DDD295CB38300293B4D /* IconVisibilityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFD2DDC295CB38300293B4D /* IconVisibilityView.swift */; };
 		DBFD5B472B864C5600D627B0 /* AverageTemperaturePrecification.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFD5B462B864C5600D627B0 /* AverageTemperaturePrecification.swift */; };
 		DBFEC1402A7402E6003FC4FB /* WeatherInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFEC13F2A7402E6003FC4FB /* WeatherInfo.swift */; };
+		DBFEFF892BAF3A2D0003C105 /* ShowAveragePrecification30Days.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFEFF882BAF3A2D0003C105 /* ShowAveragePrecification30Days.swift */; };
+		DBFEFF8B2BAF3C5C0003C105 /* FindPrecipitationLast30Days.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFEFF8A2BAF3C5C0003C105 /* FindPrecipitationLast30Days.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -434,6 +436,8 @@
 		DBFD2DDC295CB38300293B4D /* IconVisibilityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconVisibilityView.swift; sourceTree = "<group>"; };
 		DBFD5B462B864C5600D627B0 /* AverageTemperaturePrecification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AverageTemperaturePrecification.swift; sourceTree = "<group>"; };
 		DBFEC13F2A7402E6003FC4FB /* WeatherInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherInfo.swift; sourceTree = "<group>"; };
+		DBFEFF882BAF3A2D0003C105 /* ShowAveragePrecification30Days.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowAveragePrecification30Days.swift; sourceTree = "<group>"; };
+		DBFEFF8A2BAF3C5C0003C105 /* FindPrecipitationLast30Days.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindPrecipitationLast30Days.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -551,6 +555,8 @@
 				DB17F6AD295ECF0C00FC2A0B /* UvIndexDescription.swift */,
 				DBDBCC6529521B99005AEB05 /* WeatherTranslateType.swift */,
 				DB17F6AF295F6BA100FC2A0B /* WindDirection.swift */,
+				DBFEFF882BAF3A2D0003C105 /* ShowAveragePrecification30Days.swift */,
+				DBFEFF8A2BAF3C5C0003C105 /* FindPrecipitationLast30Days.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -1197,6 +1203,7 @@
 				DBC475D12B19F0E8006ACDCB /* ProgressViewStyleModifier.swift in Sources */,
 				DB17F6AA295DF57100FC2A0B /* DayDetailWeatherDataVisibility.swift in Sources */,
 				DB5C0C5C2917CF9700141BDC /* UvIndexCurrentDescription.swift in Sources */,
+				DBFEFF8B2BAF3C5C0003C105 /* FindPrecipitationLast30Days.swift in Sources */,
 				DB9299E329C4CBE2002BA87A /* TranslateCountry.swift in Sources */,
 				DB17F6A0295DF11800FC2A0B /* DayDetailWeatherDataUvIndex.swift in Sources */,
 				DBF1038529A92C56008B4281 /* SearchBar.swift in Sources */,
@@ -1307,6 +1314,7 @@
 				DB17F6A8295DF4DC00FC2A0B /* DayDetailWeatherDataHumidity.swift in Sources */,
 				DB17F6A4295DF39C00FC2A0B /* DayDetailWeatherDataPrecifitation.swift in Sources */,
 				DBB7AECE2B224EF40066E1BF /* MapFetchInformation.swift in Sources */,
+				DBFEFF892BAF3A2D0003C105 /* ShowAveragePrecification30Days.swift in Sources */,
 				DB6968A1290EFC0900936C0E /* MinuteForecastRecord.swift in Sources */,
 				DBD497A22A4EAE9C0075B350 /* LocationsHandler.swift in Sources */,
 				DB019A3C2ADA766C004E4286 /* FindChartDataAirPressure.swift in Sources */,
