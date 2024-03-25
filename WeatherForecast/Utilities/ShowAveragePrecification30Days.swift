@@ -8,19 +8,23 @@
 import SwiftUI
 
 struct ShowAveragePrecification30Days: View {
+    
+    @Environment(WeatherInfo.self) private var weatherInfo
+    
     var body: some View {
+
         VStack {
             Text("ShowAveragePrecification30Days")
         }
         .onAppear {
+            logger.notice("data from ShowAveragePrecification30Days() = \(averageDataRecord.time)")
+            
             let v = FindPrecipitationLast30Days(averageDataRecord: averageDataRecord,
-                                                fromDays: -1, // 30
-                                                toDays: -1,
-                                                offset: -3600)
+                                                offset: weatherInfo.offsetSec)
+            
             logger.notice("FindPrecipitationLast30Days = \(v)")
             
             
-            logger.notice("data from ShowAveragePrecification30Days() = \(averageDataRecord.time)")
             
             
         }

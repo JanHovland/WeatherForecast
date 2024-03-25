@@ -7,13 +7,10 @@
 
 import SwiftUI
 
-
 func FindPrecipitationLast30Days(averageDataRecord: AverageDataRecord,
-                                 fromDays: Int,
-                                 toDays: Int,
                                  offset: Int) -> Double {
     
-    var amount: Double = 0.00
+    var amountPrecification: Double = 0.00
     ///
     /// Finner fromDate som er dagen i dag minus 1 dag
     ///
@@ -21,15 +18,21 @@ func FindPrecipitationLast30Days(averageDataRecord: AverageDataRecord,
     ///
     /// Finner fromDate som er 30 dager bakover i tid
     ///
-    let fromDate = yesterDay.adding(days: fromDays)
+    let fromDate = yesterDay.adding(days: -30)
     ///
     /// Finner toDate som er testerDay
     ///
     let toDate = yesterDay
-    
-    logger.notice("\(fromDate) \(toDate)")
-
-    amount = 0.00
-    
-    return amount
+    ///
+    /// Finner sum av nedbøren de siste 30 dagene
+    ///
+    for i in 0..<averageDataRecord.time.count {
+        for j in 0..<30 {
+            let day = FormatDateToString(date: fromDate.adding(days: j), format: "yyyy-MM-dd", offsetSec: -3600)
+            if averageDataRecord.time[i] == day {
+                amountPrecification += averageDataRecord.precipitationSum[i] ?? 0.00
+            }
+        }
+    }
+    return (amountPrecification)
 }

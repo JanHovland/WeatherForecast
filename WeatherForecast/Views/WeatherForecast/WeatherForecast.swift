@@ -390,6 +390,8 @@ struct WeatherForecast: View {
                 
                 logger.notice("data from WeatherForecast() = \(averageDataRecord.time)")
                 
+                logger.notice("data from WeatherForecast() = \(averageDataRecord.precipitationSum)")
+                
                 ///
                 /// Viser eventuelle feilmeldinger
                 ///

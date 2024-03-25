@@ -116,6 +116,8 @@ func GetAverageWeather(startDate: String,
                         errorMessage = LocalizedStringKey(msg)
                     }
                 } else {
+                    logger.notice("url = \(url)")
+                    
                     if let averageData = try? JSONDecoder().decode(AverageDailyData.self, from: jsonData) {
                         ///
                         /// Oppdatering av averageMonthlyDataRecord
