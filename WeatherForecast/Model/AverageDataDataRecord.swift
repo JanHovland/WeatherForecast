@@ -9,10 +9,10 @@ import Foundation
 
 struct AverageDataRecord {
     var time: [String]
-    var precipitationSum: [Double]
-    var temperature2MMin: [Double]
-    var temperature2MMax: [Double]
-    var temperature2MMean: [Double]
+    var precipitationSum: [Double?]
+    var temperature2MMin: [Double?]
+    var temperature2MMax: [Double?]
+    var temperature2MMean: [Double?]
 }
 
 

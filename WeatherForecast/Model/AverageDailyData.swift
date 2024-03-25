@@ -29,7 +29,9 @@ struct AverageDailyData: Codable {
 // MARK: - Daily
 struct Daily: Codable {
     let time: [String]
-    let precipitationSum, temperature2MMin, temperature2MMax, temperature2MMean: [Double]
+    let precipitationSum: [Double?]
+    let temperature2MMin, temperature2MMax: [Double?]
+    let temperature2MMean: [Double?]
 
     enum CodingKeys: String, CodingKey {
         case time
@@ -53,4 +55,3 @@ struct DailyUnits: Codable {
         case temperature2MMean = "temperature_2m_mean"
     }
 }
-

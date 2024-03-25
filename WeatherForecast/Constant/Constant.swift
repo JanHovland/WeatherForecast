@@ -72,5 +72,5 @@ let yearToNormal: String = "2020"
 ///
 /// Test datoer
 ///
-let startDate: String = "2024-02-01"
-let endDate: String = "2024-02-04"
+let startDate: String = "2024-03-20"
+let endDate: String = "2024-03-24"

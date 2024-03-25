@@ -14,7 +14,7 @@ struct ShowAveragePrecification30Days: View {
         }
         .onAppear {
             let v = FindPrecipitationLast30Days(averageDataRecord: averageDataRecord,
-                                                fromDays: -30,
+                                                fromDays: -1, // 30
                                                 toDays: -1,
                                                 offset: -3600)
             logger.notice("FindPrecipitationLast30Days = \(v)")

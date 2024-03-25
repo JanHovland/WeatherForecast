@@ -126,6 +126,7 @@ func GetAverageWeather(startDate: String,
                         averageDataRecord.temperature2MMax = (averageData.daily.temperature2MMax)
                         averageDataRecord.temperature2MMean = (averageData.daily.temperature2MMean)
                     } else {
+                        logger.notice("url = \(url)")
                         let msg = String(localized: "Can not find any average data")
                         logger.notice("\(msg)")
                         errorMessage = LocalizedStringKey(msg)
