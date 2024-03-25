@@ -30,11 +30,11 @@ var dailyForecast: Forecast<DayWeather>?
     ///
     /// Månedlige global gjennomsnitt data Record
     ///
-    var averageMonthlyDataRecord = AverageMonthlyDataRecord(time: [""],
-                                                            precipitationSum: [0.00],
-                                                            temperature2MMin: [0.00],
-                                                            temperature2MMax: [0.00],
-                                                            temperature2MMean: [0.00])
+var averageDataRecord = AverageDataRecord(time: [""],
+                                          precipitationSum: [0.00],
+                                          temperature2MMin: [0.00],
+                                          temperature2MMax: [0.00],
+                                          temperature2MMean: [0.00])
     ///
     /// Gjennomsnittlige global måneds data
     ///

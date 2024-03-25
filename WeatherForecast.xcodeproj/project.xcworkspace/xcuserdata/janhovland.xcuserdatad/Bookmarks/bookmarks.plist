@@ -83,7 +83,7 @@
 </string>
 				<key>leading</key>
 				<string>            let startDate: String = "2024-02-01"
-            let endDate: String = "2024-02-04  "
+            let endDate: String = "2024-02-04"
 </string>
 				<key>trailing</key>
 				<string>            /// Finner urlPart1 fra Settings()

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct AverageMonthlyDataRecord {
+struct AverageDataRecord {
     var time: [String]
     var precipitationSum: [Double]
     var temperature2MMin: [Double]

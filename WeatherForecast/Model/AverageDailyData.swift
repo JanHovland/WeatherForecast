@@ -53,3 +53,4 @@ struct DailyUnits: Codable {
         case temperature2MMean = "temperature_2m_mean"
     }
 }
+

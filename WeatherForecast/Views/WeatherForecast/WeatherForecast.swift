@@ -382,11 +382,11 @@ struct WeatherForecast: View {
             ///
             /// Resetting av data
             ///
-            averageMonthlyDataRecord.time.removeAll()
-            averageMonthlyDataRecord.precipitationSum.removeAll()
-            averageMonthlyDataRecord.temperature2MMin.removeAll()
-            averageMonthlyDataRecord.temperature2MMax.removeAll()
-            averageMonthlyDataRecord.temperature2MMean.removeAll()
+            averageDataRecord.time.removeAll()
+            averageDataRecord.precipitationSum.removeAll()
+            averageDataRecord.temperature2MMin.removeAll()
+            averageDataRecord.temperature2MMax.removeAll()
+            averageDataRecord.temperature2MMean.removeAll()
             
             ///
             /// Normalen er temp over 30 år 1994-01-01 til og med 2023-12-31
@@ -418,7 +418,7 @@ struct WeatherForecast: View {
 //            let startDate: String = "1991-01-01"
 //            let endDate: String = "2020-12-31"
             let startDate: String = "2024-02-01"
-            let endDate: String = "2024-02-04  "
+            let endDate: String = "2024-02-04"
             ///
             /// Finner urlPart1 fra Settings()
             ///
@@ -449,14 +449,14 @@ struct WeatherForecast: View {
                     logger.notice("lat = \(weatherInfo.latitude!)")
                     logger.notice("lon = \(weatherInfo.longitude!)")
                     
-                    (errorMessage, averageMonthlyDataRecord) = await GetAverageMonthlyWeather(urlPart1: urlPart1,
-                                                                                              urlPart2: urlPart2,
-                                                                                              startDate: startDate,
-                                                                                              endDate: endDate,
-                                                                                              lat: weatherInfo.latitude ?? 0.00,
-                                                                                              lon: weatherInfo.longitude ?? 0.00)
+                    (errorMessage, averageDataRecord) = await GetAverageMonthlyWeather(urlPart1: urlPart1,
+                                                                                       urlPart2: urlPart2,
+                                                                                       startDate: startDate,
+                                                                                       endDate: endDate,
+                                                                                       lat: weatherInfo.latitude ?? 0.00,
+                                                                                       lon: weatherInfo.longitude ?? 0.00)
                     
-                    print(averageMonthlyDataRecord.time)
+                    print(averageDataRecord.time)
                     
                     
                     

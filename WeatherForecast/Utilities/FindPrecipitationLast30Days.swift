@@ -7,7 +7,11 @@
 
 import SwiftUI
 
-func FindPrecipitationLast30Days(fromDays: Int, toDays: Int, offset: Int) -> Double {
+
+func FindPrecipitationLast30Days(averageDataRecord: AverageDataRecord,
+                                 fromDays: Int,
+                                 toDays: Int,
+                                 offset: Int) -> Double {
     
     var amount: Double = 0.00
     ///
@@ -25,5 +29,7 @@ func FindPrecipitationLast30Days(fromDays: Int, toDays: Int, offset: Int) -> Dou
     
     logger.notice("\(fromDate) \(toDate)")
 
+    amount = 0.00
+    
     return amount
 }

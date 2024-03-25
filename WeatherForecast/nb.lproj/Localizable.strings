@@ -1827,6 +1827,8 @@
 /* No comment provided by engineer. */
 "When the precipitation falls as snow, the normal amount of precipitation is calculated based on the equivalent amount of liquid if the snow were melted into water, and not the snow depth." = "Når nedbøren faller som snø, blir normal nedbørsmengde regnet ut basert på tilsvarende væskemengde hvis snøen ble smeltet om til vann, og ikke snødybden.";
 
+/* No comment provided by engineer. */
+"Can not find any average data" = "Kan ikke finne noen gjennomsnittsdata";
 
 
 

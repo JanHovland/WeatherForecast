@@ -14,20 +14,17 @@ func GetAverageMonthlyWeather(urlPart1: String,
                               endDate: String,
                               lat: Double,
                               lon: Double) async -> (LocalizedStringKey,
-                                                     AverageMonthlyDataRecord) {
+                                                     AverageDataRecord) {
     
     var errorMessage: LocalizedStringKey = ""
     var httpStatus: Int = 0
-    var averageMonthlyDataRecord = AverageMonthlyDataRecord(time: [""],
-                                                            precipitationSum: [0.00],
-                                                            temperature2MMin: [0.00],
-                                                            temperature2MMax: [0.00],
-                                                            temperature2MMean: [0.00])
-     
+    var averageDataRecord = AverageDataRecord(time: [""],
+                                              precipitationSum: [0.00],
+                                              temperature2MMin: [0.00],
+                                              temperature2MMax: [0.00],
+                                              temperature2MMean: [0.00])
     ///
     /// Dokumentasjon: https://open-meteo.com/en/docs/historical-weather-api
-    ///
-    let urlSession = URLSession.shared
     ///
     /// Husk å sette timezone=auto for å riktig tidssone
     ///
@@ -38,72 +35,89 @@ func GetAverageMonthlyWeather(urlPart1: String,
     ///
     /// Henter gjennomsnittsdata
     ///
-    do {
-        let (jsonData, response) = try await urlSession.data(from: url!)
-        ///
-        /// Finner statusCode fra response
-        ///
-        let res = response as? HTTPURLResponse
-        httpStatus = res!.statusCode
-        logger.notice("response = \(res!.statusCode)")
-        ///
-        /// 200 OK
-        /// The request succeeded.
-        ///
-        /// 400 Bad Request
-        /// The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).
-        ///
-        if httpStatus >= 400,
-           httpStatus <= 499 {
-            if httpStatus == 400 {
-                let msg = String(localized: "400 = Bad Request")
-                logger.notice("\(msg)")
-                errorMessage = LocalizedStringKey(msg)
-            } else if httpStatus == 429 {
-                let msg = String("429 = Too Many Requests, the user has sent too many requests in a given amount of time (\"rate limiting\")")
-                logger.notice("\(msg)")
-                errorMessage = LocalizedStringKey(msg)
+    if let url {
+        do {
+            let urlSession = URLSession.shared
+            let (jsonData, response) = try await urlSession.data(from: url)
+            
+            logger.notice("\(jsonData)")
+            
+            ///
+            /// Finner statusCode fra response
+            ///
+            let res = response as? HTTPURLResponse
+            httpStatus = res!.statusCode
+            logger.notice("response = \(res!.statusCode)")
+            ///
+            /// 200 OK
+            /// The request succeeded.
+            ///
+            /// 400 Bad Request
+            /// The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).
+            ///
+            if httpStatus > 200,
+               httpStatus <= 499 {
+                if httpStatus == 400 {
+                    let msg = String(localized: "400 = Bad Request")
+                    logger.notice("\(msg)")
+                    errorMessage = LocalizedStringKey(msg)
+                } else if httpStatus == 429 {
+                    let msg = String("429 = Too Many Requests, the user has sent too many requests in a given amount of time (\"rate limiting\")")
+                    logger.notice("\(msg)")
+                    errorMessage = LocalizedStringKey(msg)
+                } else {
+                    let msg = "\(httpStatus)"
+                    logger.notice("\(httpStatus)")
+                    errorMessage = LocalizedStringKey(msg)
+                }
             } else {
-                let msg = "\(httpStatus)"
-                logger.notice("\(httpStatus)")
-                errorMessage = LocalizedStringKey(msg)
-            }
-        } else {
-            if let data = try? JSONDecoder().decode(AverageDailyData.self, from: jsonData) {
-                ///
-                /// Oppdatering av averageMonthlyDataRecord
-                ///
-                averageMonthlyDataRecord.time = (data.daily.time)
-                averageMonthlyDataRecord.precipitationSum = (data.daily.precipitationSum)
-                averageMonthlyDataRecord.temperature2MMin = (data.daily.temperature2MMin)
-                averageMonthlyDataRecord.temperature2MMax = (data.daily.temperature2MMax)
-                averageMonthlyDataRecord.temperature2MMean = (data.daily.temperature2MMean)
-                
-                
-                logger.notice("\(averageMonthlyDataRecord.time)")
-                logger.notice("\(averageMonthlyDataRecord.precipitationSum)")
+                if let averageData = try? JSONDecoder().decode(AverageDailyData.self, from: jsonData) {
+                    
+                    logger.notice("averageData = \(String(describing: averageData))")
+                    ///
+                    /// Oppdatering av averageMonthlyDataRecord
+                    ///
+                    averageDataRecord.time = (averageData.daily.time)
+                    averageDataRecord.precipitationSum = (averageData.daily.precipitationSum)
+                    averageDataRecord.temperature2MMin = (averageData.daily.temperature2MMin)
+                    averageDataRecord.temperature2MMax = (averageData.daily.temperature2MMax)
+                    averageDataRecord.temperature2MMean = (averageData.daily.temperature2MMean)
+                    
+                    
+                    logger.notice("\(averageDataRecord.time)")
+                    logger.notice("\(averageDataRecord.precipitationSum)")
+                    logger.notice("\(averageDataRecord.temperature2MMin)")
+                    logger.notice("\(averageDataRecord.temperature2MMax)")
+                    logger.notice("\(averageDataRecord.temperature2MMean)")
 
-                ///
-                /// Find average yearly data
-                ///
-                (averageMonthMin,
-                 averageMonthMax,
-                 averageMonthMean,
-                 averageMonthPrecification) = FindAverageYear(averageDailyTime: averageMonthlyDataRecord.time,
-                                                              avarageDailyMin: averageMonthlyDataRecord.temperature2MMin,
-                                                              avarageDailyMax: averageMonthlyDataRecord.temperature2MMax,
-                                                              averageDailyMean: averageMonthlyDataRecord.temperature2MMean,
-                                                              aveargePercification: averageMonthlyDataRecord.precipitationSum)
-                
-                logger.notice("\(averageMonthPrecification)")
+                    //                ///
+                    //                /// Find average yearly data
+                    //                ///
+                    //                (averageMonthMin,
+                    //                 averageMonthMax,
+                    //                 averageMonthMean,
+                    //                 averageMonthPrecification) = FindAverageYear(averageDailyTime: averageDataRecord.time,
+                    //                                                              avarageDailyMin: averageDataRecord.temperature2MMin,
+                    //                                                              avarageDailyMax: averageDataRecord.temperature2MMax,
+                    //                                                              averageDailyMean: averageDataRecord.temperature2MMean,
+                    //                                                              aveargePercification: averageDataRecord.precipitationSum)
+                    //
+                    //                logger.notice("\(averageMonthPrecification)")
+                    //            }
+                    //        }
+                } else {
+                    let msg = String(localized: "Can not find any average data")
+                    logger.notice("\(msg)")
+                    errorMessage = LocalizedStringKey(msg)
+                }
             }
+        } catch {
+            debugPrint(error)
         }
-    } catch {
-        debugPrint(error)
     }
     ///
     /// Returnerer data
     ///
-    return (errorMessage, averageMonthlyDataRecord)
+    return (errorMessage, averageDataRecord)
 }
 
