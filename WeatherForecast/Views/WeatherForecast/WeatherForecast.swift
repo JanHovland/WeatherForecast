@@ -380,93 +380,31 @@ struct WeatherForecast: View {
         }
         if persist == true {
             ///
-            /// Resetting av data
-            ///
-            averageDataRecord.time.removeAll()
-            averageDataRecord.precipitationSum.removeAll()
-            averageDataRecord.temperature2MMin.removeAll()
-            averageDataRecord.temperature2MMax.removeAll()
-            averageDataRecord.temperature2MMean.removeAll()
-            
-            ///
-            /// Normalen er temp over 30 år 1994-01-01 til og med 2023-12-31
-            ///
-            ///     Ny normal i klimaforskningen:
-            ///     16.12.2020 | Endret 18.1.2021
-            ///     Fra 1. januar 2021 blir 1991-2020 den nye perioden vi tar 
-            ///     utgangspunkt i når vi snakker om hva som er normalt vær.
-            ///     Tidligere har vi brukt 1961-1990.
-            ///     Hvorfor bytter vi normalperiode?
-            ///     I 1935 ble det enighet i Verdens meteorologiorganisasjon (WMO) 
-            ///     om at en trengte en felles referanse for klima,
-            ///     såkalte standard normaler.
-            ///     De ble enige om at hver periode skulle vare 30 år.
-            ///     På den måten sikret man en lang nok dataperiode, men unngikk påvirkning
-            ///     fra kortvarige variasjoner.
-            ///     Den første  normalperioden skulle gå fra 1901 - 1930.
-            ///     Det ble også enighet om at normalene skulle byttes hvert 30. år.
-            ///     I 2014 vedtok WMO sin Klimakommisjon at normalene fortsatt skal dekke 30 år,
-            ///     men nå skal byttes hvert 10. år på grunn av klimaendringene.
-            ///     Klimaet i dag endrer seg så mye at normalene i slutten av perioden ikke lenger 
-            ///     reflekterer det vanlige været i et område.
-            ///     Når klimaet endrer seg raskt, slik det gjør nå, må vi endre normalene hyppigere 
-            ///     enn før for at de bedre skal beskrive det aktuelle klimaet.
-
-            ///
             /// Datoer for normalperioden
             ///
-//            let startDate: String = "1991-01-01"
-//            let endDate: String = "2020-12-31"
+            //            let startDate: String = "1991-01-01"
+            //            let endDate: String = "2020-12-31"
             let startDate: String = "2024-02-01"
             let endDate: String = "2024-02-04"
-            ///
-            /// Finner urlPart1 fra Settings()
-            ///
-            let urlPart1 = UserDefaults.standard.object(forKey: "Url1OpenMeteo") as? String ?? ""
-            logger.notice("\(urlPart1)")
-            if urlPart1 == "" {
-                Task.init {
-                    title = "Update setting for OpenMeteo 1."
+            Task.init {
+                (errorMessage, averageDataRecord) = await GetAverageWeather(startDate: startDate,
+                                                                            endDate: endDate,
+                                                                            lat: weatherInfo.latitude ?? 0.00,
+                                                                            lon: weatherInfo.longitude ?? 0.00)
+                
+                logger.notice("data from WeatherForecast() = \(averageDataRecord.time)")
+                
+                ///
+                /// Viser eventuelle feilmeldinger
+                ///
+                ///
+                /// stringKey kommer fra extension LocalizedStringKey i Extensions.swift
+                ///
+                if errorMessage.stringKey!.count > 0 {
+                    persist = false
+                    title = "AverageData"
+                    message = errorMessage
                     showAlert.toggle()
-                }
-            }
-            ///
-            /// Finner urlPart2 fra Settings()
-            ///
-            let urlPart2 = UserDefaults.standard.object(forKey: "Url2OpenMeteo") as? String ?? ""
-            logger.notice("\(urlPart2)")
-            if urlPart2 == "" {
-                Task.init {
-                    title = "Update setting for OpenMeteo 2."
-                    showAlert.toggle()
-                }
-            }
-            ///
-            /// Feilmelding dersom urlPart1 og / eller urlPart2 ikke har verdi
-            ///
-            if urlPart1.count > 0, urlPart2.count > 0 {
-                Task.init {
-                    logger.notice("lat = \(weatherInfo.latitude!)")
-                    logger.notice("lon = \(weatherInfo.longitude!)")
-                    
-                    (errorMessage, averageDataRecord) = await GetAverageMonthlyWeather(urlPart1: urlPart1,
-                                                                                       urlPart2: urlPart2,
-                                                                                       startDate: startDate,
-                                                                                       endDate: endDate,
-                                                                                       lat: weatherInfo.latitude ?? 0.00,
-                                                                                       lon: weatherInfo.longitude ?? 0.00)
-//                    logger.notice("averageMonthPrecification.count = \(averageMonthPrecification.count)")
-//                    for i in 0...11 {
-//                        logger.notice("WeatherForecast = \(averageMonthPrecification[i])")
-//                    }
-//                    ///
-//                    /// stringKey kommer fra extension LocalizedStringKey i Extensions.swift
-//                    ///
-//                    if errorMessage.stringKey!.count > 0 {
-//                        title = "AverageData"
-//                        message = errorMessage
-//                        showAlert.toggle()
-//                    }
                 }
             }
         }

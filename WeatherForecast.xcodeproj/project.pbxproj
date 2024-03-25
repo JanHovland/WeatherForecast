@@ -129,7 +129,7 @@
 		DB7B50DC2AF1498E00A61BA1 /* AppsForIPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7B50DB2AF1498E00A61BA1 /* AppsForIPad.swift */; };
 		DB7B6505294B8F16009822E5 /* Temperature.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7B6504294B8F16009822E5 /* Temperature.swift */; };
 		DB7D8D3B2B66401700A62B34 /* CountryName.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7D8D3A2B66401700A62B34 /* CountryName.swift */; };
-		DB803BAB2BA5EE9B005C5BD5 /* GetAverageMonthlyWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB803BAA2BA5EE9B005C5BD5 /* GetAverageMonthlyWeather.swift */; };
+		DB803BAB2BA5EE9B005C5BD5 /* GetAverageWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB803BAA2BA5EE9B005C5BD5 /* GetAverageWeather.swift */; };
 		DB8293662B1B40D50055BE65 /* Beaufort.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8293652B1B40D50055BE65 /* Beaufort.swift */; };
 		DB82F5B92971CF9800818841 /* CloudKitPlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB82F5B82971CF9800818841 /* CloudKitPlace.swift */; };
 		DB82F5BC2971D0F800818841 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB82F5BB2971D0F800818841 /* Config.swift */; };
@@ -344,7 +344,7 @@
 		DB7B50DB2AF1498E00A61BA1 /* AppsForIPad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsForIPad.swift; sourceTree = "<group>"; };
 		DB7B6504294B8F16009822E5 /* Temperature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Temperature.swift; sourceTree = "<group>"; };
 		DB7D8D3A2B66401700A62B34 /* CountryName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryName.swift; sourceTree = "<group>"; };
-		DB803BAA2BA5EE9B005C5BD5 /* GetAverageMonthlyWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAverageMonthlyWeather.swift; sourceTree = "<group>"; };
+		DB803BAA2BA5EE9B005C5BD5 /* GetAverageWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAverageWeather.swift; sourceTree = "<group>"; };
 		DB8293652B1B40D50055BE65 /* Beaufort.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beaufort.swift; sourceTree = "<group>"; };
 		DB82F5B82971CF9800818841 /* CloudKitPlace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitPlace.swift; sourceTree = "<group>"; };
 		DB82F5BB2971D0F800818841 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
@@ -537,7 +537,7 @@
 				DB91F3392AF92F0E00D94E07 /* FindTimeFromAmPm.swift */,
 				DB43C45C28F979A3007D44EC /* FormatDateToString.swift */,
 				DB2C677428E72F43002EC5C1 /* FormatPlace.swift */,
-				DB803BAA2BA5EE9B005C5BD5 /* GetAverageMonthlyWeather.swift */,
+				DB803BAA2BA5EE9B005C5BD5 /* GetAverageWeather.swift */,
 				DBF2ABD629D4A4F0008ECB6C /* GetBaseDate.swift */,
 				DBAC1A19297FF4FC00D50DE6 /* GetCurrentLocation.swift */,
 				DB44473D2B6832D000C6CEF7 /* GetFlag.swift */,
@@ -1172,7 +1172,7 @@
 				DB6400BF29098E700013C3B7 /* Precipitation24hFind.swift in Sources */,
 				DB53CB3F2991A37C004D0C71 /* FindDayOffsetFactor.swift in Sources */,
 				DB2D4949294A3C9B00DCDC4B /* WindInfo.swift in Sources */,
-				DB803BAB2BA5EE9B005C5BD5 /* GetAverageMonthlyWeather.swift in Sources */,
+				DB803BAB2BA5EE9B005C5BD5 /* GetAverageWeather.swift in Sources */,
 				DB17F6AC295DF5EE00FC2A0B /* DayDetailWeatherDataAirPressure.swift in Sources */,
 				DB6DE822297C5AF4005BCCF9 /* WeatherForecastViewModifier.swift in Sources */,
 				DBC42CB62B299F5200148296 /* DismissAlertAndExitApp.swift in Sources */,

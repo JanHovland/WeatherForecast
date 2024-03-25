@@ -17,7 +17,12 @@ struct ShowAveragePrecification30Days: View {
                                                 fromDays: -30,
                                                 toDays: -1,
                                                 offset: -3600)
-            logger.notice("\(v)")
+            logger.notice("FindPrecipitationLast30Days = \(v)")
+            
+            
+            logger.notice("data from ShowAveragePrecification30Days() = \(averageDataRecord.time)")
+            
+            
         }
     }
     
