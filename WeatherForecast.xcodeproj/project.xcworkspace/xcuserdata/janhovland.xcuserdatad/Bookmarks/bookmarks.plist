@@ -57,13 +57,13 @@
 					<key>EndingColumnNumber</key>
 					<string>12</string>
 					<key>EndingLineNumber</key>
-					<string>388</string>
+					<string>384</string>
 					<key>StartingColumnNumber</key>
 					<string>12</string>
 					<key>StartingLineNumber</key>
-					<string>388</string>
+					<string>384</string>
 					<key>Timestamp</key>
-					<string>733048562.284579</string>
+					<string>733050358.2681071</string>
 				</dict>
 				<key>rebasable-url</key>
 				<dict>
@@ -81,8 +81,8 @@
 				<key>focused</key>
 				<string></string>
 				<key>leading</key>
-				<string>            let startDate: String = "2024-02-01"
-            let endDate: String = "2024-02-04"
+				<string>            /// Datoer for normalperioden
+            ///
             </string>
 				<key>trailing</key>
 				<string>Task.init {

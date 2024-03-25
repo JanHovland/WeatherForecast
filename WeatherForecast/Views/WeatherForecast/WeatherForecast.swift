@@ -382,10 +382,6 @@ struct WeatherForecast: View {
             ///
             /// Datoer for normalperioden
             ///
-            //            let startDate: String = "1991-01-01"
-            //            let endDate: String = "2020-12-31"
-            let startDate: String = "2024-02-01"
-            let endDate: String = "2024-02-04"
             Task.init {
                 (errorMessage, averageDataRecord) = await GetAverageWeather(startDate: startDate,
                                                                             endDate: endDate,

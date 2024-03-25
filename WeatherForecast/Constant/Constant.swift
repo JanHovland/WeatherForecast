@@ -57,7 +57,20 @@ let aqO3: String = String(localized: "Ozone")
 let aqCO: String = String(localized: "Carbon monoxide CO")
 
 ///
-/// Det året normalen regnes fra
+/// Det året normalen regnes fra / til
 ///
 
 let yearFromNormal: String = "1994"
+let yearToNormal: String = "2020"
+
+///
+/// Datoene for beregning av Normale gjennomsnitt
+///
+//let endDate: String = "1994-01-01"
+//let startDate: String = "2020-12-31"
+
+///
+/// Test datoer
+///
+let startDate: String = "2024-02-01"
+let endDate: String = "2024-02-04"
