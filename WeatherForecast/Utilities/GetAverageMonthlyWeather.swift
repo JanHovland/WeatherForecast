@@ -30,7 +30,7 @@ func GetAverageMonthlyWeather(urlPart1: String,
     ///
     let urlString =
     urlPart1 + "\(lat)" + "&longitude=" + "\(lon)" + urlPart2 + "&start_date=" + startDate + "&end_date=" + endDate
-    logger.notice("urlString = \(urlString)")
+    // logger.notice("urlString = \(urlString)")
     let url = URL(string: urlString)
     ///
     /// Henter gjennomsnittsdata
@@ -39,15 +39,13 @@ func GetAverageMonthlyWeather(urlPart1: String,
         do {
             let urlSession = URLSession.shared
             let (jsonData, response) = try await urlSession.data(from: url)
-            
-            logger.notice("\(jsonData)")
-            
+            // logger.notice("\(jsonData)")
             ///
             /// Finner statusCode fra response
             ///
             let res = response as? HTTPURLResponse
             httpStatus = res!.statusCode
-            logger.notice("response = \(res!.statusCode)")
+            // logger.notice("response = \(res!.statusCode)")
             ///
             /// 200 OK
             /// The request succeeded.
@@ -72,8 +70,6 @@ func GetAverageMonthlyWeather(urlPart1: String,
                 }
             } else {
                 if let averageData = try? JSONDecoder().decode(AverageDailyData.self, from: jsonData) {
-                    
-                    logger.notice("averageData = \(String(describing: averageData))")
                     ///
                     /// Oppdatering av averageMonthlyDataRecord
                     ///
@@ -82,14 +78,6 @@ func GetAverageMonthlyWeather(urlPart1: String,
                     averageDataRecord.temperature2MMin = (averageData.daily.temperature2MMin)
                     averageDataRecord.temperature2MMax = (averageData.daily.temperature2MMax)
                     averageDataRecord.temperature2MMean = (averageData.daily.temperature2MMean)
-                    
-                    
-                    logger.notice("\(averageDataRecord.time)")
-                    logger.notice("\(averageDataRecord.precipitationSum)")
-                    logger.notice("\(averageDataRecord.temperature2MMin)")
-                    logger.notice("\(averageDataRecord.temperature2MMax)")
-                    logger.notice("\(averageDataRecord.temperature2MMean)")
-
                     //                ///
                     //                /// Find average yearly data
                     //                ///

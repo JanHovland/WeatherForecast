@@ -455,11 +455,6 @@ struct WeatherForecast: View {
                                                                                        endDate: endDate,
                                                                                        lat: weatherInfo.latitude ?? 0.00,
                                                                                        lon: weatherInfo.longitude ?? 0.00)
-                    
-                    print(averageDataRecord.time)
-                    
-                    
-                    
 //                    logger.notice("averageMonthPrecification.count = \(averageMonthPrecification.count)")
 //                    for i in 0...11 {
 //                        logger.notice("WeatherForecast = \(averageMonthPrecification[i])")
