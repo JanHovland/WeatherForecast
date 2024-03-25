@@ -20,10 +20,6 @@ func FindPrecipitationLast30Days(averageDataRecord: AverageDataRecord,
     ///
     let fromDate = yesterDay.adding(days: -30)
     ///
-    /// Finner toDate som er testerDay
-    ///
-    let toDate = yesterDay
-    ///
     /// Finner sum av nedbøren de siste 30 dagene
     ///
     for i in 0..<averageDataRecord.time.count {

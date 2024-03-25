@@ -136,6 +136,10 @@ struct WeatherForecast: View {
                                          sunRises: $sunRises,
                                          sunSets: $sunSets)
                             ///
+                            /// Viser gjennomsnitt
+                            ///
+                            AverageFirstView()
+                            ///
                             /// Tilpasning til iPad
                             ///
                             if UIDevice.isIpad {

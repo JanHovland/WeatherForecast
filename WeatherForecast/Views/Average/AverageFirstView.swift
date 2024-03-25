@@ -10,6 +10,7 @@ import SwiftUI
 struct AverageFirstView: View {
     
     @Environment(CurrentWeather.self) private var currentWeather
+    @Environment(WeatherInfo.self) private var weatherInfo
     @State private var isTemperature: Bool = false
     
     var body: some View {
@@ -23,6 +24,7 @@ struct AverageFirstView: View {
             Text("+3º")
                 .font(.system(size: 40, weight: .light))
             Text(String(localized: "above the normal highest daytime temperature."))
+                .padding(.bottom, 10)
             HStack {
                 HStack {
                     Text(String(localized: "Today"))
@@ -56,5 +58,14 @@ struct AverageFirstView: View {
                 .background(Color("Background#01").opacity(currentWeather.isDaylight == true ? 0.60 : 0.35))
         })
         .modifier(DayDetailBackground(dayLight: currentWeather.isDaylight))
+        .onAppear {
+            logger.notice("Data.time = \(averageDataRecord.time)")
+            
+            let v = FindPrecipitationLast30Days(averageDataRecord: averageDataRecord,
+                                                offset: weatherInfo.offsetSec)
+            
+            logger.notice("Precification last 30 days = \(v)")
+        }
+
     }
 }

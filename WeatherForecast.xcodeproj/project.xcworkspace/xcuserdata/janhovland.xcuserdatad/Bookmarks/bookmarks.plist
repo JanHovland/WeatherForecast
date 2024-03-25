@@ -55,15 +55,15 @@
 				<key>location-parameters</key>
 				<dict>
 					<key>EndingColumnNumber</key>
-					<string>12</string>
+					<string>0</string>
 					<key>EndingLineNumber</key>
-					<string>384</string>
+					<string>389</string>
 					<key>StartingColumnNumber</key>
-					<string>12</string>
+					<string>0</string>
 					<key>StartingLineNumber</key>
-					<string>384</string>
+					<string>388</string>
 					<key>Timestamp</key>
-					<string>733050358.2681071</string>
+					<string>733083851.473682</string>
 				</dict>
 				<key>rebasable-url</key>
 				<dict>
@@ -79,15 +79,16 @@
 			<key>text-context</key>
 			<dict>
 				<key>focused</key>
-				<string></string>
+				<string>            Task.init {
+</string>
 				<key>leading</key>
 				<string>            /// Datoer for normalperioden
             ///
-            </string>
+</string>
 				<key>trailing</key>
-				<string>Task.init {
-                (errorMessage, averageDataRecord) = await GetAverageWeather(startDate: startDate,
+				<string>                (errorMessage, averageDataRecord) = await GetAverageWeather(startDate: startDate,
                                                                             endDate: endDate,
+                                                                            lat: weatherInfo.latitude ?? 0.00,
 </string>
 			</dict>
 			<key>type</key>

@@ -20,16 +20,16 @@ struct SnowWarningView: View {
                     Text("Warning for snow from ")
                     Text("\(FormatDateToString(date: Date().setTime(hour: 0, min: 0, sec: 0)!, format: "EEEE d. MMMM yyyy", offsetSec: weatherInfo.offsetSec)).")
                 }
-                .font(Font.headline.weight(.bold))
+                .font(Font.headline.weight(.regular))
                 .padding(5)
-                .foregroundColor(.red)
+                .foregroundColor(.black)
                 .background(
                     RoundedRectangle(
                         cornerRadius: 7.5,
                         style: .continuous
                     )
-                    .fill(Color.white)
-                    .opacity(1.00)
+                    .fill(Color("LightYellow"))
+                    .saturation(1)
                 )
                 ScrollView (.horizontal, showsIndicators: false) {
                     HStack(spacing: 20) {

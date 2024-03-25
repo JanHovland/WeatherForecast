@@ -23,10 +23,6 @@ struct ShowAveragePrecification30Days: View {
                                                 offset: weatherInfo.offsetSec)
             
             logger.notice("FindPrecipitationLast30Days = \(v)")
-            
-            
-            
-            
         }
     }
     
