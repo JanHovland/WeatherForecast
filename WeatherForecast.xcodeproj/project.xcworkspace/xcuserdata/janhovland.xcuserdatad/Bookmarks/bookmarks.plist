@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>top-level-items</key>
+	<array>
+		<dict>
+			<key>destination</key>
+			<dict>
+				<key>location-parameters</key>
+				<dict>
+					<key>EndingColumnNumber</key>
+					<string>0</string>
+					<key>EndingLineNumber</key>
+					<string>438</string>
+					<key>StartingColumnNumber</key>
+					<string>0</string>
+					<key>StartingLineNumber</key>
+					<string>437</string>
+					<key>Timestamp</key>
+					<string>736928585.39518</string>
+				</dict>
+				<key>rebasable-url</key>
+				<dict>
+					<key>base</key>
+					<string>workspace</string>
+					<key>payload</key>
+					<dict>
+						<key>relative-path</key>
+						<string>WeatherForecast/Views/Average/AverageFirstView.swift</string>
+					</dict>
+				</dict>
+			</dict>
+			<key>text-context</key>
+			<dict>
+				<key>focused</key>
+				<string>                (errorMessage, averageDailyYearDataRecord) =
+</string>
+				<key>leading</key>
+				<string>                }
+                
+</string>
+				<key>trailing</key>
+				<string>                await GetAverageDailyWeatherYears(startDate: startDate,
+                                                 lat: weatherInfo.latitude ?? 0.00,
+                                                 lon: weatherInfo.longitude ?? 0.00)
+</string>
+			</dict>
+			<key>type</key>
+			<string>bookmark</string>
+		</dict>
+		<dict>
+			<key>destination</key>
+			<dict>
+				<key>location-parameters</key>
+				<dict>
+					<key>EndingColumnNumber</key>
+					<string>0</string>
+					<key>EndingLineNumber</key>
+					<string>337</string>
+					<key>StartingColumnNumber</key>
+					<string>0</string>
+					<key>StartingLineNumber</key>
+					<string>336</string>
+					<key>Timestamp</key>
+					<string>736928585.395121</string>
+				</dict>
+				<key>rebasable-url</key>
+				<dict>
+					<key>base</key>
+					<string>workspace</string>
+					<key>payload</key>
+					<dict>
+						<key>relative-path</key>
+						<string>WeatherForecast/Views/Average/AverageFirstView.swift</string>
+					</dict>
+				</dict>
+			</dict>
+			<key>text-context</key>
+			<dict>
+				<key>focused</key>
+				<string>                for year in x!...yearIntToNormal {
+</string>
+				<key>leading</key>
+				<string>                ///
+                let x = Int(weatherInfo.startYear)
+</string>
+				<key>trailing</key>
+				<string>                    (errorMessage, averageHourlyDataRecord) =
+                    await GetAverageHourWeather(year: year,
+                                                date: date,
+</string>
+			</dict>
+			<key>type</key>
+			<string>bookmark</string>
+		</dict>
+		<dict>
+			<key>destination</key>
+			<dict>
+				<key>location-parameters</key>
+				<dict>
+					<key>EndingColumnNumber</key>
+					<string>0</string>
+					<key>EndingLineNumber</key>
+					<string>151</string>
+					<key>StartingColumnNumber</key>
+					<string>0</string>
+					<key>StartingLineNumber</key>
+					<string>150</string>
+					<key>Timestamp</key>
+					<string>736928585.3951941</string>
+				</dict>
+				<key>rebasable-url</key>
+				<dict>
+					<key>base</key>
+					<string>workspace</string>
+					<key>payload</key>
+					<dict>
+						<key>relative-path</key>
+						<string>WeatherForecast/Views/Average/AverageFirstView.swift</string>
+					</dict>
+				</dict>
+			</dict>
+			<key>text-context</key>
+			<dict>
+				<key>focused</key>
+				<string>                for i in 0..&lt;averageYearsPerDayDataRecord.time.count {
+</string>
+				<key>leading</key>
+				<string>                /// Finner gjennomsnittet for de 10/30  siste årene for average10YearsDataRecord.temperature2MMax
+                ///
+</string>
+				<key>trailing</key>
+				<string>                    if averageYearsPerDayDataRecord.time[i].contains(from) {
+                        if averageYearsPerDayDataRecord.temperature2MMin[i] ?? 0.00 &gt; 0.00 {
+                            counterMin += 1
+</string>
+			</dict>
+			<key>type</key>
+			<string>bookmark</string>
+		</dict>
+		<dict>
+			<key>destination</key>
+			<dict>
+				<key>location-parameters</key>
+				<dict>
+					<key>EndingColumnNumber</key>
+					<string>4</string>
+					<key>EndingLineNumber</key>
+					<string>127</string>
+					<key>StartingColumnNumber</key>
+					<string>4</string>
+					<key>StartingLineNumber</key>
+					<string>127</string>
+					<key>Timestamp</key>
+					<string>736536243.206293</string>
+				</dict>
+				<key>rebasable-url</key>
+				<dict>
+					<key>base</key>
+					<string>workspace</string>
+					<key>payload</key>
+					<dict>
+						<key>relative-path</key>
+						<string>WeatherForecast/Utilities/GetAverageDayWeather.swift</string>
+					</dict>
+				</dict>
+			</dict>
+			<key>text-context</key>
+			<dict>
+				<key>focused</key>
+				<string></string>
+				<key>leading</key>
+				<string>    ///
+    
+    </string>
+				<key>trailing</key>
+				<string>return (errorMessage, averageDailyDataRecord)
+    
+}
+</string>
+			</dict>
+			<key>type</key>
+			<string>bookmark</string>
+		</dict>
+	</array>
+</dict>
+</plist>

@@ -1,0 +1,10 @@
+/* 
+  InfoPlist.strings
+  WeatherForecast
+
+  Created by Jan Hovland on 02/08/2022.
+ 
+ https://medium.com/@thekavak/how-to-localise-a-string-inside-the-ios-info-plist-file-in-xcode-e1c039b46eda
+*/
+
+"CFBundleDisplayName" = "WeatherForecast";
