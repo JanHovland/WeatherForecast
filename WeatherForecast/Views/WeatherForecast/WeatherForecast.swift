@@ -637,6 +637,7 @@ struct WeatherForecast: View {
                 let date = Date().adding(seconds: weatherInfo.offsetSec)
                 let startDate = date.setTime(hour: 0, min: 0, sec: 0)
                 let endDate = (Calendar.current.date(byAdding: .day, value: 10, to: startDate ?? Date())!).setTime(hour: 0, min: 0, sec: 0)
+
                 do {
                     dailyForecast = try await WeatherService.shared.weather(for: location,
                                                                             including: .daily(startDate: startDate!,
@@ -648,6 +649,7 @@ struct WeatherForecast: View {
                     showAlert.toggle()
                 }
                 ///
+                ///
                 /// Sjekker om hourForecast inneholder noen verdier > 0,00
                 ///
                 if dailyForecast != nil {
@@ -655,7 +657,7 @@ struct WeatherForecast: View {
                     dailyForecast!.forEach  {
                         if $0.date >= startDate! &&
                             $0.date <= endDate! {
-                            if $0.snowfallAmount.value > 0.00 {
+                            if $0.precipitationAmountByType.snowfallAmount.amount.value > 0.00 {
                                 someSnow = true
                             }
                         }
@@ -678,3 +680,4 @@ struct WeatherForecast: View {
     }
 }
 
+// Detter er enn test

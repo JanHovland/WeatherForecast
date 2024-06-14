@@ -1765,7 +1765,7 @@
 " mm less than usual." = " mm under normalen.";
 
 /* No comment provided by engineer. */
-" as the normal." = " som normalen.";
+" as the normal." = " som normalt.";
 
 /* No comment provided by engineer. */
 "Average over 30 days: " = "Gjennomsnitt siste 30 dager: ";
@@ -1858,7 +1858,7 @@
 " under the normal" = " under normalen";
 
 /* No comment provided by engineer. */
-"As normal" = "Som normalen";
+"As normal" = "Som normalt";
 
 /* No comment provided by engineer. */
 "USE 30 YEARS PERIODE" = "BRUK 30 ÅRS PERIODE";

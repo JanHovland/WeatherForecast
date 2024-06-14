@@ -57,8 +57,10 @@ struct SnowWarningView: View {
                     if $0.date >= startDate! &&
                         $0.date <= endDate! {
                         warning.date = $0.date
-                        warning.value = $0.snowfallAmount.value
-                        snowWarning.append(warning)
+                        warning.value = $0.precipitationAmountByType.snowfallAmount.amount.value
+                        if warning.value > 0.00 {
+                            snowWarning.append(warning)
+                        }
                     }
                 }
             }
