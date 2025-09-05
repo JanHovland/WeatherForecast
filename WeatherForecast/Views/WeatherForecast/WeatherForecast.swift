@@ -44,7 +44,7 @@ import CloudKit
 ///
 
 ///
-///     How to use Unified logging:
+//*     How to use Unified logging:
 ///     import OSLog
 ///     let value = 12345
 ///     let logger = Logger(subsystem: "com.janhovland.WeatherForecast", category: "WeatherForecastMain")
