@@ -1,0 +1,2010 @@
+/* No comment provided by engineer. */
+"Feels like %@" = "Føles som %@";
+
+/* No comment provided by engineer. */
+"The search for '%@' did not find any record." = "Søket etter '%@' gav ikke noe resultat.";
+
+/* No comment provided by engineer. */
+"Find places" = "Finn steder";
+
+/* No comment provided by engineer. */
+"Key for OpenCage" = "Nøkkel til OpenCage";
+
+/* No comment provided by engineer. */
+"Setting" = "Innstillinger";
+
+/* No comment provided by engineer. */
+"Url for OpenCage" = "Url til OpenCage";
+
+/* No comment provided by engineer.   */
+"WeatherForecast" = "Værmelding";
+
+/* No comment provided by engineer. */
+"E" = "Ø";
+
+/* No comment provided by engineer. */
+"WIND" = "VIND";
+
+/* No comment provided by engineer. */
+"FEELS LIKE" = "FØLES SOM";
+
+/* No comment provided by engineer. */
+"The wind can make it feel colder." = "Vinden gjør at det kan føles kaldere.";
+
+/* No comment provided by engineer. */
+"HUMIDITY" = "LUFTFUKTIGHET";
+
+/* No comment provided by engineer. */
+"The dewPoint is now " = "Duggpunktet er nå på ";
+
+/* No comment provided by engineer. */
+"." = ".";
+
+/* No comment provided by engineer. */
+"VISIBILITY" = "SIKT";
+
+/* No comment provided by engineer. */
+"It is" = "Det er";
+
+/* No comment provided by engineer. */
+"now." = "nå.";
+
+/* No comment provided by engineer. */
+"fog" = "tåke";
+
+/* No comment provided by engineer. */
+"poor visibility" = "dårlig sikt";
+
+/* No comment provided by engineer. */
+"Poor visibility" = "Dårlig sikt";
+
+/* No comment provided by engineer. */
+"moderate visibility" = "moderat sikt";
+
+/* No comment provided by engineer. */
+"clear weather" = "klarvær";
+
+/* No comment provided by engineer. */
+"and" = "og";
+
+/* No comment provided by engineer. */
+"UV-INDEX" = "UV-INDEKS";
+
+/* No comment provided by engineer. */
+"Low level" = "Lavt nivå";
+
+/* No comment provided by engineer. */
+"Moderate level" = "Moderat nivå";
+
+/* No comment provided by engineer. */
+"High level" = "Høyt nivå";
+
+/* No comment provided by engineer. */
+"Very high level" = "Veldig høyt nivå";
+
+/* No comment provided by engineer. */
+"Extreme level" = "Ekstremt høyt nivå";
+
+/* No comment provided by engineer. */
+"RAIN" = "REGN";
+
+/* No comment provided by engineer. */
+"Last 24 h" = "Siste 24 h";
+
+/* No comment provided by engineer. */
+"is expected the next day." = "ventes kommende døgn.";
+
+/* No comment provided by engineer. */
+"HOURLY FORECAST from one hour backwards and two days forward" = "Timesoversikt fra en time tilbake og to døgn fremover.";
+
+/* No comment provided by engineer. */
+"blizzard" = "Snøstorm ";
+
+/* No comment provided by engineer. */
+"blowingDust" = "Sandstorm";
+
+/* No comment provided by engineer. */
+"blowingSnow" = "Snøstorm";
+
+/* No comment provided by engineer.
+"breezy" = "Luftig";
+
+/* No comment provided by engineer. */
+"clear" = "Klart";
+
+/* No comment provided by engineer. */
+"cloudy" = "Skyet";
+
+/* No comment provided by engineer. */
+"drizzle" = "Duskregn";
+
+/* No comment provided by engineer. */
+"flurries" = "Byger";
+
+/* No comment provided by engineer. */
+"foggy" = "Tåkete";
+
+/* No comment provided by engineer. */
+"freezingDrizzle" = "Underkjølt duskregn";
+
+/* No comment provided by engineer. */
+"freezingRain" = "Underkjølt regn";
+
+/* No comment provided by engineer. */
+"frigid" = "kaldt";
+
+/* No comment provided by engineer. */
+"hail" = "hagl";
+
+/* No comment provided by engineer. */
+"haze" = "tåke";
+
+/* No comment provided by engineer. */
+"heavyRain" = "Mye regn";
+
+/* No comment provided by engineer. */
+"heavySnow" = "Mye snø";
+
+/* No comment provided by engineer. */
+"hot" = "Varmt";
+
+/* No comment provided by engineer. */
+"hurricane" = "Orkan";
+
+/* No comment provided by engineer. */
+"isolatedThunderstorms" = "Isolert tordenvær";
+
+/* No comment provided by engineer. */
+"mostlyClear" = "Stort sett klart";
+
+/* No comment provided by engineer. */
+"mostlyCloudy" = "Stort sett skyet";
+
+/* No comment provided by engineer. */
+"partlyCloudy" = "Delvis skyet";
+
+/* No comment provided by engineer. */
+"rain" = "Nedbør";
+
+/* No comment provided by engineer. */
+"scatteredThunderstorms" = "Spredt tordenvær";
+
+/* No comment provided by engineer. */
+"sleet" = "Sludd";
+
+/* No comment provided by engineer. */
+"smoky" = "Røykfylt";
+
+/* No comment provided by engineer. */
+"snow" = "Snø";
+
+/* No comment provided by engineer. */
+"strongStorms" = "Kraftig tordenvær";
+
+/* No comment provided by engineer. */
+"sunFlurries" = "Snøbyger med synlig sol";
+
+/* No comment provided by engineer. */
+"sunShowers" = "Regn med synlig sol";
+
+/* No comment provided by engineer. */
+"thunderstorms" = "Tordenvær";
+
+/* No comment provided by engineer. */
+"tropicalStorm" = "Tropisk storm";
+
+/* No comment provided by engineer. */
+"windy" = "Vindfullt";
+
+/* No comment provided by engineer. */
+"wintryMix" = "Vinterblanding";
+
+/* No comment provided by engineer. */
+"SUN SET" = "SOL NED";
+
+/* No comment provided by engineer. */
+"DAILY FORECAST" = "DAG OVERSIKT";
+
+/* No comment provided by engineer. */
+"Daily forecast" = "Dag oversikt";
+
+/* No comment provided by engineer. */
+"To do" = "Oppgaver";
+
+/* No comment provided by engineer. */
+"toDo" = "Oppgaver";
+
+/* No comment provided by engineer. */
+"Temperature" = "Temperatur";
+
+/* No comment provided by engineer. */
+"UV-index" = "UV-indeks";
+
+/* No comment provided by engineer. */
+"Wind" = "Vind";
+
+/* No comment provided by engineer. */
+"Rain" = "Nedbør";
+
+/* No comment provided by engineer. */
+"Feels like" = "Føles som";
+
+/* No comment provided by engineer. */
+"Humidity" = "Luftfuktighet";
+
+/* No comment provided by engineer. */
+"Visibility" = "Sikt";
+
+/* No comment provided by engineer. */
+"Air pressure" = "Lufttrykk";
+
+/* No comment provided by engineer. */
+"Sun set: " = "Sol ned: ";
+
+/* No comment provided by engineer. */
+"Sun rise: " = "Sol opp: ";
+
+/* No comment provided by engineer. */
+"Low" = "Lavt";
+
+/* No comment provided by engineer. */
+"High" = "Høyt";
+
+/* No comment provided by engineer. */
+"The same as actual temperature." = "Samme som faktisk temperatur.";
+
+/* No comment provided by engineer. */
+"Forward" = "Neste dag";
+
+/* No comment provided by engineer. */
+"Backward" = "Forrige dag";
+
+/* No comment provided by engineer. */
+"Low level for the rest of the day." = "Lavt nivå hele dagen.";
+
+/* No comment provided by engineer. */
+"Can be moderate levels today." = "Kan komme opp på moderat nivå gjennom dagen.";
+
+/* No comment provided by engineer. */
+"Can be high levels today." = "Kan komme opp på høyt nivå gjennom dagen.";
+
+/* No comment provided by engineer. */
+"Can be very high levels today." = "Kan komme opp på veldig høyt nivå gjennom dagen.";
+
+/* No comment provided by engineer. */
+"Can be extreme levels today." = "Kan komme opp på ekstremt høyt nivå gjennom dagen.";
+
+/* No comment provided by engineer. */
+"No precipitation to day." = "Ikke noe nedbør i dag.";
+
+/* No comment provided by engineer. */
+"No precipitation this day." = "Ikke noe nedbør denne dagen.";
+
+/* No comment provided by engineer. */
+".Rain" = "Regn";
+
+/* No comment provided by engineer. */
+"Sleet" = "Sludd";
+
+/*  No comment provided by engineer. */
+"Mixed" = "Blandet nedbør";
+
+/* No comment provided by engineer. */
+"Snow" = "Snø";
+
+/* No comment provided by engineer. */
+"Hail" = "Hagl";
+
+/* No comment provided by engineer. */
+"No info." = "Ingen informasjon.";
+
+/* No comment provided by engineer. */
+"The wind speed is calculated based on the average over a short period of time. Gusts are sudden changes in wind strength above the average speed. A gust usually lasts less than 20 seconds." = "Vindhastigheten beregnes ut fra gjennomsnittet over en kort periode. Vindkast er plutselige endringer i vindstyrken over gjennomsnittshastigheten. Et vindkast varer vanligvis mindre enn 20 sekunder.";
+
+/* No comment provided by engineer. */
+"About wind speed and gusts" = "Om vindhastighet og vindkast";
+
+/* No comment provided by engineer. */
+"Weather forecast" = "Værvarsel";
+
+/* No comment provided by engineer. */
+"About the UV-index" = "Om UV-indeksen";
+
+/* No comment provided by engineer. */
+"The UV index of the World Health Organization (UVI) measures ultraviolet radiation. The higher the UVI, the greater the chance of skin damage, and the faster the damage can occur. UVI can give you the necessary information about when you should protect yourself from the sun, and when you should avoid staying outdoors. WHO recommends that you stay in the shade or use sunscreen, a hat or protective clothing when the level is 3 (moderate) or higher." = "UV-indeksen il Verdens helseorganisasjon (UVI) måler ultrafiolett stråling. Jo høyere UVI, jo større er sjansen for hudskader, og jo fortere kan skaden oppstå. UVI kan gi deg nødvendig informasjon om når du bør beskytte deg mot solen, og når du bør unngå å oppholde deg utendørs. WHO anbefaler at du holder deg i skyggen  eller bruker solkrem, hatt eller beskyttende klær når nivået er 3 (moderat) eller høyere.";
+
+/* No comment provided by engineer. */
+"Low lewel" = "Lavt nivå";
+
+/* No comment provided by engineer. */
+"High lewel" = "Høyt nivå";
+
+/* No comment provided by engineer. */
+"Now, " = "Nå, ";
+
+/* No comment provided by engineer. */
+"low all day." = "lavt hele dagen.";
+
+/* No comment provided by engineer. */
+" Remember to use suncream, a hat or protective clothing when the level is 3 (moderate) or higher." = " Husk å bruke solkrem, lue eller beskyttende klær når nivået er 3 (moderat) eller høyere.";
+
+/* No comment provided by engineer. */
+"About felt themperature" = "Om følt temperatur";
+
+/* No comment provided by engineer. */
+"Felt temperature describes how hot or cold it feels outside, and can differ from the actual temperature. Felt temperature is affected by wind and humidity." = "Følt temperatur beskriver hvor varmt eller kaldt det føles ute, og kan skille seg fra den faktiske temperaturen. Følt temperatur påvirkes av vind og luftfuktighet.";
+
+/* No comment provided by engineer. */
+"Daily overview" = "Dagsoversikt";
+
+/* No comment provided by engineer. */
+"The themperature fells like " = "Temperaturen føles som ";
+
+/* No comment provided by engineer. */
+" and the visibility is " = " og sikten er";
+
+/* No comment provided by engineer. */
+"Visibility indicates how far away you can clearly see objects such as buildings or mountain peaks. It is a measure of the transparency of the air and does not take into account the amount of sunlight or obstacles in the field of vision. Visibility of 10 km or more is considered clear." = "Sikt indikerer hvor langt unna du tydelig kan se objekter som bygninger eller fjelltopper. Det er et mål på gjennomsiktigheten i luften og tar ikke høyde for mengden sollys eller hindringer i synsfeltet. Sikt på 10 km eller mer anses som klar.";
+
+/* No comment provided by engineer. */
+"About visibility" = "Om sikt";
+
+/* No comment provided by engineer. */
+"About air pressure" = "Om lufttrykk";
+
+/* No comment provided by engineer. */
+"the Airpressure is " = "Lufttrykket er ";
+
+/* No comment provided by engineer. */
+"Rapid and significant changes in air pressure are used to predict weather changes. Falling pressure can mean, for example, that rain or snow is in store, while rising pressure can mean better weather. Air pressure is also called atmospheric pressure." = "Raske og betydelige endringer i lufttrykk brukes til å forutse værendringer. Fallende trykk kan for eksempel bety at det er regn eller snø i vente, mens stigende trykk kan bety bedre vær. Luftttykk kalles også atmosfærisk trykk.";
+
+/* No comment provided by engineer. */
+"The wind " = "Vinden ";
+
+/* No comment provided by engineer. */
+"The average humidity today " = "Den gjennomsnittlige luftfuktigheten i dag er på ";
+
+/* No comment provided by engineer. */
+"About relative humidity" = "Om relativ luftfuktighet";
+
+/* No comment provided by engineer. */
+"About dew point" = "Om duggpunkt";
+
+/* No comment provided by engineer. */
+"Relative humidity, or simply humidity, describes the amount of moisture in the air compared to the maximum amount the air can hold. Air can hold more moisture at higher temperatures. A relative humidity of 100% can lead to dew or fog." = "Relativ luftfuktighet, eller bare luftfuktighet, beskriver mengden fuktighet i luften sammenlignet med hvor mye luften maksimalt kan holde. Luft kan holde mer fuktighet ved høyere temperaturer. En relativ luftfuktighet på 100 % kan føre til dugg eller tåke.";
+
+/* No comment provided by engineer. */
+"The dew point indicates the temperature to which the air must cool before dew occurs. This can provide information about how humid the air feels - the higher the dew point, the more humid it feels. If the dew point is equal to the measured temperature, the relative humidity is 100%, which can lead to dew and fog." = "Duggpunktet angir hvilken temperatur luften må avkjøles til før det oppstår dugg. Dette kan gi informasjon om hvor fuktig luften føles - jo høyere duggpunkt, jo fuktigere føles det. Hvis duggpunktet er likt som målt tempertur, er den relative fuktigheten 100 %, som kan føre til dugg og tåke.";
+
+/* No comment provided by engineer. */
+"The dew point is between " = "Duggpunktet er mellom ";
+
+/* No comment provided by engineer. */
+" to " = " til ";
+
+/* No comment provided by engineer. */
+" miles." = " km.";
+
+/* No comment provided by engineer. */
+" totally clear, from " = " helt klar, fra ";
+
+/* No comment provided by engineer. */
+"On " = "På ";
+
+/* No comment provided by engineer. */
+" from " = " fra ";
+
+/* No comment provided by engineer. */
+" the visibility is" = " blir sikten";
+
+/* No comment provided by engineer. */
+"monday" = "mandag";
+
+/* No comment provided by engineer. */
+"tuesday" = "tirsdag";
+
+/* No comment provided by engineer. */
+"wednesday" = "onsdag";
+
+/* No comment provided by engineer. */
+"thursday" = "torsdag";
+
+/* No comment provided by engineer. */
+"friday" = "fredag";
+
+/* No comment provided by engineer. */
+"saturday" = "lørdag";
+
+/* No comment provided by engineer. */
+"sunday" = "søndag";
+
+/* No comment provided by engineer. */
+" and the wind is now blowing" = " og vinden blåser nå";
+
+/* No comment provided by engineer. */
+" it will be blowing from " = " vil det blåse fra ";
+
+/* No comment provided by engineer. */
+" with gust up to " = " med vindkast på opptil ";
+
+/* No comment provided by engineer. */
+" from" = " fra ";
+
+/* No comment provided by engineer. */
+" To day it will blow from " = " I dag vil det blåse fra ";
+
+/* No comment provided by engineer. */
+"N" = "N";
+
+/* No comment provided by engineer. */
+"NNE" = "NNØ";
+
+/* No comment provided by engineer. */
+"ENE" = "ØNØ";
+
+/* No comment provided by engineer. */
+"E" = "Ø";
+
+/* No comment provided by engineer. */
+"ESE" = "ØSØ";
+
+/* No comment provided by engineer. */
+"SE" = "SØ";
+
+/* No comment provided by engineer. */
+"SSE" = "SSØ";
+
+/* No comment provided by engineer. */
+"S" = "S";
+
+/* No comment provided by engineer. */
+"SSW" = "SSV";
+
+/* No comment provided by engineer. */
+"SW" = "SV";
+
+/* No comment provided by engineer. */
+"WSW" = "VSV";
+
+/* No comment provided by engineer. */
+"W" = "V";
+
+/* No comment provided by engineer. */
+"WNW" = "VNV";
+
+/* No comment provided by engineer. */
+"NW" = "NV";
+
+/* No comment provided by engineer. */
+"NNW" = "NNV";
+
+/* No comment provided by engineer. */
+"north" = "nord";
+
+/* No comment provided by engineer. */
+"north-northeast" = "nord-nordøst";
+
+/* No comment provided by engineer. */
+"east-northeast" = "øst-nordøst";
+
+/* No comment provided by engineer. */
+"east" = "øst";
+
+/* No comment provided by engineer. */
+"east-southeast" = "øst-sørøst";
+
+/* No comment provided by engineer. */
+"southeast" = "sørøst";
+
+/* No comment provided by engineer. */
+"south-southeast" = "sør-sørøst";
+
+/* No comment provided by engineer. */
+"south" = "sør";
+
+/* No comment provided by engineer. */
+"south-southwest" = "sør-sørvest";
+
+/* No comment provided by engineer. */
+"southwest" = "sørvest";
+
+/* No comment provided by engineer. */
+"west-southwest" = "vest-sørvest";
+
+/* No comment provided by engineer. */
+"west" = "vest";
+
+/* No comment provided by engineer. */
+"west-northwest" = "vest-nordvest";
+
+/* No comment provided by engineer. */
+"northwest" = "nordvest";
+
+/* No comment provided by engineer. */
+"north-northwest" = "nord-nordvest";
+
+/* No comment provided by engineer. */
+" weather will continue the rest of the day." = " vær vil fortsette resten av dagen.";
+
+/* No comment provided by engineer. */
+"The temperature today will extend from " = "Temperaturen i dag vil strekke seg fra ";
+
+/* No comment provided by engineer. */
+"The lowest temperature on " = "Laveste temperatur på ";
+
+/* No comment provided by engineer. */
+" from " = " fra ";
+
+/* No comment provided by engineer. */
+" at " = " kl. ";
+
+/* No comment provided by engineer. */
+" and the highest themperature will be " = " og høyeste temperatur blir ";
+
+/* No comment provided by engineer. */
+" and at " = " og kl. ";
+
+/* No comment provided by engineer. */
+" will be " = " er ";
+
+/* No comment provided by engineer. */
+"Daily view" = " Dagsoversikt";
+
+/* No comment provided by engineer. */
+"snowy weather" = "snøvær";
+
+/* No comment provided by engineer. */
+"rainy weather" = "regnvær";
+
+/* No comment provided by engineer. */
+"no weather info" = "oppholdsvær";
+
+/* No comment provided by engineer. */
+"Max windspeed " = "Høyeste vindstyrke ";
+
+/* No comment provided by engineer. */
+"Max gust " = "Høyeste vindkaststyrke ";
+
+/* No comment provided by engineer. */
+"Now it is " = "Nå er det ";
+
+/* No comment provided by engineer. */
+" and " = " og ";
+
+/* No comment provided by engineer. */
+"WindSpeed" = "Vind" ;
+
+/* No comment provided by engineer. */
+"GustSpeed" = "Vindkast";
+
+/* No comment provided by engineer. */
+" and" = " og";
+
+/* No comment provided by engineer. */
+"Appearent temperature" = "Følt temperatur";
+
+/* No comment provided by engineer. */
+"The felt temperature today will extend from " = "Den følte temperaturen i dag vil strekke seg fra ";
+
+/* No comment provided by engineer. */
+"The lowest felt temperature on " = "Den laveste følte temperatur på ";
+
+/* No comment provided by engineer. */
+" and the highest felt temperature will be " = " og den høyeste følte temperatur blir ";
+
+/* No comment provided by engineer. */
+"the highest " = "den høyeste er ";
+
+/* No comment provided by engineer. */
+" kl. " = " kl. ";
+
+/* No comment provided by engineer. */
+"No value from menuTitle." = "Mangler verdi fra menuTitle.";
+
+/* No comment provided by engineer. */
+"UTI from the World Health Organization." = "UVI fra Verdens helseorganisasjon.";
+
+/* No comment provided by engineer. */
+"Gust: " = "Vindkast: ";
+
+/* No comment provided by engineer. */
+"Gust up to " = "Vindkast opptil ";
+
+/* No comment provided by engineer. */
+"Showing data from gesture" = "Viser data fra gesture";
+
+/* No comment provided by engineer. */
+"Totally the last 24 hours." = "Totalt siste 24 timer";
+
+/* No comment provided by engineer. */
+"it has fallen " = "det har falt ";
+
+/* No comment provided by engineer. */
+" precification the last 24 hours.\n" = " nedbør de siste 24 timene.\n";
+
+/* No comment provided by engineer. */
+"To day it will fall totally " = "I dag vil det komme ";
+
+/* No comment provided by engineer. */
+"precifitation.\n" = "nedbør.\n";
+
+/* No comment provided by engineer. */
+"The next 24 hours " = "De neste 24 timene ";
+
+/* No comment provided by engineer. */
+"it is not expected any precification.\n" = "Det er ikke ventet nedbør neste 24 timene\n";
+
+/* No comment provided by engineer. */
+"the total precification amount will be less than 1 mm.\n" = "vil den totale nedbøren være mindre enn 1 mm.\n";
+
+/* No comment provided by engineer. */
+"the total precification amount will be " = "vil den totale nedbørsmengden bli ";
+
+/* No comment provided by engineer. */
+" it will come no rain." = " vil det ikke komme noe nedbør.";
+
+/* No comment provided by engineer. */
+" it will rain less than 1 mm." = " vil det komme mindre enn 1 mm nedbør.";
+
+/* No comment provided by engineer. */
+" it will rain " = " vil det komme ";
+
+/* No comment provided by engineer. */
+" mm precipitation." = " mm nedbør.";
+
+/* No comment provided by engineer. */
+"precifitation.\n" = "nedbør.\n";
+
+/* No comment provided by engineer. */
+"Snow warning" = "Snø varsel";
+
+/* No comment provided by engineer. */
+"Distribution of snow versus rain is " = "Snøens prosent andel av nedbøren er ";
+
+/* No comment provided by engineer. */
+"Please notice that 1 mm rain is equal to 10 mm of snow." = "Legg merke til at 1 mm nedbør er ~ 1 cm snø.";
+
+/* No comment provided by engineer. */
+"Actual " = "Faktisk ";
+
+/* No comment provided by engineer. */
+"Actual: H: " = "Faktisk: H: ";
+
+/* No comment provided by engineer. */
+"the temperature fells like " = "temperaturen føles som ";
+
+/* No comment provided by engineer. */
+"just now, but the measured temperature is " = "akkurat nå, men den målte temperaturen er ";
+
+/* No comment provided by engineer. */
+"The wind makes it feel colder. The felt temperatur to day is between " = "Vinden gjør at det føles kaldere. Den følte temperaturen i dag lå mellom ";
+
+/* No comment provided by engineer. */
+" will the felt temperature to day be between " = " vil følt temperaturen ligge på mellom ";
+
+/* No comment provided by engineer. */
+" The wind makes it feel colder than the actual temperature." = " Vinden gjør at det føles kaldere enn den faktiske temperaturen.";
+
+/* No comment provided by engineer. */
+"Totally this day." = "Totalt denne dagen.";
+
+/* No comment provided by engineer. */
+"The dew point: " = "Duggpunktet: ";
+
+/* No comment provided by engineer. */
+"Average" = "Gjennomsnitt ";
+
+/* No comment provided by engineer. */
+"the average humidity today is " = "Den gjennomsnittlige luftfuktigheten i dag er på ";
+
+/* No comment provided by engineer. */
+" will the the humidity be " = " vil luftfuktigheten ligge på ";
+
+/* No comment provided by engineer. */
+" in average." = " i snitt.";
+
+/* No comment provided by engineer. */
+" The dewpoint is between " = " Duggpunktet er mellom ";
+
+/* No comment provided by engineer. */
+"Good visibility" = "God sikt";
+
+/* No comment provided by engineer. */
+"Moderate visibility" = "Moderat sikt";
+
+/* No comment provided by engineer. */
+"Moderate"= "Dårlig sikt";
+
+/* No comment provided by engineer. */
+"Misty" = "Tåke";
+
+/* No comment provided by engineer. */
+"the airpressure is now " = "lufttrykket er for øyeblikket ";
+
+/* No comment provided by engineer. */
+"Today the airpressure will be " = "I dag vil lufttrykket ligge på ";
+
+/* No comment provided by engineer. */
+" in average, and the lowest measured pressure will be " = " i snitt, og lavest målte trykk vil være ";
+
+/* No comment provided by engineer. */
+" the airpressure will be " = " vil lufttrykket ligge på ";
+
+/* No comment provided by engineer. */
+"Precification will continue the rest of the day." = "Nedbøren vil fortsette resten av dagen.";
+
+/* No comment provided by engineer. */
+"No precification for the rest of the day." = "Ikke noe nedbør denne dagen.";
+
+/* No comment provided by engineer. */
+"PRECIPITATION" = "NEDBØR";
+
+/* No comment provided by engineer. */
+"Save place" = "Lagre nytt sted";
+
+/* No comment provided by engineer. */
+"The place has been saved in CloudKit." = "Stedet er nå lagret i CloudKit.";
+
+/* No comment provided by engineer. */
+"Check if place exist" = "Sjekk om stedet finnes";
+
+/* No comment provided by engineer. */
+"Error checking if place exists" = "Feilmelding fra sjekk om stedet finnes.";
+
+/* No comment provided by engineer. */
+"The place exist in CloudKit" = "Stedet finnes allerede.";
+
+/* No comment provided by engineer. */
+"The place does not exist in CloudKit" = "Stedet finnes ikke fra før.";
+
+/* No comment provided by engineer. */
+"Delete '%@'" = "Slette '%@'";
+
+/* No comment provided by engineer. */
+"Error delete '%@'" = "Feil med sletting av '%@'";
+
+/* No comment provided by engineer. */
+"'%@' has no CKRecord.ID" = "'%@' har ikke noen CKRecord.ID";
+
+/* No comment provided by engineer. */
+"Error finding CKRecord.ID for '%@'" = "Feil med å finne CKRecord.ID for '%@'";
+
+/* No comment provided by engineer. */
+"Finding CKRecord.ID for '%@'" = "Finne CKRecord.ID for '%@'";
+
+/* No comment provided by engineer. */
+"CKRecord.ID is found" = "CKRecord.ID finnes";
+
+/* No comment provided by engineer. */
+"CKRecord.ID is nil" = "CKRecord.ID er nil.";
+
+/* No comment provided by engineer. */
+"Error find CKRecord.ID" = "Feil med å finne CKRecord.ID.";
+
+/* No comment provided by engineer. */
+"Save '%@'" = "Lagre '%@'";
+
+/* No comment provided by engineer. */
+"Error saving '%@'" = "Error saving '%@'";
+
+/* No comment provided by engineer. */
+"'%@' has been saved in CloudKit." = "'%@' er nå lagret i CloudKit.";
+
+/* No comment provided by engineer. */
+"Error with saving '%@'" = "Feil med lagring av '%@'";
+
+/* No comment provided by engineer. */
+"The place has been deleted" = "Stedet er nå slettet";
+
+/* No comment provided by engineer. */
+"\n'%@' exist in CloudKit" = "\n'%@' finnes allerede i CloudKit.";
+
+/* No comment provided by engineer. */
+"\n'%@' does not exist in CloudKit" = "\n'%@' finnes ikke i CloudKit.";
+
+/* No comment provided by engineer. */
+"'%@' has been deleted" = "'%@' er slettet";
+
+/* No comment provided by engineer. */
+"Check if '%@' exist" = "Sjekk om '%@' finnes";
+
+/* No comment provided by engineer. */
+"Error checking if '%@' exists" = "Feil ved sjekk om '%@' finnes";
+
+/* No comment provided by engineer. */
+"Error message from CloudKit" = "Feilmelding fra CloudKit.";
+
+/* No comment provided by engineer. */
+"Weather overview" = "Været";
+
+/* No comment provided by engineer. */
+"Select place" = "Velg blant valgte steder";
+
+/* No comment provided by engineer. */
+"Select place iPhone" = "Velg blant steder";
+
+/* No comment provided by engineer. */
+"Found all places" = "Fant alle stedene";
+
+/* No comment provided by engineer. */
+"Received all places." = "Har hentet alle stedene.";
+
+/* No comment provided by engineer. */
+"Error fetching places." = "Feil ved henting av stedene.";
+
+/* No comment provided by engineer. */
+"No places to be found in CloudKit." = "Finner ikke noen steder i CloudKit.";
+
+/* No comment provided by engineer. */
+"'%@' does not exist in CloudKit." = "'%@' finnes ikke i CloudKit.";
+
+/* No comment provided by engineer. */
+"Delete a place" = "Fjern et sted";
+
+/* No comment provided by engineer. */
+"'%@' has been deleted." = "'%@' er nå fjernet.";
+ 
+/* No comment provided by engineer. */
+"Saving '%@'" = "Lagring av '%@'";
+ 
+/* No comment provided by engineer. */
+"Search for places..." = "Søk etter steder...";
+ 
+/* No comment provided by engineer. */
+"Refresh" = "Frisk opp";
+ 
+/* No comment provided by engineer. */
+"Information" = "Informasjon";
+ 
+/* No comment provided by engineer. */
+"No Internet connection for this device." = "Mangler internet forbindelse for denne enheten.";
+
+/* No comment provided by engineer. */
+"Missing data in one or more of the Settings.\n" = "Mangler data på en eller flere innstillinger.\n";
+
+/* No comment provided by engineer. */
+"Select Settings and enter the missing values." = "Velg Innstillinger og legg deretter inn verdiene som mangler.";
+ 
+/* No comment provided by engineer. */
+"Get coordinates" = "Finn koordinatene";
+ 
+/* No comment provided by engineer. */
+"Can not find coordinates for '%@'" = "Kan ikke finne koordinatene til '%@'";
+
+/* No comment provided by engineer. */
+"SUN RISE" = "SOL OPP";
+
+/* No comment provided by engineer. */
+"Sunrise" = "Soloppgang";
+
+/* No comment provided by engineer. */
+"Sunset" = "Solnedgang";
+
+/* No comment provided by engineer. */
+"To find the right place, add country, county and municipality." = "Finn riktig sted med mer informasjon.";
+
+/* No comment provided by engineer. */
+"city" = "By:";
+
+/* No comment provided by engineer. */
+"railway" = "Jernbane:";
+
+/* No comment provided by engineer. */
+"village" = "Landsby:";
+
+/* No comment provided by engineer. */
+"hotel" = "Hotell:";
+
+/* No comment provided by engineer. */
+"hamlet" = "Grend:";
+
+/* No comment provided by engineer. */
+"farm" = "Gård:";
+
+/* No comment provided by engineer. */
+"place_of_worship" = "Kirke:";
+
+/* No comment provided by engineer. */
+"body_of_water" = "Kropp av vann:";
+
+/* No comment provided by engineer. */
+"building" = "Bygning:";
+
+/* No comment provided by engineer. */
+"continent" = "Verdensdel:";
+
+/* No comment provided by engineer. */
+"country" = "Land:";
+
+/* No comment provided by engineer. */
+"county" = "Fylke:";
+
+/* No comment provided by engineer. */
+"fictitious" = "Fiktiv:";
+
+/* No comment provided by engineer. */
+"island" = "Øy:";
+
+/* No comment provided by engineer. */
+"neighbourhood" = "Nabolag:";
+
+/* No comment provided by engineer. */
+"partial_postcode" = "Delvis_postnummer:";
+
+/* No comment provided by engineer. */
+"postal_city" = "Poststed:";
+
+/* No comment provided by engineer. */
+"postcode" = "Postnr:";
+
+/* No comment provided by engineer. */
+"region" = "Region:";
+
+/* No comment provided by engineer. */
+"road" = "Vei:";
+
+/* No comment provided by engineer. */
+"state" = "Stat:";
+
+/* No comment provided by engineer. */
+"state_district" = "Stat_distrikt:";
+
+/* No comment provided by engineer. */
+"terminated_postcode" = "Utgått postnr:";
+
+/* No comment provided by engineer. */
+"unknown" = "Ukjent:";
+
+/* No comment provided by engineer. */
+"waterway" = "Kanal:";
+
+/* No comment provided by engineer. */
+"craft" = "Håndtverk:";
+
+/* No comment provided by engineer. */
+"boundary_stone" = "Grensestein:";
+
+/* No comment provided by engineer. */
+"police" = "Politi:";
+
+/* No comment provided by engineer. */
+"shop" = "Butikk:";
+
+/* No comment provided by engineer. */
+"ferry_terminal" = "Ferje terminal:";
+
+/* No comment provided by engineer. */
+"bar" = "Bar:";
+
+/* No comment provided by engineer. */
+"municipality" = "Kommune:";
+
+/* No comment provided by engineer. */
+"water" = "Innsjø:";
+
+/* No comment provided by engineer. */
+"bus_stop" = "Buss stop:";
+
+/* No comment provided by engineer. */
+"information" = "Informasjon:";
+
+/* No comment provided by engineer. */
+"peak" = "Fjelltopp:";
+
+/* No comment provided by engineer. */
+"'dateSelected' value == %@" = "'dateSelected' er \"%@\"";
+
+/* No comment provided by engineer. */
+"Value == %@ is not part of the 'dateArray'." = "\"%@\" er ikke en del av 'dateArray'.";
+
+/* No comment provided by engineer. */
+"No value for weather." = "'weather' er nil!.\nStart appen på nytt.";
+
+/* No comment provided by engineer. */
+"No value for hourForecast." = "'hourForecast' er nil!.\nStart appen på nytt.";
+ 
+/* No comment provided by engineer. */
+"My places" = "Mine steder";
+
+/* No comment provided by engineer. */
+" with " = " med ";
+
+/* No comment provided by engineer. */
+"500 Internal Server Error,\nThe server has encountered a situation it does not know how to handle." = "500 Intern serverfeil,\nTjeneren har støtt på en situasjon den ikke vet hvordan den skal håndteres.\n\nAvslutt appen.";
+
+/* No comment provided by engineer. */
+"501 Not Implemented,\nThe request method is not supported by the server and cannot be handled. The only methods that servers are required to support (and therefore that must not return this code) are GET and HEAD." = "501 Ikke implementert,\nForespørselsmetoden støttes ikke av serveren og kan ikke håndteres. De eneste metodene som servere må støtte (og derfor ikke må returnere denne koden) er GET og HEAD.\n\nAvslutt appen.";
+
+/* No comment provided by engineer. */
+"502 Bad Gateway,\nThis error response means that the server, while working as a gateway to get a response needed to handle the request, got an invalid response." = "502 Bad Gateway,\nDette feilsvaret betyr at serveren, mens den jobbet som en gateway for å få et svar som er nødvendig for å håndtere forespørselen, fikk et ugyldig svar.\n\nAvslutt appen.";
+
+/* No comment provided by engineer. */
+"503 Service Unavailable,\nThe server is not ready to handle the request. Common causes are a server that is down for maintenance or that is overloaded. Note that together with this response, a user-friendly page explaining the problem should be sent. This response should be used for temporary conditions and the Retry-After HTTP header should, if possible, contain the estimated time before the recovery of the service. The webmaster must also take care about the caching-related headers that are sent along with this response, as these temporary condition responses should usually not be cached." = "503 Tjenesten utilgjengelig,\nTjeneren er ikke klar til å håndtere forespørselen. Vanlige årsaker er en server som er nede på grunn av vedlikehold eller som er overbelastet. Merk at sammen med dette svaret skal det sendes en brukervennlig side som forklarer problemet. Dette svaret skal brukes for midlertidige forhold, og Retry-After HTTP-headeren bør, hvis mulig, inneholde estimert tid før gjenoppretting av tjenesten. Nettredaktøren må også ta seg av de caching-relaterte overskriftene som sendes sammen med dette svaret, da disse midlertidige tilstandssvarene vanligvis ikke skal bufres.\n\nAvslutt appen.";
+
+/* No comment provided by engineer. */
+"504 Gateway Timeout,\nThis error response is given when the server is acting as a gateway and cannot get a response in time." = "504 Gateway Timeout,\nDette feilsvaret gis når serveren fungerer som en gateway og ikke kan få svar i tide.\n\nAvslutt appen.";
+
+/* No comment provided by engineer. */
+"505 HTTP Version Not Supported,\nThe HTTP version used in the request is not supported by the server." = "505 HTTP-versjon støttes ikke,\nHTTP-versjonen som ble brukt i forespørselen støttes ikke av serveren.\n\nAvslutt appen.";
+
+/* No comment provided by engineer. */
+"506 Variant Also Negotiates,\nThe server has an internal configuration error: the chosen variant resource is configured to engage in transparent content negotiation itself, and is therefore not a proper end point in the negotiation process." = "506 Variant forhandler også,\nTjeneren har en intern konfigurasjonsfeil: den valgte variantressursen er konfigurert til å delta i transparent innholdsforhandling selv, og er derfor ikke et riktig sluttpunkt i forhandlingsprosessen.\n\nAvslutt appen.";
+
+/* No comment provided by engineer. */
+"507 Insufficient Storage (WebDAV),\nThe method could not be performed on the resource because the server is unable to store the representation needed to successfully complete the request." = "507 Insufficient Storage (WebDAV),\nMetoden kunne ikke utføres på ressursen fordi serveren ikke er i stand til å lagre representasjonen som trengs for å fullføre forespørselen.\n\nAvslutt appen.";
+
+/* No comment provided by engineer. */
+"508 Loop Detected (WebDAV),\nThe server detected an infinite loop while processing the request." = "508 Loop Detected (WebDAV),\nTjeneren oppdaget en uendelig loop under behandling av forespørselen.\n\nAvslutt appen.";
+
+/* No comment provided by engineer. */
+"510 Not Extended,\nFurther extensions to the request are required for the server to fulfill it." = "510 Ikke utvidet,\nYtterligere utvidelser til forespørselen kreves for at serveren skal oppfylle den.\n\nAvslutt appen.";
+
+/* No comment provided by engineer. */
+"511 Network Authentication Required,\nIndicates that the client needs to authenticate to gain network access." = "511 Nettverksautentisering kreves,\nIndikerer at klienten må autentisere seg for å få nettverkstilgang.\n\nAvslutt appen.";
+
+/* No comment provided by engineer. */
+"No value for hourForecast.\n\nExit the app." = "Ingen verdi for hourForecast.\n\nAvslutt appen.";
+
+/* No comment provided by engineer. */
+"Error finding 'weather'.\n\nExit the app." = "Feil med å finne 'weather'.\n\nAvslutt appen.";
+
+/* No comment provided by engineer. */
+"No value for weather.\n\nExit the app." = "Ingen verdi for weather.\n\nAvslutt appen.";
+
+/* No comment provided by engineer. */
+" and the level is " = " og nivået er ";
+
+/* No comment provided by engineer. */
+" the level is high (more than 3) and then you should " = " og nivået er høyt (over 3), da bør du ";
+
+/* No comment provided by engineer. */
+"Refresh offset" = "Oppdater tidssoner";
+
+/* No comment provided by engineer. */
+"Refresh places" = "Frisker opp alle stedene.";
+
+/* No comment provided by engineer. */
+"Did not find any places." = "Fant ikke noen steder.";
+
+/* No comment provided by engineer. */
+"Found all places." = "Fant alle stedene.";
+
+/* No comment provided by engineer. */
+"Refresh offset for places" = "Oppdatering av tidssonene";
+
+/* No comment provided by engineer. */
+"Reset offset for the places has started.\n\nPlease note that this alert will only show for a few seconds." = "Oppdatering av tidssonene for mine steder har startet.\n\nVær oppmerksom på at dette varselet kun vises i noen sekunder.";
+
+/* No comment provided by engineer. */
+"Reset is now finished." = "Oppdateringen er nå ferdig.";
+
+/* No comment provided by engineer. */
+"All places is now modified." = "Mine steder er nå blitt oppdatert.";
+
+/* No comment provided by engineer. */
+"Error with the modification of the places." = "Feil med oppdateringen av stedene.";
+
+/* No comment provided by engineer. */
+"Local weatherForecast" = "Lokal værmelding";
+
+/* No comment provided by engineer. */
+"Weather" = "Været";
+
+/* No comment provided by engineer. */
+"Norway" = "Norge";
+
+/* No comment provided by engineer. */
+"China" = "Kina";
+
+//* No comment provided by engineer. */
+"United States" = "Usa";
+
+//* No comment provided by engineer. */
+"United Kingdom" = "Storbritannia";
+
+/* No comment provided by engineer. */
+"Turkey" = "Tyrkia";
+
+/* No comment provided by engineer. */
+"Canada" = "Kanada";
+
+/* No comment provided by engineer. */
+"Russia" = "Russland";
+
+/* No comment provided by engineer. */
+"France" = "Frankrike";
+
+/* No comment provided by engineer. */
+"Save local place" = "Lagre lokalt sted";
+
+/* No comment provided by engineer. */
+"Save local place has been started.\nPlease wait for the next message." = "Lagre lokalt sted har blitt startet.\nVennligst vent på neste melding.";
+
+/* No comment provided by engineer. */
+"Dismiss weather in '%@'" = "Avslutt været i '%@'";
+
+/* No comment provided by engineer. */
+"Refresh all places" = "Frisk opp stedene";
+
+/* No comment provided by engineer. */
+"Refresh all places finished" = "Oppfrisking av alle stedene ferdig.";
+
+/* No comment provided by engineer. */
+"SHOW WEATHER FOR PLACES IN CLOUDKIT" = "VIS VÆRET FOR STEDENE I CLOUDKIT";
+
+/* No comment provided by engineer. */
+"Show weather for places in CloudKit" = "Vis været for stedene i CloudKit";
+
+/* No comment provided by engineer. */
+" the level is low all day." = " UV-indeksen vil holde seg lavt hele dagen.";
+
+/* No comment provided by engineer. */
+" the level is high all day." = " nivået er høyt deler av dagen.";
+
+/* No comment provided by engineer. */
+" is the level low all day." = " er nivået lavt hele dagen.";
+
+/* No comment provided by engineer. */
+" is level high all day." = " er nivået høyt deler av dagen.";
+
+/* No comment provided by engineer. */
+"My position" = "Min posisjon";
+
+/* No comment provided by engineer. */
+"Dew point:" = "Duggpunktet:";
+
+/* No comment provided by engineer. */
+"Find the hourForecast data" = "Finn hourForecast data";
+
+/* No comment provided by engineer. */
+"Find the weather data" = "Finn vær data";
+
+/* No comment provided by engineer. */
+"Cannot find the local coordinates." = "Kan ikke finne de lokale koordinatene.";
+
+/* No comment provided by engineer. */
+"Refresh for all places has started.\n\nPlease note that this alert will only show for a few seconds." = "Oppdatering for alle stedene har startet.\n\nVær oppmerksom på at dette varselet vil bare vises i noen sekunder.";
+
+/* No comment provided by engineer. */
+"Settings" = "Innstillinger";
+
+/* No comment provided by engineer. */
+"Menu" = "Meny";
+
+/* No comment provided by engineer. */
+"My places" = "Mine steder";
+
+/* No comment provided by engineer. */
+"Start refreshing" = "Start oppdatering";
+
+/* No comment provided by engineer. */
+"Refresh the offset in CloudKit" = "Oppdater tidssoner";
+
+/* No comment provided by engineer. */
+"Refresh offset for places" = "Oppdater tidssoner";
+
+/* No comment provided by engineer. */
+"The time zones are set relative to UTC.\n\nUTC is often used to indicate time zones and then indicates the deviation from the time as it is indicated at the prime meridian. UTC is thus the successor to Greenwich Mean Time (GMT).\n\nExample for Norway:\n\nCET (Central European Time) = UTC+1h.\n\nDaylight Saving Time:\n\nCEST (Central European Summer Time) = UTC+2h" =
+"Tidssonene blir satt i forhold til UTC.\n\nUTC brukes ofte for å indikere tidssoner og indikerer deretter avviket fra klokkeslettet slik det er indikert ved nullmeridianen. UTC er dermed etterfølgeren til Greenwich Mean Time (GMT).\n\nEksempel for Norge:\n\nCET (Central European Time) = UTC+1t.\n\nSommertid:\n\nCEST (Central European Summer Time) = UTC+2t";
+
+/* No comment provided by engineer. */
+"Search ..." = "Søk etter ...";
+
+/* No comment provided by engineer. */
+"Choose a new place to save." = "Velg et nytt sted å lagre.";
+
+/* No comment provided by engineer. */
+"Refresh my places" = "Oppdater stedene mine";
+
+/* No comment provided by engineer. */
+"Delete this place" = "Slett dette stedet";
+
+/* No comment provided by engineer. */
+"AIR QUALITY" = "LUFT KVALITET";
+
+/* No comment provided by engineer. */
+"MOON" = "MÅNEN";
+
+/* No comment provided by engineer. */
+"Good" = "God";
+
+/* No comment provided by engineer. */
+"Fair" = "Mindre god";
+
+/* No comment provided by engineer. */
+"Moderate" = "Moderat";
+
+/* No comment provided by engineer. */
+"Poor" = "Dårlig";
+
+/* No comment provided by engineer. */
+"Very poor" = "Veldig dårlig";
+
+/* No comment provided by engineer. */
+"No available data for air quality in %@" = "Ingen tilgjengelige data for luftkvalitet i %@";
+
+/* No comment provided by engineer. */
+"Carbon monoxide CO : " = "Karbonmonoksid CO : ";
+
+/* No comment provided by engineer. */
+"Ozone" = "Ozon";
+
+/* No comment provided by engineer. */
+"Particulates" = "Partikler";
+
+/* No comment provided by engineer. */
+"Nitrogen dioxide" = "Nitrogendioksid";
+
+/* No comment provided by engineer. */
+"Sulphur dioxide" = "Svoveldioksid";
+
+/* No comment provided by engineer. */
+"Detailed information on air quality" = "Detaljert informasjon om luftkvaliteten";
+
+/* No comment provided by engineer. */
+"Designation" = "Betegnelse";
+
+/* No comment provided by engineer. */
+"Index" = "Indeks";
+
+/* No comment provided by engineer. */
+"Value" = "Verdi";
+
+/* No comment provided by engineer. */
+"Range" = "Område";
+
+/* No comment provided by engineer. */
+"Ozone" = "Ozon";
+
+/* No comment provided by engineer. */
+"Carbon monoxide CO" = "Karbonmonoksid CO";
+
+/* No comment provided by engineer. */
+"No moonrise" = "Ingen måneoppgang";
+
+/* No comment provided by engineer. */
+"Last Quarter" = "Siste kvartal";
+
+/* No comment provided by engineer. */
+"Waning Crescent" = "Minkende månesigd";
+
+/* No comment provided by engineer. */
+"New moon" = "Nymåne";
+
+/* No comment provided by engineer. */
+"Waxing Crescent" = "Voksende månesigd";
+
+/* No comment provided by engineer. */
+"First Quarter" = "Første kvarter";
+
+/* No comment provided by engineer. */
+"Waxing Gibbous" = "Voksende måne";
+
+/* No comment provided by engineer. */
+"Full Moon" = "Fullmåne";
+
+/* No comment provided by engineer. */
+"Waning Gibbous" = "Minkende måne";
+
+/* No comment provided by engineer. */
+"Illumination" = "Opplysning";
+
+/* No comment provided by engineer. */
+"MoonRise" = "Måneoppgang";
+
+/* No comment provided by engineer. */
+"MoonSet" = "Månenedgang";
+
+/* No comment provided by engineer. */
+"Is the moon visible?" = "Er månen synlig?";
+
+/* No comment provided by engineer. */
+"Yes" = "Ja";
+
+/* No comment provided by engineer. */
+"No" = "Nei";
+
+/* No comment provided by engineer. */
+"Is the sun visible?" = "Er solen synlig?";
+
+/* No comment provided by engineer. */
+"Ammonia " = "Ammoniakk ";
+
+/* No comment provided by engineer. */
+"Nitrogen monoxide " = "Nitrogenmonoksid ";
+
+/* No comment provided by engineer. */
+"Ammonia (NH3) Ammonia is a colourless gas with a pungent odour. Its main source are agricultural processes, particularly in fertilizer production and livestock waste management. Indoor causes include cigarette smoke and cleaning solutions.            Ammonia irritates the eyes, nose, throat, and respiratory tract if inhaled in small amounts due to its corrosive nature and is poisonous in large quantities. It pollutes and contributes to the eutrophication and acidification of terrestrial and aquatic ecosystems. Furthermore, ammonia forms secondary particulate matter (PM2.5) when combined with other pollutants in the atmosphere." = "Ammoniakk (NH3) Ammoniakk er en fargeløs gass med en skarp lukt. Hovedkilden er landbruksprosesser, spesielt innen gjødselproduksjon og husdyravfallshåndtering. Innendørs årsaker inkluderer sigarettrøyk og rengjøringsløsninger. Ammoniakk irriterer øyne, nese, svelg og luftveier hvis den inhaleres i små mengder på grunn av dens etsende natur og er giftig i store mengder. Det forurenser og bidrar til eutrofiering og forsuring av terrestriske og akvatiske økosystemer. Videre danner ammoniakk sekundært svevestøv (PM2,5) når det kombineres med andre forurensninger i atmosfæren.";
+
+/* No comment provided by engineer. */
+"Nitric oxide (NO) Nitric oxide, also called nitrogen monoxide, is a colourless, toxic gas formed through the combustion processes of coal and petroleum. Main sources include motor vehicles and thermal power plants.Nitric oxide dissolves in atmospheric water vapour to form acid that damages vegetation, buildings and materials, which contributes to the acidification of terrestrial and aquatic ecosystems. It also combines with VOCs to create ground-level ozone (O3)." = "Nitrogenoksid (NO) Nitrogenoksid, også kalt nitrogenmonoksid, er en fargeløs, giftig gass som dannes gjennom forbrenningsprosesser av kull og petroleum. Hovedkilder inkluderer motorkjøretøyer og termiske kraftverk. Nitrogenoksid oppløses i atmosfærisk vanndamp og danner syre som skader vegetasjon, bygninger og materialer, noe som bidrar til forsuring av terrestriske og akvatiske økosystemer. Den kombineres også med VOC for å skape bakkenivå ozon (O3).";
+
+/* No comment provided by engineer. */
+"Nitrogen dioxide (NO2) Nitrogen dioxide is formed through the oxidation of nitric oxide (NO) from combustion processes such as diesel engines and coal, oil, gas, wood, and waste plants.Nitrogen dioxide has an adverse effect on the respiratory systems of both humans and animals, increasing risks of stroke. Just like nitrogen monoxide, it dissolves in water vapour to create acid rain. Nitrogen dioxide contributes to the formation of ground-level ozone (O3), and forms secondary particulate matter (PM2.5) when combined with other atmospheric compounds such as ammonia." = "Nitrogendioksid (NO2) Nitrogendioksid dannes gjennom oksidasjon av nitrogenoksid (NO) fra forbrenningsprosesser som dieselmotorer og kull-, olje-, gass-, ved- og avfallsanlegg. Nitrogendioksid har en negativ effekt på luftveiene til begge mennesker og dyr, øker risikoen for hjerneslag. Akkurat som nitrogenmonoksid løses det opp i vanndamp for å skape sur nedbør. Nitrogendioksid bidrar til dannelsen av bakkenivå ozon (O3), og danner sekundært partikkelmateriale (PM2.5) når det kombineres med andre atmosfæriske forbindelser som ammoniakk.";
+
+/* No comment provided by engineer. */
+"Particulate matter (PM) Particulate matter consists of airborne liquid and solid particles. Primary particulate matter is emitted from a direct source, including power plants, vehicle traffic, construction sites, and indoor stoves and heaters. On the other hand, secondary particulate matter is formed as a result of chemical and physical reactions with various compounds, including sulphur dioxide (SO2), nitrogen dioxide (NO2), and ammonia (NH3). Particulate matter has been linked to cardiovascular and respiratory diseases such as asthma, bronchitis, and emphysema. The extent of health damage caused by particulate matter is determined by the size of the particles. Particles with a mass median diameter of less than 10 microns is called PM10, while particles with a mass median diameter of less than 2.5 microns is called PM2.5. PM2.5 are also called fine particles. Newer classifications can also include PM0.1, so-called ultra-fine particles. The smaller the particle, the higher the health risk, due to their ability to penetrate deep into the respiratory and circulatory systems, causing damage to the lungs, heart, and brain." = "Svevestøv (PM) Svevestøv består av luftbårne væske- og faste partikler. Primært svevestøv slippes ut fra en direkte kilde, inkludert kraftverk, kjøretøytrafikk, byggeplasser og innendørs ovner og varmeovner. På den annen side dannes sekundært svevestøv som et resultat av kjemiske og fysiske reaksjoner med ulike forbindelser, inkludert svoveldioksid (SO2), nitrogendioksid (NO2) og ammoniakk (NH3). Svevestøv har vært knyttet til kardiovaskulære og luftveissykdommer som astma, bronkitt og emfysem. Omfanget av helseskader forårsaket av svevestøv bestemmes av størrelsen på partiklene. Partikler med en massemedian diameter på mindre enn 10 mikron kalles PM10, mens partikler med en massemedian diameter på mindre enn 2,5 mikron kalles PM2,5. PM2.5 kalles også fine partikler. Nyere klassifiseringer kan også inkludere PM0.1, såkalte ultrafine partikler. Jo mindre partikkelen er, jo høyere er helserisikoen, på grunn av deres evne til å trenge dypt inn i luftveiene og sirkulasjonssystemene, og forårsake skade på lungene, hjertet og hjernen.";
+
+/* No comment provided by engineer. */
+"Ozone (O3) Ground-level ozone is a pale blue gas with a pungent smell. It is mainly formed through the photochemical reactions of other pollutants such as nitrogen oxides, carbon monoxide, and volatile organic compounds from strong sunlight and UV radiation. Indoor sources stem from electric motors in household appliances including copiers and laser printers.Ozone is suspected to have carcinogenic effects. It leads to reduced lung function and respiratory diseases, with exposure linked to premature mortality. Apart from its impact on the human body, ozone also damages vegetation, contributing to a decrease in crop productivity and forest decline. Ozone accelerates the deterioration of rubbers, dyes, paints, coatings, and various textiles, and is also a major component of smog." = "Ozon (O3) Ozon ved bakkenivå er en blekblå gass med en skarp lukt. Det dannes hovedsakelig gjennom fotokjemiske reaksjoner av andre forurensninger som nitrogenoksider, karbonmonoksid og flyktige organiske forbindelser fra sterkt sollys og UV-stråling. Innendørs kilder stammer fra elektriske motorer i husholdningsapparater, inkludert kopimaskiner og laserskrivere. Ozon er mistenkt for å ha kreftfremkallende effekter. Det fører til redusert lungefunksjon og luftveissykdommer, med eksponering knyttet til for tidlig dødelighet. Bortsett fra dens innvirkning på menneskekroppen, skader ozon også vegetasjonen, noe som bidrar til en reduksjon i avlingsproduktivitet og skognedgang. Ozon akselererer forringelsen av gummier, fargestoffer, maling, belegg og ulike tekstiler, og er også en viktig komponent i smog.";
+
+/* No comment provided by engineer. */
+"Carbon monoxide (CO) Carbon monoxide is a colourless, odourless, and tasteless toxic gas. It is emitted directly from vehicles and combustion engines. Indoors, carbon monoxide is produced by boilers, fireplaces, ovens, cooker hoods, central vacuum systems, tobacco smoke, and propane heaters. Other sources of the gas are power plants, biomass burning, forest fires, and the wood industry.Upon entering the bloodstream, carbon monoxide inhibits the body’s ability to carry oxygen to organs and tissues. As such, extremely high concentrations can cause death. Infants, the elderly, and those with heart and respiratory diseases are particularly susceptible to carbon monoxide poisoning." = "Karbonmonoksid (CO) Karbonmonoksid er en fargeløs, luktfri og smakløs giftig gass. Det slippes ut direkte fra kjøretøy og forbrenningsmotorer. Innendørs produseres karbonmonoksid av kjeler, peiser, ovner, kjøkkenvifter, sentralvakuumsystemer, tobakksrøyk og propanvarmere. Andre kilder til gassen er kraftverk, biomassebrenning, skogbranner og treindustri. Ved å komme inn i blodet hemmer karbonmonoksid kroppens evne til å frakte oksygen til organer og vev. Som sådan kan ekstremt høye konsentrasjoner forårsake død. Spedbarn, eldre og de med hjerte- og luftveissykdommer er spesielt utsatt for karbonmonoksidforgiftning.";
+
+/* No comment provided by engineer. */
+"Showing Ammonia information:" = "Ammoniakk";
+
+/* No comment provided by engineer. */
+"Showing nitrogenmonoxide information:" = "Nitrogenmonoksid";
+
+/* No comment provided by engineer. */
+"Sulphur dioxide is a toxic gas with a pungent smell. It mainly arises from the combustion and refining processes of coal, oil, and metal-containing ores, but also from transport-related emissions such as shipping.Sulphur dioxide is an irritant, and can cause respiratory diseases in humans and animals. It forms acid rain when dissolved in water, which damages vegetation, buildings and materials, and contributes to the acidification of terrestrial and aquatic ecosystems. Sulphur dioxide also forms secondary particulate matter (PM2.5) when combined with other compounds such as ammonia in the atmosphere." = "Svoveldioksid er en giftig gass med en skarp lukt. Det kommer hovedsakelig fra forbrennings- og raffineringsprosesser av kull, olje og metallholdige malmer, men også fra transportrelaterte utslipp som skipsfart. Svoveldioksid er irriterende og kan forårsake luftveissykdommer hos mennesker og dyr. Den danner sur nedbør når den løses opp i vann, noe som skader vegetasjon, bygninger og materialer, og bidrar til forsuring av terrestriske og akvatiske økosystemer. Svoveldioksid danner også sekundært partikkelmateriale (PM2.5) når det kombineres med andre forbindelser som ammoniakk i atmosfæren.";
+
+/* No comment provided by engineer. */
+"Volatile organic compounds (VOC) Volatile organic compounds refer to a large group of carbon-containing substances including hydrocarbons, alcohols, aldehydes, and organic acids. Outdoor sources include emissions from incomplete combustion processes and volatile industry byproducts. VOCs are particularly concentrated indoors due to internal sources from interior products and building materials such as furniture, plastics, carpets, wallpapers, cleaning materials, lacquers, solvents, and tobacco smoke.As such, the indoor impact of VOCs has greater health implications since people spend time predominantly in buildings. While individual VOC levels tend to be moderate with no expected health effects, concentrations rise to concerning levels after construction works and renovations. Many individual VOCs have been shown to have toxic, carcinogenic, and mutagenic effects on humans. Symptoms include headaches, fatigue, loss of productivity, sleep disorders, and respiratory diseases, which altogether could be summarized as “Sick Building Syndrome”. The more reactive VOCs combine with nitrogen dioxide (NO2) to form ground-level ozone (O3), and contribute to creating secondary particulate matter (PM2.5) as well." = "Flyktige organiske forbindelser (VOC) Flyktige organiske forbindelser refererer til en stor gruppe karbonholdige stoffer, inkludert hydrokarboner, alkoholer, aldehyder og organiske syrer. Utendørs kilder inkluderer utslipp fra ufullstendige forbrenningsprosesser og flyktige industribiprodukter. VOC er spesielt konsentrert innendørs på grunn av interne kilder fra interiørprodukter og byggematerialer som møbler, plast, tepper, tapeter, rengjøringsmidler, lakk, løsemidler og tobakksrøyk. Som sådan har innendørspåvirkningen av VOC større helsekonsekvenser siden mennesker tilbringe tid hovedsakelig i bygninger. Mens individuelle VOC-nivåer har en tendens til å være moderate uten forventede helseeffekter, stiger konsentrasjonene til bekymringsfulle nivåer etter byggearbeider og renoveringer. Mange individuelle VOC har vist seg å ha toksiske, kreftfremkallende og mutagene effekter på mennesker. Symptomer inkluderer hodepine, tretthet, tap av produktivitet, søvnforstyrrelser og luftveissykdommer, som til sammen kan oppsummeres som \"Sykbygningssyndrom\". De mer reaktive VOC-ene kombineres med nitrogendioksid (NO2) for å danne bakkenivå ozon (O3), og bidrar også til å skape sekundært partikkelmateriale (PM2.5).";
+
+/* No comment provided by engineer. */
+"Showing Volatile organic compounds (VOC):" = "Flyktige organiske forbindelser";
+
+/* No comment provided by engineer. */
+"When talking about air quality, we commonly mean the levels of different pollutants in our air. Major air pollutants include carbon monoxide (CO), ammonia (NH3), nitric oxide (NO), nitrogen dioxide (NO2), ozone (O3), particulate matter (PM), sulphur dioxide (SO2) and volatile organic compounds (VOC)." = "Når vi snakker om luftkvalitet, mener vi vanligvis nivåene av forskjellige forurensninger i luften vår. Viktige luftforurensninger inkluderer karbonmonoksid (CO), ammoniakk (NH3), nitrogenoksid (NO), nitrogendioksid (NO2), ozon (O3), partikler (PM), svoveldioksid (SO2) og flyktige organiske forbindelser (VOC).";
+
+/* No comment provided by engineer. */
+"Deutschland" = "Tyskland";
+
+/* No comment provided by engineer. */
+"None" = "Opphold";
+
+/* No comment provided by engineer. */
+"Next full moon" = "Neste fullmåne";
+
+/* No comment provided by engineer. */
+"Weather conditions" = "Værforhold";
+
+/* No comment provided by engineer. */
+"Probability of precipitation" = "Sannsynlighet for nedbør";
+
+/* No comment provided by engineer. */
+"Total amount of precipitation" = "Total nedbørsmengde";
+
+/* No comment provided by engineer. */
+"Last 24 h" = "Siste 24 timer";
+
+/* No comment provided by engineer. */
+"Next 24 h" = "Neste 24 timer";
+
+/* No comment provided by engineer. */
+"Next 24 h" = "Neste 24 timer";
+
+/* No comment provided by engineer. */
+"Highest felt temp is the same today as yesterday" = "Høyeste følte temp er den samme i dag som i går";
+
+/* No comment provided by engineer. */
+"Day differences" = "Dagsforskjeller";
+
+/* No comment provided by engineer. */
+"Probability of precipitation" = "Sannsynlighet for nedbør";
+
+/* No comment provided by engineer. */
+"Total amount of precipitation" = "Total nedbørsmengde";
+
+/* No comment provided by engineer. */
+"Rain " = "Regn";
+
+/* No comment provided by engineer. */
+"No precification" = "Oppholdsvær";
+
+/* No comment provided by engineer. */
+"Today" = "Dagen i dag";
+
+/* No comment provided by engineer. */
+"Precification" = "Nedbør";
+
+/* No comment provided by engineer. */
+"Temperature " = "Værforbehold";
+
+/* No comment provided by engineer. */
+"Freshly fallen dry snow has a water value of around 0.1, which means that 10 centimeters of snow when melted gives 1 centimeter of water. 1 millimeter of precipitation gives a snow depth of 10 millimeters. In older snow, many of the snow crystals' small spikes and sharp edges have disappeared. The rounder crystals take up less space, and the snow sinks together. The higher the temperature, the faster this process goes. Fresh snow can have a water value of up to 0.2–0.3 if it accumulates while it is snowing. Beyond spring, the water value of the snow cover is usually 0.2–0.3 in the lowlands and 0.3–0.5 in mountainous areas."
+=
+"Nyfallen tørr snø har en vannverdi på rundt 0,1, som betyr at 10 centimeter snø ved smelting gir 1 centimeter vann. 1 millimeter nedbør gir en snødybde på 10 millimeter. I eldre snø har mange av snøkrystallenes små pigger og skarpe kanter forsvunnet. De rundere krystallene tar mindre plass, og snøen synker sammen. Jo høyere temperatur, jo raskere går denne prosessen. Nysnø kan ha en vannverdi på opptil 0,2–0,3 dersom den samler seg mens det snør. Utover våren er vannverdien til snødekket vanligvis 0,2–0,3 i lavlandet og 0,3–0,5 i fjellområder.";
+
+/* No comment provided by engineer. */
+"LAST 24 HOURS" = "SISTE 24 TIMER";
+
+/* No comment provided by engineer. */
+"NEXT 24 HOURS" = "NESTE 24 TIMER";
+
+/* No comment provided by engineer. */
+"0.0 mm" = "0,0 mm";
+
+/* No comment provided by engineer. */
+"Day differences" = "Dagsforskjeller";
+
+/* No comment provided by engineer. */
+"Today" = "I dag";
+
+/* No comment provided by engineer. */
+"Yesterday" = "I går";
+
+/* No comment provided by engineer. */
+"The felt temperature today is higher than yesterday." = "Den følte temperaturen i dag er høyere enn i går.";
+
+/* No comment provided by engineer. */
+"The felt temperature today is the same as yesterday." = "Den følte temperaturen i dag er den samme som i går.";
+
+/* No comment provided by engineer. */
+"The felt temperature today is lower than yesterday." = "Den følte temperaturen i dag er lavere enn i går.";
+
+/* No comment provided by engineer. */
+" and the highest is " = " og den høyeste er ";
+
+/* No comment provided by engineer. */
+"The highest felt temperature " = "Den høyeste følte temperaturen er ";
+
+/* No comment provided by engineer. */
+"The uvIndex today is higher than yesterday." = "UV-strålingen i dag er på et høyere nivå enn i går.";
+
+/* No comment provided by engineer. */
+"The uvIndex today is the same as yesterday." = "UV-strålingen i dag er på samme nivå som i går.";
+
+/* No comment provided by engineer. */
+"The uvIndex today is lower than yesterday." = "UV-strålingen i dag er på et lavere nivå enn i går.";
+
+/* No comment provided by engineer. */
+"The highest wind speed today is higher than yesterday." = "Den høyeste vindhastigheten i dag er høyere enn i går.";
+
+/* No comment provided by engineer. */
+"The highest wind speed today is the same as yesterday." = "Den høyeste vindstyrken i dag er den samme som i går.";
+
+/* No comment provided by engineer. */
+"The highest wind speed today is lower than yesterday." = "Den høyeste vindhastigheten i dag er lavere enn i går.";
+
+/* No comment provided by engineer. */
+"Beaufort-scale" = "Beaufort-skala";
+
+/* No comment provided by engineer. */
+"Description" = "Beskrivelse";
+
+/* No comment provided by engineer. */
+"About the Beaufort-scale" = "Om Beaufort-skalaen";
+
+/* No comment provided by engineer. */
+"The Beaufort wind scale expresses how strongly the wind blows at a certain speed. The Beaufort scale can make it easier to understand how much wind is reported, and what effect it can have. Each value on the scale corresponds to a wind speed."="Beauforts vindskala uttrykker hvor kraftig vinden blåser ved en bestemt hastighet. Beafort-skalaern kan gjøre det enklere å forstå hvor mye vind som meldes, og hvilken effekt den kan ha. Hver verdi på skalaen korresponderer med en vindhastighet.";
+
+/* No comment provided by engineer. */
+"The average humidity today is higher than yesterday." = "Gjennomsnittlig luftfuktighet i dag er høyere enn i går.";
+
+/* No comment provided by engineer. */
+"The average humidity today is the same as yesterday." = "Gjennomsnittlig luftfuktighet i dag er den samme som i går.";
+
+/* No comment provided by engineer. */
+"The average humidity today is lower than yesterday." = "Gjennomsnittlig luftfuktighet i dag er lavere enn i går.";
+
+/* No comment provided by engineer. */
+"Select a place" = "Velg et sted";
+
+/* No comment provided by engineer. */
+"Tap for info" = "Trykk for info";
+
+/* No comment provided by engineer. */
+"Ammonia" = "Ammoniakk";
+
+/* No comment provided by engineer. */
+"Volatile organic compounds (VOC)" = "Flyktige organiske forbindelser (VOC)";
+
+/* No comment provided by engineer. */
+"Ammonia (NH3)" = "Ammoniakk (NH3)";
+
+/* No comment provided by engineer. */
+"Nitric oxide (NO)" = "Nitrogenoksid (NO)";
+
+/* No comment provided by engineer. */
+"Terminate this app" = "Avslutt denne appen";
+
+/* No comment provided by engineer. */
+"Error finding 'hourForecast'." = "Finner ikke 'hourForecast'.";
+
+/* No comment provided by engineer. */
+"Find data for the Air Quality" = "Finn data for luftkvaliteten";
+
+/* No comment provided by engineer. */
+"The Air Quality data is empty.\n\nPlease note that this alert will only show for a few seconds.\nThen the app will terminate."
+= "Luftkvalitetsdataene er tomme.\n\nVær oppmerksom på at dette varselet bare vises i noen få sekunder.\nDeretter vil appen avsluttes.";
+
+/* No comment provided by engineer. */
+"The Weather data is empty.\n\nPlease note that this alert will only show for a few seconds.\nThen the app will terminate."
+ = "Værdataene er tomme.\n\nVær oppmerksom på at dette varselet bare vises i noen få sekunder.\nDeretter avsluttes appen.";
+
+/* No comment provided by engineer. */
+"New Moon" = "Nymåne";
+
+/* No comment provided by engineer. */
+"Error finding 'dailyForecast'" = "Kan ikke finne 'dailyForecast'";
+
+/* No comment provided by engineer. */
+"No placeName" = "Ukjent sted";
+
+/* No comment provided by engineer. */
+"No countryName" = "Ukjent land";
+
+/* No comment provided by engineer. */
+"Save this place" = "Lagre dette stedet";
+
+/* No comment provided by engineer. */
+"Save" = "Lagre";
+
+/* No comment provided by engineer. */
+"Cancel" = "Avbryt";
+
+/* No comment provided by engineer. */
+"Delete" = "Slett";
+
+/* No comment provided by engineer. */
+"Do you want to delete" = "Ønsker du å slette";
+
+/* No comment provided by engineer. */
+"Do you want to save" = "Ønsker du å lagre";
+
+/* No comment provided by engineer. */
+"\nIt can take some time until the place is deleted on CloudKit.\nSelect \"Refresh my places\"" = "\nDet kan ta litt tid før stedet er slettet på CloudKit.\nVelg \"Oppdater mine steder\"";
+
+/* No comment provided by engineer. */
+"\nIt can take some time until the place is saved on CloudKit.\nSelect \"Refresh my places\"" = "\nDet kan ta litt tid før stedet er lagret på CloudKit.\nVelg \"Oppdater mine steder\"";
+
+/* No comment provided by engineer. */
+"Österreich" = "Østerrike";
+
+/* No comment provided by engineer. */
+"Selected place" = "Valgt sted";
+
+/* No comment provided by engineer. */
+"Options" = "Valg";
+
+/* No comment provided by engineer. */
+"Countries overview" = "Oversikt land";
+
+/* No comment provided by engineer. */
+"Country: " = "Land: ";
+
+/* No comment provided by engineer. */
+"Land code: " = "Land kode: ";
+
+/* No comment provided by engineer. */
+"Flag: " = "Flagg: ";
+
+/* No comment provided by engineer. */
+"Capitol: " = "Hovedstad: ";
+
+/* No comment provided by engineer. */
+"Population: " = "Innbyggere: ";
+
+/* No comment provided by engineer. */
+"Unknown" = "Ukjent";
+
+/* No comment provided by engineer. */
+"Distance" = "Distanse";
+
+/* No comment provided by engineer. */
+"AIR PRESSURE" = "LUFTTRYKK";
+
+/* No comment provided by engineer. */
+"Afghanistan" = "Afganistan";
+"Algeria" = "Algerie";
+"American Samoa" = "Amerikansk Samoa";
+"Antarctica" = "Antarktis";
+"Antigua and Barbuda" = "Antigua og Barbuda";
+"Austria" = "Østerrike";
+"Azerbaijan" = "Aserbajdsjan";
+"Belarus" = "Hviterussland";
+"Belgium" = "Belgia";
+"Bosnia and Herzegovina" = "Bosnia og Herzegovina";
+"Bouvet Island" = "Bouvetøya";
+"Brazil" = "Brasil";
+"British Indian Ocean Territory" = "Britisk territorium i det indiske hav";
+"British Virgin Islands" = "De britiske jomfruøyene";
+"Cambodia" = "Kambodsja";
+"Cameroon" = "Kamerun";
+"Cape Verde" = "Kapp Verde";
+"Caribbean Netherlands" = "Karibiske Nederland";
+"Cayman Islands" = "Caymanøyene";
+"Central African Republic" = "Den sentralafrikanske republikk";
+"Chad" = "Tsjad";
+"Christmas Island" = "Juleøya";
+"Cocos (Keeling) Islands" = "Kokosøyene (Keeling)";
+"Comoros" = "Komorene";
+"Cook Islands" = "Cook-øyene";
+"Croatia" = "Kroatia";
+"Cyprus" = "Kypros";
+"Czechia" = "Tsjekkia";
+"DR Congo" = "DR Kongo";
+"Denmark" = "Danmark";
+"Dominican Republic" = "Den dominikanske republikk";
+"Equatorial Guinea" = "Ekvatorial-Guinea";
+"Estonia" = "Estland";
+"Ethiopia" = "Etiopia"; 
+"Falkland Islands" = "Falklandsøyene";
+"Faroe Islands" = "Færøyene";
+"France" = "Frankrike";
+"French Guiana" = "Fransk Guyana";
+"French Polynesia" = "Fransk Polynesia";
+"French Southern and Antarctic Lands" = "Franske sørlige og antarktiske land";
+"Germany" = "Tyskland";
+"Greece" = "Hellas";
+"Greenland" = "Grønland";
+"Hungary" = "Ungarn";
+"Iceland" = "Island";
+"Iraq" = "Irak";
+"Ireland" = "Irland";
+"Italy" = "Italia";
+"Ivory Coast" = "Elfenbenskysten";
+"Kazakhstan" = "Kasakhstan";
+"Kyrgyzstan" = "Kirgisistan";
+"Lebanon" = "Libanon";
+"Lithuania" = "Litauen";
+"Madagascar" = "Madagaskar";
+"Maldives" = "Maldivene";
+"Marshall Islands" = "Marshalløyene";
+"Micronesia" = "Mikronesia";
+"Morocco" = "Marokko";
+"Mozambique" = "Mosambik";
+"Netherlands" = "Nederland";
+"New Caledonia" = "Ny Caledonia";
+"Norfolk Island" = "Norfolkøya";
+"North Korea" = "Nord-Korea";
+"North Macedonia" = "Nord-Makedonia";
+"Northern Mariana Islands" = "Nord-Marianene";
+"Palestine" = "Palestina";
+"Papua New Guinea" = "Papua Ny-Guinea";
+"Philippines" = "Filippinene";
+"Pitcairn Islands" = "Pitcairnøyene";
+"Poland" = "Polen";
+"Republic of the Congo" = "Republikken Kongo";
+"Russia" = "Russland";
+"Saint Barthélemy" = "Saint Barthelemy";
+"Saint Helena, Ascension and Tristan da" = "SSaint Helena, Ascension og Tristan da";
+"Saint Kitts and Nevis" = "Saint Kitts og Nevis";
+"Saudi Arabia" = "Saudi-Arabia";
+"Seychelles" = "Seychellene";
+"Solomon Islands" = "Solomon øyene";
+"South Africa" = "Sør-Afrika";
+"South Georgia" = "Sør-Georgia";
+"South Korea" = "Sør-Korea";
+"South Sudan" = "Sør-Sudan";
+"Suriname" = "Surinam";
+"Svalbard and Jan Mayen" = "Svalbard og Jan Mayen";
+"Sweden" = "Sverige";
+"Switzerland" = "Sveits";
+"São Tomé and Príncipe" = "São Tomé og Príncipe";
+"Tajikistan" = "Tadsjikistan";
+"Timor-Leste" = "Øst-Timor";
+"Trinidad and Tobago" = "Trinidad og Tobago";
+"Turkey" = "Tyrkia";
+"Turks and Caicos Islands" = "Turks- og Caicosøyene";
+"Ukraine" = "Ukraina";
+"United Arab Emirates" = "De forente arabiske emirater";
+"United States Minor Outlying Islands" = "USAs mindre ytre øyer";
+"United States Virgin Islands" = "De amerikanske jomfruøyene";
+"Uzbekistan" = "Usbekistan";
+"Vatican City" = "Vatikanet";
+"Wallis and Futuna" = "Wallis og Futuna";
+"Western Sahara" = "Vestre Sahara";
+"Yemen" = "Jemen";
+"Åland Islands" = "Åland";
+
+/* No comment provided by engineer. */
+"Warning for snow from " = "Snøvarsel fra ";
+
+/* No comment provided by engineer. */
+"snowWarning is empty." = "Snøvarslingen ineholder ikke data.";
+
+/* No comment provided by engineer. */
+"Update setting for RestCountries." = "Oppdater innstilling for RestCountries.";
+
+/* No comment provided by engineer. */
+"Unknown" = "ukjent";
+
+/* No comment provided by engineer. */
+"AVERAGES" = "GJENNOMSNITT";
+
+/* No comment provided by engineer. */
+"400 = Bad Request" = "400 = Dårlig forespørsel";
+
+/* No comment provided by engineer. */
+"429 = Too Many Requests, the user has sent too many requests in a given amount of time (\"rate limiting\")" = "For mange forespørsler, brukeren har sendt for mange forespørsler i løpet av en gitt tidsperiode (\"antall begrensning\").\nVent og prøv så igjen senere.";
+
+/* No comment provided by engineer. */
+"above the normal highest daytime temperature." = "over normalen.";
+
+/* No comment provided by engineer. */
+"under the normal highest daytime temperature." = "under normalen.";
+
+/* No comment provided by engineer. */
+"Same as the normal highest daytime temperature." = "Som normalt.";
+
+/* No comment provided by engineer. */
+"Normally it falls" = "Normalt sett faller det ";
+
+/* No comment provided by engineer. */
+"In the last 30 days, the total has fallen " = "Siste 30 døgn har det samlet falt ";
+
+/* No comment provided by engineer. */
+"precipitation from " = "nedbør fra ";
+
+/* No comment provided by engineer. */
+"Overview" = "Oversikt";
+
+/* No comment provided by engineer. */
+" mm more than usual." = " mm over normalen.";
+
+/* No comment provided by engineer. */
+" mm less than usual." = " mm under normalen.";
+
+/* No comment provided by engineer. */
+" as the normal." = " som normalt.";
+
+/* No comment provided by engineer. */
+"Average over 30 days: " = "Gjennomsnitt siste 30 dager: ";
+
+/* No comment provided by engineer. */
+"the normal temperature is in between " = "ligger normaltemperaturen på mellom ";
+
+/* No comment provided by engineer. */
+"For " = "For ";
+
+/* No comment provided by engineer. */
+"º and " = "º og ";
+
+/* No comment provided by engineer. */
+" and normally the highest temperature is " = " og normalt er høyeste temperatur ";
+
+/* No comment provided by engineer. */
+"º. Today's highest temperature is now " = "º. Dagens høyeste temperatur er ";
+
+/* No comment provided by engineer. */
+"Monthly averages" = "Månedlige gjennomsnitt";
+
+/* No comment provided by engineer. */
+"Lowest average temperature for " = "Laveste snitttemperatur for " ;
+
+/* No comment provided by engineer. */
+"and highest average temperature is " = "og høyeste snitttemperature er " ;
+
+/* No comment provided by engineer. */
+" is " = " er ";
+
+/* No comment provided by engineer. */
+"º over the normal" = "º over normalen";
+
+/* No comment provided by engineer. */
+"Normally the highest: " = "Normalt høyeste: ";
+
+/* No comment provided by engineer. */
+"Today highest" = "Dagens høyeste";
+
+/* No comment provided by engineer. */
+"About the normal range" = "Om normalområdet";
+
+/* No comment provided by engineer. */
+"Normally the highest temperature is based on the average temperature for " = "Normalt høyeste temperatur baseres på gjennomsnittstemperaturen for ";
+
+/* No comment provided by engineer. */
+"every year since" = "hvert år siden";
+
+/* No comment provided by engineer. */
+"About normal temperatures" = "Om normale temperaturer";
+
+/* No comment provided by engineer. */
+"Monthly averages reflect the highest and lowest daily temperatures since" = "Månedlige gjennomsnitt reflekterer høyeste og laveste dagstemperaturer siden";
+
+/* No comment provided by engineer. */
+"For example, the monthly average for January is based on measurements from 1 January to 31 January every year since" = "For eksempel baseres det månedlige gjennomsnitt for januar på målinger fra 1. januar til 31. januar hvert år siden";
+
+/* No comment provided by engineer. */
+"The normal range shows the most common temperature measurements for" = "Normalområdet viser de mest vanlige temperaturmålingene for";
+
+/* No comment provided by engineer. */
+"since" = "siden";
+
+/* No comment provided by engineer. */
+"About normal rainfall" = "Om normal nedbørsmengde";
+
+/* No comment provided by engineer. */
+"Normal rainfall is based on rainfall measurements since" = "Normal nedbørsmengde er basert på nedbørsmålinger siden";
+
+/* No comment provided by engineer. */
+"When the precipitation falls as snow, the normal amount of precipitation is calculated based on the equivalent amount of liquid if the snow were melted into water, and not the snow depth." = "Når nedbøren faller som snø, blir normal nedbørsmengde regnet ut basert på tilsvarende væskemengde hvis snøen ble smeltet om til vann, og ikke snødybden.";
+
+/* No comment provided by engineer. */
+"Can not find any average data" = "Kan ikke finne noen gjennomsnittsdata";
+
+/* No comment provided by engineer. */
+"snow" = "snø";
+
+/* No comment provided by engineer. */
+"H: Today" = "H: i dag";
+
+/* No comment provided by engineer. */
+"H: Average" = "H: gjennomsnitt";
+
+/* No comment provided by engineer. */
+" over the normal" = " over normalen";
+
+/* No comment provided by engineer. */
+" under the normal" = " under normalen";
+
+/* No comment provided by engineer. */
+"As normal" = "Som normalt";
+
+/* No comment provided by engineer. */
+"USE 30 YEARS PERIODE" = "BRUK 30 ÅRS PERIODE";
+
+/* No comment provided by engineer. */
+"Use 30 years periode" = "Bruk 30 års periode";
+
+/* No comment provided by engineer. */
+"Jan" = "Jan";
+
+/* No comment provided by engineer. */
+"Feb" = "Feb";
+
+/* No comment provided by engineer. */
+"Mar" = "Mar";
+
+/* No comment provided by engineer. */
+"Apr" = "Apr";
+
+/* No comment provided by engineer. */
+"May" = "Mai";
+
+/* No comment provided by engineer. */
+"Jun" = "Jun";
+
+/* No comment provided by engineer. */
+"Jul" = "Jul";
+
+/* No comment provided by engineer. */
+"Aug" = "Aug";
+
+/* No comment provided by engineer. */
+"Sep" = "Sep";
+
+/* No comment provided by engineer. */
+"Oct" = "Okt";
+
+/* No comment provided by engineer. */
+"Nov" = "Nov";
+
+/* No comment provided by engineer. */
+"Dec" = "Des";
+
+/* No comment provided by engineer. */
+"Normalarea" = "Normalområde";
+
+/* No comment provided by engineer. */
+"to" = "til";
+
+/* No comment provided by engineer. */
+" Development of the rainfall from " = " Utvikling av nedbøren fra ";
+
+/* No comment provided by engineer. */
+" The normal rainfall from " = " Normal nedbør fra ";
+
+/* No comment provided by engineer. */
+"jan" = "jan";
+
+/* No comment provided by engineer. */
+"feb" = "feb";
+
+/* No comment provided by engineer. */
+"mar" = "mar";
+
+/* No comment provided by engineer. */
+"apr" = "apr";
+
+/* No comment provided by engineer. */
+"may" = "mai";
+
+/* No comment provided by engineer. */
+"jun" = "jun";
+
+/* No comment provided by engineer. */
+"jul" = "jul";
+
+/* No comment provided by engineer. */
+"aug" = "aug";
+
+/* No comment provided by engineer. */
+"sep" = "sep";
+
+/* No comment provided by engineer. */
+"oct" = "okt";
+
+/* No comment provided by engineer. */
+"nov" = "nov";
+
+/* No comment provided by engineer. */
+"dec" = "des";
+
+/* No comment provided by engineer. */
+"Monthly average" = "Månedlig gjennomsnitt";
+
+/* No comment provided by engineer. */
+"Normal precification value for" = "Normal nedbørsmengde for";
+
+/* No comment provided by engineer. */
+"is" = "er";
+
+/* No comment provided by engineer. */
+"Open OpenWeatherMap" = "Åpne OpenWeatherMap";
+
+/* No comment provided by engineer. */
+"\n\nPlease note that this alert will only show for a few seconds and then the App will automatically shut down." = "\n\nVær oppmerksom på at dette varselet bare vises i noen få sekunder, og deretter vil appen automatisk slå seg av.";
+
+/* No comment provided by engineer. */
+"No local coordinates found." = "Ingen lokale koordinater nle funnet";
+
+/* No comment provided by engineer. */
+"Error code = 400 Bad Request" = "\nFeil kode 400 'Feil format på forespørselen'";
+
+/* No comment provided by engineer. */
+"Error code = 401 Unauthorized" = "\nFeil kode 401 'Uautorisert'";
+
+/* No comment provided by engineer. */
+"Error code = 402 Payment Required" = "\nFeil kode 402 Betaling påkrevd'";
+
+/* No comment provided by engineer. */
+"Error code = 403 Forbidden" = "\nFeil kode 403 Forbudt'";
+
+/* No comment provided by engineer. */
+"Error code = 404 Not Found" = "\nFeil kode 404 Ikke Funnet'";
+
+/* No comment provided by engineer. */
+"Error code = 405 Method Not Allowed" = "\nFeil kode 405 Metode ikke tillatt'";
+
+/* No comment provided by engineer. */
+"Error code = 406 Not Acceptable" = "\nFeil kode 406 Uakseptabelt'";
+
+/* No comment provided by engineer. */
+"Error code = 407 Proxy Authentication Required" = "\nFeil kode 407 Proxy-autentisering krevest'";
+
+/* No comment provided by engineer. */
+"Error code = 408 Request Timeout" = "\nFeil kode 408 Forespørselens tidsgrense utløpt'";
+
+/* No comment provided by engineer. */
+"Error code = 410 Gone" = "\nFeil kode 410 Forsvunnet/avviklet'";
+
+/* No comment provided by engineer. */
+"Error code = 451 Unavailable For Legal Reasons" = "\nFeil kode 451 Utilgjengelig av juridiske årsaker'";
+
+/* No comment provided by engineer. */
+"Error = 200 OK" = "\nFeil kode = 200 OK'";
+
+/* No comment provided by engineer. */
+"Cannot find sun data." = "Kan ikke finne data for solen.";
+
+/* No comment provided by engineer. */
+"Cannot find moon data." = "Kan ikke finne data for månen.";
+
+/* No comment provided by engineer. */
+"Cannot find the AverageData." = "Kan ikke finne gjennomsnitt data.";
+
+/* No comment provided by engineer. */
+"Cannot find data for the Air Quality." = "Kan ikke finne data for luftkvaliteten.";
+
+/* No comment provided by engineer. */
+"Files in Document Directory" = "Filer i Dokument katalogen";
+
+/* No comment provided by engineer. */
+"Show files in Document Directory" = "Vis filene i Dokument katalogen";
+
+/* No comment provided by engineer. */
+"File does not exist." = "Filen finnes ikke i Dokument katalogen.";
+
+/* No comment provided by engineer. */
+"No files in Document Directory" = "Dokument katalogen er tom.";
+
+/* No comment provided by engineer. */
+"File does not exist." = "Filen finnes ikke.";
+
+/* No comment provided by engineer. */
+"Years" = "år";

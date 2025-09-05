@@ -1,0 +1,101 @@
+<mxfile host="Electron" modified="2023-04-17T10:26:06.155Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.1.2 Chrome/106.0.5249.199 Electron/21.4.3 Safari/537.36" etag="4Kbn9jLuWiIbqRVTWYo8" version="21.1.2" type="device">
+  <diagram id="prtHgNgQTEPvFCAcTncT" name="Page-1">
+    <mxGraphModel dx="1097" dy="2032" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="none" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="4k3Dx5rcyuElnQ-QHpWo-2" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;WeatherForecast&lt;/font&gt;" style="swimlane;whiteSpace=wrap;html=1;labelBackgroundColor=none;" vertex="1" parent="1">
+          <mxGeometry x="60" y="-250" width="780" height="200" as="geometry">
+            <mxRectangle x="50" y="-240" width="150" height="30" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4k3Dx5rcyuElnQ-QHpWo-20" value="&lt;p style=&quot;margin: 0px; font-variant-numeric: normal; font-variant-east-asian: normal; font-stretch: normal; line-height: normal; font-family: Menlo; text-align: start;&quot; class=&quot;p1&quot;&gt;&lt;span style=&quot;&quot;&gt;Activity&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px; font-variant-numeric: normal; font-variant-east-asian: normal; font-stretch: normal; line-height: normal; font-family: Menlo; text-align: start;&quot; class=&quot;p1&quot;&gt;&lt;span style=&quot;&quot;&gt;Indicator&lt;/span&gt;&lt;/p&gt;" style="rounded=1;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=none;" vertex="1" parent="4k3Dx5rcyuElnQ-QHpWo-2">
+          <mxGeometry x="20" y="50" width="100" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="4k3Dx5rcyuElnQ-QHpWo-41" value="&lt;p style=&quot;margin: 0px; font-variant-numeric: normal; font-variant-east-asian: normal; font-stretch: normal; line-height: normal; font-family: Menlo; text-align: start;&quot; class=&quot;p1&quot;&gt;Hour&lt;/p&gt;&lt;p style=&quot;margin: 0px; font-variant-numeric: normal; font-variant-east-asian: normal; font-stretch: normal; line-height: normal; font-family: Menlo;&quot; class=&quot;p1&quot;&gt;Overview&lt;/p&gt;" style="rounded=1;whiteSpace=wrap;html=1;labelBackgroundColor=none;" vertex="1" parent="4k3Dx5rcyuElnQ-QHpWo-2">
+          <mxGeometry x="270" y="50" width="70" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="4k3Dx5rcyuElnQ-QHpWo-40" value="&lt;p style=&quot;margin: 0px; font-variant-numeric: normal; font-variant-east-asian: normal; font-stretch: normal; line-height: normal; font-family: Menlo; text-align: start;&quot; class=&quot;p1&quot;&gt;WeatherForecast&lt;/p&gt;&lt;p style=&quot;margin: 0px; font-variant-numeric: normal; font-variant-east-asian: normal; font-stretch: normal; line-height: normal; font-family: Menlo; text-align: start;&quot; class=&quot;p1&quot;&gt;Detail&lt;/p&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=26;labelBackgroundColor=none;" vertex="1" parent="4k3Dx5rcyuElnQ-QHpWo-2">
+          <mxGeometry x="130" y="50" width="130" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="4k3Dx5rcyuElnQ-QHpWo-44" value="&lt;p style=&quot;margin: 0px; font-variant-numeric: normal; font-variant-east-asian: normal; font-stretch: normal; line-height: normal; font-family: Menlo; text-align: start;&quot; class=&quot;p1&quot;&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;WindView&lt;/span&gt;&lt;/p&gt;" style="rounded=1;whiteSpace=wrap;html=1;labelBackgroundColor=none;" vertex="1" parent="4k3Dx5rcyuElnQ-QHpWo-2">
+          <mxGeometry x="350" y="50" width="70" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="4k3Dx5rcyuElnQ-QHpWo-51" value="&lt;p style=&quot;margin: 0px; font-variant-numeric: normal; font-variant-east-asian: normal; font-stretch: normal; line-height: normal; font-family: Menlo; text-align: start;&quot; class=&quot;p1&quot;&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;FeelsLike&lt;/span&gt;&lt;/p&gt;" style="rounded=1;whiteSpace=wrap;html=1;labelBackgroundColor=none;" vertex="1" parent="4k3Dx5rcyuElnQ-QHpWo-2">
+          <mxGeometry x="430" y="50" width="80" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="4k3Dx5rcyuElnQ-QHpWo-57" value="&lt;p style=&quot;margin: 0px; font-variant-numeric: normal; font-variant-east-asian: normal; font-stretch: normal; line-height: normal; font-family: Menlo; text-align: start;&quot; class=&quot;p1&quot;&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;Humidity&lt;/span&gt;&lt;/p&gt;" style="rounded=1;whiteSpace=wrap;html=1;labelBackgroundColor=none;" vertex="1" parent="4k3Dx5rcyuElnQ-QHpWo-2">
+          <mxGeometry x="520" y="50" width="80" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="4k3Dx5rcyuElnQ-QHpWo-58" value="&lt;p style=&quot;margin: 0px; font-variant-numeric: normal; font-variant-east-asian: normal; font-stretch: normal; line-height: normal; font-family: Menlo; text-align: start;&quot; class=&quot;p1&quot;&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;Visibility&lt;/span&gt;&lt;/p&gt;" style="rounded=1;whiteSpace=wrap;html=1;labelBackgroundColor=none;" vertex="1" parent="4k3Dx5rcyuElnQ-QHpWo-2">
+          <mxGeometry x="610" y="50" width="80" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="4k3Dx5rcyuElnQ-QHpWo-59" value="&lt;p style=&quot;margin: 0px; font-variant-numeric: normal; font-variant-east-asian: normal; font-stretch: normal; line-height: normal; font-family: Menlo; text-align: start;&quot; class=&quot;p1&quot;&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;UvIndex&lt;/span&gt;&lt;/p&gt;" style="rounded=1;whiteSpace=wrap;html=1;labelBackgroundColor=none;" vertex="1" parent="4k3Dx5rcyuElnQ-QHpWo-2">
+          <mxGeometry x="700" y="50" width="60" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="4k3Dx5rcyuElnQ-QHpWo-61" value="&lt;p style=&quot;margin: 0px; font-variant-numeric: normal; font-variant-east-asian: normal; font-stretch: normal; line-height: normal; font-family: Menlo; text-align: start;&quot; class=&quot;p1&quot;&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;Precification25h&lt;/span&gt;&lt;/p&gt;" style="rounded=1;whiteSpace=wrap;html=1;labelBackgroundColor=none;" vertex="1" parent="4k3Dx5rcyuElnQ-QHpWo-2">
+          <mxGeometry x="20" y="130" width="120" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="4k3Dx5rcyuElnQ-QHpWo-63" value="&lt;p style=&quot;margin: 0px; font-variant-numeric: normal; font-variant-east-asian: normal; font-stretch: normal; line-height: normal; font-family: Menlo; text-align: start;&quot; class=&quot;p1&quot;&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;Sun&lt;/span&gt;&lt;/p&gt;" style="rounded=1;whiteSpace=wrap;html=1;labelBackgroundColor=none;" vertex="1" parent="4k3Dx5rcyuElnQ-QHpWo-2">
+          <mxGeometry x="160" y="130" width="40" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="4k3Dx5rcyuElnQ-QHpWo-64" value="&lt;p style=&quot;margin: 0px; font-variant-numeric: normal; font-variant-east-asian: normal; font-stretch: normal; line-height: normal; font-family: Menlo; text-align: start;&quot; class=&quot;p1&quot;&gt;AirPressure&lt;/p&gt;" style="rounded=1;whiteSpace=wrap;html=1;labelBackgroundColor=none;" vertex="1" parent="4k3Dx5rcyuElnQ-QHpWo-2">
+          <mxGeometry x="220" y="130" width="90" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="4k3Dx5rcyuElnQ-QHpWo-65" value="&lt;p style=&quot;margin: 0px; font-variant-numeric: normal; font-variant-east-asian: normal; font-stretch: normal; line-height: normal; font-family: Menlo; text-align: start;&quot; class=&quot;p1&quot;&gt;DayOverview&lt;/p&gt;" style="rounded=1;whiteSpace=wrap;html=1;labelBackgroundColor=none;" vertex="1" parent="4k3Dx5rcyuElnQ-QHpWo-2">
+          <mxGeometry x="330" y="130" width="90" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="4k3Dx5rcyuElnQ-QHpWo-66" value="&lt;p style=&quot;margin: 0px; font-variant-numeric: normal; font-variant-east-asian: normal; font-stretch: normal; line-height: normal; font-family: Menlo; text-align: start;&quot; class=&quot;p1&quot;&gt;Weather&lt;/p&gt;&lt;p style=&quot;margin: 0px; font-variant-numeric: normal; font-variant-east-asian: normal; font-stretch: normal; line-height: normal; font-family: Menlo; text-align: start;&quot; class=&quot;p1&quot;&gt;History&lt;/p&gt;&lt;p style=&quot;margin: 0px; font-variant-numeric: normal; font-variant-east-asian: normal; font-stretch: normal; line-height: normal; font-family: Menlo; text-align: start;&quot; class=&quot;p1&quot;&gt;Europe&lt;/p&gt;" style="rounded=1;whiteSpace=wrap;html=1;labelBackgroundColor=none;" vertex="1" parent="4k3Dx5rcyuElnQ-QHpWo-2">
+          <mxGeometry x="440" y="130" width="120" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="4k3Dx5rcyuElnQ-QHpWo-70" value="DayDetail" style="swimlane;" vertex="1" parent="1">
+          <mxGeometry x="152.5" y="-20" width="565" height="100" as="geometry">
+            <mxRectangle x="860" y="-100" width="100" height="30" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4k3Dx5rcyuElnQ-QHpWo-79" value="DayDetailMenuDataView" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="4k3Dx5rcyuElnQ-QHpWo-70">
+          <mxGeometry x="10" y="40" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="4k3Dx5rcyuElnQ-QHpWo-80" value="SunDayAndNight" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="4k3Dx5rcyuElnQ-QHpWo-70">
+          <mxGeometry x="160" y="40" width="110" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="4k3Dx5rcyuElnQ-QHpWo-81" value="DayDetailHourIcons" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="4k3Dx5rcyuElnQ-QHpWo-70">
+          <mxGeometry x="280" y="40" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="4k3Dx5rcyuElnQ-QHpWo-82" value="DayDetailDayDataView" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="4k3Dx5rcyuElnQ-QHpWo-70">
+          <mxGeometry x="410" y="40" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="4k3Dx5rcyuElnQ-QHpWo-67" value="&lt;p style=&quot;margin: 0px; font-variant-numeric: normal; font-variant-east-asian: normal; font-stretch: normal; line-height: normal; font-family: Menlo; text-align: start;&quot; class=&quot;p1&quot;&gt;Refresh&lt;/p&gt;" style="rounded=1;whiteSpace=wrap;html=1;labelBackgroundColor=none;" vertex="1" parent="1">
+          <mxGeometry x="640" y="-120" width="80" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="4k3Dx5rcyuElnQ-QHpWo-85" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="4k3Dx5rcyuElnQ-QHpWo-65" target="4k3Dx5rcyuElnQ-QHpWo-70">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4k3Dx5rcyuElnQ-QHpWo-87" value="DayDetailWeatherData" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="200" y="130" width="130" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="4k3Dx5rcyuElnQ-QHpWo-89" value="MenuContent" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="90" y="130" width="90" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="4k3Dx5rcyuElnQ-QHpWo-104" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="4k3Dx5rcyuElnQ-QHpWo-93" target="4k3Dx5rcyuElnQ-QHpWo-98">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4k3Dx5rcyuElnQ-QHpWo-93" value="DayDetailChart&lt;br&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="582.5" y="130" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="4k3Dx5rcyuElnQ-QHpWo-95" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="4k3Dx5rcyuElnQ-QHpWo-82" target="4k3Dx5rcyuElnQ-QHpWo-93">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4k3Dx5rcyuElnQ-QHpWo-98" value="DayDetailShowSelection" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="414" y="130" width="142.5" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="4k3Dx5rcyuElnQ-QHpWo-102" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.75;exitDx=0;exitDy=0;" edge="1" parent="1" source="4k3Dx5rcyuElnQ-QHpWo-79" target="4k3Dx5rcyuElnQ-QHpWo-89">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4k3Dx5rcyuElnQ-QHpWo-103" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="4k3Dx5rcyuElnQ-QHpWo-79" target="4k3Dx5rcyuElnQ-QHpWo-87">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,41 @@
+DEFINE SCHEMA
+
+    CREATE ROLE admin;
+
+    RECORD TYPE Place (
+        "___createTime" TIMESTAMP QUERYABLE SORTABLE,
+        "___createdBy"  REFERENCE,
+        "___etag"       STRING,
+        "___modTime"    TIMESTAMP,
+        "___modifiedBy" REFERENCE,
+        "___recordID"   REFERENCE QUERYABLE,
+        country         STRING QUERYABLE SEARCHABLE SORTABLE,
+        dst             INT64 QUERYABLE SORTABLE,
+        flag            STRING QUERYABLE SEARCHABLE SORTABLE,
+        lat             DOUBLE QUERYABLE SORTABLE,
+        lon             DOUBLE QUERYABLE SORTABLE,
+        offsetSec       INT64 QUERYABLE SORTABLE,
+        offsetString    STRING QUERYABLE SORTABLE,
+        place           STRING QUERYABLE SEARCHABLE SORTABLE,
+        zoneName        STRING QUERYABLE SEARCHABLE SORTABLE,
+        zoneShortName   STRING QUERYABLE SEARCHABLE SORTABLE,
+        GRANT WRITE TO "_creator",
+        GRANT CREATE TO "_icloud",
+        GRANT READ TO "_world",
+        GRANT READ, CREATE, WRITE TO admin
+    );
+
+    RECORD TYPE Users (
+        "___createTime" TIMESTAMP QUERYABLE SORTABLE,
+        "___createdBy"  REFERENCE,
+        "___etag"       STRING,
+        "___modTime"    TIMESTAMP,
+        "___modifiedBy" REFERENCE,
+        "___recordID"   REFERENCE QUERYABLE,
+        city            STRING QUERYABLE SEARCHABLE SORTABLE,
+        roles           LIST<INT64>,
+        GRANT WRITE TO "_creator",
+        GRANT CREATE TO "_icloud",
+        GRANT READ TO "_world",
+        GRANT READ, CREATE, WRITE TO admin
+    );
