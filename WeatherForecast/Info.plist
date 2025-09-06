@@ -4,7 +4,5 @@
 <dict>
 	<key>NSAppTransportSecurity</key>
 	<dict/>
-	<key>CFBundleIdentifier</key>
-	<string></string>
 </dict>
 </plist>

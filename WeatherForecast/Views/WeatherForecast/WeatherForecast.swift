@@ -469,11 +469,7 @@ struct WeatherForecast: View {
                 dismissAlert(seconds: 10)
                 return
             }
-            
-            // let location = CLLocation(latitude: lat, longitude: lon)
-            let location = CLLocation(latitude: 50.78, longitude: 6.13)
-            
-            // print(location as Any)
+            let location = CLLocation(latitude: lat, longitude: lon)
             
             let date = Date().adding(seconds: weatherInfo.offsetSec)
             guard let startDate = date.setTime(hour: 0, min: 0, sec: 0),
