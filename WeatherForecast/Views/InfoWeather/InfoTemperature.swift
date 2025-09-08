@@ -228,7 +228,7 @@ struct InfoTemperature : View {
                 
             }
             ProgressView(value: 0.5)
-                .progressViewStyle(ProgressViewStyleModifier(progressWidth: CGFloat(UIDevice.isIpad ? screenSize.screenWidth * 0.825: screenSize.screenWidth * 0.70),
+                .progressViewStyle(ProgressViewStyleModifier(progressWidth: CGFloat(UIDevice.isIpad ? screenSize.screenWidth * 0.825: screenSize.screenWidth * 0.65),
                                                              option: option,
                                                              valueToDay: feltTempToDay,
                                                              valueYesterDay: feltTempYesterDay,
