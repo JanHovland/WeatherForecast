@@ -27,6 +27,8 @@ struct InfoTemperature : View {
     @State private var text1: String = ""
     @State private var text2: String = String(localized: "Freshly fallen dry snow has a water value of around 0.1, which means that 10 centimeters of snow when melted gives 1 centimeter of water. 1 millimeter of precipitation gives a snow depth of 10 millimeters. In older snow, many of the snow crystals' small spikes and sharp edges have disappeared. The rounder crystals take up less space, and the snow sinks together. The higher the temperature, the faster this process goes. Fresh snow can have a water value of up to 0.2–0.3 if it accumulates while it is snowing. Beyond spring, the water value of the snow cover is usually 0.2–0.3 in the lowlands and 0.3–0.5 in mountainous areas.")
     
+    @State private var text3: String = String(localized: "Feels Like conveys how warm or cold it feels and can be different from the actual temperature. The Feels Like temperature is affected by humidity, sunlight and wind.")
+    
     @State private var feltTempToDay: Double = 0.00
     @State private var feltTempYesterDay: Double = 0.00
     
@@ -234,6 +236,23 @@ struct InfoTemperature : View {
                                                              valueYesterDay: feltTempYesterDay,
                                                              factorToDay: factorToDay,
                                                              factorYesterDay: factorYesterDay))
+            
+            Text("About Feels Like Temperature")
+                .fontWeight(.bold)
+                .padding(.bottom, 20)
+                .padding(.top, 20)
+            
+            
+            TextField("", text: $text3, axis: .vertical)
+                .lineLimit(20)
+                .textFieldStyle(.roundedBorder)
+                .disabled(true)
+                .padding(.horizontal, 10)
+            if UIDevice.isIpad {
+                
+            }
+            
+                       
         }
         ///
         /// Legg merke til maxHeight ikke må begrense scrollimg, så legg inn en stor verdi.

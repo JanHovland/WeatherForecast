@@ -2005,3 +2005,9 @@
 
 /* No comment provided by engineer. */
 "Years" = "år";
+
+/* No comment provided by engineer. */
+"Feels Like conveys how warm or cold it feels and can be different from the actual temperature. The Feels Like temperature is affected by humidity, sunlight and wind." = "«Føles som» viser hvor varmt eller kaldt det føles, og kan være forskjellig fra den faktiske temperaturen. «Føles som»-temperaturen påvirkes av fuktighet, sollys og vind.";
+
+/* No comment provided by engineer. */
+"About Feels Like Temperature" = "Om føles som temperatur";
