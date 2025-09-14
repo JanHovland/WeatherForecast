@@ -495,7 +495,11 @@ var toDo_2 =
           🟢 FindMoonUpDown()
           🟢 'weather'
           🟢 FindAirQuality()   nruk som master !!!!!!
-  109. 🔴 .
+   109. 🔴 Bytte visning av Chance of Percipitation 
+          🔴 LineChart
+   110. 🔴 .
+          🔴 .
+   111. 🔴 .
           🔴 .
 """
 
