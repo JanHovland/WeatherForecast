@@ -41,26 +41,12 @@ struct InfoPrecipitation: View {
     @State private var factorToDay: Double = 1.00
     @State private var factorYesterDay: Double = 1.00
     
+    @State private var text2 : String = String(localized: "About Precipitation Intensity")
+    @State private var text3 : String = String(localized: "Intensity is calculated base on how much rain or snow fall per hour and is ment to indicate how heavy the rain or snow will feel. It is also used with other precipitation types such as sleet or wintry mix. A downpoor or heavy snowstorm can have a «heavy» intensity, while an average rainfall or lighter drizzle can have a «moderate» or «light» intensity.")
+    
     var body: some View {
         VStack () { // alignment: .leading) {
-            
-            ///
-            /// Overskrift:
-            ///
-            Text("Probability of precipitation")
-                .fontWeight(.bold)
-                .padding(.bottom, 50)
-            ///
-            /// Viser Chart for "Sannsynlighet for nedbør"
-            ///
-            ChartViewNewProbability(index: index,
-                                    newData: newProbability,
-                                    min: min,
-                                    minIndex: minIndex,
-                                    max: max,
-                                    maxIndex: maxIndex)
-            
-            let sum = snowWarning(snowArray: snowArray)
+             let sum = snowWarning(snowArray: snowArray)
             if sum > 0.00 {
                 Text(String(localized: "Snow warning"))
                     .fontWeight(.bold)
@@ -83,6 +69,33 @@ struct InfoPrecipitation: View {
                     .disabled(true)
             }
             Spacer()
+            
+            ///
+            /// Overskrift:
+            ///
+            Text("Probability of precipitation")
+                .fontWeight(.bold)
+                .padding(.top, 20)
+                .padding(.bottom, 20)
+            ///
+            /// Viser Chart for "Sannsynlighet for nedbør"
+            ///
+            ChartViewNewProbability(index: index,
+                                    newData: newProbability,
+                                    min: min,
+                                    minIndex: minIndex,
+                                    max: max,
+                                    maxIndex: maxIndex)
+            
+            Text(text2)
+                .fontWeight(.bold)
+                .padding(.bottom, 20)
+            
+            
+            Text(text3)
+                .fontWeight(.bold)
+                .padding(.bottom, 20)
+            
         }
         .frame(maxWidth: .infinity,
                maxHeight: 3000)
