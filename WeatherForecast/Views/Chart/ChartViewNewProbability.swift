@@ -25,7 +25,16 @@ struct ChartViewNewProbability: View {
         VStack {
             Chart {
                 ForEach(newData) {
-                    BarMark (
+                    // Fill under the line for each series
+                    AreaMark(
+                        x: .value("Hour", $0.hour),
+                        y: .value("Value", $0.value)
+                    )
+                    .interpolationMethod(.catmullRom)
+                    .foregroundStyle(by: .value("Type", $0.type))
+                    .opacity(0.25)
+
+                    LineMark (
                         x: .value("Hour", $0.hour),
                         y: .value("Value", $0.value)
                     )
@@ -105,5 +114,3 @@ struct ChartViewNewProbability: View {
         }
     }
 }
-
-
