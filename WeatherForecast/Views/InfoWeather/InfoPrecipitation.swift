@@ -8,6 +8,7 @@
 import SwiftUI
 import WeatherKit
 import MapKit
+import Charts
 
 struct InfoPrecipitation: View {
 
@@ -28,9 +29,37 @@ struct InfoPrecipitation: View {
     @State private var dataArray: [Double] = Array(repeating: Double(), count: sizeArray24)
     @State private var snowArray: [Double] = Array(repeating: Double(), count: sizeArray24)
     @State private var precipitationFV: Double = 0.00
+        
+    @State private var min: Double = 0.00
+    @State private var max: Double = 0.00
+    @State private var minIndex: Int = 0
+    @State private var maxIndex: Int = 0
+    
+    @State private var newProbability: [NewProbability] = []
+    @State private var precification = Precipitation()
+    
+    @State private var factorToDay: Double = 1.00
+    @State private var factorYesterDay: Double = 1.00
     
     var body: some View {
-        VStack (alignment: .leading) {
+        VStack () { // alignment: .leading) {
+            
+            ///
+            /// Overskrift:
+            ///
+            Text("Probability of precipitation")
+                .fontWeight(.bold)
+                .padding(.bottom, 50)
+            ///
+            /// Viser Chart for "Sannsynlighet for nedbør"
+            ///
+            ChartViewNewProbability(index: index,
+                                    newData: newProbability,
+                                    min: min,
+                                    minIndex: minIndex,
+                                    max: max,
+                                    maxIndex: maxIndex)
+            
             let sum = snowWarning(snowArray: snowArray)
             if sum > 0.00 {
                 Text(String(localized: "Snow warning"))
@@ -59,6 +88,13 @@ struct InfoPrecipitation: View {
                maxHeight: 3000)
         .padding(15)
         .onChange(of: index) { oldIndex, index in
+            
+            ///
+            /// Finner newProbability
+            ///
+            (newProbability, min, minIndex, max, maxIndex, precification) = FindChartDataProbability(date: dateSettings.dates[index],
+                                         index: index)
+            
             dataArray.removeAll()
             snowArray.removeAll()
             let value : ([Double],
@@ -99,6 +135,13 @@ struct InfoPrecipitation: View {
             
         }
         .task {
+            
+            ///
+            /// Finner newProbability
+            ///
+            (newProbability, min, minIndex, max, maxIndex, precification) = FindChartDataProbability(date: dateSettings.dates[index],
+                                         index: index)
+            
             ///
             /// Resetter dataArray:
             ///
