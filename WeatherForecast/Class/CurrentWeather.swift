@@ -66,6 +66,8 @@ import Observation
     var nh3 = Double()
     ///  Date and time, Unix, UTC
     var dt = Int()
+    /// moonEmoji
+    var moonEmoji = String()
     /// moonPhase
     var moonPhase = String()
     /// moonrise
@@ -73,9 +75,13 @@ import Observation
     /// moonset
     var moonset = String()
     /// moonIllumination
-    var moonIllumination = Int()
+    var moonIllumination = String()
     /// isMoonUp
     var isMoonUp = Int()
+    /// daysToFullMoon
+    var daysToFullMoon = Int()
+    /// distanceToMoon
+    var distanceToMoon = Int()
     /// isSunUp
     var isSunUp = Int()
     

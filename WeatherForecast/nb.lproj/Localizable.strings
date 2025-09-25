@@ -1272,7 +1272,7 @@
 "New moon" = "Nymåne";
 
 /* No comment provided by engineer. */
-"Waxing Crescent" = "Voksende månesigd";
+"Waxing Crescent" = "Voksende månesigd";  
 
 /* No comment provided by engineer. */
 "First Quarter" = "Første kvarter";
@@ -2017,3 +2017,45 @@
 
 /* No comment provided by engineer. */
 "Intensity is calculated base on how much rain or snow fall per hour and is ment to indicate how heavy the rain or snow will feel. It is also used with other precipitation types such as sleet or wintry mix. A downpoor or heavy snowstorm can have a «heavy» intensity, while an average rainfall or lighter drizzle can have a «moderate» or «light» intensity." = "«Nedbørsintensitet» beregnes basert på hvor mye regn eller snø som faller per time, og er ment å indikere hvor kraftig regnet eller snøen vil føles. Den brukes også med andre nedbørstyper som sludd eller vinterblanding. Et dårlig eller kraftig snøstorm kan ha en «kraftig» intensitet, mens et gjennomsnittlig nedbør eller lettere yr kan ha en «moderat» eller «lett» intensitet.";
+
+/* No comment provided by engineer. */
+"Last quarter" = "Siste kvartal";
+
+/* No comment provided by engineer. */
+"Waning crescent" = "Minkende månesigd";
+
+/* No comment provided by engineer. */
+"New moon" = "Nymåne";
+
+/* No comment provided by engineer. */
+"Waxing crescent" = "Voksende månesigd";
+
+/* No comment provided by engineer. */
+"First quarter" = "Første kvarter";
+
+/* No comment provided by engineer. */
+"Waxing gibbous" = "Voksende måne";
+
+/* No comment provided by engineer. */
+"Full moon" = "Fullmåne";
+
+/* No comment provided by engineer. */
+"Waning gibbous" = "Minkende måne";
+
+/* No comment provided by engineer. */
+"Url  key for RapidApi." = "Url nøkkel for RapidApi.";
+
+/* No comment provided by engineer. */
+"No Rapid url key found." = "Finner ikke url nøkkel for RapidApi.";
+
+/* No comment provided by engineer. */
+"Api  key for RapidApi." = "Api nøkkel for RapidApi.";
+
+/* No comment provided by engineer. */
+"No Rapid api key found." = "Finner ikke api nøkkel for RapidApi.";
+
+/* No comment provided by engineer. */
+"Host  key for RapidApi." = "Host nøkkel for RapidApi.";
+
+/* No comment provided by engineer. */
+"No Rapid host key found." = "Finner ikke host nøkkel for RapidApi.";

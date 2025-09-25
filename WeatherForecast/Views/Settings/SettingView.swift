@@ -30,6 +30,9 @@ struct SettingView: View {
     
     @AppStorage("Use30Years") var use30Years = false
     
+    @AppStorage("UrlRapidApi") var urlRapidApi = ""
+    @AppStorage("KeyRapidApi") var keyRapidApi = ""
+    @AppStorage("KeyRapidHost") var keyRapidHost = ""
     
     var body: some View {
         VStack {
@@ -89,6 +92,21 @@ struct SettingView: View {
                         .font(.footnote)
                 }
                 
+                Section(header: Text("Url RapidApi.com")) {
+                    TextField("Url RapidApi.com", text: $urlRapidApi)
+                        .font(.footnote)
+                }
+                
+                Section(header: Text("Key for RapidApi")) {
+                    TextField("Key for RapidApi", text: $keyRapidApi)
+                        .font(.footnote)
+                }
+                
+                Section(header: Text("Host for RapidApi")) {
+                    TextField("Host for RapidApi", text: $keyRapidHost)
+                        .font(.footnote)
+                }
+   
             }
             .keyboardType(.asciiCapable)
         }

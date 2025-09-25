@@ -101,6 +101,14 @@ struct WeatherForecast: View {
     let addedSaveMessage: LocalizedStringKey = "It can take some time until the place is saved on CloudKit.\nSelect \"Refresh my places\""
    
     @State public var errorMessage: LocalizedStringKey = ""
+    
+    @State private var moonData: MoonData = MoonData(phase: "",
+                                                     emoji: "",
+                                                     illumination: "",
+                                                     daysUntilNextFullMoon: 0,
+                                                     moonrise: "",
+                                                     moonset: "",
+                                                     distance: 0.00)
    
     var body: some View {
         VStack {
@@ -335,7 +343,8 @@ struct WeatherForecast: View {
     /// Rutine for oppfriskning:
     ///
     func Refresh() async {
-                ///
+        
+        ///
         /// Starter visning av indicatoren :
         ///
         opacityIndicator = 1.0
@@ -399,6 +408,74 @@ struct WeatherForecast: View {
                 dismissAlert(seconds: 10)
             }
         }
+        
+        if persist == true {
+                ///
+                /// Finner keyRapidApi fra Settings()
+                ///
+            let urlRapidApi = UserDefaults.standard.object(forKey: "UrlRapidApi") as? String ?? ""
+            if urlRapidApi == "" {
+                let string = String(localized: "Url  key for RapidApi")
+                title = "\n\n \(string) \(showMessageOnlyForAFewSeconds)"
+                let string1 = String(localized: "No Rapid url key found.")
+                message = "\n\(string1)"
+                showDismissAlert.toggle()
+                persist = false
+                    ///
+                    /// Lukker denne meldingen etter 10 sekunder:
+                    ///
+                dismissAlert(seconds: 10)
+            }
+            let apiKey = UserDefaults.standard.object(forKey: "KeyRapidApi") as? String ?? ""
+            if apiKey == "" {
+                let string = String(localized: "Api  key for RapidApi.")
+                title = "\n\n \(string) \(showMessageOnlyForAFewSeconds)"
+                let string1 = String(localized: "No Rapid api key found.")
+                message = "\n\(string1)"
+                showDismissAlert.toggle()
+                persist = false
+                    ///
+                    /// Lukker denne meldingen etter 10 sekunder:
+                    ///
+                dismissAlert(seconds: 10)
+            }
+            
+            let apiHost = UserDefaults.standard.object(forKey: "KeyRapidHost") as? String ?? ""
+            if apiHost == "" {
+                let string = String(localized: "Host  key for RapidApi.")
+                title = "\n\n \(string) \(showMessageOnlyForAFewSeconds)"
+                let string1 = String(localized: "No Rapid host key found.")
+                message = "\n\(string1)"
+                showDismissAlert.toggle()
+                persist = false
+                    ///
+                    /// Lukker denne meldingen etter 10 sekunder:
+                    ///
+                dismissAlert(seconds: 10)
+            }
+                ///
+                /// Finner findMoonData
+                ///
+            moonData = await findMoonData(date: formatDate(Date()),
+                                          url: urlRapidApi,
+                                          latitude: weatherInfo.latitude ?? 0.00,
+                                          longitude: weatherInfo.longitude ?? 0.00,
+                                          apiKey: apiKey,
+                                          apiHost: apiHost,
+                                          statusCode: false,
+                                          prettyPrint: false)
+            ///
+            /// Oppdaterer CurrentWeather
+            ///
+            currentWeather.moonPhase = moonData.phase
+            currentWeather.moonEmoji = moonData.emoji
+            currentWeather.moonIllumination = moonData.illumination
+            currentWeather.moonrise = moonData.moonrise
+            currentWeather.moonset = moonData.moonset
+            currentWeather.daysToFullMoon = moonData.daysUntilNextFullMoon
+            currentWeather.distanceToMoon = Int(moonData.distance)
+        }
+        
         if persist == true {
             ///
             /// Datoer for normalperioden
@@ -447,13 +524,12 @@ struct WeatherForecast: View {
         if persist == true {
             ///
             /// Finner snøfallet i perioden ut fra weather.dailyForecast
+            /// Tatt bort pr. 25.09.2025
             ///
-            ///
+            
             /// Finner dailyForecast
             ///
             dailyForecast = nil
-            
-            print(weatherInfo as Any)
             
             // Sikrer gyldige koordinater
             guard let lat = weatherInfo.latitude,
@@ -605,35 +681,6 @@ struct WeatherForecast: View {
                 ///
                 if persist == true {
                     ///
-                    /// Finner måne-oppgang og måne-nedgang:
-                    ///
-                    let url1 = UserDefaults.standard.object(forKey: "UrlWeatherApiMoon") as? String ?? ""
-                    let key = UserDefaults.standard.object(forKey: "KeyWeatherApi") as? String ?? ""
-                    let (error, moonRec) =
-                    await FindMoonUpDown(url: url1,
-                                         key: key,
-                                         latitude: weatherInfo.latitude,
-                                         longitude: weatherInfo.longitude)
-                    
-                    if error.stringKey?.count ?? 10 > 0 {
-                        let string = String(localized: "Cannot find moon data.")
-                        title = "\(string) \(showMessageOnlyForAFewSeconds)\n"
-                        message = error
-                        showDismissAlert.toggle()
-                        persist = false
-                        ///
-                        /// Lukker denne meldingen etter 10 sekunder:
-                        ///
-                        dismissAlert(seconds: 10)
-                    } else {
-                        moonRecord = moonRec
-                    }
-                }
-                ///
-                /// Går bare videre dersom persist er true:
-                ///
-                if persist == true {
-                    ///
                     /// Finner AirQuality:
                     ///
                    let url1 = UserDefaults.standard.object(forKey: "UrlOpenWeather") as? String ?? ""
@@ -701,13 +748,6 @@ struct WeatherForecast: View {
                                 ///  Date and time, Unix, UTC
                                 currentWeather.dt = airQuality.dt
                                 /// moonPhase
-                                currentWeather.moonPhase = moonRecord.moonPhase
-                                /// moonrise
-                                currentWeather.moonrise = moonRecord.moonrise
-                                /// moonset
-                                currentWeather.moonset = moonRecord.moonset
-                                /// moonIllumination
-                                currentWeather.moonIllumination = moonRecord.moonIllumination
                                 /// isMoonUp
                                 currentWeather.isMoonUp = moonRecord.isMoonUp
                                 /// isSunUp
@@ -764,4 +804,12 @@ func dismissAlert(seconds: Double) {
 }
 
 
+func translateMoonPhase(phase: String) -> String {
+    var moonPhase: String = ""
+    switch phase {
+    case "Waxing crescent": moonPhase = String(localized: "Waxing crescent")
+        default: moonPhase = phase
+    }
+    return moonPhase
+}
 

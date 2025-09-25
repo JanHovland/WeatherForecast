@@ -12,6 +12,11 @@
 		DB019A402ADA82CF004E4286 /* FindChartDataUvIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB019A3F2ADA82CF004E4286 /* FindChartDataUvIndex.swift */; };
 		DB0230C328E4C7B000DCE15C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DB0230C128E4C7B000DCE15C /* Localizable.strings */; };
 		DB0230C528E4E5D700DCE15C /* WeatherForecastDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0230C428E4E5D700DCE15C /* WeatherForecastDetail.swift */; };
+		DB03A6C82E83C25900886A6D /* MoonData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB03A6C72E83C25100886A6D /* MoonData.swift */; };
+		DB03A6CA2E83C35400886A6D /* RapidAdvanced.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB03A6C92E83C34A00886A6D /* RapidAdvanced.swift */; };
+		DB03A6CC2E83C54400886A6D /* EmojiForPhase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB03A6CB2E83C54400886A6D /* EmojiForPhase.swift */; };
+		DB03A6CE2E83C58600886A6D /* FindMoonData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB03A6CD2E83C58600886A6D /* FindMoonData.swift */; };
+		DB03A6D02E83C5CC00886A6D /* TimeUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB03A6CF2E83C5CC00886A6D /* TimeUtilities.swift */; };
 		DB04493F2BF222DF0082D693 /* AveragePrecificationNormalMonthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB04493E2BF222DF0082D693 /* AveragePrecificationNormalMonthView.swift */; };
 		DB054769297086B20034AFBD /* DayDetailMenuDataViewOffsetViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB054768297086B20034AFBD /* DayDetailMenuDataViewOffsetViewModifier.swift */; };
 		DB0965D82949FBC700B76812 /* TranslateDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0965D72949FBC700B76812 /* TranslateDay.swift */; };
@@ -109,7 +114,6 @@
 		DB660BDE2AF80CF40081EA04 /* WeatherApiMoon.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB660BDD2AF80CF40081EA04 /* WeatherApiMoon.swift */; };
 		DB66C19D2AF6427A00C2722E /* AirQualityHeadlineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB66C19C2AF6427A00C2722E /* AirQualityHeadlineView.swift */; };
 		DB66C19F2AF6438000C2722E /* AirQualityPollutionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB66C19E2AF6438000C2722E /* AirQualityPollutionView.swift */; };
-		DB66C1A32AF65A6500C2722E /* FindMoonUpDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB66C1A22AF65A6500C2722E /* FindMoonUpDown.swift */; };
 		DB679FD72B25B030008C7330 /* CollapsibleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB679FD62B25B030008C7330 /* CollapsibleView.swift */; };
 		DB679FD92B25B06C008C7330 /* CollapsibleDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB679FD82B25B06C008C7330 /* CollapsibleDetailView.swift */; };
 		DB679FDB2B25B0AC008C7330 /* CollapsibleHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB679FDA2B25B0AC008C7330 /* CollapsibleHeader.swift */; };
@@ -215,7 +219,6 @@
 		DBDDEA0129BDC86000301E77 /* RefreshOffset.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDDEA0029BDC86000301E77 /* RefreshOffset.swift */; };
 		DBDF8D842BD18B1000D4113D /* ConvertDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDF8D832BD18B1000D4113D /* ConvertDate.swift */; };
 		DBE02B3C29335D9600B1FB05 /* RainFall.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE02B3B29335D9600B1FB05 /* RainFall.swift */; };
-		DBE046E22B0555ED00942E51 /* FindMoonPhaseImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE046E12B0555ED00942E51 /* FindMoonPhaseImage.swift */; };
 		DBE1F1BA2BEBF9D300DF3D4F /* AveragePrecipitationNormalYears.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE1F1B92BEBF9D300DF3D4F /* AveragePrecipitationNormalYears.swift */; };
 		DBE3CD45289925660099D056 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DBE3CD47289925660099D056 /* InfoPlist.strings */; };
 		DBE5FA032AF1801400ADD3AE /* AirQualityInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE5FA022AF1801400ADD3AE /* AirQualityInformationView.swift */; };
@@ -243,6 +246,11 @@
 		DB019A3F2ADA82CF004E4286 /* FindChartDataUvIndex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindChartDataUvIndex.swift; sourceTree = "<group>"; };
 		DB0230C228E4C7B000DCE15C /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DB0230C428E4E5D700DCE15C /* WeatherForecastDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherForecastDetail.swift; sourceTree = "<group>"; };
+		DB03A6C72E83C25100886A6D /* MoonData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoonData.swift; sourceTree = "<group>"; };
+		DB03A6C92E83C34A00886A6D /* RapidAdvanced.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RapidAdvanced.swift; sourceTree = "<group>"; };
+		DB03A6CB2E83C54400886A6D /* EmojiForPhase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiForPhase.swift; sourceTree = "<group>"; };
+		DB03A6CD2E83C58600886A6D /* FindMoonData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindMoonData.swift; sourceTree = "<group>"; };
+		DB03A6CF2E83C5CC00886A6D /* TimeUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeUtilities.swift; sourceTree = "<group>"; };
 		DB04493E2BF222DF0082D693 /* AveragePrecificationNormalMonthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AveragePrecificationNormalMonthView.swift; sourceTree = "<group>"; };
 		DB054768297086B20034AFBD /* DayDetailMenuDataViewOffsetViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayDetailMenuDataViewOffsetViewModifier.swift; sourceTree = "<group>"; };
 		DB0965D72949FBC700B76812 /* TranslateDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateDay.swift; sourceTree = "<group>"; };
@@ -340,7 +348,6 @@
 		DB660BDD2AF80CF40081EA04 /* WeatherApiMoon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherApiMoon.swift; sourceTree = "<group>"; };
 		DB66C19C2AF6427A00C2722E /* AirQualityHeadlineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirQualityHeadlineView.swift; sourceTree = "<group>"; };
 		DB66C19E2AF6438000C2722E /* AirQualityPollutionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirQualityPollutionView.swift; sourceTree = "<group>"; };
-		DB66C1A22AF65A6500C2722E /* FindMoonUpDown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindMoonUpDown.swift; sourceTree = "<group>"; };
 		DB679FD62B25B030008C7330 /* CollapsibleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollapsibleView.swift; sourceTree = "<group>"; };
 		DB679FD82B25B06C008C7330 /* CollapsibleDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollapsibleDetailView.swift; sourceTree = "<group>"; };
 		DB679FDA2B25B0AC008C7330 /* CollapsibleHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollapsibleHeader.swift; sourceTree = "<group>"; };
@@ -448,7 +455,6 @@
 		DBDDEA0029BDC86000301E77 /* RefreshOffset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshOffset.swift; sourceTree = "<group>"; };
 		DBDF8D832BD18B1000D4113D /* ConvertDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertDate.swift; sourceTree = "<group>"; };
 		DBE02B3B29335D9600B1FB05 /* RainFall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RainFall.swift; sourceTree = "<group>"; };
-		DBE046E12B0555ED00942E51 /* FindMoonPhaseImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindMoonPhaseImage.swift; sourceTree = "<group>"; };
 		DBE1F1B92BEBF9D300DF3D4F /* AveragePrecipitationNormalYears.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AveragePrecipitationNormalYears.swift; sourceTree = "<group>"; };
 		DBE3CD46289925660099D056 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		DBE3CD482899256E0099D056 /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -560,6 +566,7 @@
 				DB4A0C3E29AE85D00055AAD7 /* DaysBetween.swift */,
 				DBC42CB52B299F5200148296 /* DismissAlertAndExitApp.swift */,
 				DB2DB3D029D02B410046E38D /* DtTimeInterval.swift */,
+				DB03A6CB2E83C54400886A6D /* EmojiForPhase.swift */,
 				DB86FC0E291195B40019D12F /* Extensions */,
 				DBCD43742AEE38C2007543BE /* FindAirQuality.swift */,
 				DB2727F72965E132003B0903 /* FindAverageArray.swift */,
@@ -571,8 +578,7 @@
 				DB8C17CE29DDB48100198DCB /* FindHourToCGFloat.swift */,
 				DBD497A32A4EAF160075B350 /* FindLocalPosition.swift */,
 				DB101D872B0B787A00B9788C /* FindMenySystemImage.swift */,
-				DBE046E12B0555ED00942E51 /* FindMoonPhaseImage.swift */,
-				DB66C1A22AF65A6500C2722E /* FindMoonUpDown.swift */,
+				DB03A6CD2E83C58600886A6D /* FindMoonData.swift */,
 				DB46B05A2BBE8A1600EAFA79 /* FindPrecificationForPeriode.swift */,
 				DB919BC12940B43100E69644 /* FindSunUpDown.swift */,
 				DB91F3392AF92F0E00D94E07 /* FindTimeFromAmPm.swift */,
@@ -592,6 +598,7 @@
 				DBF1038429A92C56008B4281 /* SearchBar.swift */,
 				DB7B036729B31E7A00B4618A /* ServerResponse.swift */,
 				DB9ADEAF2B3C30F00001B275 /* SunDailyIncrease.swift */,
+				DB03A6CF2E83C5CC00886A6D /* TimeUtilities.swift */,
 				DBB10A8B2CD52A390018BD7E /* ToInteger.swift */,
 				DB9299E229C4CBE2002BA87A /* TranslateCountry.swift */,
 				DB0965D72949FBC700B76812 /* TranslateDay.swift */,
@@ -714,6 +721,7 @@
 				DB6968A4290EFEB900936C0E /* HourlyForecastRecord.swift */,
 				DB919BBF2940B38A00E69644 /* MetApiSun.swift */,
 				DB6968A0290EFC0900936C0E /* MinuteForecastRecord.swift */,
+				DB03A6C72E83C25100886A6D /* MoonData.swift */,
 				DBC6B3162AF81F1300D27E30 /* MoonRecord.swift */,
 				DBD442C52ADFC6CA0001020A /* NewData.swift */,
 				DB82F5BF2971D8B700818841 /* Place.swift */,
@@ -721,6 +729,7 @@
 				DB9383622B0FEEA3007A7BFC /* Precipitation.swift */,
 				DBCA3AF52BE4B64500523647 /* PrecipitationOverYears.swift */,
 				DBE02B3B29335D9600B1FB05 /* RainFall.swift */,
+				DB03A6C92E83C34A00886A6D /* RapidAdvanced.swift */,
 				DB2676F129D5CE5900C642B9 /* SelectedValue.swift */,
 				DB7B6504294B8F16009822E5 /* Temperature.swift */,
 				DB830D5B2BCC3CD600A6563E /* TemperaturMinMax.swift */,
@@ -1207,6 +1216,7 @@
 				DB880FDB2989305F009E8FB7 /* AdjustOffset.swift in Sources */,
 				DB51163C28E43C1100DEB1BF /* GeoRecord.swift in Sources */,
 				DBFA0FEA2B60F5A70008E358 /* FindCountries.swift in Sources */,
+				DB03A6CE2E83C58600886A6D /* FindMoonData.swift in Sources */,
 				DB66C19D2AF6427A00C2722E /* AirQualityHeadlineView.swift in Sources */,
 				DB4FA8C32AEF8EC800533266 /* AirQualityView.swift in Sources */,
 				DB2676F229D5CE5900C642B9 /* SelectedValue.swift in Sources */,
@@ -1294,6 +1304,7 @@
 				DB760C072AE6D24C000B08D1 /* WeatherForecastSearchPlace.swift in Sources */,
 				DB4EFDF52AF3BFD40021AABB /* AirQualityViewModifier.swift in Sources */,
 				DB9ADEB02B3C30F00001B275 /* SunDailyIncrease.swift in Sources */,
+				DB03A6CA2E83C35400886A6D /* RapidAdvanced.swift in Sources */,
 				DB0B17622ADFDD2A0034116A /* FindChartDataTemperature.swift in Sources */,
 				DBDDEA0129BDC86000301E77 /* RefreshOffset.swift in Sources */,
 				DB679FD92B25B06C008C7330 /* CollapsibleDetailView.swift in Sources */,
@@ -1337,6 +1348,7 @@
 				DBB99D392AE425BE0022B6E9 /* FindChartDataPrecipitation.swift in Sources */,
 				DB4A8DB029487EDA0067C4F8 /* InfoHumidity.swift in Sources */,
 				DB280ED528F5CABF00269D23 /* Precipitation24h.swift in Sources */,
+				DB03A6CC2E83C54400886A6D /* EmojiForPhase.swift in Sources */,
 				DBFD2DD22958612B00293B4D /* WeatherIcon.swift in Sources */,
 				DB60E9B42AD9BA4100F8E723 /* FindChartDataHumidity.swift in Sources */,
 				DBCD43732AEE2BE9007543BE /* AirQuality.swift in Sources */,
@@ -1358,7 +1370,6 @@
 				DB954E0E2BD8EC190062F1C7 /* GetAverageDailyWeatherYears.swift in Sources */,
 				DB256530296C14140007EBF9 /* DayDetailBackground.swift in Sources */,
 				DB2340C629030CA8005F8974 /* MenuContent.swift in Sources */,
-				DBE046E22B0555ED00942E51 /* FindMoonPhaseImage.swift in Sources */,
 				DB112ADE2964B906000F6862 /* FeltTemp.swift in Sources */,
 				DB0965D82949FBC700B76812 /* TranslateDay.swift in Sources */,
 				DB054769297086B20034AFBD /* DayDetailMenuDataViewOffsetViewModifier.swift in Sources */,
@@ -1370,7 +1381,6 @@
 				DB2DB3D129D02B410046E38D /* DtTimeInterval.swift in Sources */,
 				DB46B05B2BBE8A1600EAFA79 /* FindPrecificationForPeriode.swift in Sources */,
 				DBCE690729DB123D0008E434 /* WeatherForecast.docc in Sources */,
-				DB66C1A32AF65A6500C2722E /* FindMoonUpDown.swift in Sources */,
 				DB8A7F01290701D3002DFD73 /* SunFindSunRiseSunSet.swift in Sources */,
 				DBA5F20B2BC2F2B200D6C1C2 /* AverageMonthlyData.swift in Sources */,
 				DB69689F290E97F900936C0E /* DateSettings.swift in Sources */,
@@ -1382,6 +1392,7 @@
 				DBF94B5A2BD00B770081EF22 /* Precification30DaysAccumulated.swift in Sources */,
 				DB7B50DA2AF1492A00A61BA1 /* AppsForIPhone.swift in Sources */,
 				DB554E3F2B7A1244009A25F5 /* DayDetailHourIconsModifiier.swift in Sources */,
+				DB03A6C82E83C25900886A6D /* MoonData.swift in Sources */,
 				DB554E5F2B7A9DE4009A25F5 /* ScreenSize.swift in Sources */,
 				DBC6B3172AF81F1300D27E30 /* MoonRecord.swift in Sources */,
 				DB554E5D2B7A9642009A25F5 /* FindSizeOfView.swift in Sources */,
@@ -1391,6 +1402,7 @@
 				DBB7AECE2B224EF40066E1BF /* MapFetchInformation.swift in Sources */,
 				DB6968A1290EFC0900936C0E /* MinuteForecastRecord.swift in Sources */,
 				DBD497A22A4EAE9C0075B350 /* LocationsHandler.swift in Sources */,
+				DB03A6D02E83C5CC00886A6D /* TimeUtilities.swift in Sources */,
 				DB019A3C2ADA766C004E4286 /* FindChartDataAirPressure.swift in Sources */,
 				DB5C0C2E29151B6900141BDC /* Enum.swift in Sources */,
 				DBDD98622AFE4284002FC9E5 /* AirQualityInformationViewModifier.swift in Sources */,

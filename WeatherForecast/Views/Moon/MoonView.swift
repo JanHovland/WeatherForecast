@@ -20,7 +20,7 @@ struct MoonView: View {
         VStack {
             HStack {
                 ///
-                /// Viser overskriften for fluftkvaliteten:
+                /// Viser overskriften for månen:
                 ///
                 HStack {
                     Image(systemName: "moon")
@@ -35,23 +35,21 @@ struct MoonView: View {
                 ///
                 HStack {
                     Spacer()
-                    Text(currentWeather.moonPhase.uppercased())
+                    ///
+                    /// Bruker NSLocalizedString ved kall til en variabel
+                    ///
+                    Text(String(format: NSLocalizedString(currentWeather.moonPhase, comment: "")).uppercased())
                         .font(.system(size: screenSize.screenWidth == 368 ? 14.5 : 15, weight: .bold))
                 }
             }
             .opacity(0.50)
-            .padding(.top, 10)
+            .padding(.top, 20
+            )
             ///
-            /// Viser selve månen:
+            /// Viser selve månen som en emoji:
             ///
-            let (image, daysToFullMoon, distance) = FindMoonPhaseImage(moonPhase: currentWeather.moonPhase,
-                                                                       moonIllumination: currentWeather.moonIllumination)
-
-            Image(image)
-                .resizable()
-                .frame(width: 150, height: 150)
-                .clipShape(Circle())
-                .symbolRenderingMode(.multicolor)
+            Text(currentWeather.moonEmoji)
+                .font(.system(size: 130))
             ///
             /// Viser styrken på lyset fra månen:
             ///
@@ -62,8 +60,7 @@ struct MoonView: View {
                 }
                 HStack {
                     Spacer()
-                    Text("\(currentWeather.moonIllumination) %")
-                        .font(Font.system(.callout, design: .monospaced))
+                    Text(currentWeather.moonIllumination)
                 }
             }
             ///
@@ -76,8 +73,7 @@ struct MoonView: View {
                 }
                 HStack {
                     Spacer()
-                    Text(FindTimeFromAmPm(time: currentWeather.moonrise))
-                        .font(Font.system(.callout, design: .monospaced))
+                    Text(currentWeather.moonrise)
                 }
             }
             ///
@@ -90,8 +86,7 @@ struct MoonView: View {
                 }
                 HStack {
                     Spacer()
-                    Text(FindTimeFromAmPm(time: currentWeather.moonset))
-                        .font(Font.system(.callout, design: .monospaced))
+                    Text(currentWeather.moonset)
                 }
             }
             ///
@@ -104,8 +99,8 @@ struct MoonView: View {
                 }
                 HStack {
                     Spacer()
-                    Text("\(daysToFullMoon) d")
-                        .font(Font.system(.callout, design: .monospaced))
+                    Text("\(currentWeather.daysToFullMoon) d")
+                        
                 }
             }
             ///
@@ -118,11 +113,9 @@ struct MoonView: View {
                 }
                 HStack {
                     Spacer()
-                    Text("\(distance) km")
-                        .font(Font.system(.callout, design: .monospaced))
+                    Text("\(currentWeather.distanceToMoon) km")
                 }
             }
-            Spacer()
         }
         .frame(maxWidth: .infinity,
                maxHeight: 290)
