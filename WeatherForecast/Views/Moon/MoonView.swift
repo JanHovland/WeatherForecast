@@ -16,12 +16,14 @@ struct MoonView: View {
     @Environment(CurrentWeather.self) private var currentWeather
     @Environment(ScreenSize.self) private var screenSize
     
+    @State private var showNewView = false
+    
     var body: some View {
         VStack {
             HStack {
-                ///
-                /// Viser overskriften for månen:
-                ///
+                    ///
+                    /// Viser overskriften for månen:
+                    ///
                 HStack {
                     Image(systemName: "moon")
                         .symbolRenderingMode(.multicolor)
@@ -30,14 +32,14 @@ struct MoonView: View {
                         .font(.system(size: screenSize.screenWidth == 368 ? 14.5 : 15, weight: .bold))
                     Spacer()
                 }
-                ///
-                /// Viser måne fasen
-                ///
+                    ///
+                    /// Viser måne fasen
+                    ///
                 HStack {
                     Spacer()
-                    ///
-                    /// Bruker NSLocalizedString ved kall til en variabel
-                    ///
+                        ///
+                        /// Bruker NSLocalizedString ved kall til en variabel
+                        ///
                     Text(String(format: NSLocalizedString(currentWeather.moonPhase, comment: "")).uppercased())
                         .font(.system(size: screenSize.screenWidth == 368 ? 14.5 : 15, weight: .bold))
                 }
@@ -45,14 +47,14 @@ struct MoonView: View {
             .opacity(0.50)
             .padding(.top, 20
             )
-            ///
-            /// Viser selve månen som en emoji:
-            ///
+                ///
+                /// Viser selve månen som en emoji:
+                ///
             Text(currentWeather.moonEmoji)
                 .font(.system(size: 130))
-            ///
-            /// Viser styrken på lyset fra månen:
-            ///
+                ///
+                /// Viser styrken på lyset fra månen:
+                ///
             HStack {
                 HStack {
                     Text("Illumination")
@@ -63,12 +65,12 @@ struct MoonView: View {
                     Text(currentWeather.moonIllumination)
                 }
             }
-            ///
-            /// Måneoppgang:
-            ///
+                ///
+                /// Måneoppgang:
+                ///
             HStack {
                 HStack {
-                   Text("MoonRise")
+                    Text("MoonRise")
                     Spacer()
                 }
                 HStack {
@@ -76,12 +78,12 @@ struct MoonView: View {
                     Text(currentWeather.moonrise)
                 }
             }
-            ///
-            /// Månenedgang:
-            ///
+                ///
+                /// Månenedgang:
+                ///
             HStack {
                 HStack {
-                   Text("MoonSet")
+                    Text("MoonSet")
                     Spacer()
                 }
                 HStack {
@@ -89,26 +91,26 @@ struct MoonView: View {
                     Text(currentWeather.moonset)
                 }
             }
-            ///
-            /// Dager til neste full måne:
-            ///
+                ///
+                /// Dager til neste full måne:
+                ///
             HStack {
                 HStack {
-                   Text("Next full moon")
+                    Text("Next full moon")
                     Spacer()
                 }
                 HStack {
                     Spacer()
                     Text("\(currentWeather.daysToFullMoon) d")
-                        
+                    
                 }
             }
-            ///
-            /// Distanse til månen
-            ///
+                ///
+                /// Distanse til månen
+                ///
             HStack {
                 HStack {
-                   Text("Distance")
+                    Text("Distance")
                     Spacer()
                 }
                 HStack {
@@ -117,9 +119,28 @@ struct MoonView: View {
                 }
             }
         }
+        .contentShape(Rectangle())
+        .onTapGesture {
+            print("onTapGesture")
+            showNewView.toggle()
+        }
         .frame(maxWidth: .infinity,
                maxHeight: 290)
-        .padding(15)
+        .sheet(isPresented: $showNewView) {
+            NewView()
+        }
         .modifier(DayDetailBackground(dayLight: currentWeather.isDaylight))
     }
 }
+
+
+struct NewView: View {
+    var body: some View {
+        ZStack {
+            Color.green.opacity(0.3).ignoresSafeArea()
+            Text("New View")
+                .font(.largeTitle)
+        }
+    }
+}
+
