@@ -129,6 +129,9 @@ struct MoonView: View {
         .sheet(isPresented: $showNewView) {
             NewView()
         }
+//        .fullScreenCover(isPresented: $showNewView) {
+//            NewView()
+//        }
         .modifier(DayDetailBackground(dayLight: currentWeather.isDaylight))
     }
 }
@@ -138,9 +141,9 @@ struct NewView: View {
     var body: some View {
         ZStack {
             Color.green.opacity(0.3).ignoresSafeArea()
-            Text("New View")
+            Text("Moon details")
                 .font(.largeTitle)
         }
-    }
+     }
 }
 
