@@ -138,12 +138,20 @@ struct MoonView: View {
 
 
 struct NewView: View {
+    @Environment(CurrentWeather.self) private var currentWeather
     var body: some View {
-        ZStack {
-            Color.green.opacity(0.3).ignoresSafeArea()
+        VStack {
+                // Color.green.opacity(0.3).ignoresSafeArea()
+//            Color("Background#01")
+//                .opacity(0.35)
+//                .ignoresSafeArea()
+                 
+                
             Text("Moon details")
+                .padding(10)
                 .font(.largeTitle)
         }
+        .modifier(DayDetailBackground(dayLight: currentWeather.isDaylight))
      }
 }
 
