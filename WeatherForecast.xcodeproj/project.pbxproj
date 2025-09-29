@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DB00F0402E8A7776008DD200 /* MoonInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB00F03F2E8A7776008DD200 /* MoonInformation.swift */; };
 		DB019A3C2ADA766C004E4286 /* FindChartDataAirPressure.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB019A3B2ADA766C004E4286 /* FindChartDataAirPressure.swift */; };
 		DB019A3E2ADA79B5004E4286 /* FindChartDataVisibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB019A3D2ADA79B5004E4286 /* FindChartDataVisibility.swift */; };
 		DB019A402ADA82CF004E4286 /* FindChartDataUvIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB019A3F2ADA82CF004E4286 /* FindChartDataUvIndex.swift */; };
@@ -241,6 +242,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DB00F03F2E8A7776008DD200 /* MoonInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoonInformation.swift; sourceTree = "<group>"; };
 		DB019A3B2ADA766C004E4286 /* FindChartDataAirPressure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindChartDataAirPressure.swift; sourceTree = "<group>"; };
 		DB019A3D2ADA79B5004E4286 /* FindChartDataVisibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindChartDataVisibility.swift; sourceTree = "<group>"; };
 		DB019A3F2ADA82CF004E4286 /* FindChartDataUvIndex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindChartDataUvIndex.swift; sourceTree = "<group>"; };
@@ -797,6 +799,7 @@
 			isa = PBXGroup;
 			children = (
 				DB4FA8C42AEF937E00533266 /* MoonView.swift */,
+				DB00F03F2E8A7776008DD200 /* MoonInformation.swift */,
 			);
 			path = Moon;
 			sourceTree = "<group>";
@@ -1230,6 +1233,7 @@
 				DB4A8DAE294877B30067C4F8 /* InfoAirPressure.swift in Sources */,
 				DBE02B3C29335D9600B1FB05 /* RainFall.swift in Sources */,
 				DB5C0C582917CEE800141BDC /* UvIndexRestOfDay.swift in Sources */,
+				DB00F0402E8A7776008DD200 /* MoonInformation.swift in Sources */,
 				DB6DE824297D3017005BCCF9 /* ConnectToInternet.swift in Sources */,
 				DB85F9EB294751AF00D14013 /* IndexPointMarkFromHour.swift in Sources */,
 				DB4A0C3F29AE85D00055AAD7 /* DaysBetween.swift in Sources */,

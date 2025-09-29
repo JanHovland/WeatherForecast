@@ -8,7 +8,7 @@
 import SwiftUI
 
 ///
-///*  Viser månefasene pr. år/måned:
+/// Viser månefasene pr. år/måned:
 /// https://stardate.org/nightsky/moon
 ///
 
@@ -128,28 +128,8 @@ struct MoonView: View {
         .frame(maxWidth: .infinity,
                maxHeight: 320) // 290)
         .sheet(isPresented: $showNewView) {
-            NewView()
+            MoonInformation()
         }
         .modifier(DayDetailBackground(dayLight: currentWeather.isDaylight))
     }
 }
-
-
-struct NewView: View {
-    @Environment(CurrentWeather.self) private var currentWeather
-    var body: some View {
-        VStack {
-                // Color.green.opacity(0.3).ignoresSafeArea()
-//            Color("Background#01")
-//                .opacity(0.35)
-//                .ignoresSafeArea()
-                 
-                
-            Text("Moon details")
-                .padding(10)
-                .font(.largeTitle)
-        }
-        .modifier(DayDetailBackground(dayLight: currentWeather.isDaylight))
-     }
-}
-
