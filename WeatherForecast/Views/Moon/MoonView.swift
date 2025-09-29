@@ -1,16 +1,16 @@
-//
-//  MoonView.swift
-//  WeatherForecast
-//
-//  Created by Jan Hovland on 30/10/2023.
-//
+    //
+    //  MoonView.swift
+    //  WeatherForecast
+    //
+    //  Created by Jan Hovland on 30/10/2023.
+    //
 
 import SwiftUI
 
-///
-/// Viser månefasene pr. år/måned:
-/// https://stardate.org/nightsky/moon
-///
+    ///
+    /// Viser månefasene pr. år/måned:
+    /// https://stardate.org/nightsky/moon
+    ///
 
 struct MoonView: View {
     @Environment(CurrentWeather.self) private var currentWeather
