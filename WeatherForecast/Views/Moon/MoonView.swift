@@ -45,8 +45,7 @@ struct MoonView: View {
                 }
             }
             .opacity(0.50)
-            .padding(.top, 20
-            )
+            .padding(.top, 20)
                 ///
                 /// Viser selve månen som en emoji:
                 ///
@@ -119,19 +118,18 @@ struct MoonView: View {
                 }
             }
         }
+        .padding(20)
+        .offset(x: 0, y: -15)
         .contentShape(Rectangle())
         .onTapGesture {
             print("onTapGesture")
             showNewView.toggle()
         }
         .frame(maxWidth: .infinity,
-               maxHeight: 290)
+               maxHeight: 320) // 290)
         .sheet(isPresented: $showNewView) {
             NewView()
         }
-//        .fullScreenCover(isPresented: $showNewView) {
-//            NewView()
-//        }
         .modifier(DayDetailBackground(dayLight: currentWeather.isDaylight))
     }
 }
