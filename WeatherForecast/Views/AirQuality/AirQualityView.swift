@@ -54,28 +54,9 @@ struct AirQualityView: View {
                     Spacer()
                 }
                 .opacity(0.50)
-                .padding(.top, UIDevice.isIpad ? 55 : 75)
-                ZStack {
-                    Spacer()
-                    HStack {
-                        Spacer()
-                        Button("Information") {
-                            self.isModal = true
-                        }
-                        .padding(7)
-                        .foregroundColor(.primary)
-                        .buttonStyle(.bordered)
-                        .sheet(isPresented: $isModal, content: {
-                            AirQualityInformationView(image: currentWeather.image,
-                                                      so2: currentWeather.so2,
-                                                      no2: currentWeather.no2,
-                                                      pm10: currentWeather.pm10,
-                                                      pm2_5: currentWeather.pm2_5,
-                                                      o3: currentWeather.o3,
-                                                      co: currentWeather.co)
-                        })
-                    }
-                }
+                .padding(.top, UIDevice.isIpad ? 75 : 65)
+                .frame(maxWidth: .infinity,
+                       maxHeight: 290)
                 .offset(y: -40)
                 VStack {
                     ///
@@ -458,10 +439,25 @@ struct AirQualityView: View {
                 }
             }
         }
+        ///
+        /// Ved contentShape() kan du trykke hvorsom helst på viewet
+        ///
+        .contentShape(Rectangle())
+        .onTapGesture {
+            isModal.toggle()
+        }
+        .sheet(isPresented: $isModal, content: {
+            AirQualityInformationView(image: currentWeather.image,
+                                      so2: currentWeather.so2,
+                                      no2: currentWeather.no2,
+                                      pm10: currentWeather.pm10,
+                                      pm2_5: currentWeather.pm2_5,
+                                      o3: currentWeather.o3,
+                                      co: currentWeather.co)
+        })
         .frame(maxWidth: .infinity,
                maxHeight: 290)
         .padding(15)
         .modifier(DayDetailBackground(dayLight: currentWeather.isDaylight))
     }
 }
-
