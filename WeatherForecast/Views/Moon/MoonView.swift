@@ -122,11 +122,10 @@ struct MoonView: View {
         .offset(x: 0, y: -15)
         .contentShape(Rectangle())
         .onTapGesture {
-            print("onTapGesture")
             showNewView.toggle()
         }
         .frame(maxWidth: .infinity,
-               maxHeight: 320) // 290)
+               maxHeight: 320)  
         .sheet(isPresented: $showNewView) {
             MoonInformation()
         }

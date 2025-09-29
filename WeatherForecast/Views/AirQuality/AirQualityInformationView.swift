@@ -159,7 +159,7 @@ struct AirQualityInformationView: View {
                 .font(.system(.body).italic())
                 .padding(.horizontal, 30)
                 .padding(.bottom, 30)
-            List {
+            ScrollView {
                 ///
                 /// Viser  SO2:
                 ///
@@ -398,6 +398,7 @@ struct AirQualityInformationView: View {
             .offset(y : UIDevice.isIpad ? 0 : -25)
             .listStyle(.sidebar)
         }
+        .padding(20)
         .scrollIndicators(.hidden)
         .task {
             ///

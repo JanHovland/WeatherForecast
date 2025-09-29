@@ -9,18 +9,13 @@ import SwiftUI
 
 struct MoonInformation: View {
     @Environment(CurrentWeather.self) private var currentWeather
+    @Environment(WeatherInfo.self) private var weatherInfo
+    
     @Environment(\.dismiss) var dismiss
     
     var body: some View {
         VStack {
-            
             ZStack {
-                    //                HStack {
-                    //                    Image(systemName: image)
-                    //                        .symbolRenderingMode(.multicolor)
-                    //                        .font(Font.headline.weight(.regular))
-                    //                    Spacer()
-                    //                }
                 HStack {
                     Spacer()
                     VStack {
@@ -42,49 +37,82 @@ struct MoonInformation: View {
                 .font(.system(size: 130))
             
             Text(String(format: NSLocalizedString(currentWeather.moonPhase, comment: "")))
+                .font(.title).bold()
+                .padding(.bottom, 20)
             
-            VStack {
-                HStack(spacing: UIDevice.isIpad ? 20 : 0) {
-                    HStack {
-                        Spacer()
-                        Text("Illumination").textCase(.uppercase)
-                        Spacer()
-                    }
-                    HStack {
-                        Spacer()
-                        Text("MoonRise").textCase(.uppercase)
-                        Spacer()
-                    }
-                    HStack {
-                        Spacer()
-                        Text("MoonSet").textCase(.uppercase)
-                        Spacer()
-                    }
+            Text(FormatDateToString(date: .now, format: "EEEE d. MMMM yyyy HH:mm", offsetSec: weatherInfo.offsetSec).firstUppercased)
+            
+            
+            ScrollView {
+                ///
+                /// Illumination
+                ///
+                HStack {
+                    Text("Illumination")
+                    Spacer()
                 }
-                .font(.caption)
-                
-                HStack(spacing: 20) {
+                HStack {
+                    Spacer()
+                    Text(currentWeather.moonIllumination)
+                    
+                }
+                ///
+                /// MoonRise
+                ///
+                HStack {
+                    Text("MoonRise")
+                    Spacer()
+                }
+                HStack {
+                    Spacer()
+                    Text(currentWeather.moonrise)
+                    
+                }
+                ///
+                /// MoonSet
+                ///
+                HStack {
+                    Text("MoonSet")
+                    Spacer()
+                }
+                HStack {
+                    Spacer()
+                    Text(currentWeather.moonset)
+                    ///
+                    /// Next full moon
+                    ///
                     HStack {
-                        Spacer()
-                        Text(currentWeather.moonIllumination)
+                        Text("Next full moon")
                         Spacer()
                     }
                     HStack {
                         Spacer()
-                        Text(currentWeather.moonrise)
-                        Spacer()
+                        Text("\(currentWeather.daysToFullMoon) d")
                     }
-                    HStack {
-                        Spacer()
-                        Text(currentWeather.moonset)
-                        Spacer()
-                    }
+                    
+                    ///
+                    /// Distance
+                    ///
+//                    HStack {
+//                        Text("Distance")
+//                        Spacer()
+//                    }
+//                    HStack {
+//                        Spacer()
+//                        Text("\(currentWeather.distanceToMoon) km")
+//                    }
+                    ///
+                    /// Calendar
+                    ///
+                    
                 }
             }
-            .padding(.horizontal, UIDevice.isIpad ? 80 : 0)
-            .padding(.top,10)
-            Spacer()
+            .padding(30)
         }
+        .scrollIndicators(.hidden)
+        .padding(20)
+        Spacer()
     }
 }
+
 
