@@ -29,93 +29,108 @@ struct MoonInformation: View {
                                 .padding(.trailing, 20)
                         })
                     }
-                    // .padding(.top, 20)
                 }
             }
             
             Text(currentWeather.moonEmoji)
                 .font(.system(size: 130))
             
-//            Text(String(format: NSLocalizedString(currentWeather.moonPhase, comment: "")))
-//                .font(.title).bold()
-//                .padding(.bottom, 20)
-            
             Text(String(format: NSLocalizedString(currentWeather.moonMajorPhase, comment: "")))
                 .font(.title).bold()
- //               .padding(.bottom, 20)
             
             Text(FormatDateToString(date: .now, format: "EEEE d. MMMM yyyy HH:mm", offsetSec: weatherInfo.offsetSec).firstUppercased)
+
+            VStack {
+                
+                HStack(spacing: 40) {
+                    Text("Illumination")
+                    Text("MoonRise")
+                    Text("MoonSet")
+                }
+                
+                HStack(spacing: 100) {
+                    Text(currentWeather.moonIllumination)
+                    Text(currentWeather.moonrise)
+                    Text(currentWeather.moonset)
+                }
+                
+ 
+                
+                
+            }
+             
+            
             
             
             ScrollView {
                     ///
                     /// Illumination
                     ///
-                HStack {
-                    HStack {
-                        Text("Illumination")
-                        Spacer()
-                    }
-                    HStack {
-                        Spacer()
-                        Text(currentWeather.moonIllumination)
-                        
-                    }
-                }
-                    ///
-                    /// MoonRise
-                    ///
-                HStack {
-                    HStack {
-                        Text("MoonRise")
-                        Spacer()
-                    }
-                    HStack {
-                        Spacer()
-                        Text(currentWeather.moonrise)
-                        
-                    }
-                }
-                    ///
-                    /// MoonSet
-                    ///
-                HStack {
-                    HStack {
-                        Text("MoonSet")
-                        Spacer()
-                    }
-                    HStack {
-                        Spacer()
-                        Text(currentWeather.moonset)
-                    }
-                }
-                    ///
-                    /// Next full moon
-                    ///
-                HStack {
-                    HStack {
-                        Text("Next full moon")
-                        Spacer()
-                    }
-                    HStack {
-                        Spacer()
-                        Text("\(currentWeather.daysToFullMoon) d")
-                    }
-                    
-                }
-                    ///
-                    /// Distance
-                    ///
-                HStack {
-                    HStack {
-                        Text("Distance")
-                        Spacer()
-                    }
-                    HStack {
-                        Spacer()
-                        Text("\(currentWeather.distanceToMoon) km")
-                    }
-                }
+//                HStack {
+//                    HStack {
+//                        Text("Illumination")
+//                        Spacer()
+//                    }
+//                    HStack {
+//                        Spacer()
+//                        Text(currentWeather.moonIllumination)
+//                        
+//                    }
+//                }
+//                    ///
+//                    /// MoonRise
+//                    ///
+//                HStack {
+//                    HStack {
+//                        Text("MoonRise")
+//                        Spacer()
+//                    }
+//                    HStack {
+//                        Spacer()
+//                        Text(currentWeather.moonrise)
+//                        
+//                    }
+//                }
+//                    ///
+//                    /// MoonSet
+//                    ///
+//                HStack {
+//                    HStack {
+//                        Text("MoonSet")
+//                        Spacer()
+//                    }
+//                    HStack {
+//                        Spacer()
+//                        Text(currentWeather.moonset)
+//                    }
+//                }
+//                    ///
+//                    /// Next full moon
+//                    ///
+//                HStack {
+//                    HStack {
+//                        Text("Next full moon")
+//                        Spacer()
+//                    }
+//                    HStack {
+//                        Spacer()
+//                        Text("\(currentWeather.daysToFullMoon) d")
+//                    }
+//                    
+//                }
+//                    ///
+//                    /// Distance
+//                    ///
+//                HStack {
+//                    HStack {
+//                        Text("Distance")
+//                        Spacer()
+//                    }
+//                    HStack {
+//                        Spacer()
+//                        Text("\(currentWeather.distanceToMoon) km")
+//                    }
+//                }
                     ///
                     /// Calendar
                     ///

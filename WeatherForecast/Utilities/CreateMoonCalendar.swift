@@ -159,7 +159,7 @@ struct MoonPhaseCalendar: View {
         formatter.calendar = calendar
         formatter.locale = Locale.autoupdatingCurrent
         formatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "yMMMM", options: 0, locale: formatter.locale)
-        return formatter.string(from: date)
+        return formatter.string(from: date).firstUppercased
     }
     
     private func daysInMonth(for date: Date) -> [Date?] {

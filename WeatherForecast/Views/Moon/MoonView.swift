@@ -40,7 +40,7 @@ struct MoonView: View {
                         ///
                         /// Bruker NSLocalizedString ved kall til en variabel
                         ///
-                    Text(String(format: NSLocalizedString(currentWeather.moonPhase, comment: "")).uppercased())
+                    Text(String(format: NSLocalizedString(currentWeather.moonMajorPhase, comment: "")).uppercased())
                         .font(.system(size: screenSize.screenWidth == 368 ? 14.5 : 15, weight: .bold))
                 }
             }
