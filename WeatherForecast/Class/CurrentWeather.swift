@@ -70,6 +70,8 @@ import Observation
     var moonEmoji = String()
     /// moonPhase
     var moonPhase = String()
+    /// moonMajorPhase
+    var moonMajorPhase = String()
     /// moonrise
     var moonrise = String()
     /// moonset
@@ -86,7 +88,7 @@ import Observation
     var isSunUp = Int()
     
     ///
-    /// Økning / minking av lenden på dagslys
+    /// Økning / minking av lengden på dagslys
     ///
     
     var dayLength: Int = 0

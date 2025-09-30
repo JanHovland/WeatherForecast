@@ -7,6 +7,7 @@
 
 class MoonData {
     var phase: String
+    var moonMajorPhase: String
     var emoji: String
     var illumination: String
     var daysUntilNextFullMoon: Int
@@ -15,6 +16,7 @@ class MoonData {
     var distance: Double
     
     init(phase: String,
+         moonMajorPhase: String,
          emoji: String,
          illumination: String,
          daysUntilNextFullMoon: Int,
@@ -23,7 +25,7 @@ class MoonData {
          distance: Double) {
         
         self.phase = phase
-        
+        self.moonMajorPhase = moonMajorPhase
         self.emoji = emoji
         self.illumination = illumination
         self.daysUntilNextFullMoon = daysUntilNextFullMoon
@@ -34,6 +36,7 @@ class MoonData {
     
     convenience init(moonrise: String) {
         self.init(phase: "",
+                  moonMajorPhase: "",
                   emoji: "",
                   illumination: "",
                   daysUntilNextFullMoon: 0,

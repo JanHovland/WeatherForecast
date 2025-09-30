@@ -40,47 +40,59 @@ struct MoonInformation: View {
                 .font(.title).bold()
                 .padding(.bottom, 20)
             
+            Text(String(format: NSLocalizedString(currentWeather.moonMajorPhase, comment: "")))
+                .font(.title).bold()
+                .padding(.bottom, 20)
+            
             Text(FormatDateToString(date: .now, format: "EEEE d. MMMM yyyy HH:mm", offsetSec: weatherInfo.offsetSec).firstUppercased)
             
             
             ScrollView {
-                ///
-                /// Illumination
-                ///
+                    ///
+                    /// Illumination
+                    ///
                 HStack {
-                    Text("Illumination")
-                    Spacer()
+                    HStack {
+                        Text("Illumination")
+                        Spacer()
+                    }
+                    HStack {
+                        Spacer()
+                        Text(currentWeather.moonIllumination)
+                        
+                    }
                 }
+                    ///
+                    /// MoonRise
+                    ///
                 HStack {
-                    Spacer()
-                    Text(currentWeather.moonIllumination)
-                    
+                    HStack {
+                        Text("MoonRise")
+                        Spacer()
+                    }
+                    HStack {
+                        Spacer()
+                        Text(currentWeather.moonrise)
+                        
+                    }
                 }
-                ///
-                /// MoonRise
-                ///
+                    ///
+                    /// MoonSet
+                    ///
                 HStack {
-                    Text("MoonRise")
-                    Spacer()
+                    HStack {
+                        Text("MoonSet")
+                        Spacer()
+                    }
+                    HStack {
+                        Spacer()
+                        Text(currentWeather.moonset)
+                    }
                 }
-                HStack {
-                    Spacer()
-                    Text(currentWeather.moonrise)
-                    
-                }
-                ///
-                /// MoonSet
-                ///
-                HStack {
-                    Text("MoonSet")
-                    Spacer()
-                }
-                HStack {
-                    Spacer()
-                    Text(currentWeather.moonset)
                     ///
                     /// Next full moon
                     ///
+                HStack {
                     HStack {
                         Text("Next full moon")
                         Spacer()
@@ -90,29 +102,31 @@ struct MoonInformation: View {
                         Text("\(currentWeather.daysToFullMoon) d")
                     }
                     
+                }
                     ///
                     /// Distance
                     ///
-//                    HStack {
-//                        Text("Distance")
-//                        Spacer()
-//                    }
-//                    HStack {
-//                        Spacer()
-//                        Text("\(currentWeather.distanceToMoon) km")
-//                    }
+                HStack {
+                    HStack {
+                        Text("Distance")
+                        Spacer()
+                    }
+                    HStack {
+                        Spacer()
+                        Text("\(currentWeather.distanceToMoon) km")
+                    }
+                }
                     ///
                     /// Calendar
                     ///
-                    
-                }
+                
             }
-            .padding(30)
         }
+        .padding(30)
         .scrollIndicators(.hidden)
-        .padding(20)
         Spacer()
     }
 }
+
 
 

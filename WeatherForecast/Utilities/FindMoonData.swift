@@ -18,6 +18,7 @@ func findMoonData(date: String,
     
         // Ensure the local variable is initialized on all paths
     let moonData = MoonData(phase: "",
+                            moonMajorPhase: "",
                             emoji: "",
                             illumination: "",
                             daysUntilNextFullMoon: 0,
@@ -69,6 +70,7 @@ func findMoonData(date: String,
             let decoded = try JSONDecoder().decode(RapidAdvanced.self, from: data)
   
             moonData.phase = decoded.moon.phaseName
+            moonData.moonMajorPhase = decoded.moon.majorPhase
             
             moonData.emoji = emojiForPhase(decoded.moon.phaseName)
             moonData.illumination = decoded.moon.illumination
