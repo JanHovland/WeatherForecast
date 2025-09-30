@@ -16,7 +16,6 @@ struct MoonInformation: View {
     var body: some View {
         VStack {
             ZStack {
-                HStack {C
                     Spacer()
                     VStack {
                         Button(action: {
@@ -37,7 +36,7 @@ struct MoonInformation: View {
                 Text(currentWeather.moonEmoji)
                     .font(.system(size: 130))
                 Text(String(format: NSLocalizedString(currentWeather.moonMajorPhase, comment: "")))
-                    .font(.title2).bold()
+                    .font(.tit).bold()
                 Text(FormatDateToString(date: .now, format: "EEEE d. MMMM yyyy HH:mm", offsetSec: weatherInfo.offsetSec).firstUppercased)
             }
             .offset(x:0, y:-40)
