@@ -32,12 +32,14 @@ struct MoonInformation: View {
             }
         }
         VStack {
-                Text(currentWeather.moonEmoji)
-                    .font(.system(size: 130))
-                    .padding(.top, -50)
-                Text(String(format: NSLocalizedString(currentWeather.moonMajorPhase, comment: "")))
-                    .font(.title2).bold()
-                Text(FormatDateToString(date: .now, format: "EEEE d. MMMM yyyy HH:mm", offsetSec: weatherInfo.offsetSec).firstUppercased)
+            Text(currentWeather.moonEmoji)
+                .font(.system(size: 130))
+                .padding(.top, -50)
+            Text(String(format: NSLocalizedString(currentWeather.moonMajorPhase, comment: "")))
+                .font(.title2).bold()
+                .padding(.bottom, 10)
+            Text(FormatDateToString(date: .now, format: "EEEE d. MMMM yyyy HH:mm", offsetSec: weatherInfo.offsetSec).firstUppercased)
+                .padding(.bottom, 10)
             VStack {
                 HStack(spacing: 40) {
                     Text("Illumination")
@@ -56,19 +58,22 @@ struct MoonInformation: View {
                     ///
                 MoonPhaseCalendar()
                 
-                VStack(alignment: .leading) {
+                VStack() {
                     Text("About illumination")
-                    
-                    Text("dfghjkløjhgvvbhjklølkjhnvbh")
+                        .font(.system(.title2)).bold()
+                        .padding(20)
+                     
+                    Text("Illumination refers to the percentage of the moon's Earth-facing surface that is lit up by the sun. A full moon is 100% lit up, and a new moon is 0% lit up. This percentage does not take into account whether the moon is risen or whether there are any clouds, so the number can be above zero even when you can't see the moon.")
                     
                     Text("About Moon Distance")
-                    
-                    Text("dfghjkløæølkjhcvbhnjmk,l.økjhnbgvfhjklølkjhn")
+                        .font(.system(.title2)).bold()
+                        .padding(20)
+                        
+                    Text("The moon has an elliptical orbit, which means its distance from the Earth changes throughout the month. The distance is measured from the core of the moon to the Earth's core and varies from approximately 356 500 km to 406 700 km.")
                 }
                 .padding(20)
             }
         }
-        // .padding(.horizontal,30)
         .scrollIndicators(.hidden)
         Spacer()
     }
