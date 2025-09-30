@@ -29,20 +29,20 @@ struct MoonInformation: View {
                                 .padding(.trailing, 20)
                         })
                     }
-                    .padding(.top, 20)
+                    // .padding(.top, 20)
                 }
             }
             
             Text(currentWeather.moonEmoji)
                 .font(.system(size: 130))
             
-            Text(String(format: NSLocalizedString(currentWeather.moonPhase, comment: "")))
-                .font(.title).bold()
-                .padding(.bottom, 20)
+//            Text(String(format: NSLocalizedString(currentWeather.moonPhase, comment: "")))
+//                .font(.title).bold()
+//                .padding(.bottom, 20)
             
             Text(String(format: NSLocalizedString(currentWeather.moonMajorPhase, comment: "")))
                 .font(.title).bold()
-                .padding(.bottom, 20)
+ //               .padding(.bottom, 20)
             
             Text(FormatDateToString(date: .now, format: "EEEE d. MMMM yyyy HH:mm", offsetSec: weatherInfo.offsetSec).firstUppercased)
             
@@ -119,10 +119,10 @@ struct MoonInformation: View {
                     ///
                     /// Calendar
                     ///
-                
+                MoonPhaseCalendar()
             }
         }
-        .padding(30)
+        .padding(.horizontal,30)
         .scrollIndicators(.hidden)
         Spacer()
     }
