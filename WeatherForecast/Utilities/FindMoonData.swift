@@ -7,6 +7,11 @@
 
 import Foundation
 
+private func formatTimeIfPresent(_ seconds: Int?) -> String {
+    guard let seconds else { return "" }
+    return formatTime(fromUnixSeconds: seconds)
+}
+
 func findMoonData(date: String,
                   url: String,
                   latitude: Double,
@@ -16,9 +21,12 @@ func findMoonData(date: String,
                   statusCode: Bool,
                   prettyPrint: Bool) async -> MoonData {
     
-        // Ensure the local variable is initialized on all paths
-    let moonData = MoonData(phase: "",
-                            moonMajorPhase: "",
+    // Ensure the local variable is initialized on all paths
+    let moonData = MoonData(phaseName: "",
+                            majorPhase: "",
+                            phase: 0.00,
+                            stage: "",
+                            moonSign: "",
                             emoji: "",
                             illumination: "",
                             daysUntilNextFullMoon: 0,
@@ -69,8 +77,11 @@ func findMoonData(date: String,
         do {
             let decoded = try JSONDecoder().decode(RapidAdvanced.self, from: data)
   
-            moonData.phase = decoded.moon.phaseName
-            moonData.moonMajorPhase = decoded.moon.majorPhase
+            moonData.phaseName = decoded.moon.phaseName
+            moonData.majorPhase = decoded.moon.majorPhase
+            moonData.phase = decoded.moon.phase
+            moonData.stage = decoded.moon.stage
+            moonData.moonSign = decoded.moon.zodiac.moonSign
             
             moonData.emoji = emojiForPhase(decoded.moon.phaseName)
             moonData.illumination = decoded.moon.illumination
@@ -80,8 +91,11 @@ func findMoonData(date: String,
                 decoded.moon.detailed.upcomingPhases.fullMoon.next.timestamp
             )
             
-            moonData.moonrise = formatTime(fromUnixSeconds: decoded.moon.moonriseTimestamp)
-            moonData.moonset = formatTime(fromUnixSeconds: decoded.moon.moonsetTimestamp)
+            // moonriseTimestamp is an Int in the model, format directly
+            moonData.moonrise = formatTime(fromUnixSeconds: decoded.moon.moonriseTimestamp ?? 0)
+            
+            // moonsetTimestamp may be Int or Int?, format if present
+            moonData.moonset = formatTimeIfPresent(decoded.moon.moonsetTimestamp ?? 0)
             
             moonData.distance = decoded.moon.detailed.position.distance
         } catch {
@@ -94,4 +108,3 @@ func findMoonData(date: String,
     
     return moonData
 }
-

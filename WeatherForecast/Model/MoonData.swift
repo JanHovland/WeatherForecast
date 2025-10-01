@@ -6,8 +6,11 @@
  //
 
 class MoonData {
-    var phase: String
-    var moonMajorPhase: String
+    var phaseName: String
+    var majorPhase: String
+    var phase: Double
+    var stage: String
+    var moonSign: String
     var emoji: String
     var illumination: String
     var daysUntilNextFullMoon: Int
@@ -15,8 +18,11 @@ class MoonData {
     var moonset: String
     var distance: Double
     
-    init(phase: String,
-         moonMajorPhase: String,
+    init(phaseName: String,
+         majorPhase: String,
+         phase: Double,
+         stage: String,
+         moonSign: String,
          emoji: String,
          illumination: String,
          daysUntilNextFullMoon: Int,
@@ -24,8 +30,12 @@ class MoonData {
          moonset: String,
          distance: Double) {
         
+        self.phaseName = phaseName
+        self.majorPhase = majorPhase
         self.phase = phase
-        self.moonMajorPhase = moonMajorPhase
+        self.stage = stage
+        self.moonSign = moonSign
+        
         self.emoji = emoji
         self.illumination = illumination
         self.daysUntilNextFullMoon = daysUntilNextFullMoon
@@ -35,8 +45,11 @@ class MoonData {
     }
     
     convenience init(moonrise: String) {
-        self.init(phase: "",
-                  moonMajorPhase: "",
+        self.init(phaseName: "",
+                  majorPhase: "",
+                  phase: 0.00,
+                  stage: "",
+                  moonSign: "",
                   emoji: "",
                   illumination: "",
                   daysUntilNextFullMoon: 0,

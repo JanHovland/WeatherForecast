@@ -102,8 +102,11 @@ struct WeatherForecast: View {
    
     @State public var errorMessage: LocalizedStringKey = ""
     
-    @State private var moonData: MoonData = MoonData(phase: "",
-                                                     moonMajorPhase: "",
+    @State private var moonData: MoonData = MoonData(phaseName: "",
+                                                     majorPhase: "",
+                                                     phase: 0.00,
+                                                     stage: "",
+                                                     moonSign: "",
                                                      emoji: "",
                                                      illumination: "",
                                                      daysUntilNextFullMoon: 0,
@@ -468,8 +471,11 @@ struct WeatherForecast: View {
             ///
             /// Oppdaterer CurrentWeather
             ///
-            currentWeather.moonPhase = moonData.phase
-            currentWeather.moonMajorPhase = moonData.moonMajorPhase
+            currentWeather.moonPhase = moonData.phaseName
+            currentWeather.moonMajorPhase = moonData.majorPhase
+            currentWeather.phase = moonData.phase
+            currentWeather.stage = moonData.stage
+            currentWeather.moonSign = moonData.moonSign
             currentWeather.moonEmoji = moonData.emoji
             currentWeather.moonIllumination = moonData.illumination
             currentWeather.moonrise = moonData.moonrise

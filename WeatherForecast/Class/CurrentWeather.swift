@@ -72,6 +72,12 @@ import Observation
     var moonPhase = String()
     /// moonMajorPhase
     var moonMajorPhase = String()
+    /// phase
+    var phase = Double()
+    /// stage
+    var stage = String()
+    /// moonSign
+    var moonSign = String()
     /// moonrise
     var moonrise = String()
     /// moonset

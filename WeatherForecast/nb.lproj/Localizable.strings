@@ -2059,3 +2059,15 @@
 
 /* No comment provided by engineer. */
 "No Rapid host key found." = "Finner ikke host nøkkel for RapidApi.";
+
+/* No comment provided by engineer. */
+"Illumination refers to the percentage of the moon's Earth-facing surface that is lit up by the sun. A full moon is 100% lit up, and a new moon is 0% lit up. This percentage does not take into account whether the moon is risen or whether there are any clouds, so the number can be above zero even when you can't see the moon." = "Belysning refererer til prosentandelen av månens jordvendte overflate som er opplyst av solen. En fullmåne er 100 % opplyst, og en nymåne er 0 % opplyst. Denne prosentandelen tar ikke hensyn til om månen er oppstått eller om det er skyer, så tallet kan være over null selv når du ikke kan se månen.";
+
+/* No comment provided by engineer. */
+"Månen har en elliptisk bane, som betyr at avstanden fra jorden endrer seg gjennom måneden. Avstanden måles fra månens kjerne til jordens kjerne og varierer fra omtrent 356 500 km til 406 700 km." = "Månen har en elliptisk bane, som betyr at avstanden fra jorden endrer seg gjennom måneden. Avstanden måles fra månens kjerne til jordens kjerne og varierer fra omtrent 356 500 km til 406 700 km.";
+
+* No comment provided by engineer. */
+"About illumination" = "Opplysning av månen";
+
+/* No comment provided by engineer. */
+"About Moon Distance" = "Distanse til månen";

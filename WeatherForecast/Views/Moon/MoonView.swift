@@ -40,9 +40,11 @@ struct MoonView: View {
                         ///
                         /// Bruker NSLocalizedString ved kall til en variabel
                         ///
-                    Text(String(format: NSLocalizedString(currentWeather.moonMajorPhase, comment: "")).uppercased())
+                    Text(String(format: NSLocalizedString(currentWeather.moonPhase, comment: "")).uppercased())
                         .font(.system(size: screenSize.screenWidth == 368 ? 14.5 : 15, weight: .bold))
-                }
+//                    Text(String(format: NSLocalizedString(currentWeather.moonMajorPhase, comment: "")).uppercased())
+//                        .font(.system(size: screenSize.screenWidth == 368 ? 14.5 : 15, weight: .bold))
+ }
             }
             .opacity(0.50)
             .padding(.top, 20)
@@ -50,7 +52,68 @@ struct MoonView: View {
                 /// Viser selve månen som en emoji:
                 ///
             Text(currentWeather.moonEmoji)
-                .font(.system(size: 130))
+                .font(.system(size: 70))
+            
+                ///
+                /// phase
+                ///
+                HStack {
+                    HStack {
+                        Text("moonMajorPhase")
+                        Spacer()
+                    }
+                    HStack {
+                        Spacer()
+                        Text(String(format: NSLocalizedString(currentWeather.moonMajorPhase, comment: "")))
+                            
+                    }
+                }
+            
+                ///
+                /// phase
+                ///
+                HStack {
+                    HStack {
+                        Text("Phase")
+                        Spacer()
+                    }
+                    HStack {
+                        Spacer()
+                        Text("\(currentWeather.phase)")
+                    }
+                }
+                
+                ///
+                /// stage
+                ///
+                HStack {
+                    HStack {
+                        Text("Stage")
+                        Spacer()
+                    }
+                    HStack {
+                        Spacer()
+                        Text("\(currentWeather.stage)")
+                    }
+                }
+                
+                ///
+                /// moonSign
+                ///
+                HStack {
+                    HStack {
+                        Text("MoonSign")
+                        Spacer()
+                    }
+                    HStack {
+                        Spacer()
+                        Text(currentWeather.moonSign)
+                    }
+                }
+                
+
+            
+            
                 ///
                 /// Viser styrken på lyset fra månen:
                 ///

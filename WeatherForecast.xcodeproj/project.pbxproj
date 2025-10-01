@@ -100,6 +100,7 @@
 		DB554E5D2B7A9642009A25F5 /* FindSizeOfView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB554E5C2B7A9642009A25F5 /* FindSizeOfView.swift */; };
 		DB554E5F2B7A9DE4009A25F5 /* ScreenSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB554E5E2B7A9DE4009A25F5 /* ScreenSize.swift */; };
 		DB5B53E92E8BB7ED007AA08B /* CreateMoonCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5B53E82E8BB7ED007AA08B /* CreateMoonCalendar.swift */; };
+		DB5B53F92E8D1595007AA08B /* Untitled.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5B53F82E8D1591007AA08B /* Untitled.swift */; };
 		DB5C0C2E29151B6900141BDC /* Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5C0C2D29151B6900141BDC /* Enum.swift */; };
 		DB5C0C3029151C9600141BDC /* FindDataFromMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5C0C2F29151C9600141BDC /* FindDataFromMenu.swift */; };
 		DB5C0C322915263600141BDC /* MenuTitleToOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5C0C312915263600141BDC /* MenuTitleToOption.swift */; };
@@ -336,6 +337,7 @@
 		DB554E5C2B7A9642009A25F5 /* FindSizeOfView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindSizeOfView.swift; sourceTree = "<group>"; };
 		DB554E5E2B7A9DE4009A25F5 /* ScreenSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenSize.swift; sourceTree = "<group>"; };
 		DB5B53E82E8BB7ED007AA08B /* CreateMoonCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateMoonCalendar.swift; sourceTree = "<group>"; };
+		DB5B53F82E8D1591007AA08B /* Untitled.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Untitled.swift; sourceTree = "<group>"; };
 		DB5C0C2D29151B6900141BDC /* Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enum.swift; sourceTree = "<group>"; };
 		DB5C0C2F29151C9600141BDC /* FindDataFromMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindDataFromMenu.swift; sourceTree = "<group>"; };
 		DB5C0C312915263600141BDC /* MenuTitleToOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTitleToOption.swift; sourceTree = "<group>"; };
@@ -700,6 +702,7 @@
 		DB51163828E43BBC00DEB1BF /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				DB5B53F82E8D1591007AA08B /* Untitled.swift */,
 				DBCD43722AEE2BE9007543BE /* AirQuality.swift */,
 				DBCD43762AEE3AA2007543BE /* AirQualityRecord.swift */,
 				DB9E26DE2AF39F6B00DF3AE9 /* AQLimit.swift */,
@@ -1377,6 +1380,7 @@
 				DB954E0E2BD8EC190062F1C7 /* GetAverageDailyWeatherYears.swift in Sources */,
 				DB256530296C14140007EBF9 /* DayDetailBackground.swift in Sources */,
 				DB2340C629030CA8005F8974 /* MenuContent.swift in Sources */,
+				DB5B53F92E8D1595007AA08B /* Untitled.swift in Sources */,
 				DB112ADE2964B906000F6862 /* FeltTemp.swift in Sources */,
 				DB0965D82949FBC700B76812 /* TranslateDay.swift in Sources */,
 				DB054769297086B20034AFBD /* DayDetailMenuDataViewOffsetViewModifier.swift in Sources */,
