@@ -37,11 +37,16 @@ struct MoonView: View {
                     ///
                 HStack {
                     Spacer()
+                    
+                    Text(currentWeather.moonPhase)
+                    
+                    
+                    
                         ///
                         /// Bruker NSLocalizedString ved kall til en variabel
                         ///
-                    Text(String(format: NSLocalizedString(currentWeather.moonPhase, comment: "")).uppercased())
-                        .font(.system(size: screenSize.screenWidth == 368 ? 14.5 : 15, weight: .bold))
+//                    Text(String(format: NSLocalizedString(currentWeather.moonPhase, comment: "")).uppercased())
+//                        .font(.system(size: screenSize.screenWidth == 368 ? 14.5 : 15, weight: .bold))
 //                    Text(String(format: NSLocalizedString(currentWeather.moonMajorPhase, comment: "")).uppercased())
 //                        .font(.system(size: screenSize.screenWidth == 368 ? 14.5 : 15, weight: .bold))
  }
@@ -64,7 +69,8 @@ struct MoonView: View {
                     }
                     HStack {
                         Spacer()
-                        Text(String(format: NSLocalizedString(currentWeather.moonMajorPhase, comment: "")))
+                        Text(currentWeather.moonMajorPhase)
+//                        Text(String(format: NSLocalizedString(currentWeather.moonMajorPhase, comment: "")))
                             
                     }
                 }

@@ -15,6 +15,7 @@ import SwiftUI
     "phase_name": "Waxing gibbous"
     This is the descriptive name of the moon’s appearance.
     Waxing = the illuminated portion is increasing.
+    Waning = the illuminated portion is decreasing.
     Gibbous = more than half, but not fully illuminated.
     "phase": 0.28480021663618876
  
@@ -31,6 +32,20 @@ import SwiftUI
     Since 0.2848 is closer to 0.25 (First Quarter) than to 0.5 (Full Moon), it’s grouped under First Quarter.
     "stage": "waxing"
     Indicates whether the moon is waxing (growing toward Full Moon) or waning (shrinking toward New Moon).
+ 
+     🌖 What It Looks Like
+    “Gibbous” means the Moon is more than half illuminated, but not full.
+    “Waning” means the illuminated portion is shrinking each night.
+    Visually: the Moon looks round but slightly shrinking, with light still covering most of its face.
+    📍 When It Happens
+    The Waning Gibbous comes right after the Full Moon.
+    In the lunar cycle fraction (0 → 1):
+    Full Moon = 0.5
+    Last Quarter = 0.75
+    Waning Gibbous happens between 0.5 and 0.75.
+    So, for example:
+    At 0.6 phase → Waning Gibbous
+    At 0.7 phase → Still Waning Gibbous, getting close to Last Quarter
  
     🌗 The Main Moon Phases
     New Moon (0.0) → completely dark 🌑
