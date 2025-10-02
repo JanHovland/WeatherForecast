@@ -126,7 +126,7 @@
     struct Next: Codable {
         let daysAhead: Int
         let datestamp: String
-        let timestamp: Int
+        let timestamp: Int?
         
         enum CodingKeys: String, CodingKey {
             case daysAhead = "days_ahead"
@@ -141,7 +141,7 @@
 
         // MARK: - NextClass
     struct NextClass: Codable {
-        let timestamp: Int
+        let timestamp: Int?
         let datestamp, name: String
         let daysAgo: Int?
         let description: String

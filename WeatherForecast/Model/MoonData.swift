@@ -17,6 +17,9 @@ class MoonData {
     var moonrise: String
     var moonset: String
     var distance: Double
+    var fullMoon: String
+    var newMoon: String
+    
     
     init(phaseName: String,
          majorPhase: String,
@@ -28,7 +31,9 @@ class MoonData {
          daysUntilNextFullMoon: Int,
          moonrise: String,
          moonset: String,
-         distance: Double) {
+         distance: Double,
+         fullMoon: String,
+         newMoon: String) {
         
         self.phaseName = phaseName
         self.majorPhase = majorPhase
@@ -42,6 +47,8 @@ class MoonData {
         self.moonrise = moonrise
         self.moonset = moonset
         self.distance = distance
+        self.fullMoon = fullMoon
+        self.newMoon = newMoon
     }
     
     convenience init(moonrise: String) {
@@ -55,6 +62,8 @@ class MoonData {
                   daysUntilNextFullMoon: 0,
                   moonrise: "",
                   moonset: "",
-                  distance: 0.00)
+                  distance: 0.00,
+                  fullMoon: "",
+                  newMoon: "")
     }
 }

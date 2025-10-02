@@ -32,7 +32,9 @@ func findMoonData(date: String,
                             daysUntilNextFullMoon: 0,
                             moonrise: "",
                             moonset: "",
-                            distance: 0.00)
+                            distance: 0.00,
+                            fullMoon: "",
+                            newMoon: "")
     
     let urlString = url + "lat=" + "\(latitude)" + "&lon=" + "\(longitude)" + "&date=" + date
     
@@ -88,11 +90,11 @@ func findMoonData(date: String,
             
             moonData.daysUntilNextFullMoon = signedDaysBetweenUnixTimestamps(
                 decoded.timestamp,
-                decoded.moon.detailed.upcomingPhases.fullMoon.next.timestamp
+                decoded.moon.detailed.upcomingPhases.fullMoon.next.timestamp ?? 0
             )
             
-            // moonriseTimestamp is an Int in the model, format directly
-            moonData.moonrise = formatTime(fromUnixSeconds: decoded.moon.moonriseTimestamp ?? 0)
+            // moonriseTimestamp may be Int or Int?, format if present
+            moonData.moonrise = formatTimeIfPresent(decoded.moon.moonriseTimestamp ?? 0)
             
             // moonsetTimestamp may be Int or Int?, format if present
             moonData.moonset = formatTimeIfPresent(decoded.moon.moonsetTimestamp ?? 0)

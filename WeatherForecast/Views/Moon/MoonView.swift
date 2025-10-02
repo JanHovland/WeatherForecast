@@ -64,7 +64,21 @@ struct MoonView: View {
                 ///
                 HStack {
                     HStack {
-                        Text("moonMajorPhase")
+                        Text("Phase")
+                        Spacer()
+                    }
+                    HStack {
+                        Spacer()
+                        Text("\(currentWeather.phase)")
+                    }
+                }
+                
+                ///
+                /// majorPhase
+                ///
+                HStack {
+                    HStack {
+                        Text("MajorPhase")
                         Spacer()
                     }
                     HStack {
@@ -75,20 +89,6 @@ struct MoonView: View {
                     }
                 }
             
-                ///
-                /// phase
-                ///
-                HStack {
-                    HStack {
-                        Text("Phase")
-                        Spacer()
-                    }
-                    HStack {
-                        Spacer()
-                        Text("\(currentWeather.phase)")
-                    }
-                }
-                
                 ///
                 /// stage
                 ///

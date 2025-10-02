@@ -567,6 +567,7 @@
 				DB6DE823297D3017005BCCF9 /* ConnectToInternet.swift */,
 				DBDF8D832BD18B1000D4113D /* ConvertDate.swift */,
 				DB3E191F2B149DE0001FDF07 /* ConvertImage.swift */,
+				DB5B53E82E8BB7ED007AA08B /* CreateMoonCalendar.swift */,
 				DBC65DE62907FE6B004635FE /* DateCalculation.swift */,
 				DB53CB3C29903FEB004D0C71 /* DateString.swift */,
 				DB4A0C3E29AE85D00055AAD7 /* DaysBetween.swift */,
@@ -612,7 +613,6 @@
 				DB17F6AD295ECF0C00FC2A0B /* UvIndexDescription.swift */,
 				DBDBCC6529521B99005AEB05 /* WeatherTranslateType.swift */,
 				DB17F6AF295F6BA100FC2A0B /* WindDirection.swift */,
-				DB5B53E82E8BB7ED007AA08B /* CreateMoonCalendar.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";

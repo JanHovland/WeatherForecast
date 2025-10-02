@@ -112,7 +112,9 @@ struct WeatherForecast: View {
                                                      daysUntilNextFullMoon: 0,
                                                      moonrise: "",
                                                      moonset: "",
-                                                     distance: 0.00)
+                                                     distance: 0.00,
+                                                     fullMoon: "",
+                                                     newMoon: "")
    
     var body: some View {
         VStack {

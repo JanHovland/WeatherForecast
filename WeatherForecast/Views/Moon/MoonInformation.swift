@@ -92,7 +92,7 @@ struct MoonInformation: View {
             Text(currentWeather.moonEmoji)
                 .font(.system(size: 130))
                 .padding(.top, -50)
-            Text(String(format: NSLocalizedString(currentWeather.moonMajorPhase, comment: "")))
+            Text(String(format: NSLocalizedString(currentWeather.moonPhase, comment: "")))
                 .font(.title2).bold()
                 .padding(.bottom, 10)
             Text(FormatDateToString(date: .now, format: "EEEE d. MMMM yyyy HH:mm", offsetSec: weatherInfo.offsetSec).firstUppercased)
@@ -110,16 +110,25 @@ struct MoonInformation: View {
                 }
             }
             ScrollView {
+                
                     ///
                     /// Calendar
                     ///
                 MoonPhaseCalendar()
                 
                 VStack() {
+                    Text("Full Moon")
+                        .fontWeight(.bold)
+                        .padding(20)
+                    
+                    Text("New Moon")
+                        .fontWeight(.bold)
+                        .padding(20)
+                    
                     Text("About illumination")
                         .fontWeight(.bold)
                         .padding(20)
-                     
+                    
                     Text("Illumination refers to the percentage of the moon's Earth-facing surface that is lit up by the sun. A full moon is 100% lit up, and a new moon is 0% lit up. This percentage does not take into account whether the moon is risen or whether there are any clouds, so the number can be above zero even when you can't see the moon.")
                     
                     Text("About Moon Distance")

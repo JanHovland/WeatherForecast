@@ -90,6 +90,10 @@ import Observation
     var daysToFullMoon = Int()
     /// distanceToMoon
     var distanceToMoon = Int()
+    /// fullMoon
+    var fullMoon = String()
+    /// newMoon
+    var newMoon = String()
     /// isSunUp
     var isSunUp = Int()
     
