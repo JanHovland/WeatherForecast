@@ -19,7 +19,8 @@ func findMoonData(date: String,
                   apiKey: String,
                   apiHost: String,
                   statusCode: Bool,
-                  prettyPrint: Bool) async -> MoonData {
+                  prettyPrint: Bool,
+                  offsetSec: Int) async -> MoonData {
     
     // Ensure the local variable is initialized on all paths
     let moonData = MoonData(phaseName: "",
@@ -100,6 +101,14 @@ func findMoonData(date: String,
             moonData.moonset = formatTimeIfPresent(decoded.moon.moonsetTimestamp ?? 0)
             
             moonData.distance = decoded.moon.detailed.position.distance
+            
+                // ullMoon.next.timestamp may be Int or Int?, format if present
+            moonData.fullMoon =
+            formatTimestamp(timestamp: TimeInterval(decoded.moon.detailed.upcomingPhases.fullMoon.next.timestamp ?? 0), offsetSec: offsetSec)
+            
+            moonData.newMoon =
+            formatTimestamp(timestamp: TimeInterval(decoded.moon.detailed.upcomingPhases.newMoon.next.timestamp ?? 0), offsetSec: offsetSec)
+            
         } catch {
             print("Decoding RapidAdvanced error:", error)
         }

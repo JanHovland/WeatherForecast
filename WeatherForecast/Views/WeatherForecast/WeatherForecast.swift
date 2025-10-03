@@ -469,7 +469,8 @@ struct WeatherForecast: View {
                                           apiKey: apiKey,
                                           apiHost: apiHost,
                                           statusCode: false,
-                                          prettyPrint: true)
+                                          prettyPrint: true,
+                                          offsetSec: weatherInfo.offsetSec)
             ///
             /// Oppdaterer CurrentWeather
             ///
@@ -484,6 +485,8 @@ struct WeatherForecast: View {
             currentWeather.moonset = moonData.moonset
             currentWeather.daysToFullMoon = moonData.daysUntilNextFullMoon
             currentWeather.distanceToMoon = Int(moonData.distance)
+            currentWeather.fullMoon = moonData.fullMoon
+            currentWeather.newMoon = moonData.newMoon
         }
         
         if persist == true {

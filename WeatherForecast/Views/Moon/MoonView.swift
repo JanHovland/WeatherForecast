@@ -57,7 +57,7 @@ struct MoonView: View {
                 /// Viser selve månen som en emoji:
                 ///
             Text(currentWeather.moonEmoji)
-                .font(.system(size: 70))
+                .font(.system(size: 30))
             
                 ///
                 /// phase
@@ -84,8 +84,6 @@ struct MoonView: View {
                     HStack {
                         Spacer()
                         Text(currentWeather.moonMajorPhase)
-//                        Text(String(format: NSLocalizedString(currentWeather.moonMajorPhase, comment: "")))
-                            
                     }
                 }
             
@@ -186,6 +184,36 @@ struct MoonView: View {
                     Text("\(currentWeather.distanceToMoon) km")
                 }
             }
+            
+                ///
+                /// neste fullmåne
+                ///
+            HStack {
+                HStack {
+                    Text("Neste fullmåne")
+                    Spacer()
+                }
+                HStack {
+                    Spacer()
+                    Text(currentWeather.fullMoon.firstUppercased)
+                }
+            }
+            
+                ///
+                /// neste nymåne
+                ///
+            HStack {
+                HStack {
+                    Text("Neste nymåne")
+                    Spacer()
+                }
+                HStack {
+                    Spacer()
+                    Text(currentWeather.newMoon.firstUppercased)
+                }
+            }
+            
+  
         }
         .padding(20)
         .offset(x: 0, y: -15)
@@ -201,3 +229,4 @@ struct MoonView: View {
         .modifier(DayDetailBackground(dayLight: currentWeather.isDaylight))
     }
 }
+
