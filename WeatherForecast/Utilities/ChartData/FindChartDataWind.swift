@@ -29,8 +29,8 @@ func FindChartDataWind(weather: Weather,
     
     var tempInfo: [Temperature]
     
-    let rangeGustMinValue =  9
-    let rangeGustMaxValue =  9
+//    let rangeGustMinValue =  9
+    let rangeGustAdditionValue =  7
 
     let value : ([Double],
                  [String],
@@ -68,6 +68,9 @@ func FindChartDataWind(weather: Weather,
     ///
     /// Tilhører Chart for vindstyrken:
     ///
+    /// min er minimumsverdi på vindstyrken
+    /// max er maksimalverdi på vindstyrken
+    ///
     min  = array.min()!
     max  = array.max()!
     minIndex = array.firstIndex(of: array.min()!)!
@@ -83,8 +86,13 @@ func FindChartDataWind(weather: Weather,
         n.value = tempInfo[windType].data[i].gust
         new.append(n)
     }
-    let gustMin = array.min()!
+    ///
+    /// gustMin er min verdi på vindkastene
+    /// gustMax er max verdi på vindkastene
+    ///
+    // let gustMin = array.min()!
     let gustMax = array.max()!
+    /*
     ///
     /// Beregner rangeFrom
     ///
@@ -102,6 +110,12 @@ func FindChartDataWind(weather: Weather,
         rangeTo = Int(max) + rangeGustMaxValue
         
     }
+    */
+    
+    rangeFrom = 0
+    rangeTo = Int(gustMax) + rangeGustAdditionValue
+    
     return (new, min, max, minIndex, maxIndex, rangeFrom, rangeTo)
 
 }
+

@@ -514,11 +514,11 @@ struct DayDetailChart: View {
                     )
                     .foregroundStyle(.black.opacity(0.35))
                 }
-                .frame(maxWidth: .infinity, //    frameWidth,
+                .frame(maxWidth: .infinity,
                        minHeight: 200,
-                       maxHeight: 250) //frameHeight)
+                       maxHeight: 250)
                 .padding()
-                .chartXScale(domain: 0...24)
+                .chartXScale(domain: 0...23)
                 ///
                 /// Endrer y aksen for:
                 ///     . uvIndex,
@@ -527,7 +527,7 @@ struct DayDetailChart: View {
                 .modifier(DayDetailChartYaxis(option: option, from: rangeFrom, to: rangeTo))
                 .chartYAxisLabel(ShowUnit(option: option),
                                  position: .top,
-                                 spacing: 6)
+                                 spacing: 3)  /// avstand mellom rangeTo og betegnelsen (m/s o.l.)
                 .chartXSelection(value: $selectedIndex)
                 .offset(y: UIDevice.isIpad ? 10 : 10)
             }
