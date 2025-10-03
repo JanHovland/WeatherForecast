@@ -144,6 +144,7 @@
 		DB7B6505294B8F16009822E5 /* Temperature.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7B6504294B8F16009822E5 /* Temperature.swift */; };
 		DB7D8D3B2B66401700A62B34 /* CountryName.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7D8D3A2B66401700A62B34 /* CountryName.swift */; };
 		DB803BAB2BA5EE9B005C5BD5 /* GetAverageDayWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB803BAA2BA5EE9B005C5BD5 /* GetAverageDayWeather.swift */; };
+		DB80F1A12E8FC33900E17D58 /* MoonInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB80F1A02E8FC33900E17D58 /* MoonInfo.swift */; };
 		DB8293662B1B40D50055BE65 /* Beaufort.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8293652B1B40D50055BE65 /* Beaufort.swift */; };
 		DB82F5B92971CF9800818841 /* CloudKitPlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB82F5B82971CF9800818841 /* CloudKitPlace.swift */; };
 		DB82F5BC2971D0F800818841 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB82F5BB2971D0F800818841 /* Config.swift */; };
@@ -381,6 +382,7 @@
 		DB7B6504294B8F16009822E5 /* Temperature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Temperature.swift; sourceTree = "<group>"; };
 		DB7D8D3A2B66401700A62B34 /* CountryName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryName.swift; sourceTree = "<group>"; };
 		DB803BAA2BA5EE9B005C5BD5 /* GetAverageDayWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAverageDayWeather.swift; sourceTree = "<group>"; };
+		DB80F1A02E8FC33900E17D58 /* MoonInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoonInfo.swift; sourceTree = "<group>"; };
 		DB8293652B1B40D50055BE65 /* Beaufort.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beaufort.swift; sourceTree = "<group>"; };
 		DB82F5B82971CF9800818841 /* CloudKitPlace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitPlace.swift; sourceTree = "<group>"; };
 		DB82F5BB2971D0F800818841 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
@@ -804,8 +806,9 @@
 		DB66C1A42AF65B1B00C2722E /* Moon */ = {
 			isa = PBXGroup;
 			children = (
-				DB4FA8C42AEF937E00533266 /* MoonView.swift */,
+				DB80F1A02E8FC33900E17D58 /* MoonInfo.swift */,
 				DB00F03F2E8A7776008DD200 /* MoonInformation.swift */,
+				DB4FA8C42AEF937E00533266 /* MoonView.swift */,
 			);
 			path = Moon;
 			sourceTree = "<group>";
@@ -1295,6 +1298,7 @@
 				DB17F6A0295DF11800FC2A0B /* DayDetailWeatherDataUvIndex.swift in Sources */,
 				DBF1038529A92C56008B4281 /* SearchBar.swift in Sources */,
 				DB26AEC1296F22DE007B4B88 /* PrecipitationFindRestOfDay.swift in Sources */,
+				DB80F1A12E8FC33900E17D58 /* MoonInfo.swift in Sources */,
 				DBC65DE72907FE6B004635FE /* DateCalculation.swift in Sources */,
 				DB4A8DAC294857370067C4F8 /* InfoVisibility.swift in Sources */,
 				DBFA0FEC2B60F61E0008E358 /* CountryRecord.swift in Sources */,

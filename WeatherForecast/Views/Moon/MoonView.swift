@@ -1,16 +1,16 @@
-    //
-    //  MoonView.swift
-    //  WeatherForecast
-    //
-    //  Created by Jan Hovland on 30/10/2023.
-    //
+//
+//  MoonView.swift
+//  WeatherForecast
+//
+//  Created by Jan Hovland on 30/10/2023.
+//
 
 import SwiftUI
 
-    ///
-    /// Viser månefasene pr. år/måned:
-    /// https://stardate.org/nightsky/moon
-    ///
+///
+/// Viser månefasene pr. år/måned:
+/// https://stardate.org/nightsky/moon
+///
 
 struct MoonView: View {
     @Environment(CurrentWeather.self) private var currentWeather
@@ -21,9 +21,9 @@ struct MoonView: View {
     var body: some View {
         VStack {
             HStack {
-                    ///
-                    /// Viser overskriften for månen:
-                    ///
+                ///
+                /// Viser overskriften for månen:
+                ///
                 HStack {
                     Image(systemName: "moon")
                         .symbolRenderingMode(.multicolor)
@@ -32,189 +32,40 @@ struct MoonView: View {
                         .font(.system(size: screenSize.screenWidth == 368 ? 14.5 : 15, weight: .bold))
                     Spacer()
                 }
-                    ///
-                    /// Viser måne fasen
-                    ///
+                ///
+                /// Viser måne fasen
+                ///
                 HStack {
                     Spacer()
-                    
                     Text(currentWeather.moonPhase)
-                    
-                    
-                    
                         ///
                         /// Bruker NSLocalizedString ved kall til en variabel
                         ///
-//                    Text(String(format: NSLocalizedString(currentWeather.moonPhase, comment: "")).uppercased())
-//                        .font(.system(size: screenSize.screenWidth == 368 ? 14.5 : 15, weight: .bold))
-//                    Text(String(format: NSLocalizedString(currentWeather.moonMajorPhase, comment: "")).uppercased())
-//                        .font(.system(size: screenSize.screenWidth == 368 ? 14.5 : 15, weight: .bold))
- }
+                        //                    Text(String(format: NSLocalizedString(currentWeather.moonPhase, comment: "")).uppercased())
+                        //                        .font(.system(size: screenSize.screenWidth == 368 ? 14.5 : 15, weight: .bold))
+                        //                    Text(String(format: NSLocalizedString(currentWeather.moonMajorPhase, comment: "")).uppercased())
+                        //                        .font(.system(size: screenSize.screenWidth == 368 ? 14.5 : 15, weight: .bold))
+                }
             }
             .opacity(0.50)
             .padding(.top, 20)
-                ///
-                /// Viser selve månen som en emoji:
-                ///
+            ///
+            /// Viser selve månen som en emoji:
+            ///
             Text(currentWeather.moonEmoji)
                 .font(.system(size: 30))
-            
-                ///
-                /// phase
-                ///
-                HStack {
-                    HStack {
-                        Text("Phase")
-                        Spacer()
-                    }
-                    HStack {
-                        Spacer()
-                        Text("\(currentWeather.phase)")
-                    }
-                }
-                
-                ///
-                /// majorPhase
-                ///
-                HStack {
-                    HStack {
-                        Text("MajorPhase")
-                        Spacer()
-                    }
-                    HStack {
-                        Spacer()
-                        Text(currentWeather.moonMajorPhase)
-                    }
-                }
-            
-                ///
-                /// stage
-                ///
-                HStack {
-                    HStack {
-                        Text("Stage")
-                        Spacer()
-                    }
-                    HStack {
-                        Spacer()
-                        Text("\(currentWeather.stage)")
-                    }
-                }
-                
-                ///
-                /// moonSign
-                ///
-                HStack {
-                    HStack {
-                        Text("MoonSign")
-                        Spacer()
-                    }
-                    HStack {
-                        Spacer()
-                        Text(currentWeather.moonSign)
-                    }
-                }
-                
-
-            
-            
-                ///
-                /// Viser styrken på lyset fra månen:
-                ///
-            HStack {
-                HStack {
-                    Text("Illumination")
-                    Spacer()
-                }
-                HStack {
-                    Spacer()
-                    Text(currentWeather.moonIllumination)
-                }
-            }
-                ///
-                /// Måneoppgang:
-                ///
-            HStack {
-                HStack {
-                    Text("MoonRise")
-                    Spacer()
-                }
-                HStack {
-                    Spacer()
-                    Text(currentWeather.moonrise)
-                }
-            }
-                ///
-                /// Månenedgang:
-                ///
-            HStack {
-                HStack {
-                    Text("MoonSet")
-                    Spacer()
-                }
-                HStack {
-                    Spacer()
-                    Text(currentWeather.moonset)
-                }
-            }
-                ///
-                /// Dager til neste full måne:
-                ///
-            HStack {
-                HStack {
-                    Text("Next full moon")
-                    Spacer()
-                }
-                HStack {
-                    Spacer()
-                    Text("\(currentWeather.daysToFullMoon) d")
-                    
-                }
-            }
-                ///
-                /// Distanse til månen
-                ///
-            HStack {
-                HStack {
-                    Text("Distance")
-                    Spacer()
-                }
-                HStack {
-                    Spacer()
-                    Text("\(currentWeather.distanceToMoon) km")
-                }
-            }
-            
-                ///
-                /// neste fullmåne
-                ///
-            HStack {
-                HStack {
-                    Text("Neste fullmåne")
-                    Spacer()
-                }
-                HStack {
-                    Spacer()
-                    Text(currentWeather.fullMoon.firstUppercased)
-                }
-            }
-            
-                ///
-                /// neste nymåne
-                ///
-            HStack {
-                HStack {
-                    Text("Neste nymåne")
-                    Spacer()
-                }
-                HStack {
-                    Spacer()
-                    Text(currentWeather.newMoon.firstUppercased)
-                }
-            }
-            
-  
-        }
+            MoonInfo(heading: "Phase", value: "\(currentWeather.phase)")
+            MoonInfo(heading: "MajorPhase", value: currentWeather.moonMajorPhase)
+            MoonInfo(heading: "Stage", value: "\(currentWeather.stage)")
+            MoonInfo(heading: "MoonSign", value: currentWeather.moonSign)
+            MoonInfo(heading: "Illumination", value: currentWeather.moonIllumination)
+            MoonInfo(heading: "MoonRise", value: currentWeather.moonrise)
+            MoonInfo(heading: "MoonSet", value: currentWeather.moonset)
+            MoonInfo(heading: "Next full moon", value: "\(currentWeather.daysToFullMoon) d")
+            MoonInfo(heading: "Distance", value: "\(currentWeather.distanceToMoon) km")
+            MoonInfo(heading: "Neste fullmåne", value: currentWeather.fullMoon.firstUppercased)
+            MoonInfo(heading: "Neste nymåne", value: currentWeather.newMoon.firstUppercased)
+         }
         .padding(20)
         .offset(x: 0, y: -15)
         .contentShape(Rectangle())
@@ -229,4 +80,3 @@ struct MoonView: View {
         .modifier(DayDetailBackground(dayLight: currentWeather.isDaylight))
     }
 }
-
