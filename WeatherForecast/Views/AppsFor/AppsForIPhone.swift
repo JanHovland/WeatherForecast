@@ -39,7 +39,9 @@ struct AppsForIPhone: View {
                 ///
                 /// Viser vindretning og hastighet:
                 ///
-                WindView(weather: weather)
+                WindView(weather: weather,
+                sunRises: $sunRises,
+                sunSets: $sunSets)
                 ///
                 /// Viser føles som:
                 ///
