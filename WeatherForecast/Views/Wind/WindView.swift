@@ -10,6 +10,8 @@ import WeatherKit
 
 struct WindView : View {
     let weather: Weather
+    @State private var showNewView = false
+    
     var body: some View {
         VStack {
             /// Viser overskriften for vind:
@@ -94,6 +96,14 @@ struct WindView : View {
                     Text("m/s")
                 }
             }
+        }
+        
+        .contentShape(Rectangle())
+        .onTapGesture {
+            showNewView.toggle()
+        }
+        .fullScreenCover(isPresented: $showNewView) {
+            MoonInformation()
         }
         .frame(maxWidth: .infinity,
                maxHeight: 180)

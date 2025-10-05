@@ -170,6 +170,15 @@ struct DayDetailChart: View {
                         }
                     } else if option == .wind {
                         ForEach(newWind) {
+                            if $0.type == "Vind" {
+                                AreaMark(
+                                    x: .value("Hour", $0.hour),
+                                    y: .value("Value", $0.value)
+                                )
+                                .interpolationMethod(.catmullRom)
+                                .foregroundStyle(by: .value("Type", $0.type))
+                                .opacity(0.25)
+                            }
                             LineMark (
                                 x: .value("Hour", $0.hour),
                                 y: .value("Value", $0.value)

@@ -682,6 +682,10 @@ struct WeatherForecast: View {
                 } else {
                     sunRises = value.1
                     sunSets = value.2
+                    
+                    currentWeather.sunRises = sunRises
+                    currentWeather.sunSets = sunSets
+                    
                     ///
                     /// Oppdatere lengden av dagen
                     ///

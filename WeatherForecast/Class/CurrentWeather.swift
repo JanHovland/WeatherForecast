@@ -104,4 +104,8 @@ import Observation
     var dayLength: Int = 0
     var dayIncrease: Int = 0
     
+    
+    var sunRises: [String] = Array(repeating: "", count: sizeArray10)
+    var sunSets: [String] = Array(repeating: "", count: sizeArray10)
+    
 }

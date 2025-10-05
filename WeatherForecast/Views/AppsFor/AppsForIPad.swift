@@ -74,6 +74,7 @@ struct AppsForIPad: View {
         ///
         DayOverview(weather: weather,
                     sunRises: $sunRises,
+                    
                     sunSets: $sunSets)
         ///
         /// Viser historikken for været:
