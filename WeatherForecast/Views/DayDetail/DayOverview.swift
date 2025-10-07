@@ -122,8 +122,13 @@ struct DayOverview: View {
                                       ///
                                       /// Feels like = Føles som
                                       ///
-                                      menuIcon: "thermometer.medium",
-                                      menuTitle: String(localized: "Feels like"))
+                                      // menuIcon: "thermometer.medium",
+                                      // menuTitle: String(localized: "Feels like"))
+                                      ///
+                                      /// Humidity = Luftfuktighet
+                                      ///
+                                      menuIcon: "humidity",
+                                      menuTitle: String(localized: "Humidity"))
 
                             .frame(maxWidth: .infinity,
                                    maxHeight: .infinity)
