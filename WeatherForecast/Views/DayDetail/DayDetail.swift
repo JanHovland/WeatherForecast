@@ -1,18 +1,18 @@
-//
-//  DayDetail.swift
-//  WeatherForecast
-//
-//  Created by Jan Hovland on 02/11/2022.
-//
+    //
+    //  DayDetail.swift
+    //  WeatherForecast
+    //
+    //  Created by Jan Hovland on 02/11/2022.
+    //
 
 import SwiftUI
 
-//
-//  DayDetail.swift
-//  WeatherForecast
-//
-//  Created by Jan Hovland on 17/10/2022.
-//
+    //
+    //  DayDetail.swift
+    //  WeatherForecast
+    //
+    //  Created by Jan Hovland on 17/10/2022.
+    //
 
 import SwiftUI
 import WeatherKit
@@ -25,15 +25,15 @@ struct DayDetail: View {
     @Binding var sunRises : [String]
     @Binding var sunSets : [String]
     
-    ///
-    /// https://www.hackingwithswift.com/quick-start/swiftui/how-to-detect-dark-mode
-    ///  Her finnes det  bruk av @Environment(\.colorScheme) var colorScheme
-    ///
-    ///
-    /// https://developer.apple.com/forums/thread/680109
-    /// For å kunne benytte dateArry[index] må hele dateArray initialiseres.
-    /// Er det aktuelt med antall lik 10 må dateArray initialiseres med 10 verdier.
-    ///
+        ///
+        /// https://www.hackingwithswift.com/quick-start/swiftui/how-to-detect-dark-mode
+        ///  Her finnes det  bruk av @Environment(\.colorScheme) var colorScheme
+        ///
+        ///
+        /// https://developer.apple.com/forums/thread/680109
+        /// For å kunne benytte dateArry[index] må hele dateArray initialiseres.
+        /// Er det aktuelt med antall lik 10 må dateArray initialiseres med 10 verdier.
+        ///
     
     @State var dateSettings: DateSettings
     
@@ -84,9 +84,6 @@ struct DayDetail: View {
                                                              Color(.white),
                                                              Color(.white)]
     
-    @State private var menuSystemName : String = ""
-    @State private var menuTitle = String(localized:  "Weather conditions")
-    
     @State private var option: EnumType = .temperature
     @State private var option1: EnumType = .number12
     
@@ -115,6 +112,26 @@ struct DayDetail: View {
     @State private var opacity: Double = 1.00
     
     @State private var dewPointArray: [Double] = Array(repeating: Double(), count: sizeArray24)
+    @State private var menuSystemName: String
+    @State private var menuTitle: String
+    
+    init(weather: Weather,
+         dateSelected: Binding<String>,
+         dayDetailHide: Binding<Bool>,
+         sunRises: Binding<[String]>,
+         sunSets: Binding<[String]>,
+         dateSettings: DateSettings,
+         menuSystemName: String = "",
+         menuTitle: String = "") {
+        self.weather = weather
+        self._dateSelected = dateSelected
+        self._dayDetailHide = dayDetailHide
+        self._sunRises = sunRises
+        self._sunSets = sunSets
+        self._dateSettings = State(initialValue: dateSettings)
+        self._menuSystemName = State(initialValue: menuSystemName)
+        self._menuTitle = State(initialValue: menuTitle)
+    }
     
     var body: some View {
         ScrollView (showsIndicators: false) {
