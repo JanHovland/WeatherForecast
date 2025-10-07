@@ -97,13 +97,24 @@ struct DayOverview: View {
                                       ///
                                       /// Weather conditions = Værforhold
                                       ///
-                                      //                                      menuIcon: "cloud.sun.rain.fill",
-                                      //                                      menuTitle: String(localized: "Weather conditions"))
+                                      // menuIcon: "cloud.sun.rain.fill",
+                                      // menuTitle: String(localized: "Weather conditions"))
                                       ///
                                       /// Wind = Vind
                                       ///
-                                      menuIcon: "wind",
-                                      menuTitle: String(localized: "Wind"))
+                                      // menuIcon: "wind",
+                                      // menuTitle: String(localized: "Wind"))
+                                      ///
+                                      /// Air pressure = Lufttrykk
+                                      ///
+                                      // menuIcon: "gauge.medium",
+                                      // menuTitle: String(localized: "Air pressure"))
+                                      ///
+                                      /// UV-index = UV-indeks
+                                      ///
+                                      menuIcon: "sun.max",
+                                      menuTitle: String(localized: "UV-index"))
+
                             .frame(maxWidth: .infinity,
                                    maxHeight: .infinity)
                         })
