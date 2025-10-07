@@ -14,14 +14,14 @@ import WeatherKit
 
 struct MenuContent: View {
     
-    @Binding var menuSystemName : String
+    @Binding var menuIcon : String
     @Binding var menuTitle : String
    
     var body: some View {
         
         Button(action: {
             Task.init {
-                menuSystemName = "cloud.sun.rain.fill"
+                menuIcon = "cloud.sun.rain.fill"
                 menuTitle = String(localized: "Weather conditions")
             }
         }) {
@@ -34,7 +34,7 @@ struct MenuContent: View {
         
         Button(action: {
             Task.init {
-                menuSystemName = "sun.max"
+                menuIcon = "sun.max"
                 menuTitle = String(localized: "UV-index")
             }
         }) {
@@ -47,7 +47,7 @@ struct MenuContent: View {
         
         Button(action: {
             Task.init {
-                menuSystemName = "wind"
+                menuIcon = "wind"
                 menuTitle = String(localized: "Wind")
             }
         }) {
@@ -60,7 +60,7 @@ struct MenuContent: View {
         
         Button(action: {
             Task.init {
-                menuSystemName = "drop"
+                menuIcon = "drop"
                 menuTitle = String(localized: "Rain")
             }
         }) {
@@ -73,7 +73,7 @@ struct MenuContent: View {
         
         Button(action: {
             Task.init {
-                menuSystemName = "thermometer.medium"
+                menuIcon = "thermometer.medium"
                 menuTitle = String(localized: "Feels like")
             }
         }) {
@@ -86,7 +86,7 @@ struct MenuContent: View {
         
         Button(action: {
             Task.init {
-                menuSystemName = "humidity"
+                menuIcon = "humidity"
                 menuTitle = String(localized: "Humidity")
             }
         }) {
@@ -99,7 +99,7 @@ struct MenuContent: View {
         
         Button(action: {
             Task.init {
-                menuSystemName = "eye"
+                menuIcon = "eye"
                 menuTitle = String(localized: "Visibility")
             }
         }) {
@@ -112,7 +112,7 @@ struct MenuContent: View {
         
         Button(action: {
             Task.init {
-                menuSystemName = "gauge.medium"
+                menuIcon = "gauge.medium"
                 menuTitle = String(localized: "Air pressure")
             }
         }) {

@@ -12,7 +12,7 @@ struct DayDetailMenuDataView: View {
     
     let weather: Weather
     @Binding var index: Int
-    @Binding var menuSystemName: String
+    @Binding var menuIcon: String
     @Binding var menuTitle: String
     @Binding var arrayDayIcons: [String]
     @Binding var opacity: Double
@@ -22,7 +22,7 @@ struct DayDetailMenuDataView: View {
     var body: some View {
         VStack {
             HStack {
-                Image(systemName: menuSystemName)
+                Image(systemName: menuIcon)
                     .font(.system(size: 15))
                     .symbolRenderingMode(.multicolor)
                 Image(systemName: "chevron.down")
@@ -39,7 +39,7 @@ struct DayDetailMenuDataView: View {
             ///
             /// Kaller opp menyen:
             ///
-            MenuContent(menuSystemName: $menuSystemName,
+            MenuContent(menuIcon: $menuIcon,
                         menuTitle: $menuTitle)
             .opacity(opacity == 1.00 ? 1.00 : 0.00)
         }

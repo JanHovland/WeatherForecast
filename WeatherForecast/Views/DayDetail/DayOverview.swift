@@ -97,12 +97,12 @@ struct DayOverview: View {
                                       ///
                                       /// Weather conditions = Værforhold
                                       ///
-                                      //                                      menuSystemName: "cloud.sun.rain.fill",
+                                      //                                      menuIcon: "cloud.sun.rain.fill",
                                       //                                      menuTitle: String(localized: "Weather conditions"))
                                       ///
                                       /// Wind = Vind
                                       ///
-                                      menuSystemName: "wind",
+                                      menuIcon: "wind",
                                       menuTitle: String(localized: "Wind"))
                             .frame(maxWidth: .infinity,
                                    maxHeight: .infinity)

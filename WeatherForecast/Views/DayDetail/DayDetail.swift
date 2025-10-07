@@ -112,7 +112,7 @@ struct DayDetail: View {
     @State private var opacity: Double = 1.00
     
     @State private var dewPointArray: [Double] = Array(repeating: Double(), count: sizeArray24)
-    @State private var menuSystemName: String
+    @State private var menuIcon: String
     @State private var menuTitle: String
     
     init(weather: Weather,
@@ -121,7 +121,7 @@ struct DayDetail: View {
          sunRises: Binding<[String]>,
          sunSets: Binding<[String]>,
          dateSettings: DateSettings,
-         menuSystemName: String = "",
+         menuIcon: String = "",
          menuTitle: String = "") {
         self.weather = weather
         self._dateSelected = dateSelected
@@ -129,7 +129,7 @@ struct DayDetail: View {
         self._sunRises = sunRises
         self._sunSets = sunSets
         self._dateSettings = State(initialValue: dateSettings)
-        self._menuSystemName = State(initialValue: menuSystemName)
+        self._menuIcon = State(initialValue: menuIcon)
         self._menuTitle = State(initialValue: menuTitle)
     }
     
@@ -254,7 +254,7 @@ struct DayDetail: View {
                                         Spacer()
                                         DayDetailMenuDataView(weather: weather,
                                                               index: $index,
-                                                              menuSystemName: $menuSystemName,
+                                                              menuIcon: $menuIcon,
                                                               menuTitle: $menuTitle,
                                                               arrayDayIcons: $arrayDayIcons,
                                                               opacity: $opacity)
@@ -333,9 +333,9 @@ struct DayDetail: View {
             } /// end ScrollView
             .onChange(of: index) { oldIndex, index in
                     ///
-                    /// Finner menuSystemName
+                    /// Finner menuIcon
                     ///
-                menuSystemName = FindMenySystemImage(menuTitle: menuTitle)
+                menuIcon = FindMenySystemImage(menuTitle: menuTitle)
                     ///
                     /// Oppdaterer weatherIcon:
                     ///
@@ -362,9 +362,9 @@ struct DayDetail: View {
             }
             .onChange(of: MenuTitleToOption(menuTitle: menuTitle)) { oldOption, option in
                     ///
-                    /// Finner menuSystemName
+                    /// Finner menuIcon
                     ///
-                menuSystemName = FindMenySystemImage(menuTitle: menuTitle)
+                menuIcon = FindMenySystemImage(menuTitle: menuTitle)
                     ///
                     /// Oppdaterer weatherIcon:
                     ///
@@ -390,9 +390,9 @@ struct DayDetail: View {
             }
             .task {
                     ///
-                    /// Finner menuSystemName
+                    /// Finner menuIcon
                     ///
-                menuSystemName = FindMenySystemImage(menuTitle: menuTitle)
+                menuIcon = FindMenySystemImage(menuTitle: menuTitle)
                 
                 let value: ([Double],
                             [String],

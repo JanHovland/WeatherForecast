@@ -10,13 +10,13 @@ import SwiftUI
 
 struct MenuButton: View {
     
-    @Binding var menuSystemName : String
+    @Binding var menuIcon : String
     @Binding var dayDetailHide: Bool
     
     var body: some View {
         VStack {
             HStack {
-                Image(systemName: menuSystemName)
+                Image(systemName: menuIcon)
                     .symbolRenderingMode(.multicolor)
                     .font(.system(size: 15))
                 Image(systemName: "chevron.down")
