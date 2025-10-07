@@ -112,8 +112,13 @@ struct DayOverview: View {
                                       ///
                                       /// UV-index = UV-indeks
                                       ///
-                                      menuIcon: "sun.max",
-                                      menuTitle: String(localized: "UV-index"))
+                                      // menuIcon: "sun.max",
+                                      // menuTitle: String(localized: "UV-index"))
+                                      ///
+                                      /// Rain = Nedbør
+                                      ///
+                                      menuIcon: "drop",
+                                      menuTitle: String(localized: "Rain"))
 
                             .frame(maxWidth: .infinity,
                                    maxHeight: .infinity)
