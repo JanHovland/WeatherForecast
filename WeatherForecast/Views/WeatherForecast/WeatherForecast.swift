@@ -474,13 +474,18 @@ struct WeatherForecast: View {
             ///
             /// Oppdaterer CurrentWeather
             ///
-            currentWeather.moonPhase = moonData.phaseName
+            if moonData.majorPhase == "Full Moon" {
+                currentWeather.moonPhase = moonData.majorPhase
+                currentWeather.moonEmoji = "🌕"
+            } else {
+                currentWeather.moonPhase = moonData.phaseName
+                currentWeather.moonEmoji = moonData.emoji
+            }
             currentWeather.moonMajorPhase = moonData.majorPhase
             currentWeather.phase = moonData.phase
             currentWeather.stage = moonData.stage
             currentWeather.moonSign = moonData.moonSign
-            currentWeather.moonEmoji = moonData.emoji
-            currentWeather.moonIllumination = moonData.illumination
+             currentWeather.moonIllumination = moonData.illumination
             currentWeather.moonrise = moonData.moonrise
             currentWeather.moonset = moonData.moonset
             currentWeather.daysToFullMoon = moonData.daysUntilNextFullMoon
