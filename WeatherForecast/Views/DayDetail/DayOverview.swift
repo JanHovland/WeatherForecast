@@ -127,8 +127,13 @@ struct DayOverview: View {
                                       ///
                                       /// Humidity = Luftfuktighet
                                       ///
-                                      menuIcon: "humidity",
-                                      menuTitle: String(localized: "Humidity"))
+                                      // menuIcon: "humidity",
+                                      // menuTitle: String(localized: "Humidity"))
+                                      ///
+                                      /// Visibility = Sikt
+                                      ///
+                                      menuIcon: "eye",
+                                      menuTitle: String(localized: "Visibility"))
 
                             .frame(maxWidth: .infinity,
                                    maxHeight: .infinity)
