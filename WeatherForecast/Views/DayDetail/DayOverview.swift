@@ -117,8 +117,13 @@ struct DayOverview: View {
                                       ///
                                       /// Rain = Nedbør
                                       ///
-                                      menuIcon: "drop",
-                                      menuTitle: String(localized: "Rain"))
+                                      // menuIcon: "drop",
+                                      // menuTitle: String(localized: "Rain"))
+                                      ///
+                                      /// Feels like = Føles som
+                                      ///
+                                      menuIcon: "thermometer.medium",
+                                      menuTitle: String(localized: "Feels like"))
 
                             .frame(maxWidth: .infinity,
                                    maxHeight: .infinity)
