@@ -97,8 +97,8 @@ struct DayOverview: View {
                                       ///
                                       /// Weather conditions = Værforhold
                                       ///
-                                      // menuIcon: "cloud.sun.rain.fill",
-                                      // menuTitle: String(localized: "Weather conditions"))
+                                      menuIcon: "cloud.sun.rain.fill",
+                                      menuTitle: String(localized: "Weather conditions"))
                                       ///
                                       /// Wind = Vind
                                       ///
@@ -132,8 +132,8 @@ struct DayOverview: View {
                                       ///
                                       /// Visibility = Sikt
                                       ///
-                                      menuIcon: "eye",
-                                      menuTitle: String(localized: "Visibility"))
+                                      // menuIcon: "eye",
+                                      // menuTitle: String(localized: "Visibility"))
                                       
                             .frame(maxWidth: .infinity,
                                    maxHeight: .infinity)

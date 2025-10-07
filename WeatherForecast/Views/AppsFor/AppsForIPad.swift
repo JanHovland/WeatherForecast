@@ -35,12 +35,14 @@ struct AppsForIPad: View {
                 /// Viser vindretning og hastighet:
                 ///
                 WindView(weather: weather,
-                sunRises: $sunRises,
-                sunSets: $sunSets)
-                ///
+                         sunRises: $sunRises,
+                         sunSets: $sunSets)
+                    ///
                 /// Viser føles som:
                 ///
-                FeelsLike()
+                FeelsLike(weather: weather,
+                          sunRises: $sunRises,
+                          sunSets: $sunSets)
                 ///
                 /// Viser luftfuktighet:
                 ///

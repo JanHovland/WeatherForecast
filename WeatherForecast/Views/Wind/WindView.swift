@@ -15,7 +15,6 @@ struct WindView : View {
     
     @Environment(DateSettings.self) private var dateSettings
     @Environment(WeatherInfo.self) private var weatherInfo
-
     
     @State private var showNewView = false
     @State private var dateSelected = ""
@@ -106,7 +105,9 @@ struct WindView : View {
                 }
             }
         }
-        
+        ///
+        /// .contentShape() må ligge foran .onTapGesture
+        ///
         .contentShape(Rectangle())
         .onTapGesture {
             ///
@@ -114,17 +115,19 @@ struct WindView : View {
             ///
             dateSelected = FormatDateToString(date: Date(), format: "d", offsetSec: weatherInfo.offsetSec)
             showNewView.toggle()
-            
         }
         .fullScreenCover(isPresented: $showNewView) {
-            
             DayDetail(weather: weather,
                       dateSelected: $dateSelected,
                       dayDetailHide: $dayDetailHide,
                       sunRises: $sunRises,
                       sunSets: $sunSets,
-                      dateSettings: dateSettings)
-            
+                      dateSettings: dateSettings,
+                      ///
+                      /// Wind = Vind
+                      ///
+                      menuIcon: "wind",
+                      menuTitle: String(localized: "Wind"))
         }
         .frame(maxWidth: .infinity,
                maxHeight: 180)
