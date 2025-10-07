@@ -134,7 +134,7 @@ struct DayOverview: View {
                                       ///
                                       menuIcon: "eye",
                                       menuTitle: String(localized: "Visibility"))
-
+                                      
                             .frame(maxWidth: .infinity,
                                    maxHeight: .infinity)
                         })
