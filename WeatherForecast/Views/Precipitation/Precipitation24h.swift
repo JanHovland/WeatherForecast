@@ -1,9 +1,9 @@
-//
-//  Precipitation24h.swift
-//  WeatherForecast
-//
-//  Created by Jan Hovland on 11/10/2022.
-//
+    //
+    //  Precipitation24h.swift
+    //  WeatherForecast
+    //
+    //  Created by Jan Hovland on 11/10/2022.
+    //
 
 import SwiftUI
 import WeatherKit
@@ -15,12 +15,21 @@ struct Precipitation24h : View {
     @State private var Precipitation24hBackwards: String = ""
     @State private var Precipitation24hForwards: String = ""
     
+    @Binding var sunRises : [String]
+    @Binding var sunSets : [String]
+    
+    @Environment(CurrentWeather.self) private var currentWeather
     @Environment(WeatherInfo.self) private var weatherInfo
-
+    @Environment(DateSettings.self) private var dateSettings
+    
+    @State private var showNewView = false
+    @State private var dateSelected = ""
+    @State private var dayDetailHide: Bool = true
+    
     var body: some View {
         VStack {
-            /// Viser overskriften for regn de siste 24 timene:
-            ///
+                /// Viser overskriften for regn de siste 24 timene:
+                ///
             HStack {
                 Image(systemName: "drop.fill")
                     .symbolRenderingMode(.multicolor)
@@ -30,22 +39,48 @@ struct Precipitation24h : View {
                 Spacer()
             }
             .opacity(0.50)
-            /// Viser regn de neste 24 timene:
-            ///
+                /// Viser regn de neste 24 timene:
+                ///
             Text(Precipitation24hBackwards)
                 .font(.system(size: 40, weight: .light))
                 .padding(.top, 10)
                 .padding(.leading, -20)
             Text("Last 24 h")
                 .padding(.leading, -30)
-            /// Viser regn det neste døgn:
-            ///
+                /// Viser regn det neste døgn:
+                ///
             let a = String(localized: "is expected the next day.")
             Text("\(Precipitation24hForwards) \(a)")
                 .lineLimit(4)
                 .padding(.top,10)
             Spacer()
         }
+            ///
+            /// .contentShape() må ligge foran .onTapGesture
+            ///
+        .contentShape(Rectangle())
+        .onTapGesture {
+                ///
+                /// Må finne aktuelt valg:
+                ///
+            dateSelected = FormatDateToString(date: Date(), format: "d", offsetSec: weatherInfo.offsetSec)
+            showNewView.toggle()
+        }
+        .fullScreenCover(isPresented: $showNewView) {
+            DayDetail(weather: weather,
+                      dateSelected: $dateSelected,
+                      dayDetailHide: $dayDetailHide,
+                      sunRises: $sunRises,
+                      sunSets: $sunSets,
+                      dateSettings: dateSettings,
+                      ///
+                      /// Rain = Nedbør
+                      ///
+                      menuIcon: "drop",
+                      menuTitle: String(localized: "Rain"))
+        }
+        .frame(maxWidth: .infinity,
+               maxHeight: 180)
         .frame(maxWidth: .infinity,
                maxHeight: 180)
         .padding(15)
@@ -53,8 +88,8 @@ struct Precipitation24h : View {
         .task {
             var lat: Double = 0.00
             var lon: Double = 0.00
-            /// Bruker location for Varhaug:
-            ///
+                /// Bruker location for Varhaug:
+                ///
             if weatherInfo.latitude != nil {
                 lat  = weatherInfo.latitude!
             }

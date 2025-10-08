@@ -75,7 +75,9 @@ struct AppsForIPhone: View {
                 ///
                 /// Viser regn de forrige 24 timene:
                 ///
-                Precipitation24h(weather: weather)
+                Precipitation24h(weather: weather,
+                                 sunRises: $sunRises,
+                                 sunSets: $sunSets)
             }
             
             HStack (spacing: 8) {
