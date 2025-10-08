@@ -474,7 +474,7 @@ struct WeatherForecast: View {
             ///
             /// Oppdaterer CurrentWeather
             ///
-            if moonData.majorPhase == "Full Moon" {
+            if moonData.majorPhase == "Full Moon" && moonData.phase < 0.50 {
                 currentWeather.moonPhase = moonData.majorPhase
                 currentWeather.moonEmoji = "🌕"
             } else {
@@ -485,7 +485,7 @@ struct WeatherForecast: View {
             currentWeather.phase = moonData.phase
             currentWeather.stage = moonData.stage
             currentWeather.moonSign = moonData.moonSign
-             currentWeather.moonIllumination = moonData.illumination
+            currentWeather.moonIllumination = moonData.illumination
             currentWeather.moonrise = moonData.moonrise
             currentWeather.moonset = moonData.moonset
             currentWeather.daysToFullMoon = moonData.daysUntilNextFullMoon
