@@ -78,7 +78,9 @@ struct AppsForIPad: View {
                 ///
                 /// Viser lufttrykket:
                 ///
-                AirPressure(weather: weather)
+                AirPressure(weather: weather,
+                            sunRises: $sunRises,
+                            sunSets: $sunSets)
             }
         }
         ///

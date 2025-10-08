@@ -19,8 +19,16 @@ import WeatherKit
 
 struct AirPressure : View {
     let weather: Weather
+    @Binding var sunRises : [String]
+    @Binding var sunSets : [String]
     
     @Environment(CurrentWeather.self) private var currentWeather
+    @Environment(WeatherInfo.self) private var weatherInfo
+    @Environment(DateSettings.self) private var dateSettings
+    
+    @State private var showNewView = false
+    @State private var dateSelected = ""
+    @State private var dayDetailHide: Bool = true
 
     @State private var minValue : CGFloat = 890.0
     @State private var maxValue : CGFloat = 1100.0
@@ -76,6 +84,26 @@ struct AirPressure : View {
                 .padding(.leading, 0)
             }
             .padding(.top, 10)
+        }
+        .onTapGesture {
+            ///
+            /// Må finne aktuelt valg:
+            ///
+            dateSelected = FormatDateToString(date: Date(), format: "d", offsetSec: weatherInfo.offsetSec)
+            showNewView.toggle()
+        }
+        .fullScreenCover(isPresented: $showNewView) {
+            DayDetail(weather: weather,
+                      dateSelected: $dateSelected,
+                      dayDetailHide: $dayDetailHide,
+                      sunRises: $sunRises,
+                      sunSets: $sunSets,
+                      dateSettings: dateSettings,
+                      ///
+                      /// Air pressure = Lufttrykk
+                      ///
+                      menuIcon: "gauge.medium",
+                      menuTitle: String(localized: "Air pressure"))
         }
         .frame(maxWidth: .infinity,
                maxHeight: 180)
