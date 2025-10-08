@@ -36,7 +36,7 @@ func formatDate(_ date: Date) -> String {
 func formatTimestamp(timestamp: TimeInterval, offsetSec: Int) -> String {
     let date = Date(timeIntervalSince1970: timestamp)
     let formatter = DateFormatter()
-    formatter.dateFormat = "EEEE d. MMMM yyyy HH:mm"
+    formatter.dateFormat = "E d. MMMM yyyy HH:mm"
     formatter.locale = Locale(identifier: "nb_NO")
     formatter.timeZone = TimeZone(secondsFromGMT: offsetSec)  
     return formatter.string(from: date)
