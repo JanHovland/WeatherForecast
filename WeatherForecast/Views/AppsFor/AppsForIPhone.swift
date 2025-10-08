@@ -60,7 +60,9 @@ struct AppsForIPhone: View {
                 ///
                 /// Viser sikten:
                 ///
-                Visibility(weather: weather)
+                Visibility(weather: weather,
+                           sunRises: $sunRises,
+                           sunSets: $sunSets)
             }
 
             HStack (spacing: 8) {

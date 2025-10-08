@@ -10,6 +10,17 @@ import WeatherKit
 
 struct Visibility : View {
     let weather: Weather
+    @Binding var sunRises : [String]
+    @Binding var sunSets : [String]
+    
+    @Environment(CurrentWeather.self) private var currentWeather
+    @Environment(WeatherInfo.self) private var weatherInfo
+    @Environment(DateSettings.self) private var dateSettings
+    
+    @State private var showNewView = false
+    @State private var dateSelected = ""
+    @State private var dayDetailHide: Bool = true
+    
     @State private var cloudCoverage = ""
     
     var body: some View {
@@ -43,6 +54,30 @@ struct Visibility : View {
             }
             Spacer()
         }
+            ///
+            /// .contentShape() må ligge foran .onTapGesture
+            ///
+            .contentShape(Rectangle())
+            .onTapGesture {
+                ///
+                /// Må finne aktuelt valg:
+                ///
+                dateSelected = FormatDateToString(date: Date(), format: "d", offsetSec: weatherInfo.offsetSec)
+                showNewView.toggle()
+            }
+            .fullScreenCover(isPresented: $showNewView) {
+                DayDetail(weather: weather,
+                          dateSelected: $dateSelected,
+                          dayDetailHide: $dayDetailHide,
+                          sunRises: $sunRises,
+                          sunSets: $sunSets,
+                          dateSettings: dateSettings,
+                          ///
+                          /// Visibility = Sikt
+                          ///
+                          menuIcon: "eye",
+                          menuTitle: String(localized: "Visibility"))
+            }
         .frame(maxWidth: .infinity,
                maxHeight: 180)
         .padding(15)
