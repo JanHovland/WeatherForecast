@@ -46,7 +46,9 @@ struct AppsForIPad: View {
                 ///
                 /// Viser luftfuktighet:
                 ///
-                Humidity()
+                Humidity(weather: weather,
+                         sunRises: $sunRises,
+                         sunSets: $sunSets)
                 ///
                 /// Viser sikten:
                 ///
