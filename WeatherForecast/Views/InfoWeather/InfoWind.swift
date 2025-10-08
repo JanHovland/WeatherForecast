@@ -293,12 +293,6 @@ private func Forecast(index: Int,
     toMorrow = toDay.adding(days: 1)
     yesterDay = toDay.adding(days: -1)
     
-    
-    print("toDay = \(toDay)")               // 2025-10-07 00:00:00 +0000
-    print("toMorrow = \(toMorrow)")         // 2025-10-08 00:00:00 +0000
-    print("yesterDay = \(yesterDay)")       // 2025-10-06 00:00:00 +0000
- 
-    
     arrayToDay.removeAll()
     arrayYesterDay.removeAll()
     hourForecast!.forEach  {
