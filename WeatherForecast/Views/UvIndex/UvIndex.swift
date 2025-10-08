@@ -10,6 +10,17 @@ import WeatherKit
 
 struct UvIndex : View {
     let weather: Weather
+    @Binding var sunRises : [String]
+    @Binding var sunSets : [String]
+    
+    @Environment(CurrentWeather.self) private var currentWeather
+    @Environment(WeatherInfo.self) private var weatherInfo
+    @Environment(DateSettings.self) private var dateSettings
+    
+    @State private var showNewView = false
+    @State private var dateSelected = ""
+    @State private var dayDetailHide: Bool = true
+    
     var body: some View {
         VStack {
             /// Viser overskriften for Uv-indeksen:
@@ -26,8 +37,31 @@ struct UvIndex : View {
             UvIndexRestOfDay(weather: weather)
             Spacer()
         }
-        .frame(maxWidth: .infinity,
-               maxHeight: 180)
+            ///
+            /// .contentShape() må ligge foran .onTapGesture
+            ///
+        .contentShape(Rectangle())
+        .onTapGesture {
+                ///
+                /// Må finne aktuelt valg:
+                ///
+            dateSelected = FormatDateToString(date: Date(), format: "d", offsetSec: weatherInfo.offsetSec)
+            showNewView.toggle()
+        }
+        .fullScreenCover(isPresented: $showNewView) {
+            DayDetail(weather: weather,
+                      dateSelected: $dateSelected,
+                      dayDetailHide: $dayDetailHide,
+                      sunRises: $sunRises,
+                      sunSets: $sunSets,
+                      dateSettings: dateSettings,
+                      ///
+                      /// UV-index = UV-indeks
+                      ///
+                      menuIcon: "sun.max",
+                      menuTitle: String(localized: "UV-index"))
+        }        .frame(maxWidth: .infinity,
+                        maxHeight: 180)
         .padding(15)
         .modifier(DayDetailBackground(dayLight: weather.currentWeather.isDaylight))
     }

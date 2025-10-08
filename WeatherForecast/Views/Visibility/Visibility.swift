@@ -57,27 +57,27 @@ struct Visibility : View {
             ///
             /// .contentShape() må ligge foran .onTapGesture
             ///
-            .contentShape(Rectangle())
-            .onTapGesture {
+        .contentShape(Rectangle())
+        .onTapGesture {
                 ///
                 /// Må finne aktuelt valg:
                 ///
-                dateSelected = FormatDateToString(date: Date(), format: "d", offsetSec: weatherInfo.offsetSec)
-                showNewView.toggle()
-            }
-            .fullScreenCover(isPresented: $showNewView) {
-                DayDetail(weather: weather,
-                          dateSelected: $dateSelected,
-                          dayDetailHide: $dayDetailHide,
-                          sunRises: $sunRises,
-                          sunSets: $sunSets,
-                          dateSettings: dateSettings,
-                          ///
-                          /// Visibility = Sikt
-                          ///
-                          menuIcon: "eye",
-                          menuTitle: String(localized: "Visibility"))
-            }
+            dateSelected = FormatDateToString(date: Date(), format: "d", offsetSec: weatherInfo.offsetSec)
+            showNewView.toggle()
+        }
+        .fullScreenCover(isPresented: $showNewView) {
+            DayDetail(weather: weather,
+                      dateSelected: $dateSelected,
+                      dayDetailHide: $dayDetailHide,
+                      sunRises: $sunRises,
+                      sunSets: $sunSets,
+                      dateSettings: dateSettings,
+                      ///
+                      /// Visibility = Sikt
+                      ///
+                      menuIcon: "eye",
+                      menuTitle: String(localized: "Visibility"))
+        }
         .frame(maxWidth: .infinity,
                maxHeight: 180)
         .padding(15)

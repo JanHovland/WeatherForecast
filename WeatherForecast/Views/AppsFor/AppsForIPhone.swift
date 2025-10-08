@@ -69,7 +69,9 @@ struct AppsForIPhone: View {
                 ///
                 /// Viser Uv indeksen:
                 ///
-                UvIndex(weather: weather)
+                UvIndex(weather: weather,
+                        sunRises: $sunRises,
+                        sunSets: $sunSets)
                 ///
                 /// Viser regn de forrige 24 timene:
                 ///
