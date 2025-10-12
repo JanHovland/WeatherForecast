@@ -29,10 +29,7 @@ struct DayDetailIcons: View {
 
     var body: some View {
         VStack {
-            
-            var s = screenWidth
-            
-            if option == .temperature {
+             if option == .temperature {
                 HStack (spacing: spacing) {
                     ForEach(Array(hourIconArray.enumerated()), id: \.element) { idx, element in
                         VStack {

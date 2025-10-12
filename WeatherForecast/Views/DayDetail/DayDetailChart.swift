@@ -152,6 +152,8 @@ struct DayDetailChart: View {
     let rangeHumidityMinValue = 10
 
     var body: some View {
+        
+        
         VStack (alignment: .center) {
             ///
             /// Viser de forskjellige Chart:
@@ -237,22 +239,20 @@ struct DayDetailChart: View {
                             .lineStyle(StrokeStyle(lineWidth: 1))
                         }
                         
-                        ForEach(newTemperature) {
-                            PointMark (
-                                x: .value("Hour", $0.hour),
+                        ForEach(newTemperature, id: \.id) { item in
+                            let iconName = hourIconArray[item.hour]
+                            PointMark(
+                                x: .value("Hour", item.hour),
                                 y: .value("Iconlinje", 35)
                             )
                             .symbol {
-//                                let name: String = iconForWindSpeed(entry.avg)
-                                Image(systemName: "wind.circle")
+                                Image(systemName: iconName)
                                     .resizable()
                                     .scaledToFit()
                                     .frame(width: 15, height: 15)
                                     .foregroundStyle(.gray)
-                            }                       }
-                        
-                        
-                        
+                            }
+                        }
                         if let selectedIndex {
                             RuleMark(x: .value("Value", selectedIndex))
                                 .annotation(
