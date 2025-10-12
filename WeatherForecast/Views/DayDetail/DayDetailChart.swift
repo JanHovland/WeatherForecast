@@ -236,6 +236,23 @@ struct DayDetailChart: View {
                             .foregroundStyle(by: .value("Type", "\($0.type)"))
                             .lineStyle(StrokeStyle(lineWidth: 1))
                         }
+                        
+                        ForEach(newTemperature) {
+                            PointMark (
+                                x: .value("Hour", $0.hour),
+                                y: .value("Iconlinje", 35)
+                            )
+                            .symbol {
+//                                let name: String = iconForWindSpeed(entry.avg)
+                                Image(systemName: "wind.circle")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 15, height: 15)
+                                    .foregroundStyle(.gray)
+                            }                       }
+                        
+                        
+                        
                         if let selectedIndex {
                             RuleMark(x: .value("Value", selectedIndex))
                                 .annotation(
@@ -526,7 +543,6 @@ struct DayDetailChart: View {
                 .frame(maxWidth: .infinity,
                        minHeight: 200,
                        maxHeight: 250)
-                .padding()
                 .chartXScale(domain: 0...23)
                 ///
                 /// Endrer y aksen for:
@@ -1130,7 +1146,6 @@ struct DayDetailChart: View {
         }
         .fixedSize()
         .foregroundStyle(.primary)
-        .padding(.horizontal, 7.5)
         .background {
             RoundedRectangle(cornerRadius: 7.5)
                 .foregroundStyle(Color.blue.opacity(0.50))
