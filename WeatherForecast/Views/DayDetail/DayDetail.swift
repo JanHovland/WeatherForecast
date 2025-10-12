@@ -305,7 +305,6 @@ struct DayDetail: View {
                                                  windInfo: $windInfo,
                                                  tempInfo: $tempInfo,
                                                  gustInfo: $gustInfo,
-                                                 weatherIcon: $weatherIcon,
                                                  feltTempArray: $feltTempArray,
                                                  opacity: $opacity,
                                                  dewPointArray: $dewPointArray)

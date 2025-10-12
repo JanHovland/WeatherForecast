@@ -27,7 +27,6 @@ struct DayDetailDayDataView: View {
     @Binding var windInfo: [WindInfo]
     @Binding var tempInfo: [Temperature]
     @Binding var gustInfo: [Double]
-    @Binding var weatherIcon: [WeatherIcon]
     @Binding var feltTempArray: [FeltTemp]
     @Binding var opacity: Double
     @Binding var dewPointArray: [Double]
@@ -55,7 +54,6 @@ struct DayDetailDayDataView: View {
                            windInfo: $windInfo,
                            tempInfo: $tempInfo,
                            gustInfo: $gustInfo,
-                           weatherIcon: $weatherIcon,
                            weather: weather,
                            feltTempArray: $feltTempArray,
                            opacity: $opacity,

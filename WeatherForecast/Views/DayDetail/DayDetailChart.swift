@@ -33,7 +33,6 @@ struct DayDetailChart: View {
     @Binding var windInfo: [WindInfo]
     @Binding var tempInfo: [Temperature]
     @Binding var gustInfo: [Double]
-    @Binding var weatherIcon: [WeatherIcon]
     let weather: Weather
     @Binding var feltTempArray: [FeltTemp]
     @Binding var opacity: Double
@@ -238,6 +237,13 @@ struct DayDetailChart: View {
                             .foregroundStyle(by: .value("Type", "\($0.type)"))
                             .lineStyle(StrokeStyle(lineWidth: 1))
                         }
+                        
+                        ///
+                        /// Viser iconene for hver time.
+                        ///
+                        /// Using a named item and an explicit id, plus computing
+                        /// the icon name  once per iteration to help the compiler.
+                        ///
                         
                         ForEach(newTemperature, id: \.id) { item in
                             let iconName = hourIconArray[item.hour]
