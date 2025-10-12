@@ -11,7 +11,6 @@ struct AirQualityView: View {
     
     @Environment(CurrentWeather.self) private var currentWeather
     @Environment(WeatherInfo.self) private var weatherInfo
-    @Environment(ScreenSize.self) private var screenSize
     
     @State private var minValue : CGFloat = 0.0
     @State private var maxValue : CGFloat = 5.0
@@ -94,8 +93,7 @@ struct AirQualityView: View {
                         }
                         .tint(gradient)
                     }
-                    .frame(width: UIDevice.isIpad ? screenSize.screenWidth * 0.45 :  screenSize.screenWidth * 0.925
-                           , height: 2)
+                    .frame(width: UIDevice.isIpad ? 400 :  300, height: 2)
                     .gaugeStyle(.accessoryLinear)
                     .padding(.top, 10)
                     ///

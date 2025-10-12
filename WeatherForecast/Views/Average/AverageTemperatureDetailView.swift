@@ -27,7 +27,6 @@ struct AverageTemperatureDetailView: View {
 
     @Environment(CurrentWeather.self) private var currentWeather
     @Environment(WeatherInfo.self) private var weatherInfo
-    @Environment(ScreenSize.self) private var screenSize
     
     @Environment(\.dismiss) var dismiss
     @State private var info: String = ""

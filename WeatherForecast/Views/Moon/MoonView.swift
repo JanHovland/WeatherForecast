@@ -14,7 +14,6 @@ import SwiftUI
 
 struct MoonView: View {
     @Environment(CurrentWeather.self) private var currentWeather
-    @Environment(ScreenSize.self) private var screenSize
     
     @State private var showNewView = false
     
@@ -29,7 +28,7 @@ struct MoonView: View {
                         .symbolRenderingMode(.multicolor)
                         .font(Font.headline.weight(.regular))
                     Text("MOON")
-                        .font(.system(size: screenSize.screenWidth == 368 ? 14.5 : 15, weight: .bold))
+                        .font(.system(size: 15, weight: .bold))
                     Spacer()
                 }
                 ///
@@ -42,9 +41,9 @@ struct MoonView: View {
                         /// Bruker NSLocalizedString ved kall til en variabel
                         ///
                         //                    Text(String(format: NSLocalizedString(currentWeather.moonPhase, comment: "")).uppercased())
-                        //                        .font(.system(size: screenSize.screenWidth == 368 ? 14.5 : 15, weight: .bold))
+                        //                        .font(.system(size:15, weight: .bold))
                         //                    Text(String(format: NSLocalizedString(currentWeather.moonMajorPhase, comment: "")).uppercased())
-                        //                        .font(.system(size: screenSize.screenWidth == 368 ? 14.5 : 15, weight: .bold))
+                        //                        .font(.system(size: 15, weight: .bold))
                 }
             }
             .opacity(0.50)

@@ -18,8 +18,6 @@ struct Sun : View {
     @Binding var sunSets : [String]
     
     @Environment(CurrentWeather.self) private var currentWeather
-
-    @Environment(ScreenSize.self) private var screenSize
     
     var body: some View {
         VStack {
@@ -52,7 +50,7 @@ struct Sun : View {
                 ///
                 /// Viser soloversikt dag og natt:
                 ///
-                SunDayAndNight(xMax: UIDevice.isIpad ? screenSize.screenWidth * 0.20 : screenSize.screenWidth * 0.40,
+                SunDayAndNight(xMax: UIDevice.isIpad ? 200 : 100,
                                index: 0,
                                sunRises: $sunRises,
                                sunSets: $sunSets)

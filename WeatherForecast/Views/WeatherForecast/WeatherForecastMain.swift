@@ -17,6 +17,9 @@ import OSLog
 ///
 ///
 
+var screenWidth: CGFloat = 0
+
+
 let logger = Logger(subsystem: "com.janhovland.WeatherForecast", category: "WeatherForecastMain")
 
 ///

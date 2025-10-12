@@ -19,8 +19,6 @@ struct InfoUvIndex : View {
     @Environment(CurrentWeather.self) private var currentWeather
     @Environment(WeatherInfo.self) private var weatherInfo
     @Environment(DateSettings.self) private var dateSettings
-    @Environment(ScreenSize.self) private var screenSize
-
     
     @State private var info : String = ""
     @State private var max : Double = 0.00
@@ -61,7 +59,7 @@ struct InfoUvIndex : View {
                 /// Viser nivået i dag og i går
                 ///
                 ProgressView(value: 0.5)
-                    .progressViewStyle(ProgressViewStyleModifier(progressWidth: CGFloat(UIDevice.isIpad ? screenSize.screenWidth * 0.90: screenSize.screenWidth * 0.80),                                         option: option,
+                    .progressViewStyle(ProgressViewStyleModifier(progressWidth: CGFloat(UIDevice.isIpad ? 500: 300),                                         option: option,
                                                                  valueToDay: uvIndexToDay,
                                                                  valueYesterDay: uvIndexYesterDay,
                                                                  factorToDay: factorToDay,

@@ -98,9 +98,7 @@
 		DB53CB3F2991A37C004D0C71 /* FindDayOffsetFactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB53CB3E2991A37C004D0C71 /* FindDayOffsetFactor.swift */; };
 		DB554E3F2B7A1244009A25F5 /* DayDetailHourIconsModifiier.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB554E3E2B7A1244009A25F5 /* DayDetailHourIconsModifiier.swift */; };
 		DB554E5D2B7A9642009A25F5 /* FindSizeOfView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB554E5C2B7A9642009A25F5 /* FindSizeOfView.swift */; };
-		DB554E5F2B7A9DE4009A25F5 /* ScreenSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB554E5E2B7A9DE4009A25F5 /* ScreenSize.swift */; };
 		DB5B53E92E8BB7ED007AA08B /* CreateMoonCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5B53E82E8BB7ED007AA08B /* CreateMoonCalendar.swift */; };
-		DB5B53F92E8D1595007AA08B /* Untitled.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5B53F82E8D1591007AA08B /* Untitled.swift */; };
 		DB5C0C2E29151B6900141BDC /* Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5C0C2D29151B6900141BDC /* Enum.swift */; };
 		DB5C0C3029151C9600141BDC /* FindDataFromMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5C0C2F29151C9600141BDC /* FindDataFromMenu.swift */; };
 		DB5C0C322915263600141BDC /* MenuTitleToOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5C0C312915263600141BDC /* MenuTitleToOption.swift */; };
@@ -336,7 +334,6 @@
 		DB53CB3E2991A37C004D0C71 /* FindDayOffsetFactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindDayOffsetFactor.swift; sourceTree = "<group>"; };
 		DB554E3E2B7A1244009A25F5 /* DayDetailHourIconsModifiier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayDetailHourIconsModifiier.swift; sourceTree = "<group>"; };
 		DB554E5C2B7A9642009A25F5 /* FindSizeOfView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindSizeOfView.swift; sourceTree = "<group>"; };
-		DB554E5E2B7A9DE4009A25F5 /* ScreenSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenSize.swift; sourceTree = "<group>"; };
 		DB5B53E82E8BB7ED007AA08B /* CreateMoonCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateMoonCalendar.swift; sourceTree = "<group>"; };
 		DB5C0C2D29151B6900141BDC /* Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enum.swift; sourceTree = "<group>"; };
 		DB5C0C2F29151C9600141BDC /* FindDataFromMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindDataFromMenu.swift; sourceTree = "<group>"; };
@@ -703,7 +700,6 @@
 		DB51163828E43BBC00DEB1BF /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				DB5B53F82E8D1591007AA08B /* Untitled.swift */,
 				DBCD43722AEE2BE9007543BE /* AirQuality.swift */,
 				DBCD43762AEE3AA2007543BE /* AirQualityRecord.swift */,
 				DB9E26DE2AF39F6B00DF3AE9 /* AQLimit.swift */,
@@ -885,7 +881,6 @@
 			children = (
 				DB69689C290E973500936C0E /* CurrentWeather.swift */,
 				DB69689E290E97F900936C0E /* DateSettings.swift */,
-				DB554E5E2B7A9DE4009A25F5 /* ScreenSize.swift */,
 				DBFEC13F2A7402E6003FC4FB /* WeatherInfo.swift */,
 			);
 			path = Class;
@@ -1406,7 +1401,6 @@
 				DB7B50DA2AF1492A00A61BA1 /* AppsForIPhone.swift in Sources */,
 				DB554E3F2B7A1244009A25F5 /* DayDetailHourIconsModifiier.swift in Sources */,
 				DB03A6C82E83C25900886A6D /* MoonData.swift in Sources */,
-				DB554E5F2B7A9DE4009A25F5 /* ScreenSize.swift in Sources */,
 				DBC6B3172AF81F1300D27E30 /* MoonRecord.swift in Sources */,
 				DB554E5D2B7A9642009A25F5 /* FindSizeOfView.swift in Sources */,
 				DB51164228E442F300DEB1BF /* WeatherForecastMain.swift in Sources */,

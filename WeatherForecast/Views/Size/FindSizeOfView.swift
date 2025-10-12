@@ -9,8 +9,6 @@ import SwiftUI
 
 struct FindSizeOfView: View {
     
-    @Environment(ScreenSize.self) private var screenSize
-    
     var body: some View {
         GeometryReader { geometry in
             self.createCustomView(geometry: geometry)
@@ -22,8 +20,7 @@ struct FindSizeOfView: View {
         let width = geometry.size.width
         let height = geometry.size.height
         
-        screenSize.screenWidth = geometry.size.width
-        screenSize.screenHeight = geometry.size.height
+        screenWidth = width
         
         return HStack {
             Spacer()

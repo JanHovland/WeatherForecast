@@ -40,8 +40,8 @@ struct DayDetail: View {
     @Environment(\.presentationMode) var presentationMode
     @Environment(CurrentWeather.self) private var currentWeather
     @Environment(WeatherInfo.self) private var weatherInfo
-    @Environment(ScreenSize.self) private var screenSize
     @Environment(\.dismiss) var dismiss
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass
     
     @State private var dateArray : [String] = Array(repeating: "", count: sizeArray10)
     @State private var dateDateArray: [Date] = Array(repeating: Date(), count: sizeArray10)
@@ -264,7 +264,7 @@ struct DayDetail: View {
                                 ///
                                 /// Viser natt og dag:
                                 ///
-                            SunDayAndNight(xMax: UIDevice.isIpad ? screenSize.screenWidth * 0.975 : screenSize.screenWidth * 0.95,
+                            SunDayAndNight(xMax: UIDevice.isIpad ? 500 : 300,
                                            index : index,
                                            sunRises: $sunRises,
                                            sunSets: $sunSets)
@@ -283,7 +283,7 @@ struct DayDetail: View {
                                            index: index,
                                            weather: weather,
                                            hourIconArray: $hourIconArray,
-                                           width: screenSize.screenWidth)
+                                           width: 300)
                             .modifier(DayDetailHourIconsModifier(menuTitle: $menuTitle))
                                 ///
                                 /// Viser data for aktuell option:
@@ -331,6 +331,12 @@ struct DayDetail: View {
                 .padding()
                 Spacer()
             } /// end ScrollView
+              ///
+              
+            .onChange(of: screenWidth) {  
+                print("Change")
+            }
+            
             .onChange(of: index) { oldIndex, index in
                     ///
                     /// Finner menuIcon

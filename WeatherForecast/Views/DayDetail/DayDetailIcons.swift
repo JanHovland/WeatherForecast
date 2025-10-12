@@ -16,17 +16,22 @@ struct DayDetailIcons: View {
     @Binding var hourIconArray: [String]
     let width: Double
     
-    @Environment(ScreenSize.self) private var screenSize
-    
     @State private var spacing: CGFloat = 0.00
     @State private var fontSize: CGFloat = 0.00
     @State private var padding: CGFloat = 0.00
     @State private var trailing: CGFloat = 0.00 // må fjernes
     @State private var leading: CGFloat = 0.00
     @State private var offset: CGFloat = 0.00
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass
+    @Environment(\.verticalSizeClass) var verticalSizeClass
+    
+    @State private var o: Int = 0
 
     var body: some View {
         VStack {
+            
+            var s = screenWidth
+            
             if option == .temperature {
                 HStack (spacing: spacing) {
                     ForEach(Array(hourIconArray.enumerated()), id: \.element) { idx, element in
@@ -40,10 +45,10 @@ struct DayDetailIcons: View {
                 }
                 .offset(x: offset)
                 .task {
-                    (fontSize, spacing, offset) = DayDetailIconAdjustValues(option: option, width: screenSize.screenWidth)
+                    (fontSize, spacing, offset) = DayDetailIconAdjustValues(option: option)
                 }
-                .onChange(of: screenSize.screenWidth) {
-                    (fontSize, spacing, offset) = DayDetailIconAdjustValues(option: option, width: screenSize.screenWidth)
+                .onChange(of: screenWidth) {
+                    (fontSize, spacing, offset) = DayDetailIconAdjustValues(option: option)
                }
 
             } else if option == .uvIndex {
@@ -58,10 +63,10 @@ struct DayDetailIcons: View {
                 }
                 .offset(x: offset)
                 .task {
-                    (fontSize, spacing, offset) = DayDetailIconAdjustValues(option: option, width: screenSize.screenWidth)
+                    (fontSize, spacing, offset) = DayDetailIconAdjustValues(option: option)
                 }
-                .onChange(of: screenSize.screenWidth) {
-                    (fontSize, spacing, offset) = DayDetailIconAdjustValues(option: option, width: screenSize.screenWidth)
+                .onChange(of: screenWidth) {
+                    (fontSize, spacing, offset) = DayDetailIconAdjustValues(option: option)
                }
                 
             } else if option == .wind {
@@ -84,10 +89,10 @@ struct DayDetailIcons: View {
                 }
                 .offset(x: offset)
                 .task {
-                    (fontSize, spacing, offset) = DayDetailIconAdjustValues(option: option, width: screenSize.screenWidth)
+                    (fontSize, spacing, offset) = DayDetailIconAdjustValues(option: option)
                 }
-                .onChange(of: screenSize.screenWidth) {
-                    (fontSize, spacing, offset) = DayDetailIconAdjustValues(option: option, width: screenSize.screenWidth)
+                .onChange(of: UIDevice.current.orientation) {
+                    (fontSize, spacing, offset) = DayDetailIconAdjustValues(option: option)
                }
                 
             } else if option == .feelsLike {

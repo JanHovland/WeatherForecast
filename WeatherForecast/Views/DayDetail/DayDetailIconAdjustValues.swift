@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-func DayDetailIconAdjustValues(option: EnumType, width: CGFloat) -> (CGFloat, CGFloat, CGFloat) {
+func DayDetailIconAdjustValues(option: EnumType) -> (CGFloat, CGFloat, CGFloat) {
     
     ///
     /// iPhone width: 368  eller  709   from GeometryReader
@@ -21,26 +21,34 @@ func DayDetailIconAdjustValues(option: EnumType, width: CGFloat) -> (CGFloat, CG
     if option == .temperature {
         if UIDevice.isiPhone {
             fontSize = 11
-            if width < 709   { spacing = 11; offset = 20 }   else { spacing = 39; offset = 35 }     // OK
+            if UIDevice.current.orientation.isPortrait   {
+                spacing = 11; offset = 20
+            } else {
+                spacing = 39; offset = 35
+            }
         } else {
             fontSize = 15
-            if width < 1087  { spacing = 42.5; offset = 38 } else { spacing = 66; offset = 45 }     // OK
+            if UIDevice.current.orientation.isPortrait {
+                spacing = 44; offset = 38
+            } else {
+                spacing = 69; offset = 45
+            }
         }
     } else if option == .uvIndex {
         if UIDevice.isiPhone {
             fontSize = 14
-            if width < 709   { spacing = 20; offset = 15 }   else { spacing = 45; offset = 25 }     // OK
+            //if width < 709   { spacing = 20; offset = 15 }   else { spacing = 45; offset = 25 }     // OK
         } else {
             fontSize = 15
-            if width < 1087  { spacing = 53; offset = 42.5 } else { spacing = 77.5; offset = 55 }   // OK
+            //if width < 1087  { spacing = 53; offset = 42.5 } else { spacing = 77.5; offset = 55 }   // OK
         }
     } else if option == .wind {
         if UIDevice.isiPhone {
             fontSize = 11
-            if width < 709   { spacing = 15; offset = 20 }   else { spacing = 44; offset = 35 }     // OK
+            //if width < 709   { spacing = 15; offset = 20 }   else { spacing = 44; offset = 35 }     // OK
         } else {
             fontSize = 15
-            if width < 1087  { spacing = 47.5; offset = 38 } else { spacing = 70; offset = 45 }     // OK
+            //if width < 1087  { spacing = 47.5; offset = 38 } else { spacing = 70; offset = 45 }     // OK
         }
 
     }
