@@ -245,6 +245,7 @@
                             /// the icon name  once per iteration to help the compiler.
                             ///
                             
+                            /*
                             ForEach(newTemperature, id: \.id) { item in
                                 let iconName = hourIconArray[item.hour]
                                 PointMark(
@@ -259,6 +260,7 @@
                                         .foregroundStyle(.gray)
                                 }
                             }
+                            */
                             if let selectedIndex {
                                 RuleMark(x: .value("Value", selectedIndex))
                                     .annotation(
