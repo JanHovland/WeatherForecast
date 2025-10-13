@@ -976,7 +976,7 @@
                                                                    weather: weather,
                                                                    date: dateSettings.dates[index],
                                                                    option: option,
-                                                                   option1: .number12)
+                                                                   option1: .number24)
                 hourIconArray = val1.2
                 ///
                 /// ** tempInfo må være med !
