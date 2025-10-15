@@ -93,7 +93,7 @@ struct AirQualityView: View {
                         }
                         .tint(gradient)
                     }
-                    .frame(width: UIDevice.isIpad ? 400 :  300, height: 2)
+                    .frame(width: 300, height: 2)
                     .gaugeStyle(.accessoryLinear)
                     .padding(.top, 10)
                     ///

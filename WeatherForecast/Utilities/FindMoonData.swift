@@ -67,6 +67,7 @@ func findMoonData(date: String,
                 print("Response is not valid UTF-8.")
             }
         }
+        
         if prettyPrint {
             if let jsonObject = try? JSONSerialization.jsonObject(with: data, options: []),
                let prettyData = try? JSONSerialization.data(withJSONObject: jsonObject, options: [.prettyPrinted]),
@@ -77,6 +78,7 @@ func findMoonData(date: String,
                 print("Response did not parse as JSON via JSONSerialization.")
             }
         }
+        
         do {
             let decoded = try JSONDecoder().decode(RapidAdvanced.self, from: data)
   
@@ -94,20 +96,20 @@ func findMoonData(date: String,
                 decoded.moon.detailed.upcomingPhases.fullMoon.next.timestamp ?? 0
             )
             
-            // moonriseTimestamp may be Int or Int?, format if present
-            moonData.moonrise = formatTimeIfPresent(decoded.moon.moonriseTimestamp ?? 0)
-            
-            // moonsetTimestamp may be Int or Int?, format if present
-            moonData.moonset = formatTimeIfPresent(decoded.moon.moonsetTimestamp ?? 0)
+            // Safely format timestamps if present
+            moonData.moonrise = formatTimeIfPresent(decoded.moon.moonriseTimestamp)
+            moonData.moonset  = formatTimeIfPresent(decoded.moon.moonsetTimestamp)
             
             moonData.distance = decoded.moon.detailed.position.distance
             
-                // ullMoon.next.timestamp may be Int or Int?, format if present
+            // Format upcoming full/new moon timestamps if present
             moonData.fullMoon =
-            formatTimestamp(timestamp: TimeInterval(decoded.moon.detailed.upcomingPhases.fullMoon.next.timestamp ?? 0), offsetSec: offsetSec)
+            formatTimestamp(timestamp: TimeInterval(decoded.moon.detailed.upcomingPhases.fullMoon.next.timestamp ?? 0),
+                            offsetSec: offsetSec)
             
             moonData.newMoon =
-            formatTimestamp(timestamp: TimeInterval(decoded.moon.detailed.upcomingPhases.newMoon.next.timestamp ?? 0), offsetSec: offsetSec)
+            formatTimestamp(timestamp: TimeInterval(decoded.moon.detailed.upcomingPhases.newMoon.next.timestamp ?? 0),
+                            offsetSec: offsetSec)
             
         } catch {
             print("Decoding RapidAdvanced error:", error)
