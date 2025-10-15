@@ -33,9 +33,9 @@ struct DayDetailIcons: View {
                 HStack (spacing: spacing) {
                     ForEach(Array(hourIconArray.enumerated()), id: \.element) { idx, element in
                         VStack {
-                            Image(systemName: ConvertImageToFill(image: element.description))
+                            Image(systemName: convertImageToFill(image: element.description))
                                 .font(.system(size: fontSize))
-                                .modifier(ImageViewModifier(image: ConvertImageToFill(image: element.description)))
+                                .modifier(ImageViewModifier(image: convertImageToFill(image: element.description)))
                         }
                     }
                     Spacer()

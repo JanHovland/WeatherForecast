@@ -40,6 +40,7 @@ struct NewTemperature: Identifiable {
     var type: String
     var hour: Int
     var value: Double
+    var systemName: String
 }
 
 struct NewFeelsLike: Identifiable {

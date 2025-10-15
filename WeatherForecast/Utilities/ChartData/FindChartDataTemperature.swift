@@ -54,12 +54,13 @@ func FindChartDataTemperature(weather: Weather,
     ///
     /// Må initialisere n:
     ///
-    var n: NewTemperature = NewTemperature(type: "", hour: 0, value: 0.00)
+    var n: NewTemperature = NewTemperature(type: "", hour: 0, value: 0.00, systemName: "")
     for i in 0..<tempInfo[tempType].data.count {
         array.append(tempInfo[tempType].data[i].temp)
         n.type = String(localized: "Temperature")
         n.hour = i
         n.value = tempInfo[tempType].data[i].temp
+        n.systemName = tempInfo[tempType].data[i].symbolName
         new.append(n)
     }
     ///
@@ -78,6 +79,7 @@ func FindChartDataTemperature(weather: Weather,
         n.type = String(localized: "Appearent temperature")
         n.hour = i
         n.value = tempInfo[appearentType].data[i].temp
+        n.systemName = tempInfo[appearentType].data[i].symbolName
         new.append(n)
     }
     let tempMin = array.min()!

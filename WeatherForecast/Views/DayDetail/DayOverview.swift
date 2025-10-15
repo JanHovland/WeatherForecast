@@ -63,8 +63,8 @@ struct DayOverview: View {
                                 ///
                                 /// Viser image med .fill
                                 ///
-                            Image(systemName: ConvertImageToFill(image: dayItem.symbolName))
-                                .modifier(ImageViewModifier(image: ConvertImageToFill(image: dayItem.symbolName)))
+                            Image(systemName: convertImageToFill(image: dayItem.symbolName))
+                                .modifier(ImageViewModifier(image: convertImageToFill(image: dayItem.symbolName)))
                                 .font(.title3)
                                 .frame(width: 10, height: 10)
                                 ///

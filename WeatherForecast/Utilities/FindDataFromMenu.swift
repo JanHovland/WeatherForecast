@@ -108,7 +108,7 @@ func FindDataFromMenu(info: String,
             if $0.date >= value.0 &&
                 $0.date < value.1 {
                 array.append($0.temperature.value)
-                arrayHourIcons.append($0.symbolName)
+                arrayHourIcons.append(convertImageToFill(image: $0.symbolName))
                 ///
                 /// Oppdaterer vanlig temperatur:
                 ///
@@ -118,6 +118,7 @@ func FindDataFromMenu(info: String,
                 data.gust = $0.wind.gust!.value * 1000 / 3600
                 data.wind = $0.wind.speed.value * 1000 / 3600
                 data.condition = WeatherTranslateType(type: $0.condition.description)
+                data.symbolName = $0.symbolName
                 tempData.append(data)
                 ///
                 /// Oppdaterer følt  temperatur:
@@ -128,6 +129,7 @@ func FindDataFromMenu(info: String,
                 data.gust = $0.wind.gust!.value * 1000 / 3600
                 data.wind = $0.wind.speed.value * 1000 / 3600
                 data.condition = WeatherTranslateType(type: $0.condition.description)
+                data.symbolName = $0.symbolName
                 appearentData.append(data)
                 i = i + 1
             }
@@ -144,9 +146,9 @@ func FindDataFromMenu(info: String,
         tempInfoArray.append(tempInfo)
         
         weather.dailyForecast.forEach  {
-            arrayDayIcons.append($0.symbolName)
+           arrayDayIcons.append(convertImageToFill(image: $0.symbolName))
         }
-        arrayHourIcons = reduceArrayAmount(fromArray: arrayHourIcons, option: option1)
+//        arrayHourIcons = reduceArrayAmount(fromArray: arrayHourIcons, option: option1)
         return (array, arrayDayIcons, arrayHourIcons, rainFalls, windInfoArray, tempInfoArray, gustInfoArray, weatherIconArray, snowArray, feltTempArray, dewPointArray, newPrecipitation)
         
     case .uvIndex :

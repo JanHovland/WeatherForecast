@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-func ConvertImageToFill(image: String) -> String {
+func convertImageToFill(image: String) -> String {
     var imageOut : String = ""
     switch image {
         case "cloud.sun" : imageOut = "cloud.sun.fill"

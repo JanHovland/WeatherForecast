@@ -264,7 +264,8 @@ struct DayDetail: View {
                                 ///
                                 /// Viser natt og dag:
                                 ///
-                            SunDayAndNight(xMax: UIDevice.isIpad ? 500 : 300,
+                            SunDayAndNight(xMax:
+                                            UIDevice.isIpad ? 500 : 300,
                                            index : index,
                                            sunRises: $sunRises,
                                            sunSets: $sunSets)
@@ -279,12 +280,12 @@ struct DayDetail: View {
                                 ///
                                 /// Viser image rekken:
                                 ///
-                            DayDetailIcons(option: MenuTitleToOption(menuTitle: menuTitle),
-                                           index: index,
-                                           weather: weather,
-                                           hourIconArray: $hourIconArray,
-                                           width: 300)
-                            .modifier(DayDetailHourIconsModifier(menuTitle: $menuTitle))
+//                            DayDetailIcons(option: MenuTitleToOption(menuTitle: menuTitle),
+//                                           index: index,
+//                                           weather: weather,
+//                                           hourIconArray: $hourIconArray,
+//                                           width: 300)
+//                            .modifier(DayDetailHourIconsModifier(menuTitle: $menuTitle))
                                 ///
                                 /// Viser data for aktuell option:
                                 ///
@@ -330,12 +331,7 @@ struct DayDetail: View {
                 .padding()
                 Spacer()
             } /// end ScrollView
-              ///
-              
-            .onChange(of: screenWidth) {  
-                print("Change")
-            }
-            
+               
             .onChange(of: index) { oldIndex, index in
                     ///
                     /// Finner menuIcon

@@ -53,8 +53,8 @@ struct HourOverview: View {
                                 ///
                                 /// Viser image med .fill
                                 ///
-                                Image(systemName: ConvertImageToFill(image: hourItem.symbolName))
-                                    .modifier(ImageViewModifier(image: ConvertImageToFill(image: hourItem.symbolName)))
+                                Image(systemName: convertImageToFill(image: hourItem.symbolName))
+                                    .modifier(ImageViewModifier(image: convertImageToFill(image: hourItem.symbolName)))
                                     .frame(width: 20, height: 20)
                                     .foregroundStyle(.primary)
                                     .font(.title3)

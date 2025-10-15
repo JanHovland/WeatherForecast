@@ -18,5 +18,6 @@ struct TempData {
     var gust: Double = 0.00
     var wind: Double = 0.00
     var condition: String = ""
+    var symbolName: String = ""
 }
 
