@@ -470,7 +470,7 @@ struct WeatherForecast: View {
                                           apiKey: apiKey,
                                           apiHost: apiHost,
                                           statusCode: false,
-                                          prettyPrint: false,
+                                          prettyPrint: true,
                                           offsetSec: weatherInfo.offsetSec)
             ///
             /// Oppdaterer CurrentWeather
@@ -842,3 +842,152 @@ func translateMoonPhase(phase: String) -> String {
     return moonPhase
 }
 
+/*
+ Pretty JSON:
+ {
+   "sun" : {
+     "sunset" : 1760642400,
+     "position" : {
+       "azimuth" : 116.861521,
+       "distance" : 151971668.42324501,
+       "altitude" : 48.310389999999998
+     },
+     "sunrise" : 1760582520,
+     "solar_noon" : "13:01",
+     "sunrise_timestamp" : "02:42",
+     "day_length" : "16:38",
+     "sunset_timestamp" : "19:20",
+     "next_solar_eclipse" : {
+       "timestamp" : 1771326786,
+       "datestamp" : "Tue, 17 Feb 2026 11:13:06 +0000",
+       "type" : "Annular Solar Eclipse",
+       "visibility_regions" : "s Argentina & Chile, s Africa, Antarctica ; [Annular: Antarctica]"
+     }
+   },
+   "timestamp" : 1760643840,
+   "datestamp" : "Thu, 16 Oct 2025 21:44:00 +0200",
+   "moon" : {
+     "moonrise_timestamp" : 1760625540,
+     "moonset_timestamp" : 1760572500,
+     "detailed" : {
+       "visibility" : {
+         "best_viewing_time" : null,           <================
+         "visibility_rating" : "Fair",
+         "illumination" : "29.12%",
+         "visible_hours" : 0,
+         "viewing_conditions" : {
+           "recommended_equipment" : {
+             "filters" : "No filters needed",
+             "best_magnification" : "Low to medium magnification (25-75x)",
+             "telescope" : "Any size suitable"
+           },
+           "phase_quality" : "Challenging viewing conditions due to low illumination"
+         }
+       },
+       "illumination_details" : {
+         "phase_angle" : 294.68000000000001,
+         "percentage" : 29.120000000000001,
+         "visible_fraction" : 0.29120000000000001
+       },
+       "upcoming_phases" : {
+         "full_moon" : {
+           "last" : {
+             "timestamp" : 1759726500,
+             "datestamp" : "Mon, 06 Oct 2025 04:55:00 +0000",
+             "name" : "Hunter's Moon",
+             "days_ago" : 10,
+             "description" : "Traditionally aids hunters tracking prey by moonlight."
+           },
+           "next" : {
+             "timestamp" : 1762235700,
+             "datestamp" : "Tue, 04 Nov 2025 05:55:00 +0000",
+             "days_ahead" : 18,
+             "name" : "Beaver Moon",
+             "description" : "When beavers are actively preparing for winter."
+           }
+         },
+         "first_quarter" : {
+           "last" : {
+             "days_ago" : 18,
+             "datestamp" : "Sun, 28 Sep 2025 14:32:00 +0000",
+             "timestamp" : 1759069920
+           },
+           "next" : {
+             "days_ahead" : 10,
+             "datestamp" : "Mon, 27 Oct 2025 15:32:00 +0000",
+             "timestamp" : 1761579120
+           }
+         },
+         "last_quarter" : {
+           "last" : {
+             "days_ago" : 2,
+             "datestamp" : "Tue, 14 Oct 2025 09:30:00 +0000",
+             "timestamp" : 1760434200
+           },
+           "next" : {
+             "days_ahead" : 26,
+             "datestamp" : "Wed, 12 Nov 2025 10:30:00 +0000",
+             "timestamp" : 1762943400
+           }
+         },
+         "new_moon" : {
+           "last" : {
+             "days_ago" : 24,
+             "datestamp" : "Mon, 22 Sep 2025 08:58:00 +0000",
+             "timestamp" : 1758531480
+           },
+           "next" : {
+             "days_ahead" : 4,
+             "datestamp" : "Tue, 21 Oct 2025 08:58:00 +0000",
+             "timestamp" : 1761037080
+           }
+         }
+       },
+       "position" : {
+         "parallactic_angle" : 28.422404,
+         "phase_angle" : 294.68000000000001,
+         "azimuth" : 312.108991,
+         "distance" : 387549.69503200002,
+         "altitude" : -43.793367000000003
+       }
+     },
+     "illumination" : "29%",
+     "next_lunar_eclipse" : {
+       "timestamp" : 1772534092,
+       "datestamp" : "Tue, 03 Mar 2026 10:34:52 +0000",
+       "type" : "Total Lunar Eclipse",
+       "visibility_regions" : "eastern Asia, Australia, Pacific, Americas"
+     },
+     "phase_name" : "waning crescent",
+     "phase" : 0.81856629633210787,
+     "major_phase" : "Waning Crescent",
+     "stage" : "waning",
+     "lunar_cycle" : "81.86%",
+     "moonset" : "23:55",
+     "emoji" : "🌘",
+     "zodiac" : {
+       "sun_sign" : "Libra",
+       "moon_sign" : "Virgo"
+     },
+     "moonrise" : "14:39",
+     "age_days" : 24,
+     "events" : {
+       "optimal_viewing_period" : {
+         "recommendations" : [
+           "Best viewed in eastern sky before sunrise",
+           "Watch for subtle features near the limb",
+           "Low magnification best for thin crescent"
+         ],
+         "duration_hours" : 2.5,
+         "viewing_quality" : "Limited visibility of surface features",
+         "start_time" : "01:42",
+         "end_time" : "04:12"
+       },
+       "moonset_visible" : true,
+       "moonrise_visible" : false
+     }
+   },
+   "plan" : "ULTRA"
+ }
+ Decoding RapidAdvanced error: valueNotFound(Swift.String, Swift.DecodingError.Context(codingPath: [CodingKeys(stringValue: "moon", intValue: nil), CodingKeys(stringValue: "detailed", intValue: nil), CodingKeys(stringValue: "visibility", intValue: nil), CodingKeys(stringValue: "best_viewing_time", intValue: nil)], debugDescription: "Cannot get value of type String -- found null value instead", underlyingError: nil))
+*/

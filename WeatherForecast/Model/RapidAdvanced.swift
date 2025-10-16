@@ -157,7 +157,8 @@ struct NextClass: Codable {
 
 // MARK: - Visibility
 struct VisibilityRapid: Codable {
-    let bestViewingTime, visibilityRating, illumination: String
+    // Disse kan bli null : 
+    let bestViewingTime, visibilityRating, illumination: String?
     let visibleHours: Double
     let viewingConditions: ViewingConditions
 

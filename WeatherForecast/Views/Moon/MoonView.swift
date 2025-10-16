@@ -56,6 +56,9 @@ struct MoonView: View {
             
             if currentWeather.moonSign == String(localized: "Leo") {
                 MoonInfo(heading: "MoonSign", value: "♌️ " + currentWeather.moonSign)
+                
+            } else if currentWeather.moonSign == String(localized: "Virgo") {
+                MoonInfo(heading: "MoonSign", value: "♍️ " + currentWeather.moonSign)
             } else {
                 MoonInfo(heading: "MoonSign", value: currentWeather.moonSign)
             }
