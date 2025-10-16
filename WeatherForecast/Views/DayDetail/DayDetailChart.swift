@@ -659,35 +659,13 @@
                                                                     option: option,
                                                                     option1: .number24)
                 hourIconArray = value.2
-                
-                chartValues = [
-                    ChartValue(id: 0, type: "", hour: 0, value: 0.0, systemName: hourIconArray[0]),
-                    ChartValue(id: 1, type: "", hour: 1, value: 0.0, systemName: hourIconArray[1]),
-                    ChartValue(id: 2, type: "", hour: 2, value: 0.0, systemName: hourIconArray[2]),
-                    ChartValue(id: 3, type: "", hour: 3, value: 0.0, systemName: hourIconArray[3]),
-                    ChartValue(id: 4, type: "", hour: 4, value: 0.0, systemName: hourIconArray[4]),
-                    ChartValue(id: 5, type: "", hour: 5, value: 0.0, systemName: hourIconArray[5]),
-                    ChartValue(id: 6, type: "", hour: 6, value: 0.0, systemName: hourIconArray[6]),
-                    ChartValue(id: 7, type: "", hour: 7, value: 0.0, systemName: hourIconArray[7]),
-                    ChartValue(id: 8, type: "", hour: 8, value: 0.0, systemName: hourIconArray[8]),
-                    ChartValue(id: 9, type: "", hour: 9, value: 0.0, systemName: hourIconArray[9]),
-                    ChartValue(id: 10, type: "", hour: 10, value: 0.0, systemName: hourIconArray[10]),
-                    ChartValue(id: 11, type: "", hour: 11, value: 0.0, systemName: hourIconArray[11]),
-                    ChartValue(id: 12, type: "", hour: 12, value: 0.0, systemName: hourIconArray[12]),
-                    ChartValue(id: 13, type: "", hour: 13, value: 0.0, systemName: hourIconArray[13]),
-                    ChartValue(id: 14, type: "", hour: 14, value: 0.0, systemName: hourIconArray[14]),
-                    ChartValue(id: 15, type: "", hour: 15, value: 0.0, systemName: hourIconArray[15]),
-                    ChartValue(id: 16, type: "", hour: 16, value: 0.0, systemName: hourIconArray[16]),
-                    ChartValue(id: 17, type: "", hour: 17, value: 0.0, systemName: hourIconArray[17]),
-                    ChartValue(id: 18, type: "", hour: 18, value: 0.0, systemName: hourIconArray[18]),
-                    ChartValue(id: 19, type: "", hour: 19, value: 0.0, systemName: hourIconArray[19]),
-                    ChartValue(id: 20, type: "", hour: 20, value: 0.0, systemName: hourIconArray[20]),
-                    ChartValue(id: 21, type: "", hour: 21, value: 0.0, systemName: hourIconArray[21]),
-                    ChartValue(id: 22, type: "", hour: 22, value: 0.0, systemName: hourIconArray[22]),
-                    ChartValue(id: 23, type: "", hour: 23, value: 0.0, systemName: hourIconArray[23])
-                ]
+                ///
+                /// Init chartValues
+                ///
+                chartValues = hourIconArray.enumerated().map { index, icon in
+                    ChartValue(id: index, type: "", hour: index, value: 0.0, systemName: icon)
+                }
 
-                
                 ///
                 /// ** tempInfo må være med !
                 ///
@@ -860,33 +838,12 @@
                                                                     option: option,
                                                                     option1: .number24)
                 hourIconArray = val01.2
-                
-                chartValues = [
-                    ChartValue(id: 0, type: "", hour: 0, value: 0.0, systemName: hourIconArray[0]),
-                    ChartValue(id: 1, type: "", hour: 1, value: 0.0, systemName: hourIconArray[1]),
-                    ChartValue(id: 2, type: "", hour: 2, value: 0.0, systemName: hourIconArray[2]),
-                    ChartValue(id: 3, type: "", hour: 3, value: 0.0, systemName: hourIconArray[3]),
-                    ChartValue(id: 4, type: "", hour: 4, value: 0.0, systemName: hourIconArray[4]),
-                    ChartValue(id: 5, type: "", hour: 5, value: 0.0, systemName: hourIconArray[5]),
-                    ChartValue(id: 6, type: "", hour: 6, value: 0.0, systemName: hourIconArray[6]),
-                    ChartValue(id: 7, type: "", hour: 7, value: 0.0, systemName: hourIconArray[7]),
-                    ChartValue(id: 8, type: "", hour: 8, value: 0.0, systemName: hourIconArray[8]),
-                    ChartValue(id: 9, type: "", hour: 9, value: 0.0, systemName: hourIconArray[9]),
-                    ChartValue(id: 10, type: "", hour: 10, value: 0.0, systemName: hourIconArray[10]),
-                    ChartValue(id: 11, type: "", hour: 11, value: 0.0, systemName: hourIconArray[11]),
-                    ChartValue(id: 12, type: "", hour: 12, value: 0.0, systemName: hourIconArray[12]),
-                    ChartValue(id: 13, type: "", hour: 13, value: 0.0, systemName: hourIconArray[13]),
-                    ChartValue(id: 14, type: "", hour: 14, value: 0.0, systemName: hourIconArray[14]),
-                    ChartValue(id: 15, type: "", hour: 15, value: 0.0, systemName: hourIconArray[15]),
-                    ChartValue(id: 16, type: "", hour: 16, value: 0.0, systemName: hourIconArray[16]),
-                    ChartValue(id: 17, type: "", hour: 17, value: 0.0, systemName: hourIconArray[17]),
-                    ChartValue(id: 18, type: "", hour: 18, value: 0.0, systemName: hourIconArray[18]),
-                    ChartValue(id: 19, type: "", hour: 19, value: 0.0, systemName: hourIconArray[19]),
-                    ChartValue(id: 20, type: "", hour: 20, value: 0.0, systemName: hourIconArray[20]),
-                    ChartValue(id: 21, type: "", hour: 21, value: 0.0, systemName: hourIconArray[21]),
-                    ChartValue(id: 22, type: "", hour: 22, value: 0.0, systemName: hourIconArray[22]),
-                    ChartValue(id: 23, type: "", hour: 23, value: 0.0, systemName: hourIconArray[23])
-                ]
+                ///
+                /// Init chartValues
+                ///
+                chartValues = hourIconArray.enumerated().map { index, icon in
+                    ChartValue(id: index, type: "", hour: index, value: 0.0, systemName: icon)
+                }
                 ///
                 /// ** tempInfo må være med !
                 ///
@@ -1054,32 +1011,12 @@
                                                                    option1: .number24)
                 hourIconArray = val1.2
                 
-                chartValues = [
-                    ChartValue(id: 0, type: "", hour: 0, value: 0.0, systemName: hourIconArray[0]),
-                    ChartValue(id: 1, type: "", hour: 1, value: 0.0, systemName: hourIconArray[1]),
-                    ChartValue(id: 2, type: "", hour: 2, value: 0.0, systemName: hourIconArray[2]),
-                    ChartValue(id: 3, type: "", hour: 3, value: 0.0, systemName: hourIconArray[3]),
-                    ChartValue(id: 4, type: "", hour: 4, value: 0.0, systemName: hourIconArray[4]),
-                    ChartValue(id: 5, type: "", hour: 5, value: 0.0, systemName: hourIconArray[5]),
-                    ChartValue(id: 6, type: "", hour: 6, value: 0.0, systemName: hourIconArray[6]),
-                    ChartValue(id: 7, type: "", hour: 7, value: 0.0, systemName: hourIconArray[7]),
-                    ChartValue(id: 8, type: "", hour: 8, value: 0.0, systemName: hourIconArray[8]),
-                    ChartValue(id: 9, type: "", hour: 9, value: 0.0, systemName: hourIconArray[9]),
-                    ChartValue(id: 10, type: "", hour: 10, value: 0.0, systemName: hourIconArray[10]),
-                    ChartValue(id: 11, type: "", hour: 11, value: 0.0, systemName: hourIconArray[11]),
-                    ChartValue(id: 12, type: "", hour: 12, value: 0.0, systemName: hourIconArray[12]),
-                    ChartValue(id: 13, type: "", hour: 13, value: 0.0, systemName: hourIconArray[13]),
-                    ChartValue(id: 14, type: "", hour: 14, value: 0.0, systemName: hourIconArray[14]),
-                    ChartValue(id: 15, type: "", hour: 15, value: 0.0, systemName: hourIconArray[15]),
-                    ChartValue(id: 16, type: "", hour: 16, value: 0.0, systemName: hourIconArray[16]),
-                    ChartValue(id: 17, type: "", hour: 17, value: 0.0, systemName: hourIconArray[17]),
-                    ChartValue(id: 18, type: "", hour: 18, value: 0.0, systemName: hourIconArray[18]),
-                    ChartValue(id: 19, type: "", hour: 19, value: 0.0, systemName: hourIconArray[19]),
-                    ChartValue(id: 20, type: "", hour: 20, value: 0.0, systemName: hourIconArray[20]),
-                    ChartValue(id: 21, type: "", hour: 21, value: 0.0, systemName: hourIconArray[21]),
-                    ChartValue(id: 22, type: "", hour: 22, value: 0.0, systemName: hourIconArray[22]),
-                    ChartValue(id: 23, type: "", hour: 23, value: 0.0, systemName: hourIconArray[23])
-                ]
+                ///
+                /// Init chartValues
+                ///
+                chartValues = hourIconArray.enumerated().map { index, icon in
+                    ChartValue(id: index, type: "", hour: index, value: 0.0, systemName: icon)
+                }
                 ///
                 /// ** tempInfo må være med !
                 ///

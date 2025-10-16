@@ -469,7 +469,7 @@ struct WeatherForecast: View {
                                           apiKey: apiKey,
                                           apiHost: apiHost,
                                           statusCode: false,
-                                          prettyPrint: true,
+                                          prettyPrint: false,
                                           offsetSec: weatherInfo.offsetSec)
             ///
             /// Oppdaterer CurrentWeather
@@ -630,8 +630,13 @@ struct WeatherForecast: View {
             let date = Date().adding(seconds: weatherInfo.offsetSec)
             let start = date.setTime(hour: 0, min: 0, sec: 0)
             let startDate = start?.adding(days: -2)
-            let endDate = (Calendar.current.date(byAdding: .day, value: 10, to: startDate ?? Date())!).setTime(hour: 0, min: 0, sec: 0)
-            
+            let endDate = (Calendar.current.date(byAdding: .day, value: 13, to: startDate ?? Date())!).setTime(hour: 0, min: 0, sec: 0)
+            ///
+            /// start  = 2025-10-16
+            /// startDate = 2025-10-14
+            /// endDate = 2025-10-27
+            ///
+            ///
             let location = CLLocation(latitude: weatherInfo.latitude ?? 0.00, longitude: weatherInfo.longitude ?? 0.00)
             ///
             /// Finner hourForecast
