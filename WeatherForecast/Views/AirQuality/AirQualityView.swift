@@ -85,17 +85,16 @@ struct AirQualityView: View {
                     /// Viser progressbaren:
                     ///
                     ZStack {
-                        ///
-                        /// Markerer 1 som 0.50 osv.:
-                        ///
-                        Gauge(value: CGFloat(currentWeather.aqi) - 0.50, in: minValue...maxValue) {
+                        Gauge(value:  CGFloat(currentWeather.aqi) - 0.50, in: minValue...maxValue) {
                             Label("", systemImage: "")
                         }
                         .tint(gradient)
                     }
-                    .frame(width: 300, height: 2)
+                    .frame(maxWidth: .infinity,
+                           maxHeight: 2)
                     .gaugeStyle(.accessoryLinear)
                     .padding(.top, 10)
+                    .padding(.horizontal, 5)
                     ///
                     /// Viser verdien av Sulphur dioxide (SO2):
                     ///

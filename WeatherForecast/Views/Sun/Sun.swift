@@ -49,12 +49,13 @@ struct Sun : View {
                 .font(.system(size: 40, weight: .light))
                 ///
                 /// Viser soloversikt dag og natt:
-                ///
-                SunDayAndNight(xMax: 100,
-                               index: 0,
-                               sunRises: $sunRises,
-                               sunSets: $sunSets)
-                .offset(y: 30)
+                GeometryReader { geo  in
+                    SunDayAndNight(xMax: geo.size.width,
+                                   index: 0,
+                                   sunRises: $sunRises,
+                                   sunSets: $sunSets)
+                }
+                .offset(y: 15)
                 ///
                 /// Finner solnedgang:
                 ///
@@ -68,7 +69,7 @@ struct Sun : View {
                     }
                     Spacer()
                 }
-                .offset(y:85)
+                .offset(y:55)
                 ///
                 /// Viser lengden på dagen og økning siden i går
                 ///
