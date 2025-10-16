@@ -36,14 +36,12 @@ struct MoonView: View {
                 ///
                 HStack {
                     Spacer()
-                    Text(currentWeather.moonPhase)
-                        ///
-                        /// Bruker NSLocalizedString ved kall til en variabel
-                        ///
-                        //                    Text(String(format: NSLocalizedString(currentWeather.moonPhase, comment: "")).uppercased())
-                        //                        .font(.system(size:15, weight: .bold))
-                        //                    Text(String(format: NSLocalizedString(currentWeather.moonMajorPhase, comment: "")).uppercased())
-                        //                        .font(.system(size: 15, weight: .bold))
+                    // Text(currentWeather.moonPhase)
+                    ///
+                    /// Bruker NSLocalizedString ved kall til en variabel
+                    ///
+                    Text(String(format: NSLocalizedString(currentWeather.moonPhase, comment: "")).uppercased())
+                        .font(.system(size:15, weight: .bold))
                 }
             }
             .opacity(0.50)
@@ -55,15 +53,29 @@ struct MoonView: View {
                 .font(.system(size: 30))
             MoonInfo(heading: "Phase", value: "\(currentWeather.phase)")
             MoonInfo(heading: "MajorPhase", value: currentWeather.moonMajorPhase)
-            MoonInfo(heading: "Stage", value: "\(currentWeather.stage)")
-            MoonInfo(heading: "MoonSign", value: currentWeather.moonSign)
+            
+            if currentWeather.moonSign == String(localized: "Leo") {
+                MoonInfo(heading: "MoonSign", value: "♌️ " + currentWeather.moonSign)
+            } else {
+                MoonInfo(heading: "MoonSign", value: currentWeather.moonSign)
+            }
+            
+            if currentWeather.sunSign == String(localized: "Libra") {
+                MoonInfo(heading: "SunSign", value: "♎️ " + currentWeather.sunSign)
+            } else {
+                MoonInfo(heading: "SunSign", value: currentWeather.sunSign)
+            }
+              
             MoonInfo(heading: "Illumination", value: currentWeather.moonIllumination)
             MoonInfo(heading: "MoonRise", value: currentWeather.moonrise)
             MoonInfo(heading: "MoonSet", value: currentWeather.moonset)
             MoonInfo(heading: "Next full moon", value: "\(currentWeather.daysToFullMoon) d")
-            MoonInfo(heading: "Distance", value: "\(currentWeather.distanceToMoon) km")
-            MoonInfo(heading: "Neste fullmåne", value: currentWeather.fullMoon.firstUppercased)
-            MoonInfo(heading: "Neste nymåne", value: currentWeather.newMoon.firstUppercased)
+            MoonInfo(heading: "About Moon Distance", value: "\(currentWeather.distanceToMoon) km")
+            VStack {
+                MoonInfo(heading: "Neste fullmåne", value: currentWeather.fullMoon.firstUppercased)
+                MoonInfo(heading: "Neste nymåne", value: currentWeather.newMoon.firstUppercased)
+            }
+            .font(UIDevice.isIpad ? .body : .caption)
          }
         .padding(20)
         .offset(x: 0, y: -15)

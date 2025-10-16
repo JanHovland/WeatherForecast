@@ -15,7 +15,7 @@ struct MoonInfo: View {
     var body: some View {
         HStack {
             HStack {
-                Text(heading)
+                Text(NSLocalizedString(heading, comment: ""))
                 Spacer()
             }
             HStack {

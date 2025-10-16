@@ -11,6 +11,7 @@ class MoonData {
     var phase: Double
     var stage: String
     var moonSign: String
+    var sunSign: String
     var emoji: String
     var illumination: String
     var daysUntilNextFullMoon: Int
@@ -26,6 +27,7 @@ class MoonData {
          phase: Double,
          stage: String,
          moonSign: String,
+         sunSign: String,
          emoji: String,
          illumination: String,
          daysUntilNextFullMoon: Int,
@@ -40,7 +42,8 @@ class MoonData {
         self.phase = phase
         self.stage = stage
         self.moonSign = moonSign
-        
+        self.sunSign = sunSign
+
         self.emoji = emoji
         self.illumination = illumination
         self.daysUntilNextFullMoon = daysUntilNextFullMoon
@@ -57,6 +60,7 @@ class MoonData {
                   phase: 0.00,
                   stage: "",
                   moonSign: "",
+                  sunSign: "",
                   emoji: "",
                   illumination: "",
                   daysUntilNextFullMoon: 0,

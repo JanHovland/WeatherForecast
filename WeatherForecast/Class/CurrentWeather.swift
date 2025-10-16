@@ -78,7 +78,9 @@ import Observation
     var stage = String()
     /// moonSign
     var moonSign = String()
-    /// moonrise
+    /// sunSign
+    var sunSign = String()
+   /// moonrise
     var moonrise = String()
     /// moonset
     var moonset = String()

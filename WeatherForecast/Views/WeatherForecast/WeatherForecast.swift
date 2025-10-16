@@ -107,6 +107,7 @@ struct WeatherForecast: View {
                                                      phase: 0.00,
                                                      stage: "",
                                                      moonSign: "",
+                                                     sunSign: "",
                                                      emoji: "",
                                                      illumination: "",
                                                      daysUntilNextFullMoon: 0,
@@ -485,6 +486,7 @@ struct WeatherForecast: View {
             currentWeather.phase = moonData.phase
             currentWeather.stage = moonData.stage
             currentWeather.moonSign = moonData.moonSign
+            currentWeather.sunSign = moonData.sunSign
             currentWeather.moonIllumination = moonData.illumination
             currentWeather.moonrise = moonData.moonrise
             currentWeather.moonset = moonData.moonset

@@ -28,6 +28,7 @@ func findMoonData(date: String,
                             phase: 0.00,
                             stage: "",
                             moonSign: "",
+                            sunSign: "",
                             emoji: "",
                             illumination: "",
                             daysUntilNextFullMoon: 0,
@@ -83,12 +84,17 @@ func findMoonData(date: String,
             let decoded = try JSONDecoder().decode(RapidAdvanced.self, from: data)
   
             moonData.phaseName = decoded.moon.phaseName
-            moonData.majorPhase = decoded.moon.majorPhase
+            
+            moonData.majorPhase = String(format: NSLocalizedString(decoded.moon.majorPhase, comment: ""))
+            
             moonData.phase = decoded.moon.phase
             moonData.stage = decoded.moon.stage
-            moonData.moonSign = decoded.moon.zodiac.moonSign
             
-            moonData.emoji = emojiForPhase(decoded.moon.phaseName)
+            moonData.moonSign = String(format: NSLocalizedString(decoded.moon.zodiac.moonSign, comment: ""))
+            moonData.sunSign = String(format: NSLocalizedString(decoded.moon.zodiac.sunSign, comment: ""))
+ 
+            moonData.emoji = decoded.moon.emoji
+
             moonData.illumination = decoded.moon.illumination
             
             moonData.daysUntilNextFullMoon = signedDaysBetweenUnixTimestamps(
