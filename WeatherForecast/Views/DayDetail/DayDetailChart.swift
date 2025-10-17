@@ -199,6 +199,25 @@
                                 .foregroundStyle(by: .value("Type", "\($0.type)"))
                                 .lineStyle(StrokeStyle(lineWidth: 1))
                             }
+                            ///
+                            /// Viser iconene for hver time.
+                            ///
+                            /// Using a named item and an explicit id, plus computing
+                            /// the icon name  once per iteration to help the compiler.
+                            ///
+                            ForEach(chartValues, id: \.id) { item in
+                                PointMark(
+                                    x: .value("Hour", item.hour),
+                                    y: .value("Iconlinje", 20)
+                                )
+                                .symbol {
+                                    if item.hour % 2 == 0 {
+                                        Image(systemName: "location.north.fill")
+                                            .rotationEffect(.degrees((Double(item.systemName) ?? 0) + 180))
+                                            .padding(.leading, 10)
+                                    }
+                                }
+                            }
                             if let selectedIndex {
                                 RuleMark(x: .value("Hour", selectedIndex))
                                     .annotation(
@@ -248,15 +267,12 @@
                                     .foregroundStyle(by: .value("Type", "\($0.type)"))
                                     .lineStyle(StrokeStyle(lineWidth: 1))
                                 }
-                                
-                                    ///
-                                    /// Viser iconene for hver time.
-                                    ///
-                                    /// Using a named item and an explicit id, plus computing
-                                    /// the icon name  once per iteration to help the compiler.
-                                    ///
-                                
-                                
+                                ///
+                                /// Viser iconene for hver time.
+                                ///
+                                /// Using a named item and an explicit id, plus computing
+                                /// the icon name  once per iteration to help the compiler.
+                                ///
                                 ForEach(chartValues, id: \.id) { item in
                                     PointMark(
                                         x: .value("Hour", item.hour),
@@ -660,19 +676,18 @@
                                                                     option1: .number24)
                 hourIconArray = value.2
                 ///
-                /// Init chartValues
-                ///
-                chartValues = hourIconArray.enumerated().map { index, icon in
-                    ChartValue(id: index, type: "", hour: index, value: 0.0, systemName: icon)
-                }
-
-                ///
                 /// ** tempInfo må være med !
                 ///
                 tempInfo = value.5
                 windInfo = value.4
 
                 if option == .temperature {
+                    ///
+                    /// Init chartValues
+                    ///
+                    chartValues = hourIconArray.enumerated().map { index, icon in
+                        ChartValue(id: index, type: "", hour: index, value: 0.0, systemName: icon)
+                    }
                     let val3 : ([NewTemperature],
                                 Double,
                                 Double,
@@ -715,6 +730,12 @@
                     rangeFrom = val03.5
                     rangeTo = val03.6
                 } else if option == .wind {
+                    ///
+                    /// Init chartValues
+                    ///
+                    chartValues = hourIconArray.enumerated().map { index, icon in
+                        ChartValue(id: index, type: "", hour: index, value: 0.0, systemName: icon)
+                    }
                     let val04 : ([NewWind],
                                  Double,
                                  Double,
@@ -839,18 +860,19 @@
                                                                     option1: .number24)
                 hourIconArray = val01.2
                 ///
-                /// Init chartValues
-                ///
-                chartValues = hourIconArray.enumerated().map { index, icon in
-                    ChartValue(id: index, type: "", hour: index, value: 0.0, systemName: icon)
-                }
-                ///
                 /// ** tempInfo må være med !
                 ///
                 tempInfo = val01.5
                 windInfo = val01.4
 
                 if option == .temperature {
+                    ///
+                    /// Init chartValues
+                    ///
+                    chartValues = hourIconArray.enumerated().map { index, icon in
+                        ChartValue(id: index, type: "", hour: index, value: 0.0, systemName: icon)
+                    }
+
                     let val02 : ([NewTemperature],
                                  Double,
                                  Double,
@@ -885,6 +907,13 @@
                     rangeFrom = val03.5
                     rangeTo = val03.6
                 } else if option == .wind {
+                        ///
+                        /// Init chartValues
+                        ///
+                    chartValues = hourIconArray.enumerated().map { index, icon in
+                        ChartValue(id: index, type: "", hour: index, value: 0.0, systemName: icon)
+                    }
+
                     let val04 : ([NewWind],
                                  Double,
                                  Double,
@@ -1010,13 +1039,6 @@
                                                                    option: option,
                                                                    option1: .number24)
                 hourIconArray = val1.2
-                
-                ///
-                /// Init chartValues
-                ///
-                chartValues = hourIconArray.enumerated().map { index, icon in
-                    ChartValue(id: index, type: "", hour: index, value: 0.0, systemName: icon)
-                }
                 ///
                 /// ** tempInfo må være med !
                 ///
@@ -1024,6 +1046,13 @@
                 windInfo = val1.4
                 
                 if option == .temperature {
+                    ///
+                    /// Init chartValues
+                    ///
+                    chartValues = hourIconArray.enumerated().map { index, icon in
+                        ChartValue(id: index, type: "", hour: index, value: 0.0, systemName: icon)
+                    }
+
                     let val2 : ([NewTemperature],
                                 Double,
                                 Double,
@@ -1058,6 +1087,13 @@
                     rangeFrom = val3.5
                     rangeTo = val3.6
                 } else if option == .wind {
+                    ///
+                    /// Init chartValues
+                    ///
+                    chartValues = hourIconArray.enumerated().map { index, icon in
+                        ChartValue(id: index, type: "", hour: index, value: 0.0, systemName: icon)
+                    }
+                    
                     let val4: ([NewWind],
                                Double,
                                Double,
