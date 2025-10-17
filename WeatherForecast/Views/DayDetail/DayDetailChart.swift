@@ -276,7 +276,7 @@
                                 ForEach(chartValues, id: \.id) { item in
                                     PointMark(
                                         x: .value("Hour", item.hour),
-                                        y: .value("Iconlinje", 35)
+                                        y: .value("Iconlinje", 40)
                                     )
                                     .symbol {
                                         if item.hour % 2 == 0 {
@@ -289,7 +289,7 @@
                                         }
                                     }
                                 }
-                             
+                            
                             if let selectedIndex {
                                 RuleMark(x: .value("Value", selectedIndex))
                                     .annotation(
@@ -578,8 +578,8 @@
                         .foregroundStyle(.black.opacity(0.35))
                     }
                     .frame(maxWidth: .infinity,
-                           minHeight: 200,
-                           maxHeight: 250)
+                           minHeight: 275,
+                           maxHeight: 275)
                     .chartXScale(domain: 0...23)
                     ///
                     /// Endrer y aksen for:
@@ -589,13 +589,25 @@
                     .modifier(DayDetailChartYaxis(option: option, from: rangeFrom, to: rangeTo))
                     .chartYAxisLabel(ShowUnit(option: option),
                                      position: .top,
-                                     spacing: 3)  /// avstand mellom rangeTo og betegnelsen (m/s o.l.)
+                                     spacing: 10)  /// avstand mellom rangeTo og betegnelsen (m/s o.l.)
                     .chartXSelection(value: $selectedIndex)
-                    .offset(y: UIDevice.isIpad ? 10 : 10)
+                    
+                    .chartXAxis {
+                        AxisMarks(values: UIDevice.isIpad ? [0, 6, 12, 18, 22] : [0, 6, 12, 18, 21]) { value in
+                            AxisGridLine()
+                            AxisTick()
+                            AxisValueLabel {
+                                if let hour = value.as(Int.self) {
+                                    // Format as two digits (e.g., "08")
+                                    Text(String(format: "%02d", hour))
+                                        .font(.subheadline)
+                                        .foregroundStyle(.secondary)
+                                }
+                            }
+                        }
+                    }
                 }
-                .padding(.top, 180)
-                
-                
+                .padding(.top, 200)
                 ///
                 /// Her er en gesture som ligger på VStack og ikke på ChartView:
                 /// Denne endrer index :

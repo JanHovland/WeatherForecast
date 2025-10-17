@@ -36,59 +36,55 @@ struct Sun : View {
             ///
             /// Viser soloppgang:
             ///
-            ZStack {
-                HStack {
-                    Spacer()
-                    if !sunRises.isEmpty {
-                        Text("\(sunRises[0])")
-                    } else {
-                        Text("")
-                    }
-                    Spacer()
+            HStack {
+                Spacer()
+                if !sunRises.isEmpty {
+                    Text("\(sunRises[0])")
+                } else {
+                    Text("")
                 }
-                .font(.system(size: 40, weight: .light))
-                ///
-                /// Viser soloversikt dag og natt:
-                GeometryReader { geo  in
-                    SunDayAndNight(xMax: geo.size.width,
-                                   index: 0,
-                                   sunRises: $sunRises,
-                                   sunSets: $sunSets)
-                }
-                .offset(y: 15)
-                ///
-                /// Finner solnedgang:
-                ///
-                HStack {
-                    Spacer()
-                    let s = String(localized: "Sun set: ")
-                    if !sunSets.isEmpty {
-                        Text("\(s) \(sunSets[0])")
-                    } else {
-                        Text("")
-                    }
-                    Spacer()
-                }
-                .offset(y:55)
-                ///
-                /// Viser lengden på dagen og økning siden i går
-                ///
-                HStack (spacing: 0) {
-                    Spacer()
-                    Image(systemName: "sunrise.fill")
-                        .symbolRenderingMode(.multicolor)
-                    Text("\(currentWeather.dayLength / 60)t \(currentWeather.dayLength % 60)m")
-                    if currentWeather.dayIncrease >= 0 {
-                        Text("  + \(currentWeather.dayIncrease)m")
-                    } else {
-                        Text("  \(currentWeather.dayIncrease)m")
-                    }
-                    Spacer()
-                }
-                .font(UIDevice.isIpad ? .body : .subheadline)
-                .offset(y: 115)
+                Spacer()
             }
-            Spacer()
+            .font(.system(size: 40, weight: .light))
+            ///
+            /// Viser soloversikt dag og natt:
+            ///
+            GeometryReader { geo  in
+                SunDayAndNight(xMax: geo.size.width,
+                               index: 0,
+                               sunRises: $sunRises,
+                               sunSets: $sunSets)
+            }
+            ///
+            /// Finner solnedgang:
+            ///
+            HStack {
+                Spacer()
+                let s = String(localized: "Sun set: ")
+                if !sunSets.isEmpty {
+                    Text("\(s) \(sunSets[0])")
+                } else {
+                    Text("")
+                }
+                Spacer()
+            }
+            .offset(y: -15)
+            ///
+            /// Viser lengden på dagen og økning siden i går
+            ///
+            HStack (spacing: 0) {
+                Spacer()
+                Image(systemName: "sunrise.fill")
+                    .symbolRenderingMode(.multicolor)
+                Text("\(currentWeather.dayLength / 60)t \(currentWeather.dayLength % 60)m")
+                if currentWeather.dayIncrease >= 0 {
+                    Text("  + \(currentWeather.dayIncrease)m")
+                } else {
+                    Text("  \(currentWeather.dayIncrease)m")
+                }
+                Spacer()
+            }
+            .font(UIDevice.isIpad ? .body : .subheadline)
         }
         .frame(maxWidth: .infinity,
                maxHeight: 180)
