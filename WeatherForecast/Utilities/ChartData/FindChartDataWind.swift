@@ -87,7 +87,11 @@ func FindChartDataWind(weather: Weather,
     let gustMax = array.max()!
  
     rangeFrom = 0
-    rangeTo = Int(gustMax) + rangeGustAdditionValue
+    rangeTo = 32 // Int(gustMax) + rangeGustAdditionValue
+    
+    if Int(gustMax) > rangeTo {
+        rangeTo = Int(gustMax) 
+    }
     
     return (new, min, max, minIndex, maxIndex, rangeFrom, rangeTo)
 

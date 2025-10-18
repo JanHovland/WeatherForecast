@@ -101,9 +101,13 @@ func FindChartDataTemperature(weather: Weather,
         rangeTo = Int(max) + rangeTempMaxValue
     }
     
-    rangeFrom = -10
-    rangeTo = 30
+    rangeFrom = 0
+    rangeTo = 22
     
+    if Int(max) > rangeTo {
+        rangeTo = Int(max)
+    }
+        
     return (new, min, max, minIndex, maxIndex, rangeFrom, rangeTo)
 
 }

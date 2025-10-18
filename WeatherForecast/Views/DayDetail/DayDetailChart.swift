@@ -200,7 +200,7 @@
                                 .lineStyle(StrokeStyle(lineWidth: 1))
                             }
                             ///
-                            /// Viser iconene for hver time.
+                            /// Viser iconene for hver time for .wind
                             ///
                             /// Using a named item and an explicit id, plus computing
                             /// the icon name  once per iteration to help the compiler.
@@ -208,11 +208,12 @@
                             ForEach(chartValues, id: \.id) { item in
                                 PointMark(
                                     x: .value("Hour", item.hour),
-                                    y: .value("Iconlinje", 20)
+                                    y: .value("Iconlinje", 42)
                                 )
                                 .symbol {
                                     if item.hour % 2 == 0 {
-                                        Image(systemName: "location.north.fill")
+                                        Image(systemName: "arrow.up") //"location.north.fill")
+                                            .fontWeight(UIDevice.isIpad ? .bold : .regular)
                                             .rotationEffect(.degrees((Double(item.systemName) ?? 0) + 180))
                                             .padding(.leading, 10)
                                     }
@@ -258,38 +259,49 @@
                                 }
                             }
                         } else if option == .temperature {
-                                 ForEach(newTemperature) {
-                                    LineMark (
+                            ForEach(newTemperature) {
+                                    // Fill under the line for each series
+                                if $0.type == String(localized: "Appearent temperature")     {
+                                    AreaMark(
                                         x: .value("Hour", $0.hour),
-                                        y: .value("Value", $0.value)
+                                        yStart: .value("TempLow", 0), /// vise følt temperatur ut fra 0
+                                        yEnd: .value("TempHigh",  $0.value)
                                     )
                                     .interpolationMethod(.catmullRom)
-                                    .foregroundStyle(by: .value("Type", "\($0.type)"))
-                                    .lineStyle(StrokeStyle(lineWidth: 1))
+                                    .foregroundStyle(by: .value("Type", $0.type))
+                                    .opacity(0.25)
                                 }
-                                ///
-                                /// Viser iconene for hver time.
-                                ///
-                                /// Using a named item and an explicit id, plus computing
-                                /// the icon name  once per iteration to help the compiler.
-                                ///
-                                ForEach(chartValues, id: \.id) { item in
-                                    PointMark(
-                                        x: .value("Hour", item.hour),
-                                        y: .value("Iconlinje", 40)
-                                    )
-                                    .symbol {
-                                        if item.hour % 2 == 0 {
-                                            Image(systemName: item.systemName)
-                                                .resizable()
-                                                .scaledToFit()
-                                                .frame(width: 20, height: 20)
-                                                .symbolRenderingMode(.multicolor)
-                                                .padding(.leading, 10)
-                                        }
+                                
+                                LineMark (
+                                    x: .value("Hour", $0.hour),
+                                    y: .value("Value", $0.value)
+                                )
+                                .interpolationMethod(.catmullRom)
+                                .foregroundStyle(by: .value("Type", "\($0.type)"))
+                                .lineStyle(StrokeStyle(lineWidth: 1))
+                            }
+                            ///
+                            /// Viser iconene for hver time for .temperature
+                            ///
+                            /// Using a named item and an explicit id, plus computing
+                            /// the icon name  once per iteration to help the compiler.
+                            ///
+                            ForEach(chartValues, id: \.id) { item in
+                                PointMark(
+                                    x: .value("Hour", item.hour),
+                                    y: .value("Iconlinje", 27)
+                                )
+                                .symbol {
+                                    if item.hour % 2 == 0 {
+                                        Image(systemName: item.systemName)
+                                            .resizable()
+                                            .scaledToFit()
+                                            .frame(width: 20, height: 20)
+                                            .symbolRenderingMode(.multicolor)
+                                            .padding(.leading, 10)
                                     }
                                 }
-                            
+                            }
                             if let selectedIndex {
                                 RuleMark(x: .value("Value", selectedIndex))
                                     .annotation(
