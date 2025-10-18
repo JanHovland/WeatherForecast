@@ -519,9 +519,9 @@ func FindDataFromMenu(info: String,
                     nData.value = $0.precipitationAmount.value
                     newPrecipitation.append(nData)
                 } else {
-                    nData.type = String(localized: "None")
+                    nData.type = String(localized: "")  // "None" == "Opphold"
                     nData.hour = i
-                    nData.value = 0.005
+                    nData.value = 0.00
                     newPrecipitation.append(nData)
                 }
                 i = i + 1

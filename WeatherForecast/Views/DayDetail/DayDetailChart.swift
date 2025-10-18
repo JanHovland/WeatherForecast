@@ -180,6 +180,10 @@
                                 .foregroundStyle(by: .value("Type", "\($0.type)"))
                                 .lineStyle(StrokeStyle(lineWidth: 1))
                             }
+                            
+                            
+                            
+                            
                         } else if option == .wind {
                             ForEach(newWind) {
                                 if $0.type == "Vind" {

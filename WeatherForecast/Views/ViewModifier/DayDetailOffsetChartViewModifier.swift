@@ -23,7 +23,7 @@ struct DayDetailOffsetChartViewModifier: ViewModifier {
             content.offset(y: UIDevice.isIpad ? -120 : -150)
             
         } else if self.option == .precipitation {
-            content.offset(y: UIDevice.isIpad ? -100 : -120)
+            content.offset(y: UIDevice.isIpad ? -100 : -140)
             
         } else if self.option == .feelsLike {
             content.offset(y: UIDevice.isIpad ? -120 : -140)
