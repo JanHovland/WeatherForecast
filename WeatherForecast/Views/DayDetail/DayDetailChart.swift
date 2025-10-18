@@ -216,6 +216,8 @@
                                             .fontWeight(UIDevice.isIpad ? .bold : .regular)
                                             .rotationEffect(.degrees((Double(item.systemName) ?? 0) + 180))
                                             .padding(.leading, 10)
+                                            .foregroundStyle(.white)
+                                            .opacity(0.50)
                                     }
                                 }
                             }
@@ -299,6 +301,8 @@
                                             .frame(width: 20, height: 20)
                                             .symbolRenderingMode(.multicolor)
                                             .padding(.leading, 10)
+                                            .foregroundStyle(.white)
+                                            .opacity(0.50)
                                     }
                                 }
                             }
@@ -382,6 +386,14 @@
                             }
                         } else if option == .uvIndex {
                             ForEach(newUvIndex) {
+                                AreaMark(
+                                    x: .value("Hour", $0.hour),
+                                    yStart: .value("UvIndexLow", 0), /// vise følt temperatur ut fra 0
+                                    yEnd: .value("UvIndexHigh",  $0.value)
+                                )
+                                .interpolationMethod(.catmullRom)
+                                .foregroundStyle(by: .value("Type", $0.type))
+                                .opacity(0.25)
                                 LineMark (
                                     x: .value("Hour", $0.hour),
                                     y: .value("Value", $0.value)
@@ -389,6 +401,26 @@
                                 .interpolationMethod(.catmullRom)
                                 .foregroundStyle(by: .value("Type", "\($0.type)"))
                                 .lineStyle(StrokeStyle(lineWidth: 1))
+                            }
+                            ///
+                            /// Viser iconene for hver time for .uvIndex
+                            ///
+                            /// Using a named item and an explicit id, plus computing
+                            /// the icon name  once per iteration to help the compiler.
+                            ///
+                            ForEach(chartValues, id: \.id) { item in
+                                PointMark(
+                                    x: .value("Hour", item.hour),
+                                    y: .value("Iconlinje", 12)
+                                )
+                                .symbol {
+                                    if item.hour % 2 == 0 {
+                                        Text(item.systemName)
+                                            .padding(.leading, 10)
+                                            .foregroundStyle(.white)
+                                            .opacity(0.50)
+                                    }
+                                }
                             }
                             if let selectedIndex {
                                 RuleMark(x: .value("Hour", selectedIndex))
@@ -737,6 +769,13 @@
                     ///     .uvIndex
                     
                 } else if option == .uvIndex {
+                    ///
+                    /// Init chartValues
+                    ///
+                    chartValues = hourIconArray.enumerated().map { index, icon in
+                        ChartValue(id: index, type: "", hour: index, value: 0.0, systemName: icon)
+                    }
+                    
                     let val03 : ([NewUvIndex],
                                  Double,
                                  Double,
@@ -753,7 +792,7 @@
                     uvIndexMaxIndex = val03.4
                     rangeFrom = val03.5
                     rangeTo = val03.6
-                } else if option == .wind {
+               } else if option == .wind {
                     ///
                     /// Init chartValues
                     ///

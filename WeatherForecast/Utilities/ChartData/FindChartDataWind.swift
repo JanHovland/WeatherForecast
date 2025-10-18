@@ -28,7 +28,7 @@ func FindChartDataWind(weather: Weather,
     var rangeTo: Int = 0
     
     var tempInfo: [Temperature]
-    let rangeGustAdditionValue =  3
+    // let rangeGustAdditionValue =  3
 
     let value : ([Double],
                  [String],

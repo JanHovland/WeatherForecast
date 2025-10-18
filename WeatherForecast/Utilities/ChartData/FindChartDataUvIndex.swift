@@ -27,7 +27,7 @@ func FindChartDataUvIndex(weather: Weather,
     var rangeFrom: Int = 0
     var rangeTo: Int = 0
     
-    let rangeTempMaxValue = 11
+    // let rangeTempMaxValue = 11
 
     let value : ([Double],
                  [String],
@@ -69,7 +69,11 @@ func FindChartDataUvIndex(weather: Weather,
     ///
     /// Beregner rangeTo
     ///
-    rangeTo = Int(max) + rangeTempMaxValue
+    rangeTo = 10 // Int(max) + rangeTempMaxValue
+    
+    if Int(max) > rangeTo {
+        rangeTo = Int(max)
+    }
     
     return (new, min, max, minIndex, maxIndex, rangeFrom, rangeTo)
 
