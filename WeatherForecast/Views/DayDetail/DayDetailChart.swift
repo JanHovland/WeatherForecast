@@ -171,7 +171,7 @@
                 VStack {
                     Chart {
                         if option == .precipitation {
-                            ForEach(newPrecification) {
+                            ForEach(newPrecification.filter {$0.value > 0}) {
                                 BarMark (
                                     x: .value("Hour", $0.hour),
                                     y: .value("Value", $0.value)
@@ -180,12 +180,8 @@
                                 .foregroundStyle(by: .value("Type", "\($0.type)"))
                                 .lineStyle(StrokeStyle(lineWidth: 1))
                             }
-                            
-                            
-                            
-                            
                         } else if option == .wind {
-                            ForEach(newWind) {
+                            ForEach(newWind.filter {$0.value > 0}) {
                                 if $0.type == "Vind" {
                                     AreaMark(
                                         x: .value("Hour", $0.hour),
@@ -265,7 +261,7 @@
                                 }
                             }
                         } else if option == .temperature {
-                            ForEach(newTemperature) {
+                            ForEach(newTemperature.filter {$0.value > 0}) {
                                     // Fill under the line for each series
                                 if $0.type == String(localized: "Appearent temperature")     {
                                     AreaMark(
