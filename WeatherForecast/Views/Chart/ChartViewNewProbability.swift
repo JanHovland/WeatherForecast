@@ -24,7 +24,7 @@ struct ChartViewNewProbability: View {
     var body: some View {
         VStack {
             Chart {
-                ForEach(newData) {
+                ForEach(newData.filter {$0.value > 0}) {
                     // Fill under the line for each series
                     AreaMark(
                         x: .value("Hour", $0.hour),
@@ -54,7 +54,7 @@ struct ChartViewNewProbability: View {
                             showSelectedValue
                         }
                         .foregroundStyle(Color.white.opacity(0.15))
-                        .offset(yStart: UIDevice.isIpad ? -10 : -10) /// Viser verdien relativt til største verdi av "Value"
+                        .offset(yStart: UIDevice.isIpad ? -15 : -15) /// Viser verdien relativt til største verdi av "Value"
                         .zIndex(-1)
                 }
                 if min > 0.00 {
@@ -86,15 +86,30 @@ struct ChartViewNewProbability: View {
                 .foregroundStyle(.black.opacity(0.35))
 
             }
-            .chartXScale(domain: 0...24)
+            .chartXScale(domain: 0...23)
             .modifier(DayDetailChartYaxis(option: .probability, from: 0, to: 100))
             .chartYAxisLabel(ShowUnit(option: .probability),
                              position: .top,
                              spacing: 6)
             .chartXSelection(value: $selectedIndex)
+            .chartXAxis {
+                AxisMarks(values: UIDevice.isIpad ? [0, 6, 12, 18, 22] : [0, 6, 12, 18, 21]) { value in
+                    AxisGridLine()
+                    AxisTick()
+                    AxisValueLabel {
+                        if let hour = value.as(Int.self) {
+                            // Format as two digits (e.g., "08")
+                            Text(String(format: "%02d", hour))
+                                .font(.subheadline)
+                                .foregroundStyle(.secondary)
+                        }
+                    }
+                }
+            }
             .frame(maxWidth: .infinity,
                    minHeight: 150)
-            .padding(15)
+            .padding(.top, 25)
+            .padding(.horizontal, -20)
         }
         .modifier(DayDetailChartOffsetViewModifier(option: .probability))
     }
@@ -107,7 +122,7 @@ struct ChartViewNewProbability: View {
         }
         .fixedSize()
         .foregroundStyle(.primary)
-        .padding(.horizontal, 7.5)
+        // .padding(.horizontal, 7.5)
         .background {
             RoundedRectangle(cornerRadius: 7.5)
                 .foregroundStyle(Color.blue.opacity(0.50))
