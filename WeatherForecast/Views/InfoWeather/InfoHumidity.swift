@@ -55,7 +55,7 @@ struct InfoHumidity: View {
             /// Viser nivået i dag og i går
             ///
             ProgressView(value: 0.5)
-                .progressViewStyle(ProgressViewStyleModifier(progressWidth: CGFloat(UIDevice.isIpad ? 500: 300),                                                                                 option: option,
+                .progressViewStyle(ProgressViewStyleModifier(progressWidth: CGFloat(UIDevice.isIpad ? 650: 250),                                                                                 option: option,
                                                              valueToDay: humidityToDay,
                                                              valueYesterDay: humidityYesterDay,
                                                              factorToDay: factorToDay,
