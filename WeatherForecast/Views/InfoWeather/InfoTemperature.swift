@@ -43,11 +43,12 @@ struct InfoTemperature : View {
     @State private var factorYesterDay: Double = 1.00
 
     var body: some View {
-        VStack (alignment: .center) {
+        VStack (alignment: .leading) {
             ///
             /// Overskrift:
             ///
             Text("Probability of precipitation")
+                .font(.title3)
                 .fontWeight(.bold)
                 .padding(.bottom, 50)
             ///
@@ -63,6 +64,7 @@ struct InfoTemperature : View {
             /// Total nedbørsmengde
             ///
             Text("Total amount of precipitation")
+                .font(.title3)
                 .fontWeight(.bold)
                 .padding(.bottom, 20)
                 .padding(.top, 20)
@@ -201,6 +203,7 @@ struct InfoTemperature : View {
             /// Værvarsel:
             ///
             Text("WeatherForecast")
+                .font(.title3)
                 .fontWeight(.bold)
                 .padding(.bottom, 20)
                 .padding(.top, 20)
@@ -214,6 +217,7 @@ struct InfoTemperature : View {
             ///  Dagsforskjeller:
             ///
             Text("Day differences")
+                .font(.title3)
                 .fontWeight(.bold)
                 .padding(.bottom, 20)
                 .padding(.top, 20)
@@ -221,6 +225,7 @@ struct InfoTemperature : View {
             /// Viser dagsforskjellene på følt temperatur
             ///
             TextField("", text: $text1, axis: .vertical)
+                .font(.title3)
                 .lineLimit(20)
                 .textFieldStyle(.roundedBorder)
                 .disabled(true)
@@ -237,6 +242,7 @@ struct InfoTemperature : View {
                                                              factorYesterDay: factorYesterDay))
             
             Text("About Feels Like Temperature")
+                .font(.title3)
                 .fontWeight(.bold)
                 .padding(.bottom, 20)
                 .padding(.top, 20)
