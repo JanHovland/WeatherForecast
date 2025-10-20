@@ -45,6 +45,7 @@ struct InfoUvIndex : View {
                 ///  Dagsforskjeller:
                 ///
                 Text("Day differences")
+                    .font(.title2)
                     .fontWeight(.bold)
                     .padding(.bottom, 20)
                     .padding(.top, 10)
@@ -69,6 +70,7 @@ struct InfoUvIndex : View {
             /// Om uv-imdexen
             ///
             Text(String(localized: "About the UV-index"))
+                .font(.title2)
                 .fontWeight(.bold)
                 .padding(.bottom, 20)
                 .padding(.top, 20)
