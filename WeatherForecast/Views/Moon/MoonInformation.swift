@@ -83,6 +83,7 @@ struct MoonInformation: View {
                             .font(.system(size: 30, weight: .bold))
                             .foregroundColor(Color(.systemGray3))
                             .padding(30)
+                            .offset(x: 20)
                     })
                 }
             }

@@ -164,9 +164,10 @@ struct DayDetail: View {
                                     } label: {
                                         Image(systemName: "x.circle.fill")
                                             .symbolRenderingMode(.multicolor)
-                                            .font(.system(size: 30, weight: .bold))
+                                            .font(.system(size: 30, weight: .regular))
                                             .foregroundColor(Color(.systemGray3))
                                             .padding(30)
+                                            .offset(x: 20)
                                     }
                                 }
                             )
