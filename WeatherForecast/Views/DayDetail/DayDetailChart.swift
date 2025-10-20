@@ -280,7 +280,7 @@
                                 )
                                 .interpolationMethod(.catmullRom)
                                 .foregroundStyle(by: .value("Type", "\($0.type)"))
-                                .lineStyle(StrokeStyle(lineWidth: 1))
+                                .lineStyle(StrokeStyle(lineWidth: 2))
                             }
                             ///
                             /// Viser iconene for hver time for .temperature
@@ -358,7 +358,7 @@
                                 )
                                 .interpolationMethod(.catmullRom)
                                 .foregroundStyle(by: .value("Type", "\($0.type)"))
-                                .lineStyle(StrokeStyle(lineWidth: 1))
+                                .lineStyle(StrokeStyle(lineWidth: 2))
                             }
                                 ///
                                 /// Viser iconene for hver time for .temperature
@@ -434,7 +434,7 @@
                                 )
                                 .interpolationMethod(.catmullRom)
                                 .foregroundStyle(by: .value("Type", "\($0.type)"))
-                                .lineStyle(StrokeStyle(lineWidth: 1))
+                                .lineStyle(StrokeStyle(lineWidth: 2))
                             }
                             ///
                             /// Viser iconene for hver time for .uvIndex
@@ -505,7 +505,7 @@
                                 )
                                 .interpolationMethod(.catmullRom)
                                 .foregroundStyle(by: .value("Type", description))
-                                .lineStyle(StrokeStyle(lineWidth: 1))
+                                .lineStyle(StrokeStyle(lineWidth: 2))
                             }
                             if let selectedIndex {
                                 RuleMark(x: .value("Hour", selectedIndex))
@@ -555,7 +555,7 @@
                                 )
                                 .interpolationMethod(.catmullRom)
                                 .foregroundStyle(by: .value("Type", description))
-                                .lineStyle(StrokeStyle(lineWidth: 1))
+                                .lineStyle(StrokeStyle(lineWidth: 2))
                             }
                             if let selectedIndex {
                                 RuleMark(x: .value("Hour", selectedIndex))
@@ -604,7 +604,7 @@
                                 )
                                 .interpolationMethod(.catmullRom)
                                 .foregroundStyle(by: .value("Type", description))
-                                .lineStyle(StrokeStyle(lineWidth: 1))
+                                .lineStyle(StrokeStyle(lineWidth: 2))
                             }
                             ///
                             ///

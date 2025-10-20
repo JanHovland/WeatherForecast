@@ -159,9 +159,9 @@ struct SaveNewPlace: View {
                             Text("Cancel")
                             Image(systemName: "x.circle.fill")
                                 .symbolRenderingMode(.multicolor)
-                                .font(.system(size: 22, weight: .bold))
-                                .foregroundColor(.red)
-                                .padding(.trailing, 20)
+                                .font(.system(size: 30, weight: .bold))
+                                .foregroundColor(Color(.systemGray3))
+                                .padding(30)
                        }
                     })
                 }
