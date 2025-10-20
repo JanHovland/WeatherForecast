@@ -468,7 +468,7 @@
                                         showSelectedValue
                                     }
                                     .foregroundStyle(Color.white.opacity(0.15))
-                                    .offset(yStart: 0) /// Viser verdien relativt til største verdi av "Value"
+                                    .offset(yStart: UIDevice.isIpad ? -7 : -8)/// Viser verdien relativt til største verdi av "Value"
                                     .zIndex(-1)
                             }
                             ///
