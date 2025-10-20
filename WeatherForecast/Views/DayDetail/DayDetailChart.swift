@@ -197,7 +197,7 @@
                                 )
                                 .interpolationMethod(.catmullRom)
                                 .foregroundStyle(by: .value("Type", "\($0.type)"))
-                                .lineStyle(StrokeStyle(lineWidth: 1))
+                                .lineStyle(StrokeStyle(lineWidth: 2))
                             }
                             ///
                             /// Viser iconene for hver time for .wind

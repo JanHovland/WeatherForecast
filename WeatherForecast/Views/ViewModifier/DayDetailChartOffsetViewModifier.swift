@@ -16,7 +16,7 @@ struct DayDetailChartOffsetViewModifier: ViewModifier {
             content.offset(y: UIDevice.isIpad ? 30 : 80)
             
         } else if self.option == .uvIndex {
-            content.offset(y: UIDevice.isIpad ? 20 : 70)
+            content.offset(y: UIDevice.isIpad ? 20 : 130)
             
         } else if self.option == .wind {
             content.offset(y: UIDevice.isIpad ? 30 : 70)
