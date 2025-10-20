@@ -35,6 +35,7 @@ struct InfoHumidity: View {
         VStack (alignment: .leading) {
             
             Text(String(localized: "Daily overview"))
+                .font(.title2)
                 .fontWeight(.bold)
             
             TextField("", text: ($text), axis: .vertical)
@@ -43,6 +44,7 @@ struct InfoHumidity: View {
                 .disabled(true)
             
             Text(String(localized: "Dagsforskjeller"))
+                .font(.title2)
                 .fontWeight(.bold)
                 .padding(.bottom, 20)
                 .padding(.top, 20)
@@ -62,6 +64,7 @@ struct InfoHumidity: View {
                                                              factorYesterDay: factorYesterDay))
             
             Text(String(localized: "About relative humidity"))
+                .font(.title2)
                 .fontWeight(.bold)
                 .padding(.bottom, 20)
                 .padding(.top, 20)
@@ -72,6 +75,7 @@ struct InfoHumidity: View {
                 .disabled(true)
             
             Text(String(localized: "About dew point"))
+                .font(.title2)
                 .fontWeight(.bold)
                 .padding(.bottom, 20)
                 .padding(.top, 20)

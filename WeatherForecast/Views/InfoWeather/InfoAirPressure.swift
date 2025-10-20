@@ -28,6 +28,7 @@ struct InfoAirPressure: View {
     var body: some View {
         VStack (alignment: .leading) {
             Text(String(localized: "Daily overview"))
+                .font(.title2)
                 .fontWeight(.bold)
             
             TextField("", text: $text, axis: .vertical)
@@ -36,6 +37,7 @@ struct InfoAirPressure: View {
                 .disabled(true)
             
             Text(String(localized: "About air pressure"))
+                .font(.title2)
                 .fontWeight(.bold)
                 .padding(.bottom, 20)
                 .padding(.top, 20)

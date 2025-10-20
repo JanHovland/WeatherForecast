@@ -28,6 +28,7 @@ struct InfoVisibility: View {
     var body: some View {
         VStack (alignment: .leading) {
             Text(String(localized: "Daily overview"))
+                .font(.title2)
                 .fontWeight(.bold)
             
             TextField("", text: $text1, axis: .vertical)
@@ -36,6 +37,7 @@ struct InfoVisibility: View {
                 .disabled(true)
             
             Text(String(localized: "About visibility"))
+                .font(.title2)
                 .fontWeight(.bold)
                 .padding(.bottom, 20)
                 .padding(.top, 20)
