@@ -34,6 +34,7 @@ struct InfoWind : View {
         VStack (alignment: .leading) {
 
             Text(String(localized: "Daily overview"))
+                .font(.title2)
                 .fontWeight(.bold)
 
             TextField("", text: $text1, axis: .vertical)
@@ -45,6 +46,7 @@ struct InfoWind : View {
             ///
             if index == 0 {
                 Text("Day differences")
+                    .font(.title2)
                     .fontWeight(.bold)
                     .padding(.bottom, 20)
                     .padding(.top, 20)
@@ -70,6 +72,7 @@ struct InfoWind : View {
             /// Om vinden
             ///
             Text(String(localized: "About wind speed and gusts"))
+                .font(.title2)
                 .fontWeight(.bold)
                 .padding(.top, 20)
                 .padding(.bottom, 20)
@@ -82,6 +85,7 @@ struct InfoWind : View {
             /// Overskrift Beaufort skalaen
             ///
             Text("Beaufort-scale")
+                .font(.title2)
                 .fontWeight(.bold)
                 .padding(.bottom, 20)
                 .padding(.top, 20)
@@ -130,6 +134,7 @@ struct InfoWind : View {
             /// Overskrift om Beaufort skalaen
             ///
             Text("About the Beaufort-scale")
+                .font(.title2)
                 .fontWeight(.bold)
                 .padding(.bottom, 20)
                 .padding(.top, 20)
