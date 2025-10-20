@@ -45,23 +45,28 @@ struct InfoPrecipitation: View {
     @State private var text3 : String = String(localized: "Intensity is calculated base on how much rain or snow fall per hour and is ment to indicate how heavy the rain or snow will feel. It is also used with other precipitation types such as sleet or wintry mix. A downpoor or heavy snowstorm can have a «heavy» intensity, while an average rainfall or lighter drizzle can have a «moderate» or «light» intensity.")
     
     var body: some View {
-        VStack () { // alignment: .leading) {
+        VStack (alignment: .leading) {
              let sum = snowWarning(snowArray: snowArray)
             if sum > 0.00 {
                 Text(String(localized: "Snow warning"))
+                    .font(.title2)
                     .fontWeight(.bold)
                 TextField("", text: $text1, axis: .vertical)
+                    .font(.title2)
                     .lineLimit(10)
                     .textFieldStyle(.roundedBorder)
                     .disabled(true)
                 Text(String(localized: "Daily overview"))
+                    .font(.title2)
                     .fontWeight(.bold)
                 TextField("", text: $text, axis: .vertical)
+                    .font(.title2)
                     .lineLimit(12)
                     .textFieldStyle(.roundedBorder)
                     .disabled(true)
             } else {
                 Text(String(localized: "Daily overview"))
+                    .font(.title2)
                     .fontWeight(.bold)
                 TextField("", text: $text, axis: .vertical)
                     .lineLimit(10)
@@ -74,6 +79,7 @@ struct InfoPrecipitation: View {
             /// Overskrift:
             ///
             Text("Probability of precipitation")
+                .font(.title2)
                 .fontWeight(.bold)
                 .padding(.top, 20)
                 .padding(.bottom, 20)
@@ -88,6 +94,7 @@ struct InfoPrecipitation: View {
                                     maxIndex: maxIndex)
             
             Text(text2)
+                .font(.title2)
                 .fontWeight(.bold)
                 .padding(.bottom, 20)
             
