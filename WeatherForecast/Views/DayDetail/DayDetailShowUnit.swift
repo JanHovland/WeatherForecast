@@ -24,7 +24,7 @@ func ShowUnit (option: EnumType) -> String {
         return " mm"
         
     case .feelsLike :
-        return "º"
+        return "º C"
         
     case .humidity :
         return " %"

@@ -263,7 +263,7 @@
                         } else if option == .temperature {
                             ForEach(newTemperature.filter {$0.value > 0}) {
                                     // Fill under the line for each series
-                                if $0.type == String(localized: "Appearent temperature")     {
+                                if $0.type == String(localized: "Appearent temperature") {
                                     AreaMark(
                                         x: .value("Hour", $0.hour),
                                         yStart: .value("TempLow", 0), /// vise følt temperatur ut fra 0
@@ -342,6 +342,16 @@
                             }
                         } else if option == .feelsLike {
                             ForEach(newFeelsLike) {
+                                if $0.type == String(localized: "Appearent temperature")     {
+                                    AreaMark(
+                                        x: .value("Hour", $0.hour),
+                                        yStart: .value("TempLow", 0), /// vise følt temperatur ut fra 0
+                                        yEnd: .value("TempHigh",  $0.value)
+                                    )
+                                    .interpolationMethod(.catmullRom)
+                                    .foregroundStyle(by: .value("Type", $0.type))
+                                    .opacity(0.25)
+                                }
                                 LineMark (
                                     x: .value("Hour", $0.hour),
                                     y: .value("Value", $0.value)
@@ -350,6 +360,30 @@
                                 .foregroundStyle(by: .value("Type", "\($0.type)"))
                                 .lineStyle(StrokeStyle(lineWidth: 1))
                             }
+                                ///
+                                /// Viser iconene for hver time for .temperature
+                                ///
+                                /// Using a named item and an explicit id, plus computing
+                                /// the icon name  once per iteration to help the compiler.
+                                ///
+                                ForEach(chartValues, id: \.id) { item in
+                                    PointMark(
+                                        x: .value("Hour", item.hour),
+                                        y: .value("Iconlinje", UIDevice.isIpad ? 34 : 31)
+                                    )
+                                    .symbol {
+                                        if item.hour % 2 == 0 {
+                                            Image(systemName: item.systemName)
+                                                .resizable()
+                                                .scaledToFit()
+                                                .frame(width: 20, height: 20)
+                                                .symbolRenderingMode(.multicolor)
+                                                .padding(.leading, 10)
+                                                .foregroundStyle(.white)
+                                                .opacity(0.50)
+                                        }
+                                    }
+                                }
                             if let selectedIndex {
                                 RuleMark(x: .value("Hour", selectedIndex))
                                     .annotation(
@@ -362,7 +396,7 @@
                                         showSelectedValue
                                     }
                                     .foregroundStyle(Color.white.opacity(0.15))
-                                    .offset(yStart: UIDevice.isIpad ? -10 : 20) /// Viser verdien relativt til største verdi av "Value"
+                                    .offset(yStart: UIDevice.isIpad ? -32 : -25) /// Viser verdien relativt til største verdi av "Value"
                                     .zIndex(-1)
                             }
                             ///
@@ -538,7 +572,6 @@
                                     .offset(yStart: UIDevice.isIpad ? -35 : -40) /// Viser verdien relativt til største verdi av "Value"
                                     .zIndex(-1)
                             }
-                            ///
                             ///
                             /// Markerer minste "L" og høyeste "H"
                             ///
@@ -825,6 +858,13 @@
                                  Int) = FindChartDataFeelsLike(weather: weather,
                                                                date: dateSettings.dates[index],
                                                                option: .feelsLike)
+                        ///
+                        /// Init chartValues
+                        ///
+                        chartValues = hourIconArray.enumerated().map { index, icon in
+                            ChartValue(id: index, type: "", hour: index, value: 0.0, systemName: icon)
+                        }
+                        
                     newFeelsLike = val05.0
                     feelslikeMin = val05.1
                     feelslikeMax = val05.2
@@ -994,7 +1034,14 @@
                     rangeFrom = val04.5
                     rangeTo = val04.6
                 } else if option == .feelsLike {
-                    let val05 : ([NewFeelsLike],
+                        ///
+                        /// Init chartValues
+                        ///
+                        chartValues = hourIconArray.enumerated().map { index, icon in
+                            ChartValue(id: index, type: "", hour: index, value: 0.0, systemName: icon)
+                        }
+                        
+                   let val05 : ([NewFeelsLike],
                                  Double,
                                  Double,
                                  Int,
@@ -1174,7 +1221,14 @@
                     rangeFrom = val4.5
                     rangeTo = val4.6
                 } else if option == .feelsLike {
-                    let val5 : ([NewFeelsLike],
+                        ///
+                        /// Init chartValues
+                        ///
+                        chartValues = hourIconArray.enumerated().map { index, icon in
+                            ChartValue(id: index, type: "", hour: index, value: 0.0, systemName: icon)
+                        }
+                        
+                  let val5 : ([NewFeelsLike],
                                 Double,
                                 Double,
                                 Int,
@@ -1275,7 +1329,7 @@
                         Text("\(newWind[selectedIndex!].value, specifier: "%.0f") \("m/s")")
                     }
                     else if option == .feelsLike {
-                        Text("\(newFeelsLike[selectedIndex!].value, specifier: "%.0f")")
+                        Text("\(newFeelsLike[selectedIndex!].value, specifier: "%.0f") \("º C")")
                     }
                     else if option == .humidity {
                         Text("\(newHumidity[selectedIndex!].value, specifier: "%.0f") \("%")")

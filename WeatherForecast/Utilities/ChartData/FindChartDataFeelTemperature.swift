@@ -29,8 +29,8 @@ func FindChartDataFeelsLike(weather: Weather,
     
     var tempInfo: [Temperature]
     
-    let rangeTempFeelMinValue =  12
-    let rangeTempFeelMaxValue =  12
+    // let rangeTempFeelMinValue =  12
+    // let rangeTempFeelMaxValue =  12
 
     let value : ([Double],
                  [String],
@@ -80,23 +80,13 @@ func FindChartDataFeelsLike(weather: Weather,
         n.value = tempInfo[appearentType].data[i].temp
         new.append(n)
     }
-    let feelslikeMin = array.min()!
-    let feelslikeMax = array.max()!
-    ///
-    /// Beregner rangeFrom
-    ///
-    if feelslikeMin <= min {
-        rangeFrom = Int(feelslikeMin) - rangeTempFeelMinValue
-    } else if feelslikeMin > min {
-        rangeFrom = Int(min) - rangeTempFeelMinValue
-    }
     ///
     /// Beregner rangeTo
     ///
-    if feelslikeMax <= max {
-        rangeTo = Int(feelslikeMax) + rangeTempFeelMaxValue
-    } else if feelslikeMax > max {
-        rangeTo = Int(max) + rangeTempFeelMaxValue
+    rangeFrom = -10
+    rangeTo = 22
+    if Int(max) > rangeTo {
+        rangeTo = Int(max)
     }
     return (new, min, max, minIndex, maxIndex, rangeFrom, rangeTo)
 
