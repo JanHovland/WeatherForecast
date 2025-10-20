@@ -39,6 +39,7 @@ struct InfoUvIndex : View {
                 .lineLimit(12)
                 .textFieldStyle(.roundedBorder)
                 .disabled(true)
+                .padding(.top, 60)
             
             if index == 0 {
                 ///
@@ -48,7 +49,7 @@ struct InfoUvIndex : View {
                     .font(.title2)
                     .fontWeight(.bold)
                     .padding(.bottom, 20)
-                    .padding(.top, 10)
+                    .padding(.top, 20)
                 ///
                 /// info om forskjellene
                 ///
