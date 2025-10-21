@@ -63,12 +63,19 @@ func FindChartDataAirPressure(weather: Weather,
     ///
     /// Beregner rangeFrom
     ///
-    rangeFrom = Int(min) - 5
+    rangeFrom = 945
+    
+    if Int(min) < rangeFrom {
+        rangeFrom = Int(min)
+    }
     ///
     /// Beregner rangeTo
     ///
-    rangeTo = Int(max) + 5
+    rangeTo = 1060
     
+    if Int(max) > rangeTo {
+        rangeTo = Int(max)
+    }
     
     return (new, min, max, minIndex, maxIndex, rangeFrom, rangeTo)
 

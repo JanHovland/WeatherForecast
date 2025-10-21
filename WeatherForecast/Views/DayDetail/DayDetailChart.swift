@@ -578,6 +578,14 @@
                         } else if option == .airPressure {
                             let description = String(localized: "Airpressure")
                             ForEach(newAirPressure) {
+                                AreaMark(
+                                    x: .value("Hour", $0.hour),
+                                    yStart: .value("PressureLow", 945), /// vise  luttrykk over rangef<rom>
+                                    yEnd: .value("PressureHigh",  $0.value)
+                                )
+                                .interpolationMethod(.catmullRom)
+                                .foregroundStyle(by: .value("Type", $0.type))
+                                .opacity(0.25)
                                 LineMark (
                                     x: .value("Hour", $0.hour),
                                     y: .value("Value", $0.value)
@@ -586,6 +594,29 @@
                                 .foregroundStyle(by: .value("Type", description))
                                 .lineStyle(StrokeStyle(lineWidth: 2))
                             }
+                                ///
+                                /// Viser iconene for hver time for .wind
+                                ///
+                                /// Using a named item and an explicit id, plus computing
+                                /// the icon name  once per iteration to help the compiler.
+                                ///
+                                ForEach(chartValues, id: \.id) { item in
+                                    PointMark(
+                                        x: .value("Hour", item.hour),
+                                        y: .value("Iconlinje", UIDevice.isIpad ? rangeTo + 47 : rangeTo + 47)
+                                    )
+                                    .symbol {
+                                        if item.hour % (UIDevice.isIpad ? 2 : 4) == 0 {
+                                            Image(systemName: item.systemName)
+                                                .frame(width: 20, height: 20)
+                                                .symbolRenderingMode(.multicolor)
+                                                .padding(.leading, 10)
+                                                .foregroundStyle(.white)
+                                                .opacity(0.50)
+                                         }
+                                    }
+                                    .offset(x: 10)
+                                }
                             if let selectedIndex {
                                 RuleMark(x: .value("Hour", selectedIndex))
                                     .annotation(
@@ -643,7 +674,7 @@
                                 .foregroundStyle(by: .value("Type", description))
                                 .lineStyle(StrokeStyle(lineWidth: 2))
                             }
-                                ///
+                            ///
                             /// Viser iconene for hver time for .wind
                             ///
                             /// Using a named item and an explicit id, plus computing
@@ -976,6 +1007,12 @@
                     rangeFrom = val07.5
                     rangeTo = val07.6
                 } else if option == .airPressure {
+                    ///
+                    /// Init chartValues
+                    ///
+                    chartValues = hourIconArray.enumerated().map { index, icon in
+                        ChartValue(id: index, type: "", hour: index, value: 0.0, systemName: icon)
+                    }
                     let val08 : ([NewAirPressure],
                                  Double,
                                  Double,
@@ -1173,6 +1210,12 @@
                     rangeFrom = val07.5
                     rangeTo = val07.6
                 } else if option == .airPressure {
+                    ///
+                    /// Init chartValues
+                    ///
+                    chartValues = hourIconArray.enumerated().map { index, icon in
+                        ChartValue(id: index, type: "", hour: index, value: 0.0, systemName: icon)
+                    }
                     let val08 : ([NewAirPressure],
                                  Double,
                                  Double,
@@ -1372,6 +1415,12 @@
                     rangeFrom = val7.5
                     rangeTo = val7.6
                 } else if option == .airPressure {
+                    ///
+                    /// Init chartValues
+                    ///
+                    chartValues = hourIconArray.enumerated().map { index, icon in
+                        ChartValue(id: index, type: "", hour: index, value: 0.0, systemName: icon)
+                    }
                     let val8 : ([NewAirPressure],
                                 Double,
                                 Double,
