@@ -598,6 +598,14 @@
                         } else if option == .humidity  {
                             let description = String(localized: "Humidity")
                             ForEach(newHumidity) {
+                                AreaMark(
+                                    x: .value("Hour", $0.hour),
+                                    yStart: .value("TempLow", 0), /// vise følt temperatur ut fra 0
+                                    yEnd: .value("TempHigh",  $0.value)
+                                )
+                                .interpolationMethod(.catmullRom)
+                                .foregroundStyle(by: .value("Type", $0.type))
+                                .opacity(0.25)
                                 LineMark (
                                     x: .value("Hour", $0.hour),
                                     y: .value("Value", $0.value)
@@ -606,7 +614,27 @@
                                 .foregroundStyle(by: .value("Type", description))
                                 .lineStyle(StrokeStyle(lineWidth: 2))
                             }
+                                ///
+                            /// Viser iconene for hver time for .wind
                             ///
+                            /// Using a named item and an explicit id, plus computing
+                            /// the icon name  once per iteration to help the compiler.
+                            ///
+                            ForEach(chartValues, id: \.id) { item in
+                                PointMark(
+                                    x: .value("Hour", item.hour),
+                                    y: .value("Iconlinje", UIDevice.isIpad ? 135 : 130)
+                                )
+                                .symbol {
+                                    if item.hour % (UIDevice.isIpad ? 2 : 4) == 0 {
+                                        Text(item.systemName + " %")
+                                            .padding(.leading, 10)
+                                            .foregroundStyle(.white)
+                                            .opacity(0.50)
+                                    }
+                                }
+                                .offset(x: 10)
+                            }
                             ///
                             /// Markerer minste "L" og høyeste "H"
                             ///
@@ -622,7 +650,7 @@
                                         showSelectedValue
                                     }
                                     .foregroundStyle(Color.white.opacity(0.15))
-                                    .offset(yStart: UIDevice.isIpad ? -10 : -10) /// Viser verdien relativt til største verdi av "Value"
+                                    .offset(yStart: UIDevice.isIpad ? -30 : -25) /// Viser verdien relativt til største verdi av "Value"
                                     .zIndex(-1)
                             }
                             PointMark(x: .value("Hour", humidityMinIndex),
@@ -890,7 +918,13 @@
                     rangeFrom = val06.5
                     rangeTo = val06.6
                 } else if option == .humidity {
-                    let val07 : ([NewHumidity],
+                    ///
+                    /// Init chartValues
+                    ///
+                    chartValues = hourIconArray.enumerated().map { index, icon in
+                        ChartValue(id: index, type: "", hour: index, value: 0.0, systemName: icon)
+                    }
+                   let val07 : ([NewHumidity],
                                  Double,
                                  Double,
                                  Int,
@@ -1058,6 +1092,12 @@
                     rangeFrom = val05.5
                     rangeTo = val05.6
                 } else if option == .visibility {
+                    ///
+                    /// Init chartValues
+                    ///
+                    chartValues = hourIconArray.enumerated().map { index, icon in
+                        ChartValue(id: index, type: "", hour: index, value: 0.0, systemName: icon)
+                    }
                     let val06 : ([NewVisibility],
                                  Double,
                                  Double,
@@ -1075,6 +1115,12 @@
                     rangeFrom = val06.5
                     rangeTo = val06.6
                 } else if option == .humidity  {
+                    ///
+                    /// Init chartValues
+                    ///
+                    chartValues = hourIconArray.enumerated().map { index, icon in
+                        ChartValue(id: index, type: "", hour: index, value: 0.0, systemName: icon)
+                    }
                     let val07 : ([NewHumidity],
                                  Double,
                                  Double,
@@ -1154,6 +1200,8 @@
                 ///
                 tempInfo = val1.5
                 windInfo = val1.4
+                
+                let o = option
                 
                 if option == .temperature {
                     ///
@@ -1262,6 +1310,12 @@
                     rangeFrom = val6.5
                     rangeTo = val6.6
                 } else if option == .humidity {
+                    ///
+                    /// Init chartValues
+                    ///
+                    chartValues = hourIconArray.enumerated().map { index, icon in
+                        ChartValue(id: index, type: "", hour: index, value: 0.0, systemName: icon)
+                    }
                     let val7 : ([NewHumidity],
                                 Double,
                                 Double,
