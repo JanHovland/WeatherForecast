@@ -499,6 +499,14 @@
                         } else if option == .visibility {
                             let description = String(localized: "Visibility")
                             ForEach(newVisibility) {
+                                AreaMark(
+                                    x: .value("Hour", $0.hour),
+                                    yStart: .value("UvIndexLow", 0), /// vise følt temperatur ut fra 0
+                                    yEnd: .value("UvIndexHigh",  $0.value)
+                                )
+                                .interpolationMethod(.catmullRom)
+                                .foregroundStyle(by: .value("Type", $0.type))
+                                .opacity(0.25)
                                 LineMark (
                                     x: .value("Hour", $0.hour),
                                     y: .value("Value", $0.value)
@@ -507,6 +515,27 @@
                                 .foregroundStyle(by: .value("Type", description))
                                 .lineStyle(StrokeStyle(lineWidth: 2))
                             }
+                                ///
+                                /// Viser iconene for hver time for .uvIndex
+                                ///
+                                /// Using a named item and an explicit id, plus computing
+                                /// the icon name  once per iteration to help the compiler.
+                                ///
+                                ForEach(chartValues, id: \.id) { item in
+                                    PointMark(
+                                        x: .value("Hour", item.hour),
+                                        y: .value("Iconlinje", UIDevice.isIpad ? rangeTo + 14 : rangeTo + 11)
+                                    )
+                                    .symbol {
+                                        if item.hour % (UIDevice.isIpad ? 2 : 4) == 0 {
+                                            Text(item.systemName + "km")
+                                                .padding(.leading, 10)
+                                                .foregroundStyle(.white)
+                                                .opacity(0.50)
+                                        }
+                                    }
+                                    .offset(x: 10)
+                                }
                             if let selectedIndex {
                                 RuleMark(x: .value("Hour", selectedIndex))
                                     .annotation(
@@ -519,7 +548,7 @@
                                         showSelectedValue
                                     }
                                     .foregroundStyle(Color.white.opacity(0.15))
-                                    .offset(yStart: UIDevice.isIpad ? -20 : -10) /// Viser verdien relativt til største verdi av "Value"
+                                    .offset(yStart: UIDevice.isIpad ? -29 : -26) /// Viser verdien relativt til største verdi av "Value"
                                     .zIndex(-1)
                             }
                             ///
@@ -901,6 +930,12 @@
                     rangeFrom = val05.5
                     rangeTo = val05.6
                 } else if option == .visibility {
+                    ///
+                    /// Init chartValues
+                    ///
+                    chartValues = hourIconArray.enumerated().map { index, icon in
+                        ChartValue(id: index, type: "", hour: index, value: 0.0, systemName: icon)
+                    }
                     let val06 : ([NewVisibility],
                                  Double,
                                  Double,
@@ -1201,8 +1236,6 @@
                 tempInfo = val1.5
                 windInfo = val1.4
                 
-                let o = option
-                
                 if option == .temperature {
                     ///
                     /// Init chartValues
@@ -1293,6 +1326,12 @@
                     rangeFrom = val5.5
                     rangeTo = val5.6
                 } else if option == .visibility {
+                    ///
+                    /// Init chartValues
+                    ///
+                    chartValues = hourIconArray.enumerated().map { index, icon in
+                        ChartValue(id: index, type: "", hour: index, value: 0.0, systemName: icon)
+                    }
                     let val6 : ([NewVisibility],
                                 Double,
                                 Double,
