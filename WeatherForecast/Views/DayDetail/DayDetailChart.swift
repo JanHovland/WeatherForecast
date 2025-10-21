@@ -181,7 +181,7 @@
                                 .lineStyle(StrokeStyle(lineWidth: 1))
                             }
                         } else if option == .wind {
-                            ForEach(newWind.filter {$0.value > 0}) {
+                            ForEach(newWind.filter {$0.value > 0 && $0.hour < 24}) {
                                 if $0.type == "Vind" {
                                     AreaMark(
                                         x: .value("Hour", $0.hour),
@@ -261,7 +261,7 @@
                                 }
                             }
                         } else if option == .temperature {
-                            ForEach(newTemperature.filter {$0.value > 0}) {
+                            ForEach(newTemperature.filter {$0.value > 0 && $0.hour < 24}) {
                                     // Fill under the line for each series
                                 if $0.type == String(localized: "Appearent temperature") {
                                     AreaMark(
@@ -341,7 +341,7 @@
                                     .font(.footnote.weight(.bold))
                             }
                         } else if option == .feelsLike {
-                            ForEach(newFeelsLike) {
+                            ForEach(newFeelsLike.filter {$0.hour < 24}) {
                                 if $0.type == String(localized: "Appearent temperature")     {
                                     AreaMark(
                                         x: .value("Hour", $0.hour),
@@ -419,7 +419,7 @@
                                     .opacity(0.50)
                             }
                         } else if option == .uvIndex {
-                            ForEach(newUvIndex) {
+                            ForEach(newUvIndex.filter {$0.hour < 24} ) {
                                 AreaMark(
                                     x: .value("Hour", $0.hour),
                                     yStart: .value("UvIndexLow", 0), /// vise følt temperatur ut fra 0
@@ -498,7 +498,7 @@
                             
                         } else if option == .visibility {
                             let description = String(localized: "Visibility")
-                            ForEach(newVisibility) {
+                            ForEach(newVisibility.filter {$0.hour < 24}) {
                                 AreaMark(
                                     x: .value("Hour", $0.hour),
                                     yStart: .value("UvIndexLow", 0), /// vise følt temperatur ut fra 0
@@ -577,7 +577,7 @@
                             }
                         } else if option == .airPressure {
                             let description = String(localized: "Airpressure")
-                            ForEach(newAirPressure) {
+                            ForEach(newAirPressure.filter {$0.hour < 24}) {
                                 AreaMark(
                                     x: .value("Hour", $0.hour),
                                     yStart: .value("PressureLow", 945), /// vise  luttrykk over rangef<rom>
@@ -657,7 +657,7 @@
                             }
                         } else if option == .humidity  {
                             let description = String(localized: "Humidity")
-                            ForEach(newHumidity) {
+                            ForEach(newHumidity.filter {$0.hour < 24}) {
                                 AreaMark(
                                     x: .value("Hour", $0.hour),
                                     yStart: .value("TempLow", 0), /// vise følt temperatur ut fra 0
@@ -683,7 +683,7 @@
                             ForEach(chartValues, id: \.id) { item in
                                 PointMark(
                                     x: .value("Hour", item.hour),
-                                    y: .value("Iconlinje", UIDevice.isIpad ? 135 : 130)
+                                    y: .value("Iconlinje", UIDevice.isIpad ? 130 : 130)
                                 )
                                 .symbol {
                                     if item.hour % (UIDevice.isIpad ? 2 : 4) == 0 {
