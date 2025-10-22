@@ -224,7 +224,7 @@ struct MoonDetailView: View {
                 .fontWeight(.semibold)
             Text(symbol)
                 .font(.system(size: 80))
-            Text(name)
+            Text(String(format: NSLocalizedString(name, comment: "")))
                 .font(.headline)
             
             VStack {
