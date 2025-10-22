@@ -138,6 +138,7 @@ struct DayDetail: View {
                             .font(.body)
                             .symbolRenderingMode(.multicolor)
                         Text(menuTitle)
+                            .font(.title2.weight(.bold))
                         Spacer()
                     }
                     .padding(.vertical, 10)
