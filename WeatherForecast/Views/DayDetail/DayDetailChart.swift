@@ -603,7 +603,7 @@
                                 ForEach(chartValues, id: \.id) { item in
                                     PointMark(
                                         x: .value("Hour", item.hour),
-                                        y: .value("Iconlinje", UIDevice.isIpad ? rangeTo + 47 : rangeTo + 47)
+                                        y: .value("Iconlinje", UIDevice.isIpad ? rangeTo + 44 : rangeTo + 31)
                                     )
                                     .symbol {
                                         if item.hour % (UIDevice.isIpad ? 2 : 4) == 0 {
@@ -629,7 +629,7 @@
                                         showSelectedValue
                                     }
                                     .foregroundStyle(Color.white.opacity(0.15))
-                                    .offset(yStart: UIDevice.isIpad ? -35 : -40) /// Viser verdien relativt til største verdi av "Value"
+                                    .offset(yStart: UIDevice.isIpad ? -35 : -25) /// Viser verdien relativt til største verdi av "Value"
                                     .zIndex(-1)
                             }
                             ///
