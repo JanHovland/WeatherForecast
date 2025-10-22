@@ -41,7 +41,7 @@ struct MoonView: View {
                     /// Bruker NSLocalizedString ved kall til en variabel
                     ///
                     Text(String(format: NSLocalizedString(currentWeather.moonPhase, comment: "")).uppercased())
-                        .font(.system(size:15, weight: .bold))
+                        .font(.system(size: UIDevice.isIpad ? 15 : 14, weight: .bold))
                 }
             }
             .opacity(0.50)
@@ -56,11 +56,12 @@ struct MoonView: View {
             
             if currentWeather.moonSign == String(localized: "Leo") {
                 MoonInfo(heading: "MoonSign", value: "♌️ " + currentWeather.moonSign)
-                
             } else if currentWeather.moonSign == String(localized: "Virgo") {
                 MoonInfo(heading: "MoonSign", value: "♍️ " + currentWeather.moonSign)
             } else if currentWeather.moonSign == String(localized: "Libra") {
                 MoonInfo(heading: "MoonSign", value: "♎️ " + currentWeather.moonSign)
+            } else if currentWeather.moonSign == String(localized: "Scorpio") {
+                MoonInfo(heading: "MoonSign", value: "♏️ " + currentWeather.moonSign)
             } else {
                 MoonInfo(heading: "MoonSign", value: currentWeather.moonSign)
             }
@@ -80,7 +81,7 @@ struct MoonView: View {
                 MoonInfo(heading: "Neste fullmåne", value: currentWeather.fullMoon.firstUppercased)
                 MoonInfo(heading: "Neste nymåne", value: currentWeather.newMoon.firstUppercased)
             }
-            .font(UIDevice.isIpad ? .body : .caption)
+            .font(UIDevice.isIpad ? .body : .caption2)
          }
         .padding(20)
         .offset(x: 0, y: -15)

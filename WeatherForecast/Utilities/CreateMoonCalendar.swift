@@ -190,7 +190,8 @@ struct MoonPhaseCalendar: View {
 struct MoonDetailView: View {
     let date: Date
     private let calendar = Calendar.autoupdatingCurrent
-    
+    @Environment(\.dismiss) var dismiss
+
     var body: some View {
         let phase = MoonPhaseCalculator.moonPhase(for: date)
         let symbol = MoonPhaseCalculator.moonPhaseSymbol(for: phase)
@@ -199,31 +200,75 @@ struct MoonDetailView: View {
         let nextNew = MoonPhaseCalculator.nextMoon(of: "New", from: date)
         let nextFull = MoonPhaseCalculator.nextMoon(of: "Full", from: date)
         
+        
+        ZStack {
+            HStack {
+                Spacer()
+                VStack {
+                    Button(action: {
+                        dismiss()
+                    }, label: {
+                        Image(systemName: "x.circle.fill")
+                            .symbolRenderingMode(.multicolor)
+                            .font(.system(size: 30, weight: .bold))
+                            .foregroundColor(Color(.systemGray3))
+                            .padding(30)
+                            .offset(x: 20)
+                    })
+                }
+            }
+        }
         VStack(spacing: 20) {
             Text(formattedDate(date))
                 .font(.title2)
                 .fontWeight(.semibold)
-            
             Text(symbol)
                 .font(.system(size: 80))
-            
             Text(name)
                 .font(.headline)
             
-            Text("Illumination: \(Int(illumination * 100))%")
-                .foregroundColor(.secondary)
-            
-            Divider()
-            
-            VStack(spacing: 8) {
-                Text("Next New Moon: \(formattedDate(nextNew))")
-                Text("Next Full Moon: \(formattedDate(nextFull))")
+            VStack {
+                HStack {
+                    HStack {
+                        Text("Illumination")
+                        Spacer()
+                    }
+                    HStack {
+                        Spacer()
+                        Text("\(Int(illumination * 100))%")
+                    }
+                }
             }
+            .padding(.horizontal, UIDevice.isIpad ? 130 : 80)
+            Divider()
+            VStack(spacing: 8) {
+                HStack {
+                    HStack {
+                        Text("Next New Moon")
+                        Spacer()
+                    }
+                    HStack {
+                        Spacer()
+                        Text("\(formattedDate(nextNew))")
+                    }
+                }
+                HStack {
+                    HStack {
+                        Text("Next Full Moon")
+                        Spacer()
+                    }
+                    HStack {
+                        Spacer()
+                        Text("\(formattedDate(nextFull))")
+                    }
+                }
+             }
             .font(.subheadline)
-            
+            .padding(.horizontal, UIDevice.isIpad ? 130 : 80)
             Spacer()
         }
-        .padding()
+        .offset(y: -85)
+        .padding(.top, 150)
     }
     
     private func formattedDate(_ date: Date) -> String {

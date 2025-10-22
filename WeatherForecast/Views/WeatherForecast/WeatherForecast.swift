@@ -478,6 +478,8 @@ struct WeatherForecast: View {
             if moonData.majorPhase == "Full Moon" && moonData.phase < 0.50 {
                 currentWeather.moonPhase = moonData.majorPhase
                 currentWeather.moonEmoji = "🌕"
+            } else if moonData.majorPhase == "New Moon" && moonData.phase == 0.00 {
+                currentWeather.moonEmoji = "🌑"
             } else {
                 currentWeather.moonPhase = moonData.phaseName
                 currentWeather.moonEmoji = moonData.emoji
