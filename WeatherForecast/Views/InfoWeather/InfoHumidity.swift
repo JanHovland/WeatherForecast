@@ -67,7 +67,7 @@ struct InfoHumidity: View {
                 .font(.title2)
                 .fontWeight(.bold)
                 .padding(.bottom, 20)
-                .padding(.top, 20)
+                .padding(.top, 60)
 
             TextField("", text: $text1, axis: .vertical)
                 .lineLimit(15)
