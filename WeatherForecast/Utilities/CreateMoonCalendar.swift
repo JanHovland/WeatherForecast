@@ -37,14 +37,14 @@ struct MoonPhaseCalculator {
     
     static func moonPhaseName(for phase: Double) -> String {
         switch phase {
-        case 0.0..<0.125: return "New Moon"
-        case 0.125..<0.25: return "Waxing Crescent"
-        case 0.25..<0.375: return "First Quarter"
-        case 0.375..<0.5: return "Waxing Gibbous"
-        case 0.5..<0.625: return "Full Moon"
-        case 0.625..<0.75: return "Waning Gibbous"
-        case 0.75..<0.875: return "Last Quarter"
-        default: return "Waning Crescent"
+        case 0.0..<0.125: return String(localized: "New Moon")
+        case 0.125..<0.25: return String(localized:"Waxing Crescent")
+        case 0.25..<0.375: return String(localized:"First Quarter")
+        case 0.375..<0.5: return String(localized:"Waxing Gibbous")
+        case 0.5..<0.625: return String(localized: "Full Moon")
+        case 0.625..<0.75: return String(localized:"Waning Gibbous")
+        case 0.75..<0.875: return String(localized:"Last Quarter")
+        default: return String(localized:"Waning Crescent")
         }
     }
     
