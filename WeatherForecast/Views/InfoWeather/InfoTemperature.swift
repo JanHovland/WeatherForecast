@@ -199,31 +199,38 @@ struct InfoTemperature : View {
                     }
                 }
             }
-            ///
-            /// Værvarsel:
-            ///
-            Text("WeatherForecast")
-                .font(.title3)
-                .fontWeight(.bold)
-                .padding(.bottom, 20)
-                .padding(.top, 20)
-          
+                ///
+                /// Værvarsel:
+                ///
+            VStack {
+                if index == 0 {
+                    Text("WeatherForecast")
+                } else {
+                    Text("Daily Summary")
+                }
+            }
+            
+            .font(.title3)
+            .fontWeight(.bold)
+            .padding(.bottom, 20)
+            .padding(.top, 20)
+            
             TextField("", text: $text, axis: .vertical)
                 .lineLimit(20)
                 .textFieldStyle(.roundedBorder)
                 .disabled(true)
                 .padding(.horizontal, 10)
-            ///
-            ///  Dagsforskjeller:
-            ///
+                ///
+                ///  Dagsforskjeller:
+                ///
             Text("Day differences")
                 .font(.title3)
                 .fontWeight(.bold)
                 .padding(.bottom, 20)
                 .padding(.top, 20)
-            ///
-            /// Viser dagsforskjellene på følt temperatur
-            ///
+                ///
+                /// Viser dagsforskjellene på følt temperatur
+                ///
             TextField("", text: $text1, axis: .vertical)
                 .font(.title3)
                 .lineLimit(20)
