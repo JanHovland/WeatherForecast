@@ -245,7 +245,7 @@ struct InfoTemperature : View {
                 .font(.title3)
                 .fontWeight(.bold)
                 .padding(.bottom, 20)
-                .padding(.top, 20)
+                .padding(.top, 60)
             
             
             TextField("", text: $text3, axis: .vertical)

@@ -73,7 +73,7 @@ struct InfoWind : View {
             Text(String(localized: "About wind speed and gusts"))
                 .font(.title2)
                 .fontWeight(.bold)
-                .padding(.top, 20)
+                .padding(.top, 60)
                 .padding(.bottom, 20)
 
             TextField("", text: $text, axis: .vertical)
