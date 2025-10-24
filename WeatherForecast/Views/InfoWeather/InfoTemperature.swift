@@ -237,9 +237,6 @@ struct InfoTemperature : View {
                 .textFieldStyle(.roundedBorder)
                 .disabled(true)
                 .padding(.horizontal, 10)
-            if UIDevice.isIpad {
-                
-            }
             ProgressView(value: 0.5)
                 .progressViewStyle(ProgressViewStyleModifier(
                     option: option,
