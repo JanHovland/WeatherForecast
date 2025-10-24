@@ -61,8 +61,7 @@ struct InfoWind : View {
                 /// Viser nivået i dag og i går
                 ///
                 ProgressView(value: 0.5)
-                    .progressViewStyle(ProgressViewStyleModifier(progressWidth: CGFloat(UIDevice.isIpad ? 650 : 250),
-                                                                 option: option,
+                    .progressViewStyle(ProgressViewStyleModifier(option: option,
                                                                  valueToDay: windToDay,
                                                                  valueYesterDay: windYesterDay,
                                                                  factorToDay: factorToDay,

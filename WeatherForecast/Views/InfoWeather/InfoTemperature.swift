@@ -234,12 +234,12 @@ struct InfoTemperature : View {
                 
             }
             ProgressView(value: 0.5)
-                .progressViewStyle(ProgressViewStyleModifier(progressWidth: CGFloat(UIDevice.isIpad ? 650: 250),
-                                                             option: option,
-                                                             valueToDay: feltTempToDay,
-                                                             valueYesterDay: feltTempYesterDay,
-                                                             factorToDay: factorToDay,
-                                                             factorYesterDay: factorYesterDay))
+                .progressViewStyle(ProgressViewStyleModifier(
+                    option: option,
+                    valueToDay: feltTempToDay,
+                    valueYesterDay: feltTempYesterDay,
+                    factorToDay: factorToDay,
+                    factorYesterDay: factorYesterDay))
             
             Text("About Feels Like Temperature")
                 .font(.title3)

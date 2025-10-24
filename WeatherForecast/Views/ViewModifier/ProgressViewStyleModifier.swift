@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct ProgressViewStyleModifier: ProgressViewStyle {
-    var progressWidth: CGFloat
     var option: EnumType
     var valueToDay: Double
     var valueYesterDay: Double
