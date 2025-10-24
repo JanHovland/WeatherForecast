@@ -1,9 +1,9 @@
-//
-//  InfoUvIndex.swift
-//  WeatherForecast
-//
-//  Created by Jan Hovland on 12/12/2022.
-//
+    //
+    //  InfoUvIndex.swift
+    //  WeatherForecast
+    //
+    //  Created by Jan Hovland on 12/12/2022.
+    //
 
 import SwiftUI
 
@@ -41,41 +41,39 @@ struct InfoUvIndex : View {
                 .disabled(true)
                 .padding(.top, 60)
             
-            if index == 0 {
                 ///
                 ///  Dagsforskjeller:
                 ///
-                Text("Day differences")
-                    .font(.title2)
-                    .fontWeight(.bold)
-                    .padding(.bottom, 20)
-                    .padding(.top, 20)
+            Text("Day differences")
+                .font(.title2)
+                .fontWeight(.bold)
+                .padding(.bottom, 20)
+                .padding(.top, 20)
                 ///
                 /// info om forskjellene
                 ///
-                TextField("", text: $text2, axis: .vertical)
-                    .lineLimit(12)
-                    .textFieldStyle(.roundedBorder)
-                    .disabled(true)
+            TextField("", text: $text2, axis: .vertical)
+                .lineLimit(12)
+                .textFieldStyle(.roundedBorder)
+                .disabled(true)
                 ///
                 /// Viser nivået i dag og i går
                 ///
-                ProgressView(value: 0.5)
-                    .progressViewStyle(ProgressViewStyleModifier(option: option,
-                                                                 valueToDay: uvIndexToDay,
-                                                                 valueYesterDay: uvIndexYesterDay,
-                                                                 factorToDay: factorToDay,
-                                                                 factorYesterDay: factorYesterDay))
-            }
-            ///
-            /// Om uv-imdexen
-            ///
+            ProgressView(value: 0.5)
+                .progressViewStyle(ProgressViewStyleModifier(option: option,
+                                                             valueToDay: uvIndexToDay,
+                                                             valueYesterDay: uvIndexYesterDay,
+                                                             factorToDay: factorToDay,
+                                                             factorYesterDay: factorYesterDay))
+                ///
+                /// Om uv-imdexen
+                ///
             Text(String(localized: "About the UV-index"))
                 .font(.title2)
                 .fontWeight(.bold)
                 .padding(.bottom, 20)
                 .padding(.top, 60)
-
+            
             TextField("", text: $text, axis: .vertical)
                 .lineLimit(12)
                 .textFieldStyle(.roundedBorder)
@@ -83,9 +81,9 @@ struct InfoUvIndex : View {
             
             Spacer()
         }
-        ///
-        /// Legg merke til maxHeight ikke må begrense scrollimg, så legg inn en stor verdi.
-        ///
+            ///
+            /// Legg merke til maxHeight ikke må begrense scrollimg, så legg inn en stor verdi.
+            ///
         .frame(maxWidth: .infinity,
                maxHeight: 3000)
         .padding(15)
@@ -158,9 +156,9 @@ private func Forecast(index: Int,
         }
         text = text + "\n"
     }
-    ///
-    /// Finner Uv-indeks i dag og i går:
-    ///
+        ///
+        /// Finner Uv-indeks i dag og i går:
+        ///
     toDay = date.setTime(hour: 0, min: 0, sec: 0)!
     toMorrow = toDay.adding(days: 1)
     yesterDay = toDay.adding(days: -1)
@@ -178,25 +176,42 @@ private func Forecast(index: Int,
             arrayYesterDay.append(Double($0.uvIndex.value))
         }
     }
-    ///
-    /// Finner den høyest uvIndex  i dag og i går
-    ///
+        ///
+        /// Finner den høyest uvIndex  i dag og i går
+        ///
     uvIndexToDay = Double(arrayToDay.max()!)
     uvIndexYesterDay = Double(arrayYesterDay.max()!)
-    if uvIndexToDay > uvIndexYesterDay {
-        text2 = String(localized: "The uvIndex today is higher than yesterday.")
-        factorToDay = 1
-        factorYesterDay = uvIndexYesterDay / uvIndexToDay
-    } else if uvIndexToDay == uvIndexYesterDay {
-        text2 = String(localized: "The uvIndex today is the same as yesterday.")
-        factorToDay = 1.00
-        factorYesterDay = 1.00
-    } else {
-        text2 = String(localized: "The uvIndex today is lower than yesterday.")
-        factorToDay = uvIndexToDay / uvIndexYesterDay
-        factorYesterDay = 1
+    if index == 0 {
+        if uvIndexToDay > uvIndexYesterDay {
+            text2 = String(localized: "The uvIndex today is higher than yesterday.")
+            factorToDay = 1
+            factorYesterDay = uvIndexYesterDay / uvIndexToDay
+        } else if uvIndexToDay == uvIndexYesterDay {
+            text2 = String(localized: "The uvIndex today is the same as yesterday.")
+            factorToDay = 1.00
+            factorYesterDay = 1.00
+        } else {
+            text2 = String(localized: "The uvIndex today is lower than yesterday.")
+            factorToDay = uvIndexToDay / uvIndexYesterDay
+            factorYesterDay = 1
+        }
+    } else { /// De neste dagene
+        if uvIndexToDay > uvIndexYesterDay {
+            text2 = String(localized: "The peak uvIndex is higher than yesterday.")
+            factorToDay = 1
+            factorYesterDay = uvIndexYesterDay / uvIndexToDay
+        } else if uvIndexToDay == uvIndexYesterDay {
+            text2 = String(localized: "The peak uvIndex is the same as yesterday.")
+            factorToDay = 1.00
+            factorYesterDay = 1.00
+        } else {
+            text2 = String(localized: "The peak uvIndex is lower than yesterday.")
+            factorToDay = uvIndexToDay / uvIndexYesterDay
+            factorYesterDay = 1
+        }
+
     }
-    /// https://stackoverflow.com/questions/34929932/round-up-double-to-2-decimal-places?rq=3
+        /// https://stackoverflow.com/questions/34929932/round-up-double-to-2-decimal-places?rq=3
     return (text, text2, uvIndexToDay, uvIndexYesterDay, factorToDay, factorYesterDay)
     
 }

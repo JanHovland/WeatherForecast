@@ -1442,13 +1442,13 @@
 "The highest felt temperature " = "Den høyeste følte temperaturen er ";
 
 /* No comment provided by engineer. */
-"The uvIndex today is higher than yesterday." = "UV-strålingen i dag er på et høyere nivå enn i går.";
+"The uvIndex today is higher than yesterday." = "Den høyeste UV-strålingen i dag er på et høyere nivå enn dagen før.";
 
 /* No comment provided by engineer. */
-"The uvIndex today is the same as yesterday." = "UV-strålingen i dag er på samme nivå som i går.";
+"The uvIndex today is the same as yesterday." = "Den høyeste UV-strålingen i dag er på samme nivå som dagen før.";
 
 /* No comment provided by engineer. */
-"The uvIndex today is lower than yesterday." = "UV-strålingen i dag er på et lavere nivå enn i går.";
+"The uvIndex today is lower than yesterday." = "Den høyeste UV-strålingen i dag er på et lavere nivå enn dagen før.";
 
 /* No comment provided by engineer. */
 "The highest wind speed today is higher than yesterday." = "Den høyeste vindhastigheten i dag er høyere enn i går.";
@@ -2125,5 +2125,14 @@
 
 /* No comment provided by engineer. */
 "Daily Summary" = "Daglig oppsummering";
+
+/* No comment provided by engineer. */
+"The peak uvIndex is higher than yesterday." = "Den høyeste UV-strålingen er høyere enn dagen før.";
+
+/* No comment provided by engineer. */
+"The peak uvIndex is the same as yesterday." = "Den høyeste UV-strålingen er den samme som dagen før.";
+
+/* No comment provided by engineer. */
+"The peak uvIndex is lower than yesterday." = "Den høyeste UV-strålingen er lavere som dagen før.";
 
 
