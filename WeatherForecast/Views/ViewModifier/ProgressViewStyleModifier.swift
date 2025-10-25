@@ -21,7 +21,7 @@ struct ProgressViewStyleModifier: ProgressViewStyle {
                 HStack {
                     HStack {
                         RoundedRectangle(cornerRadius: 5)
-                            .frame(width: (geo.size.width - (UIDevice.isIpad ? 75 : 75)) * factorToDay, height: 20)
+                            .frame(width: (geo.size.width - (UIDevice.isIpad ? 80 : 80)) * factorToDay, height: 20)
                             .foregroundColor(.white)
                             .overlay (
                                 HStack {
@@ -51,7 +51,7 @@ struct ProgressViewStyleModifier: ProgressViewStyle {
                 HStack {
                     HStack {
                         RoundedRectangle(cornerRadius: 5)
-                            .frame(width: (geo.size.width - (UIDevice.isIpad ? 75 : 75)) * factorYesterDay, height: 20)
+                            .frame(width: (geo.size.width - (UIDevice.isIpad ? 80 : 80)) * factorYesterDay, height: 20)
                             .foregroundColor(.gray)
                             .overlay (
                                 HStack {

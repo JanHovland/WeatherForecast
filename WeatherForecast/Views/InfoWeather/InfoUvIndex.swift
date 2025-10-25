@@ -183,15 +183,15 @@ private func Forecast(index: Int,
     uvIndexYesterDay = Double(arrayYesterDay.max()!)
     if index == 0 {
         if uvIndexToDay > uvIndexYesterDay {
-            text2 = String(localized: "The uvIndex today is higher than yesterday.")
+            text2 = String(localized: "The peak uvIndex today is higher than yesterday.")
             factorToDay = 1
             factorYesterDay = uvIndexYesterDay / uvIndexToDay
         } else if uvIndexToDay == uvIndexYesterDay {
-            text2 = String(localized: "The uvIndex today is the same as yesterday.")
+            text2 = String(localized: "The peak uvIndex today is the same as yesterday.")
             factorToDay = 1.00
             factorYesterDay = 1.00
         } else {
-            text2 = String(localized: "The uvIndex today is lower than yesterday.")
+            text2 = String(localized: "The peak uvIndex today is lower than yesterday.")
             factorToDay = uvIndexToDay / uvIndexYesterDay
             factorYesterDay = 1
         }

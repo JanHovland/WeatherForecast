@@ -44,30 +44,28 @@ struct InfoWind : View {
             ///
             ///  Dagsforskjeller:
             ///
-            if index == 0 {
-                Text("Day differences")
-                    .font(.title2)
-                    .fontWeight(.bold)
-                    .padding(.bottom, 20)
-                    .padding(.top, 20)
+            Text("Day differences")
+                .font(.title2)
+                .fontWeight(.bold)
+                .padding(.bottom, 20)
+                .padding(.top, 20)
                 ///
                 /// info om forskjellene
                 ///
-                TextField("", text: $text2, axis: .vertical)
-                    .lineLimit(12)
-                    .textFieldStyle(.roundedBorder)
-                    .disabled(true)
+            TextField("", text: $text2, axis: .vertical)
+                .lineLimit(12)
+                .textFieldStyle(.roundedBorder)
+                .disabled(true)
                 ///
                 /// Viser nivået i dag og i går
                 ///
-                ProgressView(value: 0.5)
-                    .progressViewStyle(ProgressViewStyleModifier(option: option,
-                                                                 valueToDay: windToDay,
-                                                                 valueYesterDay: windYesterDay,
-                                                                 factorToDay: factorToDay,
-                                                                 factorYesterDay: factorYesterDay))
-            }
-            ///
+            ProgressView(value: 0.5)
+                .progressViewStyle(ProgressViewStyleModifier(option: option,
+                                                             valueToDay: windToDay,
+                                                             valueYesterDay: windYesterDay,
+                                                             factorToDay: factorToDay,
+                                                             factorYesterDay: factorYesterDay))
+                ///
             /// Om vinden
             ///
             Text(String(localized: "About wind speed and gusts"))
@@ -195,7 +193,7 @@ struct InfoWind : View {
                                                                                        weekdayArray: weekdayArray,
                                                                                        windInfo: windInfo,
                                                                                        date: currentWeather.date,
-                             offsetSec: weatherInfo.offsetSec)
+                                                                                       offsetSec: weatherInfo.offsetSec)
         }
         .onChange(of: index) { oldIndex, index in
             ///
@@ -228,8 +226,8 @@ private func Forecast(index: Int,
     var toMorrow = Date()
     var yesterDay = Date()
     
-    var windToDay: Double = 0.00
-    var windYesterDay: Double = 0.00
+    var windToDay: Double = 0.0
+    var windYesterDay: Double = 0.0
     var factorToDay: Double = 1.00
     var factorYesterDay: Double = 1.00
     
@@ -290,7 +288,7 @@ private func Forecast(index: Int,
         text = text + " m/s."
     }
     ///
-    /// Finner vindstyrke i dag og i går:
+    /// Finner vindkast i dag og i går:
     ///
     toDay = date.setTime(hour: 0, min: 0, sec: 0)!
     toMorrow = toDay.adding(days: 1)
@@ -304,7 +302,7 @@ private func Forecast(index: Int,
             ///
             /// km/h
             ///
-            arrayToDay.append($0.wind.speed.value)
+            arrayToDay.append($0.wind.gust?.value ?? 0.00)
         }
     }
     hourForecast!.forEach  {
@@ -313,30 +311,47 @@ private func Forecast(index: Int,
             ///
             /// km/h
             ///
-            arrayYesterDay.append($0.wind.speed.value)
+            arrayYesterDay.append($0.wind.gust?.value ?? 0.00)
         }
     }
     ///
     /// Finner den høyeste følt emperatur i dag og i går
     ///
-    windToDay = arrayToDay.max()! * 1000 / 3600
-    windYesterDay = arrayYesterDay.max()! * 1000 / 3600
+    windToDay = (arrayToDay.max() ?? 0.0) * 1000 / 3600
+    windYesterDay = (arrayYesterDay.max() ?? 0.0) * 1000 / 3600
     
-    if windToDay > windYesterDay {
-        text1 = String(localized: "The highest wind speed today is higher than yesterday.")
-        factorToDay = 1
-        factorYesterDay = windYesterDay / windToDay
-    } else if windToDay == windYesterDay {
-        text1 = String(localized: "The highest wind speed today is the same as yesterday.")
-        factorToDay = 1.00
-        factorYesterDay = 1.00
+    if index == 0 {
+        if windToDay > windYesterDay {
+            text1 = String(localized: "The peak gust speed today is higher than yesterday.")
+            factorToDay = 1
+            factorYesterDay = windYesterDay / windToDay
+        } else if windToDay == windYesterDay {
+            text1 = String(localized: "The peak gust speed today is the same as yesterday.")
+            factorToDay = 1.00
+            factorYesterDay = 1.00
+        } else {
+            text1 = String(localized: "The peak gust speed today is lower than yesterday.")
+            factorToDay = windToDay / windYesterDay
+            factorYesterDay = 1
+        }
     } else {
-        text1 = String(localized: "The highest wind speed today is lower than yesterday.")
-        factorToDay = windToDay / windYesterDay
-        factorYesterDay = 1
+        if windToDay > windYesterDay {
+            text1 = String(localized: "The peak gust speed is higher than yesterday.")
+            factorToDay = 1
+            factorYesterDay = windYesterDay / windToDay
+        } else if windToDay == windYesterDay {
+            text1 = String(localized: "The peak gust speed is the same as yesterday.")
+            factorToDay = 1.00
+            factorYesterDay = 1.00
+        } else {
+            text1 = String(localized: "The peak gust speed is lower than yesterday.")
+            factorToDay = windToDay / windYesterDay
+            factorYesterDay = 1
+        }
+
     }
 
-    return (text, text1, windToDay, windYesterDay, factorToDay, factorYesterDay)
+    return (text, text1, windToDay, windYesterDay , factorToDay, factorYesterDay)
 }
 
 private func WindInfoValues(windInfo: [WindInfo], option : EnumType, option1 : EnumType) -> Double {
@@ -362,9 +377,9 @@ private func WindInfoValues(windInfo: [WindInfo], option : EnumType, option1 : E
     }
 
     if option1 == .min {
-        value = array.min()!
+        value = array.min() ?? 0.0
     } else if option1 == .max {
-        value = array.max()!
+        value = array.max() ?? 0.0
     }
 
     return value
