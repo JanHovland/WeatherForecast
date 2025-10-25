@@ -288,9 +288,13 @@ private func Forecast(index: Int,
         text = text + " m/s."
     }
     ///
-    /// Finner vindkast i dag og i går:
+    /// Finner vindkast i dag og i går ut fra index
     ///
-    toDay = date.setTime(hour: 0, min: 0, sec: 0)!
+    ///  index = 0 i dag
+    ///  index = 1 i morgen
+    ///  index = 2 om 2 dager
+    ///
+    toDay = (date.setTime(hour: 0, min: 0, sec: 0)!).adding(days: index)
     toMorrow = toDay.adding(days: 1)
     yesterDay = toDay.adding(days: -1)
     
@@ -305,6 +309,7 @@ private func Forecast(index: Int,
             arrayToDay.append($0.wind.gust?.value ?? 0.00)
         }
     }
+    
     hourForecast!.forEach  {
         if $0.date >= yesterDay &&
             $0.date < toDay {
@@ -314,6 +319,7 @@ private func Forecast(index: Int,
             arrayYesterDay.append($0.wind.gust?.value ?? 0.00)
         }
     }
+    
     ///
     /// Finner den høyeste følt emperatur i dag og i går
     ///
@@ -326,7 +332,7 @@ private func Forecast(index: Int,
             factorToDay = 1
             factorYesterDay = windYesterDay / windToDay
         } else if windToDay == windYesterDay {
-            text1 = String(localized: "The peak gust speed today is the same as yesterday.")
+            text1 = String(localized: "The peak gust speed today is higher than yesterday.")
             factorToDay = 1.00
             factorYesterDay = 1.00
         } else {

@@ -2127,16 +2127,6 @@
 "Daily Summary" = "Daglig oppsummering";
 
 /* No comment provided by engineer. */
-"The peak uvIndex is higher than yesterday." = "Den høyeste UV-strålingen er høyere enn dagen før.";
-
-/* No comment provided by engineer. */
-"The peak uvIndex is the same as yesterday." = "Den høyeste UV-strålingen er den samme som dagen før.";
-
-/* No comment provided by engineer. */
-"The peak uvIndex is lower than yesterday." = "Den høyeste UV-strålingen er lavere som dagen før.";
-
-
-/* No comment provided by engineer. */
 "The peak uvIndex today is higher than yesterday." = "Den høyeste UV-strålingen i dag er høyere enn dagen før.";
 
 /* No comment provided by engineer. */
@@ -2151,6 +2141,21 @@
 /* No comment provided by engineer. */
 "The peak uvIndex is the same as yesterday." = "Den høyeste UV-strålingen er den samme som dagen før.";
 
+/* No comment provided by engineer. */
+"The peak gust speed is lower than yesterday." = "Det høyeste vindkastet er lavere enn dagen før.";
 
 /* No comment provided by engineer. */
-"The peak uvIndex is lower than yesterday." = "Den høyeste UV-strålingen er lavere som dagen før.";
+"The peak gust speed is higher than yesterday." = "Det høyeste vindkastet er høyere enn dagen før.";
+
+/* No comment provided by engineer. */
+"The peak gust speed is the same as yesterday." = "Det høyeste vindkastet er det samme som dagen før.";
+
+/* No comment provided by engineer. */
+"The peak gust speed today is lower than yesterday." = "Det høyeste vindkastet i dag er lavere som dagen før.";
+
+/* No comment provided by engineer. */
+"The peak gust speed today is higher than yesterday." = "Det høyeste vindkastet i dag er høyere enn dagen før.";
+
+/* No comment provided by engineer. */
+"The peak gust speed today is the same as yesterday." = "Det høyeste vindkastet i dag er det samme som dagen før.";
+

@@ -402,7 +402,11 @@ private func Forecast(index: Int,
     var arrayYesterDay: [Double] = Array(repeating: Double(), count: sizeArray24)
     
     ///
-    /// Finner minimum temperaturen (vanlig temperatur) :
+    /// Finner minimum temperaturen (vanlig temperatur) ut fra index
+    ///
+    ///  index = 0 i dag
+    ///  index = 1 i morgen
+    ///  index = 2 om 2 dager
     ///
     let value: (Double, Int, [DayTempInfo]) = TempInfoValues(tempInfo: tempInfo,
                                                              option: .tempTemp,
@@ -551,9 +555,12 @@ private func Forecast(index: Int,
             text = text + "."
         }
         ///
-        /// Finner følt temperatur i dag og i går:
+        /// Finner følt temperatur i dag og i går ut fra index
+        ///  index = 0 i dag
+        ///  index = 1 i morgen
+        ///  index = 2 om 2 dager
         ///
-        toDay = date
+        toDay = date.adding(days: index)
         toMorrow = toDay.adding(days: 1)
         yesterDay = toDay.adding(days: -1)
         arrayToDay.removeAll()
