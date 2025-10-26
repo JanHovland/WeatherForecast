@@ -52,6 +52,7 @@ struct DayDetailInfo: View {
             
         case .feelsLike :
             InfoFeelsLike(index: index,
+                          option: option,
                           weather: weather,
                           weekdayArray: $weekdayArray)
             

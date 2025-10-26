@@ -43,7 +43,7 @@ struct InfoHumidity: View {
                 .textFieldStyle(.roundedBorder)
                 .disabled(true)
             
-            Text(String(localized: "Dagsforskjeller"))
+            Text(String(localized: "Daily  differences"))
                 .font(.title2)
                 .fontWeight(.bold)
                 .padding(.bottom, 20)
@@ -53,7 +53,7 @@ struct InfoHumidity: View {
                 .lineLimit(15)
                 .textFieldStyle(.roundedBorder)
                 .disabled(true)
-           ///
+            ///
             /// Viser nivået i dag og i går
             ///
             ProgressView(value: 0.5)

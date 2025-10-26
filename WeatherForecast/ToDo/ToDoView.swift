@@ -499,15 +499,15 @@ var toDo_2 =
           🟢 LineChart
    110. 🟢 InfoHumidity:  
           🟢 Rette tekst for "i dag" og en annen dag
-   111. 🔴 InfoFeelsLike:  
+   111. 🟢 InfoFeelsLike:  
+          🟢 legg inn sammenligning: i går og idag
+   112. 🔴 Visibility:  
           🔴 legg inn sammenligning: i går og idag
-   112. 🔴 Precipitation24h:
+   113. 🔴 AirPressure 
+           🔴 egg inn sammenligning: i går og idag
+   114. 🔴 Precipitation24h:
           🔴 Fast y verdi ?
           🔴 Markere mye, moderat og lett hvor ?
-   113. 🔴 Visibility:  
-          🔴 legg inn sammenligning: i går og idag
-   114. 🔴 AirPressure 
-           🔴 egg inn sammenligning: i går og idag
    115. 🔴 .  
           🔴 .
    116. 🔴 .  
