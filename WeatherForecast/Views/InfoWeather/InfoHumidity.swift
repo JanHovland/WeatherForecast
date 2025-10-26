@@ -231,19 +231,36 @@ private func Forecast(index: Int,
     humidityToDay = FindAverageArray(array: arrayToDay)
     humidityYesterDay = FindAverageArray(array: arrayYesterDay)
     
-    if humidityToDay > humidityYesterDay {
-        text1 = String(localized: "The average humidity today is higher than yesterday.")
-        factorToDay = 1
-        factorYesterDay = humidityYesterDay / humidityToDay
-    } else if humidityToDay == humidityYesterDay {
-        text1 = String(localized: "The average humidity today is the same as yesterday.")
-        factorToDay = 1.00
-        factorYesterDay = 1.00
+    if index == 0 {
+        if humidityToDay > humidityYesterDay {
+            text1 = String(localized: "The average humidity today is higher than yesterday.")
+            factorToDay = 1
+            factorYesterDay = humidityYesterDay / humidityToDay
+        } else if humidityToDay == humidityYesterDay {
+            text1 = String(localized: "The average humidity today is the same as yesterday.")
+            factorToDay = 1.00
+            factorYesterDay = 1.00
+        } else {
+            text1 = String(localized: "The average humidity today is lower than yesterday.")
+            factorToDay = humidityToDay / humidityYesterDay
+            factorYesterDay = 1
+        }
     } else {
-        text1 = String(localized: "The average humidity today is lower than yesterday.")
-        factorToDay = humidityToDay / humidityYesterDay
-        factorYesterDay = 1
-    }    
+        if humidityToDay > humidityYesterDay {
+            text1 = String(localized: "The average humidity is higher than yesterday.")
+            factorToDay = 1
+            factorYesterDay = humidityYesterDay / humidityToDay
+        } else if humidityToDay == humidityYesterDay {
+            text1 = String(localized: "The average humidity is the same as yesterday.")
+            factorToDay = 1.00
+            factorYesterDay = 1.00
+        } else {
+            text1 = String(localized: "The average humidity is lower than yesterday.")
+            factorToDay = humidityToDay / humidityYesterDay
+            factorYesterDay = 1
+        }
+
+    }
     
     return (text, text1, humidityToDay, humidityYesterDay, factorToDay, factorYesterDay)
 }

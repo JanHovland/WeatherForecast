@@ -497,8 +497,8 @@ var toDo_2 =
           🟢 FindAirQuality()   
    109. 🟢 Bytte visning av Chance of Percipitation 
           🟢 LineChart
-   110. 🔴 InfoHumidity:  
-          🔴 Rette tekst for "i dag" og en annen dag
+   110. 🟢 InfoHumidity:  
+          🟢 Rette tekst for "i dag" og en annen dag
    111. 🔴 InfoFeelsLike:  
           🔴 legg inn sammenligning: i går og idag
    112. 🔴 Precipitation24h:

@@ -2159,3 +2159,11 @@
 /* No comment provided by engineer. */
 "The peak gust speed today is the same as yesterday." = "Det høyeste vindkastet i dag er det samme som dagen før.";
 
+/* No comment provided by engineer. */
+"The average humidity is higher than yesterday." = "Gjennomsnittlig luftfuktighet er høyere enn i går.";
+
+/* No comment provided by engineer. */
+"The average humidity is the same as yesterday." = "Gjennomsnittlig luftfuktighet er den samme som i går.";
+
+/* No comment provided by engineer. */
+"The average humidity is lower than yesterday." = "Gjennomsnittlig luftfuktighet er lavere enn i går.";
