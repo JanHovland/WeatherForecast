@@ -504,8 +504,6 @@ var toDo_2 =
    112. 🔴 Precipitation24h:
           🔴 Fast y verdi ?
           🔴 Markere mye, moderat og lett hvor ?
-   113. 🔴 Humidity:  
-          🔴 legg inn sammenligning: i går og idag
    113. 🔴 Visibility:  
           🔴 legg inn sammenligning: i går og idag
    114. 🔴 AirPressure 
