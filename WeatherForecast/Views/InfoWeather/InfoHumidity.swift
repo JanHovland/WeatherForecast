@@ -208,7 +208,7 @@ private func Forecast(index: Int,
     ///
     /// Finner luftfuktigheten i dag og i går:
     ///
-    toDay = date.setTime(hour: 0, min: 0, sec: 0)!
+    toDay = (date.setTime(hour: 0, min: 0, sec: 0)!).adding(days: index)
     toMorrow = toDay.adding(days: 1)
     yesterDay = toDay.adding(days: -1)
     arrayToDay.removeAll()
