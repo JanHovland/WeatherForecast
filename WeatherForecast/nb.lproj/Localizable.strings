@@ -2191,3 +2191,23 @@
 
 /* No comment provided by engineer. */
 "Capricorn" = "Steinbukken";
+
+/* No comment provided by engineer. */
+"The average visibility today is higher than yesterday." = "Gjennomsnittlig sikt i dag er høyere enn i går.";
+
+/* No comment provided by engineer. */
+"The average visibility today is the same as yesterday." = "Gjennomsnittlig sikt i dag er den samme som går.";
+
+/* No comment provided by engineer. */
+"The average visibility today is lower than yesterday." = "Gjennomsnittlig sikt i dag er lavere enn i går.";
+
+/* No comment provided by engineer. */
+"The average visibility is higher than yesterday." = "Gjennomsnittlig sikt er høyere enn i går.";
+
+/* No comment provided by engineer. */
+"The average visibility is the same as yesterday." = "Gjennomsnittlig sikt er den samme som går.";
+
+/* No comment provided by engineer. */
+"The average visibility is lower than yesterday." = "Gjennomsnittlig sikt er lavere enn i går.";
+
+

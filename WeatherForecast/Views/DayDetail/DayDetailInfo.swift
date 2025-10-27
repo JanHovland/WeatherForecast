@@ -66,7 +66,8 @@ struct DayDetailInfo: View {
             InfoVisibility(index: index,
                            dayArray : $dayArray,
                            weekdayArray: $weekdayArray,
-                           weather: weather)
+                           weather: weather,
+                           option: option)
             
         case .airPressure:
             InfoAirPressure(index: index,
