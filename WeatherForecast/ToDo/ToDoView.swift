@@ -513,6 +513,89 @@ var toDo_2 =
    116. 🔴 .  
           🔴 .
 
+
+🌕 Hvor lenge Månen er i hvert tegn?
+
+Månen bruker omtrent 27,3 dager på å gå én runde rundt Jorden (sin bane).
+Den beveger seg gjennom alle 12 tegn på ca. 27–28 dager, altså:
+➤ Ca. 2,5 dager (60–65 timer) i hvert tegn.
+
+♈️ 1. Væren (Aries)
+Element: Ild 🔥
+Modalitet: Kardinal
+Dato (soltegn): ca. 21. mars – 19. april
+Nøkkelord: Initiativ, energi, mot, handling 
+
+♉️ 2. Tyren (Taurus)
+Element: Jord 🌍
+Modalitet: Fast
+Dato: ca. 20. april – 20. mai
+Nøkkelord: Stabilitet, sanselighet, tålmodighet, trygghet
+
+♊️ 3. Tvillingene (Gemini)
+Element: Luft 🌬️
+Modalitet: Bevegelig
+Dato: ca. 21. mai – 20. juni
+Nøkkelord: Kommunikasjon, læring, fleksibilitet
+
+♋️ 4. Krepsen (Cancer)
+Element: Vann 💧
+Modalitet: Kardinal
+Dato: ca. 21. juni – 22. juli
+Nøkkelord: Følelser, hjem, omsorg, beskyttelse
+
+♌️ 5. Løven (Leo)
+Element: Ild 🔥
+Modalitet: Fast
+Dato: ca. 23. juli – 22. august
+Nøkkelord: Selvtillit, kreativitet, lederskap
+
+♍️ 6. Jomfruen (Virgo)
+Element: Jord 🌍
+Modalitet: Bevegelig
+Dato: ca. 23. august – 22. september
+Nøkkelord: Orden, analyse, tjeneste, detaljer
+
+♎️ 7. Vekten (Libra)
+Element: Luft 🌬️
+Modalitet: Kardinal
+Dato: ca. 23. september – 22. oktober
+Nøkkelord: Balanse, skjønnhet, relasjoner
+
+♏️ 8. Skorpionen (Scorpio)
+Element: Vann 💧
+Modalitet: Fast
+Dato: ca. 23. oktober – 21. november
+Nøkkelord: Dybde, transformasjon, intensitet
+
+♐️ 9. Skytten (Sagittarius)
+Element: Ild 🔥
+Modalitet: Bevegelig
+Dato: ca. 22. november – 21. desember
+Nøkkelord: Eventyr, visdom, frihet
+
+♑️ 10. Steinbukken (Capricorn)
+Element: Jord 🌍
+Modalitet: Kardinal
+Dato: ca. 22. desember – 19. januar
+Nøkkelord: Ambisjon, struktur, ansvar
+
+♒️ 11. Vannmannen (Aquarius)
+Element: Luft 🌬️
+Modalitet: Fast
+Dato: ca. 20. januar – 18. februar
+Nøkkelord: Originalitet, frihet, samfunn, innovasjon
+
+♓️ 12. Fiskene (Pisces)
+Element: Vann 💧
+Modalitet: Bevegelig
+Dato: ca. 19. februar – 20. mars
+Nøkkelord: Intuisjon, drømmer, medfølelse
+
+Zodiaken går altså i en evig sirkel, hvor Fiskene avslutter runden – før Væren starter syklusen på nytt.  
+
+
+
 """
 
 struct ToDoView: View {

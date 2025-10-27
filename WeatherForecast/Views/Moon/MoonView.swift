@@ -61,9 +61,13 @@ struct MoonView: View {
             } else if currentWeather.moonSign == String(localized: "Libra") {
                 MoonInfo(heading: "MoonSign", value: "♎️ " + currentWeather.moonSign)
             } else if currentWeather.moonSign == String(localized: "Scorpio") {
-                MoonInfo(heading: "MoonSign", value: "♏️ " + currentWeather.moonSign)}
+                MoonInfo(heading: "MoonSign", value: "♏️ " + currentWeather.moonSign)
+            }
             else if currentWeather.moonSign == String(localized: "Sagittarius") {
                 MoonInfo(heading: "MoonSign", value: "♐️ " + currentWeather.moonSign)
+            }
+            else if currentWeather.moonSign == String(localized: "Capricorn") {
+                    MoonInfo(heading: "MoonSign", value: "♑️ " + currentWeather.moonSign)
             } else {
                 MoonInfo(heading: "MoonSign", value: currentWeather.moonSign)
             }
