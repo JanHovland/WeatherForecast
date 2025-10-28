@@ -54,7 +54,15 @@ struct MoonView: View {
             MoonInfo(heading: "Phase", value: "\(currentWeather.phase)")
             MoonInfo(heading: "MajorPhase", value: currentWeather.moonMajorPhase)
             
-            if currentWeather.moonSign == String(localized: "Leo") {
+            if currentWeather.moonSign == String(localized: "Aries") {
+                MoonInfo(heading: "MoonSign", value: "♈️ " + currentWeather.moonSign)
+            } else if currentWeather.moonSign == String(localized: "Taurus") {
+                MoonInfo(heading: "MoonSign", value: "♉️ " + currentWeather.moonSign)
+            } else if currentWeather.moonSign == String(localized: "Gemini") {
+                MoonInfo(heading: "MoonSign", value: "♊️ " + currentWeather.moonSign)
+            } else if currentWeather.moonSign == String(localized: "Cancer") {
+                MoonInfo(heading: "MoonSign", value: "♋️ " + currentWeather.moonSign)
+            } else if currentWeather.moonSign == String(localized: "Leo") {
                 MoonInfo(heading: "MoonSign", value: "♌️ " + currentWeather.moonSign)
             } else if currentWeather.moonSign == String(localized: "Virgo") {
                 MoonInfo(heading: "MoonSign", value: "♍️ " + currentWeather.moonSign)
@@ -62,24 +70,42 @@ struct MoonView: View {
                 MoonInfo(heading: "MoonSign", value: "♎️ " + currentWeather.moonSign)
             } else if currentWeather.moonSign == String(localized: "Scorpio") {
                 MoonInfo(heading: "MoonSign", value: "♏️ " + currentWeather.moonSign)
-            }
-            else if currentWeather.moonSign == String(localized: "Sagittarius") {
+            } else if currentWeather.moonSign == String(localized: "Sagittarius") {
                 MoonInfo(heading: "MoonSign", value: "♐️ " + currentWeather.moonSign)
-            }
-            else if currentWeather.moonSign == String(localized: "Capricorn") {
-                    MoonInfo(heading: "MoonSign", value: "♑️ " + currentWeather.moonSign)
-            } else {
-                MoonInfo(heading: "MoonSign", value: currentWeather.moonSign)
+            } else if currentWeather.moonSign == String(localized: "Capricorn") {
+                MoonInfo(heading: "MoonSign", value: "♑️ " + currentWeather.moonSign)
+            } else if currentWeather.moonSign == String(localized: "Aquarius") {
+                MoonInfo(heading: "MoonSign", value: "♒️ " + currentWeather.moonSign)
+            } else if currentWeather.moonSign == String(localized: "Pisces") {
+                MoonInfo(heading: "MoonSign", value: "♓️ " + currentWeather.moonSign)
             }
             
-            if currentWeather.sunSign == String(localized: "Libra") {
+            if currentWeather.sunSign == String(localized: "Aries") {
+                MoonInfo(heading: "SunSign", value: "♈️ " + currentWeather.sunSign)
+            } else if currentWeather.sunSign == String(localized: "Taurus") {
+                MoonInfo(heading: "SunSign", value: "♉️ " + currentWeather.sunSign)
+            } else if currentWeather.sunSign == String(localized: "Gemini") {
+                MoonInfo(heading: "SunSign", value: "♊️ " + currentWeather.sunSign)
+            } else if currentWeather.sunSign == String(localized: "Cancer") {
+                MoonInfo(heading: "SunSign", value: "♋️ " + currentWeather.sunSign)
+            } else if currentWeather.sunSign == String(localized: "Leo") {
+                MoonInfo(heading: "SunSign", value: "♌️ " + currentWeather.sunSign)
+            } else if currentWeather.sunSign == String(localized: "Virgo") {
+                MoonInfo(heading: "SunSign", value: "♍️ " + currentWeather.sunSign)
+            } else if currentWeather.sunSign == String(localized: "Libra") {
                 MoonInfo(heading: "SunSign", value: "♎️ " + currentWeather.sunSign)
             } else if currentWeather.sunSign == String(localized: "Scorpio") {
                 MoonInfo(heading: "SunSign", value: "♏️ " + currentWeather.sunSign)
-            } else {
-                MoonInfo(heading: "SunSign", value: currentWeather.sunSign)
+            } else if currentWeather.sunSign == String(localized: "Sagittarius") {
+                MoonInfo(heading: "SunSign", value: "♐️ " + currentWeather.sunSign)
+            } else if currentWeather.sunSign == String(localized: "Capricorn") {
+                MoonInfo(heading: "SunSign", value: "♑️ " + currentWeather.sunSign)
+            } else if currentWeather.sunSign == String(localized: "Aquarius") {
+                MoonInfo(heading: "SunSign", value: "♒️ " + currentWeather.sunSign)
+            } else if currentWeather.sunSign == String(localized: "Pisces") {
+                MoonInfo(heading: "SunSign", value: "♓️ " + currentWeather.sunSign)
             }
-              
+             
             MoonInfo(heading: "Illumination", value: currentWeather.moonIllumination)
             MoonInfo(heading: "MoonRise", value: currentWeather.moonrise)
             MoonInfo(heading: "MoonSet", value: currentWeather.moonset)

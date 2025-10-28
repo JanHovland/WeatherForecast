@@ -2100,18 +2100,6 @@
 "First Quarter" = "Første kvartal";
 
 /* No comment provided by engineer. */
-"Leo" = "Løven";
-
-/* No comment provided by engineer. */
-"Libra" = "Vekten";
-
-/* No comment provided by engineer. */
-"Virgo" = "Jomfruen";
-
-/* No comment provided by engineer. */
-"Scorpio" = "Skorpionen";
-
-/* No comment provided by engineer. */
 "Next New Moon" = "Neste nymåne";
 
 /* No comment provided by engineer. */
@@ -2119,9 +2107,6 @@
 
 /* No comment provided by engineer. */
 "Illumination" = "Opplysning";
-
-/* No comment provided by engineer. */
-"Sagittarius" = "Skytten";
 
 /* No comment provided by engineer. */
 "Daily Summary" = "Daglig oppsummering";
@@ -2190,9 +2175,6 @@
 "Daily  differences" = "Dagsforskjeller";
 
 /* No comment provided by engineer. */
-"Capricorn" = "Steinbukken";
-
-/* No comment provided by engineer. */
 "The average visibility today is higher than yesterday." = "Gjennomsnittlig sikt i dag er høyere enn i går.";
 
 /* No comment provided by engineer. */
@@ -2216,4 +2198,60 @@
 /* No comment provided by engineer. */
 "Yesterday" = "I går";
 
+/* No comment provided by engineer. */
+"Aries" = "Væren";
+
+/* No comment provided by engineer. */
+"Taurus" = "Tyren";
+
+/* No comment provided by engineer. */
+"Gemini" = "Tvillingene";
+
+/* No comment provided by engineer. */
+"Cancer" = "Krepsen";
+
+/* No comment provided by engineer. */
+"Leo" = "Løven";
+
+/* No comment provided by engineer. */
+"Virgo" = "Jomfruen";
+
+/* No comment provided by engineer. */
+"Libra" = "Vekten";
+
+/* No comment provided by engineer. */
+"Scorpio" = "Skorpionen";
+
+/* No comment provided by engineer. */
+"Sagittarius" = "Skytten";
+
+/* No comment provided by engineer. */
+"Capricorn" = "Steinbukken";
+
+/* No comment provided by engineer. */
+"Aquarius" = "Vannmannen";
+
+/* No comment provided by engineer. */
+"Pisces" = "Fiskene";
+
+/* No comment provided by engineer. */
+"The average airpressure today is higher than yesterday." = "Gjennomsnittlig lufttrykk i dag er høyere enn i går.";
+
+/* No comment provided by engineer. */
+"The average airpressure today is the same as yesterday." = "Gjennomsnittlig lufttrykk i dag er det samme som går.";
+
+/* No comment provided by engineer. */
+"The average airpressure today is lower than yesterday." = "Gjennomsnittlig lufttrykk i dag er lavere enn i går.";
+
+/* No comment provided by engineer. */
+"The average airpressure is higher than yesterday." = "Gjennomsnittlig lufttrykk er høyere enn i går.";
+
+/* No comment provided by engineer. */
+"The average airpressure is the same as yesterday." = "Gjennomsnittlig lufttrykk er det samme som går.";
+
+/* No comment provided by engineer. */
+"The average airpressure is lower than yesterday." = "Gjennomsnittlig lufttrykk er lavere enn i går.";
+
+/* No comment provided by engineer. */
+"" = "";
 
