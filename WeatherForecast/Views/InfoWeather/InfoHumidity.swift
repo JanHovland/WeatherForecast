@@ -206,11 +206,11 @@ private func Forecast(index: Int,
         text = text + "\(Int(dewPointArray.max()!.rounded()))º."
     }
     ///
-    /// Finner luftfuktigheten i dag og i går:
+    /// Finner luftfuktigheten i dag og i går:toDay
     ///
     toDay = (date.setTime(hour: 0, min: 0, sec: 0)!).adding(days: index)
     toMorrow = toDay.adding(days: 1)
-    yesterDay = toDay.adding(days: -1)
+    yesterDay = toDay.adding(days: -1) /// vær obs. på slutt på sommertiden toDay
     arrayToDay.removeAll()
     arrayYesterDay.removeAll()
     hourForecast!.forEach  {
