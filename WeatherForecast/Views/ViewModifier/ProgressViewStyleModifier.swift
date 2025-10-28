@@ -21,7 +21,7 @@ struct ProgressViewStyleModifier: ProgressViewStyle {
                 HStack {
                     HStack {
                         RoundedRectangle(cornerRadius: 5)
-                            .frame(width: (geo.size.width - (UIDevice.isIpad ? 80 : 80)) * factorToDay, height: 20)
+                            .frame(width: (geo.size.width - (UIDevice.isIpad ? (option == .airPressure ? 92.5 : 80) : (option == .airPressure ? 92.5 : 80))) * factorToDay, height: 20)
                             .foregroundColor(.white)
                             .overlay (
                                 HStack {
@@ -45,6 +45,8 @@ struct ProgressViewStyleModifier: ProgressViewStyle {
                             Text("\(valueToDay,specifier: "%.1f") ºC")
                         } else if option == .visibility {
                             Text("\(valueToDay,specifier: "%.0f") km")
+                        } else if option == .airPressure {
+                            Text("\(valueToDay,specifier: "%.0f") hPa")
                         } else {
                             Text("\(valueToDay, specifier: "%.1f")")
                         }
@@ -53,7 +55,7 @@ struct ProgressViewStyleModifier: ProgressViewStyle {
                 HStack {
                     HStack {
                         RoundedRectangle(cornerRadius: 5)
-                            .frame(width: (geo.size.width - (UIDevice.isIpad ? 80 : 80)) * factorYesterDay, height: 20)
+                            .frame(width: (geo.size.width - (UIDevice.isIpad ? (option == .airPressure ? 92.5 : 80) : (option == .airPressure ? 92.5 : 80))) * factorYesterDay, height: 20)
                             .foregroundColor(.gray)
                             .overlay (
                                 HStack {
@@ -76,6 +78,8 @@ struct ProgressViewStyleModifier: ProgressViewStyle {
                             Text("\(valueYesterDay,specifier: "%.1f") ºC")}
                         else if option == .visibility {
                                 Text("\(valueYesterDay,specifier: "%.0f") km")
+                        } else if option == .airPressure {
+                            Text("\(valueYesterDay,specifier: "%.0f") hPa")
                         } else {
                             Text("\(valueYesterDay, specifier: "%.1f")")
                         }

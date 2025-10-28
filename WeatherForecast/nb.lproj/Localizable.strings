@@ -2210,4 +2210,10 @@
 /* No comment provided by engineer. */
 "The average visibility is lower than yesterday." = "Gjennomsnittlig sikt er lavere enn i går.";
 
+/* No comment provided by engineer. */
+"Today" = "I dag";
+
+/* No comment provided by engineer. */
+"Yesterday" = "I går";
+
 

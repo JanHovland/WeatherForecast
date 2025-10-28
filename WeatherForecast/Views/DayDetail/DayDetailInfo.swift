@@ -72,6 +72,7 @@ struct DayDetailInfo: View {
         case .airPressure:
             InfoAirPressure(index: index,
                             weather: weather,
+                            option: option,
                             weekdayArray: $weekdayArray)
             
         default :

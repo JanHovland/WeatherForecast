@@ -501,10 +501,10 @@ var toDo_2 =
           🟢 Rette tekst for "i dag" og en annen dag
    111. 🟢 InfoFeelsLike:  
           🟢 legg inn sammenligning: i går og idag
-   112. 🔴 Visibility:  
-          🔴 legg inn sammenligning: i går og idag
-   113. 🔴 AirPressure 
-           🔴 egg inn sammenligning: i går og idag
+   112. 🟢 Visibility:  
+          🟢 legg inn sammenligning: i går og idag
+   113. 🟢 AirPressure 
+          🟢 legg inn sammenligning: i går og idag
    114. 🔴 Precipitation24h:
           🔴 Fast y verdi ?
           🔴 Markere mye, moderat og lett hvor ?
