@@ -16,6 +16,7 @@ struct DataInfo {
     var type: String = ""
     var index: Int = 0
     var amount : Double = 0.00
+    var apparentPrecipitationIntensity: String = ""
 }
 
  

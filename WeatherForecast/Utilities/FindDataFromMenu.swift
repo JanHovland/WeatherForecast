@@ -449,8 +449,11 @@ func FindDataFromMenu(info: String,
                 ///
                 /// Sjekker om det er noe nedbør:
                 ///
+                /// apparentPrecipitationIntensity = light
+                ///
                 if $0.precipitation == .none {
                     dataInfo.type = String(localized: "None")
+                    dataInfo.apparentPrecipitationIntensity = classifyPrecipitationIntensity(mmPerHour: 0.0)
                     snowArray.append(dataInfo.amount)
                     dataInfo.amount = 0.00
                     hailData.append(dataInfo)
@@ -465,6 +468,8 @@ func FindDataFromMenu(info: String,
                         ///
                         dataInfo.amount = $0.precipitationAmount.value
                         dataInfo.type = String(localized: "Snow")
+                        dataInfo.apparentPrecipitationIntensity = classifyPrecipitationIntensity(mmPerHour: dataInfo.amount)
+                       
                         snowArray.append(dataInfo.amount)
                         dataInfo.amount = 0.00
                         hailData.append(dataInfo)
@@ -474,6 +479,7 @@ func FindDataFromMenu(info: String,
                     } else if $0.precipitation == .hail {
                         dataInfo.amount = $0.precipitationAmount.value
                         dataInfo.type = String(localized: "Hail")
+                        dataInfo.apparentPrecipitationIntensity = classifyPrecipitationIntensity(mmPerHour: dataInfo.amount)
                         hailData.append(dataInfo)
                         dataInfo.index = i
                         dataInfo.amount = 0.00
@@ -484,6 +490,7 @@ func FindDataFromMenu(info: String,
                     } else if $0.precipitation == .mixed {
                         dataInfo.amount = $0.precipitationAmount.value
                         dataInfo.type = String(localized: "Mixed")
+                        dataInfo.apparentPrecipitationIntensity = classifyPrecipitationIntensity(mmPerHour: dataInfo.amount)
                         mixedData.append(dataInfo)
                         dataInfo.index = i
                         dataInfo.amount = 0.00
@@ -494,6 +501,8 @@ func FindDataFromMenu(info: String,
                     } else if $0.precipitation == .rain {
                         dataInfo.amount = $0.precipitationAmount.value
                         dataInfo.type = String(localized: "Rain")
+                        dataInfo.apparentPrecipitationIntensity = classifyPrecipitationIntensity(mmPerHour: dataInfo.amount)
+                        
                         rainData.append(dataInfo)
                         dataInfo.index = i
                         dataInfo.amount = 0.00
@@ -505,6 +514,7 @@ func FindDataFromMenu(info: String,
                         dataInfo.amount = $0.precipitationAmount.value
                         sleetData.append(dataInfo)
                         dataInfo.type = String(localized: "Sleet")
+                        dataInfo.apparentPrecipitationIntensity = classifyPrecipitationIntensity(mmPerHour: dataInfo.amount)
                         dataInfo.index = i
                         dataInfo.amount = 0.00
                         hailData.append(dataInfo)
@@ -982,3 +992,12 @@ func reduceArrayAmount (fromArray: [String], option: EnumType) -> [String] {
     }
     return toArray
 }
+
+// Classify hourly precipitation intensity by amount (mm per hour)
+private func classifyPrecipitationIntensity(mmPerHour: Double) -> String {
+    if mmPerHour <= 0.0 { return String(localized: "none") }
+    if mmPerHour < 0.5 { return String(localized: "light") }
+    if mmPerHour < 2.0 { return String(localized: "moderate") }
+    return String(localized: "heavy")
+}
+
