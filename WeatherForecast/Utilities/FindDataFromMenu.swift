@@ -469,7 +469,6 @@ func FindDataFromMenu(info: String,
                         dataInfo.amount = $0.precipitationAmount.value
                         dataInfo.type = String(localized: "Snow")
                         dataInfo.apparentPrecipitationIntensity = classifyPrecipitationIntensity(mmPerHour: dataInfo.amount)
-                       
                         snowArray.append(dataInfo.amount)
                         dataInfo.amount = 0.00
                         hailData.append(dataInfo)
@@ -502,7 +501,6 @@ func FindDataFromMenu(info: String,
                         dataInfo.amount = $0.precipitationAmount.value
                         dataInfo.type = String(localized: "Rain")
                         dataInfo.apparentPrecipitationIntensity = classifyPrecipitationIntensity(mmPerHour: dataInfo.amount)
-                        
                         rainData.append(dataInfo)
                         dataInfo.index = i
                         dataInfo.amount = 0.00
@@ -995,9 +993,17 @@ func reduceArrayAmount (fromArray: [String], option: EnumType) -> [String] {
 
 // Classify hourly precipitation intensity by amount (mm per hour)
 private func classifyPrecipitationIntensity(mmPerHour: Double) -> String {
-    if mmPerHour <= 0.0 { return String(localized: "none") }
-    if mmPerHour < 0.5 { return String(localized: "light") }
-    if mmPerHour < 2.0 { return String(localized: "moderate") }
-    return String(localized: "heavy")
+    
+    /// Begrep                                                              Typisk praktisk terskel (mm/time)
+    /// Lett                                                                    < 2,5 mm/t
+    /// Moderat                                                             ≈ 2,5 – 7,5 mm/t
+    /// Kraftig / kraftig regn / sterk intensitet                ≥ 7,6 mm/t (og noen ganger: > 10 mm/t for «sterkt»)
+    /// Ekstrem / skybrudd / voldsomt bygeregn          ≥ 50 mm/t (brukes for svært sjeldne, tropiske-type intensiteter)
+
+    if mmPerHour <= 0.0 { return String(localized: "None") }
+    if mmPerHour < 2.5 { return String(localized: "Light") }
+    if mmPerHour < 7.5 { return String(localized: "Moderate") }
+    if mmPerHour < 10.0 { return String(localized: "Heavy") }
+    return String(localized: "Extreme")
 }
 

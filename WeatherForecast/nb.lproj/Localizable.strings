@@ -2253,5 +2253,17 @@
 "The average airpressure is lower than yesterday." = "Gjennomsnittlig lufttrykk er lavere enn i går.";
 
 /* No comment provided by engineer. */
-"" = "";
+"None" = "Ingen";
+
+/* No comment provided by engineer. */
+"Light" = "Lett";
+
+/* No comment provided by engineer. */
+"Moderate" = "Moderat";
+
+/* No comment provided by engineer. */
+"Heavy" = "Kraftig";
+
+/* No comment provided by engineer. */
+"Extreme" = "Ekstremt";
 

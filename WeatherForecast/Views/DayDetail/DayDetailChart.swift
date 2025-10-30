@@ -5,9 +5,9 @@
     //  Created by Jan Hovland on 09/11/2022.
     //
 
-    import SwiftUI
-    import WeatherKit
-    import Charts
+import SwiftUI
+import WeatherKit
+import Charts
 
     ///
     /// https://swdevnotes.com/swift/2022/customise-a-line-chart-with-swiftui-charts-in-ios-16/
@@ -20,167 +20,225 @@
     /// https://medium.com/devtechie/align-charts-mark-style-with-chart-plot-area-in-swiftui-4-and-charts-framework-9bf91163ede5
     ///
 
-    struct DayDetailChart: View {
-        
-        @Binding var rainFalls: [RainFall]
-        @Binding var dayArray: [Double]
-        @Binding var dayDetailHide: Bool
-        var option: EnumType
-        @Binding var dateArray: [Date]
-        @Binding var index : Int
-        @Binding var selectedValue : SelectedValue
-        @Binding var weekdayArray : [String]
-        @Binding var windInfo: [WindInfo]
-        @Binding var tempInfo: [Temperature]
-        @Binding var gustInfo: [Double]
-        let weather: Weather
-        @Binding var feltTempArray: [FeltTemp]
-        @Binding var opacity: Double
-        @Binding var dewPointArray: [Double]
-        @Binding var colorsForeground : [Color]
-        @Binding var colorsForegroundStandard : [Color]
-        @Binding var colorsBackground : [Color]
-        @Binding var colorsBackgroundStandard : [Color]
-        
-        @Environment(CurrentWeather.self) private var currentWeather
-        @Environment(DateSettings.self) private var dateSettings
-        @Environment(WeatherInfo.self) private var weatherInfo
-        
-        @State private var frameindexPointMarkWidth: CGFloat = 0.00
-        @State private var frameWidth: CGFloat = 0.00
-        @State private var frameHeight: CGFloat = 0.00
-        @State private var leading: CGFloat = 0.00
-        @State private var show : Bool = false
-        @State private var hourIconArray : [String] = Array(repeating: String(), count: sizeArray24)
-        @State private var array: [Double] = Array(repeating: Double(), count: sizeArray24)
-        
+struct DayDetailChart: View {
+    
+    @Binding var rainFalls: [RainFall]
+    @Binding var dayArray: [Double]
+    @Binding var dayDetailHide: Bool
+    var option: EnumType
+    @Binding var dateArray: [Date]
+    @Binding var index : Int
+    @Binding var selectedValue : SelectedValue
+    @Binding var weekdayArray : [String]
+    @Binding var windInfo: [WindInfo]
+    @Binding var tempInfo: [Temperature]
+    @Binding var gustInfo: [Double]
+    let weather: Weather
+    @Binding var feltTempArray: [FeltTemp]
+    @Binding var opacity: Double
+    @Binding var dewPointArray: [Double]
+    @Binding var colorsForeground : [Color]
+    @Binding var colorsForegroundStandard : [Color]
+    @Binding var colorsBackground : [Color]
+    @Binding var colorsBackgroundStandard : [Color]
+    
+    @Environment(CurrentWeather.self) private var currentWeather
+    @Environment(DateSettings.self) private var dateSettings
+    @Environment(WeatherInfo.self) private var weatherInfo
+    
+    @State private var frameindexPointMarkWidth: CGFloat = 0.00
+    @State private var frameWidth: CGFloat = 0.00
+    @State private var frameHeight: CGFloat = 0.00
+    @State private var leading: CGFloat = 0.00
+    @State private var show : Bool = false
+    @State private var hourIconArray : [String] = Array(repeating: String(), count: sizeArray24)
+    @State private var array: [Double] = Array(repeating: Double(), count: sizeArray24)
+    
         ///
         /// Temperatur:
         ///
-        @State private var tempMin: Double = 0.00
-        @State private var tempMax: Double = 0.00
-        @State private var tempMinIndex: Int = 0
-        @State private var tempMaxIndex: Int = 0
+    @State private var tempMin: Double = 0.00
+    @State private var tempMax: Double = 0.00
+    @State private var tempMinIndex: Int = 0
+    @State private var tempMaxIndex: Int = 0
         ///
         /// Vind:
         ///
-        @State private var windMin: Double = 0.00
-        @State private var windMax: Double = 0.00
-        @State private var windMinIndex: Int = 0
-        @State private var windMaxIndex: Int = 0
+    @State private var windMin: Double = 0.00
+    @State private var windMax: Double = 0.00
+    @State private var windMinIndex: Int = 0
+    @State private var windMaxIndex: Int = 0
         ///
         /// Vindkast::
         ///
-        @State private var windGustMin: Double = 0.00
-        @State private var windGustMax: Double = 0.00
-        @State private var windGustMinIndex: Int = 0
-        @State private var windGustMaxIndex: Int = 0
+    @State private var windGustMin: Double = 0.00
+    @State private var windGustMax: Double = 0.00
+    @State private var windGustMinIndex: Int = 0
+    @State private var windGustMaxIndex: Int = 0
         ///
         /// Føles som:
         ///
-        @State private var feelslikeMin: Double = 0.00
-        @State private var feelslikeMax: Double = 0.00
-        @State private var feelslikeMinIndex: Int = 0
-        @State private var feelslikeMaxIndex: Int = 0
+    @State private var feelslikeMin: Double = 0.00
+    @State private var feelslikeMax: Double = 0.00
+    @State private var feelslikeMinIndex: Int = 0
+    @State private var feelslikeMaxIndex: Int = 0
         ///
         /// Nedbør
         ///
-        @State private var precipitationMax: Double = 0.00
-        @State private var precipitationMinIndex: Int = 0
-        @State private var precipitationMaxIndex: Int = 0
-        
+    @State private var precipitationMax: Double = 0.00
+    @State private var precipitationMinIndex: Int = 0
+    @State private var precipitationMaxIndex: Int = 0
+    
         ///
         /// UvIndex:
         ///
-        @State private var uvIndexMin: Double = 0.00
-        @State private var uvIndexMax : Double = 0.00
-        @State private var uvIndexMinIndex: Int = 0
-        @State private var uvIndexMaxIndex: Int = 0
+    @State private var uvIndexMin: Double = 0.00
+    @State private var uvIndexMax : Double = 0.00
+    @State private var uvIndexMinIndex: Int = 0
+    @State private var uvIndexMaxIndex: Int = 0
         ///
         /// Sikt:
         ///
-        @State private var visibilityMin: Double = 0.00
-        @State private var visibilityMax : Double = 0.00
-        @State private var visibilityMinIndex: Int = 0
-        @State private var visibilityMaxIndex: Int = 0
+    @State private var visibilityMin: Double = 0.00
+    @State private var visibilityMax : Double = 0.00
+    @State private var visibilityMinIndex: Int = 0
+    @State private var visibilityMaxIndex: Int = 0
         ///
         /// Lufttrykk::
         ///
-        @State private var airPressureMin: Double = 0.00
-        @State private var airPressureMax : Double = 0.00
-        @State private var airPressureMinIndex: Int = 0
-        @State private var airPressureMaxIndex: Int = 0
+    @State private var airPressureMin: Double = 0.00
+    @State private var airPressureMax : Double = 0.00
+    @State private var airPressureMinIndex: Int = 0
+    @State private var airPressureMaxIndex: Int = 0
         ///
         /// Luftfuktighet:
         ///
-        @State private var humidityMin: Double = 0.00
-        @State private var humidityMax: Double = 0.00
-        @State private var humidityMinIndex: Int = 0
-        @State private var humidityMaxIndex: Int = 0
+    @State private var humidityMin: Double = 0.00
+    @State private var humidityMax: Double = 0.00
+    @State private var humidityMinIndex: Int = 0
+    @State private var humidityMaxIndex: Int = 0
         ///
         /// Precification:
         ///
-        @State private var precificationMin: Double = 0.00
-        @State private var precificationMax: Double = 0.00
-        @State private var precificationMinIndex: Int = 0
-        @State private var precificationMaxIndex: Int = 0
-        
-        @State private var selectedIndex: Int?
-        
-        @State private var rangeFrom: Int = 0
-        @State private var rangeTo: Int = 0
-        
-        @State private var selectedAmount: Double = 0.00
-        
-        @State private var newTemperature: [NewTemperature] = []
-        @State private var newUvIndex: [NewUvIndex] = []
-        @State private var newWind: [NewWind] = []
-        @State private var newFeelsLike: [NewFeelsLike] = []
-        @State private var newHumidity: [NewHumidity] = []
-        @State private var newVisibility: [NewVisibility] = []
-        @State private var newAirPressure: [NewAirPressure] = []
-        @State private var newPrecification: [NewPrecipitation] = []
+    @State private var precificationMin: Double = 0.00
+    @State private var precificationMax: Double = 0.00
+    @State private var precificationMinIndex: Int = 0
+    @State private var precificationMaxIndex: Int = 0
+    
+    @State private var selectedIndex: Int?
+    
+    @State private var rangeFrom: Int = 0
+    @State private var rangeTo: Int = 0
+    
+    @State private var selectedAmount: Double = 0.00
+    
+    @State private var newTemperature: [NewTemperature] = []
+    @State private var newUvIndex: [NewUvIndex] = []
+    @State private var newWind: [NewWind] = []
+    @State private var newFeelsLike: [NewFeelsLike] = []
+    @State private var newHumidity: [NewHumidity] = []
+    @State private var newVisibility: [NewVisibility] = []
+    @State private var newAirPressure: [NewAirPressure] = []
+    @State private var newPrecification: [NewPrecipitation] = []
+    
+    let rangeTempMinValue =  9
+    let rangeTempMaxValue =  9
+    let rangeGustValue = 15
+    let rangeVisibilityValue = 10
+    let rangeAirPressureMaxValue = 10
+    let rangeAirPressureMinValue = 100
+    let rangeHumidityMaxValue = 10
+    let rangeHumidityMinValue = 10
+    
+    
+    struct ChartValue: Identifiable {
+        var id: Int
+        var type: String
+        var hour: Int
+        var value: Double
+        var systemName: String
+    }
+    
+    @State private var chartValues: [ChartValue] = []
+    
+        // Thresholds in mm for categories
+//    private let thresholds: [(label: String, value: Double)] = [
+//        ("Light", 2.5),
+//        ("Medium", 7.5),
+//        ("Heavy", 10.0)
+//        // "Extreme" is anything above Heavy
+//    ]
+    private let thresholds: [(label: String, value: Double)] = [
+        ("Light", 0.75),
+        ("Moderate", 6.00),
+        ("Heavy", 8.00)
+        // "Extreme" is anything above Heavy
+    ]
 
-        let rangeTempMinValue =  9
-        let rangeTempMaxValue =  9
-        let rangeGustValue = 15
-        let rangeVisibilityValue = 10
-        let rangeAirPressureMaxValue = 10
-        let rangeAirPressureMinValue = 100
-        let rangeHumidityMaxValue = 10
-        let rangeHumidityMinValue = 10
-        
-        
-        struct ChartValue: Identifiable {
-            var id: Int
-            var type: String
-            var hour: Int
-            var value: Double
-            var systemName: String
-        }
-
-        @State private var chartValues: [ChartValue] = []
-        
-        var body: some View {
-            
-            
-            VStack (alignment: .center) {
+    var body: some View {
+        VStack (alignment: .center) {
                 ///
                 /// Viser de forskjellige Chart:
                 ///
-                VStack {
+            VStack {
+                if option == .precipitation {
+                    // Pre-filter threshold so only those with value < rangeTo are drawn
+                    let visibleThresholds = thresholds.filter { $0.value < Double(rangeTo) }
                     Chart {
-                        if option == .precipitation {
-                            ForEach(newPrecification.filter {$0.value > 0}) {
-                                BarMark (
-                                    x: .value("Hour", $0.hour),
-                                    y: .value("Value", $0.value)
-                                )
-                                .interpolationMethod(.catmullRom)
-                                .foregroundStyle(by: .value("Type", "\($0.type)"))
-                                .lineStyle(StrokeStyle(lineWidth: 1))
+                        ForEach(newPrecification.filter {$0.value > 0}) {
+                            BarMark (
+                                x: .value("Hour", $0.hour),
+                                y: .value("Value", $0.value)
+                            )
+                        }
+                            // Horizontal rules at thresholds with labels
+                        ForEach(visibleThresholds, id: \.value) { t in
+                            RuleMark(y: .value("Threshold", t.value))
+                                .foregroundStyle(.secondary)
+                                .lineStyle(StrokeStyle(lineWidth: 1, dash: [4, 4]))
+                                .annotation(position: .leading) {
+                                    Text(t.label)
+                                        .font(.caption2)
+                                        .padding(.horizontal, 4)
+                                        .padding(.vertical, 2)
+                                        .background(
+                                            Capsule().fill(Color.black)
+                                        )
+                                        .overlay(
+                                            Capsule()
+                                                .stroke(Color.white.opacity(0.6), lineWidth: 0.25)
+                                        )
+                                        .foregroundStyle(.primary.opacity(0.8))
+                                }
+                                .offset(x: 40)
+                        }
+                    }
+                    .chartYScale(domain: 0...rangeTo + 1)
+                    .chartYAxis {
+                        AxisMarks(position: .trailing)
+                    }
+                    .chartXAxis {
+                        AxisMarks(values: [0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22]) { value in
+                            AxisTick()
+                            AxisValueLabel {
+                                if let hour = value.as(Int.self) {
+                                    Text(String(format: "%02d", hour))
+                                        .padding(.leading, -10)
+                                }
                             }
-                        } else if option == .wind {
+                        }
+                    }
+                    .frame(height: 250)
+                    .padding(.horizontal, 20)
+                    
+                    .modifier(DayDetailChartOffsetViewModifier(option: option))
+                    .chartYAxisLabel(ShowUnit(option: option),
+                                     position: .top,
+                                     spacing: 10)  /// avstand mellom rangeTo og betegnelsen (m/s o.l.)
+                    
+                } else {
+                    Chart {
+                        if option == .wind {
                             ForEach(newWind.filter {$0.value > 0 && $0.hour < 24}) {
                                 if $0.type == "Vind" {
                                     AreaMark(
@@ -199,12 +257,12 @@
                                 .foregroundStyle(by: .value("Type", "\($0.type)"))
                                 .lineStyle(StrokeStyle(lineWidth: 2))
                             }
-                            ///
-                            /// Viser iconene for hver time for .wind
-                            ///
-                            /// Using a named item and an explicit id, plus computing
-                            /// the icon name  once per iteration to help the compiler.
-                            ///
+                                ///
+                                /// Viser iconene for hver time for .wind
+                                ///
+                                /// Using a named item and an explicit id, plus computing
+                                /// the icon name  once per iteration to help the compiler.
+                                ///
                             ForEach(chartValues, id: \.id) { item in
                                 PointMark(
                                     x: .value("Hour", item.hour),
@@ -236,10 +294,10 @@
                                     .offset(yStart: UIDevice.isIpad ? -30 : -30) /// Viser verdien relativt til største verdi av "Value"
                                     .zIndex(-1)
                             }
-                            ///
-                            ///
-                            /// Markerer minste "L" og høyeste "H"
-                            ///
+                                ///
+                                ///
+                                /// Markerer minste "L" og høyeste "H"
+                                ///
                             PointMark(x: .value("Hour", windMinIndex),
                                       y: .value("Value", windMin))
                             .symbol(.circle)
@@ -282,12 +340,12 @@
                                 .foregroundStyle(by: .value("Type", "\($0.type)"))
                                 .lineStyle(StrokeStyle(lineWidth: 2))
                             }
-                            ///
-                            /// Viser iconene for hver time for .temperature
-                            ///
-                            /// Using a named item and an explicit id, plus computing
-                            /// the icon name  once per iteration to help the compiler.
-                            ///
+                                ///
+                                /// Viser iconene for hver time for .temperature
+                                ///
+                                /// Using a named item and an explicit id, plus computing
+                                /// the icon name  once per iteration to help the compiler.
+                                ///
                             ForEach(chartValues, id: \.id) { item in
                                 PointMark(
                                     x: .value("Hour", item.hour),
@@ -321,18 +379,18 @@
                                     .offset(yStart: UIDevice.isIpad ? -20 : -20) /// Viser verdien relativt til største verdi av "Value"
                                     .zIndex(-1)
                             }
-                            ///
-                            /// Markerer laveste temperatur
-                            ///
+                                ///
+                                /// Markerer laveste temperatur
+                                ///
                             PointMark(x: .value("Hour", tempMinIndex),
                                       y: .value("Value", tempMin))
                             .annotation(position: .top) {
                                 Text("L")
                                     .font(.footnote.weight(.bold))
                             }
-                            ///
-                            /// Markerer høyeste temperatur
-                            ///
+                                ///
+                                /// Markerer høyeste temperatur
+                                ///
                             PointMark(x: .value("Hour", tempMaxIndex),
                                       y: .value("Value",tempMax))
                             .symbol(.circle)
@@ -366,24 +424,24 @@
                                 /// Using a named item and an explicit id, plus computing
                                 /// the icon name  once per iteration to help the compiler.
                                 ///
-                                ForEach(chartValues, id: \.id) { item in
-                                    PointMark(
-                                        x: .value("Hour", item.hour),
-                                        y: .value("Iconlinje", UIDevice.isIpad ? 34 : 31)
-                                    )
-                                    .symbol {
-                                        if item.hour % 2 == 0 {
-                                            Image(systemName: item.systemName)
-                                                .resizable()
-                                                .scaledToFit()
-                                                .frame(width: 20, height: 20)
-                                                .symbolRenderingMode(.multicolor)
-                                                .padding(.leading, 10)
-                                                .foregroundStyle(.white)
-                                                .opacity(0.50)
-                                        }
+                            ForEach(chartValues, id: \.id) { item in
+                                PointMark(
+                                    x: .value("Hour", item.hour),
+                                    y: .value("Iconlinje", UIDevice.isIpad ? 34 : 31)
+                                )
+                                .symbol {
+                                    if item.hour % 2 == 0 {
+                                        Image(systemName: item.systemName)
+                                            .resizable()
+                                            .scaledToFit()
+                                            .frame(width: 20, height: 20)
+                                            .symbolRenderingMode(.multicolor)
+                                            .padding(.leading, 10)
+                                            .foregroundStyle(.white)
+                                            .opacity(0.50)
                                     }
                                 }
+                            }
                             if let selectedIndex {
                                 RuleMark(x: .value("Hour", selectedIndex))
                                     .annotation(
@@ -399,9 +457,9 @@
                                     .offset(yStart: UIDevice.isIpad ? -32 : -25) /// Viser verdien relativt til største verdi av "Value"
                                     .zIndex(-1)
                             }
-                            ///
-                            /// Markerer minste "L" og høyeste "H"
-                            ///
+                                ///
+                                /// Markerer minste "L" og høyeste "H"
+                                ///
                             PointMark(x: .value("Hour", feelslikeMinIndex),
                                       y: .value("Value", feelslikeMin))
                             .symbol(.circle)
@@ -436,12 +494,12 @@
                                 .foregroundStyle(by: .value("Type", "\($0.type)"))
                                 .lineStyle(StrokeStyle(lineWidth: 2))
                             }
-                            ///
-                            /// Viser iconene for hver time for .uvIndex
-                            ///
-                            /// Using a named item and an explicit id, plus computing
-                            /// the icon name  once per iteration to help the compiler.
-                            ///
+                                ///
+                                /// Viser iconene for hver time for .uvIndex
+                                ///
+                                /// Using a named item and an explicit id, plus computing
+                                /// the icon name  once per iteration to help the compiler.
+                                ///
                             ForEach(chartValues, id: \.id) { item in
                                 PointMark(
                                     x: .value("Hour", item.hour),
@@ -471,10 +529,10 @@
                                     .offset(yStart: UIDevice.isIpad ? -7 : -8)/// Viser verdien relativt til største verdi av "Value"
                                     .zIndex(-1)
                             }
-                            ///
-                            ///
-                            /// Markerer minste "L" og høyeste "H"
-                            ///
+                                ///
+                                ///
+                                /// Markerer minste "L" og høyeste "H"
+                                ///
                             PointMark(x: .value("Hour", uvIndexMinIndex),
                                       y: .value("Value", uvIndexMin))
                             .symbol(.circle)
@@ -521,21 +579,21 @@
                                 /// Using a named item and an explicit id, plus computing
                                 /// the icon name  once per iteration to help the compiler.
                                 ///
-                                ForEach(chartValues, id: \.id) { item in
-                                    PointMark(
-                                        x: .value("Hour", item.hour),
-                                        y: .value("Iconlinje", UIDevice.isIpad ? rangeTo + 14 : rangeTo + 11)
-                                    )
-                                    .symbol {
-                                        if item.hour % (UIDevice.isIpad ? 2 : 4) == 0 {
-                                            Text(item.systemName + "km")
-                                                .padding(.leading, 10)
-                                                .foregroundStyle(.white)
-                                                .opacity(0.50)
-                                        }
+                            ForEach(chartValues, id: \.id) { item in
+                                PointMark(
+                                    x: .value("Hour", item.hour),
+                                    y: .value("Iconlinje", UIDevice.isIpad ? rangeTo + 14 : rangeTo + 11)
+                                )
+                                .symbol {
+                                    if item.hour % (UIDevice.isIpad ? 2 : 4) == 0 {
+                                        Text(item.systemName + "km")
+                                            .padding(.leading, 10)
+                                            .foregroundStyle(.white)
+                                            .opacity(0.50)
                                     }
-                                    .offset(x: 10)
                                 }
+                                .offset(x: 10)
+                            }
                             if let selectedIndex {
                                 RuleMark(x: .value("Hour", selectedIndex))
                                     .annotation(
@@ -551,10 +609,10 @@
                                     .offset(yStart: UIDevice.isIpad ? -29 : -26) /// Viser verdien relativt til største verdi av "Value"
                                     .zIndex(-1)
                             }
-                            ///
-                            ///
-                            /// Markerer minste "L" og høyeste "H"
-                            ///
+                                ///
+                                ///
+                                /// Markerer minste "L" og høyeste "H"
+                                ///
                             PointMark(x: .value("Hour", visibilityMinIndex),
                                       y: .value("Value", visibilityMin))
                             .symbol(.circle)
@@ -600,23 +658,23 @@
                                 /// Using a named item and an explicit id, plus computing
                                 /// the icon name  once per iteration to help the compiler.
                                 ///
-                                ForEach(chartValues, id: \.id) { item in
-                                    PointMark(
-                                        x: .value("Hour", item.hour),
-                                        y: .value("Iconlinje", UIDevice.isIpad ? rangeTo + 44 : rangeTo + 31)
-                                    )
-                                    .symbol {
-                                        if item.hour % (UIDevice.isIpad ? 2 : 4) == 0 {
-                                            Image(systemName: item.systemName)
-                                                .frame(width: 20, height: 20)
-                                                .symbolRenderingMode(.multicolor)
-                                                .padding(.leading, 10)
-                                                .foregroundStyle(.white)
-                                                .opacity(0.50)
-                                         }
+                            ForEach(chartValues, id: \.id) { item in
+                                PointMark(
+                                    x: .value("Hour", item.hour),
+                                    y: .value("Iconlinje", UIDevice.isIpad ? rangeTo + 44 : rangeTo + 31)
+                                )
+                                .symbol {
+                                    if item.hour % (UIDevice.isIpad ? 2 : 4) == 0 {
+                                        Image(systemName: item.systemName)
+                                            .frame(width: 20, height: 20)
+                                            .symbolRenderingMode(.multicolor)
+                                            .padding(.leading, 10)
+                                            .foregroundStyle(.white)
+                                            .opacity(0.50)
                                     }
-                                    .offset(x: 10)
                                 }
+                                .offset(x: 10)
+                            }
                             if let selectedIndex {
                                 RuleMark(x: .value("Hour", selectedIndex))
                                     .annotation(
@@ -632,9 +690,9 @@
                                     .offset(yStart: UIDevice.isIpad ? -35 : -25) /// Viser verdien relativt til største verdi av "Value"
                                     .zIndex(-1)
                             }
-                            ///
-                            /// Markerer minste "L" og høyeste "H"
-                            ///
+                                ///
+                                /// Markerer minste "L" og høyeste "H"
+                                ///
                             PointMark(x: .value("Hour", airPressureMinIndex),
                                       y: .value("Value", airPressureMin))
                             .symbol(.circle)
@@ -674,12 +732,12 @@
                                 .foregroundStyle(by: .value("Type", description))
                                 .lineStyle(StrokeStyle(lineWidth: 2))
                             }
-                            ///
-                            /// Viser iconene for hver time for .wind
-                            ///
-                            /// Using a named item and an explicit id, plus computing
-                            /// the icon name  once per iteration to help the compiler.
-                            ///
+                                ///
+                                /// Viser iconene for hver time for .wind
+                                ///
+                                /// Using a named item and an explicit id, plus computing
+                                /// the icon name  once per iteration to help the compiler.
+                                ///
                             ForEach(chartValues, id: \.id) { item in
                                 PointMark(
                                     x: .value("Hour", item.hour),
@@ -695,9 +753,9 @@
                                 }
                                 .offset(x: 10)
                             }
-                            ///
-                            /// Markerer minste "L" og høyeste "H"
-                            ///
+                                ///
+                                /// Markerer minste "L" og høyeste "H"
+                                ///
                             if let selectedIndex {
                                 RuleMark(x: .value("Hour", selectedIndex))
                                     .annotation(
@@ -734,9 +792,9 @@
                                 }
                             }
                         }
-                        ///
-                        /// Markerer den tidligere delen av dagen:
-                        ///
+                            ///
+                            /// Markerer den tidligere delen av dagen:
+                            ///
                         RectangleMark (xStart: .value("Range Start", 0),
                                        xEnd: .value("Range End", index == 0 ? currentWeather.hour : 0)
                         )
@@ -746,11 +804,11 @@
                            minHeight: 275,
                            maxHeight: 275)
                     .chartXScale(domain: 0...23)
-                    ///
-                    /// Endrer y aksen for:
-                    ///     . uvIndex,
-                    ///     . airPressure,
-                    ///
+                        ///
+                        /// Endrer y aksen for:
+                        ///     . uvIndex,
+                        ///     . airPressure,
+                        ///
                     .modifier(DayDetailChartYaxis(option: option, from: rangeFrom, to: rangeTo))
                     .chartYAxisLabel(ShowUnit(option: option),
                                      position: .top,
@@ -763,7 +821,7 @@
                             AxisTick()
                             AxisValueLabel {
                                 if let hour = value.as(Int.self) {
-                                    // Format as two digits (e.g., "08")
+                                        // Format as two digits (e.g., "08")
                                     Text(String(format: "%02d", hour))
                                         .font(.subheadline)
                                         .foregroundStyle(.secondary)
@@ -772,724 +830,725 @@
                         }
                     }
                 }
-                .padding(.top, 200)
+            }
+            .padding(.top, 200)
                 ///
                 /// Her er en gesture som ligger på VStack og ikke på ChartView:
                 /// Denne endrer index :
                 ///
-                .gesture(
-                    DragGesture()
-                        .onEnded { value in
-                            if value.location.x > value.startLocation.x {
-                                index = index + 1
-                                if index > 9 {
-                                    index = 9
-                                }
-                            } else if value.location.x < value.startLocation.x {
-                                index = index - 1
-                                if index < 0 {
-                                    index = 0
-                                }
-                            } else {
-                                index = index
+            .gesture(
+                DragGesture()
+                    .onEnded { value in
+                        if value.location.x > value.startLocation.x {
+                            index = index + 1
+                            if index > 9 {
+                                index = 9
                             }
-                            colorsForeground = updateForegroundColors(index: index,
-                                                                      colorsForegroundStandard: colorsForegroundStandard,
-                                                                      foregroundColor: Color(.black),
-                                                                      foregroundColorIndex1: Color(.black))
+                        } else if value.location.x < value.startLocation.x {
+                            index = index - 1
+                            if index < 0 {
+                                index = 0
+                            }
+                        } else {
+                            index = index
+                        }
+                        colorsForeground = updateForegroundColors(index: index,
+                                                                  colorsForegroundStandard: colorsForegroundStandard,
+                                                                  foregroundColor: Color(.black),
+                                                                  foregroundColorIndex1: Color(.black))
                             ///
                             /// Resetter og oppdater bakgrunnen for aktuell indeks:
                             ///
-                            colorsBackground = updateBackgroundColors(index: index,
-                                                                      colorsBackgroundStandard: colorsBackgroundStandard,
-                                                                      backGroundColor: .primary,
-                                                                      backgroundColorIndex1: Color(.systemMint))
-                        }
-                )
+                        colorsBackground = updateBackgroundColors(index: index,
+                                                                  colorsBackgroundStandard: colorsBackgroundStandard,
+                                                                  backGroundColor: .primary,
+                                                                  backgroundColorIndex1: Color(.systemMint))
+                    }
+            )
                 ///
                 /// offset er forskjellig for .humidity og de andre option:
                 ///
-                .modifier(DayDetailChartOffsetViewModifier(option: option))
-                Spacer()
-            }
-            .task {
+            .modifier(DayDetailChartOffsetViewModifier(option: option))
+            Spacer()
+        }
+        .task {
                 ///
                 /// Resetter selectedValue fra gesture i DayDetailChart():
                 ///
-                selectedValue.icon = ""
-                selectedValue.value1 = ""
-                selectedValue.value2 = ""
-                selectedValue.value3 = ""
-                selectedValue.time = ""
+            selectedValue.icon = ""
+            selectedValue.value1 = ""
+            selectedValue.value2 = ""
+            selectedValue.value3 = ""
+            selectedValue.time = ""
                 /// Oppdaterer bredde og høyde avhengig av on iPhone eller iPad:
                 ///
-                if UIDevice.isIpad {
-                    frameWidth = 540 // 500
-                    frameHeight = 150
-                    leading = 60
-                } else {
-                    frameWidth = 350
-                    frameHeight = 200
-                    leading = 40
-                }
+            if UIDevice.isIpad {
+                frameWidth = 540 // 500
+                frameHeight = 150
+                leading = 60
+            } else {
+                frameWidth = 350
+                frameHeight = 200
+                leading = 40
+            }
                 ///
                 /// Her kan det kun komme option ==  .temperature og index == 0:
                 ///
-                let value : ([Double],
-                             [String],
-                             [String],
-                             [RainFall],
-                             [WindInfo],
-                             [Temperature],
-                             [Double],
-                             [WeatherIcon],
-                             [Double],
-                             [FeltTemp],
-                             [Double],
-                             [NewPrecipitation]) = FindDataFromMenu(info: "DayDetailChart.task",
-                                                                    weather: weather,
-                                                                    date: dateSettings.dates[index],
-                                                                    option: option,
-                                                                    option1: .number24)
-                hourIconArray = value.2
+            let value : ([Double],
+                         [String],
+                         [String],
+                         [RainFall],
+                         [WindInfo],
+                         [Temperature],
+                         [Double],
+                         [WeatherIcon],
+                         [Double],
+                         [FeltTemp],
+                         [Double],
+                         [NewPrecipitation]) = FindDataFromMenu(info: "DayDetailChart.task",
+                                                                weather: weather,
+                                                                date: dateSettings.dates[index],
+                                                                option: option,
+                                                                option1: .number24)
+            hourIconArray = value.2
                 ///
                 /// ** tempInfo må være med !
                 ///
-                tempInfo = value.5
-                windInfo = value.4
-
-                if option == .temperature {
+            tempInfo = value.5
+            windInfo = value.4
+            
+            if option == .temperature {
                     ///
                     /// Init chartValues
                     ///
-                    chartValues = hourIconArray.enumerated().map { index, icon in
-                        ChartValue(id: index, type: "", hour: index, value: 0.0, systemName: icon)
-                    }
-                    let val3 : ([NewTemperature],
-                                Double,
-                                Double,
-                                Int,
-                                Int,
-                                Int,
-                                Int) = FindChartDataTemperature(weather: weather,
-                                                                date: dateSettings.dates[index],
-                                                                option: .temperature)
-                    newTemperature = val3.0
-                    tempMin = val3.1
-                    tempMax = val3.2
-                    tempMinIndex = val3.3
-                    tempMaxIndex = val3.4
-                    rangeFrom = val3.5
-                    rangeTo = val3.6
-                    
+                chartValues = hourIconArray.enumerated().map { index, icon in
+                    ChartValue(id: index, type: "", hour: index, value: 0.0, systemName: icon)
+                }
+                let val3 : ([NewTemperature],
+                            Double,
+                            Double,
+                            Int,
+                            Int,
+                            Int,
+                            Int) = FindChartDataTemperature(weather: weather,
+                                                            date: dateSettings.dates[index],
+                                                            option: .temperature)
+                newTemperature = val3.0
+                tempMin = val3.1
+                tempMax = val3.2
+                tempMinIndex = val3.3
+                tempMaxIndex = val3.4
+                rangeFrom = val3.5
+                rangeTo = val3.6
+                
                     ///
                     /// Av en eller annen grunn måtte jeg legge til:
                     ///     .humidity
                     ///     .airPressure
                     ///     .visibility
                     ///     .uvIndex
-                    
-                } else if option == .uvIndex {
+                
+            } else if option == .uvIndex {
                     ///
                     /// Init chartValues
                     ///
-                    chartValues = hourIconArray.enumerated().map { index, icon in
-                        ChartValue(id: index, type: "", hour: index, value: 0.0, systemName: icon)
-                    }
-                    
-                    let val03 : ([NewUvIndex],
-                                 Double,
-                                 Double,
-                                 Int,
-                                 Int,
-                                 Int,
-                                 Int) = FindChartDataUvIndex(weather: weather,
-                                                             date: dateSettings.dates[index],
-                                                             option: .uvIndex)
-                    newUvIndex = val03.0
-                    uvIndexMin = val03.1
-                    uvIndexMax = val03.2
-                    uvIndexMinIndex = val03.3
-                    uvIndexMaxIndex = val03.4
-                    rangeFrom = val03.5
-                    rangeTo = val03.6
-               } else if option == .wind {
-                    ///
-                    /// Init chartValues
-                    ///
-                    chartValues = hourIconArray.enumerated().map { index, icon in
-                        ChartValue(id: index, type: "", hour: index, value: 0.0, systemName: icon)
-                    }
-                    let val04 : ([NewWind],
-                                 Double,
-                                 Double,
-                                 Int,
-                                 Int,
-                                 Int,
-                                 Int) = FindChartDataWind(weather: weather,
-                                                          date: dateSettings.dates[index],
-                                                          option: .wind)
-                    newWind = val04.0
-                    windMin = val04.1
-                    windMax = val04.2
-                    windMinIndex = val04.3
-                    windMaxIndex = val04.4
-                    rangeFrom = val04.5
-                    rangeTo = val04.6
-                } else if option == .feelsLike {
-                    let val05 : ([NewFeelsLike],
-                                 Double,
-                                 Double,
-                                 Int,
-                                 Int,
-                                 Int,
-                                 Int) = FindChartDataFeelsLike(weather: weather,
-                                                               date: dateSettings.dates[index],
-                                                               option: .feelsLike)
-                        ///
-                        /// Init chartValues
-                        ///
-                        chartValues = hourIconArray.enumerated().map { index, icon in
-                            ChartValue(id: index, type: "", hour: index, value: 0.0, systemName: icon)
-                        }
-                        
-                    newFeelsLike = val05.0
-                    feelslikeMin = val05.1
-                    feelslikeMax = val05.2
-                    feelslikeMinIndex = val05.3
-                    feelslikeMaxIndex = val05.4
-                    rangeFrom = val05.5
-                    rangeTo = val05.6
-                } else if option == .visibility {
-                    ///
-                    /// Init chartValues
-                    ///
-                    chartValues = hourIconArray.enumerated().map { index, icon in
-                        ChartValue(id: index, type: "", hour: index, value: 0.0, systemName: icon)
-                    }
-                    let val06 : ([NewVisibility],
-                                 Double,
-                                 Double,
-                                 Int,
-                                 Int,
-                                 Int,
-                                 Int) = FindChartDataVisibility(weather: weather,
-                                                                date: dateSettings.dates[index],
-                                                                option: .visibility)
-                    newVisibility = val06.0
-                    visibilityMin = val06.1
-                    visibilityMax = val06.2
-                    visibilityMinIndex = val06.3
-                    visibilityMaxIndex = val06.4
-                    rangeFrom = val06.5
-                    rangeTo = val06.6
-                } else if option == .humidity {
-                    ///
-                    /// Init chartValues
-                    ///
-                    chartValues = hourIconArray.enumerated().map { index, icon in
-                        ChartValue(id: index, type: "", hour: index, value: 0.0, systemName: icon)
-                    }
-                   let val07 : ([NewHumidity],
-                                 Double,
-                                 Double,
-                                 Int,
-                                 Int,
-                                 Int,
-                                 Int) = FindChartDataHumidity(weather: weather,
-                                                              date: dateSettings.dates[index],
-                                                              option: .humidity)
-                    newHumidity = val07.0
-                    humidityMin = val07.1
-                    humidityMax = val07.2
-                    humidityMinIndex = val07.3
-                    humidityMaxIndex = val07.4
-                    rangeFrom = val07.5
-                    rangeTo = val07.6
-                } else if option == .airPressure {
-                    ///
-                    /// Init chartValues
-                    ///
-                    chartValues = hourIconArray.enumerated().map { index, icon in
-                        ChartValue(id: index, type: "", hour: index, value: 0.0, systemName: icon)
-                    }
-                    let val08 : ([NewAirPressure],
-                                 Double,
-                                 Double,
-                                 Int,
-                                 Int,
-                                 Int,
-                                 Int) = FindChartDataAirPressure(weather: weather,
-                                                                 date: dateSettings.dates[index],
-                                                                 option: .airPressure)
-                    newAirPressure = val08.0
-                    airPressureMin = val08.1
-                    airPressureMax = val08.2
-                    airPressureMinIndex = val08.3
-                    airPressureMaxIndex = val08.4
-                    rangeFrom = val08.5
-                    rangeTo = val08.6
-                } else if option == .precipitation {
-                    
-                    let val07 : ([NewPrecipitation],
-                                 Double,
-                                 Double,
-                                 Int,
-                                 Int,
-                                 Int,
-                                 Int) = FindChartDataPrecipitation(weather: weather,
-                                                                   date: dateSettings.dates[index],
-                                                                   option: .precipitation)
-                    newPrecification = val07.0
-                    precificationMin = val07.1
-                    precificationMax = val07.2
-                    precificationMinIndex = val07.3
-                    precificationMaxIndex = val07.4
-                    rangeFrom = val07.5
-                    rangeTo = val07.6
+                chartValues = hourIconArray.enumerated().map { index, icon in
+                    ChartValue(id: index, type: "", hour: index, value: 0.0, systemName: icon)
                 }
+                
+                let val03 : ([NewUvIndex],
+                             Double,
+                             Double,
+                             Int,
+                             Int,
+                             Int,
+                             Int) = FindChartDataUvIndex(weather: weather,
+                                                         date: dateSettings.dates[index],
+                                                         option: .uvIndex)
+                newUvIndex = val03.0
+                uvIndexMin = val03.1
+                uvIndexMax = val03.2
+                uvIndexMinIndex = val03.3
+                uvIndexMaxIndex = val03.4
+                rangeFrom = val03.5
+                rangeTo = val03.6
+            } else if option == .wind {
+                    ///
+                    /// Init chartValues
+                    ///
+                chartValues = hourIconArray.enumerated().map { index, icon in
+                    ChartValue(id: index, type: "", hour: index, value: 0.0, systemName: icon)
+                }
+                let val04 : ([NewWind],
+                             Double,
+                             Double,
+                             Int,
+                             Int,
+                             Int,
+                             Int) = FindChartDataWind(weather: weather,
+                                                      date: dateSettings.dates[index],
+                                                      option: .wind)
+                newWind = val04.0
+                windMin = val04.1
+                windMax = val04.2
+                windMinIndex = val04.3
+                windMaxIndex = val04.4
+                rangeFrom = val04.5
+                rangeTo = val04.6
+            } else if option == .feelsLike {
+                let val05 : ([NewFeelsLike],
+                             Double,
+                             Double,
+                             Int,
+                             Int,
+                             Int,
+                             Int) = FindChartDataFeelsLike(weather: weather,
+                                                           date: dateSettings.dates[index],
+                                                           option: .feelsLike)
+                    ///
+                    /// Init chartValues
+                    ///
+                chartValues = hourIconArray.enumerated().map { index, icon in
+                    ChartValue(id: index, type: "", hour: index, value: 0.0, systemName: icon)
+                }
+                
+                newFeelsLike = val05.0
+                feelslikeMin = val05.1
+                feelslikeMax = val05.2
+                feelslikeMinIndex = val05.3
+                feelslikeMaxIndex = val05.4
+                rangeFrom = val05.5
+                rangeTo = val05.6
+            } else if option == .visibility {
+                    ///
+                    /// Init chartValues
+                    ///
+                chartValues = hourIconArray.enumerated().map { index, icon in
+                    ChartValue(id: index, type: "", hour: index, value: 0.0, systemName: icon)
+                }
+                let val06 : ([NewVisibility],
+                             Double,
+                             Double,
+                             Int,
+                             Int,
+                             Int,
+                             Int) = FindChartDataVisibility(weather: weather,
+                                                            date: dateSettings.dates[index],
+                                                            option: .visibility)
+                newVisibility = val06.0
+                visibilityMin = val06.1
+                visibilityMax = val06.2
+                visibilityMinIndex = val06.3
+                visibilityMaxIndex = val06.4
+                rangeFrom = val06.5
+                rangeTo = val06.6
+            } else if option == .humidity {
+                    ///
+                    /// Init chartValues
+                    ///
+                chartValues = hourIconArray.enumerated().map { index, icon in
+                    ChartValue(id: index, type: "", hour: index, value: 0.0, systemName: icon)
+                }
+                let val07 : ([NewHumidity],
+                             Double,
+                             Double,
+                             Int,
+                             Int,
+                             Int,
+                             Int) = FindChartDataHumidity(weather: weather,
+                                                          date: dateSettings.dates[index],
+                                                          option: .humidity)
+                newHumidity = val07.0
+                humidityMin = val07.1
+                humidityMax = val07.2
+                humidityMinIndex = val07.3
+                humidityMaxIndex = val07.4
+                rangeFrom = val07.5
+                rangeTo = val07.6
+            } else if option == .airPressure {
+                    ///
+                    /// Init chartValues
+                    ///
+                chartValues = hourIconArray.enumerated().map { index, icon in
+                    ChartValue(id: index, type: "", hour: index, value: 0.0, systemName: icon)
+                }
+                let val08 : ([NewAirPressure],
+                             Double,
+                             Double,
+                             Int,
+                             Int,
+                             Int,
+                             Int) = FindChartDataAirPressure(weather: weather,
+                                                             date: dateSettings.dates[index],
+                                                             option: .airPressure)
+                newAirPressure = val08.0
+                airPressureMin = val08.1
+                airPressureMax = val08.2
+                airPressureMinIndex = val08.3
+                airPressureMaxIndex = val08.4
+                rangeFrom = val08.5
+                rangeTo = val08.6
+            } else if option == .precipitation {
+                
+                let val07 : ([NewPrecipitation],
+                             Double,
+                             Double,
+                             Int,
+                             Int,
+                             Int,
+                             Int) = FindChartDataPrecipitation(weather: weather,
+                                                               date: dateSettings.dates[index],
+                                                               option: .precipitation)
+                newPrecification = val07.0
+                precificationMin = val07.1
+                precificationMax = val07.2
+                precificationMinIndex = val07.3
+                precificationMaxIndex = val07.4
+                rangeFrom = val07.5
+                rangeTo = val07.6
             }
-            .onChange(of: option) { oldOption, option in
-                 
-                let val01 : ([Double],
-                             [String],
-                             [String],
-                             [RainFall],
-                             [WindInfo],
-                             [Temperature],
-                             [Double],
-                             [WeatherIcon],
-                             [Double],
-                             [FeltTemp],
-                             [Double],
-                             [NewPrecipitation]) = FindDataFromMenu(info: "DayDetailChart change option",
-                                                                    weather: weather,
-                                                                    date: dateSettings.dates[index],
-                                                                    option: option,
-                                                                    option1: .number24)
-                hourIconArray = val01.2
+        }
+        .onChange(of: option) { oldOption, option in
+            
+            let val01 : ([Double],
+                         [String],
+                         [String],
+                         [RainFall],
+                         [WindInfo],
+                         [Temperature],
+                         [Double],
+                         [WeatherIcon],
+                         [Double],
+                         [FeltTemp],
+                         [Double],
+                         [NewPrecipitation]) = FindDataFromMenu(info: "DayDetailChart change option",
+                                                                weather: weather,
+                                                                date: dateSettings.dates[index],
+                                                                option: option,
+                                                                option1: .number24)
+            hourIconArray = val01.2
                 ///
                 /// ** tempInfo må være med !
                 ///
-                tempInfo = val01.5
-                windInfo = val01.4
-
-                if option == .temperature {
+            tempInfo = val01.5
+            windInfo = val01.4
+            
+            if option == .temperature {
                     ///
                     /// Init chartValues
                     ///
-                    chartValues = hourIconArray.enumerated().map { index, icon in
-                        ChartValue(id: index, type: "", hour: index, value: 0.0, systemName: icon)
-                    }
-
-                    let val02 : ([NewTemperature],
-                                 Double,
-                                 Double,
-                                 Int,
-                                 Int,
-                                 Int,
-                                 Int) = FindChartDataTemperature(weather: weather,
-                                                                 date: dateSettings.dates[index],
-                                                                 option: .temperature)
-                    newTemperature = val02.0
-                    tempMin = val02.1
-                    tempMax = val02.2
-                    tempMinIndex = val02.3
-                    tempMaxIndex = val02.4
-                    rangeFrom = val02.5
-                    rangeTo = val02.6
-                } else if option == .uvIndex {
-                    let val03 : ([NewUvIndex],
-                                 Double,
-                                 Double,
-                                 Int,
-                                 Int,
-                                 Int,
-                                 Int) = FindChartDataUvIndex(weather: weather,
-                                                             date: dateSettings.dates[index],
-                                                             option: .uvIndex)
-                    newUvIndex = val03.0
-                    uvIndexMin = val03.1
-                    uvIndexMax = val03.2
-                    uvIndexMinIndex = val03.3
-                    uvIndexMaxIndex = val03.4
-                    rangeFrom = val03.5
-                    rangeTo = val03.6
-                } else if option == .wind {
-                        ///
-                        /// Init chartValues
-                        ///
-                    chartValues = hourIconArray.enumerated().map { index, icon in
-                        ChartValue(id: index, type: "", hour: index, value: 0.0, systemName: icon)
-                    }
-
-                    let val04 : ([NewWind],
-                                 Double,
-                                 Double,
-                                 Int,
-                                 Int,
-                                 Int,
-                                 Int) = FindChartDataWind(weather: weather,
-                                                          date: dateSettings.dates[index],
-                                                          option: .wind)
-                    newWind = val04.0
-                    windMin = val04.1
-                    windMax = val04.2
-                    windMinIndex = val04.3
-                    windMaxIndex = val04.4
-                    rangeFrom = val04.5
-                    rangeTo = val04.6
-                } else if option == .feelsLike {
-                        ///
-                        /// Init chartValues
-                        ///
-                        chartValues = hourIconArray.enumerated().map { index, icon in
-                            ChartValue(id: index, type: "", hour: index, value: 0.0, systemName: icon)
-                        }
-                        
-                   let val05 : ([NewFeelsLike],
-                                 Double,
-                                 Double,
-                                 Int,
-                                 Int,
-                                 Int,
-                                 Int) = FindChartDataFeelsLike(weather: weather,
-                                                               date: dateSettings.dates[index],
-                                                               option: .feelsLike)
-                    newFeelsLike = val05.0
-                    feelslikeMin = val05.1
-                    feelslikeMax = val05.2
-                    feelslikeMinIndex = val05.3
-                    feelslikeMaxIndex = val05.4
-                    rangeFrom = val05.5
-                    rangeTo = val05.6
-                } else if option == .visibility {
-                    ///
-                    /// Init chartValues
-                    ///
-                    chartValues = hourIconArray.enumerated().map { index, icon in
-                        ChartValue(id: index, type: "", hour: index, value: 0.0, systemName: icon)
-                    }
-                    let val06 : ([NewVisibility],
-                                 Double,
-                                 Double,
-                                 Int,
-                                 Int,
-                                 Int,
-                                 Int) = FindChartDataVisibility(weather: weather,
-                                                                date: dateSettings.dates[index],
-                                                                option: .visibility)
-                    newVisibility = val06.0
-                    visibilityMin = val06.1
-                    visibilityMax = val06.2
-                    visibilityMinIndex = val06.3
-                    visibilityMaxIndex = val06.4
-                    rangeFrom = val06.5
-                    rangeTo = val06.6
-                } else if option == .humidity  {
-                    ///
-                    /// Init chartValues
-                    ///
-                    chartValues = hourIconArray.enumerated().map { index, icon in
-                        ChartValue(id: index, type: "", hour: index, value: 0.0, systemName: icon)
-                    }
-                    let val07 : ([NewHumidity],
-                                 Double,
-                                 Double,
-                                 Int,
-                                 Int,
-                                 Int,
-                                 Int) = FindChartDataHumidity(weather: weather,
-                                                              date: dateSettings.dates[index],
-                                                              option: .humidity)
-                    newHumidity = val07.0
-                    humidityMin = val07.1
-                    humidityMax = val07.2
-                    humidityMinIndex = val07.3
-                    humidityMaxIndex = val07.4
-                    rangeFrom = val07.5
-                    rangeTo = val07.6
-                } else if option == .airPressure {
-                    ///
-                    /// Init chartValues
-                    ///
-                    chartValues = hourIconArray.enumerated().map { index, icon in
-                        ChartValue(id: index, type: "", hour: index, value: 0.0, systemName: icon)
-                    }
-                    let val08 : ([NewAirPressure],
-                                 Double,
-                                 Double,
-                                 Int,
-                                 Int,
-                                 Int,
-                                 Int) = FindChartDataAirPressure(weather: weather,
-                                                                 date: dateSettings.dates[index],
-                                                                 option: .airPressure)
-                    newAirPressure = val08.0
-                    airPressureMin = val08.1
-                    airPressureMax = val08.2
-                    airPressureMinIndex = val08.3
-                    airPressureMaxIndex = val08.4
-                    rangeFrom = val08.5
-                    rangeTo = val08.6
-                } else if option == .precipitation {
-                    let val07 : ([NewPrecipitation],
-                                 Double,
-                                 Double,
-                                 Int,
-                                 Int,
-                                 Int,
-                                 Int) = FindChartDataPrecipitation(weather: weather,
-                                                                   date: dateSettings.dates[index],
-                                                                   option: .precipitation)
-                    newPrecification = val07.0
-                    precificationMin = val07.1
-                    precificationMax = val07.2
-                    precificationMinIndex = val07.3
-                    precificationMaxIndex = val07.4
-                    rangeFrom = val07.5
-                    rangeTo = val07.6
+                chartValues = hourIconArray.enumerated().map { index, icon in
+                    ChartValue(id: index, type: "", hour: index, value: 0.0, systemName: icon)
                 }
                 
+                let val02 : ([NewTemperature],
+                             Double,
+                             Double,
+                             Int,
+                             Int,
+                             Int,
+                             Int) = FindChartDataTemperature(weather: weather,
+                                                             date: dateSettings.dates[index],
+                                                             option: .temperature)
+                newTemperature = val02.0
+                tempMin = val02.1
+                tempMax = val02.2
+                tempMinIndex = val02.3
+                tempMaxIndex = val02.4
+                rangeFrom = val02.5
+                rangeTo = val02.6
+            } else if option == .uvIndex {
+                let val03 : ([NewUvIndex],
+                             Double,
+                             Double,
+                             Int,
+                             Int,
+                             Int,
+                             Int) = FindChartDataUvIndex(weather: weather,
+                                                         date: dateSettings.dates[index],
+                                                         option: .uvIndex)
+                newUvIndex = val03.0
+                uvIndexMin = val03.1
+                uvIndexMax = val03.2
+                uvIndexMinIndex = val03.3
+                uvIndexMaxIndex = val03.4
+                rangeFrom = val03.5
+                rangeTo = val03.6
+            } else if option == .wind {
+                    ///
+                    /// Init chartValues
+                    ///
+                chartValues = hourIconArray.enumerated().map { index, icon in
+                    ChartValue(id: index, type: "", hour: index, value: 0.0, systemName: icon)
+                }
+                
+                let val04 : ([NewWind],
+                             Double,
+                             Double,
+                             Int,
+                             Int,
+                             Int,
+                             Int) = FindChartDataWind(weather: weather,
+                                                      date: dateSettings.dates[index],
+                                                      option: .wind)
+                newWind = val04.0
+                windMin = val04.1
+                windMax = val04.2
+                windMinIndex = val04.3
+                windMaxIndex = val04.4
+                rangeFrom = val04.5
+                rangeTo = val04.6
+            } else if option == .feelsLike {
+                    ///
+                    /// Init chartValues
+                    ///
+                chartValues = hourIconArray.enumerated().map { index, icon in
+                    ChartValue(id: index, type: "", hour: index, value: 0.0, systemName: icon)
+                }
+                
+                let val05 : ([NewFeelsLike],
+                             Double,
+                             Double,
+                             Int,
+                             Int,
+                             Int,
+                             Int) = FindChartDataFeelsLike(weather: weather,
+                                                           date: dateSettings.dates[index],
+                                                           option: .feelsLike)
+                newFeelsLike = val05.0
+                feelslikeMin = val05.1
+                feelslikeMax = val05.2
+                feelslikeMinIndex = val05.3
+                feelslikeMaxIndex = val05.4
+                rangeFrom = val05.5
+                rangeTo = val05.6
+            } else if option == .visibility {
+                    ///
+                    /// Init chartValues
+                    ///
+                chartValues = hourIconArray.enumerated().map { index, icon in
+                    ChartValue(id: index, type: "", hour: index, value: 0.0, systemName: icon)
+                }
+                let val06 : ([NewVisibility],
+                             Double,
+                             Double,
+                             Int,
+                             Int,
+                             Int,
+                             Int) = FindChartDataVisibility(weather: weather,
+                                                            date: dateSettings.dates[index],
+                                                            option: .visibility)
+                newVisibility = val06.0
+                visibilityMin = val06.1
+                visibilityMax = val06.2
+                visibilityMinIndex = val06.3
+                visibilityMaxIndex = val06.4
+                rangeFrom = val06.5
+                rangeTo = val06.6
+            } else if option == .humidity  {
+                    ///
+                    /// Init chartValues
+                    ///
+                chartValues = hourIconArray.enumerated().map { index, icon in
+                    ChartValue(id: index, type: "", hour: index, value: 0.0, systemName: icon)
+                }
+                let val07 : ([NewHumidity],
+                             Double,
+                             Double,
+                             Int,
+                             Int,
+                             Int,
+                             Int) = FindChartDataHumidity(weather: weather,
+                                                          date: dateSettings.dates[index],
+                                                          option: .humidity)
+                newHumidity = val07.0
+                humidityMin = val07.1
+                humidityMax = val07.2
+                humidityMinIndex = val07.3
+                humidityMaxIndex = val07.4
+                rangeFrom = val07.5
+                rangeTo = val07.6
+            } else if option == .airPressure {
+                    ///
+                    /// Init chartValues
+                    ///
+                chartValues = hourIconArray.enumerated().map { index, icon in
+                    ChartValue(id: index, type: "", hour: index, value: 0.0, systemName: icon)
+                }
+                let val08 : ([NewAirPressure],
+                             Double,
+                             Double,
+                             Int,
+                             Int,
+                             Int,
+                             Int) = FindChartDataAirPressure(weather: weather,
+                                                             date: dateSettings.dates[index],
+                                                             option: .airPressure)
+                newAirPressure = val08.0
+                airPressureMin = val08.1
+                airPressureMax = val08.2
+                airPressureMinIndex = val08.3
+                airPressureMaxIndex = val08.4
+                rangeFrom = val08.5
+                rangeTo = val08.6
+            } else if option == .precipitation {
+                let val07 : ([NewPrecipitation],
+                             Double,
+                             Double,
+                             Int,
+                             Int,
+                             Int,
+                             Int) = FindChartDataPrecipitation(weather: weather,
+                                                               date: dateSettings.dates[index],
+                                                               option: .precipitation)
+                newPrecification = val07.0
+                precificationMin = val07.1
+                precificationMax = val07.2
+                precificationMinIndex = val07.3
+                precificationMaxIndex = val07.4
+                rangeFrom = val07.5
+                rangeTo = val07.6
             }
+            
+        }
             ///
             /// Må hente nye verdier ved gesture på Chart for å endre index:
             ///
-            .onChange(of: index) { oldIndex, index in
-                let val1 : ([Double],
-                            [String],
-                            [String],
-                            [RainFall],
-                            [WindInfo],
-                            [Temperature],
-                            [Double],
-                            [WeatherIcon],
-                            [Double],
-                            [FeltTemp],
-                            [Double],
-                            [NewPrecipitation]) = FindDataFromMenu(info: "DayDetailChart change index",
-                                                                   weather: weather,
-                                                                   date: dateSettings.dates[index],
-                                                                   option: option,
-                                                                   option1: .number24)
-                hourIconArray = val1.2
+        .onChange(of: index) { oldIndex, index in
+            let val1 : ([Double],
+                        [String],
+                        [String],
+                        [RainFall],
+                        [WindInfo],
+                        [Temperature],
+                        [Double],
+                        [WeatherIcon],
+                        [Double],
+                        [FeltTemp],
+                        [Double],
+                        [NewPrecipitation]) = FindDataFromMenu(info: "DayDetailChart change index",
+                                                               weather: weather,
+                                                               date: dateSettings.dates[index],
+                                                               option: option,
+                                                               option1: .number24)
+            hourIconArray = val1.2
                 ///
                 /// ** tempInfo må være med !
                 ///
-                tempInfo = val1.5
-                windInfo = val1.4
+            tempInfo = val1.5
+            windInfo = val1.4
+            
+            if option == .temperature {
+                    ///
+                    /// Init chartValues
+                    ///
+                chartValues = hourIconArray.enumerated().map { index, icon in
+                    ChartValue(id: index, type: "", hour: index, value: 0.0, systemName: icon)
+                }
                 
-                if option == .temperature {
-                    ///
-                    /// Init chartValues
-                    ///
-                    chartValues = hourIconArray.enumerated().map { index, icon in
-                        ChartValue(id: index, type: "", hour: index, value: 0.0, systemName: icon)
-                    }
-
-                    let val2 : ([NewTemperature],
-                                Double,
-                                Double,
-                                Int,
-                                Int,
-                                Int,
-                                Int) = FindChartDataTemperature(weather: weather,
-                                                                date: dateSettings.dates[index],
-                                                                option: .temperature)
-                    newTemperature = val2.0
-                    tempMin = val2.1
-                    tempMax = val2.2
-                    tempMinIndex = val2.3
-                    tempMaxIndex = val2.4
-                    rangeFrom = val2.5
-                    rangeTo = val2.6
-                } else if option == .uvIndex {
-                    let val3 : ([NewUvIndex],
-                                Double,
-                                Double,
-                                Int,
-                                Int,
-                                Int,
-                                Int) = FindChartDataUvIndex(weather: weather,
+                let val2 : ([NewTemperature],
+                            Double,
+                            Double,
+                            Int,
+                            Int,
+                            Int,
+                            Int) = FindChartDataTemperature(weather: weather,
                                                             date: dateSettings.dates[index],
-                                                            option: .uvIndex)
-                    newUvIndex = val3.0
-                    uvIndexMin = val3.1
-                    uvIndexMax = val3.2
-                    uvIndexMinIndex = val3.3
-                    uvIndexMaxIndex = val3.4
-                    rangeFrom = val3.5
-                    rangeTo = val3.6
-                } else if option == .wind {
-                    ///
-                    /// Init chartValues
-                    ///
-                    chartValues = hourIconArray.enumerated().map { index, icon in
-                        ChartValue(id: index, type: "", hour: index, value: 0.0, systemName: icon)
-                    }
-                    
-                    let val4: ([NewWind],
-                               Double,
-                               Double,
-                               Int,
-                               Int,
-                               Int,
-                               Int) = FindChartDataWind(weather: weather,
+                                                            option: .temperature)
+                newTemperature = val2.0
+                tempMin = val2.1
+                tempMax = val2.2
+                tempMinIndex = val2.3
+                tempMaxIndex = val2.4
+                rangeFrom = val2.5
+                rangeTo = val2.6
+            } else if option == .uvIndex {
+                let val3 : ([NewUvIndex],
+                            Double,
+                            Double,
+                            Int,
+                            Int,
+                            Int,
+                            Int) = FindChartDataUvIndex(weather: weather,
                                                         date: dateSettings.dates[index],
-                                                        option: .wind)
-                    newWind = val4.0
-                    windMin = val4.1
-                    windMax = val4.2
-                    windMinIndex = val4.3
-                    windMaxIndex = val4.4
-                    rangeFrom = val4.5
-                    rangeTo = val4.6
-                } else if option == .feelsLike {
-                        ///
-                        /// Init chartValues
-                        ///
-                        chartValues = hourIconArray.enumerated().map { index, icon in
-                            ChartValue(id: index, type: "", hour: index, value: 0.0, systemName: icon)
-                        }
-                        
-                  let val5 : ([NewFeelsLike],
-                                Double,
-                                Double,
-                                Int,
-                                Int,
-                                Int,
-                                Int) = FindChartDataFeelsLike(weather: weather,
-                                                              date: dateSettings.dates[index],
-                                                              option: .feelsLike)
-                    newFeelsLike = val5.0
-                    feelslikeMin = val5.1
-                    feelslikeMax = val5.2
-                    feelslikeMinIndex = val5.3
-                    feelslikeMaxIndex = val5.4
-                    rangeFrom = val5.5
-                    rangeTo = val5.6
-                } else if option == .visibility {
+                                                        option: .uvIndex)
+                newUvIndex = val3.0
+                uvIndexMin = val3.1
+                uvIndexMax = val3.2
+                uvIndexMinIndex = val3.3
+                uvIndexMaxIndex = val3.4
+                rangeFrom = val3.5
+                rangeTo = val3.6
+            } else if option == .wind {
                     ///
                     /// Init chartValues
                     ///
-                    chartValues = hourIconArray.enumerated().map { index, icon in
-                        ChartValue(id: index, type: "", hour: index, value: 0.0, systemName: icon)
-                    }
-                    let val6 : ([NewVisibility],
-                                Double,
-                                Double,
-                                Int,
-                                Int,
-                                Int,
-                                Int) = FindChartDataVisibility(weather: weather,
+                chartValues = hourIconArray.enumerated().map { index, icon in
+                    ChartValue(id: index, type: "", hour: index, value: 0.0, systemName: icon)
+                }
+                
+                let val4: ([NewWind],
+                           Double,
+                           Double,
+                           Int,
+                           Int,
+                           Int,
+                           Int) = FindChartDataWind(weather: weather,
+                                                    date: dateSettings.dates[index],
+                                                    option: .wind)
+                newWind = val4.0
+                windMin = val4.1
+                windMax = val4.2
+                windMinIndex = val4.3
+                windMaxIndex = val4.4
+                rangeFrom = val4.5
+                rangeTo = val4.6
+            } else if option == .feelsLike {
+                    ///
+                    /// Init chartValues
+                    ///
+                chartValues = hourIconArray.enumerated().map { index, icon in
+                    ChartValue(id: index, type: "", hour: index, value: 0.0, systemName: icon)
+                }
+                
+                let val5 : ([NewFeelsLike],
+                            Double,
+                            Double,
+                            Int,
+                            Int,
+                            Int,
+                            Int) = FindChartDataFeelsLike(weather: weather,
+                                                          date: dateSettings.dates[index],
+                                                          option: .feelsLike)
+                newFeelsLike = val5.0
+                feelslikeMin = val5.1
+                feelslikeMax = val5.2
+                feelslikeMinIndex = val5.3
+                feelslikeMaxIndex = val5.4
+                rangeFrom = val5.5
+                rangeTo = val5.6
+            } else if option == .visibility {
+                    ///
+                    /// Init chartValues
+                    ///
+                chartValues = hourIconArray.enumerated().map { index, icon in
+                    ChartValue(id: index, type: "", hour: index, value: 0.0, systemName: icon)
+                }
+                let val6 : ([NewVisibility],
+                            Double,
+                            Double,
+                            Int,
+                            Int,
+                            Int,
+                            Int) = FindChartDataVisibility(weather: weather,
+                                                           date: dateSettings.dates[index],
+                                                           option: .visibility)
+                newVisibility = val6.0
+                visibilityMin = val6.1
+                visibilityMax = val6.2
+                visibilityMinIndex = val6.3
+                visibilityMaxIndex = val6.4
+                rangeFrom = val6.5
+                rangeTo = val6.6
+            } else if option == .humidity {
+                    ///
+                    /// Init chartValues
+                    ///
+                chartValues = hourIconArray.enumerated().map { index, icon in
+                    ChartValue(id: index, type: "", hour: index, value: 0.0, systemName: icon)
+                }
+                let val7 : ([NewHumidity],
+                            Double,
+                            Double,
+                            Int,
+                            Int,
+                            Int,
+                            Int) = FindChartDataHumidity(weather: weather,
+                                                         date: dateSettings.dates[index],
+                                                         option: .humidity)
+                newHumidity = val7.0
+                humidityMin = val7.1
+                humidityMax = val7.2
+                humidityMinIndex = val7.3
+                humidityMaxIndex = val7.4
+                rangeFrom = val7.5
+                rangeTo = val7.6
+            } else if option == .airPressure {
+                    ///
+                    /// Init chartValues
+                    ///
+                chartValues = hourIconArray.enumerated().map { index, icon in
+                    ChartValue(id: index, type: "", hour: index, value: 0.0, systemName: icon)
+                }
+                let val8 : ([NewAirPressure],
+                            Double,
+                            Double,
+                            Int,
+                            Int,
+                            Int,
+                            Int) = FindChartDataAirPressure(weather: weather,
+                                                            date: dateSettings.dates[index],
+                                                            option: .airPressure)
+                newAirPressure = val8.0
+                airPressureMin = val8.1
+                airPressureMax = val8.2
+                airPressureMinIndex = val8.3
+                airPressureMaxIndex = val8.4
+                rangeFrom = val8.5
+                rangeTo = val8.6
+            } else if option == .precipitation {
+                let val07 : ([NewPrecipitation],
+                             Double,
+                             Double,
+                             Int,
+                             Int,
+                             Int,
+                             Int) = FindChartDataPrecipitation(weather: weather,
                                                                date: dateSettings.dates[index],
-                                                               option: .visibility)
-                    newVisibility = val6.0
-                    visibilityMin = val6.1
-                    visibilityMax = val6.2
-                    visibilityMinIndex = val6.3
-                    visibilityMaxIndex = val6.4
-                    rangeFrom = val6.5
-                    rangeTo = val6.6
-                } else if option == .humidity {
-                    ///
-                    /// Init chartValues
-                    ///
-                    chartValues = hourIconArray.enumerated().map { index, icon in
-                        ChartValue(id: index, type: "", hour: index, value: 0.0, systemName: icon)
-                    }
-                    let val7 : ([NewHumidity],
-                                Double,
-                                Double,
-                                Int,
-                                Int,
-                                Int,
-                                Int) = FindChartDataHumidity(weather: weather,
-                                                             date: dateSettings.dates[index],
-                                                             option: .humidity)
-                    newHumidity = val7.0
-                    humidityMin = val7.1
-                    humidityMax = val7.2
-                    humidityMinIndex = val7.3
-                    humidityMaxIndex = val7.4
-                    rangeFrom = val7.5
-                    rangeTo = val7.6
-                } else if option == .airPressure {
-                    ///
-                    /// Init chartValues
-                    ///
-                    chartValues = hourIconArray.enumerated().map { index, icon in
-                        ChartValue(id: index, type: "", hour: index, value: 0.0, systemName: icon)
-                    }
-                    let val8 : ([NewAirPressure],
-                                Double,
-                                Double,
-                                Int,
-                                Int,
-                                Int,
-                                Int) = FindChartDataAirPressure(weather: weather,
-                                                                date: dateSettings.dates[index],
-                                                                option: .airPressure)
-                    newAirPressure = val8.0
-                    airPressureMin = val8.1
-                    airPressureMax = val8.2
-                    airPressureMinIndex = val8.3
-                    airPressureMaxIndex = val8.4
-                    rangeFrom = val8.5
-                    rangeTo = val8.6
-                } else if option == .precipitation {
-                    let val07 : ([NewPrecipitation],
-                                 Double,
-                                 Double,
-                                 Int,
-                                 Int,
-                                 Int,
-                                 Int) = FindChartDataPrecipitation(weather: weather,
-                                                                   date: dateSettings.dates[index],
-                                                                   option: .precipitation)
-                    newPrecification = val07.0
-                    precificationMin = val07.1
-                    precificationMax = val07.2
-                    precificationMinIndex = val07.3
-                    precificationMaxIndex = val07.4
-                    rangeFrom = val07.5
-                    rangeTo = val07.6
-                }
+                                                               option: .precipitation)
+                newPrecification = val07.0
+                precificationMin = val07.1
+                precificationMax = val07.2
+                precificationMinIndex = val07.3
+                precificationMaxIndex = val07.4
+                rangeFrom = val07.5
+                rangeTo = val07.6
             }
         }
-        @ViewBuilder
-        var showSelectedValue: some View {
-            VStack(alignment: .leading) {
-                if selectedIndex! < sizeArray24 {
-                    if option == .temperature {
-                        Text("\(newTemperature[selectedIndex!].value, specifier: "%.0f") \("º C")")
-                    }
-                    else if option == .uvIndex {
-                        Text("\(newUvIndex[selectedIndex!].value, specifier: "%.0f")")
-                    }
-                    else if option == .wind {
-                        Text("\(newWind[selectedIndex!].value, specifier: "%.0f") \("m/s")")
-                    }
-                    else if option == .feelsLike {
-                        Text("\(newFeelsLike[selectedIndex!].value, specifier: "%.0f") \("º C")")
-                    }
-                    else if option == .humidity {
-                        Text("\(newHumidity[selectedIndex!].value, specifier: "%.0f") \("%")")
-                    }
-                    else if option == .visibility {
-                        Text("\(newVisibility[selectedIndex!].value, specifier: "%.0f") \("km")")
-                    }
-                    else if option == .airPressure {
-                        Text("\(newAirPressure[selectedIndex!].value, specifier: "%.0f") \("hPa")")
-                    }
-                }
-            }
-            .fixedSize()
-            .foregroundStyle(.primary)
-            .background {
-                RoundedRectangle(cornerRadius: 7.5)
-                    .foregroundStyle(Color.blue.opacity(0.50))
-            }
-        }
-        
     }
+    @ViewBuilder
+    var showSelectedValue: some View {
+        VStack(alignment: .leading) {
+            if selectedIndex! < sizeArray24 {
+                if option == .temperature {
+                    Text("\(newTemperature[selectedIndex!].value, specifier: "%.0f") \("º C")")
+                }
+                else if option == .uvIndex {
+                    Text("\(newUvIndex[selectedIndex!].value, specifier: "%.0f")")
+                }
+                else if option == .wind {
+                    Text("\(newWind[selectedIndex!].value, specifier: "%.0f") \("m/s")")
+                }
+                else if option == .feelsLike {
+                    Text("\(newFeelsLike[selectedIndex!].value, specifier: "%.0f") \("º C")")
+                }
+                else if option == .humidity {
+                    Text("\(newHumidity[selectedIndex!].value, specifier: "%.0f") \("%")")
+                }
+                else if option == .visibility {
+                    Text("\(newVisibility[selectedIndex!].value, specifier: "%.0f") \("km")")
+                }
+                else if option == .airPressure {
+                    Text("\(newAirPressure[selectedIndex!].value, specifier: "%.0f") \("hPa")")
+                }
+            }
+        }
+        .fixedSize()
+        .foregroundStyle(.primary)
+        .background {
+            RoundedRectangle(cornerRadius: 7.5)
+                .foregroundStyle(Color.blue.opacity(0.50))
+        }
+    }
+    
+}

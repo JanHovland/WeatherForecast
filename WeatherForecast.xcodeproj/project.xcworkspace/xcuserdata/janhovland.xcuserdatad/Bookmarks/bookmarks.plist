@@ -3,6 +3,56 @@
 <plist version="1.0">
 <dict>
 	<key>top-level-items</key>
-	<array/>
+	<array>
+		<dict>
+			<key>destination</key>
+			<dict>
+				<key>location-parameters</key>
+				<dict>
+					<key>EndingColumnNumber</key>
+					<string>0</string>
+					<key>EndingLineNumber</key>
+					<string>188</string>
+					<key>StartingColumnNumber</key>
+					<string>0</string>
+					<key>StartingLineNumber</key>
+					<string>183</string>
+					<key>Timestamp</key>
+					<string>783552018.262401</string>
+				</dict>
+				<key>rebasable-url</key>
+				<dict>
+					<key>base</key>
+					<string>workspace</string>
+					<key>payload</key>
+					<dict>
+						<key>relative-path</key>
+						<string>WeatherForecast/Views/DayDetail/DayDetailChart.swift</string>
+					</dict>
+				</dict>
+			</dict>
+			<key>text-context</key>
+			<dict>
+				<key>focused</key>
+				<string>                if option == .precipitation {
+                    // Pre-filter threshold so only those with value &lt; rangeTo are drawn
+                    let visibleThresholds = thresholds.filter { $0.value &lt; Double(rangeTo) }
+                    Chart {
+                        ForEach(newPrecification.filter {$0.value &gt; 0}) {
+</string>
+				<key>leading</key>
+				<string>                ///
+            VStack {
+</string>
+				<key>trailing</key>
+				<string>                            BarMark (
+                                x: .value("Hour", $0.hour),
+                                y: .value("Value", $0.value)
+</string>
+			</dict>
+			<key>type</key>
+			<string>bookmark</string>
+		</dict>
+	</array>
 </dict>
 </plist>
