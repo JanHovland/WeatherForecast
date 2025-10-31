@@ -513,8 +513,8 @@ var toDo_2 =
    116. 🔴 Precipitation24:   
           🔴 RuleMark(x: .value("Hour", selectedIndex))
           🔴 Legg inn ChartViewNewProbability
-   117. 🔴 .  
-          🔴 .
+   117. 🔴  arrayDayIcons  
+          🔴 Fjernes
    118. 🔴 .  
           🔴 .
    119. 🔴 .  
