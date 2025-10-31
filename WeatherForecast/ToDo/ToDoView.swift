@@ -505,11 +505,11 @@ var toDo_2 =
           🟢 legg inn sammenligning: i går og idag
    113. 🟢 AirPressure 
           🟢 legg inn sammenligning: i går og idag
-   114. 🔴 Precipitation24h:
-          🔴 Fast y verdi ?
-          🔴 Markere mye, moderat og lett hvor ?
-   115. 🔴 .  
-          🔴 .
+   114. 🟢 Precipitation24h:
+          🟢 Fast y verdi ?
+          🟢Markere mye, moderat og lett hvor ?
+   115. 🔴 Værforhold:  
+          🔴 Legg til minus grader
    116. 🔴 .  
           🔴 .
 
