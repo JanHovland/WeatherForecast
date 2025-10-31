@@ -906,7 +906,7 @@ private func classifyPrecipitationIntensity(mmPerHour: Double) -> String {
 
     if mmPerHour <= 0.00 { return String(localized: "Dry") }
     if mmPerHour < 1.00 { return String(localized: "Light") }
-    if mmPerHour < 5.0 { return String(localized: "Moderate") }
+    if mmPerHour < 4.0 { return String(localized: "Moderate") }
     if mmPerHour < 8.00 { return String(localized: "Heavy") }
     return String(localized: "Extreme")
 }

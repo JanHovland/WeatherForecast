@@ -163,7 +163,7 @@ struct DayDetailChart: View {
     
     private let thresholds: [(label: String, value: Double)] = [
         ("Light", 1.00),
-        ("Moderate", 5.00),
+        ("Moderate", 4.00),
         ("Heavy", 8.00)
         // "Extreme" is anything above Heavy
     ]
@@ -228,7 +228,6 @@ struct DayDetailChart: View {
                     .chartYAxisLabel(ShowUnit(option: option),
                                      position: .top,
                                      spacing: 10)  /// avstand mellom rangeTo og betegnelsen (m/s o.l.)
-                    
                 } else {
                     Chart {
                         if option == .wind {

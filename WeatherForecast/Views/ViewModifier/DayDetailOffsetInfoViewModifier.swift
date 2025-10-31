@@ -23,7 +23,7 @@ struct DayDetailOffsetInfoViewModifier: ViewModifier {
             content.offset(y: UIDevice.isIpad ? -60 : -40)
             
         } else if self.option == .precipitation {
-            content.offset(y: UIDevice.isIpad ? -60 : -40)
+            content.offset(y: UIDevice.isIpad ? -100 : -70)
             
         } else if self.option == .feelsLike {
             content.offset(y: UIDevice.isIpad ? -60 : -40)
