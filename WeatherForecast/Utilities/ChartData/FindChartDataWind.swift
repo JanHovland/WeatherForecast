@@ -28,12 +28,10 @@ func FindChartDataWind(weather: Weather,
     var rangeTo: Int = 0
     
     var tempInfo: [Temperature]
-    // let rangeGustAdditionValue =  3
-
+    
     let value : ([Double],
                  [String],
                  [String],
-                 [RainFall],
                  [WindInfo],
                  [Temperature],
                  [Double],
@@ -46,7 +44,7 @@ func FindChartDataWind(weather: Weather,
                                                         date: date,
                                                         option: option,
                                                         option1: .number24)
-    tempInfo = value.5
+    tempInfo = value.4
     array.removeAll()
     new.removeAll()
     ///

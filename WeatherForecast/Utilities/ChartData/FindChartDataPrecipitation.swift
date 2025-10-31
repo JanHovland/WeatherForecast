@@ -29,7 +29,6 @@ func FindChartDataPrecipitation(weather: Weather,
     let value : ([Double],
                  [String],
                  [String],
-                 [RainFall],
                  [WindInfo],
                  [Temperature],
                  [Double],
@@ -43,7 +42,7 @@ func FindChartDataPrecipitation(weather: Weather,
                                                         option: option,
                                                         option1: .number24)
     
-    new = value.11
+    new = value.10
     ///
     /// Finner max:
     ///

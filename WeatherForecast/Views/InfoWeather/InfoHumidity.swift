@@ -98,7 +98,6 @@ struct InfoHumidity: View {
             let value : ([Double],
                          [String],
                          [String],
-                         [RainFall],
                          [WindInfo],
                          [Temperature],
                          [Double],
@@ -112,7 +111,7 @@ struct InfoHumidity: View {
                                                                 option: .humidity,
                                                                 option1: .number12)
             humidityArray = value.0
-            dewPointArray = value.10
+            dewPointArray = value.9
             ///
             /// Bygger opp værmeldingen:
             ///
@@ -131,7 +130,6 @@ struct InfoHumidity: View {
             let value : ([Double],
                          [String],
                          [String],
-                         [RainFall],
                          [WindInfo],
                          [Temperature],
                          [Double],
@@ -145,7 +143,7 @@ struct InfoHumidity: View {
                                                                 option: .humidity,
                                                                 option1: .number12)
             humidityArray = value.0
-            dewPointArray = value.10
+            dewPointArray = value.9
             ///
             /// Bygger opp værmeldingen:
             ///

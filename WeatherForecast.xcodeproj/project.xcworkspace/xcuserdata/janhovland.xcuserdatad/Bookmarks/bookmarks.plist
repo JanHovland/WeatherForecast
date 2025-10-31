@@ -12,13 +12,13 @@
 					<key>EndingColumnNumber</key>
 					<string>0</string>
 					<key>EndingLineNumber</key>
-					<string>441</string>
+					<string>427</string>
 					<key>StartingColumnNumber</key>
-					<string>25</string>
+					<string>0</string>
 					<key>StartingLineNumber</key>
-					<string>440</string>
+					<string>426</string>
 					<key>Timestamp</key>
-					<string>783553360.8359441</string>
+					<string>783620600.934853</string>
 				</dict>
 				<key>rebasable-url</key>
 				<dict>
@@ -34,16 +34,16 @@
 			<key>text-context</key>
 			<dict>
 				<key>focused</key>
-				<string>
+				<string>    case .precipitation :
 </string>
 				<key>leading</key>
-				<string>        return (array, arrayDayIcons, arrayHourIcons, rainFalls, windInfoArray, tempInfoArray, gustInfoArray, weatherIconArray, snowArray, feltTempArray, dewPointArray, newPrecipitation)
+				<string>        return (array, arrayDayIcons, arrayHourIcons, windInfoArray, tempInfoArray, gustInfoArray, weatherIconArray, snowArray, feltTempArray, dewPointArray, newPrecipitation)
         
-    case .precipitation :</string>
+</string>
 				<key>trailing</key>
 				<string>        var i: Int = 0
-        var dataInfo = DataInfo()
         hourForecast!.forEach  {
+            if $0.date &gt;= value.0 &amp;&amp;
 </string>
 			</dict>
 			<key>type</key>
@@ -57,13 +57,13 @@
 					<key>EndingColumnNumber</key>
 					<string>0</string>
 					<key>EndingLineNumber</key>
-					<string>177</string>
+					<string>176</string>
 					<key>StartingColumnNumber</key>
 					<string>0</string>
 					<key>StartingLineNumber</key>
-					<string>176</string>
+					<string>175</string>
 					<key>Timestamp</key>
-					<string>783596165.284122</string>
+					<string>783619702.6744829</string>
 				</dict>
 				<key>rebasable-url</key>
 				<dict>

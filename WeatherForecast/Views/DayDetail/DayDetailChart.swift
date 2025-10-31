@@ -22,7 +22,6 @@ import Charts
 
 struct DayDetailChart: View {
     
-    @Binding var rainFalls: [RainFall]
     @Binding var dayArray: [Double]
     @Binding var dayDetailHide: Bool
     var option: EnumType
@@ -889,7 +888,6 @@ struct DayDetailChart: View {
             let value : ([Double],
                          [String],
                          [String],
-                         [RainFall],
                          [WindInfo],
                          [Temperature],
                          [Double],
@@ -906,8 +904,8 @@ struct DayDetailChart: View {
                 ///
                 /// ** tempInfo må være med !
                 ///
-            tempInfo = value.5
-            windInfo = value.4
+            tempInfo = value.4
+            windInfo = value.3
             
             if option == .temperature {
                     ///
@@ -1105,7 +1103,6 @@ struct DayDetailChart: View {
             let val01 : ([Double],
                          [String],
                          [String],
-                         [RainFall],
                          [WindInfo],
                          [Temperature],
                          [Double],
@@ -1122,8 +1119,8 @@ struct DayDetailChart: View {
                 ///
                 /// ** tempInfo må være med !
                 ///
-            tempInfo = val01.5
-            windInfo = val01.4
+            tempInfo = val01.4
+            windInfo = val01.3
             
             if option == .temperature {
                     ///
@@ -1310,7 +1307,6 @@ struct DayDetailChart: View {
             let val1 : ([Double],
                         [String],
                         [String],
-                        [RainFall],
                         [WindInfo],
                         [Temperature],
                         [Double],
@@ -1327,8 +1323,8 @@ struct DayDetailChart: View {
                 ///
                 /// ** tempInfo må være med !
                 ///
-            tempInfo = val1.5
-            windInfo = val1.4
+            tempInfo = val1.4
+            windInfo = val1.3
             
             if option == .temperature {
                     ///

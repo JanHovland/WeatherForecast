@@ -120,7 +120,6 @@ struct InfoPrecipitation: View {
             let value : ([Double],
                          [String],
                          [String],
-                         [RainFall],
                          [WindInfo],
                          [Temperature],
                          [Double],
@@ -134,7 +133,7 @@ struct InfoPrecipitation: View {
                                                                 option: .precipitation,
                                                                 option1: .number12)
             dataArray = value.0
-            snowArray = value.8
+            snowArray = value.7
             ///
             /// Bygger opp værmeldingen:
             ///
@@ -170,7 +169,6 @@ struct InfoPrecipitation: View {
             let value2 : ([Double],
                           [String],
                           [String],
-                          [RainFall],
                           [WindInfo],
                           [Temperature],
                           [Double],
@@ -184,7 +182,7 @@ struct InfoPrecipitation: View {
                                                                  option: .precipitation,
                                                                  option1: .number12)
             dataArray = value2.0
-            snowArray = value2.8
+            snowArray = value2.7
             
             let location = CLLocation(latitude:  weatherInfo.latitude!,
                                       longitude: weatherInfo.longitude!)

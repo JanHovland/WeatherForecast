@@ -59,7 +59,6 @@ struct WeatherForecastDetail: View {
             let value: ([Double],
                         [String],
                         [String],
-                        [RainFall],
                         [WindInfo],
                         [Temperature],
                         [Double],

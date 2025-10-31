@@ -22,7 +22,6 @@ struct DayDetailDayDataView: View {
     @Binding var dayDetailHide : Bool
     @Binding var selectedValue : SelectedValue
     @Binding var dayArray : [Double]
-    @Binding var rainFalls :  [RainFall]
     @Binding var weekdayArray: [String]
     @Binding var windInfo: [WindInfo]
     @Binding var tempInfo: [Temperature]
@@ -43,8 +42,7 @@ struct DayDetailDayDataView: View {
             /// https://swdevnotes.com/swift/2021/add-axes-to-bar-chart-swiftui/
             /// Viser Chart for Temperatur:
             ///
-            DayDetailChart(rainFalls : $rainFalls,
-                           dayArray: $dayArray,
+            DayDetailChart(dayArray: $dayArray,
                            dayDetailHide: $dayDetailHide,
                            option: option,
                            dateArray: $dateArray,

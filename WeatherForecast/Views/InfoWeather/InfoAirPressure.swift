@@ -78,39 +78,6 @@ struct InfoAirPressure: View {
         .frame(maxWidth: .infinity,
                maxHeight: 3000)
         .padding(15)
-//        .onChange(of: index) { oldIndex, index in
-//                ///
-//                /// Finner airPressureArray:
-//                ///
-//            airPressureArray.removeAll()
-//            let value : ([Double],
-//                         [String],
-//                         [String],
-//                         [RainFall],
-//                         [WindInfo],
-//                         [Temperature],
-//                         [Double],
-//                         [WeatherIcon],
-//                         [Double],
-//                         [FeltTemp],
-//                         [Double],
-//                         [NewPrecipitation]) = FindDataFromMenu(info: "InfoAirPressure change index",
-//                                                                weather: weather,
-//                                                                date: dateSettings.dates[index],
-//                                                                option: .airPressure,
-//                                                                option1: .number12)
-//            
-//            airPressureArray = value.0
-//            
-//                /// Bygger opp værmeldingen:
-//                ///
-//            (text, text2, airPressureToDay, airPressureYesterDay, factorToDay, factorYesterDay) = Forecast(index: index,
-//                                                                                                           weather: weather,
-//                                                                                                           airPressureArray: airPressureArray,
-//                                                                                                           weekdayArray: weekdayArray,
-//                                                                                                           date: currentWeather.date,
-//                                                                                                           offsetSec: weatherInfo.offsetSec)
-//        }
         .task {
                 ///
                 /// Finner airPressureArray:
@@ -119,7 +86,6 @@ struct InfoAirPressure: View {
             let value : ([Double],
                          [String],
                          [String],
-                         [RainFall],
                          [WindInfo],
                          [Temperature],
                          [Double],
@@ -154,7 +120,6 @@ struct InfoAirPressure: View {
             let value : ([Double],
                          [String],
                          [String],
-                         [RainFall],
                          [WindInfo],
                          [Temperature],
                          [Double],

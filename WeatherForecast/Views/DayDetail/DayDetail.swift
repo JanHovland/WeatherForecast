@@ -81,7 +81,6 @@ struct DayDetail: View {
     @State private var selectedValue: SelectedValue = SelectedValue()
     
     @State private var dayArray: [Double] = Array(repeating: Double(), count: sizeArray10)
-    @State private var rainFalls: [RainFall] = []
     @State private var windInfo: [WindInfo] = []
     @State private var tempInfo: [Temperature] = []
     @State private var gustInfo: [Double] = []
@@ -207,7 +206,6 @@ struct DayDetail: View {
                                             let value : ([Double],
                                                          [String],
                                                          [String],
-                                                         [RainFall],
                                                          [WindInfo],
                                                          [Temperature],
                                                          [Double],
@@ -222,11 +220,11 @@ struct DayDetail: View {
                                                                                                 option1: option1)
                                             arrayDayIcons = value.1
                                             hourIconArray = value.2
-                                            windInfo = value.4
-                                            tempInfo = value.5
-                                            gustInfo = value.6
-                                            weatherIcon = value.7
-                                            feltTempArray = value.9
+                                            windInfo = value.3
+                                            tempInfo = value.4
+                                            gustInfo = value.5
+                                            weatherIcon = value.6
+                                            feltTempArray = value.8
                                         }
                                 }
                             }
@@ -295,7 +293,6 @@ struct DayDetail: View {
                                              dayDetailHide: $dayDetailHide,
                                              selectedValue: $selectedValue,
                                              dayArray: $dayArray,
-                                             rainFalls: $rainFalls,
                                              weekdayArray: $weekdayArray,
                                              windInfo: $windInfo,
                                              tempInfo: $tempInfo,
@@ -335,7 +332,6 @@ struct DayDetail: View {
                     let value: ([Double],
                                 [String],
                                 [String],
-                                [RainFall],
                                 [WindInfo],
                                 [Temperature],
                                 [Double],
@@ -349,8 +345,8 @@ struct DayDetail: View {
                                                                         option: MenuTitleToOption(menuTitle: menuTitle),
                                                                         option1: option1)
                     hourIconArray = value.2
-                    windInfo = value.4
-                    tempInfo = value.5
+                    windInfo = value.3
+                    tempInfo = value.4
                     
                 }
                 .onChange(of: MenuTitleToOption(menuTitle: menuTitle)) { oldOption, option in
@@ -364,7 +360,6 @@ struct DayDetail: View {
                     let value: ([Double],
                                 [String],
                                 [String],
-                                [RainFall],
                                 [WindInfo],
                                 [Temperature],
                                 [Double],
@@ -378,8 +373,8 @@ struct DayDetail: View {
                                                                         option: MenuTitleToOption(menuTitle: menuTitle),
                                                                         option1: option1)
                     hourIconArray = value.2
-                    windInfo = value.4
-                    tempInfo = value.5
+                    windInfo = value.3
+                    tempInfo = value.4
                 }
                 .task {
                         ///
@@ -390,7 +385,6 @@ struct DayDetail: View {
                     let value: ([Double],
                                 [String],
                                 [String],
-                                [RainFall],
                                 [WindInfo],
                                 [Temperature],
                                 [Double],
@@ -404,8 +398,8 @@ struct DayDetail: View {
                                                                         option: MenuTitleToOption(menuTitle: menuTitle),
                                                                         option1: option1)
                     hourIconArray = value.2
-                    windInfo = value.4
-                    tempInfo = value.5
+                    windInfo = value.3
+                    tempInfo = value.4
                         /// Resetter selectedValue fra gesture i DayDetailChart():
                         ///
                     selectedValue.icon  = ""

@@ -35,7 +35,6 @@ func FindChartDataFeelsLike(weather: Weather,
     let value : ([Double],
                  [String],
                  [String],
-                 [RainFall],
                  [WindInfo],
                  [Temperature],
                  [Double],
@@ -48,7 +47,7 @@ func FindChartDataFeelsLike(weather: Weather,
                                                         date: date,
                                                         option: option,
                                                         option1: .number24)
-    tempInfo = value.5
+    tempInfo = value.4
     array.removeAll()
     new.removeAll()
     ///

@@ -80,7 +80,6 @@ struct DayDetailWeatherDataWind: View {
                 let value : ([Double],
                              [String],
                              [String],
-                             [RainFall],
                              [WindInfo],
                              [Temperature],
                              [Double],
@@ -94,7 +93,7 @@ struct DayDetailWeatherDataWind: View {
                                                                     option: .wind,
                                                                     option1: .number12)
                 dataWindArray = value.0
-                dataGustArray = value.6
+                dataGustArray = value.5
             }
             ///
             /// Finner dataWindArray og dataGustArray ved oppstart:
@@ -108,7 +107,6 @@ struct DayDetailWeatherDataWind: View {
                 let value : ([Double],
                              [String],
                              [String],
-                             [RainFall],
                              [WindInfo],
                              [Temperature],
                              [Double],
@@ -122,7 +120,7 @@ struct DayDetailWeatherDataWind: View {
                                                                     option: .wind,
                                                                     option1: .number12)
                 dataWindArray = value.0
-                dataGustArray = value.6
+                dataGustArray = value.5
             }
         }
     }
