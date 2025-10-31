@@ -161,16 +161,9 @@ struct DayDetailChart: View {
     
     @State private var chartValues: [ChartValue] = []
     
-        // Thresholds in mm for categories
-//    private let thresholds: [(label: String, value: Double)] = [
-//        ("Light", 2.5),
-//        ("Medium", 7.5),
-//        ("Heavy", 10.0)
-//        // "Extreme" is anything above Heavy
-//    ]
     private let thresholds: [(label: String, value: Double)] = [
-        ("Light", 0.75),
-        ("Moderate", 6.00),
+        ("Light", 1.00),
+        ("Moderate", 5.00),
         ("Heavy", 8.00)
         // "Extreme" is anything above Heavy
     ]
@@ -183,7 +176,7 @@ struct DayDetailChart: View {
             VStack {
                 if option == .precipitation {
                     // Pre-filter threshold so only those with value < rangeTo are drawn
-                    let visibleThresholds = thresholds.filter { $0.value < Double(rangeTo) }
+                    let visibleThresholds = thresholds.filter { $0.value < Double(rangeTo + 1) }
                     Chart {
                         ForEach(newPrecification.filter {$0.value > 0}) {
                             BarMark (

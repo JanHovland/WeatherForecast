@@ -37,7 +37,7 @@ func FindDataFromMenu(info: String,
     var snowArray: [Double] = Array(repeating: Double(), count: sizeArray24)
     var feltTempArray: [FeltTemp] = Array(repeating: FeltTemp(), count: sizeArray24)
     var dewPointArray: [Double] = Array(repeating: Double(), count: sizeArray24)
-    var nData = NewPrecipitation(type: "", hour: 0, value: 0.00)
+    var nData = NewPrecipitation(type: "", hour: 0, value: 0.00, apparentPrecipitationIntensity: "")
     var newPrecipitation : [NewPrecipitation] = []
     var hailData : [DataInfo] = []
     var mixedData : [DataInfo] = []
@@ -446,123 +446,27 @@ func FindDataFromMenu(info: String,
                 $0.date <  value.1 {
                 array.append($0.precipitationAmount.value)
                 dataInfo.index = i
-                ///
-                /// Sjekker om det er noe nedbør:
-                ///
-                /// apparentPrecipitationIntensity = light
-                ///
-                if $0.precipitation == .none {
-                    dataInfo.type = String(localized: "None")
-                    dataInfo.apparentPrecipitationIntensity = classifyPrecipitationIntensity(mmPerHour: 0.0)
-                    snowArray.append(dataInfo.amount)
-                    dataInfo.amount = 0.00
-                    hailData.append(dataInfo)
-                    mixedData.append(dataInfo)
-                    rainData.append(dataInfo)
-                    sleetData.append(dataInfo)
-                    snowData.append(dataInfo)
-                } else {
-                    if $0.precipitation == .snow {
-                        ///
-                        /// 1 millimeter nedbør = 1 centimeter snø .
-                        ///
-                        dataInfo.amount = $0.precipitationAmount.value
-                        dataInfo.type = String(localized: "Snow")
-                        dataInfo.apparentPrecipitationIntensity = classifyPrecipitationIntensity(mmPerHour: dataInfo.amount)
-                        snowArray.append(dataInfo.amount)
-                        dataInfo.amount = 0.00
-                        hailData.append(dataInfo)
-                        mixedData.append(dataInfo)
-                        rainData.append(dataInfo)
-                        sleetData.append(dataInfo)
-                    } else if $0.precipitation == .hail {
-                        dataInfo.amount = $0.precipitationAmount.value
-                        dataInfo.type = String(localized: "Hail")
-                        dataInfo.apparentPrecipitationIntensity = classifyPrecipitationIntensity(mmPerHour: dataInfo.amount)
-                        hailData.append(dataInfo)
-                        dataInfo.index = i
-                        dataInfo.amount = 0.00
-                        mixedData.append(dataInfo)
-                        rainData.append(dataInfo)
-                        sleetData.append(dataInfo)
-                        snowData.append(dataInfo)
-                    } else if $0.precipitation == .mixed {
-                        dataInfo.amount = $0.precipitationAmount.value
-                        dataInfo.type = String(localized: "Mixed")
-                        dataInfo.apparentPrecipitationIntensity = classifyPrecipitationIntensity(mmPerHour: dataInfo.amount)
-                        mixedData.append(dataInfo)
-                        dataInfo.index = i
-                        dataInfo.amount = 0.00
-                        hailData.append(dataInfo)
-                        rainData.append(dataInfo)
-                        sleetData.append(dataInfo)
-                        snowData.append(dataInfo)
-                    } else if $0.precipitation == .rain {
-                        dataInfo.amount = $0.precipitationAmount.value
-                        dataInfo.type = String(localized: "Rain")
-                        dataInfo.apparentPrecipitationIntensity = classifyPrecipitationIntensity(mmPerHour: dataInfo.amount)
-                        rainData.append(dataInfo)
-                        dataInfo.index = i
-                        dataInfo.amount = 0.00
-                        hailData.append(dataInfo)
-                        mixedData.append(dataInfo)
-                        sleetData.append(dataInfo)
-                        snowData.append(dataInfo)
-                    } else if $0.precipitation == .sleet {
-                        dataInfo.amount = $0.precipitationAmount.value
-                        sleetData.append(dataInfo)
-                        dataInfo.type = String(localized: "Sleet")
-                        dataInfo.apparentPrecipitationIntensity = classifyPrecipitationIntensity(mmPerHour: dataInfo.amount)
-                        dataInfo.index = i
-                        dataInfo.amount = 0.00
-                        hailData.append(dataInfo)
-                        mixedData.append(dataInfo)
-                        rainData.append(dataInfo)
-                        snowData.append(dataInfo)
-                    }
-                }
                 if $0.precipitationAmount.value > 0.00 {
                     nData.type = $0.precipitation.description.firstUppercased
                     nData.hour = i
                     nData.value = $0.precipitationAmount.value
+                    nData.apparentPrecipitationIntensity = classifyPrecipitationIntensity(mmPerHour: $0.precipitationAmount.value)
                     newPrecipitation.append(nData)
                 } else {
-                    nData.type = String(localized: "")  // "None" == "Opphold"
+                    nData.type = String(localized: "Dry")
                     nData.hour = i
                     nData.value = 0.00
+                    nData.apparentPrecipitationIntensity = classifyPrecipitationIntensity(mmPerHour: $0.precipitationAmount.value)
                     newPrecipitation.append(nData)
                 }
                 i = i + 1
             }
         }
-        ///
-        /// Oppdaterer rainFall:
-        ///
-        rainFall.type = String(localized: "Rain")
-        rainFall.data = rainData
-        rainFalls.append(rainFall)
-
-        rainFall.type = String(localized: "Sleet")
-        rainFall.data = sleetData
-        rainFalls.append(rainFall)
-
-        rainFall.type = String(localized: "Mixed")
-        rainFall.data = mixedData
-        rainFalls.append(rainFall)
-        
-        rainFall.type = String(localized: "Snow")
-        rainFall.data = snowData
-        rainFalls.append(rainFall)
-
-        rainFall.type = String(localized: "Hail")
-        rainFall.data = hailData
-        rainFalls.append(rainFall)
-        
-        arrayHourIcons = reduceArrayAmount(fromArray:arrayHourIcons, option: option1)
-        
-        weather.dailyForecast.forEach  {
-            arrayDayIcons.append($0.symbolName)
-        }
+//        arrayHourIcons = reduceArrayAmount(fromArray:arrayHourIcons, option: option1)
+//        
+//        weather.dailyForecast.forEach  {
+//            arrayDayIcons.append($0.symbolName)
+//        }
         
         return (array, arrayDayIcons, arrayHourIcons, rainFalls, windInfoArray, tempInfoArray, gustInfoArray, weatherIconArray, snowArray, feltTempArray, dewPointArray, newPrecipitation)
         
@@ -1000,10 +904,9 @@ private func classifyPrecipitationIntensity(mmPerHour: Double) -> String {
     /// Kraftig / kraftig regn / sterk intensitet                ≥ 7,6 mm/t (og noen ganger: > 10 mm/t for «sterkt»)
     /// Ekstrem / skybrudd / voldsomt bygeregn          ≥ 50 mm/t (brukes for svært sjeldne, tropiske-type intensiteter)
 
-    if mmPerHour <= 0.0 { return String(localized: "None") }
-    if mmPerHour < 2.5 { return String(localized: "Light") }
-    if mmPerHour < 7.5 { return String(localized: "Moderate") }
-    if mmPerHour < 10.0 { return String(localized: "Heavy") }
+    if mmPerHour <= 0.00 { return String(localized: "Dry") }
+    if mmPerHour < 1.00 { return String(localized: "Light") }
+    if mmPerHour < 5.0 { return String(localized: "Moderate") }
+    if mmPerHour < 8.00 { return String(localized: "Heavy") }
     return String(localized: "Extreme")
 }
-

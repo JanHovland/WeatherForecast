@@ -12,13 +12,58 @@
 					<key>EndingColumnNumber</key>
 					<string>0</string>
 					<key>EndingLineNumber</key>
-					<string>188</string>
+					<string>441</string>
+					<key>StartingColumnNumber</key>
+					<string>25</string>
+					<key>StartingLineNumber</key>
+					<string>440</string>
+					<key>Timestamp</key>
+					<string>783553360.8359441</string>
+				</dict>
+				<key>rebasable-url</key>
+				<dict>
+					<key>base</key>
+					<string>workspace</string>
+					<key>payload</key>
+					<dict>
+						<key>relative-path</key>
+						<string>WeatherForecast/Utilities/FindDataFromMenu.swift</string>
+					</dict>
+				</dict>
+			</dict>
+			<key>text-context</key>
+			<dict>
+				<key>focused</key>
+				<string>
+</string>
+				<key>leading</key>
+				<string>        return (array, arrayDayIcons, arrayHourIcons, rainFalls, windInfoArray, tempInfoArray, gustInfoArray, weatherIconArray, snowArray, feltTempArray, dewPointArray, newPrecipitation)
+        
+    case .precipitation :</string>
+				<key>trailing</key>
+				<string>        var i: Int = 0
+        var dataInfo = DataInfo()
+        hourForecast!.forEach  {
+</string>
+			</dict>
+			<key>type</key>
+			<string>bookmark</string>
+		</dict>
+		<dict>
+			<key>destination</key>
+			<dict>
+				<key>location-parameters</key>
+				<dict>
+					<key>EndingColumnNumber</key>
+					<string>0</string>
+					<key>EndingLineNumber</key>
+					<string>177</string>
 					<key>StartingColumnNumber</key>
 					<string>0</string>
 					<key>StartingLineNumber</key>
-					<string>183</string>
+					<string>176</string>
 					<key>Timestamp</key>
-					<string>783552018.262401</string>
+					<string>783596165.284122</string>
 				</dict>
 				<key>rebasable-url</key>
 				<dict>
@@ -35,19 +80,15 @@
 			<dict>
 				<key>focused</key>
 				<string>                if option == .precipitation {
-                    // Pre-filter threshold so only those with value &lt; rangeTo are drawn
-                    let visibleThresholds = thresholds.filter { $0.value &lt; Double(rangeTo) }
-                    Chart {
-                        ForEach(newPrecification.filter {$0.value &gt; 0}) {
 </string>
 				<key>leading</key>
 				<string>                ///
             VStack {
 </string>
 				<key>trailing</key>
-				<string>                            BarMark (
-                                x: .value("Hour", $0.hour),
-                                y: .value("Value", $0.value)
+				<string>                    // Pre-filter threshold so only those with value &lt; rangeTo are drawn
+                    let visibleThresholds = thresholds.filter { $0.value &lt; Double(rangeTo + 1) }
+                    Chart {
 </string>
 			</dict>
 			<key>type</key>

@@ -97,6 +97,7 @@ struct NewPrecipitation: Identifiable {
     var type: String
     var hour: Int
     var value: Double
+    var apparentPrecipitationIntensity: String = ""
 }
 
 struct NewProbability: Identifiable {
