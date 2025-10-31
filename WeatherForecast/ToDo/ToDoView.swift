@@ -509,9 +509,20 @@ var toDo_2 =
           🟢 Fast y verdi ?
           🟢Markere mye, moderat og lett hvor ?
    115. 🔴 Værforhold:  
-          🔴 Legg til minus grader
-   116. 🔴 .  
+             🔴 Legg til minus grader
+   116. 🔴 Precipitation24:   
+          🔴 RuleMark(x: .value("Hour", selectedIndex))
+          🔴 Legg inn ChartViewNewProbability
+   117. 🔴 .  
           🔴 .
+   118. 🔴 .  
+          🔴 .
+   119. 🔴 .  
+          🔴 .
+
+
+
+
 
 
 🌕 Hvor lenge Månen er i hvert tegn?
