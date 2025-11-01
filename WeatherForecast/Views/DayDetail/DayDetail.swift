@@ -393,6 +393,7 @@ struct DayDetail: View {
                                                                         date: dateSettings.dates[index],
                                                                         option: MenuTitleToOption(menuTitle: menuTitle),
                                                                         option1: option1)
+                    arrayDayIcons = value.1
                     hourIconArray = value.2
                     windInfo = value.3
                     tempInfo = value.4
