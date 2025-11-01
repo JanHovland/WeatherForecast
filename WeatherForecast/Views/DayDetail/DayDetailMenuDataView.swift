@@ -14,7 +14,6 @@ struct DayDetailMenuDataView: View {
     @Binding var index: Int
     @Binding var menuIcon: String
     @Binding var menuTitle: String
-    @Binding var arrayDayIcons: [String]
     @Binding var opacity: Double
     
     @Environment(CurrentWeather.self) private var currentWeather

@@ -22,10 +22,8 @@ import Charts
 
 struct DayDetailChart: View {
     
-    @Binding var dayArray: [Double]
     @Binding var dayDetailHide: Bool
     var option: EnumType
-    @Binding var dateArray: [Date]
     @Binding var index : Int
     @Binding var selectedValue : SelectedValue
     @Binding var weekdayArray : [String]

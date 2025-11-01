@@ -515,9 +515,13 @@ var toDo_2 =
           🔴 Legg inn ChartViewNewProbability
    117. 🔴  arrayDayIcons  
           🔴 Fjernes
-   118. 🔴 .  
-          🔴 .
-   119. 🔴 .  
+   118. 🔴 Mine steder:  
+          🔴 slette sted
+   119. 🔴 Oppdater tidssoner:  
+          🔴 Duplikater?
+   120. 🔴 DayDetailAdaptSystemName 
+          🔴 Viser ikke icon ved oppstart
+   121. 🔴 .  
           🔴 .
 
 

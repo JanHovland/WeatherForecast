@@ -12,8 +12,6 @@ struct DayDetailDayDataView: View {
     
     let weather: Weather
     let option: EnumType
-    @Binding var arrayDayIcons: [String]
-    @Binding var dateArray: [Date]
     @Binding var index: Int
     @Binding var colorsForeground : [Color]
     @Binding var colorsForegroundStandard : [Color]
@@ -21,7 +19,6 @@ struct DayDetailDayDataView: View {
     @Binding var colorsBackgroundStandard : [Color]
     @Binding var dayDetailHide : Bool
     @Binding var selectedValue : SelectedValue
-    @Binding var dayArray : [Double]
     @Binding var weekdayArray: [String]
     @Binding var windInfo: [WindInfo]
     @Binding var tempInfo: [Temperature]
@@ -42,10 +39,8 @@ struct DayDetailDayDataView: View {
             /// https://swdevnotes.com/swift/2021/add-axes-to-bar-chart-swiftui/
             /// Viser Chart for Temperatur:
             ///
-            DayDetailChart(dayArray: $dayArray,
-                           dayDetailHide: $dayDetailHide,
+            DayDetailChart(dayDetailHide: $dayDetailHide,
                            option: option,
-                           dateArray: $dateArray,
                            index: $index,
                            selectedValue: $selectedValue,
                            weekdayArray: $weekdayArray,

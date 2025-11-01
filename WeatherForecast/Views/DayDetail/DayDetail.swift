@@ -248,7 +248,6 @@ struct DayDetail: View {
                                                           index: $index,
                                                           menuIcon: $menuIcon,
                                                           menuTitle: $menuTitle,
-                                                          arrayDayIcons: $arrayDayIcons,
                                                           opacity: $opacity)
                                 }
                             )
@@ -283,8 +282,6 @@ struct DayDetail: View {
                             ///
                         DayDetailDayDataView(weather: weather,
                                              option: MenuTitleToOption(menuTitle: menuTitle),
-                                             arrayDayIcons: $arrayDayIcons,
-                                             dateArray: $dateSettings.dates,
                                              index: $index,
                                              colorsForeground: $colorsForeground,
                                              colorsForegroundStandard: $colorsForegroundStandard,
@@ -292,7 +289,6 @@ struct DayDetail: View {
                                              colorsBackgroundStandard: $colorsBackgroundStandard,
                                              dayDetailHide: $dayDetailHide,
                                              selectedValue: $selectedValue,
-                                             dayArray: $dayArray,
                                              weekdayArray: $weekdayArray,
                                              windInfo: $windInfo,
                                              tempInfo: $tempInfo,
