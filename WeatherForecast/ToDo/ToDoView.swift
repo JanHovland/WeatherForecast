@@ -510,10 +510,10 @@ var toDo_2 =
           🟢 Markere mye, moderat og lett hvor ?
    115. 🟢 arrayDayIcons  
           🟢 Fjernet der det var nødvendig
-   116. 🔴 DayDetailAdaptSystemName 
-          🔴 Viser ikke icon ved oppstart
+   116. 🟢 DayDetailAdaptSystemName 
+          🟢 Viser ikke icon ved oppstart
    117. 🔴 Værforhold:  
-             🔴 Legg til minus grader
+          🔴 Legg til minus grader
    118. 🔴 Precipitation24:   
           🔴 RuleMark(x: .value("Hour", selectedIndex))
           🔴 Legg inn ChartViewNewProbability
