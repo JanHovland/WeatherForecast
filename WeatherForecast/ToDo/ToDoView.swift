@@ -507,21 +507,25 @@ var toDo_2 =
           🟢 legg inn sammenligning: i går og idag
    114. 🟢 Precipitation24h:
           🟢 Fast y verdi ?
-          🟢Markere mye, moderat og lett hvor ?
-   115. 🔴 Værforhold:  
+          🟢 Markere mye, moderat og lett hvor ?
+   115. 🟢 arrayDayIcons  
+          🟢 Fjernet der det var nødvendig
+   116. 🔴 DayDetailAdaptSystemName 
+          🔴 Viser ikke icon ved oppstart
+   117. 🔴 Værforhold:  
              🔴 Legg til minus grader
-   116. 🔴 Precipitation24:   
+   118. 🔴 Precipitation24:   
           🔴 RuleMark(x: .value("Hour", selectedIndex))
           🔴 Legg inn ChartViewNewProbability
-   117. 🔴  arrayDayIcons  
-          🔴 Fjernes
-   118. 🔴 Mine steder:  
-          🔴 slette sted
-   119. 🔴 Oppdater tidssoner:  
-          🔴 Duplikater?
-   120. 🔴 DayDetailAdaptSystemName 
-          🔴 Viser ikke icon ved oppstart
+   119. 🔴 Mine steder:  
+          🔴 kune slette et sted
+   120. 🔴 Oppdater tidssoner:  
+          🔴 Gir det duplikater?
    121. 🔴 .  
+          🔴 .
+   122. 🔴 .  
+          🔴 .
+   123. 🔴 .  
           🔴 .
 
 
